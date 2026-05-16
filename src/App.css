@@ -400,3 +400,15 @@ footer {
 .legalBox p:last-child {
   margin-bottom: 0;
 }
+
+
+.apkButtonCustom{
+background:#14b8a6;
+color:white!important;
+border:none!important;
+}
+
+.apkButtonCustom:hover{
+opacity:.9;
+transform:translateY(-2px);
+}
