@@ -109,3 +109,13 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.apk-btn{
+  background:#14b8a6 !important;
+  border:1px solid #2dd4bf !important;
+  color:white !important;
+}
+
+.apk-btn:hover{
+  background:#0f766e !important;
+}
