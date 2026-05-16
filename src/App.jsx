@@ -87,7 +87,7 @@ function App() {
                     href={button.url}
                     target={button.url === "#" ? undefined : "_blank"}
                     rel="noreferrer"
-                    className={button.primary ? "button primary" : "button secondary"}
+                    className={`${button.primary ? "button primary" : "button secondary"} ${button.className || ""}`}
                   >
                     {button.label}
                   </a>
