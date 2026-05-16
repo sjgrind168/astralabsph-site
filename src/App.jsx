@@ -22,7 +22,7 @@ const apps = [
     desc: "Built for everyday life. Your organizer for reminders, documents, renewals, bills, and important deadlines.",
     buttons: [
       { label: "Soon in Play Store", url: "https://play.google.com/store/apps/details?id=com.astralabs.lifeadminph", primary: true },
-      { label: "Early Access APK", url: "https://play.google.com/store/apps/details?id=com.astralabs.lifeadminph", primary: false },
+      { label: "Early Access APK", url: "https://github.com/sjgrind168/lifeadminph-downloads/releases/download/v1.4/app-release.apk", primary: false },
     ],
   },
   {
