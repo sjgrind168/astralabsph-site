@@ -161,7 +161,7 @@ function App() {
           <span>AstraLabs Software Development Services</span>
         </div>
         <div className="footer-links">
-          <a href="/astramate-privacy-policy/">Astramate Privacy Policy</a>
+          <a href="/astramate-privacy-policy/">Astramate Privacy Policy</a>\n          <a href="/keepry-privacy-policy/">Keepry Privacy Policy</a>
           <a href="mailto:contact@astralabsph.com">contact@astralabsph.com</a>
           <span>© 2026 AstraLabs PH</span>
         </div>
