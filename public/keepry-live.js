@@ -1,5 +1,6 @@
 (() => {
   const KEEPRY_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.keepry';
+  const KEEPRY_ICON_URL = '/keepry-icon.webp';
 
   const addStyle = () => {
     if (document.getElementById('keepry-live-style')) return;
@@ -9,12 +10,44 @@
       @media (min-width: 901px) {
         .product-grid .product-card.featured { grid-column: auto; min-height: 390px; }
       }
+      .keepry-site-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        object-fit: cover;
+        background: #0b6b43;
+      }
+      .orbit-card .keepry-site-icon {
+        grid-row: 1 / span 2;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+      }
     `;
     document.head.appendChild(style);
   };
 
+  const replaceKeepryMarkWithIcon = (root) => {
+    const existing = root.querySelector('.keepry-site-icon');
+    if (existing) return;
+    const mark = root.querySelector('.product-mark, .orbit-mark');
+    if (!mark) return;
+    const img = document.createElement('img');
+    img.className = 'keepry-site-icon';
+    img.src = KEEPRY_ICON_URL;
+    img.alt = 'Keepry';
+    mark.replaceWith(img);
+  };
+
   const patch = () => {
     addStyle();
+
+    document.querySelectorAll('.product-card').forEach((card) => {
+      const title = card.querySelector('h3')?.textContent?.trim();
+      if (title === 'Maritime Calculators') {
+        card.remove();
+      }
+    });
 
     const statusChip = document.querySelector('.status-chip');
     if (statusChip) statusChip.textContent = 'ASTRAMATE + KEEPRY · LIVE ON GOOGLE PLAY';
@@ -39,6 +72,7 @@
     document.querySelectorAll('.orbit-card').forEach((card) => {
       const name = card.querySelector('span:not(.orbit-mark)');
       if (name?.textContent?.trim() !== 'Keepry') return;
+      replaceKeepryMarkWithIcon(card);
       const detail = card.querySelector('b');
       if (detail) detail.textContent = 'LIVE ON GOOGLE PLAY · PERSONAL ADMIN + PRIVATE VAULT';
     });
@@ -62,6 +96,7 @@
       const title = card.querySelector('h3');
       if (title?.textContent?.trim() !== 'Keepry') return;
 
+      replaceKeepryMarkWithIcon(card);
       card.classList.add('featured');
 
       const pill = card.querySelector('.launch-pill');
