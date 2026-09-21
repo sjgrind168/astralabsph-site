@@ -93,7 +93,10 @@ function App() {
                 <p>{product.lead}</p>
                 <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
                 {product.live ? (
-                  <a className="store-action" href={product.url} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
+                  <div className="store-action-row">
+                    <a className="store-action" href={product.url} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
+                    <span className="store-action ios-soon-action" aria-disabled="true" title="Coming soon to the App Store for iPhone and iPad, subject to Apple review">iOS Coming Soon</span>
+                  </div>
                 ) : (
                   <div className="disabled-action" aria-disabled="true">Release page coming soon</div>
                 )}
