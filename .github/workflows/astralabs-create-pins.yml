@@ -1,0 +1,50 @@
+name: AstraLabs Organic Pin Creative Factory
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'marketing/build_pinterest_creatives.py'
+      - '.github/workflows/astralabs-create-pins.yml'
+permissions:
+  contents: write
+concurrency:
+  group: astralabs-pin-creative-factory
+  cancel-in-progress: false
+jobs:
+  render-approved-graphics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install no-cost graphics library
+        run: python3 -m pip install --quiet Pillow==11.3.0
+      - name: Render verified feature graphics with actual app icons
+        run: python3 marketing/build_pinterest_creatives.py
+      - name: Validate ten PNGs before publishing assets
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          files = sorted(Path("public/marketing/pins").glob("*.png"))
+          assert len(files) == 10, f"Expected ten creatives, got {len(files)}"
+          for file in files:
+              with Image.open(file) as im:
+                  im.verify()
+              with Image.open(file) as im:
+                  assert im.size == (1000, 1500), (file, im.size)
+              print("VALID", file, file.stat().st_size)
+          PY
+      - name: Commit generated PNG assets only
+        run: |
+          git config user.name "astralabs-marketing-bot"
+          git config user.email "contact@astralabsph.com"
+          git add public/marketing/pins/*.png
+          if git diff --cached --quiet; then
+            echo "Assets unchanged; no commit required"
+          else
+            git commit -m "Marketing: ten product-accurate organic Pinterest creatives"
+            git push origin HEAD:main
+          fi
