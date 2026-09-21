@@ -4,17 +4,15 @@ const astramate = 'data:image/webp;base64,UklGRmQSAABXRUJQVlA4IFgSAACwUQCdASoAAQ
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.astramate';
 const KEEPRY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.keepry';
 const PIREVO_URL = 'https://pirevo.astralabsph.com/';
+const KEEPRY_ICON = '/keepry-icon.webp';
 
 const products = [
   { name: 'Astramate', label: 'Maritime toolkit · Android', icon: astramate, live: true, url: PLAY_URL,
-    lead: 'Offline-first maritime calculators and practical tools for cadets, deck officers, seafarers and maritime students.',
-    points: ['Cargo, stability and operational calculators', 'Visible formulas and calculation steps', 'Vessel profiles and calculation history', 'Free core tools · optional one-time Premium'] },
-  { name: 'Keepry', label: 'Personal admin + private vault · Android', mark: 'K', live: true, url: KEEPRY_URL,
-    lead: 'Keep important documents, expiry dates, recurring reminders and everyday details organized in one private place.',
-    points: ['Document vault with local PIN and optional biometrics', 'Life Admin and renewal reminders', 'Smart Capture and Smart Extract', 'Free essentials · optional one-time Keepry Plus'] },
-  { name: 'Travel Buddy', label: 'In development', mark: '✈', live: false,
-    lead: 'A focused travel companion currently in development.',
-    points: ['Trip organization', 'Travel document checklist', 'Pre-departure reminders'] },
+    lead: 'Practical offline-first maritime calculations and operational tools for seafarers, maritime students, cadets and training communities worldwide.',
+    points: ['For seafarers, deck officers, maritime students and maritime groups worldwide', 'Cargo, stability and operational calculators', 'Visible formulas and calculation steps', 'Offline-first core tools · optional one-time Premium'] },
+  { name: 'Keepry', label: 'Everyday organization · Worldwide · Android', icon: KEEPRY_ICON, live: true, url: KEEPRY_URL,
+    lead: 'For everyday life, anywhere in the world: organize important documents, expiry dates and reminders in one private, local-first place.',
+    points: ['For everyone managing important dates and records worldwide', 'Private document vault and optional device biometrics', 'Life Admin, expiry tracking and reminders', 'Free essentials · optional one-time Keepry Plus'] },
 ];
 
 function App() {
@@ -32,6 +30,7 @@ function App() {
         </a>
         <nav>
           <a href="#apps">Apps</a>
+          <a href="#updates">App updates</a>
           <a href="#studio">Studio</a>
           <a href={PIREVO_URL} target="_blank" rel="noopener noreferrer">PIREVO</a>
           <a href="mailto:contact@astralabsph.com">Contact</a>
@@ -41,18 +40,18 @@ function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <div className="status-chip">ASTRAMATE + KEEPRY · FREE TO INSTALL ON GOOGLE PLAY</div>
-            <h1>Practical software for <span>real life, real work</span> and the journeys between.</h1>
-            <p>Two focused apps, built for work and life. Take maritime calculations offline with Astramate or organize documents and reminders with Keepry. Start free, unlock Premium when you need more.</p>
+            <div className="status-chip">TWO LIVE ANDROID APPS · BUILT FOR A WORLDWIDE AUDIENCE</div>
+            <h1>Practical apps for <span>life on land and work at sea.</span></h1>
+            <p>Discover Astramate, the practical maritime toolkit for seafarers and maritime students worldwide, and Keepry, the personal organizer for anyone who wants important documents and reminders in one place. Download free on Android.</p>
             <div className="hero-actions">
               <a className="primary-cta" href={PLAY_URL} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
               <a className="primary-cta" href={KEEPRY_URL} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
-              <button onClick={goToApps}>Explore the lineup</button>
+              <button onClick={goToApps}>Explore both apps</button>
             </div>
             <div className="trust-row">
               <span>Verified store distribution</span>
               <span>Privacy-first product direction</span>
-              <span>Built for a global audience</span>
+              <span>Worldwide audiences · Android available now</span>
             </div>
           </div>
 
@@ -62,16 +61,15 @@ function App() {
               <span>Astramate</span>
               <b>LIVE ON GOOGLE PLAY · TOOLS + CALCULATIONS</b>
             </div>
-            <div className="orbit-card"><span className="orbit-mark">K</span><span>Keepry</span><b>LIVE ON GOOGLE PLAY · PRIVATE VAULT + REMINDERS</b></div>
-            <div className="orbit-card"><span className="orbit-mark">✈</span><span>Travel Buddy</span><b>TRAVEL COMPANION</b></div>
-            <div className="panel-note">Focused apps. Cleaner boundaries. Less bloat.</div>
+            <div className="orbit-card"><img src={KEEPRY_ICON} alt="Keepry app icon" /><span>Keepry</span><b>LIVE ON GOOGLE PLAY · PRIVATE VAULT + REMINDERS</b></div>
+            <div className="panel-note">Two practical apps. More platforms on the way.</div>
           </div>
         </section>
 
         <section className="notice-band">
           <div>
             <strong>Astramate and Keepry are live.</strong>
-            <span>Get both apps on Google Play. Free core features, with optional Premium upgrades. Legacy APK download links remain disabled.</span>
+            <span>Get both apps on Google Play today. Coming very soon to the App Store for iPhone and iPad, subject to review. Check this website for official app and release updates.</span>
           </div>
           <a href="#apps">EXPLORE THE APPS ↓</a>
         </section>
@@ -79,8 +77,8 @@ function App() {
         <section className="apps-section" id="apps">
           <div className="section-head">
             <p>AVAILABLE NOW ON ANDROID</p>
-            <h2>Two practical apps. One independent studio.</h2>
-            <span>Explore our live apps below. Download safely from their official Google Play listings. Apple versions will be linked here only after their store releases are available.</span>
+            <h2>Made for people worldwide, on land and at sea.</h2>
+            <span>Astramate supports a global maritime audience, from cadets and maritime students to working seafarers and training groups. Keepry helps anyone organize everyday documents and reminders. Choose your app and install from the official store.</span>
           </div>
 
           <div className="product-grid">
@@ -118,15 +116,15 @@ function App() {
           </div>
         </section>
 
-        <section className="release-section">
+        <section className="release-section" id="updates">
           <div>
             <p>RELEASE POLICY</p>
             <h2>Astramate and Keepry are live on Google Play.</h2>
-            <span>Download Astramate or Keepry through the official Google Play Store. iPhone and iPad releases will appear here after they are published. Use each app’s in-app purchase flow for optional Premium access.</span>
+            <span>Download the Android apps only from their official Google Play listings. iPhone and iPad versions are coming soon to the App Store. Their links will appear here after approval and publication. Bookmark this website for app updates, release announcements and new features.</span>
           </div>
           <div className="release-badge">
-            <strong>2 APPS · AVAILABLE ON GOOGLE PLAY</strong>
-            <small>Astramate + Keepry · official store listings</small>
+            <strong>ANDROID LIVE · iOS COMING SOON</strong>
+            <small>Astramate + Keepry · official store listings · Watch this website for App Store links</small>
             <a href={PLAY_URL} target="_blank" rel="noopener noreferrer">Astramate ↗</a>
             <a href={KEEPRY_URL} target="_blank" rel="noopener noreferrer">Keepry ↗</a>
           </div>
@@ -144,6 +142,7 @@ function App() {
           <a href={PIREVO_URL} target="_blank" rel="noopener noreferrer">PIREVO shopping guides ↗</a>
           <a href="/astramate/">Astramate product guide</a>
           <a href="/keepry/">Keepry product guide</a>
+          <a href="#updates">App releases & updates</a>
           <a href="mailto:contact@astralabsph.com">contact@astralabsph.com</a>
           <span>© 2026 AstraLabs PH</span>
         </div>
