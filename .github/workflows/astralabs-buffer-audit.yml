@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/astralabs-buffer-audit.yml'
       - 'marketing/buffer_audit.py'
+      - 'marketing/verify_pin_assets.py'
 permissions:
   contents: read
 jobs:
@@ -18,3 +19,5 @@ jobs:
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/buffer_audit.py
+      - name: Verify live organic Pinterest image URLs
+        run: python3 marketing/verify_pin_assets.py
