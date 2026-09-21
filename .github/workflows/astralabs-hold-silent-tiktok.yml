@@ -1,0 +1,56 @@
+name: Hold First Silent TikTok Proof As Draft
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/astralabs-hold-silent-tiktok.yml']
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-tiktok-video-first-proof
+  cancel-in-progress: false
+jobs:
+  hold-only-our-own-first-silent-clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve original Astramate as a draft instead of publishing it silently
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import importlib.util
+          import json
+          import sys
+          p='marketing/automation/tiktok/scripts/buffer_tiktok.py'
+          spec=importlib.util.spec_from_file_location('tiktok',p)
+          m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+          org,channel=m.resolve_tiktok()
+          posts=m.current_posts(org,channel)
+          pid='6ab1948d7a0ab2bcc80c7f5f'
+          matches=[x for x in posts if x.get('id')==pid]
+          if not matches:
+            print('SILENT_POST_NOT_SCHEDULED: no action, no published content removed')
+            sys.exit(0)
+          post=matches[0]
+          video='https://www.astralabsph.com/marketing/videos/astramate_16sec_vertical_motion_ad.mp4'
+          sources=[a.get('source') for a in post.get('assets') or []]
+          if not (post.get('status')=='scheduled' and post.get('schedulingType')=='automatic'
+                  and post.get('channelId')==channel
+                  and post.get('dueAt')=='2026-09-21T23:01:00.000Z'
+                  and 'Astramate' in (post.get('text') or '')
+                  and video in sources):
+            raise RuntimeError('Original queued post differs from approved silent proof; stop')
+          mutation='mutation { editPost(input:{id:'+json.dumps(pid)+',saveToDraft:true})'
+          mutation+=' { ... on PostActionSuccess { post { id status dueAt } } ... on MutationError { message } } }'
+          result=m.gql(mutation).get('editPost') or {}
+          edited=result.get('post') if isinstance(result,dict) else None
+          if not edited or edited.get('id')!=pid or edited.get('status')!='draft':
+            raise RuntimeError('Buffer draft move unconfirmed: '+str(result)[:180])
+          refreshed=m.current_posts(org,channel)
+          if any(x.get('id')==pid and x.get('status')=='scheduled' for x in refreshed):
+            raise RuntimeError('Original silent proof still scheduled; check Buffer')
+          print('SILENT_PROOF_SAFELY_MOVED_TO_DRAFT:',pid)
+          print('The original post and MP4 are preserved; V2 awaiting owner audio review.')
+          PY
