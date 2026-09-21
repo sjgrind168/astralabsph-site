@@ -31,6 +31,8 @@ jobs:
             ('keepry_mp4', 'marketing/videos/keepry_16sec_vertical_motion_ad.mp4', b'ftyp'),
             ('astramate_png', 'marketing/campaigns/facebook/A01_astramate_facebook_4x5.png', b'\x89PNG'),
             ('keepry_png', 'marketing/campaigns/pinterest/K01_keepry_pinterest_2x3.png', b'\x89PNG'),
+            ('astramate_v2_mp4', 'marketing/previews/astramate_v2_neural_voice_music_PREVIEW.mp4', b'ftyp'),
+            ('keepry_v2_mp4', 'marketing/previews/keepry_v2_neural_voice_music_PREVIEW.mp4', b'ftyp'),
           ]
           ok=True
           for label, path, sig in paths:
@@ -41,7 +43,7 @@ jobs:
                 data=resp.read(32)
                 mime=resp.headers.get('Content-Type','').split(';')[0].lower().strip()
                 valid=(resp.status in (200,206) and (data[4:8]==sig if sig==b'ftyp' else data.startswith(sig)))
-                valid = valid and (mime.startswith('video/') if label.endswith('mp4') else mime.startswith('image/'))
+                valid = valid and (mime.startswith('video/') if 'mp4' in label else mime.startswith('image/'))
                 print('MEDIA_CHECK',label,'HTTP',resp.status,'mime',mime,'valid',valid)
                 ok = ok and valid
             except Exception as e:
