@@ -78,7 +78,7 @@ def approved():
         if (p.get("app") not in ("Astramate", "Keepry")
                 or not url.startswith(PUBLIC_PREFIX)
                 or not url.endswith(".mp4")
-                or not p["text"].strip()
+                or not p["text"].strip() or len(p["text"]) > 150
                 or "tide calculator" in p["text"].lower()
                 or "cloud sync" in p["text"].lower()):
             raise RuntimeError("Unapproved TikTok post metadata")
@@ -102,6 +102,7 @@ def add_post(channel_id, item):
     doc = ("mutation { createPost(input:{ text:" + q(item["text"]) +
            " channelId:" + q(channel_id) +
            " schedulingType:automatic mode:addToQueue aiAssisted:true"
+           " metadata:{tiktok:{isAiGenerated:true}}"
            " assets:[{video:{url:" + q(item["videoUrl"]) +
            " metadata:{thumbnailOffset:2000}}}] })"
            " { ... on PostActionSuccess { post { id dueAt } }"
