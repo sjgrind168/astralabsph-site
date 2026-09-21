@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     env:
-      ASTRALABS_PUBLISH_ENABLED: 'true' # Authorized organic publishing, fail-closed queue script.
+      ASTRALABS_PUBLISH_ENABLED: 'false' # PAUSED: first write needs response/queue reconciliation.
     steps:
       - uses: actions/checkout@v4
       - name: Verify channel and approved drafts before changing Buffer
