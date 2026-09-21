@@ -9,7 +9,7 @@ from pathlib import Path
 
 BUFFER_URL = "https://api.buffer.com"
 EXPECTED_PAGE_ID = "6ab15144ea19ca0bdea6d621"
-QUEUE_TARGET = 5  # A week at the configured five Buffer slots; below free tier queue limit.
+QUEUE_TARGET = 1  # Restrict first live API proof to one queued post.
 CONTENT_PATH = Path(__file__).with_name("buffer_facebook_content.json")
 LAUNCH_MARKER = "utm_campaign=global_android_launch"
 DISALLOWED = ("tide calculator", "tidal computation", "colregs", "imsbc", "imdg", "weather routing", "cloud sync")
@@ -100,7 +100,7 @@ def candidates():
 def create_post(text):
     graph = ("mutation { createPost(input:{ text:" + quoted(text) +
              " channelId:" + quoted(EXPECTED_PAGE_ID) +
-             " schedulingType:automatic mode:addToQueue aiAssisted:true })"
+             " schedulingType:automatic mode:addToQueue metadata:{facebook:{type:post}} aiAssisted:true })"
              " { ... on PostActionSuccess { post { id dueAt } }"
              " ... on MutationError { message } } }")
     payload = buffer_query(graph).get("createPost") or {}
