@@ -296,3 +296,13 @@ footer strong { color: #1c3630; font-size: 13px; }
   footer { align-items: flex-start; flex-direction: column; }
   .footer-links { align-items: flex-start; }
 }
+
+/* Global two-app launch: equal prominent cards and recognizable official icons. */
+.product-grid .product-card.featured { grid-column: auto; min-height: 430px; }
+.product-card .product-icon-image { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; }
+.orbit-card img { display: block; background: #0a5c3e; }
+.hero-actions a:focus-visible, .store-action:focus-visible, .topbar a:focus-visible, .footer-links a:focus-visible { outline: 3px solid #166c52; outline-offset: 3px; }
+.hero-actions a:hover, .store-action:hover { filter: brightness(1.13); transform: translateY(-1px); }
+.release-badge { gap: 12px; }
+@media (max-width: 900px) { .product-grid .product-card.featured { grid-column: auto; min-height: 390px; } }
+@media (max-width: 640px) { .topbar { flex-wrap: wrap; row-gap: 14px; } .topbar nav { flex-wrap: wrap; } .hero-actions a, .hero-actions button { min-height: 44px; display: inline-flex; align-items: center; } }
