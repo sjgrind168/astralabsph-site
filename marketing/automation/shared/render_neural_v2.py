@@ -18,11 +18,24 @@ DURATION = 16.0
 FS = 48000
 ENGINE = Kokoro(str(MODEL), str(VOICES))
 CAMPAIGNS = (
-    ("astramate", "am_michael",
-     "Still juggling maritime calculations? From voyage and compass to cargo, draft, and trim, Astramate keeps your tools together. Get Astramate on Android."),
-    ("keepry", "af_heart",
-     "Too many dates and documents to remember? Keepry brings your records, renewals, tasks, and reminders together. Get Keepry on Android."),
+    ("astramate", "am_michael", (
+        "Still checking E T A the hard way?",
+        "Compass error? Keep your tools together.",
+        "Cargo figures when you need them.",
+        "Draft and trim tools, right in your pocket.",
+        "Get Astramate on Google Play.",
+    )),
+    ("keepry", "af_heart", (
+        "Too many important dates to remember?",
+        "Where is that important document?",
+        "Keep your life admin together.",
+        "Renewals and reminders, in one place.",
+        "Get Keepry on Google Play.",
+    )),
 )
+STARTS = (0.34, 3.17, 6.16, 9.18, 12.16)
+END_WINDOWS = (2.96, 5.93, 8.96, 11.95, 15.64)
+
 
 def make_music(app, dest):
     """Generate our own instrumental bed from mathematical oscillators; no stock/music rights."""
@@ -56,19 +69,30 @@ def make_music(app, dest):
 def run(cmd):
     subprocess.run(cmd, check=True)
 
-def make_one(app, voice, text):
+def make_one(app, voice, segments):
     src = BASE / "videos" / (app + "_16sec_vertical_motion_ad.mp4")
     if not src.is_file():
         raise RuntimeError("Missing original approved video: "+str(src))
     raw = OUT / (app + "_v2_neural_voice_raw.wav")
     bed = OUT / (app + "_v2_original_music.wav")
     final = OUT / (app + "_v2_neural_voice_music_PREVIEW.mp4")
-    audio, sr = ENGINE.create(text, voice=voice, speed=1.08, lang="en-us")
+    sr = 24000
+    audio = np.zeros(int(DURATION * sr), dtype=np.float32)
+    voice_total = 0.0
+    for idx, (line, begin, finish) in enumerate(zip(segments, STARTS, END_WINDOWS), start=1):
+        fragment, actual_sr = ENGINE.create(line, voice=voice, speed=1.07, lang="en-us")
+        if actual_sr != sr:
+            raise RuntimeError("Unexpected speech sample rate")
+        duration = len(fragment) / sr
+        room = finish - begin
+        print("VOICE_SEGMENT",app,idx,"duration",round(duration,2),"window",round(room,2),flush=True)
+        if duration > room:
+            raise RuntimeError("Voice segment exceeds its storyboard slot. Shorten words before rerendering.")
+        at = int(begin * sr)
+        audio[at:at+len(fragment)] = np.asarray(fragment,dtype=np.float32)
+        voice_total += duration
     sf.write(str(raw), audio, sr, subtype="PCM_16")
-    duration = len(audio) / sr
-    print("VOICE_SPEAK_DURATION",app,round(duration,2),"sec",flush=True)
-    if duration < 8 or duration > 15.2:
-        raise RuntimeError("Narration does not fit approved 16s storyboard; rewrite and rerun before any publishing")
+    print("VOICE_SPEAK_TOTAL",app,round(voice_total,2),"sec; CTA starts",STARTS[-1],flush=True)
     make_music(app, bed)
     run(["ffmpeg","-hide_banner","-nostdin","-loglevel","error","-y",
          "-i",str(src),"-i",str(raw),"-i",str(bed),
