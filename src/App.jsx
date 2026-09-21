@@ -8,8 +8,8 @@ const KEEPRY_ICON = '/keepry-icon.webp';
 
 const products = [
   { name: 'Astramate', label: 'Maritime toolkit · Android', icon: astramate, live: true, url: PLAY_URL,
-    lead: 'Practical offline-first maritime calculations and operational tools for seafarers, maritime students, cadets and training communities worldwide.',
-    points: ['For seafarers, deck officers, maritime students and maritime groups worldwide', 'Cargo, stability and operational calculators', 'Visible formulas and calculation steps', 'Offline-first core tools · optional one-time Premium'] },
+    lead: 'An offline-first toolkit for seafarers and maritime students worldwide: ETA, compass-error, cargo stowage and basic draft/trim calculations.',
+    points: ['For seafarers, deck officers, maritime students and maritime groups worldwide', 'Voyage time and ETA, compass-error, stowage and basic draft/trim tools', 'Visible formulas and calculation steps', 'Offline-first core tools · optional one-time Premium'] },
   { name: 'Keepry', label: 'Everyday organization · Worldwide · Android', icon: KEEPRY_ICON, live: true, url: KEEPRY_URL,
     lead: 'For everyday life, anywhere in the world: organize important documents, expiry dates and reminders in one private, local-first place.',
     points: ['For everyone managing important dates and records worldwide', 'Private document vault and optional device biometrics', 'Life Admin, expiry tracking and reminders', 'Free essentials · optional one-time Keepry Plus'] },
