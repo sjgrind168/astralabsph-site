@@ -9,7 +9,7 @@ from pathlib import Path
 
 BUFFER_URL = "https://api.buffer.com"
 EXPECTED_PAGE_ID = "6ab15144ea19ca0bdea6d621"
-QUEUE_TARGET = 1  # Restrict first live API proof to one queued post.
+QUEUE_TARGET = 5  # Approved weekly five-post queue; under Buffer Free channel cap.
 CONTENT_PATH = Path(__file__).with_name("buffer_facebook_content.json")
 LAUNCH_MARKER = "utm_campaign=global_android_launch"
 DISALLOWED = ("tide calculator", "tidal computation", "colregs", "imsbc", "imdg", "weather routing", "cloud sync")
