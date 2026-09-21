@@ -42,7 +42,8 @@ jobs:
                   and 'Astramate' in (post.get('text') or '')
                   and video in sources):
             raise RuntimeError('Original queued post differs from approved silent proof; stop')
-          mutation='mutation { editPost(input:{id:'+json.dumps(pid)+',saveToDraft:true})'
+          mutation='mutation { editPost(input:{id:'+json.dumps(pid)+',saveToDraft:true,text:'+json.dumps(post['text'])+','
+          mutation+='assets:[{video:{url:'+json.dumps(video)+',metadata:{thumbnailOffset:2000}}}]})'
           mutation+=' { ... on PostActionSuccess { post { id status dueAt } } ... on MutationError { message } } }'
           result=m.gql(mutation).get('editPost') or {}
           edited=result.get('post') if isinstance(result,dict) else None
