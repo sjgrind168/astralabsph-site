@@ -1,6 +1,11 @@
 name: AstraLabs Buffer Connection Audit
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-buffer-audit.yml'
+      - 'marketing/buffer_audit.py'
 permissions:
   contents: read
 jobs:
