@@ -1,0 +1,15 @@
+name: AstraLabs Buffer Connection Audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-buffer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read-only Buffer channel check
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/buffer_audit.py
