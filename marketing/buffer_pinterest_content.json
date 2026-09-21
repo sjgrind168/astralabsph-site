@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "boardName": "AstraLabs Apps | Astramate & Keepry",
+  "notes": "Only actual launched Android app features. Generic original typography graphics use official app icons, not fabricated app screenshots. No affiliate/PIREVO promotion.",
+  "pins": [
+    {
+      "id": "pin_a01",
+      "app": "Astramate",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_eta.png",
+      "title": "Need to estimate your ETA? | Astramate Maritime Toolkit",
+      "description": "Explore voyage-time and ETA calculations in Astramate, a mobile maritime toolkit for seafarers and cadets. See the working and discover its core tools on Android.",
+      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a01"
+    },
+    {
+      "id": "pin_k01",
+      "app": "Keepry",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_vault.png",
+      "title": "Where did you save that document? | Keepry Vault",
+      "description": "Keep your important documents, images and PDFs organized in a personal, local-first Vault. Explore Keepry Free for Android.",
+      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k01"
+    },
+    {
+      "id": "pin_a02",
+      "app": "Astramate",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_compass.png",
+      "title": "Need to check compass error? | Astramate",
+      "description": "Explore Astramate's Compass Error calculator using an observed compass reading and an entered true bearing or approved azimuth. Verify shipboard results independently.",
+      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a02"
+    },
+    {
+      "id": "pin_k02",
+      "app": "Keepry",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_validity.png",
+      "title": "Important expiry dates organized | Keepry",
+      "description": "Keep your document records and user-entered expiry dates together in Keepry's Validity view. Explore the free essentials on Android.",
+      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k02"
+    },
+    {
+      "id": "pin_a03",
+      "app": "Astramate",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_cargo.png",
+      "title": "Stowage factor, cargo weight & volume | Astramate",
+      "description": "Calculate stowage factor, cargo volume or weight from your inputs, with visible formulas and working in the Astramate toolkit.",
+      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a03"
+    },
+    {
+      "id": "pin_k03",
+      "app": "Keepry",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_reminders.png",
+      "title": "Organize reminders and life-admin tasks | Keepry",
+      "description": "Keepry helps you track important dates, tasks and your personal paperwork in one Android app. Free includes one-time reminders; Plus expands your options.",
+      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k03"
+    },
+    {
+      "id": "pin_a04",
+      "app": "Astramate",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_trim.png",
+      "title": "Quick mean-draft and trim checks | Astramate",
+      "description": "Explore simple mean draft and trim in Astramate's free maritime calculators. Calculations are aids, not replacements for approved vessel documents.",
+      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a04"
+    },
+    {
+      "id": "pin_k04",
+      "app": "Keepry",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_people.png",
+      "title": "Personal records organized by person | Keepry",
+      "description": "Group important records and tasks by person inside Keepry. Free supports one People profile; Plus supports multiple.",
+      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k04"
+    },
+    {
+      "id": "pin_a05",
+      "app": "Astramate",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_tools.png",
+      "title": "Voyage, compass and cargo tools | Astramate",
+      "description": "Astramate gives seafarers and students 11 free core maritime calculators, with additional tools available through trial or lifetime Premium.",
+      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a05"
+    },
+    {
+      "id": "pin_k05",
+      "app": "Keepry",
+      "channel": "pinterest",
+      "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_organize.png",
+      "title": "Your documents and dates, one place | Keepry",
+      "description": "Explore Keepry's local-first document Vault, Validity, Life Admin and reminders. Start free on Android and check the official AstraLabs website for iOS launch updates.",
+      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k05"
+    }
+  ]
+}
