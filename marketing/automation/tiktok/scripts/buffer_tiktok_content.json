@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "policy": "Approved public Astramate and Keepry cinematic ads only. No replacement media or repeated posts.",
+  "posts": [
+    {
+      "id": "tt_a01",
+      "app": "Astramate",
+      "videoUrl": "https://www.astralabsph.com/marketing/videos/astramate_16sec_vertical_motion_ad.mp4",
+      "text": "Maritime calculations, all in one pocket. Explore voyage, compass, cargo, draft and trim tools in Astramate. Start with 11 free core tools on Android; see lifetime Premium options in the app. Astramate is a calculation aid, not a replacement for approved vessel procedures. astralabsph.com/astramate #Astramate #Seafarers #MaritimeStudents #MaritimeTools"
+    },
+    {
+      "id": "tt_k01",
+      "app": "Keepry",
+      "videoUrl": "https://www.astralabsph.com/marketing/videos/keepry_16sec_vertical_motion_ad.mp4",
+      "text": "Where is that important document? Keepry helps keep your records, expiry dates, tasks and reminders together in one local-first app. Start free on Android and discover optional Plus inside the app. astralabsph.com/keepry #Keepry #LifeAdmin #DocumentOrganizer #ProductivityApp"
+    }
+  ]
+}
