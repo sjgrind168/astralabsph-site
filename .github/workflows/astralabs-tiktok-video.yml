@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-tiktok-video.yml'
-      - 'marketing/buffer_tiktok.py'
-      - 'marketing/buffer_tiktok_content.json'
+      - 'marketing/automation/tiktok/scripts/buffer_tiktok.py'
+      - 'marketing/automation/tiktok/scripts/buffer_tiktok_content.json'
   schedule:
     - cron: '25 0 * * *'
 permissions:
@@ -25,4 +25,4 @@ jobs:
       - name: Check TikTok channel, direct MP4 media and approved draft
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-        run: python3 marketing/buffer_tiktok.py
+        run: python3 marketing/automation/tiktok/scripts/buffer_tiktok.py
