@@ -1,0 +1,28 @@
+name: AstraLabs Facebook Organic Queue
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-facebook-queue.yml'
+      - 'marketing/buffer_facebook.py'
+      - 'marketing/buffer_facebook_content.json'
+  schedule:
+    - cron: '15 0 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-facebook-buffer-queue
+  cancel-in-progress: false
+jobs:
+  refill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      ASTRALABS_PUBLISH_ENABLED: 'false' # Dry run until remote safety checks pass.
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify channel and approved drafts before changing Buffer
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/buffer_facebook.py
