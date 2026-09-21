@@ -1,0 +1,54 @@
+name: AstraLabs V2 Neural Voice Preview Build
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-v2-audio-preview.yml'
+      - 'marketing/automation/shared/render_neural_v2.py'
+permissions:
+  contents: write
+concurrency:
+  group: astralabs-v2-voice-preview
+  cancel-in-progress: false
+jobs:
+  render-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install zero-cost neural voice runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq espeak-ng ffmpeg
+          python -m pip install --quiet 'kokoro-onnx>=0.5,<0.8' soundfile numpy
+      - name: Download Apache-licensed Kokoro model and voice presets
+        run: |
+          curl -fLsS --retry 3 --retry-delay 3 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx' -o /tmp/astra-kokoro-v1.0.onnx
+          curl -fLsS --retry 3 --retry-delay 3 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin' -o /tmp/astra-kokoro-voices-v1.0.bin
+          test $(wc -c </tmp/astra-kokoro-v1.0.onnx) -gt 100000000
+          test $(wc -c </tmp/astra-kokoro-voices-v1.0.bin) -gt 1000000
+      - name: Render two sixteen-second audio plus voice previews
+        run: python marketing/automation/shared/render_neural_v2.py
+      - name: Save completed previews for recovery
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstraLabs_V2_Neural_Voice_PREVIEW_QA_ONLY
+          path: |
+            public/marketing/previews/*_v2_neural_voice_music_PREVIEW.mp4
+            public/marketing/previews/*_v2_neural_voice_raw.wav
+          if-no-files-found: error
+          retention-days: 30
+      - name: Host unlisted previews for owner review, never schedule social posts
+        run: |
+          git config user.name 'AstraLabs Marketing Preview Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/marketing/previews/*_v2_neural_voice_music_PREVIEW.mp4
+          if git diff --cached --quiet; then echo 'PREVIEW_UNCHANGED'; exit 0; fi
+          git commit -m 'Marketing: add V2 neural voice and original-music previews for review only'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'PREVIEW_MEDIA_UPLOADED_NOT_SOCIAL_POSTED'
