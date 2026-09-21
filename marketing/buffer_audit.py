@@ -68,6 +68,35 @@ def main():
         if channel.get("isDisconnected") or channel.get("isLocked"):
             raise RuntimeError(f"{service} needs reconnection or is locked")
         print(f"{service}: CONNECTED; channel id: {channel['id']}; queue paused: {bool(channel.get('isQueuePaused'))}")
+    # Check the actual queue and available Pinterest boards before scheduling.
+    board_query = (
+        "query { channel(input:{id:" + qstr(pn[0]["id"]) +
+        "}) { metadata { ... on PinterestMetadata { boards { serviceId name url } } } } }"
+    )
+    try:
+        board_data = query(board_query)
+        boards = (board_data.get("channel") or {}).get("metadata", {}).get("boards") or []
+        print("Pinterest boards: " + json.dumps(
+            [{"name": b.get("name"), "serviceId": b.get("serviceId")} for b in boards],
+            ensure_ascii=True
+        ))
+    except (RuntimeError, ValueError, TypeError):
+        print("Pinterest board metadata unavailable: do not schedule Pinterest posts")
+    try:
+        posts_query = (
+            "query { posts(first:100,input:{organizationId:" + qstr(org["id"]) +
+            ",filter:{status:[scheduled]},sort:[{field:dueAt,direction:asc}]})"
+            " { edges { node { id channelId status dueAt } } } }"
+        )
+        posts = (query(posts_query).get("posts") or {}).get("edges") or []
+        for service, selected in (("facebook", fb), ("pinterest", pn)):
+            scheduled = [
+                e.get("node") for e in posts
+                if (e.get("node") or {}).get("channelId") == selected[0]["id"]
+            ]
+            print(service + " scheduled queue count: " + str(len(scheduled)))
+    except (RuntimeError, ValueError, TypeError):
+        print("Buffer scheduled queue unavailable: publishing must remain disabled")
     print("Both targets found. This workflow is a connection audit only.")
     print("No posts queued, scheduled, published or modified.")
 
