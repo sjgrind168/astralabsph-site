@@ -56,7 +56,7 @@ def current_posts(org_id, channel_id):
     doc = ("query { posts(first:100,input:{organizationId:" + q(org_id) +
            ",filter:{status:[scheduled,sent],channelIds:[" + q(channel_id) +
            "]},sort:[{field:dueAt,direction:desc}]})"
-           " { edges { node { id text status dueAt channelId } }"
+           " { edges { node { id text status dueAt channelId schedulingType assets { mimeType source } } }"
            " pageInfo { hasNextPage } } }")
     result = gql(doc).get("posts")
     if not isinstance(result, dict) or not isinstance(result.get("edges"), list):
@@ -119,6 +119,13 @@ def main():
     scheduled = sum(p.get("status") == "scheduled" for p in posts)
     unused = [i for i in items if not any(p.get("text") == i["text"] for p in posts)]
     print("TikTok scheduled:", scheduled, "| approved unused:", len(unused))
+    for post in posts:
+        if post.get("status") == "scheduled":
+            media = post.get("assets") or []
+            print("QUEUED_VIDEO_AUDIT:", post["id"], "publish_mode:", post.get("schedulingType"),
+                  "video_assets:", sum(str(a.get("mimeType", "")).startswith("video/") for a in media),
+                  "approved_url:", any(str(a.get("source", "")).startswith(PUBLIC_PREFIX) for a in media),
+                  "dueAt:", post.get("dueAt"))
     if scheduled >= QUEUE_LIMIT or not unused:
         print("Queue full or approved first-wave videos exhausted. No duplicate posts.")
         return
