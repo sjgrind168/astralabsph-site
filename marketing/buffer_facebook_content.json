@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "policy": "Only approved feature claims; no tides; no invented app screens; schedule five per week in Buffer.",
+  "posts": [
+    {
+      "id": "fb_a01",
+      "channel": "facebook",
+      "app": "Astramate",
+      "text": "Need to estimate your ETA? Astramate helps seafarers and maritime students work through voyage-time and ETA calculations, with clear inputs and visible working. Start with the free core tools on Android.\n\nExplore Astramate: https://www.astralabsph.com/astramate/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_a01\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_k01",
+      "channel": "facebook",
+      "app": "Keepry",
+      "text": "Where did you save that important document? Keepry brings personal files, key details and expiry dates into one local-first Vault. Start with the free essentials on Android.\n\nExplore Keepry: https://www.astralabsph.com/keepry/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_k01\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_a02",
+      "channel": "facebook",
+      "app": "Astramate",
+      "text": "Compass error to check? Astramate includes a Compass Error calculator using your observed compass direction and entered true bearing or approved azimuth. An aid for study and practical number-checking; independently verify operational results.\n\nExplore Astramate: https://www.astralabsph.com/astramate/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_a02\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_k02",
+      "channel": "facebook",
+      "app": "Keepry",
+      "text": "Passports, licences, insurance and membership dates can be difficult to track. Keepry lets you organize the files and their renewal dates in one personal app. Explore Validity and reminders on Android.\n\nExplore Keepry: https://www.astralabsph.com/keepry/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_k02\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_a03",
+      "channel": "facebook",
+      "app": "Astramate",
+      "text": "Working with cargo volume and weight? Astramate includes stowage-factor, cargo-volume and cargo-weight calculators. Enter your figures, see the formula and review the result in one maritime toolkit.\n\nExplore Astramate: https://www.astralabsph.com/astramate/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_a03\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_k03",
+      "channel": "facebook",
+      "app": "Keepry",
+      "text": "A document you need shouldn't disappear into your camera roll. Import images or PDFs into Keepry Vault and organize records with titles, dates, tags and searchable details.\n\nExplore Keepry: https://www.astralabsph.com/keepry/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_k03\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_a04",
+      "channel": "facebook",
+      "app": "Astramate",
+      "text": "Quick draft check? Astramate offers Simple Mean Draft and Trim calculations among its free core tools. The app is a calculation aid and never replaces approved vessel information or loading/stability software.\n\nExplore Astramate: https://www.astralabsph.com/astramate/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_a04\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_k04",
+      "channel": "facebook",
+      "app": "Keepry",
+      "text": "Life admin adds up. Keepry helps you organize everyday tasks, document-linked to-dos and important dates in one local-first Android app. Start free, unlock Plus when you need more capacity.\n\nExplore Keepry: https://www.astralabsph.com/keepry/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_k04\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_a05",
+      "channel": "facebook",
+      "app": "Astramate",
+      "text": "One pocket toolkit, multiple maritime needs. Astramate puts voyage, compass and cargo calculators together with local vessel profiles and calculation history. Explore 11 free core tools; additional tools are available via trial or lifetime Premium.\n\nExplore Astramate: https://www.astralabsph.com/astramate/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_a05\nAndroid available now · iOS coming soon (subject to review)."
+    },
+    {
+      "id": "fb_k05",
+      "channel": "facebook",
+      "app": "Keepry",
+      "text": "Important dates and records for more than one person? Keepry Plus supports multiple People profiles, expanded document capacity and recurring reminders. Start with Keepry Free and explore the optional trial inside the app.\n\nExplore Keepry: https://www.astralabsph.com/keepry/?utm_source=facebook&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=fb_k05\nAndroid available now · iOS coming soon (subject to review)."
+    }
+  ]
+}
