@@ -1,0 +1,28 @@
+name: AstraLabs TikTok Video Preflight
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-video.yml'
+      - 'marketing/buffer_tiktok.py'
+      - 'marketing/buffer_tiktok_content.json'
+  schedule:
+    - cron: '25 0 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-tiktok-video-first-proof
+  cancel-in-progress: false
+jobs:
+  check-and-queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      ASTRALABS_TIKTOK_PUBLISH_ENABLED: 'false' # Safe until exact public MP4s verified.
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check TikTok channel, direct MP4 media and approved draft
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/buffer_tiktok.py
