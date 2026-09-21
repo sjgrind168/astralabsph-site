@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-pinterest-queue.yml'
-      - 'marketing/buffer_pinterest.py'
-      - 'marketing/buffer_pinterest_content.json'
+      - 'marketing/automation/pinterest/scripts/buffer_pinterest.py'
+      - 'marketing/automation/pinterest/scripts/buffer_pinterest_content.json'
   schedule:
     - cron: '45 0 * * *'
 permissions:
@@ -25,4 +25,4 @@ jobs:
       - name: Verify exact Pinterest app board then queue a maximum of one approved first Pin
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-        run: python3 marketing/buffer_pinterest.py
+        run: python3 marketing/automation/pinterest/scripts/buffer_pinterest.py
