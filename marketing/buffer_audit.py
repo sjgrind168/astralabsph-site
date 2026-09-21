@@ -80,6 +80,11 @@ def main():
             [{"name": b.get("name"), "serviceId": b.get("serviceId")} for b in boards],
             ensure_ascii=True
         ))
+        target = [b for b in boards if str(b.get("name", "")).strip().lower() == "astralabs apps | astramate & keepry"]
+        if len(target) == 1 and target[0].get("serviceId"):
+            print("APP_BOARD_CONFIRMED id:", str(target[0]["serviceId"]))
+        else:
+            print("APP_BOARD_NOT_YET_VISIBLE_IN_BUFFER: do not publish Pinterest posts")
     except (RuntimeError, ValueError, TypeError):
         print("Pinterest board metadata unavailable: do not schedule Pinterest posts")
     try:
