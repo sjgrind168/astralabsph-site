@@ -105,7 +105,8 @@ def create_post(text):
              " ... on MutationError { message } } }")
     payload = buffer_query(graph).get("createPost") or {}
     if not isinstance(payload, dict) or not (payload.get("post") or {}).get("id"):
-        raise RuntimeError("Buffer did not confirm a queued post; reconcile remotely before retry")
+        reason = str(payload.get("message", "No post object returned"))[:170] if isinstance(payload, dict) else "Unexpected response type"
+        raise RuntimeError("Buffer rejected/unconfirmed post: " + reason + " | reconcile remotely before retry")
     return payload["post"]
 
 
