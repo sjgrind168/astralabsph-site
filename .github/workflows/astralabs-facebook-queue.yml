@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-facebook-queue.yml'
-      - 'marketing/buffer_facebook.py'
-      - 'marketing/buffer_facebook_content.json'
+      - 'marketing/automation/facebook/scripts/buffer_facebook.py'
+      - 'marketing/automation/facebook/scripts/buffer_facebook_content.json'
   schedule:
     - cron: '15 0 * * *'
 permissions:
@@ -25,4 +25,4 @@ jobs:
       - name: Verify channel and approved drafts before changing Buffer
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-        run: python3 marketing/buffer_facebook.py
+        run: python3 marketing/automation/facebook/scripts/buffer_facebook.py
