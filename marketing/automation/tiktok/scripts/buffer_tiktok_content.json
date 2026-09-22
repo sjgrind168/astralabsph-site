@@ -1,18 +1,18 @@
 {
-  "version": 2,
-  "policy": "Approved 30fps natural-voice V2 videos only; each caption uniquely identifies its approved video, and sent posts are never requeued. TikTok AI-generated scenes must be disclosed.",
+  "version": 3,
+  "policy": "Approved 30fps first-wave videos only. Root astralabsph.com CTA only; sent posts never requeued; AI-generated scenes disclosed.",
   "posts": [
     {
       "id": "tt_a01",
       "app": "Astramate",
       "videoUrl": "https://www.astralabsph.com/marketing/videos/v2/astramate_v2_voice_music_30fps_FINAL.mp4",
-      "text": "Maritime calculations in one app: voyage, compass & cargo tools. Get Astramate: astralabsph.com/astramate #Seafarers #Astramate #MaritimeToolkitV2"
+      "text": "Cargo, compass and draft calculations with visible working. Explore Astramate at astralabsph.com #Seafarers #Astramate"
     },
     {
       "id": "tt_k01",
       "app": "Keepry",
       "videoUrl": "https://www.astralabsph.com/marketing/videos/v2/keepry_v2_voice_music_30fps_FINAL.mp4",
-      "text": "Documents, renewals and reminders in one place. Get Keepry: astralabsph.com/keepry #LifeAdmin #Keepry #KeepryV2"
+      "text": "Documents, expiry dates and reminders in one local-first organizer. Explore Keepry at astralabsph.com #Keepry #LifeAdmin"
     }
   ]
 }
