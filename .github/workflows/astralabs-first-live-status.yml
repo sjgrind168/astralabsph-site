@@ -1,0 +1,20 @@
+name: AstraLabs First Live Post Status
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-first-live-status.yml'
+      - 'marketing/automation/shared/first_live_status.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read exact Facebook and TikTok test post status; do not retry
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/shared/first_live_status.py
