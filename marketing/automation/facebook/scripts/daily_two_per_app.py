@@ -48,7 +48,7 @@ def in_scope(p,app):
 def candidates():
     b=json.loads(BANK.read_text(encoding="utf-8"))
     if b.get("base_url")!=HOME or len(b.get("posts") or [])!=42:
-        raise RuntimeError("Unexpected or changed 28-post approved editorial bank")
+        raise RuntimeError("Unexpected or changed 42-post approved editorial bank")
     entries=b["posts"]
     if len({i["id"] for i in entries})!=42:raise RuntimeError("Duplicate ID in editorial bank")
     for i in entries:
