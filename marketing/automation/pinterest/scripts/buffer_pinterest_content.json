@@ -1,17 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "boardName": "AstraLabs Apps | Astramate & Keepry",
-  "notes": "Only actual launched Android app features. Generic original typography graphics use official app icons, not fabricated app screenshots. No affiliate/PIREVO promotion.",
+  "notes": "No ETA marketing. All pins must offer a true problem-to-benefit story, direct to official AstraLabs product landing page; first Pinterest app-board post Keepry, followed by cargo-focused Astramate when board sync works.",
   "pins": [
-    {
-      "id": "pin_a01",
-      "app": "Astramate",
-      "channel": "pinterest",
-      "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_eta.png",
-      "title": "Need to estimate your ETA? | Astramate Maritime Toolkit",
-      "description": "Explore voyage-time and ETA calculations in Astramate, a mobile maritime toolkit for seafarers and cadets. See the working and discover its core tools on Android.",
-      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a01"
-    },
     {
       "id": "pin_k01",
       "app": "Keepry",
