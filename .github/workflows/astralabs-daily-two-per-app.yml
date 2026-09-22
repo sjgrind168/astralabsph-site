@@ -3,7 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '20 0,4,8 * * *' # 08:20, 12:20, 16:20 PHT. Max 2 confirmed new Buffer posts per run.
-    - cron: '40 11 * * *'  # 19:40 PHT recovery window; never blind retry HTTP 429.
+    - cron: '50 10 * * *'  # 18:50 PHT first recovery window after afternoon Buffer throttle.
+    - cron: '10 12 * * *'  # 20:10 PHT second recovery window; script is idempotent and never repeats used creative IDs.
 permissions:
   contents: read
 concurrency:
