@@ -1,0 +1,28 @@
+{
+  "policy": "PREVIEW_ONLY_NOT_APPROVED_NO_SOCIAL_WRITE",
+  "human_app_claims_media_rights_mobile_visual_review_required": true,
+  "assets": [
+    {
+      "creative_id": "S26D1KQ",
+      "app": "KEEPRY",
+      "path": "marketing/automation/shared/creative_drafts/renders/S26D1KQ_pinterest_original_PREVIEW.png",
+      "sha256": "6051196928902d191f561489353f00a9fd5850728295639285a39bb043255daf",
+      "size": "1000x1500",
+      "approval": "VISUAL_AND_PRODUCT_CLAIM_QA_PENDING_NO_BUFFER_WRITE",
+      "source": "Original in-repo Pillow geometric illustration, no third-party photos, screenshots or generated app UI",
+      "font": "DejaVu Sans installed by runner; font files are not redistributed",
+      "root_footer": "www.astralabsph.com"
+    },
+    {
+      "creative_id": "S26D1AQ",
+      "app": "ASTRAMATE",
+      "path": "marketing/automation/shared/creative_drafts/renders/S26D1AQ_pinterest_original_PREVIEW.png",
+      "sha256": "2a8528cf3c737266459a64fc1ad708e40cdf5f3a69b718bdc09bf8676fcac8ba",
+      "size": "1000x1500",
+      "approval": "VISUAL_AND_PRODUCT_CLAIM_QA_PENDING_NO_BUFFER_WRITE",
+      "source": "Original in-repo Pillow geometric illustration, no third-party photos, screenshots or generated app UI",
+      "font": "DejaVu Sans installed by runner; font files are not redistributed",
+      "root_footer": "www.astralabsph.com"
+    }
+  ]
+}
