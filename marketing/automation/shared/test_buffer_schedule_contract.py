@@ -47,7 +47,7 @@ class ScheduleContracts(unittest.TestCase):
         self.assertTrue(cfg["provider_sync"]["buffer_posting_times_verified"])
         for channel in ("facebook","tiktok","pinterest"):
             item=proof[channel]
-            self.assertEqual(item["timezone"],"Timezone\\nManila")
+            self.assertEqual(item["timezone"].splitlines(),["Timezone","Manila"])
             targets=sorted(sum((cfg["slots_pht"][channel][app] for app in ("Astramate","Keepry")),[]))
             got=set()
             for line in item["slots"]:
@@ -65,7 +65,7 @@ class ScheduleContracts(unittest.TestCase):
         import json
         fb=load_fb()
         observed=json.loads((ROOT/"marketing/automation/shared/proof/buffer-queue-after-20260922.json").read_text(encoding="utf-8"))["facebook"]
-        self.assertIn("Queue\\n8\\nposts",observed)
+        self.assertRegex(observed,r"Queue\s+8\s+posts")
         self.assertIn("2 Posts left to schedule on the Free plan",observed)
         expected=(("9:30 AM","Cargo stowage factor"),
                   ("10:40 AM","An important document is in your camera roll"),
