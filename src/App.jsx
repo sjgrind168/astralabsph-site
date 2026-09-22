@@ -8,14 +8,32 @@ const KEEPRY_ICON = '/keepry-icon.webp';
 
 const products = [
   { name: 'Astramate', label: 'Maritime toolkit · Android', icon: astramate, live: true, url: PLAY_URL,
-    lead: 'An offline-first toolkit for seafarers and maritime students worldwide: ETA, compass-error, cargo stowage and basic draft/trim calculations.',
-    points: ['For seafarers, deck officers, maritime students and maritime groups worldwide', 'Voyage time and ETA, compass-error, stowage and basic draft/trim tools', 'Visible formulas and calculation steps', 'Offline-first core tools · optional one-time Premium'] },
+    lead: 'Checking cargo weight against hold volume? Astramate brings supported cargo, stowage-factor and draft/trim calculations together, with visible working for reviewing your own figures.',
+    points: ['For deck officers, cadets and seafarers worldwide', 'Cargo weight, volume, stowage-factor and draft/trim calculation aids', 'Visible working for independent review against approved vessel information', 'Start free · optional one-time lifetime Premium unlocks more supported tools'] },
   { name: 'Keepry', label: 'Everyday organization · Worldwide · Android', icon: KEEPRY_ICON, live: true, url: KEEPRY_URL,
-    lead: 'For everyday life, anywhere in the world: organize important documents, expiry dates and reminders in one private, local-first place.',
-    points: ['For everyone managing important dates and records worldwide', 'Private document vault and optional device biometrics', 'Life Admin, expiry tracking and reminders', 'Free essentials · optional one-time Keepry Plus'] },
+    lead: 'Your important document is in one folder and its renewal date is somewhere else. Keepry brings imported files, user-entered expiry dates and reminders into one local-first organizer.',
+    points: ['For adults managing documents, household records and important dates worldwide', 'Local-first Vault for images and PDFs with searchable details', 'Validity dates, Life Admin and supported reminders', 'Start free · optional one-time Keepry Plus expands capacity and recurring reminders'] },
 ];
 
 function App() {
+  // Keep unique external campaign attribution when a visitor selects either app on the main storefront.
+  const trackedPlay = (originalUrl, app) => {
+    try {
+      const source = new URLSearchParams(window.location.search);
+      const destination = new URL(originalUrl);
+      for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+        const value = source.get(key);
+        if (value && /^[A-Za-z0-9_-]{1,80}$/.test(value)) destination.searchParams.set(key, value);
+      }
+      const campaign = source.get('utm_content');
+      if (campaign && /^[A-Za-z0-9_-]{1,65}$/.test(campaign)) {
+        destination.searchParams.set('utm_content', campaign + '_' + app);
+      }
+      return destination.toString();
+    } catch {
+      return originalUrl;
+    }
+  };
   const goToApps = () => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
@@ -41,11 +59,11 @@ function App() {
         <section className="hero">
           <div className="hero-copy">
             <div className="status-chip">TWO LIVE ANDROID APPS · BUILT FOR A WORLDWIDE AUDIENCE</div>
-            <h1>Practical apps for <span>life on land and work at sea.</span></h1>
-            <p>Discover Astramate, the practical maritime toolkit for seafarers and maritime students worldwide, and Keepry, the personal organizer for anyone who wants important documents and reminders in one place. Download free on Android.</p>
+            <h1>One studio. <span>Practical apps for life on land and work at sea.</span></h1>
+            <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Explore both apps here, install free on Android, and choose optional one-time upgrades when you need more.</p>
             <div className="hero-actions">
-              <a className="primary-cta" href={PLAY_URL} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
-              <a className="primary-cta" href={KEEPRY_URL} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
+              <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
+              <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
               <button onClick={goToApps}>Explore both apps</button>
             </div>
             <div className="trust-row">
@@ -94,7 +112,7 @@ function App() {
                 <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
                 {product.live ? (
                   <div className="store-action-row">
-                    <a className="store-action" href={product.url} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
+                    <a className="store-action" href={trackedPlay(product.url, product.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
                     <span className="store-action ios-soon-action" aria-disabled="true" title="Coming soon to the App Store for iPhone and iPad, subject to Apple review">iOS Coming Soon</span>
                   </div>
                 ) : (
@@ -128,8 +146,8 @@ function App() {
           <div className="release-badge">
             <strong>ANDROID LIVE · iOS COMING SOON</strong>
             <small>Astramate + Keepry · official store listings · Watch this website for App Store links</small>
-            <a href={PLAY_URL} target="_blank" rel="noopener noreferrer">Astramate ↗</a>
-            <a href={KEEPRY_URL} target="_blank" rel="noopener noreferrer">Keepry ↗</a>
+            <a href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Astramate ↗</a>
+            <a href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Keepry ↗</a>
           </div>
         </section>
       </main>
