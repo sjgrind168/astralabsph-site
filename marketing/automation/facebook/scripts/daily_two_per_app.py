@@ -19,7 +19,7 @@ HOME="https://www.astralabsph.com/"
 SLOTS={"Astramate":(clock(9,30),clock(18,30)),
        "Keepry":(clock(12,30),clock(20,30))}
 MAX_QUEUE=10
-DENY=("eta","colregs","imdg","imsbc","tidal","tide calculator","cloud sync")
+DENY=("colregs","imdg","imsbc","tidal","tide calculator","cloud sync")
 def full_history(org):
     q=('query { posts(first:100,input:{organizationId:'+fb.quoted(org)+
        ',filter:{status:[scheduled,sent,draft,error,sending],channelIds:['+fb.quoted(fb.EXPECTED_PAGE_ID)+
@@ -53,6 +53,7 @@ def candidates():
         if (i.get("app") not in SLOTS or i.get("creative") not in (("A02","A03","A04") if i["app"]=="Astramate" else ("K02","K03","K04"))
             or not i["id"].startswith("daily_"+("a" if i["app"]=="Astramate" else "k")+"_")
             or len(i["copy"])<100 or any(token in i["copy"].lower() for token in DENY)
+            or (i["app"]=="Astramate" and __import__("re").search(r"\beta\b",i["copy"],__import__("re").I))
             or "guaranteed" in i["copy"].lower() or "replace" in i["copy"].lower() and "never" not in i["copy"].lower()):
             raise RuntimeError("Unapproved marketing claim or asset detected in "+i.get("id","?"))
     return entries
