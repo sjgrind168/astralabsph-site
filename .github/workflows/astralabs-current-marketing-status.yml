@@ -1,0 +1,20 @@
+name: AstraLabs Current Marketing Status Read Only
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-current-marketing-status.yml'
+      - 'marketing/automation/shared/current_campaign_audit.py'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify actual live and scheduled Keepry and Astramate posts without writing
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/shared/current_campaign_audit.py
