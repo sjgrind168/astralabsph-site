@@ -79,8 +79,9 @@ def pick_slot(day,app,ordinal,rows,now):
 def build_post(item):
     app=item["app"]
     image=MEDIA+item["creative"]+"_"+app.lower()+"_facebook_4x5.png"
-    landing=("https://www.astralabsph.com/"+app.lower()+"/?utm_source=facebook&"
-             "utm_medium=organic_social&utm_campaign=global_android_launch&utm_content="+item["id"])
+    landing=(HOME+"?utm_source=facebook&"
+             "utm_medium=organic_social&utm_campaign=global_android_launch&utm_content="+item["id"]+
+             "&app="+app.lower())
     if app=="Astramate":
         offer={
             "A03":"Try Astramate Free on Android. Need additional maritime calculation tools? Explore the optional one-time lifetime Premium upgrade.",
@@ -98,8 +99,8 @@ def build_post(item):
         tags="\n\n#Keepry #DocumentOrganizer #LifeAdmin"
         call="Ready to organize your own records? "
     caption=(item["copy"]+"\n\n"+offer+"\n\n"+call+
-             "Get "+app+" from our official app page: "+landing+
-             "\nOfficial AstraLabs PH website: "+HOME+tags)
+             "Explore "+app+" and our other apps at AstraLabs PH: "+landing+
+             "\nOfficial website: "+HOME+tags)
     return image,caption
 def queue_one(item,when,org):
     rows=full_history(org)
