@@ -124,9 +124,9 @@
     "verification_method": "Authenticated Buffer UI saved with Add Posting Slot for Every Day; navigated to another channel and reopened each Settings page; checked all 42 slots/channel and Manila; rechecked all queues.",
     "github_schedule_code_verified": true,
     "note": "Actual recurring schedule sync verified. This does not prove 18 daily publications. Facebook custom-scheduled Sep23 12:30 and 18:30 exceptions preserved.",
-    "tiktok_owner_observation": "Sep22 20:40 PHT screenshot TikTok channel astralabsph: Sent 4, Queue 0, weekly goal 2/5; owner states Keepry V2 video now native TikTok live and obsolete pending item deleted; no permalink or exact post ID independently confirmed.",
-    "pinterest_owner_observation": "Owner says Pinterest not posted yet; no new approved native 2:3 media in release ledger and Pinterest write flag false.",
-    "facebook_owner_observation": "Current Buffer Facebook recurrence and queue not captured; last GitHub API writer failed HTTP 429.",
+    "tiktok_owner_observation": "2026-09-22 21:10 PHT Work Buffer Sent card Keepry Sep22 20:31 PHT with https://tiktok.com/@astralabsph/video/7688336051332599048; owner confirms native live; Queue0/Drafts1/Sent4/Sending observed 0. Internal exact Buffer ID not matched; no first-wave rerun.",
+    "pinterest_owner_observation": "2026-09-22 21:10 PHT Work authenticated Buffer: saved six daily slots; exact AstraLabs Apps | Astramate & Keepry board UI-verified, distinct from PIREVO Finds; Queue0/Drafts1 PIREVO/Sent0/Sending observed0; new approved Pin ledger empty.",
+    "facebook_owner_observation": "2026-09-22 21:10 PHT Work authenticated Buffer checkpoint: Queue8/Drafts0/Sent12/Sending observed 0; Sep23 4 posts/app incl custom 09:30 Astramate, 12:30 Keepry, 18:30 Astramate preserved; last observed GitHub writer HTTP 429 not re-tested.",
     "per_channel_verification": {
       "facebook": {
         "url": "https://publish.buffer.com/channels/6ab15144ea19ca0bdea6d621/settings",
@@ -296,6 +296,7 @@
         "sent": 0,
         "sending_items_observed": 0
       }
-    }
+    },
+    "current_inventory_observed_at_pht": "2026-09-22 21:10; checkpoint only, not a live post-action read"
   }
 }
