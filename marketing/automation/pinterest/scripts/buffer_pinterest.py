@@ -92,7 +92,7 @@ def approved():
     items = document["pins"]
     if document.get("boardName") != BOARD_NAME or len(items) != 9:
         raise RuntimeError("Expected 9 approved no-ETA Pins for the AstraLabs app board")
-    if len({item["id"] for item in items}) != 10:
+    if len({item["id"] for item in items}) != 9:
         raise RuntimeError("Duplicate content identifiers in Pinterest bank")
     for item in items:
         value = (item["title"] + " " + item["description"]).lower()
