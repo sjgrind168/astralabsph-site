@@ -64,7 +64,7 @@ for id,script in SCRIPTS.items():
     final=BASE/(id+".mp4")
     filt=("[0:v]tpad=stop_mode=clone:stop_duration=16,trim=duration="+str(duration)
        +",scale=720:1090:force_original_aspect_ratio=decrease,pad=720:1280:(ow-iw)/2:0:color=0x102c30"
-       +",subtitles="+str(subs)+":force_style='FontName=Montserrat,FontSize=28,Alignment=2,MarginV=29,BorderStyle=3,BackColour=&H99000000,Outline=1,Shadow=0'[v];"
+       +",subtitles="+str(subs)+":force_style='FontName=Montserrat,FontSize=8,Alignment=2,MarginV=9,BorderStyle=3,BackColour=&H99000000,Outline=1,Shadow=0'[v];"
        +"[0:a]volume=0.15,apad,atrim=duration="+str(duration)+"[bed];"
        +"[1:a]aresample=48000,volume=1.45,apad,atrim=duration="+str(duration)+"[speech];"
        +"[bed][speech]amix=inputs=2:duration=longest:normalize=0,alimiter=limit=0.92,afade=t=out:st="
