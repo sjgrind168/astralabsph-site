@@ -53,13 +53,14 @@ def main():
         marker="utm_content="+pid
         urlmatch=re.search(r"https://www\.astralabsph\.com/(?:astramate|keepry)/\?[^\s]+",item["text"])
         if not urlmatch or marker not in urlmatch.group(0):raise RuntimeError("Missing original UTM URL")
-        page=urlmatch.group(0)
         app=item["app"]
+        page=(ROOT_URL+"?utm_source=facebook&utm_medium=organic_social&"
+              "utm_campaign=global_android_launch&utm_content="+pid+"&app="+app.lower())
         offer=("Start free on Android; unlock more supported tools with the optional one-time Astramate Premium upgrade."
                if app=="Astramate" else
                "Start free on Android; optional one-time Keepry Plus expands document/People allowances and supported recurring reminders.")
         text=(COPY[pid]+"\n\n"+offer+
-              "\n\nGet "+app+" from our official page: "+page+
+              "\n\nExplore "+app+" and other AstraLabs apps: "+page+
               "\nOfficial AstraLabs PH website: "+ROOT_URL+
               ("\n\n#Astramate #Seafarers #MaritimeTools" if app=="Astramate"
                else "\n\n#Keepry #LifeAdmin #DocumentOrganizer"))
