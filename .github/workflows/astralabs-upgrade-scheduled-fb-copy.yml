@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-upgrade-scheduled-fb-copy.yml'
+      - 'marketing/automation/facebook/scripts/upgrade_queued_legacy_copy.py'
   workflow_dispatch:
 permissions:
   contents: read
