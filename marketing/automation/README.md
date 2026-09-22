@@ -1,3 +1,7 @@
+# CURRENT THREE-CHANNEL DAILY CAMPAIGN OVERRIDE — September 22, 2026
+
+The owner has explicitly expanded the distribution target to THREE distinct original concepts PER APP per PHT day on EACH of Facebook, TikTok and Pinterest: six placements per channel, 18 total across all three. Read the [three-channel publishing SOP](shared/ASTRALABS_THREE_CHANNEL_PUBLISHING_SOP_20260922.md), [exact PHT slots and activation flags](shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json), [approval ledger](shared/ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json), and [channel registry](control/channels.json) BEFORE the older historical runbook below. Facebook single 3/app/day writer is already enabled, but its latest inspected 18:10 PHT run failed Buffer HTTP 429. TikTok and Pinterest use their EXISTING respective workflow paths with new three-per-app PHT slots but retain write FALSE and EMPTY second-wave approved media inventory. Successful held QA is not publication. Do not claim 18/day live until genuine platform-native proofs exist. The previously scheduled Keepry TikTok V2 remains an exact-existing-ID separate release, not a candidate for second-wave duplicate creation. Retain all sources, site, PIREVO and old scheduled posts.
+
 # AstraLabs PH Marketing Automation · CURRENT
 Last reconciled: September 22, 2026 (Philippine time)
 
