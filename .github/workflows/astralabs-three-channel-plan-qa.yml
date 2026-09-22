@@ -23,6 +23,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate daily Buffer slot contract, retired duplicate workflow, 42 original concepts, root-only CTA and no-request hold
         run: |
-          python3 -m unittest discover -s marketing/automation/shared -p 'test_three_channel_daily.py' -v
+          python3 -m unittest discover -s marketing/automation/shared -p 'test_*.py' -v
           python3 marketing/automation/shared/three_channel_daily.py --channel tiktok
           python3 marketing/automation/shared/three_channel_daily.py --channel pinterest
