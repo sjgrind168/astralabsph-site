@@ -65,7 +65,7 @@ def main():
         if len(before)!=1 or before[0].get("text")!=item["text"] or before[0].get("dueAt")!=due or before[0].get("assets"):
             print("LEGACY_CHANGED_DURING_RECONCILE",pid,flush=True);continue
         mutation=("mutation { editPost(input:{id:"+fb.quoted(post["id"])+
-                  " text:"+fb.quoted(text)+" aiAssisted:true })"+
+                  " text:"+fb.quoted(text)+" metadata:{facebook:{type:post}} aiAssisted:true })"+
                   " { ... on PostActionSuccess { post { id text status dueAt } }"+
                   " ... on MutationError { message } } }")
         result=fb.buffer_query(mutation).get("editPost") or {}
