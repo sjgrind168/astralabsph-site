@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "project": "AstraLabs PH Marketing Control",
+  "official_storefront": "https://www.astralabsph.com/",
+  "source_7day_manifest": "marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json",
+  "source_sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
+  "owned_source_folder": "AstraLabs_Marketing_Automation",
+  "goal": "Three distinct content pieces per app per PHT day for seven days, not identical clones on every channel.",
+  "activation": "READ_ONLY_CONTROL_CENTER; existing platform writers preserved, no automatic 42-piece publication",
+  "channel_routing": {
+    "facebook": {
+      "provider": "Existing Buffer Free account",
+      "writer_workflow": ".github/workflows/astralabs-daily-two-per-app.yml",
+      "mode": "EXISTING_2_PER_APP_ACTIVE_NOT_3",
+      "gate": "Before 3/day upgrade, reconcile existing Facebook queue and prove 42 creative final assets, claims and capacity.",
+      "account_owner_action": "none for existing authorized page"
+    },
+    "pinterest": {
+      "provider": "Existing Buffer Free account",
+      "writer_workflow": ".github/workflows/astralabs-pinterest-queue.yml",
+      "mode": "WRITE_HELD",
+      "gate": "Board selectable in Buffer browser but API board ID and root-only printed artwork must pass; avoid PIREVO Finds.",
+      "account_owner_action": "review corrected genuine Pinterest artwork"
+    },
+    "tiktok": {
+      "provider": "Existing Buffer Free account",
+      "writer_workflow": ".github/workflows/astralabs-tiktok-video.yml",
+      "mode": "EXISTING_FIRST_WAVE_ONLY",
+      "gate": "Actual unique 30fps media, rights/voice/subtitles, AI label, queue and duplicate reconciliation.",
+      "account_owner_action": "none for current authorized channel"
+    },
+    "youtube": {
+      "provider": "Native YouTube Studio",
+      "writer_workflow": null,
+      "mode": "MANUAL_SCHEDULE_UNTIL_AUTH_VERIFIED",
+      "gate": "Owner access to Studio and actual public scheduled Shorts proof. API uploader unverified projects may publish private only.",
+      "account_owner_action": "resolve Studio access; schedule first original video natively"
+    },
+    "instagram": {
+      "provider": "Meta Business Suite",
+      "writer_workflow": null,
+      "mode": "NO_VERIFIED_OWNED_ACCOUNT",
+      "gate": "Owner creates/authorizes genuine brand account, links Facebook Page; native scheduling verified before claiming automation.",
+      "account_owner_action": "create and secure authentic AstraLabs Instagram business/creator profile if wanted"
+    },
+    "reddit": {
+      "provider": "Manual authentic community participation",
+      "writer_workflow": null,
+      "mode": "MANUAL_REVIEW_ONLY",
+      "gate": "Check each community current rules, truthful founder disclosure, no spam/bulk comment bots, owner Reddit identity/approval.",
+      "account_owner_action": "identify existing Reddit account or create an authentic one and authorize posting"
+    },
+    "linkedin": {
+      "provider": "Native LinkedIn company Page",
+      "writer_workflow": null,
+      "mode": "NOT_CONNECTED",
+      "gate": "Verify owner Page authority, post practical maritime learning content, no mass solicitation.",
+      "account_owner_action": "optional verify company Page access"
+    }
+  },
+  "secrets_policy": "Never store API keys, tokens, passwords, cookies, or personal data in this public repository. Connected provider credentials must remain in scoped GitHub Actions secrets or approved confidential service vault.",
+  "writer_policy": "One active publishing writer per channel. Any second authorized Buffer account requires separate secrets, explicitly approved channel ownership and distinct channel mapping; never connect the same social account to two Buffer organizations.",
+  "media_policy": "Do not mark PLANNED creative as APPROVED or PUBLISHED without exact licensed media asset and proof of actual platform result.",
+  "financial_policy": "PHP0 incremental spend; no recurring paid services without owner approval and evidence of expected payoff.",
+  "reporting_policy": "A successful control-center check is NOT proof that any channel posted. Native permalink is required for LIVE."
+}
