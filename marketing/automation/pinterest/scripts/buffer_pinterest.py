@@ -73,7 +73,7 @@ def target():
 
 def get_existing(org_id):
     q = ("query { posts(first:100,input:{organizationId:" + quoted(org_id) +
-         ",filter:{status:[scheduled,sent],channelIds:[" + quoted(CHANNEL_ID) +
+         ",filter:{status:[scheduled,sent,draft,error,sending],channelIds:[" + quoted(CHANNEL_ID) +
          "]},sort:[{field:dueAt,direction:desc}]})"
          " { edges { node { id text status dueAt channelId } } pageInfo { hasNextPage } } }")
     posts = query(q).get("posts")
@@ -123,7 +123,7 @@ def verify_public_image(url):
 
 def publish_pin(item, board_id):
     # Board ID always comes from exact NAME match on the connected authorized channel.
-    graph = ("mutation { createPost(input:{ text:" + quoted(item["description"]) +
+    graph = ("mutation { createPost(input:{ text:" + quoted(item["description"] + "\n\nGet " + item["app"] + ": " + item["landingUrl"]) +
              " channelId:" + quoted(CHANNEL_ID) +
              " schedulingType:automatic mode:addToQueue aiAssisted:true"
              " assets:[{image:{url:" + quoted(item["imageUrl"]) + "}}]"
