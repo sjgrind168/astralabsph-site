@@ -19,6 +19,10 @@ def main():
         print("FB_QUEUED",p.get("id"),p.get("dueAt"),"campaign",str(p.get("text") or "").split("utm_content=")[-1][:12])
     porg,bid=pn.target()
     if porg != org: raise RuntimeError("Different Pinterest organization")
+    boards=(pn.query("query { channel(input:{id:"+pn.quoted(pn.CHANNEL_ID)+
+        "}) { metadata { ... on PinterestMetadata { boards { serviceId name } } } } }")
+        .get("channel") or {}).get("metadata",{}).get("boards") or []
+    print("PINTEREST_BUFFER_BOARD_NAMES", json.dumps([str(b.get("name") or "") for b in boards]))
     print("PINTEREST_APP_BOARD", "READY" if bid else "NOT_IN_BUFFER")
     if bid:
         pinposts=pn.get_existing(org)
@@ -31,6 +35,9 @@ def main():
     for x in posts:
         if x.get("status")=="scheduled":
             print("TT_QUEUED",x["id"],x.get("dueAt"),"mode",x.get("schedulingType"))
+        if x.get("status")=="sent":
+            print("TT_SENT",x["id"],"text_prefix",str(x.get("text") or "")[:120],
+                  "asset_urls",[a.get("source") for a in x.get("assets") or []])
     q=("query { posts(first:100,input:{organizationId:"+tt.q(org)+
        ",filter:{status:[draft],channelIds:["+tt.q(tc)+"]}})"+
        " { edges { node { id text status channelId } } pageInfo { hasNextPage } } }")
