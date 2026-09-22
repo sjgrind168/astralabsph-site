@@ -1,0 +1,35 @@
+# AstraLabs PH Marketing | Connected Chat Reconciliation
+**Inspection window:** 2026-09-22, approximately 18:38–18:40 PHT. **Scope:** continuation of Full Recovery Handoff V2, GitHub source/actions, historical authenticated Buffer snapshot and public native proof links. No direct authenticated Buffer/Meta/TikTok browser session was available to this connected Chat; historical Buffer queues must not be passed off as current.
+
+## Exact completed actions THIS continuation
+1. Read the authoritative FULL RECOVERY HANDOFF V2 first, the operator README, binding Global Growth SOP, historical Work Return, 7-day brief, 42-item manifest, second-round script pack and single-channel registry. Preserved all project paths, current posts and assets.
+2. Read current Facebook 3/day writer and its GitHub workflow, Keepry existing-ID release script/workflow and repository's existing approved Facebook/Pinterest media inventory.
+3. Read the actual GitHub Actions run list and job steps/logs. At 18:10 PHT Facebook run [35714511237](https://github.com/sjgrind168/astralabsph-site/actions/runs/35714511237) failed closed with `DAILY_EDITORIAL_FAIL_CLOSED RuntimeError Buffer HTTP 429` before publication. No six-post native-delivery proof or current live Buffer inventory is available.
+4. At 17:58 PHT existing Keepry release run [35713419930](https://github.com/sjgrind168/astralabsph-site/actions/runs/35713419930) failed `KEEPRY_RELEASE_FAIL_CLOSED RuntimeError Buffer connection failed`. Script targets only the pre-existing Buffer post `6ab1f356ffe5c8afb129534f`; the 19:30 PHT Sep 22 idempotent scheduled check is configured but NOT yet observed as run at this inspection. Previously authenticated Work confirmed this same original scheduled Sep 25, 22:00 PHT; that is NOT a fresh queue check.
+5. At 18:22 PHT TikTok new-video preflight [35715637811](https://github.com/sjgrind168/astralabsph-site/actions/runs/35715637811): media URL/signature verification PASS, Buffer channel check FAIL; new video writes remain OFF. [Quality gate 35715592267](https://github.com/sjgrind168/astralabsph-site/actions/runs/35715592267) PASS is static copy/media gate only, not a publish proof.
+6. Confirmed existing Pinterest board was refreshed/selectable in historical Work Return. Pinterest writes remain OFF because existing printed Pin CTA uses /keepry and API board mapping and native publication are unverified.
+7. Fixed a stale factual control-plane registry that previously said `EXISTING_2_PER_APP_ACTIVE_NOT_3` despite actual live 3/day writer source. Updated `marketing/automation/control/channels.json` activation, FB mode/gate and TikTok existing-ID state/gate only. [Commit 4cb41623e35bb052fa838f63ecd567d88b431653](https://github.com/sjgrind168/astralabsph-site/commit/4cb41623e35bb052fa838f63ecd567d88b431653). No publisher code, scheduled-post item, site, store, secret or original master was altered.
+8. Checked asset-path inventory: existing eight `A01–A04`/`K01–K04` Facebook PNGs and older Pinterest PNGs exist; the 42-item seven-day file is editorial planning and has no 42 unique finished creative masters. `verified-app-screenshots-20260922/` is NOT present in public GitHub; lack of a public copy does not disprove private originals in the owner's protected Mac/Library.
+
+## Existing verified native links (historical, NOT this continuation's publication)
+- Astramate TikTok: https://www.tiktok.com/@astralabsph/video/7688192495859174677
+- Astramate Facebook: https://www.facebook.com/122116585029321731/posts/122116654713321731
+- Keepry Facebook: https://www.facebook.com/122116585029321731/posts/122116654797321731
+
+These existing posts had older app-specific outbound CTA; do not treat them as new root-only campaign proofs. Native platform pages were not independently reverified in a signed-in session during this Chat.
+
+## Actual current-state limits and next safe gates
+| Stream | Latest independently inspected GitHub evidence | Buffer/native status | Next safe action |
+|---|---|---|---|
+| Facebook | 3/app/day source enabled; last writer 18:10 PHT HTTP 429 before post create | Current sent/queue/draft/error counts UNAVAILABLE; 14:53 PHT Work 8 queued/12 sent is HISTORICAL | After provider quota recovery, one complete authenticated Buffer snapshot then native sent check and PHT-day app tallies. Do not dispatch extra writer or fill from 42-caption/6-reused-art bank as if 42 rendered original assets. |
+| TikTok Keepry | Existing-ID scheduled 19:30 PHT check configured in YAML; last manual release failed before edit | Last authenticated scheduled state Sep 25 22:00; current exact-ID state and native permalink UNAVAILABLE | Inspect Sep 22 19:30 workflow result when it actually executes; if already sent get native link, if still scheduled preserve same ID, if error hold. NO second post create. |
+| TikTok new | 18:22 preflight failed Buffer connection, write false | No new native proof | Keep OFF until fresh authentic video and permission/media/history checks. |
+| Pinterest | Exact Apps board previously selected in Buffer UI; write false | Current API board ID + new native Pin UNAVAILABLE | Correct printed footer in a NEW art copy and verify exact board ID, media rights, full queue and one authorized native proof before enabling. |
+| 42-original campaign | 42 briefs, 14 video scripts +14 carousel +14 question concepts planned; no 42 exported approved assets | 6/day real delivery UNPROVEN | Retrieve verified released-app, dummy-data screenshots without exposing owner originals; render and QA a one-video-per-app pilot plus original graphic/carousel proofs before queue activation. |
+
+**Do not confuse native daily posts with code target.** Three distinct original assets per app/day require a finished video, a screenshot-grounded carousel, and a separate useful question/lesson graphic. Existing FB finite caption bank points to just three older visual masters per app repeatedly over days. It cannot be counted as 42 distinct new productions.
+
+## Preservation / owner actions
+No Buffer write was attempted from this Chat, no workflow was manually dispatched or rerun, no media was published or deleted; no extra Buffer account/subscription, paid spend, Mac permission or app-store release claim. The 19:30 workflow is a separate existing scheduled GitHub automation, not a promise that this Chat will monitor it in the background.
+
+**Operational barrier:** Buffer HTTP 429 and no authenticated current queue read, followed by missing approved genuine screenshots for new original media. One provider-quota-respecting queue audit after recovery and actual 19:30 run result are necessary before any additional platform write. Only ask owner for authorized media copies or external login if essential.
