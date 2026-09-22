@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-keepry-first-visual.yml'
+      - 'marketing/automation/facebook/scripts/publish_keepry_first_visual.py'
 permissions:
   contents: read
 concurrency:
