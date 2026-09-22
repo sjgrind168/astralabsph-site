@@ -81,11 +81,25 @@ def build_post(item):
     image=MEDIA+item["creative"]+"_"+app.lower()+"_facebook_4x5.png"
     landing=("https://www.astralabsph.com/"+app.lower()+"/?utm_source=facebook&"
              "utm_medium=organic_social&utm_campaign=global_android_launch&utm_content="+item["id"])
-    caption=(item["copy"]+"\n\nExplore "+app+": "+landing+
-             "\nAstraLabs PH: "+HOME+
-             "\nAndroid available now. iOS coming soon (subject to review)."+
-             ("\n\n#Astramate #Seafarers #MaritimeCalculations" if app=="Astramate"
-              else "\n\n#Keepry #LifeAdmin #DocumentOrganizer"))
+    if app=="Astramate":
+        offer={
+            "A03":"Try Astramate Free on Android. Need additional maritime calculation tools? Explore the optional one-time lifetime Premium upgrade.",
+            "A04":"Start with the free Android tools. When your calculations call for more supported tools, explore the optional one-time Astramate Premium upgrade.",
+            "A02":"Try Astramate Free on Android. Unlock the wider supported toolkit with optional one-time lifetime Premium when you need it."
+        }[item["creative"]]
+        tags="\n\n#Astramate #Seafarers #CargoCalculations" if item["creative"]=="A03" else "\n\n#Astramate #Seafarers #MaritimeToolkit"
+        call="Want a clearer view of your own calculations? "
+    else:
+        offer={
+            "K02":"Try Keepry Free on Android. Need expanded reminders and supported recurring options? Explore the optional one-time Plus upgrade.",
+            "K03":"Start with Keepry Free. More documents to organize? Optional one-time Plus expands supported Vault capacity.",
+            "K04":"Start with Keepry Free. If your household needs more records, People profiles and Life Admin allowances, explore optional one-time Plus."
+        }[item["creative"]]
+        tags="\n\n#Keepry #DocumentOrganizer #LifeAdmin"
+        call="Ready to organize your own records? "
+    caption=(item["copy"]+"\n\n"+offer+"\n\n"+call+
+             "Get "+app+" from our official app page: "+landing+
+             "\nOfficial AstraLabs PH website: "+HOME+tags)
     return image,caption
 def queue_one(item,when,org):
     rows=full_history(org)
