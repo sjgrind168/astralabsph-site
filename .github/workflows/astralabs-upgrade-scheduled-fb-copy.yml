@@ -1,0 +1,23 @@
+name: AstraLabs One Time Upgrade Scheduled Facebook Copy
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-upgrade-scheduled-fb-copy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-facebook-buffer-queue
+  cancel-in-progress: false
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rewrite only untouched generic scheduled captions with verified value proposition
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_LEGACY_COPY_REWRITE: 'true'
+        run: python3 marketing/automation/facebook/scripts/upgrade_queued_legacy_copy.py
