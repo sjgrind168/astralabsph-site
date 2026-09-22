@@ -39,9 +39,9 @@ print("QUALITY_PASS_PINTEREST",len(pins),"approved no-ETA root-linked Pins",flus
 items=tt.approved()
 for item in items:
     if not tt.verify_media(item["videoUrl"]):raise RuntimeError("TikTok approved final media URL invalid")
-    if "astralabsph.com/" not in item["text"] or "astramate.vercel.app" in item["text"]:
+    if "astralabsph.com" not in item["text"] or "astramate.vercel.app" in item["text"] or any(z in item["text"] for z in ("astralabsph.com/astramate/", "astralabsph.com/keepry/")):
         raise RuntimeError("TikTok must use official site")
-print("QUALITY_PASS_TIKTOK",len(items),"previously approved V2 first-wave assets, no new posting",flush=True)
+print("QUALITY_PASS_TIKTOK",len(items),"historical V2 first-wave assets only; new promo captions must use https://www.astralabsph.com/ ; no new posting",flush=True)
 for app,feature in [("astramate",b"Checking a cargo parcel against available hold space?"),
                     ("keepry",b"Your documents and renewal dates should not be scattered")]:
     url="https://www.astralabsph.com/"+app+"/"
