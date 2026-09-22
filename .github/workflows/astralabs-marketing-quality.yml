@@ -1,0 +1,26 @@
+name: AstraLabs Conversion Campaign Quality Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-marketing-quality.yml'
+      - 'marketing/automation/shared/marketing_quality_gate.py'
+      - 'marketing/automation/facebook/scripts/daily_two_per_app.py'
+      - 'marketing/automation/facebook/scripts/daily_two_per_app_content.json'
+      - 'marketing/automation/pinterest/scripts/buffer_pinterest_content.json'
+      - 'marketing/automation/pinterest/scripts/buffer_pinterest.py'
+      - 'public/astramate/index.html'
+      - 'public/keepry/index.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate marketing Python compiles without social writes
+        run: python3 -m py_compile marketing/automation/shared/marketing_quality_gate.py marketing/automation/facebook/scripts/daily_two_per_app.py marketing/automation/facebook/scripts/upgrade_queued_legacy_copy.py marketing/automation/pinterest/scripts/buffer_pinterest.py
+      - name: Verify persuasive campaigns and actual public landing pages
+        run: python3 marketing/automation/shared/marketing_quality_gate.py
