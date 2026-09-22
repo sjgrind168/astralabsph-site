@@ -1,3 +1,7 @@
+# CURRENT OVERRIDE — 2026-09-22, 18:40 PHT
+
+The latest inspected Facebook workflow is **AstraLabs Three Posts Daily Per App**, with `DAILY_TARGET=3` and write enabled. Its 18:10 PHT run failed closed on **Buffer HTTP 429**, so actual 3/app/day posting and fresh Buffer queue counts are **NOT VERIFIED**. Existing TikTok Keepry first-wave release was not confirmed; an exact-existing-ID 19:30 PHT check is configured but was not yet observed as executed during the inspection. The 42-creative seven-day manifest contains editorial plans, **not** 42 rendered unique media masters. No new Pinterest or TikTok writer is enabled. See [current connected-Chat reconciliation](../shared/ASTRALABS_CHAT_RECONCILIATION_20260922_1840PHT.md) and [current channel registry](channels.json) **before relying on the older point-in-time text below**. The historical 2/day entries below are retained as reference and are superseded by this override.
+
 # AstraLabs Marketing Control Center
 
 ## Browser web app (no Terminal or Xcode needed)
