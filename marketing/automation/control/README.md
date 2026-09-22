@@ -8,6 +8,13 @@
 - No Mac clone, Apple developer tools or Xcode license acceptance is needed to use the dashboard. The source Mac folder and existing platform workflows remain untouched by this web app.
 **Single operator entrypoint.** This is an incremental internal control plane in the existing GitHub repo, not a new publicly accessible social login dashboard or another advertising app. All authorized external publishing remains in the existing platform-specific workflows.
 
+## Three existing automated channels: connected workflow-health report (2026-09-22)
+- Existing Facebook, Pinterest and TikTok Buffer-linked GitHub writers are mapped **one-to-one** in `channels.json`; no second social account, writer or credential created.
+- `channel_health.py` is now invoked from the already-existing `.github/workflows/astralabs-marketing-control.yml` inventory run. It reads **only** the latest public GitHub Actions run for each mapped workflow, writes `out/channel_health.md` and `out/channel_health.json` in the downloadable `astralabs-marketing-control-status` artifact, and adds a channel-health table to the workflow run summary. Confirmed action run 35711959567 succeeded.
+- Observed at first proof: Facebook workflow PASS (existing 2/app/day writer configured); Pinterest last workflow FAIL (publication intentionally HELD pending root-only artwork/board API verification); TikTok last workflow FAIL (new auto writes HELD, existing original video and Keepry first-wave schedule preserved).
+- **Not a private Buffer connection:** no live queue counts, reach/likes, Play installs, purchase revenue, or native post verification is inferred from GitHub success. The current public AppDeploy web viewer still reads `channels.json` and generic public GitHub runs; it does not yet ingest this new report or authenticate to private Buffer/Meta/Play data.
+- The current AppDeploy Free daily quota paused new dashboard deployments until 2026-09-23 00:00 UTC (08:00 PHT). Wait for the free reset; do NOT subscribe or claim the UI has already been upgraded. The GitHub report continues to work without an AppDeploy deployment and Mac can remain off.
+
 ## Open one place before every marketing change
 1. Read `channels.json` for one active writer/route per channel, ownership and exact blockers. It is the **canonical channel registry** and contains no credentials.
 2. Read the existing **single 42-creative** source: `../shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json`. Do not copy or regenerate competing calendars; edit the authoritative plan only after a fresh Work/Chat reconciliation.
