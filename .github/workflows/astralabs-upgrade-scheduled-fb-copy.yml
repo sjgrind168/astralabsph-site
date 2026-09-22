@@ -1,10 +1,7 @@
 name: AstraLabs One Time Upgrade Scheduled Facebook Copy
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/astralabs-upgrade-scheduled-fb-copy.yml'
-      - 'marketing/automation/facebook/scripts/upgrade_queued_legacy_copy.py'
+  schedule:
+    - cron: '10 11,22 * * *' # Temporary low-frequency legacy copy cleanup at 19:10 / 06:10 PHT
   workflow_dispatch:
 permissions:
   contents: read
