@@ -33,6 +33,9 @@ def history(org):
 def main():
     if os.environ.get("ASTRALABS_LEGACY_COPY_REWRITE")!="true":
         raise RuntimeError("Explicit legacy rewrite authorization missing")
+    if datetime.now(timezone.utc).date().isoformat()>"2026-09-30":
+        print("LEGACY_REWRITE_EXPIRED: no further legacy edits",flush=True)
+        return
     org=fb.verified_target()
     old={x["id"]:x for x in BANK}
     changed=0
@@ -78,6 +81,7 @@ def main():
         changed+=1
         print("LEGACY_COPY_UPGRADED",pid,post["id"],"dueAt_unchanged",due,
               "main_site",ROOT_URL,flush=True)
+        break  # One edit per invocation avoids Buffer API throttling; reconcile remaining on next scheduled run.
     print("LEGACY_EDIT_RECONCILE_DONE",changed,"upgraded",flush=True)
 if __name__=="__main__":
     try:main()
