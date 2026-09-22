@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     env:
-      ASTRALABS_TIKTOK_PUBLISH_ENABLED: 'true' # One approved Keepry 30fps V2 next-slot post; idempotent against Astramate already sent.
+      ASTRALABS_TIKTOK_PUBLISH_ENABLED: 'false' # First-wave Astramate sent / Keepry already scheduled; do not create old product-page CTA again. New genuine media must use root-only home CTA.
     steps:
       - uses: actions/checkout@v4
       - name: Verify publicly hosted Astramate and Keepry videos and campaign images
