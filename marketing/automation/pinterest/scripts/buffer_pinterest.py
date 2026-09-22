@@ -95,7 +95,9 @@ def approved():
     if len({item["id"] for item in items}) != 9:
         raise RuntimeError("Duplicate content identifiers in Pinterest bank")
     for item in items:
-        value = (item["title"] + " " + item["description"]).lower()
+        if not item.get("buyerValue") or "one-time" not in item["buyerValue"] or len(item["title"])>100:
+            raise RuntimeError("Pin missing concrete optional paid benefit or compliant title")
+        value = (item["title"] + " " + item["description"] + " " + item["buyerValue"]).lower()
         if (item.get("channel") != "pinterest" or item.get("app") not in ("Astramate", "Keepry")
                 or any(x in value for x in DENIED)
                 or not item["imageUrl"].startswith("https://www.astralabsph.com/marketing/pins/")
@@ -123,7 +125,10 @@ def verify_public_image(url):
 
 def publish_pin(item, board_id):
     # Board ID always comes from exact NAME match on the connected authorized channel.
-    graph = ("mutation { createPost(input:{ text:" + quoted(item["description"] + "\n\nGet " + item["app"] + ": " + item["landingUrl"]) +
+    caption = (item["description"] + "\n\n" + item["buyerValue"] + "\n\nGet " + item["app"] + ": " + item["landingUrl"] + "\nOfficial website: https://www.astralabsph.com/")
+    if len(caption)>800:
+        raise RuntimeError("Pinterest description exceeds 800 characters")
+    graph = ("mutation { createPost(input:{ text:" + quoted(caption) +
              " channelId:" + quoted(CHANNEL_ID) +
              " schedulingType:automatic mode:addToQueue aiAssisted:true"
              " assets:[{image:{url:" + quoted(item["imageUrl"]) + "}}]"
