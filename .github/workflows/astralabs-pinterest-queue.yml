@@ -1,23 +1,31 @@
-# Manual automation proof: 2026-09-22
-name: AstraLabs Pinterest Organic Queue
+name: AstraLabs Pinterest Three Distinct Posts Per App Daily
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-pinterest-queue.yml'
+      - 'marketing/automation/shared/three_channel_daily.py'
+      - 'marketing/automation/shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json'
+      - 'marketing/automation/shared/ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json'
   schedule:
-    - cron: '45 0 * * *'
+    - cron: '20 0,4,8 * * *' # 08:20, 12:20, 16:20 PHT; max 2 approved originals per run
+    - cron: '50 10 * * *' # 18:50 PHT safe recovery slot
+    - cron: '10 12 * * *' # 20:10 PHT safe recovery slot
 permissions:
   contents: read
 concurrency:
   group: astralabs-pinterest-apps-only
   cancel-in-progress: false
 jobs:
-  refill:
+  refill-approved-originals:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     env:
-      ASTRALABS_PINTEREST_PUBLISH_ENABLED: 'false' # Work QA hold: board synced, but current Pin artwork prints /keepry instead of root CTA. Re-enable only after media review and native proof.
+      ASTRALABS_PINTEREST_THREE_DAILY_PUBLISH_ENABLED: 'false' # HOLD: Approved root-only 2:3 Pins, exact Apps board and first native proof. No Buffer API called until approved releases and explicit activation.
     steps:
       - uses: actions/checkout@v4
-      - name: Verify exact Pinterest app board then queue a maximum of one approved first Pin
+      - name: Inspect six original PHT-day pinterest slots without posting unapproved media
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-        run: python3 marketing/automation/pinterest/scripts/buffer_pinterest.py
+        run: python3 marketing/automation/shared/three_channel_daily.py --channel pinterest
