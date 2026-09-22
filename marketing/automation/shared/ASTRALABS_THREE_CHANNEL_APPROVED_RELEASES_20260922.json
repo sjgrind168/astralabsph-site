@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "policy": "Only manually verified, distinct rendered productions with true released-app screenshots, documented commercial rights, human QA and root-only destination may enter releases. Empty by design. 42 editorial briefs are NOT 42 finished files. Existing first-wave Keepry video must be handled through its original Buffer post ID, not entered here as a new release.",
+  "original_manifest": "marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json",
+  "sample_schema_NOT_APPROVED": {
+    "creative_id": "S26D1AV",
+    "channel": "tiktok",
+    "app": "Astramate",
+    "format": "voiceover_video",
+    "media_url": "https://www.astralabsph.com/marketing/campaigns/seven_day/example_NEW_original.mp4",
+    "caption": "Distinct truthful brief; explore Astramate at https://www.astralabsph.com/",
+    "pinterest_title": null,
+    "approved": false,
+    "reviewed_by": "",
+    "feature_proof": "",
+    "authentic_screenshot_proof": "",
+    "commercial_rights_record": "",
+    "native_format_qa": "",
+    "last_review_pht": ""
+  },
+  "releases": []
+}
