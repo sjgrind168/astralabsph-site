@@ -75,6 +75,20 @@ def pick_slot(day,app,ordinal,rows,now):
                and abs((due-proposed).total_seconds())<45*60 for p in rows):
             continue
         return proposed
+    # One non-spam late recovery slot on the current launch day when afternoon
+    # API throttling prevented the planned slot; preserve at least 45m from other queued posts.
+    if day==now.date() and now.hour>=18:
+        base=max(now+timedelta(minutes=35),
+                 datetime.combine(day,SLOTS[app][-1],tzinfo=PHT)+timedelta(minutes=25))
+        candidate=base.replace(minute=((base.minute+14)//15)*15%60,second=0,microsecond=0)
+        if candidate<=base:candidate+=timedelta(minutes=15)
+        if candidate.minute==0 and base.minute>45 and candidate.hour==base.hour:candidate+=timedelta(hours=1)
+        for _ in range(4):
+            if candidate.date()!=day or candidate.hour>=23:break
+            if not any((due:=utcdate(p.get("dueAt"))) and p.get("status") in ("scheduled","sending")
+                       and abs((due-candidate).total_seconds())<45*60 for p in rows):
+                return candidate
+            candidate+=timedelta(minutes=50)
     return None
 def build_post(item):
     app=item["app"]
