@@ -6,13 +6,13 @@
   "source_sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
   "owned_source_folder": "AstraLabs_Marketing_Automation",
   "goal": "Three distinct content pieces per app per PHT day for seven days, not identical clones on every channel.",
-  "activation": "READ_ONLY_CONTROL_CENTER; existing platform writers preserved, no automatic 42-piece publication",
+  "activation": "READ_ONLY_CONTROL_CENTER; SINGLE_EXISTING_FB_3_PER_APP_WRITER_CONFIGURED_BUT_BUFFER_RATE_LIMITED; 42_ORIGINAL_CREATIVE_MASTERS_NOT_READY; TIKTOK_NEW_WRITES_AND_PINTEREST_WRITES_HELD",
   "channel_routing": {
     "facebook": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-daily-two-per-app.yml",
-      "mode": "EXISTING_2_PER_APP_ACTIVE_NOT_3",
-      "gate": "Before 3/day upgrade, reconcile existing Facebook queue and prove 42 creative final assets, claims and capacity.",
+      "mode": "THREE_PER_APP_WRITER_CONFIGURED_AND_ACTIVE; BUFFER_HTTP_429_AT_2026-09-22_18:10_PHT; ACTUAL_DAILY_DELIVERY_UNVERIFIED",
+      "gate": "Do not infer 3/app/day from cron or bank. Reconcile current full Buffer sent/scheduled/errors/queue and native live links after provider rate limit before any new writes; existing 42 captions reference only A02/A03/A04 and K02/K03/K04 visual masters across days, not 42 original finished creative assets.",
       "account_owner_action": "none for existing authorized page"
     },
     "pinterest": {
@@ -25,8 +25,8 @@
     "tiktok": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-tiktok-video.yml",
-      "mode": "EXISTING_FIRST_WAVE_ONLY",
-      "gate": "Actual unique 30fps media, rights/voice/subtitles, AI label, queue and duplicate reconciliation.",
+      "mode": "FIRST_ASTRAMATE_V2_LIVE; EXISTING_KEEPRY_ID_SCHEDULED_LAST_VERIFIED_2026-09-22_14:53_PHT; RELEASE_UNCONFIRMED",
+      "gate": "Keepry original Buffer ID 6ab1f356ffe5c8afb129534f only; 19:30 PHT Sep 22 existing-ID check configured, outcome not yet verified. Reconcile same ID/sent/scheduled/error/native URL before edit, never create a second post or retry errored Astramate. New media writers held pending original 30fps masters/rights/queue proof.",
       "account_owner_action": "none for current authorized channel"
     },
     "youtube": {
