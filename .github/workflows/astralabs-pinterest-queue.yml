@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 6
     env:
-      ASTRALABS_PINTEREST_PUBLISH_ENABLED: 'true'
+      ASTRALABS_PINTEREST_PUBLISH_ENABLED: 'false' # Work QA hold: board synced, but current Pin artwork prints /keepry instead of root CTA. Re-enable only after media review and native proof.
     steps:
       - uses: actions/checkout@v4
       - name: Verify exact Pinterest app board then queue a maximum of one approved first Pin
