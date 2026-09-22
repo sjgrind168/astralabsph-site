@@ -8,7 +8,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-ROOT=Path(__file__).resolve().parent.parent
+ROOT=Path(__file__).resolve().parents[2]
 f=ROOT/"facebook"/"scripts"/"buffer_facebook.py"
 spec=importlib.util.spec_from_file_location("fb_keepry_visual",f)
 fb=importlib.util.module_from_spec(spec);spec.loader.exec_module(fb)
