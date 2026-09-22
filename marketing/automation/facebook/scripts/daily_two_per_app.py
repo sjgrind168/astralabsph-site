@@ -102,8 +102,8 @@ def build_post(item):
              "Explore "+app+" and our other apps at AstraLabs PH: "+landing+
              "\nOfficial website: "+HOME+tags)
     return image,caption
-def queue_one(item,when,org):
-    rows=full_history(org)
+def queue_one(item,when,org,rows):
+    # Reuse the verified per-run snapshot to avoid a burst of wasteful Buffer reads.
     if any("utm_content="+item["id"] in (r.get("text") or "") for r in rows):
         print("ALREADY_USED",item["id"],flush=True);return False
     if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
@@ -137,6 +137,8 @@ def queue_one(item,when,org):
                            ": "+str(response.get("message",""))[:130]+"; do not retry blindly")
     if post.get("status")!="scheduled" or not any(str(a.get("mimeType","")).startswith("image/") for a in (post.get("assets") or [])):
         raise RuntimeError("Created post missing scheduled state or image; reconcile before retry "+str(post["id"]))
+    rows.append({"id":post["id"],"status":post["status"],"dueAt":post["dueAt"],
+                 "text":caption,"assets":post["assets"],"channelId":fb.EXPECTED_PAGE_ID})
     print("EDITORIAL_SCHEDULED",item["id"],item["app"],"PHT",when.isoformat(),
           "Buffer",post["id"],"dueAt",post.get("dueAt"),flush=True)
     return True
@@ -144,6 +146,7 @@ def main():
     org=fb.verified_target()
     bank=candidates()
     now=datetime.now(PHT)
+    rows=full_history(org) # One complete verified snapshot, updated only on confirmed mutation.
     created=0
     # Preserve existing sent/scheduled posts. Refill today, then at most one future day.
     for offset in (0,1):
@@ -153,7 +156,6 @@ def main():
                 if created>=MAX_NEW_PER_RUN:
                     print("SAFE_BATCH_LIMIT: future scheduled refill continues",flush=True)
                     return
-                rows=full_history(org)
                 if sum(on_day(r,day) and in_scope(r,app) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
                     print("DAILY_TARGET_ALREADY_MET",app,day.isoformat(),flush=True)
                     break
@@ -173,7 +175,7 @@ def main():
                 if not when:
                     print("NO_SAFE_TIME_SLOT",app,day.isoformat(),flush=True)
                     continue
-                created+=bool(queue_one(item,when,org))
+                created+=bool(queue_one(item,when,org,rows))
     print("DAILY_EDITORIAL_COMPLETE","created",created,"main_domain",HOME,"PHT",now.isoformat(),flush=True)
 if __name__=="__main__":
     try:main()
