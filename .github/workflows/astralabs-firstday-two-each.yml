@@ -1,0 +1,23 @@
+name: AstraLabs First Day Two Posts Per App
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-firstday-two-each.yml'
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-facebook-buffer-queue
+  cancel-in-progress: false
+jobs:
+  post-extra-one-each:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish second distinct Astramate and Keepry visuals today only
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_2_PER_APP_FIRSTDAY: 'true'
+        run: python3 marketing/automation/facebook/scripts/two_each_first_day.py
