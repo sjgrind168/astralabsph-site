@@ -1,0 +1,21 @@
+name: AstraLabs Keepry TikTok Existing Video Release
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-keepry-existing-video-now.yml'
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-tiktok-video-first-proof
+  cancel-in-progress: false
+jobs:
+  release-existing-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move approved original Keepry video from future scheduled slot to now; no duplicate create
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/tiktok/scripts/release_existing_keepry_now.py
