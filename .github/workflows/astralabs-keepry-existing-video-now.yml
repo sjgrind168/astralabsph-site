@@ -1,9 +1,8 @@
 name: AstraLabs Keepry TikTok Existing Video Release
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/astralabs-keepry-existing-video-now.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '30 11 * * *' # 19:30 PHT: idempotent release of the existing scheduled Keepry video after Buffer cooldown.
 permissions:
   contents: read
 concurrency:
