@@ -1,0 +1,45 @@
+name: Verify V2 Public Video Player
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-verify-v2-player.yml'
+      - 'public/marketing/previews/index.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify real public browser player and both narrated MP4 files
+        run: |
+          python3 - <<'PY'
+          import time,urllib.request,urllib.error
+          base='https://www.astralabsph.com/marketing/previews/'
+          def check():
+            req=urllib.request.Request(base,headers={'User-Agent':'Mozilla/5.0'})
+            with urllib.request.urlopen(req,timeout=18) as response:
+              data=response.read(100000)
+              html_ok=response.status==200 and 'text/html' in response.headers.get('Content-Type','') and b'AstraLabs V2 Video' in data and b'<video controls' in data
+              print('PLAYER_PAGE',response.status,response.headers.get('Content-Type'),'valid',html_ok,flush=True)
+              if not html_ok:return False
+            for name in ['astramate','keepry']:
+              url=base+name+'_v2_neural_voice_music_PREVIEW.mp4'
+              req=urllib.request.Request(url,headers={'Range':'bytes=0-31','User-Agent':'Mozilla/5.0'})
+              with urllib.request.urlopen(req,timeout=18) as r:
+                data=r.read(32)
+                ok=r.status in (200,206) and 'video/mp4' in r.headers.get('Content-Type','') and data[4:8]==b'ftyp'
+                print('PLAYER_VIDEO',name,r.status,r.headers.get('Content-Type'),'valid',ok,flush=True)
+                if not ok:return False
+            return True
+          for n in range(10):
+            try:
+              if check():
+                print('VERIFIED_V2_PUBLIC_PLAYER_LIVE',base)
+                break
+            except Exception as e:print('DEPLOY_PENDING',n+1,type(e).__name__,str(e)[:120],flush=True)
+            if n==9:raise RuntimeError('Public video player did not become accessible; review deployment')
+            time.sleep(12)
+          PY
