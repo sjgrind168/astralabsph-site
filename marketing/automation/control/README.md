@@ -1,4 +1,11 @@
 # AstraLabs Marketing Control Center
+
+## Browser web app (no Terminal or Xcode needed)
+
+- **Live read-only dashboard:** https://astralabs-marketing-control-o52cw9.v2.appdeploy.ai/
+- It displays the existing public GitHub 42-creative plan, channel registry, public workflow run states, SOP/handoff links and clearly unconnected performance-source cards. The web app is a separate deployed viewer and is NOT a new social publisher or owner-authenticated private analytics console.
+- **Public-safe:** It reads only public repository metadata. Do not input secrets, account tokens, personal performance exports or customer data. A protected owner-only backend and verified connector permissions are prerequisites for any editing, publishing, or private metrics.
+- No Mac clone, Apple developer tools or Xcode license acceptance is needed to use the dashboard. The source Mac folder and existing platform workflows remain untouched by this web app.
 **Single operator entrypoint.** This is an incremental internal control plane in the existing GitHub repo, not a new publicly accessible social login dashboard or another advertising app. All authorized external publishing remains in the existing platform-specific workflows.
 
 ## Open one place before every marketing change
