@@ -6,27 +6,27 @@
   "source_sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
   "owned_source_folder": "AstraLabs_Marketing_Automation",
   "goal": "Three distinct content pieces per app per PHT day for seven days, not identical clones on every channel.",
-  "activation": "READ_ONLY_CONTROL_CENTER; FACEBOOK_3_PER_APP_WRITER_ACTIVE_BUT_BUFFER_429_LIVE_UNVERIFIED; TIKTOK_PINTEREST_3_PER_APP_SCHEDULES_CONFIGURED_NEW_WRITES_HELD_EMPTY_APPROVED_LEDGER; 42_SOURCE_CONCEPTS_PLAN_NOT_FINISHED_MASTERS",
+  "activation": "READ_ONLY_CONTROL_CENTER; FACEBOOK_3_PER_APP_GITHUB_WRITER_ENABLED_BUT_BUFFER_UI_SLOTS_NOT_VERIFIED; TIKTOK_KEEPRY_OWNER_CONFIRMED_NATIVE_LIVE_OLD_RELEASE_RETIRED; TIKTOK_PINTEREST_SECOND_WAVE_NEW_WRITES_HELD; PINTEREST_NO_NATIVE_POST_VERIFIED",
   "channel_routing": {
     "facebook": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-daily-two-per-app.yml",
-      "mode": "THREE_PER_APP_WRITER_CONFIGURED_AND_ACTIVE; BUFFER_HTTP_429_AT_2026-09-22_18:10_PHT; ACTUAL_DAILY_DELIVERY_UNVERIFIED",
-      "gate": "Existing single 3/app/day writer stays enabled; latest observed create attempt 18:10 PHT 22 Sep HTTP 429. 42 captions use 3 visual masters/app repeatedly across dates; new genuine seven-day original art needs approved supply. Reconcile current native and Buffer sent/scheduled history before asserting any daily target was met; never turn on parallel Facebook creator.",
+      "mode": "3_PER_APP_DAY_SINGLE_GITHUB_WRITER_ACTIVE_WITH_EXACT_CUSTOM_DUEAT; BUFFER_UI_TIMES_UNVERIFIED; LATEST_API_429_AND_NATIVE_DELIVERY_UNKNOWN",
+      "gate": "Only canonical 3 slots/app/day; disabled arbitrary late-night recovery times. Existing queued/custom posts preserved. Last observed writer Buffer HTTP 429, user has not shown Buffer Facebook recurring posting-time settings or current full queue. Requires owner/Work UI save of 6 daily FB slots and native proof before claiming in sync.",
       "account_owner_action": "none for existing authorized page"
     },
     "pinterest": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-pinterest-queue.yml",
-      "mode": "3_PER_APP_PER_PHT_DAY_WORKFLOW_CONFIGURED; NEW_WRITES_FALSE_EMPTY_ORIGINAL_2x3_RELEASE_LEDGER",
-      "gate": "New true original 2:3 Pins V/C/Q require corrected printed ROOT CTA, rights, authentic screenshot proof, exact AstraLabs Apps board API serviceId, first native proof and current Buffer quota. Existing nine older Pins retained NOT reused as 42 originals; PIREVO Finds untouched.",
+      "mode": "3_PER_APP_DAY_GITHUB_TARGET_CONFIGURED; OWNER_REPORTS_NO_PINTEREST_LIVE_POST; BUFFER_UI_SLOTS_UNVERIFIED; NEW_WRITES_OFF_EMPTY_APPROVED_BANK",
+      "gate": "Owner reports no published Pinterest post. No original approved root-only 2:3 assets in new release ledger; older 9 Pins have printed outdated app page path and must not be newly published as is. Buffer recurring times/board exact service ID and native first Pin unverified; PIREVO untouched. Do not claim green workflow equals published.",
       "account_owner_action": "review corrected genuine Pinterest artwork"
     },
     "tiktok": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-tiktok-video.yml",
-      "mode": "3_PER_APP_PER_PHT_DAY_WORKFLOW_CONFIGURED; NEW_WRITES_FALSE_NO_APPROVED_NEW_MP4; KEEPRY_EXISTING_ID_NATIVE_LIVE_UNVERIFIED_BUFFER_CONNECTION_ERROR",
-      "gate": "Shared three_channel_daily.py with 42 source concepts and 3 distinct vertical video adaptations per app/day; 0 approved new assets; exact existing Keepry post 6ab1f356ffe5c8afb129534f release still separate and unconfirmed. Never create duplicate first-wave post. Verify Buffer quota, first-wave sent/native link, new media rights/format and channel-specific proof before new writer enable.",
+      "mode": "3_PER_APP_DAY_GITHUB_TARGET_CONFIGURED_BUFFER_UI_UNVERIFIED; KEEPRY_OWNER_CONFIRMED_LIVE_TIKTOK_QUEUE_ZERO_2026-09-22_20:40_PHT; ORIGINAL_DAILY_RELEASE_RETIRED; NEW_WRITES_HELD",
+      "gate": "Owner confirms Keepry V2 is native-live; Sep22 20:40 screenshot shows @astralabsph TikTok Buffer Sent 4, Queue 0, weekly goal 2/5 and owner-deleted obsolete pending item. Exact live Keepry permalink/Buffer ID in Sent not independently matched; never recreate or rerun first-wave. Recurring Buffer posting times still NOT verified/changed here; GitHub 3/app/day is target only. New videos held until unique approved masters, provider authentication/quota, native proof.",
       "account_owner_action": "none for current authorized channel"
     },
     "youtube": {
@@ -66,5 +66,18 @@
   "source_three_channel_sop": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_PUBLISHING_SOP_20260922.md",
   "source_three_channel_config": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json",
   "target_per_app_per_channel_per_pht_day": 3,
-  "target_all_three_channels_per_pht_day": 18
+  "target_all_three_channels_per_pht_day": 18,
+  "buffer_schedule_sync": {
+    "verified": false,
+    "reason": "Connected Chat has GitHub, not authenticated Buffer browser/API recurring schedule mutation. Official Buffer GraphQL API supports custom dueAt per post but not editing recurring channel posting-time slots; owner/Work UI action required.",
+    "tiktok_queue_screenshot_pht": "2026-09-22 20:40",
+    "tiktok_queue_count_owner_screenshot": 0,
+    "tiktok_sent_count_owner_screenshot": 4,
+    "tiktok_keepry_owner_reports_live": true,
+    "facebook_buffer_ui_saved": false,
+    "tiktok_buffer_ui_saved": false,
+    "pinterest_buffer_ui_saved": false,
+    "desired_times_config": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json",
+    "verification_rule": "Never label GUI settings synced until actual Buffer Posting Schedule for each channel shows all 6 slots Mon-Sun in Asia/Manila; custom-scheduled existing posts don't follow recurring slot edits."
+  }
 }
