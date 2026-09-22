@@ -16,11 +16,13 @@ if len(bank)!=28 or len({p["id"] for p in bank})!=28:raise RuntimeError("Editori
 for item in bank:
     image,caption=daily.build_post(item)
     app=item["app"]
-    if not all(x in caption for x in ("https://www.astralabsph.com/","https://www.astralabsph.com/"+app.lower()+"/?","utm_content="+item["id"])):
-        raise RuntimeError("Main website or product landing link missing "+item["id"])
+    if not all(x in caption for x in ("https://www.astralabsph.com/?","utm_content="+item["id"],"&app="+app.lower())):
+        raise RuntimeError("Main storefront tracking URL or app hint missing "+item["id"])
     if not any(x in caption for x in ("Premium","Plus")) or "one-time" not in caption or "free" not in caption.lower():
         raise RuntimeError("Free entry or honest paid-offer reason missing "+item["id"])
     if app=="Astramate" and re.search(r"\beta\b",caption,re.I):raise RuntimeError("ETA in next-wave Astramate caption")
+    if "https://www.astralabsph.com/astramate/" in caption or "https://www.astralabsph.com/keepry/" in caption:
+        raise RuntimeError("App-specific page used as external ad destination "+item["id"])
     if caption.count("#")>3:raise RuntimeError("Overstuffed hashtags")
     if len(caption)>1250:raise RuntimeError("Caption too long")
     if "astramate.vercel.app" in caption or "www.astralabsph.com/" not in caption:
@@ -30,7 +32,10 @@ print("QUALITY_PASS_FACEBOOK",len(bank),"distinct upcoming persuasive copies, wo
 pins=pn.approved()
 if len(pins)!=9 or any(re.search(r"\beta\b",p["title"]+" "+p["description"],re.I) for p in pins if p["app"]=="Astramate"):
     raise RuntimeError("Pinterest bank includes ETA or missing no-ETA creatives")
-print("QUALITY_PASS_PINTEREST",len(pins),"approved no-ETA Pins",flush=True)
+for pin in pins:
+    if not pin["landingUrl"].startswith("https://www.astralabsph.com/?") or "&app="+pin["app"].lower() not in pin["landingUrl"]:
+        raise RuntimeError("Pinterest external Pin destination not ROOT-only "+pin["id"])
+print("QUALITY_PASS_PINTEREST",len(pins),"approved no-ETA root-linked Pins",flush=True)
 items=tt.approved()
 for item in items:
     if not tt.verify_media(item["videoUrl"]):raise RuntimeError("TikTok approved final media URL invalid")
@@ -46,4 +51,9 @@ for app,feature in [("astramate",b"Checking a cargo parcel against available hol
             and b"Get "+app.title().encode()+b" free on Google Play" in body)
         print("LANDING_PAGE",app,"http",res.status,"buyer_story",feature in body,"campaign_attribution",b"var keys=" in body,"ok",valid,flush=True)
         if not valid:raise RuntimeError("Published landing page awaiting deploy or missing buyer story "+app)
+with urllib.request.urlopen(urllib.request.Request("https://www.astralabsph.com/",headers={"User-Agent":"AstraLabs-Root-Only-Storefront-QA/1.0"}),timeout=18) as res:
+    html=res.read(450000)
+    valid=(res.status==200 and b"Astramate" in html and b"Keepry" in html and b"id=\"root\"" in html)
+    print("PREMIUM_ROOT_STOREFRONT",res.status,"both_apps",b"Astramate" in html and b"Keepry" in html,"valid",valid,flush=True)
+    if not valid:raise RuntimeError("Official main storefront did not serve both apps")
 print("GLOBAL_CAMPAIGN_QUALITY_GATE_PASSED",flush=True)
