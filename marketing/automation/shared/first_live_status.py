@@ -1,3 +1,4 @@
+# AstraLabs first live-post read-only recheck after TikTok media processing.
 #!/usr/bin/env python3
 import importlib.util,json
 from pathlib import Path
