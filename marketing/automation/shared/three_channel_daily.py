@@ -19,7 +19,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[2]
+AUTOMATION = HERE.parent
 CONFIG = HERE / "ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json"
 RELEASES = HERE / "ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json"
 MANIFEST = HERE / "ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json"
@@ -237,11 +237,11 @@ def run(channel):
         return
     # Use one existing approved publisher identity and its proven exact channel ID.
     if channel == "tiktok":
-        tt = module(ROOT / "tiktok/scripts/buffer_tiktok.py", "astralabs_existing_tiktok")
+        tt = module(AUTOMATION / "tiktok/scripts/buffer_tiktok.py", "astralabs_existing_tiktok")
         org, channel_id = tt.resolve_tiktok()
         board_id, graphql, quote = None, tt.gql, tt.q
     else:
-        pin = module(ROOT / "pinterest/scripts/buffer_pinterest.py", "astralabs_existing_pinterest")
+        pin = module(AUTOMATION / "pinterest/scripts/buffer_pinterest.py", "astralabs_existing_pinterest")
         org, board_id = pin.target()  # exact AstraLabs Apps board match, never PIREVO
         if not board_id:
             print("HELD_PINTEREST_BOARD_NOT_API_VERIFIED; no write", flush=True)
