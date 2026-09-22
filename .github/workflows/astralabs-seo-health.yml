@@ -1,0 +1,58 @@
+name: AstraLabs Official App SEO Health
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-seo-health.yml'
+      - 'index.html'
+      - 'public/sitemap.xml'
+      - 'public/robots.txt'
+      - 'public/astramate/index.html'
+      - 'public/keepry/index.html'
+permissions:
+  contents: read
+jobs:
+  check-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Verify live homepage, official product pages, sitemap and robots
+        run: |
+          python3 - <<'PY'
+          import time, urllib.request, urllib.error, xml.etree.ElementTree as ET
+          host='https://www.astralabsph.com'
+          requirements=[
+            ('/', b'Astramate Maritime Calculators and Keepry Document Organizer'),
+            ('/astramate/', b'<h1>Astramate: Maritime Calculators'),
+            ('/keepry/', b'<h1>Keepry: Private Document Vault'),
+            ('/sitemap.xml', b'2026-09-22'),
+            ('/robots.txt', b'Sitemap: https://www.astralabsph.com/sitemap.xml')
+          ]
+          for attempt in range(15):
+            findings=[]
+            for path,expected in requirements:
+              try:
+                req=urllib.request.Request(host+path, headers={'User-Agent':'Mozilla/5.0 AstraLabs-SEO-Audit/1.0'})
+                with urllib.request.urlopen(req, timeout=13) as res:
+                  body=res.read(350000)
+                  status=res.status
+                  mime=res.headers.get('Content-Type','')
+                  xrobots=res.headers.get('X-Robots-Tag','')
+                ok=status==200 and expected in body and 'noindex' not in xrobots.lower()
+                if path=='/sitemap.xml' and ok:
+                  root=ET.fromstring(body)
+                  locs=[e.text for e in root.iter() if e.tag.endswith('loc')]
+                  ok=all(host+p in locs for p in ('/','/astramate/','/keepry/'))
+                if path=='/robots.txt' and ok: ok=b'Disallow: /' not in body
+                print('SEO_CHECK',path,'status',status,'mime',mime,'xrobots',xrobots,'ok',ok,flush=True)
+                findings.append(ok)
+              except Exception as e:
+                print('SEO_CHECK',path,'error',type(e).__name__,str(e)[:120],flush=True)
+                findings.append(False)
+            if all(findings):
+              print('SEO_DEPLOYED: five live URLs correct and crawlable checks passed',flush=True)
+              break
+            if attempt==14: raise RuntimeError('SEO not fully deployed or pages missing; investigate without claiming indexing')
+            time.sleep(12)
+          PY
