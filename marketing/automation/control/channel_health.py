@@ -42,7 +42,7 @@ def main():
         # Retain the precise source-of-truth mode. A successful preflight does NOT
         # turn blocked Pinterest/TikTok writes into an active posting status.
         if name=="facebook":
-            publication="EXISTING_2_PER_APP_WRITER_CONFIGURED"
+            publication=("THREE_PER_APP_DAILY_WRITER_CONFIGURED_BUT_BUFFER_RATE_LIMITED" if s["conclusion"]=="failure" else "THREE_PER_APP_DAILY_WRITER_CONFIGURED; NATIVE_POST_COUNTS_UNVERIFIED")
         elif name=="pinterest":
             publication="WRITE_HELD_PENDING_ROOT_ONLY_ARTWORK_AND_BOARD_API"
         else:
