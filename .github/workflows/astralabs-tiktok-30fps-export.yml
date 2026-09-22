@@ -1,0 +1,65 @@
+name: AstraLabs V2 TikTok 30fps Safe Exports
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-30fps-export.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: astralabs-tiktok-fps-v2-media-export
+  cancel-in-progress: false
+jobs:
+  export-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Re-export approved V2 narrated videos to constant 30 fps without touching masters
+        run: |
+          set -euo pipefail
+          command -v ffmpeg
+          command -v ffprobe
+          mkdir -p public/marketing/videos/v2
+          for APP in astramate keepry; do
+            IN="public/marketing/previews/${APP}_v2_neural_voice_music_PREVIEW.mp4"
+            OUT="public/marketing/videos/v2/${APP}_v2_voice_music_30fps_FINAL.mp4"
+            test -s "$IN"
+            ffmpeg -hide_banner -nostdin -loglevel error -y -i "$IN" -map 0:v:0 -map 0:a:0 \
+              -vf 'fps=30,format=yuv420p' -fps_mode cfr \
+              -c:v libx264 -preset veryfast -crf 21 -profile:v high -level 4.0 \
+              -c:a aac -b:a 160k -ar 48000 -ac 2 \
+              -movflags +faststart -t 16 "$OUT"
+            APP="$APP" OUT="$OUT" python3 - <<'PY'
+          import json,os,subprocess
+          d=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','stream=codec_name,codec_type,avg_frame_rate,width,height,pix_fmt,sample_rate:format=duration','-of','json',os.environ['OUT']],text=True))
+          v=[s for s in d['streams'] if s['codec_type']=='video']
+          a=[s for s in d['streams'] if s['codec_type']=='audio']
+          assert len(v)==1 and len(a)==1, 'Missing video or audio'
+          fps=eval(v[0]['avg_frame_rate'].replace('/',' / '))
+          assert 29.95 <= fps <= 30.05, f'Unexpected fps: {fps}'
+          assert v[0]['codec_name']=='h264' and v[0]['pix_fmt']=='yuv420p',v[0]
+          assert v[0]['width']==720 and v[0]['height']==1280,v[0]
+          assert a[0]['codec_name']=='aac',a[0]
+          assert 15.8<=float(d['format']['duration'])<=16.2,d['format']
+          print('V2_30FPS_VERIFIED',os.environ['APP'],'fps',fps,'dimensions',v[0]['width'],v[0]['height'],'video',v[0]['codec_name'],'audio',a[0]['codec_name'],'duration',d['format']['duration'],'bytes',os.path.getsize(os.environ['OUT']),flush=True)
+          PY
+          done
+      - name: Preserve new tested final exports as downloadable GitHub artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstraLabs_V2_30fps_FINAL_TikTok_Approved
+          path: public/marketing/videos/v2/*_30fps_FINAL.mp4
+          if-no-files-found: error
+          retention-days: 30
+      - name: Publish only the two 30fps marketing exports to existing website
+        run: |
+          git config user.name 'AstraLabs Marketing Video Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/marketing/videos/v2/*_30fps_FINAL.mp4
+          if git diff --cached --quiet; then echo 'V2_30FPS_EXPORTS_UNCHANGED'; exit 0; fi
+          git commit -m 'Marketing: add validated constant 30fps V2 video exports for TikTok'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'V2_30FPS_EXPORTS_HOSTED_NO_TIKTOK_POST_WAS_CREATED'
