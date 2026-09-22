@@ -6,7 +6,7 @@
   "source_sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
   "owned_source_folder": "AstraLabs_Marketing_Automation",
   "goal": "Three distinct content pieces per app per PHT day for seven days, not identical clones on every channel.",
-  "activation": "FACEBOOK_3_PER_APP_WRITER_ACTIVE_BUT_BUFFER_429_LIVE_UNVERIFIED; TIKTOK_PINTEREST_3_PER_APP_SCHEDULES_CONFIGURED_NEW_WRITES_HELD_EMPTY_APPROVED_LEDGER; 42_SOURCE_CONCEPTS_PLAN_NOT_FINISHED_MASTERS",
+  "activation": "READ_ONLY_CONTROL_CENTER; FACEBOOK_3_PER_APP_WRITER_ACTIVE_BUT_BUFFER_429_LIVE_UNVERIFIED; TIKTOK_PINTEREST_3_PER_APP_SCHEDULES_CONFIGURED_NEW_WRITES_HELD_EMPTY_APPROVED_LEDGER; 42_SOURCE_CONCEPTS_PLAN_NOT_FINISHED_MASTERS",
   "channel_routing": {
     "facebook": {
       "provider": "Existing Buffer Free account",
