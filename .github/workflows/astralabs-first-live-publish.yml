@@ -1,0 +1,52 @@
+name: AstraLabs One Time Three Channel Live Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-first-live-publish.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  facebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: astralabs-facebook-buffer-queue
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish once now, one approved Astramate Facebook campaign image
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_ONE_SHOT_FB: 'true'
+          ASTRALABS_TEST_CHANNEL: facebook
+        run: python3 marketing/automation/shared/one_time_live_launch.py
+  pinterest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: astralabs-pinterest-apps-only
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish once now only if verified AstraLabs Apps Pinterest board exists
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_ONE_SHOT_PIN: 'true'
+          ASTRALABS_TEST_CHANNEL: pinterest
+        run: python3 marketing/automation/shared/one_time_live_launch.py
+  tiktok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: astralabs-tiktok-video-first-proof
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish once now, approved Astramate V2 voice and music video
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_ONE_SHOT_TT: 'true'
+          ASTRALABS_TEST_CHANNEL: tiktok
+        run: python3 marketing/automation/shared/one_time_live_launch.py
