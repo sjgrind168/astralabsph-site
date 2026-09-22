@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "boardName": "AstraLabs Apps | Astramate & Keepry",
-  "notes": "No ETA marketing. All pins must offer a true problem-to-benefit story, direct to official AstraLabs product landing page; first Pinterest app-board post Keepry, followed by cargo-focused Astramate when board sync works.",
+  "notes": "All external Pins route to premium official AstraLabs ROOT storefront where both apps and future releases appear. Preserve unique campaign IDs, app hint, exact dedicated app board, no ETA; do not promote /astramate/ or /keepry/ as outward destinations.",
   "pins": [
     {
       "id": "pin_k01",
@@ -10,7 +10,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_vault.png",
       "title": "Where did you save that document? | Keepry Vault",
       "description": "Your important PDF is somewhere in your camera roll. Keepry Vault brings imported documents, titles and searchable details into one local-first place so you can review the record you need more easily.",
-      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k01",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k01&app=keepry",
       "buyerValue": "Start with Keepry Free; optional one-time Plus expands Vault document capacity when your records grow."
     },
     {
@@ -20,7 +20,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_cargo.png",
       "title": "Stowage factor, cargo weight & volume | Astramate",
       "description": "A cargo weight estimate does not tell you whether the hold volume is sufficient. Astramate brings stowage factor, cargo volume and weight calculations together with visible working for your own figures.",
-      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a03",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a03&app=astramate",
       "buyerValue": "Start with Astramate Free; unlock the wider supported calculation toolkit with optional one-time Premium when you need it."
     },
     {
@@ -30,7 +30,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_validity.png",
       "title": "Important expiry dates organized | Keepry",
       "description": "Renewal deadlines live in separate calendars while the documents are saved elsewhere. Keepry Validity helps you keep user-entered dates and records together and configure reminders.",
-      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k02",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k02&app=keepry",
       "buyerValue": "Start with Keepry Free; optional one-time Plus expands allowances and supported recurring reminders."
     },
     {
@@ -40,7 +40,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_compass.png",
       "title": "Need to check compass error? | Astramate",
       "description": "An observed compass reading is not yet a true bearing. Review the calculation steps in Astramate using your entered observed direction and independently verified true bearing or approved azimuth.",
-      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a02",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a02&app=astramate",
       "buyerValue": "Start with Astramate Free; explore optional one-time Premium if you need the expanded supported maritime toolset."
     },
     {
@@ -50,7 +50,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_reminders.png",
       "title": "Organize reminders and life-admin tasks | Keepry",
       "description": "You found the document, but did you record when it expires? Keepry keeps your personal Vault, dates and Life Admin reminders closer together instead of relying on scattered notes.",
-      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k03",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k03&app=keepry",
       "buyerValue": "Try Keepry Free; optional one-time Plus expands supported reminder capacity and recurring options."
     },
     {
@@ -60,7 +60,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_trim.png",
       "title": "Quick mean-draft and trim checks | Astramate",
       "description": "Forward and aft draft marks answer different questions. Use Astramate's supported simple mean-draft and trim calculation aids to inspect your inputs and visible steps before independent vessel-specific verification.",
-      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a04",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a04&app=astramate",
       "buyerValue": "Try Astramate Free on Android; optional one-time Premium unlocks the expanded supported toolset."
     },
     {
@@ -70,7 +70,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_people.png",
       "title": "Personal records organized by person | Keepry",
       "description": "Managing important records for more than one person? Keepry organizes documents, user-entered dates and People profiles so your household's records are easier to review.",
-      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k04",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k04&app=keepry",
       "buyerValue": "Try Keepry Free; optional one-time Plus expands supported People profiles and document allowances."
     },
     {
@@ -80,7 +80,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/astramate_tools.png",
       "title": "Voyage, compass and cargo tools | Astramate",
       "description": "Cargo volume, weight and stowage factor are connected. Astramate lets you check the supported calculation steps from your own entries without hunting through scattered maritime notes.",
-      "landingUrl": "https://www.astralabsph.com/astramate/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a05",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_a05&app=astramate",
       "buyerValue": "Get Astramate Free on Android; optional one-time Premium expands the supported maritime toolkit."
     },
     {
@@ -90,7 +90,7 @@
       "imageUrl": "https://www.astralabsph.com/marketing/pins/keepry_organize.png",
       "title": "Your documents and dates, one place | Keepry",
       "description": "Your camera roll should not be your only filing system. Keepry brings images, PDFs, expiry dates you enter and Life Admin reminders into one local-first personal organizer.",
-      "landingUrl": "https://www.astralabsph.com/keepry/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k05",
+      "landingUrl": "https://www.astralabsph.com/?utm_source=pinterest&utm_medium=organic_social&utm_campaign=global_android_launch&utm_content=pin_k05&app=keepry",
       "buyerValue": "Start with Keepry Free; optional one-time Plus expands supported Vault, People and reminder allowances."
     }
   ]
