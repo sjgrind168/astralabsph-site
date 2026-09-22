@@ -2,12 +2,6 @@
 name: AstraLabs Pinterest Organic Queue
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/astralabs-pinterest-queue.yml'
-      - 'marketing/automation/pinterest/scripts/buffer_pinterest.py'
-      - 'marketing/automation/pinterest/scripts/buffer_pinterest_content.json'
   schedule:
     - cron: '45 0 * * *'
 permissions:
