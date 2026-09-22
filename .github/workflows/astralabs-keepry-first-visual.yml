@@ -1,0 +1,23 @@
+name: AstraLabs Keepry First Facebook Visual
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-keepry-first-visual.yml'
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-facebook-buffer-queue
+  cancel-in-progress: false
+jobs:
+  publish-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Share once approved Keepry visual on official AstraLabs PH Facebook
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_APPROVED_KEEPRY_VISUAL_NOW: 'true'
+        run: python3 marketing/automation/facebook/scripts/publish_keepry_first_visual.py
