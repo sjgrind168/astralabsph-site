@@ -1,0 +1,40 @@
+name: AstraLabs TikTok V2 Corrected FPS Single Live Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-fixed-v2-live.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-tiktok-video-first-proof
+  cancel-in-progress: false
+jobs:
+  fixed-video-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify new 30fps V2 is live on AstraLabs website
+        run: |
+          python3 - <<'PY'
+          import time,urllib.request
+          url='https://www.astralabsph.com/marketing/videos/v2/astramate_v2_voice_music_30fps_FINAL.mp4'
+          for i in range(10):
+            try:
+              req=urllib.request.Request(url,headers={'Range':'bytes=0-31','User-Agent':'AstraLabs-Media-Verification'})
+              with urllib.request.urlopen(req,timeout=17) as r:
+                data=r.read(32)
+                ok=r.status in (200,206) and r.headers.get('Content-Type','').startswith('video/mp4') and data[4:8]==b'ftyp'
+                print('LIVE_NEW_VIDEO',r.status,r.headers.get('Content-Type'),'valid',ok,flush=True)
+                if ok:break
+            except Exception as e:print('DEPLOY_WAIT',i,type(e).__name__,flush=True)
+            if i==9:raise RuntimeError('Corrected public video not ready; do not post')
+            time.sleep(10)
+          PY
+      - name: Retry once the precisely diagnosed TikTok video with corrected constant 30fps
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+          ASTRALABS_FIXED_TIKTOK_LIVE: 'true'
+        run: python3 marketing/automation/shared/first_tiktok_30fps_retry.py
