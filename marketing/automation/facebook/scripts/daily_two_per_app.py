@@ -80,9 +80,9 @@ def pick_slot(day,app,ordinal,rows,now):
     if day==now.date() and now.hour>=18:
         base=max(now+timedelta(minutes=35),
                  datetime.combine(day,SLOTS[app][-1],tzinfo=PHT)+timedelta(minutes=25))
-        candidate=base.replace(minute=((base.minute+14)//15)*15%60,second=0,microsecond=0)
+        candidate=base.replace(second=0,microsecond=0)
+        candidate+=timedelta(minutes=(15-base.minute%15)%15)
         if candidate<=base:candidate+=timedelta(minutes=15)
-        if candidate.minute==0 and base.minute>45 and candidate.hour==base.hour:candidate+=timedelta(hours=1)
         for _ in range(4):
             if candidate.date()!=day or candidate.hour>=23:break
             if not any((due:=utcdate(p.get("dueAt"))) and p.get("status") in ("scheduled","sending")
