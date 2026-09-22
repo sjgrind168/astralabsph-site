@@ -1,32 +1,32 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "project": "AstraLabs PH Marketing Control",
   "official_storefront": "https://www.astralabsph.com/",
   "source_7day_manifest": "marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json",
   "source_sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
   "owned_source_folder": "AstraLabs_Marketing_Automation",
   "goal": "Three distinct content pieces per app per PHT day for seven days, not identical clones on every channel.",
-  "activation": "READ_ONLY_CONTROL_CENTER; SINGLE_EXISTING_FB_3_PER_APP_WRITER_CONFIGURED_BUT_BUFFER_RATE_LIMITED; 42_ORIGINAL_CREATIVE_MASTERS_NOT_READY; TIKTOK_NEW_WRITES_AND_PINTEREST_WRITES_HELD",
+  "activation": "FACEBOOK_3_PER_APP_WRITER_ACTIVE_BUT_BUFFER_429_LIVE_UNVERIFIED; TIKTOK_PINTEREST_3_PER_APP_SCHEDULES_CONFIGURED_NEW_WRITES_HELD_EMPTY_APPROVED_LEDGER; 42_SOURCE_CONCEPTS_PLAN_NOT_FINISHED_MASTERS",
   "channel_routing": {
     "facebook": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-daily-two-per-app.yml",
       "mode": "THREE_PER_APP_WRITER_CONFIGURED_AND_ACTIVE; BUFFER_HTTP_429_AT_2026-09-22_18:10_PHT; ACTUAL_DAILY_DELIVERY_UNVERIFIED",
-      "gate": "Do not infer 3/app/day from cron or bank. Reconcile current full Buffer sent/scheduled/errors/queue and native live links after provider rate limit before any new writes; existing 42 captions reference only A02/A03/A04 and K02/K03/K04 visual masters across days, not 42 original finished creative assets.",
+      "gate": "Existing single 3/app/day writer stays enabled; latest observed create attempt 18:10 PHT 22 Sep HTTP 429. 42 captions use 3 visual masters/app repeatedly across dates; new genuine seven-day original art needs approved supply. Reconcile current native and Buffer sent/scheduled history before asserting any daily target was met; never turn on parallel Facebook creator.",
       "account_owner_action": "none for existing authorized page"
     },
     "pinterest": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-pinterest-queue.yml",
-      "mode": "WRITE_HELD",
-      "gate": "Board selectable in Buffer browser but API board ID and root-only printed artwork must pass; avoid PIREVO Finds.",
+      "mode": "3_PER_APP_PER_PHT_DAY_WORKFLOW_CONFIGURED; NEW_WRITES_FALSE_EMPTY_ORIGINAL_2x3_RELEASE_LEDGER",
+      "gate": "New true original 2:3 Pins V/C/Q require corrected printed ROOT CTA, rights, authentic screenshot proof, exact AstraLabs Apps board API serviceId, first native proof and current Buffer quota. Existing nine older Pins retained NOT reused as 42 originals; PIREVO Finds untouched.",
       "account_owner_action": "review corrected genuine Pinterest artwork"
     },
     "tiktok": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-tiktok-video.yml",
-      "mode": "FIRST_ASTRAMATE_V2_LIVE; EXISTING_KEEPRY_ID_SCHEDULED_LAST_VERIFIED_2026-09-22_14:53_PHT; RELEASE_UNCONFIRMED",
-      "gate": "Keepry original Buffer ID 6ab1f356ffe5c8afb129534f only; 19:30 PHT Sep 22 existing-ID check configured, outcome not yet verified. Reconcile same ID/sent/scheduled/error/native URL before edit, never create a second post or retry errored Astramate. New media writers held pending original 30fps masters/rights/queue proof.",
+      "mode": "3_PER_APP_PER_PHT_DAY_WORKFLOW_CONFIGURED; NEW_WRITES_FALSE_NO_APPROVED_NEW_MP4; KEEPRY_EXISTING_ID_NATIVE_LIVE_UNVERIFIED_BUFFER_CONNECTION_ERROR",
+      "gate": "Shared three_channel_daily.py with 42 source concepts and 3 distinct vertical video adaptations per app/day; 0 approved new assets; exact existing Keepry post 6ab1f356ffe5c8afb129534f release still separate and unconfirmed. Never create duplicate first-wave post. Verify Buffer quota, first-wave sent/native link, new media rights/format and channel-specific proof before new writer enable.",
       "account_owner_action": "none for current authorized channel"
     },
     "youtube": {
@@ -62,5 +62,9 @@
   "writer_policy": "One active publishing writer per channel. Any second authorized Buffer account requires separate secrets, explicitly approved channel ownership and distinct channel mapping; never connect the same social account to two Buffer organizations.",
   "media_policy": "Do not mark PLANNED creative as APPROVED or PUBLISHED without exact licensed media asset and proof of actual platform result.",
   "financial_policy": "PHP0 incremental spend; no recurring paid services without owner approval and evidence of expected payoff.",
-  "reporting_policy": "A successful control-center check is NOT proof that any channel posted. Native permalink is required for LIVE."
+  "reporting_policy": "A successful GitHub check including HELD_NO_APPROVED_ORIGINAL_MEDIA proves only safe nonpublication, not 18 daily live posts. The 7-day/42 concept IDs are editorial plans; daily Buffer schedule/native permalinks must be verified separately.",
+  "source_three_channel_sop": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_PUBLISHING_SOP_20260922.md",
+  "source_three_channel_config": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json",
+  "target_per_app_per_channel_per_pht_day": 3,
+  "target_all_three_channels_per_pht_day": 18
 }
