@@ -102,8 +102,8 @@ def approved():
                 or any(x in value for x in DENIED)
                 or not item["imageUrl"].startswith("https://www.astralabsph.com/marketing/pins/")
                 or not item["imageUrl"].endswith(".png")
-                or not item["landingUrl"].startswith(
-                    "https://www.astralabsph.com/" + item["app"].lower() + "/?")
+                or not item["landingUrl"].startswith("https://www.astralabsph.com/?")
+                or "&app=" + item["app"].lower() not in item["landingUrl"]
                 or "utm_content=" + item["id"] not in item["landingUrl"]):
             raise RuntimeError("Rejected unsupported feature, destination or creative for " + item.get("id", "?"))
     return items
