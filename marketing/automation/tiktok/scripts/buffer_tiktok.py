@@ -27,8 +27,13 @@ def gql(document):
     try:
         with urllib.request.urlopen(req, timeout=25) as resp:
             payload = json.load(resp)
-    except (urllib.error.HTTPError, urllib.error.URLError) as exc:
-        raise RuntimeError("Buffer connection failed; reconcile before retry") from None
+    except urllib.error.HTTPError as exc:
+        # Surface ONLY transport status (never auth headers/body/secret) for quota-vs-auth diagnosis.
+        retry = (exc.headers.get("Retry-After") or "").strip() if exc.headers else ""
+        retry_note = " (Retry-After: " + retry[:32] + ")" if retry and retry.replace(".", "").isdigit() else ""
+        raise RuntimeError("Buffer HTTP " + str(exc.code) + retry_note + "; no blind retry or post creation") from None
+    except urllib.error.URLError:
+        raise RuntimeError("Buffer network connection failed; no blind retry or post creation") from None
     if payload.get("errors") or not isinstance(payload.get("data"), dict):
         raise RuntimeError("Buffer GraphQL response rejected; no publishing")
     return payload["data"]
