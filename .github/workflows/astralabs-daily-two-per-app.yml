@@ -1,0 +1,26 @@
+name: AstraLabs Two Posts Daily Per App
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-daily-two-per-app.yml'
+  schedule:
+    - cron: '20 0 * * *' # 08:20 PHT, refill today's and tomorrow's FB slots
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-facebook-buffer-queue
+  cancel-in-progress: false
+jobs:
+  refill-approved-visuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      ASTRALABS_DAILY_FB_PUBLISH_ENABLED: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Queue maximum two unique Keepry and Astramate Facebook posts each local day
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/facebook/scripts/daily_two_per_app.py
