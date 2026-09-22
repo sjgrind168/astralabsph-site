@@ -1,0 +1,43 @@
+name: AstraLabs Premium Main Storefront Build QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-main-storefront-qa.yml'
+      - 'src/App.jsx'
+      - 'index.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install and compile real main website
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+      - name: Assert both app cards and attributed Play links without intruding ads
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          source=Path('src/App.jsx').read_text()
+          assert 'const trackedPlay' in source
+          assert "href={trackedPlay(product.url, product.name.toLowerCase())}" in source
+          assert "href={trackedPlay(PLAY_URL, 'astramate')}" in source
+          assert "href={trackedPlay(KEEPRY_URL, 'keepry')}" in source
+          assert 'AstraLabs PH' in source and 'Astramate' in source and 'Keepry' in source
+          assert 'cargo' in source.lower() and 'expiry' in source.lower()
+          assert 'adsbygoogle' not in source.lower()
+          bundles=list(Path('dist/assets').glob('*.js'))
+          assert bundles and any(b'astramate' in f.read_bytes().lower() and b'keepry' in f.read_bytes().lower() for f in bundles)
+          assert b'<div id="root">' in Path('dist/index.html').read_bytes()
+          print('MAIN_PREMIUM_STOREFRONT_BUILD_PASS both app cards + UTM Play buttons + no ads')
+          PY
