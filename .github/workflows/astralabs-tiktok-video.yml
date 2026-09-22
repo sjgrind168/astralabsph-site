@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     env:
-      ASTRALABS_TIKTOK_PUBLISH_ENABLED: 'false' # First Astramate video already queued; await confirmed public TikTok publication.
+      ASTRALABS_TIKTOK_PUBLISH_ENABLED: 'true' # One approved Keepry 30fps V2 next-slot post; idempotent against Astramate already sent.
     steps:
       - uses: actions/checkout@v4
       - name: Verify publicly hosted Astramate and Keepry videos and campaign images
