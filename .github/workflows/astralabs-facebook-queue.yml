@@ -9,7 +9,6 @@ on:
       - 'marketing/automation/facebook/scripts/buffer_facebook.py'
       - 'marketing/automation/facebook/scripts/buffer_facebook_content.json'
   schedule:
-    - cron: '15 0 * * *'
 permissions:
   contents: read
 concurrency:
@@ -20,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     env:
-      ASTRALABS_PUBLISH_ENABLED: 'true' # One-post API proof with confirmed Facebook post-type metadata.
+      ASTRALABS_PUBLISH_ENABLED: 'false' # Legacy generic bank retired. Daily creative scheduler is sole FB writer.
     steps:
       - uses: actions/checkout@v4
-      - name: Verify channel and approved drafts before changing Buffer
+      - name: Legacy bank read-only audit only; no new generic posts
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/facebook/scripts/buffer_facebook.py
