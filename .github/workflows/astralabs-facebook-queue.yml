@@ -1,3 +1,4 @@
+# Manual automation proof: 2026-09-22
 name: AstraLabs Facebook Organic Queue
 on:
   workflow_dispatch:
