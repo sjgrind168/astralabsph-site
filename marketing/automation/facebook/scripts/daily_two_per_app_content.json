@@ -1,175 +1,175 @@
 {
-  "version": 1,
-  "policy": "Organic Facebook two distinct posts per app per Philippine-local day; only verified Astramate and Keepry features, no ETA marketing, exact official website and product links, finite approved bank with no repeats.",
+  "version": 2,
+  "policy": "Unique English situation/problem → verified in-app action → concrete buyer benefit, with site-home, exact product URL and optional lifetime paid-offer CTA appended by scheduler; no ETA marketing.",
   "base_url": "https://www.astralabsph.com/",
   "posts": [
     {
       "id": "daily_a_01",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "Cargo stowage factor: volume and weight must agree. Astramate helps you work through the entered figures, view the calculation, and review your result before relying on approved vessel data."
+      "copy": "You have a cargo weight estimate. Does the hold volume support it? Review cargo weight, volume and stowage factor from your own figures in Astramate, with calculation steps visible before your next independent check."
     },
     {
       "id": "daily_a_02",
       "app": "Astramate",
       "creative": "A04",
-      "copy": "Draft at forward and aft marks tells a more useful story together. Review simple mean draft and trim in Astramate, with the working visible for an independent check."
+      "copy": "Both draft marks matter when trim changes. Work through forward and aft draft, simple mean draft and trim in Astramate, then compare the figures with your vessel’s approved information."
     },
     {
       "id": "daily_a_03",
       "app": "Astramate",
       "creative": "A02",
-      "copy": "A compass reading is not automatically a true bearing. Use Astramate's Compass Error tool with your observed reading and externally verified true bearing or approved azimuth."
+      "copy": "Cargo weight alone does not tell you if a parcel fits the hold. Use Astramate’s stowage-factor, cargo-volume and cargo-weight tools to inspect the relationship between your entered figures."
     },
     {
       "id": "daily_a_04",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "Planning a hold? Explore Astramate's cargo volume, cargo weight, and usable hold volume calculations. Enter the correct units and verify against your ship's approved information."
+      "copy": "That observed compass direction is not automatically a true bearing. Astramate helps you inspect compass-error working using your observed reading and externally verified true bearing or approved azimuth."
     },
     {
       "id": "daily_a_05",
       "app": "Astramate",
       "creative": "A04",
-      "copy": "TPC and MCTC belong in a proper draft-and-trim calculation, not a guess. Explore the applicable tools in Astramate, then validate every operational result independently."
+      "copy": "Before accepting a cargo estimate, check the arithmetic behind weight, volume and stowage factor. Astramate groups those inputs and visible calculation steps in a single maritime toolkit."
     },
     {
       "id": "daily_a_06",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "Loading calculations have multiple moving parts: stowage factor, cargo weight and hold capacity. Keep the supporting calculations together with Astramate."
+      "copy": "You have forward and aft draft readings, but need a clear trim check. Astramate brings supported simple mean-draft and trim calculations together for easier review of your own figures."
     },
     {
       "id": "daily_a_07",
       "app": "Astramate",
       "creative": "A04",
-      "copy": "Understanding the effect of a trim change requires the right vessel particulars. Astramate provides supported draft and trim calculation aids with visible working."
+      "copy": "Stowage factor can change the cargo-weight estimate for a given hold volume. Enter your figures in Astramate, inspect the working and independently compare with approved shipboard loading information."
     },
     {
       "id": "daily_a_08",
       "app": "Astramate",
       "creative": "A02",
-      "copy": "Deviation, gyro error and variation are different concepts. Explore Astramate's compass conversion and error tools for study and number checks, with verified inputs."
+      "copy": "Compass deviation, variation and gyro error are not interchangeable. Astramate’s supported compass calculation tools show their working, helping you check the figures instead of trusting a bare answer."
     },
     {
       "id": "daily_a_09",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "Bulk cargo: compare entered cargo volume and weight against available hold space using Astramate's supported cargo and hold-utilization tools."
+      "copy": "Planning a bulk cargo parcel against available hold space? Review the cargo weight, stowage factor and volume with Astramate’s supported cargo and hold-utilization tools."
     },
     {
       "id": "daily_a_10",
       "app": "Astramate",
       "creative": "A04",
-      "copy": "Need to review GM and free-surface inputs? Astramate includes supported stability-related calculation aids. These never replace approved loading and stability information."
+      "copy": "Reviewing vessel particulars and draft-related numbers? Keep the supported calculation steps in Astramate so you can inspect inputs clearly before any independent operational verification."
     },
     {
       "id": "daily_a_11",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "Stowage factor and available hold volume can change your cargo estimate. Astramate puts the calculation steps within reach when you need to review them."
+      "copy": "A hold can be full by volume before the estimated cargo weight reaches the target. Astramate’s cargo-volume and stowage-factor tools help you check that relationship using your own entered numbers."
     },
     {
       "id": "daily_a_12",
       "app": "Astramate",
       "creative": "A02",
-      "copy": "Compass-to-true and true-to-compass conversions depend on sound inputs. Astramate lets you see the working instead of treating a number as a black box."
+      "copy": "Your compass conversion is only as useful as its source bearing. Put the observed and verified inputs into Astramate’s supported compass tools and inspect the calculation steps."
     },
     {
       "id": "daily_a_13",
       "app": "Astramate",
       "creative": "A04",
-      "copy": "Aft draft, forward draft, mean draft and trim each answer a different question. Review the supported calculations in Astramate with clear input fields."
+      "copy": "Forward draft, aft draft and mean draft are different values. Astramate lets you organize a simple draft-and-trim calculation instead of hunting through scattered notes."
     },
     {
       "id": "daily_a_14",
       "app": "Astramate",
       "creative": "A03",
-      "copy": "When reviewing cargo figures, consistency of units matters. Explore Astramate's cargo-weight, cargo-volume and tank-volume calculations, then verify the results."
+      "copy": "Cargo figures may come in different units. When checking weight and volume, Astramate brings supported cargo calculations together with visible working so you can review the inputs."
     },
     {
       "id": "daily_k_01",
       "app": "Keepry",
       "creative": "K02",
-      "copy": "Document saved. Renewal date forgotten? Keepry keeps your records, user-entered expiry dates and reminders together so you can check what needs attention."
+      "copy": "The document is saved, but the renewal date is in another app. Keepry keeps your imported records, user-entered expiry dates and reminders together so the next step is easier to review."
     },
     {
       "id": "daily_k_02",
       "app": "Keepry",
       "creative": "K03",
-      "copy": "A camera roll is not a filing system. Add images and PDFs to your Keepry Vault, then organize records with meaningful titles and searchable details."
+      "copy": "An important PDF is buried in your camera roll. Keepry Vault gives images and PDFs a dedicated local-first home with titles and searchable details so you can find the right record more easily."
     },
     {
       "id": "daily_k_03",
       "app": "Keepry",
       "creative": "K04",
-      "copy": "Family paperwork and everyday to-dos can pile up. Keepry brings Life Admin tasks and important records into one personal Android organizer."
+      "copy": "Household paperwork is not one task. Organize your documents, important dates and Life Admin to-dos together in Keepry instead of keeping a separate list for every small errand."
     },
     {
       "id": "daily_k_04",
       "app": "Keepry",
       "creative": "K02",
-      "copy": "Passports, driving licences and insurance records have different renewal dates. Keep your dates in Keepry's Validity view and configure reminders."
+      "copy": "Passports, driving licences and insurance documents expire at different times. Enter and review their dates in Keepry Validity, keep the records close and configure reminders to help plan ahead."
     },
     {
       "id": "daily_k_05",
       "app": "Keepry",
       "creative": "K03",
-      "copy": "Need an important PDF later? Keep it with the relevant document details in Keepry's local-first Vault, rather than searching through unrelated files."
+      "copy": "You remember saving a PDF, but not what you named it. Add useful titles and searchable details to the documents in Keepry Vault rather than scrolling endlessly through old downloads."
     },
     {
       "id": "daily_k_06",
       "app": "Keepry",
       "creative": "K04",
-      "copy": "A task list is more useful when it connects to your real-life records. Explore Keepry's Life Admin, Vault and reminders together."
+      "copy": "A renewal task makes more sense beside the document you need. Keepry brings personal records, Life Admin and reminders into one Android organizer so you can review the next step together."
     },
     {
       "id": "daily_k_07",
       "app": "Keepry",
       "creative": "K02",
-      "copy": "Review upcoming document expiries in one place. Keepry helps you organize user-entered dates and reminders, without pretending to validate official documents."
+      "copy": "The document is ready. The expiry date caught you by surprise. Keepry lets you enter important dates, review them alongside records and set reminders, subject to your device notification settings."
     },
     {
       "id": "daily_k_08",
       "app": "Keepry",
       "creative": "K03",
-      "copy": "Keepry is local-first: organize important personal documents on your device, with PIN and supported device biometric access options."
+      "copy": "Your camera roll is full of important files and everyday pictures. Move the documents into Keepry Vault, label them and use supported on-device access controls to keep things organized."
     },
     {
       "id": "daily_k_09",
       "app": "Keepry",
       "creative": "K04",
-      "copy": "Organize records by person, add everyday tasks and keep relevant dates close by. Explore Keepry Free and optional Plus on Android."
+      "copy": "Organizing records for more than one person can outgrow a simple folder. Keepry Plus expands People profiles and allowances so you can maintain more personal records in one place."
     },
     {
       "id": "daily_k_10",
       "app": "Keepry",
       "creative": "K02",
-      "copy": "Licences, memberships and insurance deadlines do not all happen together. Keepry helps you keep their recorded dates visible in Validity."
+      "copy": "Membership, licence and insurance dates do not arrive together. Keep the expiry dates you enter visible in Keepry Validity alongside your related records and reminders."
     },
     {
       "id": "daily_k_11",
       "app": "Keepry",
       "creative": "K03",
-      "copy": "Titles, dates and searchable metadata make a personal document Vault more useful. Keepry keeps those details with your imported files."
+      "copy": "An important record becomes easier to review when it has a clear title, date and searchable details. Keepry Vault gives those imported files a more organized home on your device."
     },
     {
       "id": "daily_k_12",
       "app": "Keepry",
       "creative": "K04",
-      "copy": "Keep reminders and document-linked tasks together with Keepry Life Admin. It is a practical organizer, not an automatic paperwork service."
+      "copy": "One reminder is rarely enough for growing household admin. Keepry Plus expands allowances and adds supported recurring reminders, alongside Vault and Life Admin."
     },
     {
       "id": "daily_k_13",
       "app": "Keepry",
       "creative": "K02",
-      "copy": "Before renewal day arrives, review the documents and expiry dates you entered in Keepry and check your configured reminders."
+      "copy": "You found your renewal document but cannot recall when it expires. Enter the date in Keepry, keep the record organized and review upcoming Validity items before they require attention."
     },
     {
       "id": "daily_k_14",
       "app": "Keepry",
       "creative": "K03",
-      "copy": "From image files to PDFs, give important records a dedicated home in Keepry Vault. Remember to keep your own backups when needed."
+      "copy": "Important PDFs and images deserve a dedicated place. Keepry’s local-first Vault helps you organize them with searchable details; keep your own safe backup in case you change or lose devices."
     }
   ]
 }
