@@ -1,0 +1,21 @@
+name: AstraLabs Seven Day 42 Creative Plan QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-7day-plan-qa.yml'
+      - 'marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json'
+      - 'marketing/automation/shared/validate_7day_manifest.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-plan-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and validate approved editorial schema without any publishing secrets
+        run: |
+          python3 -m py_compile marketing/automation/shared/validate_7day_manifest.py
+          python3 marketing/automation/shared/validate_7day_manifest.py
