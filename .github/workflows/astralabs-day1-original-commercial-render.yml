@@ -1,0 +1,80 @@
+name: AstraLabs Day1 Commercial-Safe Media Build
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-day1-original-commercial-render.yml'
+permissions:
+  contents: write
+concurrency:
+  group: astralabs-day1-commercial-media
+  cancel-in-progress: false
+jobs:
+  render-assets-not-social-posts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 34
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original licensed neural voice runtime
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq espeak-ng ffmpeg
+          python -m pip install --quiet 'kokoro-onnx>=0.5,<0.8' soundfile numpy
+      - name: Fetch Kokoro Apache-licensed model and voices, no HeyGen Free voice
+        run: |
+          curl -fLsS --retry 3 --retry-delay 3 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.onnx' -o /tmp/astra-kokoro-v1.0.onnx
+          curl -fLsS --retry 3 --retry-delay 3 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin' -o /tmp/astra-kokoro-voices-v1.0.bin
+          test "$(wc -c </tmp/astra-kokoro-v1.0.onnx)" -gt 100000000
+          test "$(wc -c </tmp/astra-kokoro-voices-v1.0.bin)" -gt 1000000
+      - name: Download original voice-free video preview ZIP and checksum
+        run: |
+          curl -fLsS --retry 3 'https://d2ol7oe51mr4n9.cloudfront.net/user_3JfEPPPMrDFeZ3LG9KH2AM0SuU1/b56efc26-3ca1-4875-b4af-5af073c61c9a.zip' -o /tmp/day1_source_previews.zip
+          echo '929cf28686f15644668e71bfbd30079e83dbed22167db1fbb36fd7cad3e2cce9  /tmp/day1_source_previews.zip' | sha256sum -c -
+      - name: Render six 30fps MP4s with Kokoro, original music, timed captions
+        env:
+          ASTRALABS_DAY1_SOURCE_ZIP_URL: 'file:///tmp/day1_source_previews.zip'
+        run: python3 marketing/automation/shared/render_day1_commercial_kokoro.py
+      - name: Recover genuine screenshot based native Pinterest and Facebook graphics
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 'https://d2ol7oe51mr4n9.cloudfront.net/user_3JfEPPPMrDFeZ3LG9KH2AM0SuU1/c669b966-6dc2-44c4-acbd-3ecce010d6b9.zip' -o /tmp/day1_original_graphics.zip
+          echo '35f6a1538622e2d655c995ec5559cf916b1860f1443cf3d6b91e4d1f2a73f3db  /tmp/day1_original_graphics.zip' | sha256sum -c -
+          dir=public/marketing/campaigns/seven_day/day1
+          for id in S26D1AV S26D1AC S26D1AQ S26D1KV S26D1KC S26D1KQ; do
+            unzip -p /tmp/day1_original_graphics.zip "astralabs_day1/assets/$id/$id""_pinterest.png" > "$dir/$id.png"
+            unzip -p /tmp/day1_original_graphics.zip "astralabs_day1/assets/$id/$id""_facebook.png" > "$dir/$id""_facebook.png"
+          done
+          python3 - <<'PY'
+          import struct,pathlib
+          root=pathlib.Path('public/marketing/campaigns/seven_day/day1')
+          for id in ('S26D1AV','S26D1AC','S26D1AQ','S26D1KV','S26D1KC','S26D1KQ'):
+              for suffix,expected in (('.png',(1000,1500)),('_facebook.png',(1080,1350))):
+                  data=(root/(id+suffix)).read_bytes()
+                  assert data[:8]==b'\x89PNG\r\n\x1a\n'
+                  assert struct.unpack('>II',data[16:24])==expected
+          print('DAY1_IMAGE_SIGNATURE_DIMENSIONS_QA_PASS_12')
+          PY
+      - name: Save assets as recoverable GitHub Actions artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstraLabs_Day1_Kokoro_6MP4_12Stills_QA_ONLY
+          path: |
+            public/marketing/campaigns/seven_day/day1/*
+            /tmp/astra-day1-release/day1_render_qa.json
+          retention-days: 30
+          if-no-files-found: error
+      - name: Stage additive Day1 assets on existing site, NEVER Buffer post
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs Marketing Asset Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/marketing/campaigns/seven_day/day1
+          if git diff --cached --quiet; then echo 'UNCHANGED_MEDIA_NO_SOCIAL_WRITE'; exit 0; fi
+          git commit -m 'Marketing media: six Day1 Kokoro shorts and twelve honest stills'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'MEDIA_HOSTED_NOT_SOCIAL_POSTED'
