@@ -20,11 +20,12 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Validate existing 42-creative plan and build a single read-only channel report
+      - name: Validate 42-creative plan and connect all three existing workflow-health feeds
         run: |
-          python3 -m py_compile marketing/automation/control/build_status.py marketing/automation/shared/validate_7day_manifest.py
+          python3 -m py_compile marketing/automation/control/build_status.py marketing/automation/control/channel_health.py marketing/automation/shared/validate_7day_manifest.py
           python3 marketing/automation/shared/validate_7day_manifest.py
           python3 marketing/automation/control/build_status.py
+          python3 marketing/automation/control/channel_health.py
       - uses: actions/upload-artifact@v4
         with:
           name: astralabs-marketing-control-status
