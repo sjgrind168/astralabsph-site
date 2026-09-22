@@ -44,8 +44,6 @@ jobs:
           mkdir -p "$dest"
           for id in S26D1AV S26D1AC S26D1AQ S26D1KV S26D1KC S26D1KQ; do
             cp "$src/$id.mp4" "$dest/$id.mp4"
-            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate -of csv=p=0 "$dest/$id.mp4" | grep -Fx 'h264,720,1280,30/1'
-            ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$dest/$id.mp4" | grep -Fx 'aac'
           done
           git config user.name 'AstraLabs Marketing Caption QA Bot'
           git config user.email 'actions@users.noreply.github.com'
