@@ -1,0 +1,20 @@
+name: AstraLabs Three Channel Launch Audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'marketing/automation/shared/first_live_audit.py'
+      - '.github/workflows/astralabs-three-channel-audit.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect all channels and first-wave video, no publishing
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/shared/first_live_audit.py
