@@ -8,7 +8,6 @@ on:
       - '.github/workflows/astralabs-facebook-queue.yml'
       - 'marketing/automation/facebook/scripts/buffer_facebook.py'
       - 'marketing/automation/facebook/scripts/buffer_facebook_content.json'
-  schedule:
 permissions:
   contents: read
 concurrency:
