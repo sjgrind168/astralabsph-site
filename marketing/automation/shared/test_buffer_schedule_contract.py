@@ -51,7 +51,7 @@ class ScheduleContracts(unittest.TestCase):
             targets=sorted(sum((cfg["slots_pht"][channel][app] for app in ("Astramate","Keepry")),[]))
             got=set()
             for line in item["slots"]:
-                match=re.fullmatch(r"Remove (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday) (\\d{2}:\\d{2}) (AM|PM)",line)
+                match=re.fullmatch(r"Remove (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday) (\d{2}:\d{2}) (AM|PM)",line)
                 self.assertIsNotNone(match,line)
                 day,hour,period=match.groups()
                 hh,mm=map(int,hour.split(":"))
