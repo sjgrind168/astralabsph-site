@@ -1,3 +1,69 @@
+# Completed authenticated Buffer UI save — September 22, 2026, 21:10 PHT
+
+**Recurring schedule FIXED in actual Buffer, not merely GitHub.** Saved using Every Day + Add Posting Slot (immediate persistence); removed obsolete recurring times with Posting Slots Clear All, never deleting posts. Navigated away to other channels and back to EACH Settings page, inspected all 42 weekly slots and Manila timezone. All 126 slots match canonical config.
+
+| Channel | Daily times, Monday–Sunday, Asia/Manila | Saved/reopened proof time |
+|---|---|---|
+| Facebook AstraLabs PH | 09:30, 10:40, 14:10, 15:40, 19:10, 20:40 | 21:04:50 PHT |
+| TikTok astralabsph | 09:45, 10:55, 14:25, 15:55, 19:25, 20:55 | 21:05:18 PHT |
+| Pinterest astralabsph | 10:00, 11:10, 14:40, 16:10, 19:40, 21:10 | 21:05:49 PHT |
+
+Proof: [exact day-by-day UI values](proof/buffer-saved-schedule-proof-20260922.json), [post-change queue text](proof/buffer-queue-after-20260922.json).
+Screenshots: [Facebook](proof/buffer-facebook-saved-20260922.jpg), [TikTok](proof/buffer-tiktok-saved-20260922.jpg), [Pinterest](proof/buffer-pinterest-saved-20260922.jpg). Screenshot notification overlay partially covers Sunday on two captures; the complete UI text proves every day.
+
+## Reconciled inventory before and after
+| Channel | Queue before → after | Drafts before → after | Sent before → after | Sending |
+|---|---|---|---|---|
+| Facebook | 8 → 8 | 0 → 0 | 12 → 12 | No Sending cards observed |
+| TikTok | 0 → 0 | 1 → 1 | 4 → 4 | No Sending cards observed |
+| Pinterest | 0 → 0 | 1 → 1 | 0 → 0 | No Sending cards observed |
+
+Manila was already selected on all channels and was preserved. Weekly posting-goal counters are unrelated and were not changed. Empty New slot placeholders are NOT posts.
+
+Before: Facebook had Sun10:11, Tue09:47, Wed08:07, Thu08:02, Fri08:27; Monday/Saturday empty. TikTok Sun09:13, Mon09:01, Tue07:01, Fri22:00, Sat17:25; Wednesday/Thursday empty. Pinterest had 4 unrelated random times/day. Replaced all with exact table above.
+
+## Facebook custom schedule review and preservation
+All eight legitimate existing posts preserved with content/media untouched. Buffer automatically moved the FIVE generic queued posts into the new recurrence. Result for Sep23:
+- 09:30 Astramate stowage-factor post — existing Custom, unchanged.
+- 10:40 Keepry camera-roll document post — generic, formerly Sep23 08:07.
+- 12:30 Keepry renewal post — existing Custom, unchanged, outside canonical times.
+- 14:10 Astramate compass post — generic, formerly Sep24 08:02.
+- 15:40 Keepry validity post — generic, formerly Sep25 08:27.
+- 18:30 Astramate mean-draft/trim post — existing Custom, unchanged, outside canonical times.
+- 19:10 Astramate cargo post — generic, formerly Sep27 10:11.
+- 20:40 Keepry Vault post — generic, formerly Sep29 09:47.
+
+Consequently Sep23 currently has FOUR existing posts/app, eight total. The recurring schedule is correct; this preserved custom-date inventory is not exactly three/app. Historical subpage/UTM links in existing posts were preserved; all NEW promotional destinations remain https://www.astralabsph.com/ . No parallel writer created; existing Facebook workflow/code untouched. Free plan showed two remaining queue spaces. Prior GitHub writer HTTP429 was not retried and its recovery is not claimed.
+
+## TikTok proof — no reposts
+Keepry Sent card is dated Sep22 **20:31 PHT**, with Buffer Go to post link:
+https://tiktok.com/@astralabsph/video/7688336051332599048
+
+Astramate V2 Sent card Sep22 11:15 PHT:
+https://tiktok.com/@astralabsph/video/7688192495859174677
+
+These are links read directly from Buffer Sent; native pages were not independently opened in this task. Owner separately confirms Keepry live. Exact Keepry Buffer internal post ID was not independently mapped. Old Astramate overdue draft (Sep22 07:01) remains untouched. No retry, recreation, release dispatch or duplicate publication. Retired release workflow stays retired.
+
+## Facebook published links obtained from Buffer Sent
+- Keepry expiry graphic, Sep22 11:32: https://www.facebook.com/122116585029321731/posts/122116654797321731
+- Astramate cargo graphic, Sep22 11:32: https://www.facebook.com/122116585029321731/posts/122116654713321731
+- Keepry video, Sep22 11:29: https://www.facebook.com/122116585029321731/posts/122116654269321731
+- Astramate video, Sep22 11:08: https://www.facebook.com/122116585029321731/posts/122116652475321731
+- Astramate ETA, Sep22 09:47: https://www.facebook.com/122116585029321731/posts/122116644675321731
+
+Provider Sent evidence, not new native-page verification.
+
+## Pinterest QA and genuine remaining content blocker
+Opened empty Pinterest composer and board selector. **AstraLabs Apps | Astramate & Keepry** is selected and available, distinct from PIREVO Finds. No board was created or changed. Composer closed empty; nothing saved or scheduled. Existing sole PIREVO Finds draft remains untouched.
+
+The canonical approved-release ledger still contains **releases: []**. No approved original 2:3 Pin exists there for actual artwork/claims/rights/root-destination QA. Therefore no first original Pin was prepared in Buffer or published, no old outdated printed-link art reused, and new Pinterest/TikTok writer holds remain. Exact board API/service ID and first native Pin proof remain unresolved; board NAME is now independently UI-verified.
+
+No purchases, account changes, post deletions, Mac-folder access or modifications. Schedule completion does not establish 18 daily published posts.
+
+---
+
+## Historical 20:48 handoff (preserved; superseded by verified completion above)
+
 # AstraLabs PH | Buffer ↔ GitHub posting-time synchronization status
 **September 22, 2026, approximately 20:48 PHT.** Existing marketing project only. Owner asks to fix actual Buffer posting times across Facebook, TikTok, Pinterest and keep same source-of-truth in GitHub. This record deliberately distinguishes what has really changed from what still needs an authenticated Buffer browser save.
 
