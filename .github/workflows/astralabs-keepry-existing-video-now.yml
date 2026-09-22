@@ -10,4 +10,5 @@ jobs:
     timeout-minutes: 2
     steps:
       - name: Prevent duplicate Keepry first-wave TikTok publication
-        run: echo 'RETIRED_EXISTING_KEEPRY_RELEASE: owner confirmed native live on Sep 22 and old Buffer queue 0; do not run old editPost/shareNow script.'
+        run: |
+          echo 'RETIRED_EXISTING_KEEPRY_RELEASE: owner confirmed native live on Sep 22 and old Buffer queue 0; do not run old editPost/shareNow script.'
