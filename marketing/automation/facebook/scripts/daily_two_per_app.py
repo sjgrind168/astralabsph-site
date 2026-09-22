@@ -182,9 +182,13 @@ def main():
                 if not options:
                     print("APPROVED_CONTENT_EXHAUSTED",app,"manual creative refill required",flush=True)
                     break
-                # Avoid the same picture used in another post for this app on the same date.
-                options.sort(key=lambda i:(any(i["creative"] in u for u in prior_creatives),i["id"]))
-                item=options[0]
+                # Three DAILY placements must use different verified artwork for the same app.
+                fresh=[i for i in options if not any(i["creative"] in u for u in prior_creatives)]
+                if not fresh:
+                    print("DAILY_CREATIVE_VARIATION_EXHAUSTED",app,day.isoformat(),"no repeated artwork forced",flush=True)
+                    break
+                fresh.sort(key=lambda i:i["id"])
+                item=fresh[0]
                 when=pick_slot(day,app,ordinal,rows,now)
                 if not when:
                     print("NO_SAFE_TIME_SLOT",app,day.isoformat(),flush=True)
