@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "updated_pht": "2026-09-22",
+  "source_of_truth": "marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json",
+  "sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
+  "site_destination": "https://www.astralabsph.com/",
+  "timezone": "Asia/Manila",
+  "target": {
+    "per_app_per_channel_per_pht_day": 3,
+    "per_channel_per_pht_day": 6,
+    "all_channels_per_pht_day": 18,
+    "original_concepts_per_pht_day": 6,
+    "cross_platform_distribution_is_not_another_original_concept": true
+  },
+  "content_format_rotation": [
+    {
+      "code": "V",
+      "source_format": "voiceover_video",
+      "facebook": "narrated short reel",
+      "tiktok": "original narrated 9:16 30fps short with authentic app proof",
+      "pinterest": "original 2:3 video Pin cover or still derived from same approved concept, correct board"
+    },
+    {
+      "code": "C",
+      "source_format": "carousel",
+      "facebook": "original three-slide carousel",
+      "tiktok": "separately produced animated 9:16 30fps educational short of this concept; not a static image repost",
+      "pinterest": "new 2:3 explanatory/idea Pin including genuine original screenshots"
+    },
+    {
+      "code": "Q",
+      "source_format": "education_question_image",
+      "facebook": "original lesson/question graphic",
+      "tiktok": "separately produced 9:16 30fps question/answer short with genuinely distinct lesson",
+      "pinterest": "new original 2:3 useful question graphic"
+    }
+  ],
+  "slots_pht": {
+    "facebook": {
+      "Astramate": [
+        "09:30",
+        "14:10",
+        "19:10"
+      ],
+      "Keepry": [
+        "10:40",
+        "15:40",
+        "20:40"
+      ]
+    },
+    "tiktok": {
+      "Astramate": [
+        "09:45",
+        "14:25",
+        "19:25"
+      ],
+      "Keepry": [
+        "10:55",
+        "15:55",
+        "20:55"
+      ]
+    },
+    "pinterest": {
+      "Astramate": [
+        "10:00",
+        "14:40",
+        "19:40"
+      ],
+      "Keepry": [
+        "11:10",
+        "16:10",
+        "21:10"
+      ]
+    }
+  },
+  "scheduler_check_pht": [
+    "08:20",
+    "12:20",
+    "16:20"
+  ],
+  "facebook": {
+    "existing_single_writer": ".github/workflows/astralabs-daily-two-per-app.yml",
+    "target_configured": 3,
+    "delivery_unverified": true,
+    "do_not_run_parallel_facebook_writer": true,
+    "existing_42_caption_bank_is_not_42_unique_visual_masters": true
+  },
+  "tiktok": {
+    "single_writer": ".github/workflows/astralabs-tiktok-video.yml",
+    "release_bank": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json",
+    "enabled_for_new_publications": false,
+    "existing_keepry_first_wave_buffer_id": "6ab1f356ffe5c8afb129534f",
+    "existing_first_wave_must_be_reconciled_before_new_posts": true
+  },
+  "pinterest": {
+    "single_writer": ".github/workflows/astralabs-pinterest-queue.yml",
+    "release_bank": "marketing/automation/shared/ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json",
+    "enabled_for_new_publications": false,
+    "exact_board": "AstraLabs Apps | Astramate & Keepry",
+    "board_api_id_and_first_native_proof_required": true,
+    "old_printed_subpage_artwork_not_approved": true
+  },
+  "rollout": "Three daily editorial windows per channel are configured in GitHub; Pinterest/TikTok new-write flags remain held until unique media masters, proof/rights and Buffer connection/natively verified post pass. Never count planned/queued as live. Missed past slots are not backfilled en masse.",
+  "approval_gates": [
+    "complete distinct final asset and proof (no fictional app UI)",
+    "correct Free vs optional one-time paid claim from released Android app",
+    "media commercial rights and synthetic scene disclosures documented",
+    "natural English voice plus original commercially cleared music and accurate subtitles on short videos",
+    "root-only promotional website CTA and meaningful UTM+app hint",
+    "no duplicate ID, media URL or same-day concept in pending/sent/error history",
+    "channel-specific format, exact account/board, Buffer queue capacity, quota",
+    "native permalink verified after publication"
+  ]
+}
