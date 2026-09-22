@@ -1,20 +1,13 @@
-name: AstraLabs Keepry TikTok Existing Video Release
+# RETIRED 2026-09-22 PHT: owner confirms Keepry first-wave video published natively and removed obsolete queue item. Preserve original script and run logs; do NOT repeat daily release or blindly recreate the already-live video.
+name: AstraLabs Keepry TikTok Existing Video Release [Retired]
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 11 * * *' # 19:30 PHT: idempotent release of the existing scheduled Keepry video after Buffer cooldown.
 permissions:
   contents: read
-concurrency:
-  group: astralabs-tiktok-video-first-proof
-  cancel-in-progress: false
 jobs:
-  release-existing-video:
+  retired-no-publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     steps:
-      - uses: actions/checkout@v4
-      - name: Move approved original Keepry video from future scheduled slot to now; no duplicate create
-        env:
-          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-        run: python3 marketing/automation/tiktok/scripts/release_existing_keepry_now.py
+      - name: Prevent duplicate Keepry first-wave TikTok publication
+        run: echo 'RETIRED_EXISTING_KEEPRY_RELEASE: owner confirmed native live on Sep 22 and old Buffer queue 0; do not run old editPost/shareNow script.'
