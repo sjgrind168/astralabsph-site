@@ -11,7 +11,7 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / "public/marketing/campaigns/seven_day/previews"
+OUT = ROOT / "marketing/automation/shared/creative_drafts/renders"
 OUT.mkdir(parents=True, exist_ok=True)
 W,H = 1000,1500
 FONTREG="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
