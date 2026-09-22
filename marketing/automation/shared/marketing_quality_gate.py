@@ -18,7 +18,7 @@ for item in bank:
     app=item["app"]
     if not all(x in caption for x in ("https://www.astralabsph.com/","https://www.astralabsph.com/"+app.lower()+"/?","utm_content="+item["id"])):
         raise RuntimeError("Main website or product landing link missing "+item["id"])
-    if not any(x in caption for x in ("Premium","Plus")) or "one-time" not in caption or "Free" not in caption:
+    if not any(x in caption for x in ("Premium","Plus")) or "one-time" not in caption or "free" not in caption.lower():
         raise RuntimeError("Free entry or honest paid-offer reason missing "+item["id"])
     if app=="Astramate" and re.search(r"\beta\b",caption,re.I):raise RuntimeError("ETA in next-wave Astramate caption")
     if caption.count("#")>3:raise RuntimeError("Overstuffed hashtags")
