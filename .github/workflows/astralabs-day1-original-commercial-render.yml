@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/astralabs-day1-original-commercial-render.yml'
+      - 'marketing/automation/shared/render_day1_commercial_kokoro.py'
 permissions:
   contents: write
 concurrency:
