@@ -9,7 +9,7 @@ from pathlib import Path
 
 API = "https://api.buffer.com"
 BANK = Path(__file__).with_name("buffer_tiktok_content.json")
-PUBLIC_PREFIX = "https://www.astralabsph.com/marketing/videos/"
+PUBLIC_PREFIX = "https://www.astralabsph.com/marketing/videos/v2/"
 QUEUE_LIMIT = 1  # One controlled proof before expanding. Never re-use sent posts.
 
 def q(value):
