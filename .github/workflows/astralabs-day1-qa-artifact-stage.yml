@@ -1,0 +1,56 @@
+name: AstraLabs Day1 Stage Corrected Captions from Tested Artifact
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-day1-qa-artifact-stage.yml'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: astralabs-day1-corrected-only-publish-media
+  cancel-in-progress: false
+jobs:
+  stage-media-no-buffer-action:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover successful six-video render from previous QA job, never regenerate voice
+        uses: actions/download-artifact@v4
+        with:
+          name: AstraLabs_Day1_Kokoro_6MP4_12Stills_QA_ONLY
+          run-id: 35765793325
+          github-token: ${{ github.token }}
+          path: /tmp/astra-day1-corrected
+      - name: Verify fixed-caption six MP4 exact evidence and stage ONLY original six video paths
+        run: |
+          set -euo pipefail
+          source_file=$(find /tmp/astra-day1-corrected -name 'S26D1AV.mp4' -type f -print -quit)
+          test -n "$source_file"
+          src=$(dirname "$source_file")
+          printf '%s\n' \
+          'a8077fd20cd0a98ed0b21f8a14b523b34320a3f11f654659bcb259ede9af1eb4  S26D1AV.mp4' \
+          '11b42f9c735f21a3dfb748efd2cfbb0f6e4fdba7b781499545ba698d4d07dce9  S26D1AC.mp4' \
+          'e4586a9c5829b7df46a4dfe9ee0a5352f60f65c018564b68a1f6d5417d03cf06  S26D1AQ.mp4' \
+          '32601b923cd21badedec29d31fc31695f8ec49ebbfe428aa72a4b7be02614bbc  S26D1KV.mp4' \
+          'a5552d7b57aac778e6c70e5903d7b435daaa382d0af4c7164e02c9992868298e  S26D1KC.mp4' \
+          'baf3428a257fec26b869d373471e0837042638f85fd6a9be93c2c1fa42a2d74b  S26D1KQ.mp4' >/tmp/day1_sha256.txt
+          (cd "$src" && sha256sum -c /tmp/day1_sha256.txt)
+          git fetch origin main
+          git reset --hard origin/main
+          dest=public/marketing/campaigns/seven_day/day1
+          mkdir -p "$dest"
+          for id in S26D1AV S26D1AC S26D1AQ S26D1KV S26D1KC S26D1KQ; do
+            cp "$src/$id.mp4" "$dest/$id.mp4"
+            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,r_frame_rate -of csv=p=0 "$dest/$id.mp4" | grep -Fx 'h264,720,1280,30/1'
+            ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$dest/$id.mp4" | grep -Fx 'aac'
+          done
+          git config user.name 'AstraLabs Marketing Caption QA Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add "$dest"/*.mp4
+          if git diff --cached --quiet; then echo 'CORRECTED_VIDEO_ASSETS_ALREADY_MATCH'; exit 0; fi
+          git commit -m 'Marketing QA: corrected native bottom-band subtitles, true app screens unobscured, Kokoro audio six Day1 MP4'
+          git push origin HEAD:main
+          echo 'DAY1_SIX_CORRECTED_MP4_HOSTED_NO_BUFFER_OR_SOCIAL_POST'
