@@ -1,0 +1,65 @@
+name: AstraLabs Original Pinterest Q Pins Preview No Publish
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-first-original-pin-preview.yml'
+      - 'marketing/automation/shared/render_first_pinterest_pilots.py'
+permissions:
+  contents: write
+concurrency:
+  group: astralabs-original-pin-previews-only
+  cancel-in-progress: false
+jobs:
+  render-original-drafts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install free Pillow renderer
+        run: python3 -m pip install --user pillow
+      - name: Render and validate ONLY two original unpublished Pinterest proof drafts
+        run: |
+          set -euo pipefail
+          python3 marketing/automation/shared/render_first_pinterest_pilots.py
+          python3 - <<'PY'
+          import json, pathlib
+          from PIL import Image
+          root=pathlib.Path('.')
+          m=json.loads((root/'marketing/automation/shared/creative_drafts/pinterest_first_question_pilot_preview_manifest.json').read_text())
+          assert m['policy']=='PREVIEW_ONLY_NOT_APPROVED_NO_SOCIAL_WRITE'
+          assert {x['creative_id'] for x in m['assets']}=={'S26D1AQ','S26D1KQ'}
+          for asset in m['assets']:
+              p=root/asset['path']
+              with Image.open(p) as img:
+                  assert img.format=='PNG' and img.size==(1000,1500) and img.mode=='RGB'
+                  assert p.stat().st_size>15000
+              assert not str(p).startswith('public/')
+              print('UNPUBLISHED_PIN_QA_PASS',asset['creative_id'],p,flush=True)
+          print('NO_BUFFER_API_NO_SOCIAL_POST_NO_PUBLIC_SITE_ASSETS')
+          PY
+      - name: Preserve visual previews as GitHub Actions downloadable proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstraLabs_First_Original_Pinterest_Pins_Preview_NOT_APPROVED
+          path: |
+            marketing/automation/shared/creative_drafts/renders/*.png
+            marketing/automation/shared/creative_drafts/pinterest_first_question_pilot_preview_manifest.json
+          retention-days: 30
+      - name: Commit ONLY original internal creative drafts, no site or social publishing
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs Creative Draft Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/automation/shared/creative_drafts/renders/S26D1AQ_pinterest_original_PREVIEW.png
+          git add marketing/automation/shared/creative_drafts/renders/S26D1KQ_pinterest_original_PREVIEW.png
+          git add marketing/automation/shared/creative_drafts/pinterest_first_question_pilot_preview_manifest.json
+          if git diff --cached --quiet; then
+            echo 'PREVIEW_DRAFTS_UNCHANGED_NO_NEW_SOCIAL_POST'
+            exit 0
+          fi
+          git commit -m 'Marketing: stage original 2:3 question Pin proofs for human QA, no publication'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'PIN_PREVIEWS_STAGED_UNDER_CREATIVE_DRAFTS_NO_SITE_OR_BUFFER_PUBLICATION'
