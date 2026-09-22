@@ -37,6 +37,53 @@ class ScheduleContracts(unittest.TestCase):
             slot=fb.pick_slot(datetime(2026,9,24,tzinfo=PHT).date(),app,0,[],nextday)
             self.assertEqual(slot.strftime("%H:%M"),source.load(source.CONFIG)["slots_pht"]["facebook"][app][0])
 
+    def test_authenticated_buffer_ui_proof_matches_all_126_canonical_slots(self):
+        import json
+        import re
+        proof_path=ROOT/"marketing/automation/shared/proof/buffer-saved-schedule-proof-20260922.json"
+        proof=json.loads(proof_path.read_text(encoding="utf-8"))
+        cfg=source.load(source.CONFIG)
+        days=("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+        self.assertTrue(cfg["provider_sync"]["buffer_posting_times_verified"])
+        for channel in ("facebook","tiktok","pinterest"):
+            item=proof[channel]
+            self.assertEqual(item["timezone"],"Timezone\\nManila")
+            targets=sorted(sum((cfg["slots_pht"][channel][app] for app in ("Astramate","Keepry")),[]))
+            got=set()
+            for line in item["slots"]:
+                match=re.fullmatch(r"Remove (Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday) (\\d{2}:\\d{2}) (AM|PM)",line)
+                self.assertIsNotNone(match,line)
+                day,hour,period=match.groups()
+                hh,mm=map(int,hour.split(":"))
+                slot="%02d:%02d"%(((hh%12)+(12 if period=="PM" else 0)),mm)
+                got.add((day,slot))
+            self.assertEqual(len(item["slots"]),42)
+            self.assertEqual(got,{(day,t) for day in days for t in targets},
+                             "saved Buffer slots diverge from canonical for "+channel)
+
+    def test_sep23_fb_queue_8_posts_four_each_no_new_post_allowed_that_day(self):
+        import json
+        fb=load_fb()
+        observed=json.loads((ROOT/"marketing/automation/shared/proof/buffer-queue-after-20260922.json").read_text(encoding="utf-8"))["facebook"]
+        self.assertIn("Queue\\n8\\nposts",observed)
+        self.assertIn("2 Posts left to schedule on the Free plan",observed)
+        expected=(("9:30 AM","Cargo stowage factor"),
+                  ("10:40 AM","An important document is in your camera roll"),
+                  ("12:30 PM","Document saved. Renewal date forgotten?"),
+                  ("2:10 PM","Before you use a compass reading"),
+                  ("3:40 PM","Passports, licences, insurance"),
+                  ("6:30 PM","Draft at forward and aft marks"),
+                  ("7:10 PM","Working with cargo volume and weight"),
+                  ("8:40 PM","A document you need shouldn't disappear"))
+        for time,headline in expected:
+            self.assertIn(time,observed)
+            self.assertIn(headline,observed)
+        self.assertEqual(len(expected),8)
+        self.assertEqual(len([x for x in expected if x[0] in ("12:30 PM","6:30 PM")]),2)
+        # The writer considers four existing items per app above 3, so its
+        # day-cap must prevent any additional September 23 creates.
+        self.assertEqual(fb.DAILY_TARGET,3)
+
     def test_old_keepry_release_can_never_run_on_cron_or_write(self):
         retired=(ROOT/".github/workflows/astralabs-keepry-existing-video-now.yml").read_text(encoding="utf-8")
         self.assertNotIn("  schedule:",retired)
