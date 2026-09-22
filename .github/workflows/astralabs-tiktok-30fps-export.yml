@@ -16,6 +16,10 @@ jobs:
     timeout-minutes: 14
     steps:
       - uses: actions/checkout@v4
+      - name: Install ffmpeg for video export
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
       - name: Re-export approved V2 narrated videos to constant 30 fps without touching masters
         run: |
           set -euo pipefail
