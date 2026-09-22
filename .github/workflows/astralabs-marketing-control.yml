@@ -1,0 +1,32 @@
+name: AstraLabs Marketing Control Center
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-marketing-control.yml'
+      - 'marketing/automation/control/**'
+      - 'marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json'
+  schedule:
+    - cron: '0 23 * * *' # 07:00 Philippine time
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-marketing-control-read-only
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate existing 42-creative plan and build a single read-only channel report
+        run: |
+          python3 -m py_compile marketing/automation/control/build_status.py marketing/automation/shared/validate_7day_manifest.py
+          python3 marketing/automation/shared/validate_7day_manifest.py
+          python3 marketing/automation/control/build_status.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astralabs-marketing-control-status
+          path: marketing/automation/control/out/
+          retention-days: 7
