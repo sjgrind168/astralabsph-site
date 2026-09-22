@@ -1,27 +1,24 @@
-# AstraLabs PH / Marketing Automation
+# AstraLabs PH Marketing Automation · CURRENT
+Last reconciled: September 22, 2026 (Philippine time)
 
-**Campaign:** Astramate 2.0 and Keepry Android launch, worldwide English. PIREVO is separate.
+**Read the authoritative marketing strategy, claim/creative rules, channel rollout, platform source research, and publishing SOP first: [GLOBAL GROWTH SOP](shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md).** Older instructions saying the media files were not uploaded, TikTok was never posted, or the active Facebook workflows live under `marketing/buffer_*.py` are superseded.
 
-## The single publishing folder
+## Live architecture and preserved sources
+- Brand owner/public site: `https://www.astralabsph.com/` ; product destinations `/astramate/` and `/keepry/`. The old Vercel Astra Mate site is not a campaign destination. The site may be hosted on Vercel behind the owned Porkbun domain; the owner-facing URL is the owned domain.
+- Preserve the existing owner's `AstraLabs_Marketing_Automation` local and ChatGPT Library folder and all original approved app screenshots/source masters. Public creative mirrors live under `public/marketing/`, while GitHub Actions uses only public verified HTTPS media; never commit private app or user data.
+- Facebook writer: `.github/workflows/astralabs-daily-two-per-app.yml` with `marketing/automation/facebook/scripts/daily_two_per_app.py` and finite 28-item pain/benefit bank `daily_two_per_app_content.json`. Target 2 unique FB posts per app per PHT day as queue capacity, actual approved creative supply and already-scheduled posts permit. Root homepage + correct product route + optional verified paid reason are mandatory. Existing previously queued generic captions may remain; the low-frequency script `upgrade_queued_legacy_copy.py` amends only unchanged text-only scheduled posts one per invocation and preserves their dueAt. It stops editing after Sep 30; disable its temporary scheduled workflow after cleanup.
+- Old generic FB workflow `astralabs-facebook-queue.yml` is READ ONLY / no schedule; do not reactivate in parallel. Never manually increase writers without queue reconciliation.
+- TikTok: `.github/workflows/astralabs-tiktok-video.yml` and `tiktok/scripts/buffer_tiktok.py`. Initial Astramate 30fps narrated V2 video was verified live; initial Keepry 30fps narrated V2 was verified scheduled for Sep 25 22:00 PHT at last check. First-wave bank is immutable; the next wave must be a genuinely new, cargo-focused Astramate storyboard (not ETA). Do not fake the app screen or post a new TikTok video unless public file, native format, channel state, actual caption, AI disclosure and duplicate history are checked.
+- Pinterest: `.github/workflows/astralabs-pinterest-queue.yml`, script `pinterest/scripts/buffer_pinterest.py`, no-ETA 9-Pin bank. Exact dedicated `AstraLabs Apps | Astramate & Keepry` board must appear in Buffer's connected Pinterest channel before ANY write. Never post app content to PIREVO Finds. Last public API board check was not ready; a later burst of Buffer API requests returned HTTP 429, so no claims of new Pinterest publication.
+- YouTube Shorts: separate native YouTube Studio manual/scheduled publishing until approved uploader and permissions are established; Buffer Free's three channel slots are in use.
 
-- `marketing/automation/facebook/scripts/` stores the Facebook queue program and approved text bank. Visual assets are mirrored publicly under `public/marketing/campaigns/facebook/` after a one-time owner-approved upload.
-- `marketing/automation/pinterest/scripts/` stores the Pinterest queue program and approved Pin bank. Public creative assets: `public/marketing/pins/` (legacy) and `public/marketing/campaigns/pinterest/` (new campaign).
-- `marketing/automation/tiktok/scripts/` stores TikTok queue program and approved MP4 references. Public MP4 assets: `public/marketing/videos/` **not uploaded yet**.
-- Owner's original media library (including the current two MP4s, 16 campaign PNGs, captions and Mac upload helper): `/AstraLabs PH/Marketing Automation/AstraLabs_Marketing_Automation_Folder_20260922.zip` in ChatGPT Library. It has `facebook/`, `pinterest/`, `tiktok/`, `youtube/`, `shared/` and `website_upload/` subfolders.
-- The chat Library is PRIVATE. Buffer cannot read those links; it must use tested public `https://www.astralabsph.com/marketing/...` assets before any unattended media publishing.
+## Operator runbook
+1. Inspect live and upcoming campaigns before changing them. Read `marketing/automation/shared/current_campaign_audit.py`, `first_live_status.py` and today's workflow logs. Verify actual live URLs after publishing; "queued" is not "sent".
+2. Read the global SOP to create a specific persona, buyer problem, actual supported app solution, authentic proof, clear paid upgrade reason, official homepage and tracked product URL, platform-rights/license disclosure.
+3. Preview real final video with sound, original app screenshots, 30fps export for TikTok as the validated production preset; confirm safe sample inputs and truthful calculations.
+4. Run the **read-only** `.github/workflows/astralabs-marketing-quality.yml` quality gate and check Buffer status/rate limits. Do not fire every workflow after each caption change. The gate checks 28 FB copy + 9 Pinterest Pins + 2 first-wave TikTok media + actual public product landing pages and Play attribution.
+5. Queue or publish only one approved unique campaign per app/time window in a single designated writer, with schedule and daily caps; preserve PIREVO and unrelated projects.
+6. After publish verify the native platform permalink, video frame rate/audio, actual text/link and buyer-action data. If Buffer responds with HTTP 429 or a mutation is ambiguous, stop and reconcile later; never blind retry or post duplicates.
+7. Review Meta Business Suite, Search Console, Play Console acquisition by country/search term/UTM/installer/purchase where enabled. Change **one** hook, visual, offer or store asset at a time and compare actual purchases and qualified installs, not views alone.
 
-## Existing workflow safety
-
-The existing Facebook, Pinterest and TikTok workflows are live in `.github/workflows/`. Their main programs are still the old `marketing/buffer_*.py` files; the copies here are **staged** until the workflows are deliberately switched over in a controlled, tested change. Do not run both old and new queues at once.
-
-Facebook has a 10-item preapproved **text** bank and refills up to 5; Pinterest is capped at 1 while the new dedicated board and first image publishing proof are reconciled. TikTok uses read-only preflight: the API verifies @astralabsph and reports MEDIA_NOT_HOSTED for the missing direct MP4 URL. NO TikTok post has been scheduled by the GitHub automation yet.
-
-## Steps to finish full auto-publishing
-
-1. Unzip the owner's media pack on the Mac, inspect source app screenshots for sensitive details, and run `publish_approved_media_to_github.command` only after the owner confirms the intended promotional assets may be public. This action commits only two MP4 ads and 16 campaign PNGs to the existing website repository; no Library or original app source is modified.
-2. Verify public HTTPS MP4 and PNG responses, real content types and full video playback after Vercel deploy.
-3. Verify TikTok MP4 API metadata against current Buffer docs and do exactly ONE scheduled TikTok post, then verify the live @astralabsph profile and caption. Only then increase the queue limit and enable writes.
-4. Reconcile current Facebook/Pinterest scheduled+sent queues before replacing old text/typography creatives with the new 4:5/2:3 image posts. Require exact campaign markers and no double-posting.
-5. YouTube stays separate: the free Buffer account has three channels. Use YouTube Studio scheduling initially; API publishing needs owner Google authorization and public upload eligibility verification.
-
-No tokens, passwords, or personal paperwork should be committed into this public repository.
+No new spend, synthetic user accounts, false testimonials, paid ads, account-rotation tricks, unlicensed music or old-download URLs without owner approval.
