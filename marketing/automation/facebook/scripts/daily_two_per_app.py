@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Finite, duplicate-safe AstraLabs FB editorial refiller. 2 distinct posts per app/day PHT."""
+"""Finite, duplicate-safe AstraLabs FB editorial refiller. Up to 3 distinct posts per app/day PHT."""
 import importlib.util
 import json
 import os
@@ -16,9 +16,11 @@ BANK=ROOT/"daily_two_per_app_content.json"
 PHT=ZoneInfo("Asia/Manila")
 MEDIA="https://www.astralabsph.com/marketing/campaigns/facebook/"
 HOME="https://www.astralabsph.com/"
-SLOTS={"Astramate":(clock(9,30),clock(18,30)),
-       "Keepry":(clock(12,30),clock(20,30))}
+SLOTS={"Astramate":(clock(9,30),clock(14,10),clock(19,10)),
+       "Keepry":(clock(10,40),clock(15,40),clock(20,40))}
 MAX_QUEUE=10
+DAILY_TARGET=3
+MAX_NEW_PER_RUN=2  # Limit Buffer API writes; next refill continues safely.
 DENY=("colregs","imdg","imsbc","tidal","tide calculator","cloud sync")
 def full_history(org):
     q=('query { posts(first:100,input:{organizationId:'+fb.quoted(org)+
@@ -45,10 +47,10 @@ def in_scope(p,app):
     return app.lower() in text and ("keepry" not in text if app=="Astramate" else "astramate" not in text)
 def candidates():
     b=json.loads(BANK.read_text(encoding="utf-8"))
-    if b.get("base_url")!=HOME or len(b.get("posts") or [])!=28:
+    if b.get("base_url")!=HOME or len(b.get("posts") or [])!=42:
         raise RuntimeError("Unexpected or changed 28-post approved editorial bank")
     entries=b["posts"]
-    if len({i["id"] for i in entries})!=28:raise RuntimeError("Duplicate ID in editorial bank")
+    if len({i["id"] for i in entries})!=42:raise RuntimeError("Duplicate ID in editorial bank")
     for i in entries:
         if (i.get("app") not in SLOTS or i.get("creative") not in (("A02","A03","A04") if i["app"]=="Astramate" else ("K02","K03","K04"))
             or not i["id"].startswith("daily_"+("a" if i["app"]=="Astramate" else "k")+"_")
@@ -65,12 +67,10 @@ def public_png(url):
     except Exception:
         return False
 def pick_slot(day,app,ordinal,rows,now):
-    first=SLOTS[app][ordinal]
-    start=datetime.combine(day,first,tzinfo=PHT)
-    for hour in range(0,5):
-        proposed=start+timedelta(minutes=55*hour)
-        if proposed.date()!=day or proposed.hour>=23:break
-        if proposed<now+timedelta(minutes=35):continue
+    # Choose real remaining editorial slots, never compress missed morning posts into evening.
+    for planned in SLOTS[app]:
+        proposed=datetime.combine(day,planned,tzinfo=PHT)
+        if proposed<now+timedelta(minutes=25):continue
         if any((due:=utcdate(p.get("dueAt"))) and p.get("status") in ("scheduled","sending")
                and abs((due-proposed).total_seconds())<45*60 for p in rows):
             continue
@@ -109,7 +109,7 @@ def queue_one(item,when,org):
     if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
         print("BUFFER_FREE_QUEUE_FULL",sum(r.get("status")=="scheduled" for r in rows),flush=True);return False
     day=when.date()
-    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=2:
+    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
         print("APP_DAY_ALREADY_FULL",item["app"],day.isoformat(),flush=True);return False
     media,caption=build_post(item)
     if not public_png(media):raise RuntimeError("Approved image not available: "+media)
@@ -120,7 +120,7 @@ def queue_one(item,when,org):
         print("RACE_DEDUPED",item["id"],flush=True);return False
     if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
         print("QUEUE_FILLED_CONCURRENTLY",flush=True);return False
-    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=2:
+    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
         print("APP_DAY_FILLED_CONCURRENTLY",item["app"],flush=True);return False
     utc=when.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00","Z")
     graph=("mutation { createPost(input:{text:"+fb.quoted(caption)+
@@ -145,13 +145,16 @@ def main():
     bank=candidates()
     now=datetime.now(PHT)
     created=0
-    # Keep at most one future day prefilled; next daily run refills after prior posts leave free slots.
+    # Preserve existing sent/scheduled posts. Refill today, then at most one future day.
     for offset in (0,1):
         day=(now+timedelta(days=offset)).date()
         for app in ("Astramate","Keepry"):
-            for ordinal in (0,1):
+            for ordinal in range(DAILY_TARGET):
+                if created>=MAX_NEW_PER_RUN:
+                    print("SAFE_BATCH_LIMIT: future scheduled refill continues",flush=True)
+                    return
                 rows=full_history(org)
-                if sum(on_day(r,day) and in_scope(r,app) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=2:
+                if sum(on_day(r,day) and in_scope(r,app) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
                     print("DAILY_TARGET_ALREADY_MET",app,day.isoformat(),flush=True)
                     break
                 if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
