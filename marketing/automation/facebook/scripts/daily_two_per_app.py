@@ -154,6 +154,13 @@ def main():
     # Preserve existing sent/scheduled posts. Refill today, then at most one future day.
     for offset in (0,1):
         day=(now+timedelta(days=offset)).date()
+        # Work verified Sep 23 Buffer Queue8: FOUR preserved posts/app, including
+        # legitimate Custom dueAt exceptions. Skip this specific fully booked day
+        # irrespective of heuristic app classification or a transient Buffer read.
+        # This is a one-day overfill guard, NOT a recurring publishing hold.
+        if day.isoformat()=="2026-09-23":
+            print("PRESERVE_EXISTING_SEP23_EIGHT_POSTS: four/app; zero new writes for this day",flush=True)
+            continue
         for app in ("Astramate","Keepry"):
             for ordinal in range(DAILY_TARGET):
                 if created>=MAX_NEW_PER_RUN:
