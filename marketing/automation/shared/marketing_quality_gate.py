@@ -12,7 +12,7 @@ dailyfile=ROOT/"facebook"/"scripts"/"daily_two_per_app.py"
 spec=importlib.util.spec_from_file_location("marketing_daily_quality",dailyfile)
 daily=importlib.util.module_from_spec(spec);spec.loader.exec_module(daily)
 bank=daily.candidates()
-if len(bank)!=28 or len({p["id"] for p in bank})!=28:raise RuntimeError("Editorial bank not exactly 28 distinct posts")
+if len(bank)!=42 or len({p["id"] for p in bank})!=42:raise RuntimeError("Editorial bank not exactly 42 distinct posts")
 for item in bank:
     image,caption=daily.build_post(item)
     app=item["app"]
