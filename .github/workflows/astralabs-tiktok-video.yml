@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
-      ASTRALABS_TIKTOK_THREE_DAILY_PUBLISH_ENABLED: 'false' # HOLD: Existing first-wave Keepry release and new 6/day approved MP4 originals. No Buffer API called until approved releases and explicit activation.
+      ASTRALABS_TIKTOK_THREE_DAILY_PUBLISH_ENABLED: 'true' # HOLD: Existing first-wave Keepry release and new 6/day approved MP4 originals. No Buffer API called until approved releases and explicit activation.
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect six original PHT-day tiktok slots without posting unapproved media
+      - name: Schedule owner-approved 3-day TikTok originals through existing Buffer writer
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/shared/three_channel_daily.py --channel tiktok
