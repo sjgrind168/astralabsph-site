@@ -55,7 +55,7 @@ def main():
         if name=="facebook":
             publication=("THREE_PER_APP_DAILY_WRITER_CONFIGURED_BUT_BUFFER_RATE_LIMITED" if s["conclusion"]=="failure" else "THREE_PER_APP_DAILY_WRITER_CONFIGURED; NATIVE_POST_COUNTS_UNVERIFIED")
         elif name=="pinterest":
-            publication="WRITE_HELD_PENDING_ROOT_ONLY_ARTWORK_AND_BOARD_API"
+            publication="WRITE_HELD_PENDING_APPROVED_ORIGINAL_ARTWORK_AND_FIRST_NATIVE_PIN; APPS_BOARD_API_ID_VERIFIED"
         else:
             publication="FIRST_WAVE_ONLY_AUTO_NEW_VIDEO_WRITES_HELD"
         statuses[name]={
