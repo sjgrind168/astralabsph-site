@@ -23,7 +23,7 @@ jobs:
           import time, urllib.request, urllib.error, xml.etree.ElementTree as ET
           host='https://www.astralabsph.com'
           requirements=[
-            ('/', b'Astramate Maritime Calculators and Keepry Document Organizer'),
+            ('/', b'<h1>AstraLabs PH | Independent Software Studio</h1>'),
             ('/astramate/', b'<h1>Astramate: Maritime Calculators'),
             ('/keepry/', b'<h1>Keepry: Private Document Vault'),
             ('/sitemap.xml', b'2026-09-22'),
@@ -40,6 +40,10 @@ jobs:
                   mime=res.headers.get('Content-Type','')
                   xrobots=res.headers.get('X-Robots-Tag','')
                 ok=status==200 and expected in body and 'noindex' not in xrobots.lower()
+                if path=='/' and ok:
+                  ok=(b'<meta property="og:title" content="AstraLabs PH"' in body
+                      and b'<title>AstraLabs PH | Independent Software Studio</title>' in body
+                      and b'<meta property="og:site_name" content="AstraLabs PH"' in body)
                 if path=='/sitemap.xml' and ok:
                   root=ET.fromstring(body)
                   locs=[e.text for e in root.iter() if e.tag.endswith('loc')]
