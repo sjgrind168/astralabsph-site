@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""No-network readiness tests: never publish or call Buffer with empty approval ledger."""
+"""No-network readiness tests for approved 3-day TikTok/Pinterest inventory and fail-closed Buffer behavior."""
 import contextlib
 import io
 import os
@@ -35,18 +35,26 @@ class CampaignTests(unittest.TestCase):
         ):
             self.assertFalse(campaign.valid_root_link(bad, "S26D1AV", "Astramate", "tiktok"))
 
-    def test_all_channels_explicit_release_hold(self):
+    def test_owner_approved_three_day_release_inventory(self):
         self.assertEqual(self.cfg["target"]["all_channels_per_pht_day"], 18)
         self.assertEqual(self.cfg["target"]["per_app_per_channel_per_pht_day"], 3)
-        self.assertEqual(campaign.validate_releases("tiktok", self.cfg, self.rows), [])
-        self.assertEqual(campaign.validate_releases("pinterest", self.cfg, self.rows), [])
+        tt = campaign.validate_releases("tiktok", self.cfg, self.rows)
+        pin = campaign.validate_releases("pinterest", self.cfg, self.rows)
+        self.assertEqual(len(tt), 6)
+        self.assertEqual(len(pin), 6)
+        self.assertEqual({x["publish_date_pht"] for x in tt}, {"2026-09-25","2026-09-26","2026-09-27"})
+        self.assertEqual({x["publish_date_pht"] for x in pin}, {"2026-09-25","2026-09-26","2026-09-27"})
+        self.assertEqual(len({x["creative_id"] for x in tt}), 6)
+        self.assertEqual(len({x["creative_id"] for x in pin}), 6)
+        self.assertTrue(all(x["approved"] is True and x["reviewed_by"].startswith("Owner") for x in tt + pin))
 
     def test_empty_inventory_never_calls_buffer_even_with_write_flag_on(self):
         for channel in campaign.CHANNELS:
             with mock.patch.dict(os.environ, {
                 "ASTRALABS_" + channel.upper() + "_THREE_DAILY_PUBLISH_ENABLED": "true",
                 "ASTRALABS_BUFFER_API_KEY": "not-a-real-key",
-            }), mock.patch.object(campaign, "module", side_effect=AssertionError("NO BUFFER ALLOWED")):
+            }), mock.patch.object(campaign, "validate_releases", return_value=[]), \
+                 mock.patch.object(campaign, "module", side_effect=AssertionError("NO BUFFER ALLOWED")):
                 buf = io.StringIO()
                 with contextlib.redirect_stdout(buf):
                     campaign.run(channel)
