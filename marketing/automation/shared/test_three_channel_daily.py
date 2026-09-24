@@ -52,6 +52,14 @@ class CampaignTests(unittest.TestCase):
                     campaign.run(channel)
                 self.assertIn("HELD_NO_APPROVED_ORIGINAL_MEDIA", buf.getvalue())
 
+    def test_expired_editorial_day_needs_explicit_approved_restage_date(self):
+        original = next(r for r in self.rows if r["id"] == "S26D1AV")
+        now = datetime(2026, 9, 24, 8, 0, tzinfo=ZoneInfo("Asia/Manila"))
+        self.assertIsNone(campaign.scheduled_window(self.cfg, "tiktok", original, now))
+        approved = {"publish_date_pht": "2026-09-25"}
+        due = campaign.scheduled_window(self.cfg, "tiktok", original, now, approved)
+        self.assertEqual(due.strftime("%Y-%m-%d %H:%M"), "2026-09-25 09:45")
+
     def test_exact_slot_and_no_missed_slots(self):
         now = datetime(2026, 9, 23, 8, 0, tzinfo=ZoneInfo("Asia/Manila"))
         astramate = next(r for r in self.rows if r["id"] == "S26D1AV")
