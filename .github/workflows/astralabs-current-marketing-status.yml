@@ -16,5 +16,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify actual live and scheduled Keepry and Astramate posts without writing
         env:
+          PYTHONUNBUFFERED: '1' # Read-only one-shot Buffer reconciliation; no posts created.
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/shared/current_campaign_audit.py
