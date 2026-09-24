@@ -11,6 +11,7 @@ on:
     - cron: '0 23 * * *' # 07:00 Philippine time
 permissions:
   contents: read
+  actions: read # Scoped token for read-only workflow-health queries; avoids public API rate limit.
 concurrency:
   group: astralabs-marketing-control-read-only
   cancel-in-progress: false
@@ -21,6 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate 42-creative plan and connect all three existing workflow-health feeds
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 -m py_compile marketing/automation/control/build_status.py marketing/automation/control/channel_health.py marketing/automation/shared/validate_7day_manifest.py
           python3 marketing/automation/shared/validate_7day_manifest.py
