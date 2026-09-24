@@ -1,4 +1,5 @@
 name: AstraLabs Current Marketing Status Read Only
+# Sep24 one-shot independent verification of newly scheduled hourly Apps-board Pin.
 on:
   workflow_dispatch:
   push:
