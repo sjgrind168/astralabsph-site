@@ -1,0 +1,52 @@
+name: AstraLabs PH business privacy live QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'public/privacy-policy/**'
+      - 'public/sitemap.xml'
+      - '.github/workflows/astralabs-business-privacy-live-qa.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify company policy scope and links in repository
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          policy=Path('public/privacy-policy/index.html').read_text()
+          sitemap=Path('public/sitemap.xml').read_text()
+          home=Path('src/App.jsx').read_text()
+          required=('AstraLabs PH Privacy Policy','ASTRALABS SOFTWARE DEVELOPMENT SERVICES','LinkedIn business presence and optional API authorization','contact@astralabsph.com','/astramate-privacy-policy/','/keepry-privacy-policy/')
+          for term in required: assert term in policy,term
+          assert 'href="/privacy-policy/"' in home
+          ET.fromstring(sitemap)
+          assert 'https://www.astralabsph.com/privacy-policy/' in sitemap
+          print('BUSINESS_PRIVACY_SOURCE_PASS',flush=True)
+          PY
+      - name: Verify deployed privacy policy returns actual dedicated content
+        run: |
+          python3 - <<'PY'
+          import time,urllib.request
+          url='https://www.astralabsph.com/privacy-policy/'
+          for attempt in range(15):
+            try:
+              req=urllib.request.Request(url,headers={'User-Agent':'AstraLabs-Privacy-Live-QA/1.0'})
+              with urllib.request.urlopen(req,timeout=12) as res:
+                body=res.read(180000).decode('utf-8','replace')
+                success=(res.status==200 and 'text/html' in res.headers.get('Content-Type','') and '<h1>AstraLabs PH Privacy Policy</h1>' in body and 'LinkedIn business presence and optional API authorization' in body and 'ASTRALABS SOFTWARE DEVELOPMENT SERVICES' in body and '/astramate-privacy-policy/' in body and '/keepry-privacy-policy/' in body)
+              if success:
+                print('BUSINESS_PRIVACY_LIVE_PASS',url,flush=True)
+                break
+              print('BUSINESS_PRIVACY_LIVE_PENDING',attempt+1,flush=True)
+            except Exception as e:
+              print('BUSINESS_PRIVACY_LIVE_PENDING',attempt+1,type(e).__name__,flush=True)
+            time.sleep(10)
+          else: raise RuntimeError('Dedicated business privacy page not verified live: '+url)
+          PY
