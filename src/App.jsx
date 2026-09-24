@@ -206,6 +206,7 @@ function App() {
           <span>AstraLabs Software Development Services</span>
         </div>
         <div className="footer-links">
+          <a href="/privacy-policy/">AstraLabs PH Privacy Policy</a>
           <a href="/astramate-privacy-policy/">Astramate Privacy Policy</a>
           <a href="/keepry-privacy-policy/">Keepry Privacy Policy</a>
           <a href={PIREVO_URL} target="_blank" rel="noopener noreferrer">PIREVO shopping guides ↗</a>
