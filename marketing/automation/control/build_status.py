@@ -73,10 +73,10 @@ lines += [
     "- [Historical Work return handoff](../shared/ASTRALABS_WORK_RETURN_HANDOFF_20260922.md)",
     "",
     "## Fail-closed next steps",
-    "1. Keep the existing SINGLE Facebook 3/app/day writer; it is enabled but Buffer HTTP 429 prevents claims of verified live delivery. Do not create a parallel Facebook writer.",
+    "1. Keep the existing SINGLE Facebook 3/app/day writer. Sep24 read-only Buffer audit shows 3 sent per app and 2 queued per app for Sep25 at audit time; do not infer later live posts. Do not create a parallel Facebook writer.",
     "2. Preserve the 42-item plan as six original concepts/day; distribute across three channels only with actual approved platform-specific media and per-channel dueAt/native permalink.",
-    "3. Pinterest 3/app/day check configured but WRITE HELD: approve genuinely new root-printed 2:3 media, exact Apps board serviceId, and native proof before enabling.",
-    "4. TikTok 3/app/day check configured but WRITE HELD: existing Keepry first-wave ID must be reconciled and distinct new 30fps masters approved. Other channels retain their gates; native permalink is required for LIVE.",
+    "3. Pinterest 3/app/day check configured but WRITE HELD: exact Apps board API serviceId verified Sep24; approve genuinely new root-only 2:3 media and obtain one native proof before scaling.",
+    "4. TikTok 3/app/day check configured but WRITE HELD: Keepry first-wave exact Buffer ID reconciled as sent Sep24; distinct new 30fps masters and explicit release dates need review. Native permalink is required for LIVE.",
     "5. Reconcile API limits and existing scheduled/sent/error/draft posts before every new write. Never publish from this inventory script.",
 ]
 report = "\n".join(lines) + "\n"
