@@ -96,6 +96,17 @@ def validate_releases(channel, cfg, manifest):
         if ch not in CHANNELS or cid not in indexed:
             raise RuntimeError("Unknown channel/editorial ID " + str(key))
         original = indexed[cid]
+        # Finished assets may be approved after their original editorial calendar day.
+        # Publishing requires an explicit future-or-current local date in each release.
+        publish_date = r.get("publish_date_pht")
+        if not isinstance(publish_date, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", publish_date):
+            raise RuntimeError("Approved release needs explicit publish_date_pht YYYY-MM-DD: " + str(key))
+        try:
+            publish_day = datetime.strptime(publish_date, "%Y-%m-%d").date()
+        except ValueError:
+            raise RuntimeError("Invalid approved local publish date: " + str(key)) from None
+        if publish_day < datetime.fromisoformat(original["date"]).date():
+            raise RuntimeError("Approved release cannot predate source concept: " + str(key))
         if r.get("app") != original["app"] or r.get("format") != original["format"]:
             raise RuntimeError("App/format mismatch in " + str(key))
         # Each original concept needs a unique rendered media master on each platform.
@@ -177,8 +188,9 @@ def published_on_day(row, app, day):
     return bool(when and when.date() == day and match
                 and row.get("status") in ("sent", "scheduled", "sending"))
 
-def scheduled_window(cfg, channel, original, now):
-    day = datetime.fromisoformat(original["date"]).date()
+def scheduled_window(cfg, channel, original, now, release=None):
+    # Date moves only with an individually approved release, never by catching up missed slots.
+    day = datetime.fromisoformat((release or {}).get("publish_date_pht") or original["date"]).date()
     code = {"voiceover_video": 0, "carousel": 1, "education_question_image": 2}[original["format"]]
     hhmm = cfg["slots_pht"][channel][original["app"]][code]
     hh, mm = map(int, hhmm.split(":"))
@@ -231,7 +243,7 @@ def run(channel):
         return
     now = datetime.now(PHT)
     candidates = [p for p in originals if p["id"] in approved_by_id
-                  and 0 <= (datetime.fromisoformat(p["date"]).date() - now.date()).days <= 1]
+                  and 0 <= (datetime.fromisoformat(approved_by_id[p["id"]]["publish_date_pht"]).date() - now.date()).days <= 1]
     if not candidates:
         print("NO_APPROVED_CURRENT_OR_NEXT_DAY_CANDIDATES: no Buffer API called", flush=True)
         return
@@ -259,12 +271,13 @@ def run(channel):
         return
     created = 0
     # Current PHT day first. No catch-up compression, no irrelevant expired slots.
-    candidates.sort(key=lambda p: (p["date"], scheduled_window(cfg, channel, p, now)
+    candidates.sort(key=lambda p: (approved_by_id[p["id"]]["publish_date_pht"],
+                                   scheduled_window(cfg, channel, p, now, approved_by_id[p["id"]])
                                    or datetime.max.replace(tzinfo=PHT)))
     for p in candidates:
         if created >= MAX_NEW_PER_RUN or queued >= MAX_QUEUE:
             break
-        due = scheduled_window(cfg, channel, p, now)
+        due = scheduled_window(cfg, channel, p, now, approved_by_id[p["id"]])
         if not due:
             continue
         item = approved_by_id[p["id"]]
