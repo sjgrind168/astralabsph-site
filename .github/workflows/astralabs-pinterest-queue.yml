@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
-      ASTRALABS_ONE_TIME_HOURLY_PIN_ENABLED: 'true' # Owner-authorized finite six original Pins; fail-closed; expires Sep25 05:10 PHT.
-      ASTRALABS_PINTEREST_THREE_DAILY_PUBLISH_ENABLED: 'false' # HOLD: Approved root-only 2:3 Pins, exact Apps board and first native proof. No Buffer API called until approved releases and explicit activation.
+      ASTRALABS_ONE_TIME_HOURLY_PIN_ENABLED: 'false' # Owner-authorized finite six original Pins; fail-closed; expires Sep25 05:10 PHT.
+      ASTRALABS_PINTEREST_THREE_DAILY_PUBLISH_ENABLED: 'true' # HOLD: Approved root-only 2:3 Pins, exact Apps board and first native proof. No Buffer API called until approved releases and explicit activation.
     steps:
       - uses: actions/checkout@v4
       - name: Validate six unique hourly Pinterest posts and root-site captions
@@ -35,7 +35,7 @@ jobs:
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/pinterest/scripts/hourly_six_pins.py
-      - name: Inspect six original PHT-day pinterest slots without posting unapproved media
+      - name: Schedule owner-approved 3-day Pinterest originals on exact Apps board
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/shared/three_channel_daily.py --channel pinterest
