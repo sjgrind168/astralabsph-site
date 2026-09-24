@@ -22,3 +22,9 @@ Owner confirmed Astramate + Keepry available in 175 Google Play countries and re
 - Astramate: cadets, maritime students, deck officers, active seafarers; use cargo-weight/space input checks and actual supported tool demo; no substitute for vessel-approved loading information.
 - Keepry: global users organizing documents and expiry dates; use saved image vs user-entered date/reminder flow, actual released-app UI; no fabricated OCR/cloud sync/automatic date detection.
 - No paid subscriptions or ad spend introduced.
+
+## Additional distribution-ready improvements in follow-up
+- Both verified public educational guide pages now include first-party branded `og:image` and large-image social preview metadata, Facebook / LinkedIn visitor-initiated sharing buttons, and an early optional app-specific **free-install path**. No invented phone UI, native review, rating, or purchase claim is introduced.
+- Existing global discovery QA now checks share-control URLs and Open Graph image metadata as well as compiled files and independently live pages.
+- Verified latest global QA run SUCCESS: https://github.com/sjgrind168/astralabsph-site/actions/runs/36027725750
+- Critical distinction: **share-ready is not the same as externally distributed**. No direct Facebook/LinkedIn account publication, group posting or newly scheduled Buffer post for these guides occurred in this follow-up. Existing Facebook/Pinterest/TikTok three-day campaign preserved.
