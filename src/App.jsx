@@ -152,6 +152,25 @@ function App() {
           </div>
         </section>
 
+        <section className="global-guides" aria-label="Free educational guides for international audiences">
+          <p className="guides-kicker">FREE PRACTICAL GUIDES · WORLDWIDE</p>
+          <h2>Start with a useful question. Discover a practical tool.</h2>
+          <div className="global-guide-grid">
+            <article>
+              <small>FOR SEAFARERS AND MARITIME STUDENTS</small>
+              <h3>Cargo weight fits. Does the parcel fit the hold?</h3>
+              <p>Five practical checks covering stowage factor, usable volume and approved vessel information.</p>
+              <a href="/guides/cargo-weight-hold-volume-checklist/">Read the cargo-space checklist ↗</a>
+            </article>
+            <article>
+              <small>FOR PEOPLE ORGANIZING IMPORTANT DOCUMENTS</small>
+              <h3>Document photo saved. Expiry reminder set?</h3>
+              <p>A simple routine for verifying dates, organizing records and reviewing renewal reminders.</p>
+              <a href="/guides/document-expiry-reminder-checklist/">Read the document reminder checklist ↗</a>
+            </article>
+          </div>
+        </section>
+
         <section className="studio-section" id="studio">
           <div className="studio-copy">
             <p>ABOUT THE STUDIO</p>
