@@ -1,0 +1,74 @@
+name: AstraLabs Global Educational Discovery QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-global-discovery-qa.yml'
+      - 'src/App.jsx'
+      - 'src/App.css'
+      - 'public/guides/**'
+      - 'public/sitemap.xml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Build website and validate both global learning paths
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          home=Path('src/App.jsx').read_text()
+          css=Path('src/App.css').read_text()
+          sitemap=ET.parse('public/sitemap.xml')
+          urls=[el.text for el in sitemap.iter() if el.tag.endswith('loc')]
+          paths=['cargo-weight-hold-volume-checklist','document-expiry-reminder-checklist']
+          assert 'requestedApp' in home and 'campaignProduct' in home and 'trackedPlay' in home
+          assert '.global-guide-grid' in css
+          for slug in paths:
+              page=Path('dist/guides')/slug/'index.html'
+              assert page.is_file(), f'GUIDE_NOT_BUILT {slug}'
+              data=page.read_text()
+              assert 'https://www.astralabsph.com/' in data and 'utm_source=organic_search' in data
+              assert any('/guides/'+slug+'/' in u for u in urls)
+              print('GLOBAL_DISCOVERY_BUILD_PASS',slug,flush=True)
+          PY
+      - name: Independently verify both live public guide pages after deployment
+        run: |
+          python3 - <<'PY'
+          import time, urllib.request
+          base='https://www.astralabsph.com/guides/'
+          checks={
+            'cargo-weight-hold-volume-checklist/':b'Cargo weight fits. But does the parcel fit the hold?',
+            'document-expiry-reminder-checklist/':b'A saved document photo is not an expiry reminder.'
+          }
+          remaining=set(checks)
+          for attempt in range(12):
+            for slug in list(remaining):
+              try:
+                req=urllib.request.Request(base+slug,headers={'User-Agent':'AstraLabs-Global-Launch-QA/1.0'})
+                with urllib.request.urlopen(req,timeout=10) as res:
+                  body=res.read(140000)
+                  content_type=res.headers.get('Content-Type','')
+                  ok=res.status==200 and checks[slug] in body and 'text/html' in content_type
+                if ok:
+                  print('GLOBAL_DISCOVERY_LIVE_PASS',base+slug,flush=True)
+                  remaining.remove(slug)
+                else:
+                  print('GLOBAL_DISCOVERY_PENDING',slug,flush=True)
+              except Exception as e:
+                print('GLOBAL_DISCOVERY_PENDING',slug,type(e).__name__,flush=True)
+            if not remaining: break
+            time.sleep(10)
+          if remaining: raise RuntimeError('Global educational pages not verified LIVE: '+','.join(sorted(remaining)))
+          PY
