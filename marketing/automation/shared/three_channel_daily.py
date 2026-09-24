@@ -242,10 +242,9 @@ def run(channel):
         print("HELD_CHANNEL_WRITES_OFF: no Buffer API called; never publish unproven master", flush=True)
         return
     now = datetime.now(PHT)
-    candidates = [p for p in originals if p["id"] in approved_by_id
-                  and 0 <= (datetime.fromisoformat(approved_by_id[p["id"]]["publish_date_pht"]).date() - now.date()).days <= 1]
+    # Owner-authorized finite 3-day pack: pre-stage the full window when queue capacity allows.\n    # Exact dueAt, history dedupe, day caps and Buffer Free queue guards still apply.\n    candidates = [p for p in originals if p["id"] in approved_by_id\n                  and 0 <= (datetime.fromisoformat(approved_by_id[p["id"]]["publish_date_pht"]).date() - now.date()).days <= 3]
     if not candidates:
-        print("NO_APPROVED_CURRENT_OR_NEXT_DAY_CANDIDATES: no Buffer API called", flush=True)
+        print("NO_APPROVED_CURRENT_3DAY_CANDIDATES: no Buffer API called", flush=True)
         return
     # Use one existing approved publisher identity and its proven exact channel ID.
     if channel == "tiktok":
