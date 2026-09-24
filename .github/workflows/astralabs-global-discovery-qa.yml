@@ -43,6 +43,26 @@ jobs:
               assert any('/guides/'+slug+'/' in u for u in urls)
               print('GLOBAL_DISCOVERY_BUILD_PASS',slug,flush=True)
           PY
+      - name: Check international social link-preview metadata and human share controls
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class Links(HTMLParser):
+              def __init__(self): super().__init__(); self.meta={}; self.hrefs=[]
+              def handle_starttag(self,tag,attrs):
+                  attrs=dict(attrs)
+                  if tag=='meta': self.meta[attrs.get('property') or attrs.get('name')]=attrs.get('content')
+                  if tag=='a': self.hrefs.append(attrs.get('href',''))
+          for slug in ('cargo-weight-hold-volume-checklist','document-expiry-reminder-checklist'):
+              html=(Path('dist/guides')/slug/'index.html').read_text()
+              item=Links(); item.feed(html)
+              assert item.meta['og:image'].startswith('https://www.astralabsph.com/marketing/campaigns/facebook/')
+              assert item.meta['twitter:card']=='summary_large_image'
+              assert any('facebook.com/sharer/' in href for href in item.hrefs)
+              assert any('linkedin.com/sharing/' in href for href in item.hrefs)
+              print('SOCIAL_PREVIEW_AND_SHARE_PASS',slug,flush=True)
+          PY
       - name: Independently verify both live public guide pages after deployment
         run: |
           python3 - <<'PY'
