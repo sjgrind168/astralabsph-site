@@ -4,6 +4,7 @@
   "original_manifest": "marketing/automation/shared/ASTRALABS_7DAY_42_CREATIVE_MANIFEST_20260923.json",
   "sample_schema_NOT_APPROVED": {
     "creative_id": "S26D1AV",
+    "publish_date_pht": null,
     "channel": "tiktok",
     "app": "Astramate",
     "format": "voiceover_video",
