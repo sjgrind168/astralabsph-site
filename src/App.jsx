@@ -16,6 +16,19 @@ const products = [
 ];
 
 function App() {
+  // Existing social campaigns already land on the canonical root with ?app=astramate/keepry.
+  // Show the matching app FIRST without a redirect, preserving all UTM parameters.
+  const requestedApp = (() => {
+    try {
+      const value = new URLSearchParams(window.location.search).get('app');
+      return value === 'astramate' || value === 'keepry' ? value : null;
+    } catch {
+      return null;
+    }
+  })();
+  const campaignProduct = products.find((product) => product.name.toLowerCase() === requestedApp);
+  const alternateProduct = products.find((product) => product.name.toLowerCase() !== requestedApp);
+
   // Keep unique external campaign attribution when a visitor selects either app on the main storefront.
   const trackedPlay = (originalUrl, app) => {
     try {
@@ -59,13 +72,29 @@ function App() {
         <section className="hero">
           <div className="hero-copy">
             <div className="status-chip">TWO LIVE ANDROID APPS · BUILT FOR A WORLDWIDE AUDIENCE</div>
-            <h1>One studio. <span>Practical apps for life on land and work at sea.</span></h1>
-            <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Explore both apps here, install free on Android, and choose optional one-time upgrades when you need more.</p>
-            <div className="hero-actions">
-              <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
-              <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
-              <button onClick={goToApps}>Explore both apps</button>
-            </div>
+            {campaignProduct ? (
+              <>
+                <h1>{campaignProduct.name === 'Astramate' ? 'Cargo figures deserve a second look.' : 'Important documents. Important dates.'}
+                  <span> {campaignProduct.name === 'Astramate' ? 'Meet Astramate.' : 'Keep them together with Keepry.'}</span>
+                </h1>
+                <p>{campaignProduct.lead} Start with the free Android app; optional one-time upgrades are available when you need more supported tools or capacity.</p>
+                <div className="hero-actions">
+                  <a className="primary-cta" href={trackedPlay(campaignProduct.url, requestedApp)} target="_blank" rel="noopener noreferrer">Install {campaignProduct.name} free on Google Play ↗</a>
+                  <a className="secondary-cta" href={`#${requestedApp}`}>See what {campaignProduct.name} helps you do ↓</a>
+                  <a className="secondary-cta" href={trackedPlay(alternateProduct.url, alternateProduct.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Explore {alternateProduct.name} ↗</a>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1>One studio. <span>Practical apps for life on land and work at sea.</span></h1>
+                <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Explore both apps here, install free on Android, and choose optional one-time upgrades when you need more.</p>
+                <div className="hero-actions">
+                  <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
+                  <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
+                  <button onClick={goToApps}>Explore both apps</button>
+                </div>
+              </>
+            )}
             <div className="trust-row">
               <span>Verified store distribution</span>
               <span>Privacy-first product direction</span>
@@ -101,7 +130,7 @@ function App() {
 
           <div className="product-grid">
             {products.map((product) => (
-              <article className={product.live ? 'product-card featured' : 'product-card'} key={product.name}>
+              <article id={product.name.toLowerCase()} className={product.live ? 'product-card featured' : 'product-card'} key={product.name}>
                 <div className="card-top">
                   {product.icon ? <img className="product-icon-image" src={product.icon} alt="" /> : <span className="product-mark">{product.mark}</span>}
                   <span className={product.live ? 'launch-pill live' : 'launch-pill'}>{product.live ? 'Available on Google Play' : 'Launching Soon'}</span>
