@@ -98,7 +98,7 @@ main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
   font-weight: 900;
 }
 .primary-cta { background: #102522; color: #fff; }
-.hero-actions button { border: 1px solid #b9c3bc; color: #354b45; background: transparent; cursor: pointer; }
+.hero-actions .secondary-cta { border: 1px solid #b9c3bc; color: #354b45; background: transparent; display: inline-flex; align-items: center; }\n.hero-actions button { border: 1px solid #b9c3bc; color: #354b45; background: transparent; cursor: pointer; }
 .trust-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 32px; color: #73827d; font-size: 10px; font-weight: 800; }
 .trust-row span::before { content: '✓'; margin-right: 6px; color: #9e7d20; }
 
@@ -334,3 +334,7 @@ footer strong { color: #1c3630; font-size: 13px; }
 .release-badge { gap: 12px; }
 @media (max-width: 900px) { .product-grid .product-card.featured { grid-column: auto; min-height: 390px; } }
 @media (max-width: 640px) { .topbar { flex-wrap: wrap; row-gap: 14px; } .topbar nav { flex-wrap: wrap; } .hero-actions a, .hero-actions button { min-height: 44px; display: inline-flex; align-items: center; } }
+
+/* Campaign visitors see the app they clicked, without losing the canonical root URL. */
+.product-card[id] { scroll-margin-top: 110px; }
+.hero-actions .secondary-cta:hover { border-color: #102522; background: #e7ecdf; }
