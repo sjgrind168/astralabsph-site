@@ -5,6 +5,14 @@
   "sop": "marketing/automation/shared/ASTRALABS_GLOBAL_GROWTH_SOP_20260922.md",
   "site_destination": "https://www.astralabsph.com/",
   "timezone": "Asia/Manila",
+  "latest_buffer_read_only_audit": {
+    "observed_pht": "2026-09-24 21:11",
+    "proof_run": "https://github.com/sjgrind168/astralabsph-site/actions/runs/36003908392",
+    "facebook": {"astramate_sent_total": 12, "keepry_sent_total": 9, "astramate_scheduled": 2, "keepry_scheduled": 2, "today_astramate_sent": 3, "today_keepry_sent": 3},
+    "tiktok": {"astramate_sent_total": 2, "keepry_sent_total": 1, "scheduled": 0, "drafts_preserved": 1, "first_wave_keepry_buffer_id": "6ab1f356ffe5c8afb129534f", "first_wave_keepry_native_permalink": "https://tiktok.com/@astralabsph/video/7688336051332599048"},
+    "pinterest": {"apps_board_api_verified": true, "apps_board_service_id": "1143844074049569906", "scheduled": 0, "preserved_other_board_draft": 1, "first_apps_native_pin_verified": false},
+    "remaining_gate": "No individually approved new TikTok/Pinterest releases in ledger; existing channel write holds remain. This audit did not mutate Buffer or verify all native posts independently."
+  },
   "target": {
     "per_app_per_channel_per_pht_day": 3,
     "per_channel_per_pht_day": 6,
@@ -93,7 +101,7 @@
     "existing_keepry_first_wave_buffer_id": "6ab1f356ffe5c8afb129534f",
     "existing_first_wave_must_be_reconciled_before_new_posts": true,
     "existing_first_wave_owner_reported_live": true,
-    "existing_first_wave_exact_id_native_link_verified": false,
+    "existing_first_wave_exact_id_native_link_verified": true,
     "obsolete_existing_release_workflow_retired": true,
     "existing_first_wave_native_permalink": "https://tiktok.com/@astralabsph/video/7688336051332599048",
     "existing_first_wave_native_permalink_source": "Buffer Sent Keepry card, Sep22 20:31 PHT; owner confirms native live; exact Buffer post ID not independently matched."
@@ -106,7 +114,8 @@
     "board_api_id_and_first_native_proof_required": true,
     "old_printed_subpage_artwork_not_approved": true,
     "exact_board_ui_verified": true,
-    "board_api_id_verified": false
+    "board_api_id_verified": true,
+    "board_api_service_id": "1143844074049569906"
   },
   "rollout": "All three actual Buffer recurring schedules saved through authenticated UI and verified after navigation away/back: six canonical daily slots Mon-Sun, Manila. Existing posts preserved. Facebook custom-date exceptions remain. New TikTok/Pinterest publishing held for approved original media.",
   "approval_gates": [
