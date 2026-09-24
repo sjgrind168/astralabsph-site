@@ -75,7 +75,7 @@ def verify_png(url):
     req = urllib.request.Request(url, headers={"User-Agent":"AstraLabs-Original-Pin-ReadOnly/1.0",
                                                 "Range":"bytes=0-31"})
     with urllib.request.urlopen(req, timeout=20) as response:
-        if response.status not in (200, 206) or not response.headers.get("Content-Type","").lower().startswith("image/png") or response.read(8) != b"\\x89PNG\\r\\n\\x1a\\n":
+        if response.status not in (200, 206) or not response.headers.get("Content-Type","").lower().startswith("image/png") or response.read(8) != b"\x89PNG\r\n\x1a\n":
             raise RuntimeError("First-party original Pin PNG is not publicly available")
 
 def planned_due(row):
