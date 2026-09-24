@@ -36,7 +36,7 @@ jobs:
                               w=int.from_bytes(body[16:20],'big');h=int.from_bytes(body[20:24],'big')
                               print('CANVA_MEDIA_PROBE',app,label,'OK',response.status,'dimensions',w,h,'bytes',len(body),flush=True)
                           else:
-                              print('CANVA_MEDIA_PROBE',app,label,'NON_PNG',response.status,'bytes',len(body),flush=True)
+                              print('CANVA_MEDIA_PROBE',app,label,'NON_PNG',response.status,'content_type',response.headers.get('Content-Type'),'signature',body[:16].hex(),'bytes',len(body),flush=True)
                   except urllib.error.HTTPError as e: print('CANVA_MEDIA_PROBE',app,label,'HTTP_ERROR',e.code,flush=True)
                   except Exception as e: print('CANVA_MEDIA_PROBE',app,label,'ERROR',type(e).__name__,flush=True)
           PY
