@@ -19,11 +19,22 @@ EXPECTED={
 URL="https://api.github.com/repos/sjgrind168/astralabsph-site/actions/workflows/"
 def recent(path):
     file=path.rsplit("/",1)[-1]
-    req=urllib.request.Request(URL+quote(file)+"/runs?per_page=1",headers={
-        "Accept":"application/vnd.github+json",
-        "User-Agent":"AstraLabs-Marketing-Control-ReadOnly/1.0"})
-    with urllib.request.urlopen(req,timeout=20) as response:
-        payload=json.load(response)
+    headers={"Accept":"application/vnd.github+json",
+             "User-Agent":"AstraLabs-Marketing-Control-ReadOnly/1.0"}
+    # Use the existing scoped Actions token to avoid the public unauthenticated API limit.
+    # Do not log the token or include it in generated public reports.
+    token=os.getenv("GITHUB_TOKEN","").strip()
+    if token:
+        headers["Authorization"]="Bearer "+token
+    req=urllib.request.Request(URL+quote(file)+"/runs?per_page=1",headers=headers)
+    try:
+        with urllib.request.urlopen(req,timeout=20) as response:
+            payload=json.load(response)
+    except urllib.error.HTTPError as error:
+        if error.code in (403,429):
+            return {"workflow_status":"API_RATE_LIMITED","run_url":None,
+                    "started_at":None,"conclusion":None}
+        raise
     rows=payload.get("workflow_runs") or []
     if not rows:return {"workflow_status":"NEVER_RUN_OR_NOT_VISIBLE","run_url":None,
                         "started_at":None,"conclusion":None}
