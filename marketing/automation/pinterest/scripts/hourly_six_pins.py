@@ -43,7 +43,7 @@ def load():
             not row["image_url"].endswith(".png") or not row["caption"].count(HOME) >= 2 or
             "utm_content=" + row["id"].lower() not in row["caption"] or
             row["url"] not in row["caption"] or
-            len(row["caption"]) > 800 or
+            len(row["caption"]) > 500 or
             not 10 <= len(row["title"]) <= 100):
             raise RuntimeError("A scheduled post fails unique-asset, hour, app, site, or copy checks")
     return rows
