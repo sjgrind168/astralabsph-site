@@ -12,21 +12,21 @@
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-daily-two-per-app.yml",
       "mode": "SINGLE_GITHUB_WRITER_PRESERVED; BUFFER_RECURRING_SLOTS_VERIFIED; EXISTING_CUSTOM_DATE_EXCEPTIONS_PRESERVED",
-      "gate": "Buffer Queue8/Drafts0/Sent12, no Sending observed. Five generic posts moved into canonical Sep23 slots. Three custom posts retain Sep23 09:30,12:30,18:30; latter two outside canonical times. Eight posts total Sep23 (4/app), not proof of exact 3/app delivery. Historical subpage links retained. Last reported writer429 not retested in this UI task.",
+      "gate": "Sep24 21:11 PHT read-only Buffer audit: three Astramate and three Keepry posts sent today; Sep25 two scheduled/app at audit time; existing single writer healthy. Do not equate Buffer sent with independent native inspection; preserve existing posts and custom dates. Proof run 36003908392.",
       "account_owner_action": "none for existing authorized page"
     },
     "pinterest": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-pinterest-queue.yml",
-      "mode": "BUFFER_RECURRING_SLOTS_VERIFIED; EXACT_ASTRALABS_BOARD_UI_VERIFIED; QUEUE0_SENT0; NEW_WRITES_HELD",
-      "gate": "Exact AstraLabs Apps | Astramate & Keepry selected/available in composer. PIREVO Finds draft untouched. No approved original Pin in release ledger; old printed subpage artwork not published. Board service ID/native first Pin still unverified.",
+      "mode": "BUFFER_RECURRING_SLOTS_VERIFIED; APPS_BOARD_API_ID_VERIFIED; QUEUE0; NEW_WRITES_HELD_FOR_CONTENT_APPROVAL",
+      "gate": "Sep24 21:11 PHT read-only Buffer audit confirmed exact AstraLabs Apps board API serviceId 1143844074049569906; zero scheduled; one other-board historical draft preserved. Approved-release ledger empty, first app Pin/native proof pending. Keep PIREVO untouched.",
       "account_owner_action": "review corrected genuine Pinterest artwork"
     },
     "tiktok": {
       "provider": "Existing Buffer Free account",
       "writer_workflow": ".github/workflows/astralabs-tiktok-video.yml",
-      "mode": "BUFFER_RECURRING_SLOTS_VERIFIED; QUEUE0_SENT4_DRAFT1; KEEPRY_SENT_PERMALINK_VERIFIED; NEW_WRITES_HELD",
-      "gate": "Keepry Sent Sep22 20:31 PHT links to https://tiktok.com/@astralabsph/video/7688336051332599048 . Old Astramate draft untouched; neither first-wave item recreated/retried. Approved new-release ledger empty.",
+      "mode": "BUFFER_RECURRING_SLOTS_VERIFIED; QUEUE0; FIRST_WAVE_KEEPRY_EXACT_ID_SENT_CONFIRMED; NEW_WRITES_HELD",
+      "gate": "Sep24 21:11 PHT read-only Buffer audit: original Keepry post ID 6ab1f356ffe5c8afb129534f is SENT with native permalink https://tiktok.com/@astralabsph/video/7688336051332599048; zero scheduled, one Astramate draft preserved. Approved new-release ledger empty. Do not repost first wave.",
       "account_owner_action": "none for current authorized channel"
     },
     "youtube": {
@@ -229,5 +229,20 @@
       }
     },
     "proof_file": "marketing/automation/shared/proof/buffer-saved-schedule-proof-20260922.json"
+  },
+  "latest_buffer_read_only_audit": {
+    "observed_pht": "2026-09-24 21:11",
+    "proof_run": "https://github.com/sjgrind168/astralabsph-site/actions/runs/36003908392",
+    "facebook_today_sent_by_app": {
+      "Astramate": 3,
+      "Keepry": 3
+    },
+    "facebook_queued_for_sep25_at_audit": {
+      "Astramate": 2,
+      "Keepry": 2
+    },
+    "tiktok_scheduled": 0,
+    "pinterest_scheduled": 0,
+    "claims": "Buffer record statuses only; no new Buffer writes or complete native post inspection."
   }
 }
