@@ -8,7 +8,10 @@ on:
       - 'marketing/automation/shared/three_channel_daily.py'
       - 'marketing/automation/shared/ASTRALABS_THREE_CHANNEL_DAILY_CONFIG_20260922.json'
       - 'marketing/automation/shared/ASTRALABS_THREE_CHANNEL_APPROVED_RELEASES_20260922.json'
+      - 'marketing/automation/shared/ASTRALABS_ONE_TIME_HOURLY_PIN_20260924.json'
+      - 'marketing/automation/pinterest/scripts/hourly_six_pins.py'
   schedule:
+    - cron: '15 15-20 * * *' # Sep24 one-time six-pin sequence: 23:15 through 04:15 PHT checks; script expires after Sep25 05:10 PHT.
     - cron: '20 0,4,8 * * *' # 08:20, 12:20, 16:20 PHT; max 2 approved originals per run
     - cron: '50 10 * * *' # 18:50 PHT safe recovery slot
     - cron: '10 12 * * *' # 20:10 PHT safe recovery slot
@@ -22,9 +25,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
+      ASTRALABS_ONE_TIME_HOURLY_PIN_ENABLED: 'false' # dry-run first; enable only after read-only provider and schema proof.
       ASTRALABS_PINTEREST_THREE_DAILY_PUBLISH_ENABLED: 'false' # HOLD: Approved root-only 2:3 Pins, exact Apps board and first native proof. No Buffer API called until approved releases and explicit activation.
     steps:
       - uses: actions/checkout@v4
+      - name: Validate six unique hourly Pinterest posts and root-site captions
+        run: python3 marketing/automation/pinterest/scripts/hourly_six_pins.py --validate-only
+      - name: Existing Buffer Apps board hourly first-party image pilot
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        run: python3 marketing/automation/pinterest/scripts/hourly_six_pins.py
       - name: Inspect six original PHT-day pinterest slots without posting unapproved media
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
