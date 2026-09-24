@@ -20,3 +20,5 @@ jobs:
           PYTHONUNBUFFERED: '1' # Read-only one-shot Buffer reconciliation; no posts created.
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
         run: python3 marketing/automation/shared/current_campaign_audit.py
+
+# Refined 3-day automation preflight 2026-09-24 23:36 PHT.
