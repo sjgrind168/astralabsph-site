@@ -1,5 +1,5 @@
 name: AstraLabs Current Marketing Status Read Only
-# Sep24 one-shot independent verification of newly scheduled hourly Apps-board Pin.
+# Sep24 23:30 PHT read-only baseline before owner's three-day publishing sync; no Buffer writes.
 on:
   workflow_dispatch:
   push:
