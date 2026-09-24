@@ -1,0 +1,42 @@
+name: AstraLabs Canva Generated Media Resolution Read Only
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-canva-media-resolution-probe.yml'
+permissions:
+  contents: read
+jobs:
+  media-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Probe accessible resolution of owner-generated campaign art (NO publishing)
+        env:
+          ASTRAMATE_THUMB: "https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2F03f5d0ba-8d05-44fc-88c8-5edd2807cbb2/watermark:F/width:160?csig=AAAAAAAAAAAAAAAAAAAAAOewAlwuvDtcvb_a4JuwPcOjmPoaTJMP37e1ocsRDYyZ&exp=1790275206&osig=AAAAAAAAAAAAAAAAAAAAABb_f85n0WaQB_sgpxYeYWBMIolzypmNbNSYWALzXH7k&signer=media-rpc&x-canva-quality=thumbnail"
+          KEEPRY_THUMB: "https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2F69f2fb07-a9fc-4af6-bd2b-71a9b0997b07/watermark:F/width:160?csig=AAAAAAAAAAAAAAAAAAAAAA-tf2oQVB3tUu3hTzqRRG389nkdTOEfAW72WkpHy0gs&exp=1790277246&osig=AAAAAAAAAAAAAAAAAAAAAGA0g_aDk8m-y0VxyH-RuxuCbRzVmVts3aRRp8r2we6e&signer=media-rpc&x-canva-quality=thumbnail"
+        run: |
+          python3 - <<'PY'
+          import os,urllib.request,urllib.error
+          from urllib.parse import urlsplit,urlunsplit
+          for app,key in [('Astramate','ASTRAMATE_THUMB'),('Keepry','KEEPRY_THUMB')]:
+              u=os.environ[key]
+              parts=urlsplit(u)
+              variants=[('thumbnail',u)]
+              p=parts.path.replace('/height:200/','/height:1402/').replace('/width:160','/width:1122')
+              variants.append(('full_resolution_original_token',urlunsplit((parts.scheme,parts.netloc,p,parts.query,''))))
+              variants.append(('full_resolution_without_quality_hint',urlunsplit((parts.scheme,parts.netloc,p,parts.query.replace('&x-canva-quality=thumbnail',''),''))))
+              for label,addr in variants:
+                  try:
+                      req=urllib.request.Request(addr,headers={'User-Agent':'AstraLabs-Media-ReadOnly-Probe/1.0'})
+                      with urllib.request.urlopen(req,timeout=12) as response:
+                          body=response.read(4000000)
+                          if body.startswith(b'\\x89PNG\\r\\n\\x1a\\n') and len(body)>24:
+                              w=int.from_bytes(body[16:20],'big');h=int.from_bytes(body[20:24],'big')
+                              print('CANVA_MEDIA_PROBE',app,label,'OK',response.status,'dimensions',w,h,'bytes',len(body),flush=True)
+                          else:
+                              print('CANVA_MEDIA_PROBE',app,label,'NON_PNG',response.status,'bytes',len(body),flush=True)
+                  except urllib.error.HTTPError as e: print('CANVA_MEDIA_PROBE',app,label,'HTTP_ERROR',e.code,flush=True)
+                  except Exception as e: print('CANVA_MEDIA_PROBE',app,label,'ERROR',type(e).__name__,flush=True)
+          PY
