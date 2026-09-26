@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="theme-color" content="#0b1312" />
+  <title>Astra Pulse | AstraLabs Mission Control</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="lock" class="lock">
+    <div class="lock-card">
+      <div class="pulse-mark">A</div>
+      <p class="eyebrow">ASTRALABS PRIVATE</p>
+      <h1>Astra Pulse</h1>
+      <p class="muted">Mission Control for apps, revenue, website traffic, and social performance.</p>
+      <form id="unlockForm">
+        <label>Private access key
+          <input id="accessKey" type="password" autocomplete="current-password" placeholder="ap_••••••••••••" />
+        </label>
+        <button class="primary" type="submit">Unlock Mission Control</button>
+      </form>
+      <p id="lockError" class="form-error"></p>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <a class="brand" href="/pulse/">
+        <span class="brand-mark">A</span>
+        <span><b>ASTRA PULSE</b><small>Mission Control</small></span>
+      </a>
+      <nav>
+        <button class="nav-item active" data-view="overview">Overview</button>
+        <button class="nav-item" data-view="apps">Apps</button>
+        <button class="nav-item" data-view="social">Social</button>
+        <button class="nav-item" data-view="sources">Sources</button>
+      </nav>
+      <div class="sidebar-foot">
+        <span id="clock"></span>
+        <button id="lockBtn" class="text-btn">Lock dashboard</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ASTRALABS PH</p>
+          <h1 id="viewTitle">Performance Overview</h1>
+          <p id="lastUpdated" class="muted small">Waiting for data…</p>
+        </div>
+        <div class="top-actions">
+          <div class="period-switch" id="periodSwitch">
+            <button data-period="7">7D</button>
+            <button class="active" data-period="30">30D</button>
+            <button data-period="90">90D</button>
+          </div>
+          <button id="syncBtn" class="secondary">↻ Sync now</button>
+          <button id="sourcesBtn" class="primary">Connect sources</button>
+        </div>
+      </header>
+
+      <section id="overviewView" class="view">
+        <div id="notice" class="notice hidden"></div>
+        <div class="hero-strip">
+          <div>
+            <span class="live-dot"></span>
+            <b>CEO SNAPSHOT</b>
+          </div>
+          <span>Only verified provider data appears here. Missing access stays visibly missing.</span>
+        </div>
+
+        <div class="kpis" id="kpis"></div>
+
+        <div class="grid two">
+          <article class="panel">
+            <div class="panel-head">
+              <div><p class="eyebrow">TREND</p><h2>Daily activity</h2></div>
+              <span id="trendLabel" class="tag">30 DAYS</span>
+            </div>
+            <div id="trendChart" class="chart"></div>
+            <div class="legend">
+              <span><i class="dot web"></i>Website users</span>
+              <span><i class="dot social"></i>Social views</span>
+              <span><i class="dot apps"></i>App installs</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <div><p class="eyebrow">HEALTH</p><h2>Data sources</h2></div>
+              <button class="text-btn" data-go="sources">Manage</button>
+            </div>
+            <div id="connectorMini" class="connector-mini"></div>
+          </article>
+        </div>
+
+        <div class="grid two lower">
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">APPS</p><h2>Google Play pulse</h2></div></div>
+            <div id="playSummary" class="table-wrap"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">SOCIAL</p><h2>Channel pulse</h2></div></div>
+            <div id="socialSummary" class="table-wrap"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="appsView" class="view hidden">
+        <div class="section-copy">
+          <p class="eyebrow">PRODUCT PERFORMANCE</p>
+          <h2>Apps & monetization</h2>
+          <p class="muted">Play reports may arrive later than the console. AdMob uses its official reporting API.</p>
+        </div>
+        <div id="appCards" class="card-grid"></div>
+        <article class="panel">
+          <div class="panel-head"><div><p class="eyebrow">ADMOB</p><h2>Ad revenue by app</h2></div></div>
+          <div id="admobTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section id="socialView" class="view hidden">
+        <div class="section-copy">
+          <p class="eyebrow">ORGANIC PERFORMANCE</p>
+          <h2>Social channels</h2>
+          <p class="muted">A lightweight view of only the metrics each official API currently allows.</p>
+        </div>
+        <div id="socialCards" class="card-grid social-grid"></div>
+      </section>
+
+      <section id="sourcesView" class="view hidden">
+        <div class="section-copy sources-copy">
+          <div>
+            <p class="eyebrow">CONNECTOR LAB</p>
+            <h2>Sources & authorization</h2>
+            <p class="muted">Save provider credentials here. Secrets go directly to the private backend and are never written into this website repository.</p>
+          </div>
+          <button id="syncSourcesBtn" class="secondary">↻ Sync all</button>
+        </div>
+        <div id="sourceCards" class="source-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="sourceModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
