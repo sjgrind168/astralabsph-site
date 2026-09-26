@@ -1,6 +1,6 @@
 const API = 'https://cscqulbludoyzsgniits.supabase.co/functions/v1/pulse-api';
 const PROVIDERS = {
-  google: { title: 'Google', subtitle: 'Play · AdMob · GA4 · YouTube', children: ['google_play','admob','ga4','youtube'] },
+  google: { title: 'Google', subtitle: 'Play statistics · optional AdMob / GA4 / YouTube', children: ['google_play','admob','ga4','youtube'] },
   meta: { title: 'Meta', subtitle: 'Facebook · Instagram', children: ['facebook','instagram'] },
   threads: { title: 'Threads', subtitle: 'Profile & account insights', children: ['threads'] },
   tiktok: { title: 'TikTok', subtitle: 'Profile & recent video stats', children: ['tiktok'] },
@@ -206,9 +206,12 @@ async function syncAll(){
 }
 const formDefs={
   google:[
-    ['client_id','Google OAuth Client ID','secret'],['client_secret','Google OAuth Client Secret','secret'],
-    ['ga4_property_id','GA4 Property ID','config'],['play_bucket_id','Play developer bucket ID','config'],
+    ['play_service_account_json','Play service account JSON','secret'],
+    ['play_bucket_id','Play developer bucket ID','config'],
     ['play_packages','Play package names (comma separated)','config'],
+    ['client_id','Google OAuth Client ID (optional: AdMob / GA4 / YouTube)','secret'],
+    ['client_secret','Google OAuth Client Secret (optional)','secret'],
+    ['ga4_property_id','GA4 Property ID (optional)','config'],
   ],
   meta:[['client_id','Meta App ID','secret'],['client_secret','Meta App Secret','secret'],['page_id','Preferred Facebook Page ID (optional)','config']],
   threads:[['client_id','Threads App ID','secret'],['client_secret','Threads App Secret','secret']],
@@ -220,10 +223,15 @@ async function openConfig(provider){
   try{cfg=await api(`/config?provider=${provider}`)}catch(e){}
   const p=PROVIDERS[provider];
   $('#modalContent').innerHTML=`<p class="eyebrow">SOURCE SETUP</p><h2>${p.title}</h2><p class="muted small">${p.subtitle}</p>
-    <div class="form-grid">${formDefs[provider].map(([key,label,type])=>`<label class="${key==='play_packages'?'span2':''}">${label}<input class="form-input" data-field="${key}" data-kind="${type}" type="${type==='secret'?'password':'text'}" value="${type==='config'?(cfg.config?.[key]??''):''}" placeholder="${type==='secret'&&((key==='client_id'&&cfg.has_client_id)||(key==='client_secret'&&cfg.has_client_secret))?'Saved securely · leave blank to keep':'Enter value'}"></label>`).join('')}</div>
+    <div class="form-grid">${formDefs[provider].map(([key,label,type])=>{
+      const wide = key==='play_packages'||key==='play_service_account_json';
+      const saved = (key==='client_id'&&cfg.has_client_id)||(key==='client_secret'&&cfg.has_client_secret)||(key==='play_service_account_json'&&cfg.has_play_service_account);
+      if(key==='play_service_account_json') return `<label class="span2">${label}<textarea class="form-input" rows="4" data-field="${key}" data-kind="${type}" placeholder="${saved?'Saved securely · leave blank to keep':'Paste the complete service-account JSON here'}"></textarea></label>`;
+      return `<label class="${wide?'span2':''}">${label}<input class="form-input" data-field="${key}" data-kind="${type}" type="${type==='secret'?'password':'text'}" value="${type==='config'?(cfg.config?.[key]??(key==='play_packages'?'com.astralabs.astramate,com.astralabs.keepry':'')):''}" placeholder="${saved?'Saved securely · leave blank to keep':'Enter value'}"></label>`;
+    }).join('')}</div>
     <p class="helper">Register this exact OAuth redirect URI in the provider's developer console:</p>
     <div class="redirect-box"><code>${cfg.redirect_uri||state.data?.redirects?.[provider]||''}</code><button class="text-btn" id="copyRedirect">Copy</button></div>
-    ${provider==='google'?'<p class="helper">Google setup also needs access to the Play report bucket. The package names can be Astramate and Keepry package IDs separated by commas.</p>':''}
+    ${provider==='google'?'<p class="helper"><b>For Google Play statistics only:</b> paste a service-account JSON, enter the Play developer bucket ID, and keep the two package names. OAuth Client ID, Client Secret, and GA4 Property ID are optional and only needed later for AdMob/GA4/YouTube direct integrations.</p>':''}
     <div class="modal-actions"><button class="secondary" data-close-modal>Cancel</button><button class="primary" id="saveSource">Save settings</button></div>`;
   $('#sourceModal').classList.remove('hidden'); $('#sourceModal').setAttribute('aria-hidden','false');
   $('#copyRedirect').onclick=async()=>{await navigator.clipboard.writeText(cfg.redirect_uri||state.data?.redirects?.[provider]||'');toast('Redirect URI copied.')};
