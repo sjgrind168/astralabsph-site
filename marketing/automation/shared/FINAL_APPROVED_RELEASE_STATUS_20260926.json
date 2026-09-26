@@ -1,0 +1,38 @@
+{
+  "generated_at_utc": "2026-09-26T10:46:41.251234+00:00",
+  "release": "FINAL_APPROVED_20260926",
+  "results": [
+    {
+      "service": "facebook",
+      "app": "Keepry",
+      "action": "deduped",
+      "status": "sent",
+      "post_id": "6ab7a24d3afb9171a82e31b8",
+      "externalLink": "https://facebook.com/1156083864252006_122117264085321731"
+    },
+    {
+      "service": "facebook",
+      "app": "Astramate",
+      "action": "deduped",
+      "status": "sent",
+      "post_id": "6ab7a2563afb9171a82e325d",
+      "externalLink": "https://facebook.com/1156083864252006_122117264109321731"
+    },
+    {
+      "service": "tiktok",
+      "app": "Keepry",
+      "action": "deduped",
+      "status": "sending",
+      "post_id": "6ab7a2613afb9171a82e3352",
+      "externalLink": null
+    },
+    {
+      "service": "tiktok",
+      "app": "Astramate",
+      "action": "deduped",
+      "status": "sending",
+      "post_id": "6ab7a26eee8af48ba8a8b1e5",
+      "externalLink": null
+    }
+  ]
+}
