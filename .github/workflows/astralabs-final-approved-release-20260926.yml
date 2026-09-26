@@ -6,7 +6,7 @@ on:
       - '.github/workflows/astralabs-final-approved-release-20260926.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: astralabs-final-approved-release-20260926
   cancel-in-progress: false
@@ -14,17 +14,22 @@ concurrency:
 jobs:
   publish-final-approved:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     env:
       ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
     steps:
+      - uses: actions/checkout@v4
+
       - name: Publish final approved Astramate and Keepry videos once to Facebook and TikTok
         shell: bash
         run: |
           python3 - <<'PY'
-          import json, os, sys, time, urllib.request, urllib.error
+          import json, os, time, urllib.request, urllib.error
+          from datetime import datetime, timezone
+          from pathlib import Path
 
           API = "https://api.buffer.com"
+          REPORT = Path("marketing/automation/shared/FINAL_APPROVED_RELEASE_STATUS_20260926.json")
           POSTS = [
             {
               "app": "Keepry",
@@ -37,6 +42,7 @@ jobs:
               "text": "Need a quick check onboard? Astramate brings cargo, trim, stability, and practical maritime tools together in one app. Built for seafarers. Available now on Google Play. https://www.astralabsph.com/ #Astramate #Maritime #Seafarers"
             }
           ]
+          results = []
 
           def q(v):
               return json.dumps(str(v), ensure_ascii=True)
@@ -128,8 +134,16 @@ jobs:
               post = res.get("post") if isinstance(res, dict) else None
               if not isinstance(post, dict) or not post.get("id"):
                   raise RuntimeError(service + " createPost failed for " + item["app"] + ": " + str(res.get("message","unknown"))[:140])
-              print("BUFFER_CREATED", service, item["app"], "status", post.get("status"), "post", post["id"], "url", post.get("externalLink"), flush=True)
               return post
+
+          def read_post(post_id):
+              node = gql("query { post(input:{id:" + q(post_id) + "}) { id status externalLink error { message supportUrl } } }").get("post") or {}
+              return {
+                  "id": node.get("id"),
+                  "status": node.get("status"),
+                  "externalLink": node.get("externalLink"),
+                  "error": ((node.get("error") or {}).get("message"))
+              }
 
           for item in POSTS:
               verify_mp4(item["url"])
@@ -138,21 +152,59 @@ jobs:
               rows = history(channel)
               for item in POSTS:
                   if already(rows, item):
+                      found = next((r for r in rows if str(r.get("text") or "") == item["text"] or any(str(a.get("source") or "") == item["url"] for a in (r.get("assets") or []))), {})
+                      results.append({
+                          "service":service,"app":item["app"],"action":"deduped",
+                          "status":found.get("status"),"post_id":found.get("id"),
+                          "externalLink":found.get("externalLink")
+                      })
                       print("BUFFER_DEDUPED", service, item["app"], flush=True)
                       continue
+
                   latest = history(channel)
                   if already(latest, item):
-                      print("BUFFER_RACE_DEDUPED", service, item["app"], flush=True)
+                      found = next((r for r in latest if str(r.get("text") or "") == item["text"] or any(str(a.get("source") or "") == item["url"] for a in (r.get("assets") or []))), {})
+                      results.append({
+                          "service":service,"app":item["app"],"action":"race_deduped",
+                          "status":found.get("status"),"post_id":found.get("id"),
+                          "externalLink":found.get("externalLink")
+                      })
                       continue
-                  post = create(channel, service, item)
-                  rows = latest + [{
-                      "id": post["id"],
-                      "text": item["text"],
-                      "status": post.get("status"),
-                      "assets": post.get("assets") or [],
-                      "externalLink": post.get("externalLink")
-                  }]
-                  time.sleep(2)
 
+                  post = create(channel, service, item)
+                  print("BUFFER_CREATED", service, item["app"], "status", post.get("status"), "post", post["id"], flush=True)
+                  time.sleep(6)
+                  state = read_post(post["id"])
+                  results.append({
+                      "service":service,"app":item["app"],"action":"created",
+                      "status":state.get("status"),"post_id":state.get("id"),
+                      "externalLink":state.get("externalLink"),"error":state.get("error")
+                  })
+                  rows = latest + [{
+                      "id": post["id"], "text": item["text"], "status": state.get("status"),
+                      "assets": post.get("assets") or [], "externalLink": state.get("externalLink")
+                  }]
+                  time.sleep(1)
+
+          REPORT.parent.mkdir(parents=True, exist_ok=True)
+          REPORT.write_text(json.dumps({
+              "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+              "release": "FINAL_APPROVED_20260926",
+              "results": results
+          }, indent=2), encoding="utf-8")
           print("BUFFER_FINAL_RELEASE_COMPLETE", flush=True)
           PY
+
+      - name: Persist Buffer release proof
+        shell: bash
+        run: |
+          git config user.name 'AstraLabs Marketing Release Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/automation/shared/FINAL_APPROVED_RELEASE_STATUS_20260926.json
+          if git diff --cached --quiet; then
+            echo "NO_REPORT_CHANGE"
+            exit 0
+          fi
+          git commit -m 'Marketing: record final approved Buffer release status'
+          git pull --rebase origin main
+          git push origin HEAD:main
