@@ -51,3 +51,13 @@ All six pass the hard uniqueness threshold (<0.68); observed maximum similaritie
 
 ## Next gate
 Generate/inspect actual Google media for this first batch. Do not replace Buffer or Metricool schedules until the owner accepts the creative quality.
+
+
+## v1.1 Google-only production controls
+- Private pack updated to v1.1 and stored outside this public repo.
+- Added local owner review dashboard with individual approve/reject and APPROVE ALL.
+- Added Google Flow generation queue: 4 still-image prompts + 4 video-scene prompts for today's six content units.
+- Added Gemini 3.8 Flash TTS helper for two natural narration WAVs; key is stored in macOS Keychain, never in this repo.
+- Hard visual QA: feed images 4:5 at 1080x1350 final; videos 9:16, at least 720x1280, fixed 30 fps, readable subtitles, genuine app UI only.
+- Current Google free-only architecture deliberately does NOT call paid Gemini image or Veo APIs. Images/video use the interactive Google Flow free allowance; text/TTS can use the Gemini free API tier.
+- Social publication remains HOLD until generated media is visually reviewed and approved.
