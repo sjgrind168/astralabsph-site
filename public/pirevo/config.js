@@ -1,0 +1,1 @@
+window.PIREVO_CONFIG=Object.freeze({brand:"PIREVO",tagline:"Smart finds worth discovering.",siteUrl:"https://www.astralabsph.com/pirevo",audienceMarket:"US",currency:"USD",amazonDomain:"www.amazon.com",affiliateEnabled:false,amazonAssociateTag:"",ga4Id:""});
