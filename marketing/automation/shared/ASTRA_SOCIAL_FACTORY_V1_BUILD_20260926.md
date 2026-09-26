@@ -61,3 +61,24 @@ Generate/inspect actual Google media for this first batch. Do not replace Buffer
 - Hard visual QA: feed images 4:5 at 1080x1350 final; videos 9:16, at least 720x1280, fixed 30 fps, readable subtitles, genuine app UI only.
 - Current Google free-only architecture deliberately does NOT call paid Gemini image or Veo APIs. Images/video use the interactive Google Flow free allowance; text/TTS can use the Gemini free API tier.
 - Social publication remains HOLD until generated media is visually reviewed and approved.
+
+
+# RESEARCH CORRECTION — DO NOT DEPLOY THIS BRANCH
+
+Date: 2026-09-26 PHT
+
+This branch is intentionally halted after full feasibility verification.
+
+Verified constraints:
+- Google Flow itself offers a free no-subscription product tier with 50 daily Flow credits, including Veo/Omni capabilities in the Flow product UI.
+- Google Gemini/Veo API video generation is NOT free-tier. Veo API requires paid usage/billing.
+- Gemini image generation APIs (Nano Banana 2 / Nano Banana 2 Lite) are also NOT free-tier, even though image generation inside the Flow product can be available at no charge.
+- The current ChatGPT conversation environment has no Google Flow connector/plugin and no authenticated interactive Flow browser control.
+- Therefore a fully automated, Google-only, zero-cost, chat-only media-generation pipeline cannot be completed from this conversation environment today.
+- n8n templates labeled "Use for free" refer to the workflow template; Google Veo generation still requires billing/API access in the documented setup.
+- Existing Buffer/Metricool writers remain untouched by this experimental branch.
+
+Decision:
+- DO NOT merge or deploy the Flow automation assumptions from this branch.
+- Keep only the useful uniqueness/QA/content-ledger design as reference.
+- No further media-generation or schedule changes should occur unless an actually executable zero-cost path is verified first.
