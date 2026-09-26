@@ -1,0 +1,158 @@
+name: AstraLabs Final Approved Two-Video Release 2026-09-26
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-final-approved-release-20260926.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: astralabs-final-approved-release-20260926
+  cancel-in-progress: false
+
+jobs:
+  publish-final-approved:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - name: Publish final approved Astramate and Keepry videos once to Facebook and TikTok
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, time, urllib.request, urllib.error
+
+          API = "https://api.buffer.com"
+          POSTS = [
+            {
+              "app": "Keepry",
+              "url": "https://static.metricool.com/planner/202609/7092888-file-12583224503305168370.mp4",
+              "text": "Important documents are easy to save, but easy to forget. Keep your records, important dates, and reminders together with Keepry. Available now on Google Play. https://www.astralabsph.com/ #Keepry #Productivity #LifeAdmin"
+            },
+            {
+              "app": "Astramate",
+              "url": "https://static.metricool.com/planner/202609/7092888-file-17971868690978037967.mp4",
+              "text": "Need a quick check onboard? Astramate brings cargo, trim, stability, and practical maritime tools together in one app. Built for seafarers. Available now on Google Play. https://www.astralabsph.com/ #Astramate #Maritime #Seafarers"
+            }
+          ]
+
+          def q(v):
+              return json.dumps(str(v), ensure_ascii=True)
+
+          def gql(doc):
+              token = os.environ.get("ASTRALABS_BUFFER_API_KEY", "").strip()
+              if not token:
+                  raise RuntimeError("Buffer secret missing")
+              req = urllib.request.Request(
+                  API,
+                  data=json.dumps({"query": doc}).encode("utf-8"),
+                  headers={
+                      "Authorization": "Bearer " + token,
+                      "Content-Type": "application/json",
+                      "User-Agent": "AstraLabs-Final-Approved-Release/1.0"
+                  },
+                  method="POST"
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      payload = json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError("Buffer HTTP " + str(e.code)) from None
+              except urllib.error.URLError:
+                  raise RuntimeError("Buffer network unavailable") from None
+              if payload.get("errors") or not isinstance(payload.get("data"), dict):
+                  raise RuntimeError("Buffer GraphQL rejected request")
+              return payload["data"]
+
+          def verify_mp4(url):
+              req = urllib.request.Request(url, headers={"Range":"bytes=0-31","User-Agent":"AstraLabs-Final-Media-Proof/1.0"})
+              with urllib.request.urlopen(req, timeout=25) as r:
+                  sig = r.read(32)
+                  mime = (r.headers.get("Content-Type") or "").split(";")[0].lower()
+                  if r.status not in (200,206) or len(sig) < 12 or sig[4:8] != b"ftyp" or mime not in ("video/mp4","application/octet-stream"):
+                      raise RuntimeError("Final MP4 verification failed")
+
+          orgs = ((gql("query { account { organizations { id name } } }").get("account") or {}).get("organizations") or [])
+          if len(orgs) != 1:
+              raise RuntimeError("Ambiguous Buffer organization")
+          org = orgs[0]["id"]
+
+          channels = gql("query { channels(input:{organizationId:" + q(org) + "}) { id name displayName service isDisconnected isLocked isQueuePaused } }").get("channels") or []
+
+          def target(service):
+              rows = [c for c in channels
+                      if str(c.get("service","")).lower() == service
+                      and "astralabs" in str(c.get("displayName") or c.get("name") or "").lower()]
+              if len(rows) != 1:
+                  raise RuntimeError("Expected exactly one AstraLabs " + service + " channel")
+              c = rows[0]
+              if c.get("isDisconnected") or c.get("isLocked") or c.get("isQueuePaused"):
+                  raise RuntimeError(service + " channel unavailable/locked/paused")
+              return c["id"]
+
+          facebook = target("facebook")
+          tiktok = target("tiktok")
+
+          def history(channel_id):
+              doc = ("query { posts(first:100,input:{organizationId:" + q(org) +
+                     ",filter:{status:[scheduled,sent,sending,draft,error],channelIds:[" + q(channel_id) +
+                     "]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status channelId externalLink assets { mimeType source } } } pageInfo { hasNextPage } } }")
+              node = gql(doc).get("posts")
+              if not isinstance(node, dict) or not isinstance(node.get("edges"), list):
+                  raise RuntimeError("Buffer history unavailable")
+              if (node.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Buffer history exceeds 100; fail closed")
+              return [e["node"] for e in node["edges"] if isinstance(e.get("node"), dict)]
+
+          def already(rows, item):
+              return any(
+                  str(r.get("text") or "") == item["text"] or
+                  any(str(a.get("source") or "") == item["url"] for a in (r.get("assets") or []))
+                  for r in rows
+              )
+
+          def create(channel_id, service, item):
+              if service == "facebook":
+                  meta = "metadata:{facebook:{type:post}}"
+                  asset = "assets:[{video:{url:" + q(item["url"]) + "}}]"
+              else:
+                  meta = "metadata:{tiktok:{isAiGenerated:true}}"
+                  asset = "assets:[{video:{url:" + q(item["url"]) + " metadata:{thumbnailOffset:2000}}}]"
+              doc = ("mutation { createPost(input:{text:" + q(item["text"]) +
+                     " channelId:" + q(channel_id) +
+                     " schedulingType:automatic mode:shareNow aiAssisted:true " + meta + " " + asset +
+                     "}) { ... on PostActionSuccess { post { id status schedulingType dueAt externalLink assets { mimeType source } } } ... on MutationError { message } } }")
+              res = gql(doc).get("createPost") or {}
+              post = res.get("post") if isinstance(res, dict) else None
+              if not isinstance(post, dict) or not post.get("id"):
+                  raise RuntimeError(service + " createPost failed for " + item["app"] + ": " + str(res.get("message","unknown"))[:140])
+              print("BUFFER_CREATED", service, item["app"], "status", post.get("status"), "post", post["id"], "url", post.get("externalLink"), flush=True)
+              return post
+
+          for item in POSTS:
+              verify_mp4(item["url"])
+
+          for service, channel in [("facebook", facebook), ("tiktok", tiktok)]:
+              rows = history(channel)
+              for item in POSTS:
+                  if already(rows, item):
+                      print("BUFFER_DEDUPED", service, item["app"], flush=True)
+                      continue
+                  latest = history(channel)
+                  if already(latest, item):
+                      print("BUFFER_RACE_DEDUPED", service, item["app"], flush=True)
+                      continue
+                  post = create(channel, service, item)
+                  rows = latest + [{
+                      "id": post["id"],
+                      "text": item["text"],
+                      "status": post.get("status"),
+                      "assets": post.get("assets") or [],
+                      "externalLink": post.get("externalLink")
+                  }]
+                  time.sleep(2)
+
+          print("BUFFER_FINAL_RELEASE_COMPLETE", flush=True)
+          PY
