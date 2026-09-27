@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-27T09:27:49.037397+00:00",
+  "generated_at_utc": "2026-09-27T09:31:24.622136+00:00",
   "campaign": "AstraLabs_CrossPlatform_20260927",
   "video": "https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4",
   "image": "https://static.metricool.com/planner/202609/7092888-file-10443598200738079301.jpeg",
@@ -76,57 +76,21 @@
       "service": "facebook",
       "phase": "write",
       "result": {
-        "action": "created",
-        "post": {
-          "id": "6ab8e169ccccb9429c4b90ec",
-          "status": "sent",
-          "dueAt": "2026-09-27T09:27:05.357Z",
-          "externalLink": "https://facebook.com/1156083864252006_122117396031321731",
-          "assets": [
-            {
-              "mimeType": "video/mp4",
-              "source": "https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4"
-            }
-          ]
-        }
+        "action": "deduped"
       }
     },
     {
       "service": "tiktok",
       "phase": "write",
       "result": {
-        "action": "created",
-        "post": {
-          "id": "6ab8e178ccccb9429c4b922b",
-          "status": "sending",
-          "dueAt": "2026-09-27T09:27:20.681Z",
-          "externalLink": null,
-          "assets": [
-            {
-              "mimeType": "video/mp4",
-              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6aa059d0626d33004063293f/6ab18682ea19ca0bdeaa1d77/6ab8e178ccccb9429c4b922b_video.mp4"
-            }
-          ]
-        }
+        "action": "deduped"
       }
     },
     {
       "service": "pinterest",
       "phase": "write",
       "result": {
-        "action": "created",
-        "post": {
-          "id": "6ab8e18a0f79a37c5d4c9a15",
-          "status": "sent",
-          "dueAt": "2026-09-27T09:27:38.620Z",
-          "externalLink": "https://www.pinterest.com/pin/1143844005389278185",
-          "assets": [
-            {
-              "mimeType": "image/jpeg",
-              "source": "https://static.metricool.com/planner/202609/7092888-file-10443598200738079301.jpeg"
-            }
-          ]
-        }
+        "action": "deduped"
       }
     },
     {
@@ -136,7 +100,7 @@
         "id": "6ab8e169ccccb9429c4b90ec",
         "status": "sent",
         "dueAt": "2026-09-27T09:27:05.357Z",
-        "externalLink": "https://facebook.com/1156083864252006_122117396031321731"
+        "externalLink": "https://www.facebook.com/reel/2363221597800100/"
       }
     },
     {
@@ -144,9 +108,9 @@
       "phase": "verify",
       "post": {
         "id": "6ab8e178ccccb9429c4b922b",
-        "status": "sending",
+        "status": "sent",
         "dueAt": "2026-09-27T09:27:20.681Z",
-        "externalLink": null
+        "externalLink": "https://tiktok.com/@astralabsph/video/7690144284812627218"
       }
     },
     {
