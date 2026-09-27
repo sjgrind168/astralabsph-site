@@ -1,0 +1,63 @@
+name: PIREVO Pinterest Wave 1 Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-pinterest-assets.yml'
+      - 'marketing/pirevo/render_pinterest_wave1.py'
+      - 'marketing/pirevo/PINTEREST_PIN_COPY_20260927.json'
+      - 'marketing/pirevo/assets/pirevo_pin_source_contact_q45.b64'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pirevo-pinterest-wave1-assets
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image renderer
+        run: python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
+      - name: Render 30 PIREVO Pinterest assets
+        run: python marketing/pirevo/render_pinterest_wave1.py
+
+      - name: Validate exact asset inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          COUNT="$(find public/pirevo/assets/pins/wave1 -maxdepth 1 -type f -name '[0-9][0-9]_*.jpg' | wc -l | tr -d ' ')"
+          test "$COUNT" = "30"
+          test -s public/pirevo/assets/pins/wave1/manifest.json
+          test -s public/pirevo/assets/pins/wave1/QA_contact_sheet.jpg
+          grep -q '"asset_status": "PUBLIC_ASSET_READY"' marketing/pirevo/PINTEREST_LAUNCH_20260927.json
+          echo "PIREVO_ASSET_QA_OK count=$COUNT"
+
+      - name: Persist rendered assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Asset Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/pirevo/assets/pins/wave1 marketing/pirevo/PINTEREST_LAUNCH_20260927.json
+          if git diff --cached --quiet; then
+            echo "NO_ASSET_CHANGE"
+            exit 0
+          fi
+          git commit -m 'PIREVO: render 30 Pinterest Wave 1 assets'
+          git pull --rebase origin main
+          git push origin HEAD:main
