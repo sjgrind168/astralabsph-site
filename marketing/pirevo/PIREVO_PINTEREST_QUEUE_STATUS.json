@@ -1,27 +1,11 @@
 {
-  "generated_at_utc": "2026-09-27T11:05:37.311605+00:00",
+  "generated_at_utc": "2026-09-27T11:06:42.297226+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 2,
-  "pirevo_scheduled_before": 0,
-  "unused_before": 30,
-  "capacity": 3,
-  "created": [
-    {
-      "pin_id": "small-apartment-organization-p1",
-      "buffer_id": "6ab8f882612c9e6ac921150a",
-      "dueAt": "2026-09-28T02:00:00.000Z"
-    },
-    {
-      "pin_id": "small-apartment-organization-p2",
-      "buffer_id": "6ab8f88354f1e60c7e6809af",
-      "dueAt": "2026-09-28T03:10:00.000Z"
-    },
-    {
-      "pin_id": "small-apartment-organization-p3",
-      "buffer_id": "6ab8f884612c9e6ac9211566",
-      "dueAt": "2026-09-28T06:40:00.000Z"
-    }
-  ],
+  "scheduled_total_before": 5,
+  "pirevo_scheduled_before": 3,
+  "unused_before": 27,
+  "capacity": 0,
+  "created": [],
   "mode": "write",
   "scheduled_total_after": 5,
   "pirevo_scheduled_after": 3
