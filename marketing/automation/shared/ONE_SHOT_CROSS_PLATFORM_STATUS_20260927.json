@@ -1,0 +1,163 @@
+{
+  "generated_at_utc": "2026-09-27T09:27:49.037397+00:00",
+  "campaign": "AstraLabs_CrossPlatform_20260927",
+  "video": "https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4",
+  "image": "https://static.metricool.com/planner/202609/7092888-file-10443598200738079301.jpeg",
+  "results": [
+    {
+      "service": "facebook",
+      "phase": "preflight",
+      "scheduled": [
+        {
+          "id": "6ab8a9470f79a37c5d4666f6",
+          "dueAt": "2026-09-28T07:40:00.000Z",
+          "text": "You found the licence, but where did you record the renewal date? Keep the document, the expiry date you entered and you"
+        },
+        {
+          "id": "6ab8a9454b4b9f2c1c634a87",
+          "dueAt": "2026-09-28T06:10:00.000Z",
+          "text": "Two drafts, one trim question. Astramate groups the supported simple draft and trim calculations so you can review the w"
+        },
+        {
+          "id": "6ab7f07d05811e5737318a4c",
+          "dueAt": "2026-09-28T02:40:00.000Z",
+          "text": "Important PDFs and images deserve a dedicated place. Keepry\u2019s local-first Vault helps you organize them with searchable "
+        },
+        {
+          "id": "6ab7f07b05811e5737318a21",
+          "dueAt": "2026-09-28T01:30:00.000Z",
+          "text": "A hold can be full by volume before the estimated cargo weight reaches the target. Astramate\u2019s cargo-volume and stowage-"
+        },
+        {
+          "id": "6ab7c4f93d66d464e5b0be4d",
+          "dueAt": "2026-09-27T12:40:00.000Z",
+          "text": "You found your renewal document but cannot recall when it expires. Enter the date in Keepry, keep the record organized a"
+        },
+        {
+          "id": "6ab7c4f79f89edbefe72988d",
+          "dueAt": "2026-09-27T11:10:00.000Z",
+          "text": "You have an observed compass heading and a verified true reference. What is the compass error? Inspect the supported ste"
+        }
+      ]
+    },
+    {
+      "service": "tiktok",
+      "phase": "preflight",
+      "scheduled": [
+        {
+          "id": "6ab547f2fe8f81bcea815216",
+          "dueAt": "2026-09-27T12:55:00.000Z",
+          "text": "A document image and a reminder are separate steps. Enter the correct date yourself, confirm the record and review remin"
+        },
+        {
+          "id": "6ab547f1d45dbd98f4194c9a",
+          "dueAt": "2026-09-27T11:25:00.000Z",
+          "text": "If parcel weight looks fine but hold space is tight, compare usable volume and stowage factor before deciding. Always ve"
+        }
+      ]
+    },
+    {
+      "service": "pinterest",
+      "phase": "preflight",
+      "scheduled": [
+        {
+          "id": "6ab547f2ed952d22bace3417",
+          "dueAt": "2026-09-27T13:10:00.000Z",
+          "text": "A document image and a reminder are separate steps. Enter the correct date yourself, confirm the record and review remin"
+        },
+        {
+          "id": "6ab547f1fe8f81bcea8151c5",
+          "dueAt": "2026-09-27T11:40:00.000Z",
+          "text": "If parcel weight looks fine but hold space is tight, compare usable volume and stowage factor before deciding. Always ve"
+        }
+      ]
+    },
+    {
+      "service": "facebook",
+      "phase": "write",
+      "result": {
+        "action": "created",
+        "post": {
+          "id": "6ab8e169ccccb9429c4b90ec",
+          "status": "sent",
+          "dueAt": "2026-09-27T09:27:05.357Z",
+          "externalLink": "https://facebook.com/1156083864252006_122117396031321731",
+          "assets": [
+            {
+              "mimeType": "video/mp4",
+              "source": "https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "service": "tiktok",
+      "phase": "write",
+      "result": {
+        "action": "created",
+        "post": {
+          "id": "6ab8e178ccccb9429c4b922b",
+          "status": "sending",
+          "dueAt": "2026-09-27T09:27:20.681Z",
+          "externalLink": null,
+          "assets": [
+            {
+              "mimeType": "video/mp4",
+              "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6aa059d0626d33004063293f/6ab18682ea19ca0bdeaa1d77/6ab8e178ccccb9429c4b922b_video.mp4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "service": "pinterest",
+      "phase": "write",
+      "result": {
+        "action": "created",
+        "post": {
+          "id": "6ab8e18a0f79a37c5d4c9a15",
+          "status": "sent",
+          "dueAt": "2026-09-27T09:27:38.620Z",
+          "externalLink": "https://www.pinterest.com/pin/1143844005389278185",
+          "assets": [
+            {
+              "mimeType": "image/jpeg",
+              "source": "https://static.metricool.com/planner/202609/7092888-file-10443598200738079301.jpeg"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "service": "facebook",
+      "phase": "verify",
+      "post": {
+        "id": "6ab8e169ccccb9429c4b90ec",
+        "status": "sent",
+        "dueAt": "2026-09-27T09:27:05.357Z",
+        "externalLink": "https://facebook.com/1156083864252006_122117396031321731"
+      }
+    },
+    {
+      "service": "tiktok",
+      "phase": "verify",
+      "post": {
+        "id": "6ab8e178ccccb9429c4b922b",
+        "status": "sending",
+        "dueAt": "2026-09-27T09:27:20.681Z",
+        "externalLink": null
+      }
+    },
+    {
+      "service": "pinterest",
+      "phase": "verify",
+      "post": {
+        "id": "6ab8e18a0f79a37c5d4c9a15",
+        "status": "sent",
+        "dueAt": "2026-09-27T09:27:38.620Z",
+        "externalLink": "https://www.pinterest.com/pin/1143844005389278185"
+      }
+    }
+  ]
+}
