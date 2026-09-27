@@ -1,0 +1,45 @@
+name: AstraLabs LinkedIn HeyGen VO 2026-09-27
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-linkedin-heygen-vo-20260927.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Ensure ffmpeg
+        shell: bash
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+
+      - name: Download source video and HeyGen voice
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3             'https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4'             -o source.mp4
+          curl -L --fail --retry 3             'https://resource2.heygen.ai/text_to_speech/38b4b240c4ef42aa82bff7a8209dfa31/44c2584dd48f46b7bce9b66c8bf086e0/id=c33760b3-4e60-4323-9f42-95f9a8042562.wav'             -o heygen_faye.wav
+
+      - name: Mix natural HeyGen VO
+        shell: bash
+        run: |
+          set -euo pipefail
+          ffmpeg -y             -i source.mp4             -i heygen_faye.wav             -filter_complex "[1:a]atempo=1.04,volume=1.10[vo];[0:a]volume=0.14[bg];[bg][vo]amix=inputs=2:weights='1 1':normalize=0,alimiter=limit=0.95[a]"             -map 0:v -map "[a]"             -c:v copy             -c:a aac -b:a 192k             -shortest             AstraLabs_CrossPlatform_20260927_HeyGenVO.mp4
+
+          ffprobe -v error             -show_entries format=duration:stream=codec_name,codec_type,width,height             -of json AstraLabs_CrossPlatform_20260927_HeyGenVO.mp4
+
+      - name: Upload final MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: astralabs-linkedin-heygen-vo
+          path: AstraLabs_CrossPlatform_20260927_HeyGenVO.mp4
+          retention-days: 7
