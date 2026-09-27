@@ -1,0 +1,70 @@
+name: PIREVO Short 01 Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-short-01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pirevo-short-01-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check ffmpeg
+        run: ffmpeg -version | head -1
+
+      - name: Download HeyGen voiceover
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .tmp/pirevo-short-01
+          curl -fL --retry 3 --retry-delay 2             'https://resource2.heygen.ai/text_to_speech/38b4b240c4ef42aa82bff7a8209dfa31/04cfb01cb3a845c2af192666c417d1ed/id=474c71ba-eaf4-4756-975c-8736360163ab.wav'             -o .tmp/pirevo-short-01/voice.wav
+          test -s .tmp/pirevo-short-01/voice.wav
+          ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 .tmp/pirevo-short-01/voice.wav
+
+      - name: Build 9x16 YouTube Short
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT='public/pirevo/assets/shorts'
+          mkdir -p "$OUT"
+
+          I1='public/pirevo/assets/pins/wave1/01_small-apartment-organization_p1.jpg'
+          I2='public/pirevo/assets/pins/wave1/02_small-apartment-organization_p2.jpg'
+          I3='public/pirevo/assets/pins/wave1/03_small-apartment-organization_p3.jpg'
+          V='.tmp/pirevo-short-01/voice.wav'
+
+          for f in "$I1" "$I2" "$I3" "$V"; do test -s "$f"; done
+
+          ffmpeg -y             -loop 1 -t 5.47 -i "$I1"             -loop 1 -t 6.98 -i "$I2"             -loop 1 -t 9.47 -i "$I3"             -i "$V"             -filter_complex "[0:v]scale=1280:1920:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.00022,1.035)':d=165:s=1080x1920:fps=30,fade=t=in:st=0:d=0.25,fade=t=out:st=5.17:d=0.30,setpts=PTS-STARTPTS[v0];[1:v]scale=1280:1920:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.00018,1.035)':d=210:s=1080x1920:fps=30,fade=t=in:st=0:d=0.25,fade=t=out:st=6.68:d=0.30,setpts=PTS-STARTPTS[v1];[2:v]scale=1280:1920:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.00014,1.035)':d=285:s=1080x1920:fps=30,fade=t=in:st=0:d=0.25,fade=t=out:st=9.17:d=0.30,setpts=PTS-STARTPTS[v2];[v0][v1][v2]concat=n=3:v=1:a=0[v];[3:a]loudnorm=I=-16:LRA=8:TP=-1.5[a]"             -map '[v]' -map '[a]'             -c:v libx264 -preset medium -crf 22 -pix_fmt yuv420p             -c:a aac -b:a 160k -ar 48000             -movflags +faststart -shortest             "$OUT/pirevo-small-space-short-01.mp4"
+
+          test -s "$OUT/pirevo-small-space-short-01.mp4"
+          ffprobe -v error -show_entries format=duration,size -of json "$OUT/pirevo-small-space-short-01.mp4"
+
+      - name: Persist finished Short
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Video Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/pirevo/assets/shorts/pirevo-small-space-short-01.mp4
+          if git diff --cached --quiet; then
+            echo 'NO_VIDEO_CHANGE'
+            exit 0
+          fi
+          git commit -m 'PIREVO: add Small Space YouTube Short with HeyGen voice'
+          git pull --rebase origin main
+          git push origin HEAD:main
