@@ -177,3 +177,5 @@ jobs:
           git commit -m 'Marketing: record Sep 27 cross-platform post status'
           git pull --rebase origin main
           git push origin HEAD:main
+
+# verification refresh after publish
