@@ -1,0 +1,95 @@
+name: AstraLabs TikTok HeyGen VO 2026-09-27
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-heygen-vo-20260927.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: astralabs-tiktok-video-first-proof
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Share HeyGen VO video now
+        env:
+          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import importlib.util, json, time
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          BASE=Path("marketing/automation")
+          P=BASE/"tiktok/scripts/buffer_tiktok.py"
+          spec=importlib.util.spec_from_file_location("tt",P)
+          tt=importlib.util.module_from_spec(spec); spec.loader.exec_module(tt)
+
+          org,channel=tt.resolve_tiktok()
+          video="https://static.metricool.com/planner/202609/7092888-file-2073308320073772419.mp4"
+          marker="#AstraHeyGenVO"
+          text="Work at sea. Life on land. Astramate + Keepry, two practical AstraLabs PH tools. Available on Google Play. #Astramate #Keepry "+marker
+
+          def history():
+              q=('query { posts(first:100,input:{organizationId:'+json.dumps(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+json.dumps(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId externalLink assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=tt.gql(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete TikTok history")
+              rows=[e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=channel for x in rows):
+                  raise RuntimeError("TikTok channel mismatch")
+              return rows
+
+          rows=history()
+          scheduled=[{"id":x.get("id"),"dueAt":x.get("dueAt"),"text":str(x.get("text") or "")[:100]}
+                     for x in rows if x.get("status")=="scheduled"]
+
+          existing=next((x for x in rows if marker in str(x.get("text") or "")),None)
+          if existing:
+              result={"action":"deduped","post":existing,"scheduled_before":scheduled}
+          else:
+              q=("mutation { createPost(input:{text:"+tt.q(text)+
+                 " channelId:"+tt.q(channel)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " metadata:{tiktok:{isAiGenerated:true}}"+
+                 " assets:[{video:{url:"+tt.q(video)+" metadata:{thumbnailOffset:2000}}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=tt.gql(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"):
+                  raise RuntimeError("TikTok shareNow failed: "+str(res.get("message","unknown"))[:160])
+              time.sleep(12)
+              verify=next((x for x in history() if x.get("id")==p["id"]),p)
+              result={"action":"created","post":verify,"scheduled_before":scheduled}
+
+          out={"generated_at_utc":datetime.now(timezone.utc).isoformat(),
+               "campaign":"AstraLabs_HeyGenVO_20260927",
+               "video":video,"result":result}
+          rp=Path("marketing/automation/shared/TIKTOK_HEYGEN_VO_STATUS_20260927.json")
+          rp.write_text(json.dumps(out,indent=2),encoding="utf-8")
+          print(json.dumps(out,indent=2))
+          PY
+
+      - name: Persist proof
+        shell: bash
+        run: |
+          git config user.name 'AstraLabs Marketing Release Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/automation/shared/TIKTOK_HEYGEN_VO_STATUS_20260927.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Marketing: record TikTok HeyGen VO release'
+          git pull --rebase origin main
+          git push origin HEAD:main
