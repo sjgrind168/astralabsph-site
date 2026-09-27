@@ -1,0 +1,48 @@
+name: PIREVO Pinterest Queue
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-pinterest-queue.yml'
+      - 'marketing/pirevo/buffer_pinterest_pirevo.py'
+  schedule:
+    - cron: '20 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: astralabs-pinterest-channel-write
+  cancel-in-progress: false
+
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+      PIREVO_PINTEREST_PUBLISH_ENABLED: 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replenish PIREVO Finds queue safely
+        run: python3 marketing/pirevo/buffer_pinterest_pirevo.py
+
+      - name: Persist PIREVO queue proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Queue Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json
+          if git diff --cached --quiet; then
+            echo "NO_QUEUE_REPORT_CHANGE"
+            exit 0
+          fi
+          git commit -m 'PIREVO: record Pinterest queue status'
+          git pull --rebase origin main
+          git push origin HEAD:main
