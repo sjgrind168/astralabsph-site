@@ -1,7 +1,7 @@
 window.PIREVO_PRODUCT_SHORTLISTS={
 "small-apartment-organization":{
   heading:"Current product shortlist",
-  intro:"Specific U.S. Amazon product candidates that match the guide criteria. PIREVO has not hands-on tested these items; verify current dimensions, seller, reviews, stock and return terms before buying.",
+  intro:"Specific Amazon product candidates that match the guide criteria. PIREVO has not hands-on tested these items; verify current dimensions, seller, reviews, stock and return terms before buying.",
   products:[
     {name:"Simple Houseware 24-Pocket Over-the-Door Organizer",brand:"Simple Houseware",search:"Simple Houseware 24 Pocket Over the Door Organizer",fit:"A low-friction starting point for lightweight shoes, toiletries, accessories and pantry packets without using floor space.",verify:"Door thickness and top clearance, pocket dimensions, hook fit, and whether the loaded organizer still lets the door close cleanly.",signal:"2026 small-space editorial shortlist"},
     {name:"DELAMU 6-Tier Over-the-Door Basket Rack",brand:"DELAMU",search:"DELAMU 6 Tier Over the Door Pantry Organizer",fit:"Basket-style storage is a better match than soft pockets when the load includes bottles, cans, jars or other rigid items.",verify:"Basket depth, loaded weight, door swing clearance, hook padding and pantry-wall clearance.",signal:"2026 renter-storage shortlist"},
