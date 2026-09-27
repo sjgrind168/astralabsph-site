@@ -16,9 +16,9 @@ from pathlib import Path
 API="https://api.buffer.com"
 CHANNEL_ID="6aa06411cd8b9c702c2ff8ff"
 BOARD_NAME="PIREVO Finds"
-QUEUE_TARGET=3
-TOTAL_QUEUE_CAP=9
-MAX_ADD_PER_RUN=3
+QUEUE_TARGET=10
+TOTAL_QUEUE_CAP=10
+MAX_ADD_PER_RUN=10
 ROOT=Path(__file__).resolve().parents[2]
 MANIFEST=ROOT/"public/pirevo/assets/pins/wave1/manifest.json"
 REPORT=ROOT/"marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json"
