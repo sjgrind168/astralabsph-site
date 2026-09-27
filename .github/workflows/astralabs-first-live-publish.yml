@@ -6,47 +6,174 @@ on:
       - '.github/workflows/astralabs-first-live-publish.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: astralabs-one-shot-cross-platform
+  cancel-in-progress: false
+
 jobs:
-  facebook:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
-    concurrency:
-      group: astralabs-facebook-buffer-queue
-      cancel-in-progress: false
+    timeout-minutes: 10
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-      - name: Publish once now, one approved Astramate Facebook campaign image
-        env:
-          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-          ASTRALABS_ONE_SHOT_FB: 'true'
-          ASTRALABS_TEST_CHANNEL: facebook
-        run: python3 marketing/automation/shared/one_time_live_launch.py
-  pinterest:
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
-    concurrency:
-      group: astralabs-pinterest-apps-only
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-      - name: Publish once now only if verified AstraLabs Apps Pinterest board exists
-        env:
-          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-          ASTRALABS_ONE_SHOT_PIN: 'true'
-          ASTRALABS_TEST_CHANNEL: pinterest
-        run: python3 marketing/automation/shared/one_time_live_launch.py
-  tiktok:
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
-    concurrency:
-      group: astralabs-tiktok-video-first-proof
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-      - name: Publish once now, approved Astramate V2 voice and music video
-        env:
-          ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-          ASTRALABS_ONE_SHOT_TT: 'true'
-          ASTRALABS_TEST_CHANNEL: tiktok
-        run: python3 marketing/automation/shared/one_time_live_launch.py
+      - name: Publish current AstraLabs cross-platform post now without touching queues
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import importlib.util, json, os, time, urllib.request, urllib.error
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          BASE=Path("marketing/automation")
+          REPORT=Path("marketing/automation/shared/ONE_SHOT_CROSS_PLATFORM_STATUS_20260927.json")
+          VIDEO="https://static.metricool.com/planner/202609/7092888-file-13094514729206025217.mp4"
+          IMAGE="https://static.metricool.com/planner/202609/7092888-file-10443598200738079301.jpeg"
+          LANDING="https://www.astralabsph.com/"
+          TEXT=("Work at sea. Life on land. Stay ready with practical tools for both. "
+                "Astramate brings maritime tools together for seafarers. "
+                "Keepry helps organize important records, dates and reminders. "
+                "Both are available now on Google Play. https://www.astralabsph.com/ "
+                "#AstraLabsPH #Astramate #Keepry")
+          PIN_TITLE="Two practical tools for work at sea and life on land"
+          results=[]
+
+          def load(rel,name):
+              p=Path(rel)
+              spec=importlib.util.spec_from_file_location(name,str(p))
+              m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
+
+          fb=load(BASE/"facebook/scripts/buffer_facebook.py","fb")
+          tt=load(BASE/"tiktok/scripts/buffer_tiktok.py","tt")
+          pn=load(BASE/"pinterest/scripts/buffer_pinterest.py","pn")
+
+          org=fb.verified_target()
+          torg,tiktok=tt.resolve_tiktok()
+          porg,board=pn.target()
+          if torg!=org or porg!=org:
+              raise RuntimeError("Buffer organization mismatch")
+          if not board:
+              raise RuntimeError("Verified AstraLabs Apps Pinterest board unavailable")
+
+          def verify(url,kind):
+              req=urllib.request.Request(url,headers={"Range":"bytes=0-31","User-Agent":"AstraLabs-OneShot-20260927/1.0"})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  head=r.read(32); mime=(r.headers.get("Content-Type") or "").split(";")[0].lower()
+                  if r.status not in (200,206): raise RuntimeError(kind+" media HTTP status unexpected")
+                  if kind=="video" and (len(head)<12 or head[4:8]!=b"ftyp"):
+                      raise RuntimeError("Video signature invalid")
+                  if kind=="image" and not (mime.startswith("image/") or head[:2]==b"\xff\xd8"):
+                      raise RuntimeError("Image signature invalid")
+          verify(VIDEO,"video"); verify(IMAGE,"image")
+
+          def hist(api,channel):
+              q=('query { posts(first:100,input:{organizationId:'+json.dumps(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+json.dumps(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId externalLink assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=api(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Buffer history")
+              rows=[e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=channel for x in rows): raise RuntimeError("Channel history mismatch")
+              return rows
+
+          channels=[
+            ("facebook",fb.EXPECTED_PAGE_ID,fb.buffer_query,VIDEO),
+            ("tiktok",tiktok,tt.gql,VIDEO),
+            ("pinterest",pn.CHANNEL_ID,pn.query,IMAGE),
+          ]
+
+          # Record the live lineup before writing. Existing scheduled posts are never edited or removed.
+          for service,channel,api,media in channels:
+              rows=hist(api,channel)
+              scheduled=[{"id":x.get("id"),"dueAt":x.get("dueAt"),"text":str(x.get("text") or "")[:120]}
+                         for x in rows if x.get("status")=="scheduled"]
+              results.append({"service":service,"phase":"preflight","scheduled":scheduled})
+
+          def exists(rows,media):
+              return any(str(x.get("text") or "")==TEXT or any(str(a.get("source") or "")==media for a in (x.get("assets") or [])) for x in rows)
+
+          def create_fb():
+              rows=hist(fb.buffer_query,fb.EXPECTED_PAGE_ID)
+              if exists(rows,VIDEO): return {"action":"deduped"}
+              q=("mutation { createPost(input:{text:"+fb.quoted(TEXT)+
+                 " channelId:"+fb.quoted(fb.EXPECTED_PAGE_ID)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " metadata:{facebook:{type:post}}"+
+                 " assets:[{video:{url:"+fb.quoted(VIDEO)+"}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=fb.buffer_query(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("Facebook shareNow failed: "+str(res.get("message","unknown"))[:140])
+              return {"action":"created","post":p}
+
+          def create_tt():
+              rows=hist(tt.gql,tiktok)
+              if exists(rows,VIDEO): return {"action":"deduped"}
+              q=("mutation { createPost(input:{text:"+tt.q(TEXT)+
+                 " channelId:"+tt.q(tiktok)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " metadata:{tiktok:{isAiGenerated:true}}"+
+                 " assets:[{video:{url:"+tt.q(VIDEO)+" metadata:{thumbnailOffset:2000}}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=tt.gql(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("TikTok shareNow failed: "+str(res.get("message","unknown"))[:140])
+              return {"action":"created","post":p}
+
+          def create_pin():
+              rows=hist(pn.query,pn.CHANNEL_ID)
+              if exists(rows,IMAGE): return {"action":"deduped"}
+              caption=TEXT+"\n\n"+LANDING
+              q=("mutation { createPost(input:{text:"+pn.quoted(caption)+
+                 " channelId:"+pn.quoted(pn.CHANNEL_ID)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " assets:[{image:{url:"+pn.quoted(IMAGE)+"}}]"+
+                 " metadata:{pinterest:{boardServiceId:"+pn.quoted(board)+
+                 " title:"+pn.quoted(PIN_TITLE)+" url:"+pn.quoted(LANDING)+"}}})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=pn.query(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("Pinterest shareNow failed: "+str(res.get("message","unknown"))[:140])
+              return {"action":"created","post":p}
+
+          for service,fn in [("facebook",create_fb),("tiktok",create_tt),("pinterest",create_pin)]:
+              out=fn()
+              results.append({"service":service,"phase":"write","result":out})
+              time.sleep(7)
+
+          # Post-write verification with native external links when Buffer has them.
+          for service,channel,api,media in channels:
+              rows=hist(api,channel)
+              match=next((x for x in rows if str(x.get("text") or "")==TEXT or any(str(a.get("source") or "")==media for a in (x.get("assets") or []))),None)
+              results.append({"service":service,"phase":"verify","post":({
+                  "id":match.get("id"),"status":match.get("status"),"dueAt":match.get("dueAt"),
+                  "externalLink":match.get("externalLink")
+              } if match else None)})
+
+          REPORT.parent.mkdir(parents=True,exist_ok=True)
+          REPORT.write_text(json.dumps({
+              "generated_at_utc":datetime.now(timezone.utc).isoformat(),
+              "campaign":"AstraLabs_CrossPlatform_20260927",
+              "video":VIDEO,"image":IMAGE,"results":results
+          },indent=2),encoding="utf-8")
+          print("ONE_SHOT_CROSS_PLATFORM_COMPLETE")
+          PY
+      - name: Persist one-shot queue and publication proof
+        shell: bash
+        run: |
+          git config user.name 'AstraLabs Marketing Release Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/automation/shared/ONE_SHOT_CROSS_PLATFORM_STATUS_20260927.json
+          if git diff --cached --quiet; then
+            echo "NO_REPORT_CHANGE"
+            exit 0
+          fi
+          git commit -m 'Marketing: record Sep 27 cross-platform post status'
+          git pull --rebase origin main
+          git push origin HEAD:main
