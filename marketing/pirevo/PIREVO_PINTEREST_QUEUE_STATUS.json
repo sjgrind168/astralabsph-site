@@ -1,12 +1,43 @@
 {
-  "generated_at_utc": "2026-09-27T11:06:42.297226+00:00",
+  "generated_at_utc": "2026-09-27T12:35:48.452856+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 5,
+  "scheduled_total_before": 4,
   "pirevo_scheduled_before": 3,
   "unused_before": 27,
-  "capacity": 0,
-  "created": [],
+  "capacity": 6,
+  "created": [
+    {
+      "pin_id": "home-office-desk-upgrades-p1",
+      "buffer_id": "6ab90da543493a0ede8e5ec9",
+      "dueAt": "2026-09-28T08:10:00.000Z"
+    },
+    {
+      "pin_id": "home-office-desk-upgrades-p2",
+      "buffer_id": "6ab90da670ec211d1d178be1",
+      "dueAt": "2026-09-28T11:40:00.000Z"
+    },
+    {
+      "pin_id": "home-office-desk-upgrades-p3",
+      "buffer_id": "6ab90da736a0dcfcb3d475ca",
+      "dueAt": "2026-09-28T13:10:00.000Z"
+    },
+    {
+      "pin_id": "carry-on-travel-essentials-p1",
+      "buffer_id": "6ab90da943493a0ede8e5f54",
+      "dueAt": "2026-09-29T02:00:00.000Z"
+    },
+    {
+      "pin_id": "carry-on-travel-essentials-p2",
+      "buffer_id": "6ab90daa36a0dcfcb3d475f7",
+      "dueAt": "2026-09-29T03:10:00.000Z"
+    },
+    {
+      "pin_id": "carry-on-travel-essentials-p3",
+      "buffer_id": "6ab90dab36a0dcfcb3d47624",
+      "dueAt": "2026-09-29T06:40:00.000Z"
+    }
+  ],
   "mode": "write",
-  "scheduled_total_after": 5,
-  "pirevo_scheduled_after": 3
+  "scheduled_total_after": 10,
+  "pirevo_scheduled_after": 9
 }
