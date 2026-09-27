@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-27T13:37:16.913512+00:00",
+  "generated_at_utc": "2026-09-27T13:39:04.293864+00:00",
   "campaign": "AstraLabs_HeyGenVO_20260927",
   "video": "https://static.metricool.com/planner/202609/7092888-file-2073308320073772419.mp4",
   "result": {
@@ -7,10 +7,10 @@
     "post": {
       "id": "6ab91bcc1bf030e330a8de64",
       "text": "Work at sea. Life on land. Astramate + Keepry, two practical AstraLabs PH tools. Available on Google Play. #Astramate #Keepry #AstraHeyGenVO",
-      "status": "sending",
+      "status": "sent",
       "dueAt": "2026-09-27T13:36:12.719Z",
       "channelId": "6ab18682ea19ca0bdeaa1d77",
-      "externalLink": null,
+      "externalLink": "https://tiktok.com/@astralabsph/video/7690208493642550546",
       "assets": [
         {
           "mimeType": "video/mp4",
