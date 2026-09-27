@@ -93,3 +93,5 @@ jobs:
           git commit -m 'Marketing: record TikTok HeyGen VO release'
           git pull --rebase origin main
           git push origin HEAD:main
+
+# verify final TikTok publication status
