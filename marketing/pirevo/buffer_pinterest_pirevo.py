@@ -16,7 +16,7 @@ from pathlib import Path
 API="https://api.buffer.com"
 CHANNEL_ID="6aa06411cd8b9c702c2ff8ff"
 BOARD_NAME="PIREVO Finds"
-QUEUE_TARGET=6
+QUEUE_TARGET=3
 TOTAL_QUEUE_CAP=9
 MAX_ADD_PER_RUN=3
 ROOT=Path(__file__).resolve().parents[2]
