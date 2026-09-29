@@ -95,7 +95,6 @@ function App() {
                 <div className="hero-actions">
                   <a className="official-store-badge app-store-official" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><img src={APP_STORE_BADGE_ART} alt="Download on the App Store" /></a>
                   <a className="official-store-badge google-play-official" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer" aria-label="Get Astramate on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
-                  <a className="official-store-badge google-play-official" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer" aria-label="Get Keepry on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
                   <button onClick={goToApps}>Explore both apps</button>
                 </div>
               </>
