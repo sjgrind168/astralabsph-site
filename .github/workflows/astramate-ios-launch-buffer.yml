@@ -1,0 +1,139 @@
+name: Astramate iOS Launch Buffer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astramate-ios-launch-buffer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: astramate-ios-launch-buffer
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - name: Update scheduled Astramate posts and publish launch announcement
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, re, sys, urllib.request, urllib.error
+          from datetime import datetime, timezone
+
+          API="https://api.buffer.com"
+          FB="6ab15144ea19ca0bdea6d621"
+          IMAGE="https://www.astralabsph.com/marketing/campaigns/astramate_ios_launch_4x5.jpg"
+          APPSTORE="https://apps.apple.com/us/app/astramate/id6812828056"
+          PLAY="https://play.google.com/store/apps/details?id=com.astralabs.astramate"
+          SITE="https://www.astralabsph.com/?app=astramate&utm_source=facebook&utm_medium=organic_social&utm_campaign=astramate_ios_launch&utm_content=ios_live_20260929"
+          MARKER="#AstramateiOSLaunch"
+          key=os.environ.get("ASTRALABS_BUFFER_API_KEY","").strip()
+          if not key: raise SystemExit("BUFFER_IOS_FAIL missing secret")
+
+          def q(v): return json.dumps(str(v),ensure_ascii=True)
+          def gql(doc):
+              req=urllib.request.Request(API,data=json.dumps({"query":doc}).encode(),
+                  headers={"Authorization":"Bearer "+key,"Content-Type":"application/json",
+                           "User-Agent":"AstraLabs-iOS-Launch/1.0"},method="POST")
+              try:
+                  with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(f"Buffer HTTP {e.code}") from None
+              except urllib.error.URLError:
+                  raise RuntimeError("Buffer network failure") from None
+              if payload.get("errors") or not isinstance(payload.get("data"),dict):
+                  raise RuntimeError("Buffer GraphQL rejected request")
+              return payload["data"]
+
+          orgs=((gql("query { account { organizations { id name } } }").get("account") or {}).get("organizations") or [])
+          if len(orgs)!=1: raise RuntimeError("Ambiguous Buffer organization")
+          org=orgs[0]["id"]
+
+          def history():
+              doc=("query { posts(first:100,input:{organizationId:"+q(org)+
+                   ",filter:{status:[scheduled,sent,sending,draft,error],channelIds:["+q(FB)+
+                   "]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } externalLink } } pageInfo { hasNextPage } } }")
+              p=gql(doc).get("posts") or {}
+              if not isinstance(p.get("edges"),list) or (p.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Facebook history")
+              rows=[e["node"] for e in p["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=FB for x in rows): raise RuntimeError("Cross-channel history")
+              return rows
+
+          rows=history()
+          now=datetime.now(timezone.utc)
+          updated=[]
+          for p in rows:
+              if p.get("status")!="scheduled": continue
+              text=str(p.get("text") or "")
+              if "astramate" not in text.lower(): continue
+              due=p.get("dueAt")
+              try: due_dt=datetime.fromisoformat(due.replace("Z","+00:00"))
+              except Exception: raise RuntimeError("Bad dueAt for "+str(p.get("id")))
+              if due_dt <= now: continue
+
+              new=text
+              reps=[
+                (r"Start free on Android", "Start free on iPhone or Android"),
+                (r"available on Google Play", "available on the App Store and Google Play"),
+                (r"Android available now\s*\|\s*iOS coming soon", "Available now on iPhone + Android"),
+                (r"iOS coming soon", "iOS available now"),
+              ]
+              for pat,repl in reps: new=re.sub(pat,repl,new,flags=re.I)
+              block=("Astramate is now available on the App Store and Google Play.\n"
+                     "App Store: "+APPSTORE+"\n"
+                     "Google Play: "+PLAY)
+              if APPSTORE not in new:
+                  new=new.rstrip()+"\n\n"+block
+
+              latest=[x for x in history() if x.get("id")==p.get("id")]
+              if len(latest)!=1 or latest[0].get("status")!="scheduled" or latest[0].get("dueAt")!=due:
+                  raise RuntimeError("Scheduled post changed during reconcile")
+              doc=("mutation { editPost(input:{id:"+q(p["id"])+" text:"+q(new)+
+                   " metadata:{facebook:{type:post}} aiAssisted:true "+
+                   "assets:[{image:{url:"+q(IMAGE)+"}}] })"+
+                   " { ... on PostActionSuccess { post { id text status dueAt assets { mimeType source } } }"+
+                   " ... on MutationError { message } } }")
+              out=gql(doc).get("editPost") or {}
+              post=out.get("post") if isinstance(out,dict) else None
+              if not isinstance(post,dict) or post.get("id")!=p.get("id"):
+                  raise RuntimeError("Astramate scheduled edit unconfirmed: "+str(out.get("message","unknown"))[:160])
+              if post.get("status")!="scheduled" or post.get("dueAt")!=due:
+                  raise RuntimeError("Scheduled time changed unexpectedly")
+              if not any(a.get("source")==IMAGE for a in (post.get("assets") or [])):
+                  raise RuntimeError("Updated launch image not confirmed")
+              updated.append({"id":p["id"],"dueAt":due})
+              print("ASTRAMATE_SCHEDULED_UPDATED",p["id"],due)
+
+          rows=history()
+          if not any(MARKER in str(x.get("text") or "") for x in rows):
+              announcement=(
+                "Astramate is now live on the App Store.\n\n"
+                "The AstraLabs PH maritime toolkit is now available on iPhone as well as Android for cadets, deck officers, seafarers and maritime students. Review supported cargo, stowage-factor, draft/trim and other calculation tools with visible working and offline-first access to core tools.\n\n"
+                "App Store: "+APPSTORE+"\n"
+                "Google Play: "+PLAY+"\n"
+                "Explore Astramate: "+SITE+"\n\n"
+                "#Astramate #MaritimeTools #Seafarers #AppStore "+MARKER)
+              doc=("mutation { createPost(input:{text:"+q(announcement)+" channelId:"+q(FB)+
+                   " schedulingType:automatic mode:shareNow aiAssisted:true "+
+                   "metadata:{facebook:{type:post}} assets:[{image:{url:"+q(IMAGE)+"}}]})"+
+                   " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } }"+
+                   " ... on MutationError { message } } }")
+              out=gql(doc).get("createPost") or {}
+              post=out.get("post") if isinstance(out,dict) else None
+              if not isinstance(post,dict) or not post.get("id"):
+                  raise RuntimeError("Launch announcement unconfirmed: "+str(out.get("message","unknown"))[:160])
+              print("ASTRAMATE_IOS_FB_ANNOUNCEMENT_ACCEPTED",post["id"],post.get("status"))
+          else:
+              print("ASTRAMATE_IOS_FB_ANNOUNCEMENT_DEDUPED")
+
+          print("ASTRAMATE_IOS_BUFFER_DONE updated",len(updated))
+          PY
