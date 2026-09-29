@@ -3,11 +3,12 @@ const astramate = '/astramate-icon.webp';
 
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.astramate&utm_source=astralabsph&utm_medium=website&utm_campaign=global_android_launch&utm_content=homepage';
 const KEEPRY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.keepry&utm_source=astralabsph&utm_medium=website&utm_campaign=global_android_launch&utm_content=homepage';
+const APP_STORE_URL = 'https://apps.apple.com/app/astramate/id6812828056';
 const PIREVO_URL = 'https://pirevo.astralabsph.com/';
 const KEEPRY_ICON = '/keepry-icon.webp';
 
 const products = [
-  { name: 'Astramate', label: 'Maritime toolkit · Android', icon: astramate, live: true, url: PLAY_URL,
+  { name: 'Astramate', label: 'Maritime toolkit · Android + iPhone', icon: astramate, live: true, url: PLAY_URL, iosUrl: APP_STORE_URL,
     lead: 'Checking cargo weight against hold volume? Astramate brings supported cargo, stowage-factor and draft/trim calculations together, with visible working for reviewing your own figures.',
     points: ['For deck officers, cadets and seafarers worldwide', 'Cargo weight, volume, stowage-factor and draft/trim calculation aids', 'Visible working for independent review against approved vessel information', 'Start free · optional one-time lifetime Premium unlocks more supported tools'] },
   { name: 'Keepry', label: 'Everyday organization · Worldwide · Android', icon: KEEPRY_ICON, live: true, url: KEEPRY_URL,
@@ -71,15 +72,16 @@ function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <div className="status-chip">TWO LIVE ANDROID APPS · BUILT FOR A WORLDWIDE AUDIENCE</div>
+            <div className="status-chip">ASTRAMATE LIVE ON iOS + ANDROID · KEEPRY LIVE ON ANDROID</div>
             {campaignProduct ? (
               <>
                 <h1>{campaignProduct.name === 'Astramate' ? 'Cargo figures deserve a second look.' : 'Important documents. Important dates.'}
                   <span> {campaignProduct.name === 'Astramate' ? 'Meet Astramate.' : 'Keep them together with Keepry.'}</span>
                 </h1>
-                <p>{campaignProduct.lead} Start with the free Android app; optional one-time upgrades are available when you need more supported tools or capacity.</p>
+                <p>{campaignProduct.lead} {campaignProduct.name === 'Astramate' ? 'Astramate is available now on iPhone and Android.' : 'Start with the free Android app.'} Optional one-time upgrades are available when you need more supported tools or capacity.</p>
                 <div className="hero-actions">
                   <a className="primary-cta" href={trackedPlay(campaignProduct.url, requestedApp)} target="_blank" rel="noopener noreferrer">Install {campaignProduct.name} free on Google Play ↗</a>
+                  {campaignProduct.name === 'Astramate' && <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>}
                   <a className="secondary-cta" href={`#${requestedApp}`}>See what {campaignProduct.name} helps you do ↓</a>
                   <a className="secondary-cta" href={trackedPlay(alternateProduct.url, alternateProduct.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Explore {alternateProduct.name} ↗</a>
                 </div>
@@ -87,10 +89,11 @@ function App() {
             ) : (
               <>
                 <h1>One studio. <span>Practical apps for life on land and work at sea.</span></h1>
-                <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Explore both apps here, install free on Android, and choose optional one-time upgrades when you need more.</p>
+                <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Astramate is now on iPhone and Android; Keepry is available on Android while its iOS release progresses through App Store review.</p>
                 <div className="hero-actions">
-                  <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate free ↗</a>
-                  <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry free ↗</a>
+                  <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate on Google Play ↗</a>
+                  <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>
+                  <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry on Google Play ↗</a>
                   <button onClick={goToApps}>Explore both apps</button>
                 </div>
               </>
@@ -98,7 +101,7 @@ function App() {
             <div className="trust-row">
               <span>Verified store distribution</span>
               <span>Privacy-first product direction</span>
-              <span>Worldwide audiences · Android available now</span>
+              <span>Astramate on iOS + Android · Keepry on Android</span>
             </div>
           </div>
 
@@ -106,7 +109,7 @@ function App() {
             <div className="orbit-card primary">
               <img src={astramate} alt="Astramate app icon" />
               <span>Astramate</span>
-              <b>LIVE ON GOOGLE PLAY · TOOLS + CALCULATIONS</b>
+              <b>LIVE ON APP STORE + GOOGLE PLAY · TOOLS + CALCULATIONS</b>
             </div>
             <div className="orbit-card"><img src={KEEPRY_ICON} alt="Keepry app icon" /><span>Keepry</span><b>LIVE ON GOOGLE PLAY · PRIVATE VAULT + REMINDERS</b></div>
             <div className="panel-note">Two practical apps. More platforms on the way.</div>
@@ -116,16 +119,16 @@ function App() {
         <section className="notice-band">
           <div>
             <strong>Astramate and Keepry are live.</strong>
-            <span>Get both apps on Google Play today. Coming very soon to the App Store for iPhone and iPad, subject to review. Check this website for official app and release updates.</span>
+            <span>Astramate is now live on the App Store for iPhone and on Google Play. Keepry is live on Google Play, with iOS still in App Store review. Use only the official store links on this website.</span>
           </div>
           <a href="#apps">EXPLORE THE APPS ↓</a>
         </section>
 
         <section className="apps-section" id="apps">
           <div className="section-head">
-            <p>AVAILABLE NOW ON ANDROID</p>
+            <p>ASTRAMATE: iOS + ANDROID · KEEPRY: ANDROID</p>
             <h2>Made for people worldwide, on land and at sea.</h2>
-            <span>Astramate supports a global maritime audience, from cadets and maritime students to working seafarers and training groups. Keepry helps anyone organize everyday documents and reminders. Choose your app and install from the official store.</span>
+            <span>Astramate supports a global maritime audience, from cadets and maritime students to working seafarers and training groups, and is now available on iPhone and Android. Keepry helps anyone organize everyday documents and reminders and is currently available on Android.</span>
           </div>
 
           <div className="product-grid">
@@ -133,7 +136,7 @@ function App() {
               <article id={product.name.toLowerCase()} className={product.live ? 'product-card featured' : 'product-card'} key={product.name}>
                 <div className="card-top">
                   {product.icon ? <img className="product-icon-image" src={product.icon} alt="" /> : <span className="product-mark">{product.mark}</span>}
-                  <span className={product.live ? 'launch-pill live' : 'launch-pill'}>{product.live ? 'Available on Google Play' : 'Launching Soon'}</span>
+                  <span className={product.live ? 'launch-pill live' : 'launch-pill'}>{product.live ? (product.name === 'Astramate' ? 'Available on iOS + Android' : 'Available on Google Play') : 'Launching Soon'}</span>
                 </div>
                 <small>{product.label}</small>
                 <h3>{product.name}</h3>
@@ -142,7 +145,11 @@ function App() {
                 {product.live ? (
                   <div className="store-action-row">
                     <a className="store-action" href={trackedPlay(product.url, product.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
-                    <span className="store-action ios-soon-action" aria-disabled="true" title="Coming soon to the App Store for iPhone and iPad, subject to Apple review">iOS Coming Soon</span>
+                    {product.name === 'Astramate' ? (
+                      <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>
+                    ) : (
+                      <span className="store-action ios-soon-action" aria-disabled="true" title="Keepry for iPhone is still in App Store review">iOS Coming Soon</span>
+                    )}
                   </div>
                 ) : (
                   <div className="disabled-action" aria-disabled="true">Release page coming soon</div>
@@ -188,14 +195,15 @@ function App() {
         <section className="release-section" id="updates">
           <div>
             <p>RELEASE POLICY</p>
-            <h2>Astramate and Keepry are live on Google Play.</h2>
-            <span>Download the Android apps only from their official Google Play listings. iPhone and iPad versions are coming soon to the App Store. Their links will appear here after approval and publication. Bookmark this website for app updates, release announcements and new features.</span>
+            <h2>Astramate is live on iPhone and Android. Keepry is live on Android.</h2>
+            <span>Download Astramate from its official App Store or Google Play listing. Keepry is available from its official Google Play listing while its iOS release remains in review. Bookmark this website for verified store links, app updates and new releases.</span>
           </div>
           <div className="release-badge">
-            <strong>ANDROID LIVE · iOS COMING SOON</strong>
-            <small>Astramate + Keepry · official store listings · Watch this website for App Store links</small>
-            <a href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Astramate ↗</a>
-            <a href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Keepry ↗</a>
+            <strong>ASTRAMATE LIVE ON iOS + ANDROID</strong>
+            <small>Keepry is live on Android · official store links only</small>
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">Astramate on App Store ↗</a>
+            <a href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Astramate on Google Play ↗</a>
+            <a href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Keepry on Google Play ↗</a>
           </div>
         </section>
       </main>
