@@ -1,0 +1,99 @@
+name: Buffer Queue Audit Now
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/buffer-queue-audit-now.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - name: Read Buffer queues
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+
+          API="https://api.buffer.com"
+          key=os.environ.get("ASTRALABS_BUFFER_API_KEY","").strip()
+          if not key:
+              raise SystemExit("BUFFER_AUDIT_FAIL missing secret")
+
+          def q(v):
+              return json.dumps(str(v), ensure_ascii=True)
+
+          def gql(query):
+              req=urllib.request.Request(
+                  API,
+                  data=json.dumps({"query":query}).encode(),
+                  headers={
+                      "Authorization":"Bearer "+key,
+                      "Content-Type":"application/json",
+                      "User-Agent":"AstraLabs-Buffer-Audit/1.0"
+                  },
+                  method="POST"
+              )
+              try:
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      payload=json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise SystemExit(f"BUFFER_AUDIT_FAIL http={e.code}")
+              if payload.get("errors"):
+                  raise SystemExit("BUFFER_AUDIT_FAIL graphql="+json.dumps(payload["errors"])[:1000])
+              data=payload.get("data")
+              if not isinstance(data,dict):
+                  raise SystemExit("BUFFER_AUDIT_FAIL missing data")
+              return data
+
+          acct=gql("query { account { organizations { id name } } }").get("account") or {}
+          orgs=acct.get("organizations") or []
+          if len(orgs)!=1:
+              raise SystemExit("BUFFER_AUDIT_FAIL organization count="+str(len(orgs)))
+          org=orgs[0]
+          channels=gql("query { channels(input:{organizationId:"+q(org["id"])+"}) { id service isDisconnected isLocked isQueuePaused } }").get("channels") or []
+
+          report={"organization":org,"channels":[]}
+          for ch in channels:
+              cid=ch["id"]
+              query=("query { posts(first:100,input:{organizationId:"+q(org["id"])+
+                     ",filter:{status:[scheduled,sent,sending,draft,error],channelIds:["+q(cid)+
+                     "]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId externalLink } } pageInfo { hasNextPage } } }")
+              p=gql(query).get("posts") or {}
+              rows=[e.get("node") for e in (p.get("edges") or []) if isinstance(e.get("node"),dict)]
+              scheduled=[x for x in rows if x.get("status")=="scheduled"]
+              sending=[x for x in rows if x.get("status")=="sending"]
+              drafts=[x for x in rows if x.get("status")=="draft"]
+              errors=[x for x in rows if x.get("status")=="error"]
+              sent=[x for x in rows if x.get("status")=="sent"]
+              def mini(x):
+                  t=(x.get("text") or "").replace("\n"," ").strip()
+                  return {"id":x.get("id"),"dueAt":x.get("dueAt"),"text":t[:180],"externalLink":x.get("externalLink")}
+              report["channels"].append({
+                  "id":cid,
+                  "service":ch.get("service"),
+                  "isDisconnected":ch.get("isDisconnected"),
+                  "isLocked":ch.get("isLocked"),
+                  "isQueuePaused":ch.get("isQueuePaused"),
+                  "scheduled_count":len(scheduled),
+                  "sending_count":len(sending),
+                  "draft_count":len(drafts),
+                  "error_count":len(errors),
+                  "scheduled":[mini(x) for x in sorted(scheduled,key=lambda x:(x.get("dueAt") or ""))],
+                  "sending":[mini(x) for x in sending],
+                  "errors":[mini(x) for x in errors],
+                  "latest_sent":mini(sent[0]) if sent else None,
+                  "has_more":bool((p.get("pageInfo") or {}).get("hasNextPage"))
+              })
+          print("BUFFER_AUDIT_JSON_START")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          print("BUFFER_AUDIT_JSON_END")
+          PY
