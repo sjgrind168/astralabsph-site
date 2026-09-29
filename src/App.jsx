@@ -3,7 +3,9 @@ const astramate = '/astramate-icon.webp';
 
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.astramate&utm_source=astralabsph&utm_medium=website&utm_campaign=global_android_launch&utm_content=homepage';
 const KEEPRY_URL = 'https://play.google.com/store/apps/details?id=com.astralabs.keepry&utm_source=astralabsph&utm_medium=website&utm_campaign=global_android_launch&utm_content=homepage';
-const APP_STORE_URL = 'https://apps.apple.com/app/astramate/id6812828056';
+const APP_STORE_URL = 'https://apps.apple.com/us/app/astramate/id6812828056';
+const APP_STORE_BADGE_ART = 'https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg';
+const GOOGLE_PLAY_BADGE_ART = 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png';
 const PIREVO_URL = 'https://pirevo.astralabsph.com/';
 const KEEPRY_ICON = '/keepry-icon.webp';
 
@@ -80,8 +82,8 @@ function App() {
                 </h1>
                 <p>{campaignProduct.lead} {campaignProduct.name === 'Astramate' ? 'Astramate is available now on iPhone and Android.' : 'Start with the free Android app.'} Optional one-time upgrades are available when you need more supported tools or capacity.</p>
                 <div className="hero-actions">
-                  <a className="primary-cta" href={trackedPlay(campaignProduct.url, requestedApp)} target="_blank" rel="noopener noreferrer">Install {campaignProduct.name} free on Google Play ↗</a>
-                  {campaignProduct.name === 'Astramate' && <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>}
+                  <a className="official-store-badge google-play-official" href={trackedPlay(campaignProduct.url, requestedApp)} target="_blank" rel="noopener noreferrer" aria-label={`Get ${campaignProduct.name} on Google Play`}><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
+                  {campaignProduct.name === 'Astramate' && <a className="official-store-badge app-store-official" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><img src={APP_STORE_BADGE_ART} alt="Download on the App Store" /></a>}
                   <a className="secondary-cta" href={`#${requestedApp}`}>See what {campaignProduct.name} helps you do ↓</a>
                   <a className="secondary-cta" href={trackedPlay(alternateProduct.url, alternateProduct.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Explore {alternateProduct.name} ↗</a>
                 </div>
@@ -91,9 +93,9 @@ function App() {
                 <h1>One studio. <span>Practical apps for life on land and work at sea.</span></h1>
                 <p>Review cargo, stowage-factor and draft calculations with Astramate. Keep important documents, expiry dates and Life Admin together with Keepry. Astramate is now on iPhone and Android; Keepry is available on Android while its iOS release progresses through App Store review.</p>
                 <div className="hero-actions">
-                  <a className="primary-cta" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Get Astramate on Google Play ↗</a>
-                  <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>
-                  <a className="primary-cta" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Get Keepry on Google Play ↗</a>
+                  <a className="official-store-badge app-store-official" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><img src={APP_STORE_BADGE_ART} alt="Download on the App Store" /></a>
+                  <a className="official-store-badge google-play-official" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer" aria-label="Get Astramate on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
+                  <a className="official-store-badge google-play-official" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer" aria-label="Get Keepry on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
                   <button onClick={goToApps}>Explore both apps</button>
                 </div>
               </>
@@ -144,12 +146,13 @@ function App() {
                 <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
                 {product.live ? (
                   <div className="store-action-row">
-                    <a className="store-action" href={trackedPlay(product.url, product.name.toLowerCase())} target="_blank" rel="noopener noreferrer">Get {product.name} on Google Play ↗</a>
-                    {product.name === 'Astramate' ? (
-                      <a className="app-store-badge" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><small>Download on the</small><strong>App Store</strong></a>
-                    ) : (
-                      <span className="store-action ios-soon-action" aria-disabled="true" title="Keepry for iPhone is still in App Store review">iOS Coming Soon</span>
+                    {product.name === 'Astramate' && (
+                      <a className="official-store-badge app-store-official" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><img src={APP_STORE_BADGE_ART} alt="Download on the App Store" /></a>
                     )}
+                    <a className="official-store-badge google-play-official" href={trackedPlay(product.url, product.name.toLowerCase())} target="_blank" rel="noopener noreferrer" aria-label={`Get ${product.name} on Google Play`}><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a>
+                    {product.name !== 'Astramate' ? (
+                      <span className="store-action ios-soon-action" aria-disabled="true" title="Keepry for iPhone is still in App Store review">iOS Coming Soon</span>
+                    ) : null}
                   </div>
                 ) : (
                   <div className="disabled-action" aria-disabled="true">Release page coming soon</div>
@@ -201,9 +204,8 @@ function App() {
           <div className="release-badge">
             <strong>ASTRAMATE LIVE ON iOS + ANDROID</strong>
             <small>Keepry is live on Android · official store links only</small>
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">Astramate on App Store ↗</a>
-            <a href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer">Astramate on Google Play ↗</a>
-            <a href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer">Keepry on Google Play ↗</a>
+            <div className="release-store-group"><span>Astramate</span><div className="release-store-badges"><a className="official-store-badge app-store-official" href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store"><img src={APP_STORE_BADGE_ART} alt="Download on the App Store" /></a><a className="official-store-badge google-play-official" href={trackedPlay(PLAY_URL, 'astramate')} target="_blank" rel="noopener noreferrer" aria-label="Get Astramate on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a></div></div>
+            <div className="release-store-group"><span>Keepry</span><div className="release-store-badges"><a className="official-store-badge google-play-official" href={trackedPlay(KEEPRY_URL, 'keepry')} target="_blank" rel="noopener noreferrer" aria-label="Get Keepry on Google Play"><img src={GOOGLE_PLAY_BADGE_ART} alt="Get it on Google Play" /></a></div></div>
           </div>
         </section>
       </main>
