@@ -1,0 +1,121 @@
+name: Astramate iOS Launch Asset
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astramate-ios-launch-asset.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: astramate-ios-launch-asset
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install renderer
+        run: python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
+      - name: Render App Store launch creative
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-delay 2             'https://www.astralabsph.com/astramate-icon.webp'             -o /tmp/astramate-icon.webp
+
+          python3 - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont, ImageFilter
+          from pathlib import Path
+
+          W,H=1080,1350
+          out=Path("public/marketing/campaigns/astramate_ios_launch_4x5.jpg")
+          out.parent.mkdir(parents=True,exist_ok=True)
+
+          # Premium navy gradient background
+          img=Image.new("RGB",(W,H))
+          px=img.load()
+          for y in range(H):
+              t=y/(H-1)
+              r=int(4 + 7*t); g=int(26 + 18*t); b=int(50 + 28*t)
+              for x in range(W): px[x,y]=(r,g,b)
+
+          # Soft cyan glow
+          glow=Image.new("RGBA",(W,H),(0,0,0,0))
+          gd=ImageDraw.Draw(glow)
+          gd.ellipse((650,-160,1250,440),fill=(0,220,235,58))
+          gd.ellipse((-220,860,420,1500),fill=(0,150,210,40))
+          glow=glow.filter(ImageFilter.GaussianBlur(100))
+          img=Image.alpha_composite(img.convert("RGBA"),glow)
+
+          icon=Image.open("/tmp/astramate-icon.webp").convert("RGBA")
+          icon.thumbnail((340,340),Image.Resampling.LANCZOS)
+
+          d=ImageDraw.Draw(img)
+          B="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+          R="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+          f_brand=ImageFont.truetype(B,34)
+          f_kicker=ImageFont.truetype(B,26)
+          f_head=ImageFont.truetype(B,72)
+          f_sub=ImageFont.truetype(R,31)
+          f_pill=ImageFont.truetype(B,24)
+          f_cta=ImageFont.truetype(B,31)
+          f_foot=ImageFont.truetype(R,23)
+
+          white=(248,252,255,255); aqua=(40,223,232,255); muted=(183,207,219,255)
+          d.text((64,58),"ASTRALABS PH  /  ASTRAMATE",font=f_brand,fill=aqua)
+
+          # icon card
+          d.rounded_rectangle((64,135,1016,500),radius=40,fill=(255,255,255,18),outline=(255,255,255,42),width=2)
+          ix=64+(952-icon.width)//2
+          iy=148+(330-icon.height)//2
+          img.alpha_composite(icon,(ix,iy))
+
+          d.text((64,560),"NOW AVAILABLE",font=f_kicker,fill=aqua)
+          d.text((64,605),"ON THE APP STORE",font=f_head,fill=white)
+          d.text((64,705),"Astramate is now live on iPhone, joining the Android release.",font=f_sub,fill=muted)
+
+          # platform pills
+          d.rounded_rectangle((64,800,442,866),radius=28,fill=(255,255,255,245))
+          d.text((104,817),"APP STORE  ·  LIVE",font=f_pill,fill=(9,30,55,255))
+          d.rounded_rectangle((462,800,896,866),radius=28,fill=(31,224,230,235))
+          d.text((502,817),"GOOGLE PLAY  ·  LIVE",font=f_pill,fill=(4,35,48,255))
+
+          d.text((64,945),"Maritime tools for cadets, deck officers,",font=f_sub,fill=white)
+          d.text((64,989),"seafarers and maritime students.",font=f_sub,fill=white)
+
+          # CTA panel
+          d.rounded_rectangle((64,1084,1016,1190),radius=28,fill=(32,224,231,255))
+          d.text((111,1117),"GET ASTRAMATE  ·  iPHONE + ANDROID",font=f_cta,fill=(3,30,48,255))
+
+          d.text((64,1255),"astralabsph.com  •  Practical tools for work at sea",font=f_foot,fill=muted)
+
+          img.convert("RGB").save(out,quality=92,optimize=True,progressive=True)
+          print(out)
+          PY
+
+          test -s public/marketing/campaigns/astramate_ios_launch_4x5.jpg
+
+      - name: Commit launch creative
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs Marketing Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/marketing/campaigns/astramate_ios_launch_4x5.jpg
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Marketing: add Astramate App Store launch creative'
+          git pull --rebase origin main
+          git push origin HEAD:main
