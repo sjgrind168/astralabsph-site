@@ -53,8 +53,18 @@
 .app-commercial-card p strong{color:#fff}
 .app-commercial-tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}.app-commercial-tags span{font-size:10px;font-weight:850;color:#e8eee5;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);padding:7px 9px;border-radius:999px}
 .app-commercial-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:auto}
+.app-commercial-status-live{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:#e6c867;color:#14251f;font-size:9px;line-height:1;letter-spacing:.11em;font-weight:950;text-align:center;white-space:nowrap}
+.app-commercial-store-row{gap:10px 13px}
+.official-store-badge{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0;margin:0;overflow:hidden;border:0;background:transparent;border-radius:9px;line-height:1;flex:0 0 auto;transition:transform .18s ease,filter .18s ease}
+.official-store-badge img{display:block;width:auto;max-width:none;object-fit:contain}
+.app-store-official img{height:50px}
+.google-play-official{width:174px}
+.google-play-official img{height:68px;margin:-9px -12px}
+.official-store-badge:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.official-store-badge:focus-visible{outline:3px solid #e6c867;outline-offset:3px}
+.ios-coming-soon{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 16px;border:1px solid rgba(255,255,255,.35);border-radius:12px;color:#dce7d6;font-size:10px;font-weight:950;letter-spacing:.1em;white-space:nowrap}
 .app-store-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 15px;border-radius:12px;background:var(--accent);color:#172019;text-decoration:none;font-size:11px;font-weight:950;transition:transform .18s ease,filter .18s ease}.app-store-cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
 .app-detail-link{color:#eef4eb;text-decoration:none;font-size:11px;font-weight:900;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
 .apps-commercial-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#bfc9bb;position:relative;z-index:1}.apps-commercial-foot a{color:#fff;text-decoration:none;font-weight:900}
 @media(max-width:900px){.apps-commercial-head,.apps-commercial-grid{grid-template-columns:1fr}.app-commercial-card{min-height:390px}}
-@media(max-width:700px){.apps-commercial-shell{padding:25px}.apps-commercial-head{gap:14px}.app-commercial-card{padding:22px;min-height:0}.app-commercial-topline{align-items:flex-start}.app-commercial-status{max-width:170px}.app-commercial-actions{align-items:stretch}.app-store-cta{width:100%}.apps-commercial-foot{align-items:flex-start;flex-direction:column}}
+@media(max-width:700px){.apps-commercial-shell{padding:25px}.apps-commercial-head{gap:14px}.app-commercial-card{padding:22px;min-height:0}.app-commercial-topline{align-items:flex-start}.app-commercial-status{max-width:185px}.app-commercial-actions{align-items:center}.app-commercial-store-row{align-items:center}.official-store-badge{height:46px}.app-store-official img{height:46px}.google-play-official{width:160px}.google-play-official img{height:63px}.ios-coming-soon{height:46px}.app-store-cta{width:100%}.apps-commercial-foot{align-items:flex-start;flex-direction:column}}
