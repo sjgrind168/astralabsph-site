@@ -34,14 +34,12 @@ jobs:
                 "&utm_source=pinterest&utm_medium=organic_social"
                 "&utm_campaign=astramate_ios_launch&utm_content="+MARKER)
           TITLE="Astramate is now on iPhone + Android | Maritime toolkit"
-          TEXT=("Astramate is now available on iPhone and Android.\n\n"
+          TEXT=("Astramate is now available on iPhone and Android. "
                 "A practical maritime toolkit for seafarers, cadets, deck officers and maritime students. "
                 "Use supported tools for Time to Go, Distance, Average Speed, ETA, Compass Error, "
-                "Loading QuickCalc and Unit Converter, with visible formulas, working and warnings.\n\n"
-                "App Store: https://apps.apple.com/us/app/astramate/id6812828056\n"
-                "Google Play: https://play.google.com/store/apps/details?id=com.astralabs.astramate\n"
-                "Explore Astramate: "+DEST+"\n\n"
-                "#Astramate #MaritimeTools #Seafarers #MaritimeStudents #AppStore #GooglePlay")
+                "Loading QuickCalc and Unit Converter, with visible formulas and working. "
+                "Explore Astramate for App Store and Google Play links. "
+                "#Astramate #MaritimeTools #Seafarers")
 
           key=os.getenv("ASTRALABS_BUFFER_API_KEY","").strip()
           if not key: raise SystemExit("PIN_FAIL missing Buffer secret")
