@@ -1,9 +1,19 @@
 {
-  "generated_at_utc": "2026-09-30T11:13:53.294515+00:00",
+  "generated_at_utc": "2026-09-30T11:14:25.150468+00:00",
   "channel": "tiktok",
   "campaign": "AstraSep30Astramate",
   "image": "https://static.metricool.com/planner/202609/7092888-file-5443906152347609532.png",
-  "action": "failed",
-  "post": null,
-  "error": "Invalid post: TikTok photo posts do not support AI content disclosure."
+  "action": "created",
+  "post": {
+    "id": "6abcef110cbb1c593b78331a",
+    "status": "sending",
+    "dueAt": "2026-09-30T11:14:25.686Z",
+    "externalLink": null,
+    "assets": [
+      {
+        "mimeType": "image/png",
+        "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6aa059d0626d33004063293f/6ab18682ea19ca0bdeaa1d77/6abcef110cbb1c593b78331a_photo.png"
+      }
+    ]
+  }
 }
