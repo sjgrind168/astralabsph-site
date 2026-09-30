@@ -69,7 +69,6 @@ jobs:
               mutation=("mutation { createPost(input:{text:"+tt.q(TEXT)+
                         " channelId:"+tt.q(channel)+
                         " schedulingType:automatic mode:shareNow aiAssisted:true"+
-                        " metadata:{tiktok:{isAiGenerated:true}}"+
                         " assets:[{image:{url:"+tt.q(IMAGE)+"}}]})"+
                         " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
                         " ... on MutationError { message } } }")
