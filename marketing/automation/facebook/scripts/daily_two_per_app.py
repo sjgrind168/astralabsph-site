@@ -83,13 +83,13 @@ def build_post(item):
     app=item["app"]
     image=MEDIA+item["creative"]+"_"+app.lower()+"_facebook_4x5.png"
     landing=(HOME+"?utm_source=facebook&"
-             "utm_medium=organic_social&utm_campaign=global_android_launch&utm_content="+item["id"]+
+             "utm_medium=organic_social&utm_campaign=global_multiplatform_launch&utm_content="+item["id"]+
              "&app="+app.lower())
     if app=="Astramate":
         offer={
-            "A03":"Try Astramate Free on Android. Need additional maritime calculation tools? Explore the optional one-time lifetime Premium upgrade.",
-            "A04":"Start with the free Android tools. When your calculations call for more supported tools, explore the optional one-time Astramate Premium upgrade.",
-            "A02":"Try Astramate Free on Android. Unlock the wider supported toolkit with optional one-time lifetime Premium when you need it."
+            "A03":"Try Astramate Free on iPhone or Android. Need additional maritime calculation tools? Explore the optional one-time lifetime Premium upgrade.",
+            "A04":"Start with the free iPhone or Android tools. When your calculations call for more supported tools, explore the optional one-time Astramate Premium upgrade.",
+            "A02":"Try Astramate Free on iPhone or Android. Unlock the wider supported toolkit with optional one-time lifetime Premium when you need it."
         }[item["creative"]]
         tags="\n\n#Astramate #Seafarers #CargoCalculations" if item["creative"]=="A03" else "\n\n#Astramate #Seafarers #MaritimeToolkit"
         call="Want a clearer view of your own calculations? "
