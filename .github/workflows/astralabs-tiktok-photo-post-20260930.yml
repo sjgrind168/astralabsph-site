@@ -22,7 +22,7 @@ jobs:
       ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
     steps:
       - uses: actions/checkout@v4
-      - name: Publish approved Astramate photo to TikTok
+      - name: Publish approved Keepry photo to TikTok
         shell: bash
         run: |
           python3 - <<'PY'
@@ -30,12 +30,12 @@ jobs:
           from datetime import datetime, timezone
           from pathlib import Path
 
-          IMAGE="https://static.metricool.com/planner/202609/7092888-file-5443906152347609532.png"
-          TEXT=("Astramate puts practical maritime calculation tools in one place, "
-                "with visible formulas, working and warnings you can review. "
-                "Available now on iPhone and Android. "
+          IMAGE="https://static.metricool.com/planner/202609/7092888-file-9808721910828893626.png"
+          TEXT=("Keep what matters with Keepry. "
+                "Organize reminders, renewals, documents and everyday life admin in one practical place. "
+                "Available now on Google Play. iOS coming soon. "
                 "https://www.astralabsph.com/ "
-                "#Astramate #Seafarers #MaritimeTools #AstraLabsPH #AstraSep30Astramate")
+                "#Keepry #LifeAdmin #ProductivityApp #AstraLabsPH #AstraSep30Keepry")
           REPORT=Path("marketing/automation/shared/TIKTOK_PHOTO_POST_20260930.json")
 
           spec=importlib.util.spec_from_file_location("tt","marketing/automation/tiktok/scripts/buffer_tiktok.py")
@@ -56,10 +56,10 @@ jobs:
           rows=[e["node"] for e in obj.get("edges",[]) if isinstance(e.get("node"),dict)]
           if (obj.get("pageInfo") or {}).get("hasNextPage"):
               raise RuntimeError("TikTok history exceeds safe reconciliation window")
-          prior=next((x for x in rows if "#AstraSep30Astramate" in str(x.get("text") or "")),None)
+          prior=next((x for x in rows if "#AstraSep30Keepry" in str(x.get("text") or "")),None)
 
           report={"generated_at_utc":datetime.now(timezone.utc).isoformat(),
-                  "channel":"tiktok","campaign":"AstraSep30Astramate",
+                  "channel":"tiktok","campaign":"AstraSep30Keepry",
                   "image":IMAGE,"action":None,"post":None}
 
           if prior:
