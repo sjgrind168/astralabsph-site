@@ -1,0 +1,9 @@
+{
+  "generated_at_utc": "2026-09-30T11:13:53.294515+00:00",
+  "channel": "tiktok",
+  "campaign": "AstraSep30Astramate",
+  "image": "https://static.metricool.com/planner/202609/7092888-file-5443906152347609532.png",
+  "action": "failed",
+  "post": null,
+  "error": "Invalid post: TikTok photo posts do not support AI content disclosure."
+}
