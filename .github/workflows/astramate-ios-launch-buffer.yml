@@ -82,7 +82,9 @@ jobs:
 
               new=text
               reps=[
-                (r"Start free on Android", "Start free on iPhone or Android"),\n                (r"Try Astramate Free on Android", "Try Astramate Free on iPhone or Android"),\n                (r"Start with the free Android tools", "Start with the free iPhone or Android tools"),
+                (r"Start free on Android", "Start free on iPhone or Android"),
+                (r"Try Astramate Free on Android", "Try Astramate Free on iPhone or Android"),
+                (r"Start with the free Android tools", "Start with the free iPhone or Android tools"),
                 (r"available on Google Play", "available on the App Store and Google Play"),
                 (r"Android available now\s*\|\s*iOS coming soon", "Available now on iPhone + Android"),
                 (r"iOS coming soon", "iOS available now"),
