@@ -1,0 +1,119 @@
+name: Astramate iOS Pinterest Launch Now
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astramate-ios-pinterest-now.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - name: Publish approved Astramate iOS creative to app board
+        shell: bash
+        env:
+          CANVA_IMAGE: "https://export-download.canva.com/28e87a39-6c9b-4265-9c02-347c425a0885/0/0001-4936462674199719322.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260929%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260929T070227Z&X-Amz-Expires=88131&X-Amz-Signature=375bf6629522de751c8267739ba2c1f2afcd898a105411050e7a23c2c289e425&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Wed%2C%2030%20Sep%202026%2007%3A31%3A18%20GMT"
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error
+
+          API="https://api.buffer.com"
+          CHANNEL="6aa06411cd8b9c702c2ff8ff"
+          BOARD="AstraLabs Apps | Astramate & Keepry"
+          IMAGE=os.environ["CANVA_IMAGE"]
+          MARKER="astramate_ios_live_pin_20260930"
+          DEST=("https://www.astralabsph.com/?app=astramate"
+                "&utm_source=pinterest&utm_medium=organic_social"
+                "&utm_campaign=astramate_ios_launch&utm_content="+MARKER)
+          TITLE="Astramate is now on iPhone + Android | Maritime toolkit"
+          TEXT=("Astramate is now available on iPhone and Android.\n\n"
+                "A practical maritime toolkit for seafarers, cadets, deck officers and maritime students. "
+                "Use supported tools for Time to Go, Distance, Average Speed, ETA, Compass Error, "
+                "Loading QuickCalc and Unit Converter, with visible formulas, working and warnings.\n\n"
+                "App Store: https://apps.apple.com/us/app/astramate/id6812828056\n"
+                "Google Play: https://play.google.com/store/apps/details?id=com.astralabs.astramate\n"
+                "Explore Astramate: "+DEST+"\n\n"
+                "#Astramate #MaritimeTools #Seafarers #MaritimeStudents #AppStore #GooglePlay")
+
+          key=os.getenv("ASTRALABS_BUFFER_API_KEY","").strip()
+          if not key: raise SystemExit("PIN_FAIL missing Buffer secret")
+
+          # Prove the signed Canva URL is still live and is full-resolution PNG.
+          req=urllib.request.Request(IMAGE,headers={"User-Agent":"AstraLabs-Pinterest-iOS/1.0"})
+          try:
+              with urllib.request.urlopen(req,timeout=30) as r:
+                  sig=r.read(8)
+                  ct=(r.headers.get("Content-Type") or "").lower()
+                  size=int(r.headers.get("Content-Length") or 0)
+                  if r.status!=200 or sig!=b"\x89PNG\r\n\x1a\n" or "image/png" not in ct:
+                      raise RuntimeError("Approved Canva export is not a valid public PNG")
+                  print("CANVA_ASSET_OK",ct,"bytes",size)
+          except urllib.error.HTTPError as e:
+              raise RuntimeError(f"Canva image HTTP {e.code}") from None
+          except urllib.error.URLError:
+              raise RuntimeError("Canva image URL unreachable") from None
+
+          def q(v): return json.dumps(str(v),ensure_ascii=True)
+          def gql(doc):
+              req=urllib.request.Request(API,data=json.dumps({"query":doc}).encode(),
+                  headers={"Authorization":"Bearer "+key,"Content-Type":"application/json",
+                           "User-Agent":"AstraLabs-Pinterest-iOS-Launch/1.0"},method="POST")
+              try:
+                  with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(f"Buffer HTTP {e.code}; no blind retry") from None
+              except urllib.error.URLError:
+                  raise RuntimeError("Buffer connection error; no blind retry") from None
+              if payload.get("errors") or not isinstance(payload.get("data"),dict):
+                  raise RuntimeError("Buffer GraphQL rejected request")
+              return payload["data"]
+
+          orgs=((gql("query { account { organizations { id name } } }").get("account") or {}).get("organizations") or [])
+          if len(orgs)!=1: raise RuntimeError("Ambiguous Buffer organization")
+          org=orgs[0]["id"]
+
+          channels=gql("query { channels(input:{organizationId:"+q(org)+"}) { id service isDisconnected isLocked isQueuePaused } }").get("channels") or []
+          ch=[c for c in channels if c.get("id")==CHANNEL]
+          if len(ch)!=1 or str(ch[0].get("service","")).lower()!="pinterest" or ch[0].get("isDisconnected") or ch[0].get("isLocked"):
+              raise RuntimeError("Pinterest channel unavailable")
+
+          meta=gql("query { channel(input:{id:"+q(CHANNEL)+"}) { metadata { ... on PinterestMetadata { boards { serviceId name url } } } } }")
+          boards=((meta.get("channel") or {}).get("metadata") or {}).get("boards") or []
+          matches=[b for b in boards if str(b.get("name","")).strip().casefold()==BOARD.casefold() and b.get("serviceId")]
+          if len(matches)!=1: raise RuntimeError("AstraLabs Apps board not uniquely resolved")
+          board_id=str(matches[0]["serviceId"])
+          print("BOARD_VERIFIED",BOARD)
+
+          hist=("query { posts(first:100,input:{organizationId:"+q(org)+
+                ",filter:{status:[scheduled,sent,sending,draft,error],channelIds:["+q(CHANNEL)+
+                "]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId } } pageInfo { hasNextPage } } }")
+          p=gql(hist).get("posts") or {}
+          if not isinstance(p.get("edges"),list) or (p.get("pageInfo") or {}).get("hasNextPage"):
+              raise RuntimeError("Pinterest history incomplete")
+          rows=[e["node"] for e in p["edges"] if isinstance(e.get("node"),dict)]
+          if any(MARKER in str(x.get("text") or "") for x in rows):
+              print("PIN_DEDUPED",MARKER)
+              raise SystemExit(0)
+
+          mutation=("mutation { createPost(input:{ text:"+q(TEXT)+
+                    " channelId:"+q(CHANNEL)+
+                    " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                    " assets:[{image:{url:"+q(IMAGE)+"}}]"+
+                    " metadata:{pinterest:{boardServiceId:"+q(board_id)+
+                    " title:"+q(TITLE)+" url:"+q(DEST)+"}} })"+
+                    " { ... on PostActionSuccess { post { id status dueAt } }"+
+                    " ... on MutationError { message } } }")
+          out=gql(mutation).get("createPost") or {}
+          post=out.get("post") if isinstance(out,dict) else None
+          if not isinstance(post,dict) or not post.get("id"):
+              raise RuntimeError("Pinterest post unconfirmed: "+str(out.get("message","unknown"))[:160])
+          print("ASTRAMATE_IOS_PIN_ACCEPTED",post["id"],"status",post.get("status"),"board",BOARD)
+          PY
