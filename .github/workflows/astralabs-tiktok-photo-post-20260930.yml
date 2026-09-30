@@ -1,0 +1,100 @@
+name: AstraLabs TikTok Photo Post Sep30
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-photo-post-20260930.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: astralabs-tiktok-photo-sep30
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish approved Astramate photo to TikTok
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import importlib.util, json, urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          IMAGE="https://static.metricool.com/planner/202609/7092888-file-5443906152347609532.png"
+          TEXT=("Astramate puts practical maritime calculation tools in one place, "
+                "with visible formulas, working and warnings you can review. "
+                "Available now on iPhone and Android. "
+                "https://www.astralabsph.com/ "
+                "#Astramate #Seafarers #MaritimeTools #AstraLabsPH #AstraSep30Astramate")
+          REPORT=Path("marketing/automation/shared/TIKTOK_PHOTO_POST_20260930.json")
+
+          spec=importlib.util.spec_from_file_location("tt","marketing/automation/tiktok/scripts/buffer_tiktok.py")
+          tt=importlib.util.module_from_spec(spec); spec.loader.exec_module(tt)
+          org,channel=tt.resolve_tiktok()
+
+          req=urllib.request.Request(IMAGE,headers={"Range":"bytes=0-15","User-Agent":"AstraLabs-TikTok-Photo/1.0"})
+          with urllib.request.urlopen(req,timeout=25) as r:
+              head=r.read(16)
+              mime=(r.headers.get("Content-Type") or "").lower()
+              if r.status not in (200,206) or not mime.startswith("image/"):
+                  raise RuntimeError("Approved TikTok image is not publicly reachable")
+
+          q=('query { posts(first:100,input:{organizationId:'+tt.q(org)+
+             ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+tt.q(channel)+
+             ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId externalLink assets { mimeType source } } } pageInfo { hasNextPage } } }')
+          obj=tt.gql(q).get("posts") or {}
+          rows=[e["node"] for e in obj.get("edges",[]) if isinstance(e.get("node"),dict)]
+          if (obj.get("pageInfo") or {}).get("hasNextPage"):
+              raise RuntimeError("TikTok history exceeds safe reconciliation window")
+          prior=next((x for x in rows if "#AstraSep30Astramate" in str(x.get("text") or "")),None)
+
+          report={"generated_at_utc":datetime.now(timezone.utc).isoformat(),
+                  "channel":"tiktok","campaign":"AstraSep30Astramate",
+                  "image":IMAGE,"action":None,"post":None}
+
+          if prior:
+              report["action"]="deduped"
+              report["post"]={"id":prior.get("id"),"status":prior.get("status"),"externalLink":prior.get("externalLink")}
+          else:
+              mutation=("mutation { createPost(input:{text:"+tt.q(TEXT)+
+                        " channelId:"+tt.q(channel)+
+                        " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                        " metadata:{tiktok:{isAiGenerated:true}}"+
+                        " assets:[{image:{url:"+tt.q(IMAGE)+"}}]})"+
+                        " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                        " ... on MutationError { message } } }")
+              res=tt.gql(mutation).get("createPost") or {}
+              post=res.get("post") if isinstance(res,dict) else None
+              if not isinstance(post,dict) or not post.get("id"):
+                  report["action"]="failed"
+                  report["error"]=str(res.get("message","Buffer rejected TikTok photo post"))[:300]
+              else:
+                  report["action"]="created"
+                  report["post"]=post
+
+          REPORT.parent.mkdir(parents=True,exist_ok=True)
+          REPORT.write_text(json.dumps(report,indent=2),encoding="utf-8")
+          print("TIKTOK_PHOTO_RESULT",json.dumps(report))
+          PY
+      - name: Persist TikTok photo result
+        shell: bash
+        run: |
+          git config user.name 'AstraLabs Marketing Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add marketing/automation/shared/TIKTOK_PHOTO_POST_20260930.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Marketing: record Sep30 TikTok photo post'
+          git pull --rebase origin main
+          git push origin HEAD:main
