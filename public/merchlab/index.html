@@ -347,8 +347,40 @@ let currentCategory='Jewelry',specialMode=null,filtered=[],visibleCount=24;
 function peso(n){return '₱'+Number(n||0).toLocaleString('en-PH',{maximumFractionDigits:0})}
 function priceText(p){return p.priceMin===p.priceMax?peso(p.priceMin):`${peso(p.priceMin)}–${peso(p.priceMax)}`}
 function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function openCatalog(cat){specialMode=null;currentCategory=cat;visibleCount=24;document.getElementById('catalog').classList.add('show');document.getElementById('catalogSearch').value='';document.getElementById('sortSelect').value='default';document.getElementById('availableOnly').checked=true;updateChips();applyFilters();setTimeout(()=>document.getElementById('catalog').scrollIntoView({behavior:'smooth',block:'start'}),50)}
-function openNewArrivals(){specialMode='new';currentCategory='New Arrivals';visibleCount=24;document.getElementById('catalog').classList.add('show');document.getElementById('catalogSearch').value='';document.getElementById('sortSelect').value='default';document.getElementById('availableOnly').checked=true;updateChips();applyFilters();setTimeout(()=>document.getElementById('catalog').scrollIntoView({behavior:'smooth',block:'start'}),50)}
+async function openCatalog(cat){
+  specialMode=null;currentCategory=cat;visibleCount=24;
+  const catalog=document.getElementById('catalog');
+  catalog.classList.add('show');
+  document.getElementById('catalogSearch').value='';
+  document.getElementById('sortSelect').value='default';
+  document.getElementById('availableOnly').checked=true;
+  document.getElementById('catalogTitle').textContent='Loading products…';
+  document.getElementById('catalogMeta').textContent='';
+  document.getElementById('productGrid').innerHTML='<div style="grid-column:1/-1;padding:28px 0;color:#aeb8c5">Loading current Shopee inventory…</div>';
+  setTimeout(()=>catalog.scrollIntoView({behavior:'smooth',block:'start'}),50);
+  try{await catalogReady;updateChips();applyFilters();}
+  catch(err){
+    document.getElementById('catalogTitle').textContent='Products unavailable';
+    document.getElementById('productGrid').innerHTML='<div style="grid-column:1/-1;padding:28px 0;color:#d9b96d">Could not load the product gallery. Please refresh and try again.</div>';
+  }
+}
+async function openNewArrivals(){
+  specialMode='new';currentCategory='New Arrivals';visibleCount=24;
+  const catalog=document.getElementById('catalog');
+  catalog.classList.add('show');
+  document.getElementById('catalogSearch').value='';
+  document.getElementById('sortSelect').value='default';
+  document.getElementById('availableOnly').checked=true;
+  document.getElementById('catalogTitle').textContent='Loading products…';
+  document.getElementById('catalogMeta').textContent='';
+  document.getElementById('productGrid').innerHTML='<div style="grid-column:1/-1;padding:28px 0;color:#aeb8c5">Loading current Shopee inventory…</div>';
+  setTimeout(()=>catalog.scrollIntoView({behavior:'smooth',block:'start'}),50);
+  try{await catalogReady;updateChips();applyFilters();}
+  catch(err){
+    document.getElementById('catalogTitle').textContent='Products unavailable';
+    document.getElementById('productGrid').innerHTML='<div style="grid-column:1/-1;padding:28px 0;color:#d9b96d">Could not load the product gallery. Please refresh and try again.</div>';
+  }
+}
 function closeCatalog(){document.getElementById('catalog').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'})}
 function updateChips(){const options=['Jewelry','Rings','Earrings','Necklaces','Bracelets','Accessories','Fashion','All'];document.getElementById('chips').innerHTML=options.map(c=>`<button class="chip ${currentCategory===c?'active':''}" onclick="openCatalog('${c}')">${c}</button>`).join('');const title=specialMode==='new'?'New Arrivals':currentCategory==='All'?'All Shopee Products':currentCategory==='Jewelry'?'Jewelry Collection':currentCategory;document.getElementById('catalogTitle').textContent=title}
 function baseForCategory(){let list=PRODUCTS.slice();if(specialMode==='new')return list.slice(0,60);if(currentCategory==='Jewelry')return list.filter(p=>p.category!=='Fashion');if(currentCategory==='All')return list;return list.filter(p=>p.category===currentCategory)}
