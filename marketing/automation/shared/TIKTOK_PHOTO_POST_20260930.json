@@ -1,18 +1,18 @@
 {
-  "generated_at_utc": "2026-09-30T11:14:25.150468+00:00",
+  "generated_at_utc": "2026-09-30T11:15:03.917626+00:00",
   "channel": "tiktok",
-  "campaign": "AstraSep30Astramate",
-  "image": "https://static.metricool.com/planner/202609/7092888-file-5443906152347609532.png",
+  "campaign": "AstraSep30Keepry",
+  "image": "https://static.metricool.com/planner/202609/7092888-file-9808721910828893626.png",
   "action": "created",
   "post": {
-    "id": "6abcef110cbb1c593b78331a",
+    "id": "6abcef3862d40f400310f58a",
     "status": "sending",
-    "dueAt": "2026-09-30T11:14:25.686Z",
+    "dueAt": "2026-09-30T11:15:05.067Z",
     "externalLink": null,
     "assets": [
       {
         "mimeType": "image/png",
-        "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6aa059d0626d33004063293f/6ab18682ea19ca0bdeaa1d77/6abcef110cbb1c593b78331a_photo.png"
+        "source": "https://buffer-updates-media-backfill-bucket.s3.amazonaws.com/6aa059d0626d33004063293f/6ab18682ea19ca0bdeaa1d77/6abcef3862d40f400310f58a_photo.png"
       }
     ]
   }
