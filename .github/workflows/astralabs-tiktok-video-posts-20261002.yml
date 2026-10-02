@@ -1,0 +1,83 @@
+name: AstraLabs TikTok Video Posts Oct02
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-video-posts-20261002.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Schedule Astramate and Keepry TikTok videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          p=Path("marketing/automation/tiktok/scripts/buffer_tiktok.py")
+          spec=importlib.util.spec_from_file_location("tt",p)
+          tt=importlib.util.module_from_spec(spec); spec.loader.exec_module(tt)
+
+          org,channel=tt.resolve_tiktok()
+
+          posts=[
+            {
+              "key":"astramate_officer_cargo_oct02",
+              "due":"2026-10-02T07:30:00.000Z",
+              "video":"https://raw.githubusercontent.com/sjgrind168/astralabsph-site/main/public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4",
+              "text":"Officer quick check: 6,400 m³ ÷ 1.60 m³/t = 4,000 t. Practical shipboard calculations for working officers. #Astramate #DeckOfficer #CargoLoading #Seafarers"
+            },
+            {
+              "key":"keepry_memory_test_oct02",
+              "due":"2026-10-02T08:20:00.000Z",
+              "video":"https://raw.githubusercontent.com/sjgrind168/astralabsph-site/main/public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4",
+              "text":"Quick memory test: passport, licence, insurance. Can you name all 3 expiry dates without checking? #Keepry #LifeAdmin #DocumentOrganizer"
+            }
+          ]
+
+          def history():
+              q=('query { posts(first:100,input:{organizationId:'+tt.q(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+tt.q(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=tt.gql(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete TikTok history")
+              rows=[e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=channel for x in rows):
+                  raise RuntimeError("TikTok channel mismatch")
+              return rows
+
+          rows=history()
+          for item in posts:
+              if any((r.get("text") or "")==item["text"] or any((a.get("source") or "")==item["video"] for a in (r.get("assets") or [])) for r in rows):
+                  print("DEDUPED",item["key"])
+                  continue
+              q=("mutation { createPost(input:{text:"+tt.q(item["text"])+
+                 " channelId:"+tt.q(channel)+
+                 " schedulingType:automatic mode:customScheduled dueAt:"+tt.q(item["due"])+
+                 " aiAssisted:true metadata:{tiktok:{isAiGenerated:true}}"+
+                 " assets:[{video:{url:"+tt.q(item["video"])+" metadata:{thumbnailOffset:2000}}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=tt.gql(q).get("createPost") or {}
+              post=res.get("post") if isinstance(res,dict) else None
+              if not post or not post.get("id"):
+                  raise RuntimeError("TikTok schedule failed for "+item["key"]+": "+str(res.get("message","unknown"))[:160])
+              if post.get("status")!="scheduled":
+                  raise RuntimeError("TikTok post not scheduled: "+str(post))
+              print("SCHEDULED",item["key"],post["id"],post.get("dueAt"))
+              rows.append({"id":post["id"],"status":post["status"],"dueAt":post["dueAt"],"text":item["text"],"assets":post.get("assets") or [],"channelId":channel})
+          PY
