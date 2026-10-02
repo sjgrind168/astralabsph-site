@@ -1,43 +1,12 @@
 {
-  "generated_at_utc": "2026-10-01T06:01:51.632242+00:00",
+  "generated_at_utc": "2026-10-02T05:44:43.213595+00:00",
   "board": "PIREVO Finds",
   "scheduled_total_before": 4,
   "pirevo_scheduled_before": 4,
-  "unused_before": 6,
-  "capacity": 6,
-  "created": [
-    {
-      "pin_id": "gifts-under-30-p1",
-      "buffer_id": "6abdf750b29c0fecf418e3f7",
-      "dueAt": "2026-10-02T02:00:00.000Z"
-    },
-    {
-      "pin_id": "gifts-under-30-p2",
-      "buffer_id": "6abdf75126106f7332725114",
-      "dueAt": "2026-10-02T03:10:00.000Z"
-    },
-    {
-      "pin_id": "gifts-under-30-p3",
-      "buffer_id": "6abdf7527b21e6b4b73d3236",
-      "dueAt": "2026-10-02T06:40:00.000Z"
-    },
-    {
-      "pin_id": "cozy-fall-home-upgrades-p1",
-      "buffer_id": "6abdf753c2f059a6ae867f5d",
-      "dueAt": "2026-10-02T08:10:00.000Z"
-    },
-    {
-      "pin_id": "cozy-fall-home-upgrades-p2",
-      "buffer_id": "6abdf7547b21e6b4b73d32a8",
-      "dueAt": "2026-10-02T11:40:00.000Z"
-    },
-    {
-      "pin_id": "cozy-fall-home-upgrades-p3",
-      "buffer_id": "6abdf755c2f059a6ae868011",
-      "dueAt": "2026-10-02T13:10:00.000Z"
-    }
-  ],
+  "unused_before": 0,
+  "capacity": 0,
+  "created": [],
   "mode": "write",
-  "scheduled_total_after": 10,
-  "pirevo_scheduled_after": 10
+  "scheduled_total_after": 4,
+  "pirevo_scheduled_after": 4
 }
