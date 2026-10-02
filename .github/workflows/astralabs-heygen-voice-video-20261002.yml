@@ -1,0 +1,87 @@
+name: AstraLabs HeyGen Voice Videos Oct02
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/astralabs-heygen-voice-video-20261002.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Render
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          mkdir -p /tmp/astra public/marketing/videos
+          python3 - <<'PY'
+          from PIL import Image,ImageDraw,ImageFont
+          from pathlib import Path
+          import os
+          W,H=1080,1920; O=Path('/tmp/astra')
+          def F(n,b=False):
+              p='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if b else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+              return ImageFont.truetype(p,n)
+          def wrap(d,s,y,f,c,w=900):
+              a=[]; cur=''
+              for x in s.split():
+                  q=(cur+' '+x).strip()
+                  if d.textbbox((0,0),q,font=f)[2]<=w: cur=q
+                  else: a.append(cur); cur=x
+              if cur:a.append(cur)
+              for q in a:
+                  bb=d.textbbox((0,0),q,font=f); d.text(((W-(bb[2]-bb[0]))//2,y),q,font=f,fill=c); y+=bb[3]-bb[1]+15
+          def make(app,iconpath,bg,accent,scenes):
+              ic=Image.open(iconpath).convert('RGBA'); ic.thumbnail((150,150))
+              for i,(head,body,foot) in enumerate(scenes,1):
+                  im=Image.new('RGBA',(W,H),bg); d=ImageDraw.Draw(im)
+                  im.alpha_composite(ic,(70,70)); d.text((245,95),app,font=F(64,1),fill='white' if app=='ASTRAMATE' else (20,80,55))
+                  d.rounded_rectangle((70,310,1010,1550),45,fill=(0,0,0,80) if app=='ASTRAMATE' else (255,255,255,210),outline=accent,width=4)
+                  wrap(d,head,410,F(70,1),'white' if app=='ASTRAMATE' else (20,70,50),850)
+                  wrap(d,body,760,F(54,1),accent,850)
+                  wrap(d,foot,1370,F(40,0),'white' if app=='ASTRAMATE' else (35,85,65),850)
+                  im.convert('RGB').save(O/f'{app.lower()}_{i}.jpg',quality=94)
+          make('ASTRAMATE','public/astramate-icon.webp',(6,25,47,255),(80,235,230),[
+            ('OFFICER QUICK CHECK','6,400 m³ ÷ 1.60 m³/t = ?','Cargo volume + stowage factor. Work it out before the reveal.'),
+            ('ANSWER: 4,000 t','Cargo Weight = Volume ÷ Stowage Factor','Fast is useful. Verified is better.'),
+            ('SHIPBOARD CALCULATIONS','Cargo • Loading • Trim • List • GM / KG • ETA • Compass Error','Built for working officers. Follow AstraLabs PH. iPhone + Android.')])
+          make('KEEPRY','public/keepry-icon.webp',(228,242,232,255),(30,135,90),[
+            ('5-SECOND MEMORY TEST','Passport • Licence • Insurance','Can you name all three expiry dates without checking?'),
+            ('LESS MENTAL LOAD','Keep the file • Add the date • Set the reminder','Your brain is not a filing cabinet.'),
+            ('ONE SIMPLE HABIT','Documents + dates + reminders together','Follow AstraLabs PH for practical life-admin tips. Google Play now • iOS coming soon.')])
+          PY
+          curl -L --fail --retry 3 -o /tmp/astra/av.wav 'https://resource2.heygen.ai/text_to_speech/38b4b240c4ef42aa82bff7a8209dfa31/7fe5cd0b0b1b4048b76dc024a4a85882/id=77cf1329-2b37-4560-8acf-6b30321fbb72.wav'
+          curl -L --fail --retry 3 -o /tmp/astra/kv.wav 'https://resource2.heygen.ai/text_to_speech/38b4b240c4ef42aa82bff7a8209dfa31/7fe5cd0b0b1b4048b76dc024a4a85882/id=cd52f048-2208-471a-a46e-467adff9be53.wav'
+          curl -L --fail --retry 3 -o /tmp/astra/am.wav 'https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/90c8e01799564f6bb20ac45741b641f1.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20261002%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20261002T053027Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=abecf3e866b7dc9617e17aef9629bc8873de4c4b4b71d0d1a58bc8c33d54f7fa'
+          curl -L --fail --retry 3 -o /tmp/astra/km.wav 'https://heygen-product.s3-accelerate.amazonaws.com/astral_generated_music/03b293dea873489b83fa724cf5487e9e.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA3FLD4S3AS7WYJKBK%2F20261002%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20261002T053029Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=0d922bb1fc3232a12dc680a00cc938393fe905316c9f595c40435f361e196b05'
+          for app in astramate keepry; do
+            cat >/tmp/astra/$app.txt <<EOF
+          file '${app}_1.jpg'
+          duration 5.7
+          file '${app}_2.jpg'
+          duration 5.7
+          file '${app}_3.jpg'
+          duration 5.8
+          file '${app}_3.jpg'
+          EOF
+            (cd /tmp/astra && ffmpeg -loglevel error -y -f concat -safe 0 -i $app.txt -vf 'fps=30,scale=1080:1920,format=yuv420p' -c:v libx264 -preset veryfast -crf 20 -t 17.2 ${app}_v.mp4)
+          done
+          ffmpeg -loglevel error -y -i /tmp/astra/astramate_v.mp4 -i /tmp/astra/av.wav -stream_loop -1 -i /tmp/astra/am.wav -filter_complex '[1:a]volume=1.12[v];[2:a]volume=.10,atrim=0:17.2,afade=t=out:st=16.2:d=1[m];[m][v]amix=2:duration=longest,alimiter=.95[a]' -map 0:v -map '[a]' -c:v copy -c:a aac -b:a 192k -t 17.2 -movflags +faststart public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4
+          ffmpeg -loglevel error -y -i /tmp/astra/keepry_v.mp4 -i /tmp/astra/kv.wav -stream_loop -1 -i /tmp/astra/km.wav -filter_complex '[1:a]volume=1.12[v];[2:a]volume=.09,atrim=0:17.2,afade=t=out:st=16.2:d=1[m];[m][v]amix=2:duration=longest,alimiter=.95[a]' -map 0:v -map '[a]' -c:v copy -c:a aac -b:a 192k -t 17.2 -movflags +faststart public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4
+      - name: Save videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs Video Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/marketing/videos/*.mp4
+          git commit -m 'Marketing: add HeyGen-voiced social videos'
+          git pull --rebase origin main
+          git push origin HEAD:main
