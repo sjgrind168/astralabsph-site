@@ -1,0 +1,9 @@
+{
+  "upstream_repository": "https://github.com/littledivy/mimic",
+  "upstream_repository_full_name": "littledivy/mimic",
+  "upstream_commit": "8cf998ac0b365806d8e522d34107cc504ecaa345",
+  "license": "MIT",
+  "vendored_path": "tools/vendor/mimic",
+  "saved_date": "2026-10-03",
+  "purpose": "AstraLabs internal app-development, API discovery, testing, and authorized integration research"
+}
