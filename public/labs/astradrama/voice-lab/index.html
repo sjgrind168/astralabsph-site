@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AstraDrama Neural Voice Lab | AstraLabs PH</title>
+<style>
+:root{--bg:#07080c;--p:#11141c;--p2:#181c27;--line:#2b313e;--text:#f7f2e8;--muted:#9da5b6;--gold:#ddb36a;--red:#a9314d;--ok:#67c58b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,rgba(221,179,106,.12),transparent 24%),radial-gradient(circle at 85% 5%,rgba(169,49,77,.18),transparent 24%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.app{max-width:1120px;margin:auto;padding:20px}.top{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}.brand{font-weight:800;letter-spacing:.08em}.brand span{color:var(--gold)}a{color:inherit}.btn{border:1px solid var(--line);background:linear-gradient(180deg,var(--p2),var(--p));color:var(--text);border-radius:999px;padding:11px 14px;cursor:pointer;text-decoration:none}.btn.primary{background:linear-gradient(135deg,#efca82,#bf8f3a);color:#18120a;border:0;font-weight:800}.btn:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:1fr 390px;gap:18px}.card{border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(18,21,30,.96),rgba(10,12,17,.96));box-shadow:0 28px 70px rgba(0,0,0,.35)}.content{padding:24px}h1{font-family:Georgia,serif;font-size:clamp(38px,5vw,68px);line-height:.98;margin:6px 0 14px}h1 em{font-style:normal;color:var(--gold)}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:800}.lead{color:var(--muted);line-height:1.7;margin-bottom:20px}
+.status{display:grid;gap:8px;margin-bottom:18px}.statusrow{display:flex;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:13px;padding:11px 12px;background:rgba(6,8,12,.58);font-size:13px}.statusrow span{color:var(--muted)}.statusrow strong.ok{color:var(--ok)}.statusrow strong.warn{color:#f0c475}
+label{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin:12px 0 7px}select,textarea,input[type=range]{width:100%}select,textarea{border:1px solid var(--line);border-radius:12px;background:#090b10;color:var(--text);padding:12px;font:inherit}textarea{min-height:110px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.progress{height:8px;border-radius:999px;background:#090b10;border:1px solid var(--line);overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .2s}.small{font-size:12px;color:var(--muted);line-height:1.6;margin-top:10px}
+.stage{padding:16px;position:sticky;top:16px}.phone{aspect-ratio:9/16;border-radius:28px;overflow:hidden;border:1px solid rgba(221,179,106,.25);position:relative;background:linear-gradient(160deg,#451624,#0b1018 68%);box-shadow:0 28px 80px rgba(0,0,0,.5)}.phone:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 48% 18%,rgba(255,222,145,.25),transparent 24%),linear-gradient(180deg,rgba(255,255,255,.04),transparent 35%)}.tag{position:absolute;left:16px;right:16px;top:16px;display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#d9dde6;z-index:4}.avatar{position:absolute;left:10%;right:10%;bottom:146px;top:72px}.avatar svg{width:100%;height:100%;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}.eye{transform-box:fill-box;transform-origin:center;animation:blink 7s infinite}@keyframes blink{0%,46%,48%,100%{transform:scaleY(1)}47%{transform:scaleY(.1)}}.caption{position:absolute;left:16px;right:16px;bottom:20px;border-radius:20px;padding:14px 16px;background:rgba(0,0,0,.63);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);z-index:5}.caption b{display:block;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold)}.caption p{font-size:23px;line-height:1.15;font-weight:800;margin:6px 0 0}.viseme{position:absolute;right:16px;top:52px;z-index:5;border-radius:999px;padding:7px 9px;background:rgba(0,0,0,.55);font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.metric{border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(6,8,12,.55)}.metric span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}.metric b{display:block;margin-top:4px}.footer{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.6}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.stage{position:relative;top:auto}.phone{max-width:390px;margin:auto}}@media(max-width:600px){.app{padding:12px}.content{padding:17px}.row{grid-template-columns:1fr}.caption p{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div class="brand">ASTRADRAMA <span>NEURAL VOICE LAB</span></div><a class="btn" href="../">← Cinematic Proof</a></div>
+  <div class="grid">
+    <section class="card content">
+      <div class="eyebrow">v0.3 • zero-cost hardware test</div>
+      <h1>Real local voice.<br><em>No API bill.</em></h1>
+      <p class="lead">This lab tries to run Kokoro neural TTS inside your browser through HeadTTS. It uses WebGPU when available, then falls back to WASM. The generated audio includes viseme timing so the face can move with the speech.</p>
+      <div class="status">
+        <div class="statusrow"><span>WebGPU</span><strong id="gpuStatus" class="warn">checking…</strong></div>
+        <div class="statusrow"><span>Neural engine</span><strong id="engineStatus">not loaded</strong></div>
+        <div class="statusrow"><span>Cost per line</span><strong class="ok">₱0</strong></div>
+      </div>
+      <div class="row">
+        <div><label for="voice">Voice</label><select id="voice"><option value="af_bella">Mara • Bella (female)</option><option value="am_michael">Adrian • Michael (male)</option></select></div>
+        <div><label for="speed">Speed <span id="speedText">1.00×</span></label><input id="speed" type="range" min=".75" max="1.25" value="1" step=".05"></div>
+      </div>
+      <label for="text">Dialogue</label>
+      <textarea id="text">I disappeared because keeping you close would have put your life in danger.</textarea>
+      <div class="actions">
+        <button class="btn primary" id="loadBtn">Load Neural Engine</button>
+        <button class="btn" id="speakBtn" disabled>Generate & Speak</button>
+      </div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="small" id="note">First load downloads the neural model/voice to your browser. On an 8GB Mac this is exactly the test we need: if it loads and speaks acceptably, local voice is viable. If WebGPU fails, WASM can be significantly slower.</div>
+      <div class="metrics">
+        <div class="metric"><span>Backend</span><b id="backend">not connected</b></div>
+        <div class="metric"><span>Last synthesis</span><b id="latency">—</b></div>
+        <div class="metric"><span>Visemes</span><b id="visemeCount">—</b></div>
+        <div class="metric"><span>Audio duration</span><b id="audioDur">—</b></div>
+      </div>
+    </section>
+
+    <aside class="card stage">
+      <div class="phone">
+        <div class="tag"><span>Local neural render</span><span id="who">MARA</span></div>
+        <div class="viseme" id="visemeBadge">viseme • idle</div>
+        <div class="avatar">
+          <svg viewBox="0 0 320 520" aria-hidden="true">
+            <ellipse cx="160" cy="490" rx="110" ry="22" fill="rgba(0,0,0,.28)"/>
+            <path d="M70 485 C82 345,105 280,160 280 C217 280,240 345,250 485" fill="#c59c4b"/>
+            <circle cx="160" cy="175" r="82" fill="#efbea1"/>
+            <path d="M78 180 C76 92,122 52,188 66 C230 75,242 126,229 183 C205 146,169 129,116 133 C99 135,88 155,78 180" fill="#271517"/>
+            <path d="M94 142 C58 207,75 300,104 336 C122 314,131 292,132 265 C93 236,82 186,94 142" fill="#271517"/>
+            <path d="M224 144 C257 204,241 300,216 338 C196 315,188 291,188 263 C226 235,236 188,224 144" fill="#271517"/>
+            <ellipse class="eye" cx="130" cy="184" rx="10" ry="6" fill="#211716"/>
+            <ellipse class="eye" cx="190" cy="184" rx="10" ry="6" fill="#211716"/>
+            <path d="M142 220 Q160 232 178 220" stroke="#a86c67" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <g id="mouth" transform="translate(134,246)">
+              <ellipse id="mouthOuter" cx="26" cy="10" rx="25" ry="8" fill="#7d3644"/>
+              <ellipse id="mouthInner" cx="26" cy="10" rx="18" ry="3" fill="#2a1118"/>
+            </g>
+            <path d="M112 300 Q160 330 208 300 L230 485 L90 485 Z" fill="#c59c4b"/>
+            <path d="M145 286 Q160 302 177 286" stroke="#f0d18b" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+        <div class="caption"><b id="speakerLabel">MARA • BELLA</b><p id="captionText">I disappeared because keeping you close would have put your life in danger.</p></div>
+      </div>
+    </aside>
+  </div>
+  <div class="footer">HeadTTS is loaded from jsDelivr and runs Kokoro in-browser. Model files come from Hugging Face. No AstraLabs inference server is used.</div>
+</div>
+
+<script type="module">
+import { HeadTTS } from "https://cdn.jsdelivr.net/npm/@met4citizen/headtts@1.3/+esm";
+
+const q=s=>document.querySelector(s);
+let tts=null, audioCtx=null, connected=false, activeSource=null, visemeTimer=0;
+const visemeShape={
+  sil:[23,2],PP:[23,2],FF:[21,4],TH:[18,5],DD:[18,4],kk:[18,5],CH:[17,6],SS:[19,4],nn:[18,4],RR:[18,5],
+  aa:[20,13],E:[22,8],I:[24,6],O:[15,13],U:[13,10]
+};
+q('#gpuStatus').textContent = navigator.gpu ? 'available' : 'unavailable • WASM fallback';
+q('#gpuStatus').className = navigator.gpu ? 'ok' : 'warn';
+q('#speed').oninput=e=>q('#speedText').textContent=Number(e.target.value).toFixed(2)+'×';
+q('#voice').onchange=syncLabels; q('#text').oninput=syncLabels;
+function syncLabels(){
+  const female=q('#voice').value.startsWith('af_');
+  q('#who').textContent=female?'MARA':'ADRIAN';
+  q('#speakerLabel').textContent=(female?'MARA • BELLA':'ADRIAN • MICHAEL');
+  q('#captionText').textContent=q('#text').value;
+}
+syncLabels();
+
+q('#loadBtn').onclick=async()=>{
+  q('#loadBtn').disabled=true; q('#engineStatus').textContent='loading…'; q('#note').textContent='Loading neural model and voice. Keep this tab open.';
+  try{
+    audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    tts = new HeadTTS({
+      endpoints:navigator.gpu?['webgpu','wasm']:['wasm'],
+      audioCtx,
+      languages:['en-us'],
+      voices:['af_bella','am_michael'],
+      dtypeWebgpu:'q8',
+      dtypeWasm:'q4',
+      workerModule:'https://cdn.jsdelivr.net/npm/@met4citizen/headtts@1.3/modules/worker-tts.mjs',
+      dictionaryURL:'https://cdn.jsdelivr.net/npm/@met4citizen/headtts@1.3/dictionaries/'
+    });
+    await tts.connect(null,(ev)=>{
+      const loaded=ev.loaded||0,total=ev.total||0;
+      if(total>0) q('#bar').style.width=Math.min(100,loaded/total*100)+'%';
+      else q('#bar').style.width='35%';
+    });
+    connected=true; q('#bar').style.width='100%'; q('#engineStatus').textContent='ready'; q('#engineStatus').className='ok';
+    q('#backend').textContent=navigator.gpu?'WebGPU → WASM fallback':'WASM'; q('#speakBtn').disabled=false; q('#loadBtn').textContent='Engine Loaded';
+    q('#note').textContent='Neural engine ready. Generate a line and listen. The mouth uses actual viseme timing returned by HeadTTS.';
+  }catch(err){
+    console.error(err); q('#engineStatus').textContent='failed'; q('#engineStatus').className='warn'; q('#loadBtn').disabled=false; q('#loadBtn').textContent='Retry Load';
+    q('#note').textContent='Load failed: '+(err?.message||String(err));
+  }
+};
+
+q('#speakBtn').onclick=async()=>{
+  if(!connected)return; q('#speakBtn').disabled=true; q('#captionText').textContent=q('#text').value;
+  if(activeSource){try{activeSource.stop()}catch{}}
+  cancelAnimationFrame(visemeTimer); resetMouth();
+  const started=performance.now();
+  try{
+    await tts.setup({voice:q('#voice').value,language:'en-us',speed:Number(q('#speed').value),audioEncoding:'wav'});
+    const msgs=await tts.synthesize({input:q('#text').value});
+    const msg=msgs.find(m=>m.type==='audio');
+    if(!msg||!msg.data?.audio) throw new Error('No audio returned.');
+    const data=msg.data, buffer=data.audio;
+    q('#latency').textContent=((performance.now()-started)/1000).toFixed(2)+' s';
+    q('#visemeCount').textContent=(data.visemes?.length||0).toString();
+    q('#audioDur').textContent=buffer.duration.toFixed(2)+' s';
+    await audioCtx.resume();
+    const src=audioCtx.createBufferSource(); src.buffer=buffer; src.connect(audioCtx.destination); src.start(); activeSource=src;
+    animateVisemes(data,performance.now()); src.onended=()=>{resetMouth();q('#visemeBadge').textContent='viseme • idle';};
+  }catch(err){console.error(err);q('#note').textContent='Synthesis failed: '+(err?.message||String(err));}
+  finally{q('#speakBtn').disabled=false}
+};
+
+function animateVisemes(data,start){
+  const vis=data.visemes||[],times=data.vtimes||[],dur=data.vdurations||[];
+  function frame(now){
+    const t=now-start; let idx=-1;
+    for(let i=0;i<times.length;i++){if(t>=times[i]&&t<times[i]+(dur[i]||80)){idx=i;break}}
+    if(idx>=0){setMouth(vis[idx]);q('#visemeBadge').textContent='viseme • '+vis[idx];}
+    else resetMouth();
+    if(t<(times.at(-1)||0)+(dur.at(-1)||100)+250) visemeTimer=requestAnimationFrame(frame);
+  }
+  visemeTimer=requestAnimationFrame(frame);
+}
+function setMouth(v){const s=visemeShape[v]||[20,5];q('#mouthOuter').setAttribute('rx',s[0]);q('#mouthOuter').setAttribute('ry',s[1]+3);q('#mouthInner').setAttribute('rx',Math.max(7,s[0]-6));q('#mouthInner').setAttribute('ry',Math.max(2,s[1]));}
+function resetMouth(){setMouth('sil')}
+</script>
+</body>
+</html>
