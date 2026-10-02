@@ -1,0 +1,84 @@
+name: AstraLabs Facebook Video Second Wave Oct02
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-facebook-video-second-wave-20261002.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Schedule Astramate and Keepry Facebook video posts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util, json
+          from pathlib import Path
+
+          base=Path("marketing/automation/facebook/scripts")
+          spec=importlib.util.spec_from_file_location("fb",base/"buffer_facebook.py")
+          fb=importlib.util.module_from_spec(spec); spec.loader.exec_module(fb)
+
+          org=fb.verified_target()
+          channel=fb.EXPECTED_PAGE_ID
+
+          posts=[
+            {
+              "key":"astramate_officer_cargo_oct02",
+              "due":"2026-10-02T09:10:00.000Z",
+              "video":"https://raw.githubusercontent.com/sjgrind168/astralabsph-site/main/public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4",
+              "text":"OFFICER QUICK CHECK\n\nHold volume: 6,400 m³\nStowage factor: 1.60 m³/t\nCargo weight: 4,000 t\n\nSave this quick check. Astramate keeps practical shipboard calculations close at hand for working officers.\n\nAvailable on iPhone + Android.\nhttps://www.astralabsph.com/\n\n#Astramate #DeckOfficer #CargoLoading #Seafarers #AstraLabsPH"
+            },
+            {
+              "key":"keepry_memory_test_oct02",
+              "due":"2026-10-02T10:20:00.000Z",
+              "video":"https://raw.githubusercontent.com/sjgrind168/astralabsph-site/main/public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4",
+              "text":"5-SECOND MEMORY TEST\n\nCan you name the expiry dates of your passport, licence and insurance without checking?\n\nKeepry keeps documents, important dates and reminders together so there is less to carry in your head.\n\nGoogle Play now. iOS coming soon.\nhttps://www.astralabsph.com/\n\n#Keepry #LifeAdmin #DocumentOrganizer #Productivity #AstraLabsPH"
+            }
+          ]
+
+          def history():
+              q=('query { posts(first:100,input:{organizationId:'+fb.quoted(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+fb.quoted(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=fb.buffer_query(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Facebook history")
+              rows=[e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=channel for x in rows):
+                  raise RuntimeError("Facebook channel mismatch")
+              return rows
+
+          rows=history()
+          for item in posts:
+              if any((r.get("text") or "")==item["text"] or any((a.get("source") or "")==item["video"] for a in (r.get("assets") or [])) for r in rows):
+                  print("DEDUPED",item["key"])
+                  continue
+              q=("mutation { createPost(input:{text:"+fb.quoted(item["text"])+
+                 " channelId:"+fb.quoted(channel)+
+                 " schedulingType:automatic mode:customScheduled dueAt:"+fb.quoted(item["due"])+
+                 " aiAssisted:true metadata:{facebook:{type:post}}"+
+                 " assets:[{video:{url:"+fb.quoted(item["video"])+"}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=fb.buffer_query(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"):
+                  raise RuntimeError("Facebook schedule failed for "+item["key"]+": "+str(res.get("message","unknown"))[:160])
+              if p.get("status")!="scheduled":
+                  raise RuntimeError("Facebook post not scheduled: "+str(p))
+              print("SCHEDULED",item["key"],p["id"],p.get("dueAt"))
+              rows.append({"id":p["id"],"status":p["status"],"dueAt":p["dueAt"],"text":item["text"],"assets":p.get("assets") or [],"channelId":channel})
+          PY
