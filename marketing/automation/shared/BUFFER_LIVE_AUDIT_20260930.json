@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-30T11:16:47.463911+00:00",
-  "generated_at_pht": "2026-09-30T19:16:47.463923+08:00",
-  "date_pht": "2026-09-30",
+  "generated_at_utc": "2026-10-02T04:59:43.568596+00:00",
+  "generated_at_pht": "2026-10-02T12:59:43.568606+08:00",
+  "date_pht": "2026-10-02",
   "organization": {
     "id": "6aa059d0626d33004063293f",
     "name": "My organization"
@@ -14,44 +14,26 @@
       "isLocked": false,
       "isQueuePaused": false,
       "today_counts": {
-        "sent": 1,
-        "sending": 1,
+        "sent": 0,
+        "sending": 0,
         "scheduled": 0,
         "draft": 0,
         "error": 0
       },
       "today": {
-        "sent": [
-          {
-            "id": "6abcef110cbb1c593b78331a",
-            "status": "sent",
-            "dueAt": "2026-09-30T11:14:25.686Z",
-            "createdAt": "2026-09-30T11:14:25.633Z",
-            "externalLink": "https://tiktok.com/@astralabsph/video/7691285125069376775",
-            "text": "Astramate puts practical maritime calculation tools in one place, with visible formulas, working and warnings you can review. Available now on iPhone and Android. https://www.astralabsph.com/ #Astramate #Seafarers #MaritimeTools #AstraLabsPH #AstraSep30Astramate"
-          }
-        ],
-        "sending": [
-          {
-            "id": "6abcef3862d40f400310f58a",
-            "status": "sending",
-            "dueAt": "2026-09-30T11:15:05.067Z",
-            "createdAt": "2026-09-30T11:15:04.661Z",
-            "externalLink": null,
-            "text": "Keep what matters with Keepry. Organize reminders, renewals, documents and everyday life admin in one practical place. Available now on Google Play. iOS coming soon. https://www.astralabsph.com/ #Keepry #LifeAdmin #ProductivityApp #AstraLabsPH #AstraSep30Keepry"
-          }
-        ],
+        "sent": [],
+        "sending": [],
         "scheduled": [],
         "draft": [],
         "error": []
       },
       "latest_sent": {
-        "id": "6abcef110cbb1c593b78331a",
+        "id": "6abcef3862d40f400310f58a",
         "status": "sent",
-        "dueAt": "2026-09-30T11:14:25.686Z",
-        "createdAt": "2026-09-30T11:14:25.633Z",
-        "externalLink": "https://tiktok.com/@astralabsph/video/7691285125069376775",
-        "text": "Astramate puts practical maritime calculation tools in one place, with visible formulas, working and warnings you can review. Available now on iPhone and Android. https://www.astralabsph.com/ #Astramate #Seafarers #MaritimeTools #AstraLabsPH #AstraSep30Astramate"
+        "dueAt": "2026-09-30T11:15:05.067Z",
+        "createdAt": "2026-09-30T11:15:04.661Z",
+        "externalLink": "https://tiktok.com/@astralabsph/video/7691285292543905042",
+        "text": "Keep what matters with Keepry. Organize reminders, renewals, documents and everyday life admin in one practical place. Available now on Google Play. iOS coming soon. https://www.astralabsph.com/ #Keepry #LifeAdmin #ProductivityApp #AstraLabsPH #AstraSep30Keepry"
       },
       "scheduled_future": [],
       "has_more": false
@@ -63,70 +45,28 @@
       "isLocked": false,
       "isQueuePaused": false,
       "today_counts": {
-        "sent": 4,
+        "sent": 0,
         "sending": 0,
         "scheduled": 0,
         "draft": 0,
         "error": 0
       },
       "today": {
-        "sent": [
-          {
-            "id": "6abbd0f377da664489806aa5",
-            "status": "sent",
-            "dueAt": "2026-09-30T06:10:00.000Z",
-            "createdAt": "2026-09-29T14:53:39.409Z",
-            "externalLink": "https://www.facebook.com/122116585029321731/posts/122117770887321731",
-            "text": "The cargo parcel seems within the weight target. But is its volume within usable hold space? Use Astramate cargo-weight, cargo-volume and stowage-factor tools to cross-check your entries.  Try Astramate Free on Android. Need additional maritime calculation tools? Explore the opti"
-          },
-          {
-            "id": "6abac251f603bfa76f4740c7",
-            "status": "sent",
-            "dueAt": "2026-09-30T07:40:00.000Z",
-            "createdAt": "2026-09-28T19:38:57.537Z",
-            "externalLink": "https://www.facebook.com/122116585029321731/posts/122117777469321731",
-            "text": "A document renewal is easier to plan when the date and the record are reviewed together. Keepry helps you organize the dates you enter and your selected reminders, subject to device notification settings.  Try Keepry Free on Android. Need expanded reminders and supported recurrin"
-          },
-          {
-            "id": "6abaaee0ac5126c5f4d96c97",
-            "status": "sent",
-            "dueAt": "2026-09-30T02:40:00.000Z",
-            "createdAt": "2026-09-28T18:16:00.205Z",
-            "externalLink": "https://www.facebook.com/122116585029321731/posts/122117757549321731",
-            "text": "When every document photo looks alike, finding the right record is harder. Keepry Vault groups your imported images and PDFs with searchable details for practical organization.  Start with Keepry Free. More documents to organize? Optional one-time Plus expands supported Vault cap"
-          },
-          {
-            "id": "6aba9aa2e3532db9cb03456a",
-            "status": "sent",
-            "dueAt": "2026-09-30T01:30:00.000Z",
-            "createdAt": "2026-09-28T16:49:38.579Z",
-            "externalLink": "https://www.facebook.com/122116585029321731/posts/122117753049321731",
-            "text": "The hold dimensions are known, but how much cargo weight do they imply at this stowage factor? Review the volume, weight and stowage-factor relationship from your own figures in Astramate before checking the approved loading information.  Try Astramate Free on Android. Need addit"
-          }
-        ],
+        "sent": [],
         "sending": [],
         "scheduled": [],
         "draft": [],
         "error": []
       },
       "latest_sent": {
-        "id": "6abbd0f377da664489806aa5",
+        "id": "6abd084674300588bb15dce5",
         "status": "sent",
-        "dueAt": "2026-09-30T06:10:00.000Z",
-        "createdAt": "2026-09-29T14:53:39.409Z",
-        "externalLink": "https://www.facebook.com/122116585029321731/posts/122117770887321731",
-        "text": "The cargo parcel seems within the weight target. But is its volume within usable hold space? Use Astramate cargo-weight, cargo-volume and stowage-factor tools to cross-check your entries.  Try Astramate Free on Android. Need additional maritime calculation tools? Explore the opti"
+        "dueAt": "2026-09-30T13:00:43.000Z",
+        "createdAt": "2026-09-30T13:00:43.000Z",
+        "externalLink": "https://www.facebook.com/122116585029321731/posts/122117807361321731",
+        "text": "⚓ AT SEA OR ASHORE, KEEP THE RIGHT TOOLS WITH YOU.  Meet two practical apps from AstraLabs PH, built to make everyday work and life a little easier.  📱 ASTRAMATE   For maritime students, cadets, aspiring officers, deck officers, and working seafarers.  Keep useful maritime calcul"
       },
-      "scheduled_future": [
-        {
-          "id": "6abbe98bf9bc1204bdee7ed5",
-          "status": "scheduled",
-          "dueAt": "2026-10-01T01:30:00.000Z",
-          "createdAt": "2026-09-29T16:38:35.069Z",
-          "externalLink": null,
-          "text": "Planning a cargo estimate starts with trustworthy inputs. Astramate helps you inspect cargo volume, stowage factor and weight relationships from values you enter, while approved vessel data remains essential.  Try Astramate Free on iPhone or Android. Need additional maritime calc"
-        }
-      ],
+      "scheduled_future": [],
       "has_more": false
     },
     {
@@ -136,149 +76,109 @@
       "isLocked": false,
       "isQueuePaused": false,
       "today_counts": {
-        "sent": 5,
+        "sent": 2,
         "sending": 0,
-        "scheduled": 2,
+        "scheduled": 4,
         "draft": 0,
         "error": 0
       },
       "today": {
         "sent": [
           {
-            "id": "6abca1eb28074da804c23470",
+            "id": "6abdf75126106f7332725114",
             "status": "sent",
-            "dueAt": "2026-09-30T05:45:15.406Z",
-            "createdAt": "2026-09-30T05:45:15.367Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389521810",
-            "text": "Astramate is now available on iPhone and Android. A practical maritime toolkit for seafarers, cadets, deck officers and maritime students. Use supported tools for Time to Go, Distance, Average Speed, ETA, Compass Error, Loading QuickCalc and Unit Converter, with visible formulas "
+            "dueAt": "2026-10-02T03:10:00.000Z",
+            "createdAt": "2026-10-01T06:01:53.552Z",
+            "externalLink": "https://www.pinterest.com/pin/1143844005389686096",
+            "text": "Practical gift directions that still feel specific to the person receiving them. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
           },
           {
-            "id": "6abb512ab6b26148959190af",
+            "id": "6abdf750b29c0fecf418e3f7",
             "status": "sent",
-            "dueAt": "2026-09-30T08:10:00.000Z",
-            "createdAt": "2026-09-29T05:48:26.455Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389527097",
-            "text": "Bedside, study and shared-bath essentials for a room where every inch matters. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/dorm-room-upgrades/?utm_source=pin"
-          },
-          {
-            "id": "6abb51297889d8281c2b73a6",
-            "status": "sent",
-            "dueAt": "2026-09-30T06:40:00.000Z",
-            "createdAt": "2026-09-29T05:48:25.041Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389523812",
-            "text": "Small-footprint organization ideas with renter-friendly placement in mind. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/renter-bathroom-storage/?utm_source=pi"
-          },
-          {
-            "id": "6abb512793a81b612b5d8bd6",
-            "status": "sent",
-            "dueAt": "2026-09-30T03:10:00.000Z",
-            "createdAt": "2026-09-29T05:48:23.855Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389514818",
-            "text": "Make the most of the spaces you already have without a remodel. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/renter-bathroom-storage/?utm_source=pinterest&utm"
-          },
-          {
-            "id": "6abb5126b6b261489591904a",
-            "status": "sent",
-            "dueAt": "2026-09-30T02:00:00.000Z",
-            "createdAt": "2026-09-29T05:48:22.383Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389511043",
-            "text": "Use shower, under-sink and narrow-gap space before adding bulky storage. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/renter-bathroom-storage/?utm_source=pint"
+            "dueAt": "2026-10-02T02:00:00.000Z",
+            "createdAt": "2026-10-01T06:01:52.614Z",
+            "externalLink": "https://www.pinterest.com/pin/1143844005389682303",
+            "text": "Start with a routine the recipient already enjoys, then choose something genuinely useful. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_so"
           }
         ],
         "sending": [],
         "scheduled": [
           {
-            "id": "6abb512c93a81b612b5d8c87",
+            "id": "6abdf755c2f059a6ae868011",
             "status": "scheduled",
-            "dueAt": "2026-09-30T13:10:00.000Z",
-            "createdAt": "2026-09-29T05:48:28.390Z",
+            "dueAt": "2026-10-02T13:10:00.000Z",
+            "createdAt": "2026-10-01T06:01:57.706Z",
             "externalLink": null,
-            "text": "Simple upgrades that make compact student living easier to manage. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/dorm-room-upgrades/?utm_source=pinterest&utm_m"
+            "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
           },
           {
-            "id": "6abb512b93a81b612b5d8c60",
+            "id": "6abdf7547b21e6b4b73d32a8",
             "status": "scheduled",
-            "dueAt": "2026-09-30T11:40:00.000Z",
-            "createdAt": "2026-09-29T05:48:27.387Z",
+            "dueAt": "2026-10-02T11:40:00.000Z",
+            "createdAt": "2026-10-01T06:01:56.713Z",
             "externalLink": null,
-            "text": "Create useful zones for sleep, study and storage without filling the floor. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/dorm-room-upgrades/?utm_source=pinter"
+            "text": "Use light, texture and everyday routines to shift the mood without seasonal clutter. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm"
+          },
+          {
+            "id": "6abdf753c2f059a6ae867f5d",
+            "status": "scheduled",
+            "dueAt": "2026-10-02T08:10:00.000Z",
+            "createdAt": "2026-10-01T06:01:55.739Z",
+            "externalLink": null,
+            "text": "Comfort-first finds that keep earning their space long after the season changes. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_sou"
+          },
+          {
+            "id": "6abdf7527b21e6b4b73d3236",
+            "status": "scheduled",
+            "dueAt": "2026-10-02T06:40:00.000Z",
+            "createdAt": "2026-10-01T06:01:54.621Z",
+            "externalLink": null,
+            "text": "Easy-to-match ideas with everyday usefulness and simple return-friendly choices. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
           }
         ],
         "draft": [],
         "error": []
       },
       "latest_sent": {
-        "id": "6abca1eb28074da804c23470",
+        "id": "6abdf75126106f7332725114",
         "status": "sent",
-        "dueAt": "2026-09-30T05:45:15.406Z",
-        "createdAt": "2026-09-30T05:45:15.367Z",
-        "externalLink": "https://www.pinterest.com/pin/1143844005389521810",
-        "text": "Astramate is now available on iPhone and Android. A practical maritime toolkit for seafarers, cadets, deck officers and maritime students. Use supported tools for Time to Go, Distance, Average Speed, ETA, Compass Error, Loading QuickCalc and Unit Converter, with visible formulas "
+        "dueAt": "2026-10-02T03:10:00.000Z",
+        "createdAt": "2026-10-01T06:01:53.552Z",
+        "externalLink": "https://www.pinterest.com/pin/1143844005389686096",
+        "text": "Practical gift directions that still feel specific to the person receiving them. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
       },
       "scheduled_future": [
         {
-          "id": "6abca0363b1eb12e6e45246d",
+          "id": "6abdf755c2f059a6ae868011",
           "status": "scheduled",
-          "dueAt": "2026-10-01T13:10:00.000Z",
-          "createdAt": "2026-09-30T05:37:58.102Z",
+          "dueAt": "2026-10-02T13:10:00.000Z",
+          "createdAt": "2026-10-01T06:01:57.706Z",
           "externalLink": null,
-          "text": "Practical cabin and cargo upgrades that reduce loose clutter. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/car-organization-road-trip/?utm_source=pinterest&ut"
+          "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
         },
         {
-          "id": "6abca0355df9296bd8e13ce4",
+          "id": "6abdf7547b21e6b4b73d32a8",
           "status": "scheduled",
-          "dueAt": "2026-10-01T11:40:00.000Z",
-          "createdAt": "2026-09-30T05:37:56.984Z",
+          "dueAt": "2026-10-02T11:40:00.000Z",
+          "createdAt": "2026-10-01T06:01:56.713Z",
           "externalLink": null,
-          "text": "Give daily gear a predictable home without blocking controls, airbags or visibility. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/car-organization-road-trip/?"
+          "text": "Use light, texture and everyday routines to shift the mood without seasonal clutter. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm"
         },
         {
-          "id": "6abca033a1ba5ce146ea8e8e",
+          "id": "6abdf753c2f059a6ae867f5d",
           "status": "scheduled",
-          "dueAt": "2026-10-01T08:10:00.000Z",
-          "createdAt": "2026-09-30T05:37:55.855Z",
+          "dueAt": "2026-10-02T08:10:00.000Z",
+          "createdAt": "2026-10-01T06:01:55.739Z",
           "externalLink": null,
-          "text": "Secure cargo, reachable essentials and better charging for everyday drives and longer trips. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/car-organization-roa"
+          "text": "Comfort-first finds that keep earning their space long after the season changes. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_sou"
         },
         {
-          "id": "6abca033f3db08ac9275e6c1",
+          "id": "6abdf7527b21e6b4b73d3236",
           "status": "scheduled",
-          "dueAt": "2026-10-01T06:40:00.000Z",
-          "createdAt": "2026-09-30T05:37:54.987Z",
+          "dueAt": "2026-10-02T06:40:00.000Z",
+          "createdAt": "2026-10-01T06:01:54.621Z",
           "externalLink": null,
-          "text": "Practical tools for upholstery, walks and everyday pet-home cleanup. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/pet-cleanup-organization/?utm_source=pintere"
-        },
-        {
-          "id": "6abca031f3db08ac9275e699",
-          "status": "scheduled",
-          "dueAt": "2026-10-01T03:10:00.000Z",
-          "createdAt": "2026-09-30T05:37:53.601Z",
-          "externalLink": null,
-          "text": "A repeatable routine beats chasing fur and pet mess from room to room. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/pet-cleanup-organization/?utm_source=pinte"
-        },
-        {
-          "id": "6abca03028074da804c2011e",
-          "status": "scheduled",
-          "dueAt": "2026-10-01T02:00:00.000Z",
-          "createdAt": "2026-09-30T05:37:52.457Z",
-          "externalLink": null,
-          "text": "Keep reusable fur-removal and cleanup tools close to the places mess actually happens. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/pet-cleanup-organization/?"
-        },
-        {
-          "id": "6abb512c93a81b612b5d8c87",
-          "status": "scheduled",
-          "dueAt": "2026-09-30T13:10:00.000Z",
-          "createdAt": "2026-09-29T05:48:28.390Z",
-          "externalLink": null,
-          "text": "Simple upgrades that make compact student living easier to manage. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/dorm-room-upgrades/?utm_source=pinterest&utm_m"
-        },
-        {
-          "id": "6abb512b93a81b612b5d8c60",
-          "status": "scheduled",
-          "dueAt": "2026-09-30T11:40:00.000Z",
-          "createdAt": "2026-09-29T05:48:27.387Z",
-          "externalLink": null,
-          "text": "Create useful zones for sleep, study and storage without filling the floor. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/dorm-room-upgrades/?utm_source=pinter"
+          "text": "Easy-to-match ideas with everyday usefulness and simple return-friendly choices. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
         }
       ],
       "has_more": false
