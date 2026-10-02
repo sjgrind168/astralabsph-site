@@ -77,6 +77,15 @@ jobs:
           ffmpeg -loglevel error -y -i /tmp/astra/keepry_v.mp4 -i /tmp/astra/kv.wav -stream_loop -1 -i /tmp/astra/km.wav -filter_complex '[1:a]volume=1.12[v];[2:a]volume=.09,atrim=0:17.2,afade=t=out:st=16.2:d=1[m];[m][v]amix=2:duration=longest,alimiter=.95[a]' -map 0:v -map '[a]' -c:v copy -c:a aac -b:a 192k -t 17.2 -movflags +faststart public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4
           ffprobe -v error -show_entries format=duration -of csv=p=0 public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4
           ffprobe -v error -show_entries format=duration -of csv=p=0 public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4
+      - name: Package final videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: heygen-social-videos
+          path: |
+            public/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4
+            public/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4
+          if-no-files-found: error
+          retention-days: 7
       - name: Save videos
         shell: bash
         run: |
@@ -84,6 +93,10 @@ jobs:
           git config user.name 'AstraLabs Video Bot'
           git config user.email 'actions@users.noreply.github.com'
           git add public/marketing/videos/*.mp4
+          if git diff --cached --quiet; then
+            echo NO_VIDEO_CHANGE
+            exit 0
+          fi
           git commit -m 'Marketing: add HeyGen-voiced social videos'
           git pull --rebase origin main
           git push origin HEAD:main
