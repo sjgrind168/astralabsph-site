@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <title>AstraDrama Beta | AstraLabs PH</title>
+  <meta name="description" content="Zero-cost local proof-of-concept for story-to-vertical-drama creation." />
+  <style>
+    :root{
+      --bg:#09090b;--surface:#111216;--surface2:#17181d;--surface3:#202126;--text:#f5f0e7;--muted:#a8a39b;
+      --line:#2d2d33;--gold:#d8b36a;--ember:#a7313f;--ok:#69c58b;--danger:#ff6c70;--shadow:0 30px 80px rgba(0,0,0,.45);
+      --r:18px;--rs:12px;--space:clamp(16px,2vw,28px);--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    [data-theme="light"]{--bg:#f5f2ec;--surface:#fffdfa;--surface2:#f0ebe4;--surface3:#e6ded3;--text:#1a1917;--muted:#69645c;--line:#d8d0c5;--shadow:0 24px 70px rgba(63,44,16,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% -10%,rgba(167,49,63,.18),transparent 28%),radial-gradient(circle at 90% 0%,rgba(216,179,106,.12),transparent 22%),var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh}
+    button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1500px;margin:auto;padding:0 22px 52px}.topbar{position:sticky;z-index:20;top:0;display:flex;align-items:center;gap:18px;padding:16px 0;background:linear-gradient(var(--bg) 72%,transparent);backdrop-filter:blur(12px)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em}.mark{width:34px;height:34px;border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line));display:grid;place-items:center;transform:rotate(45deg);border-radius:9px}.mark b{transform:rotate(-45deg);font-family:var(--serif);color:var(--gold)}
+    .top-actions{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pill,.ghost,.primary{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:9px 12px}.pill{font-size:12px;color:var(--muted)}.pill b{color:var(--ok)}.ghost:hover{border-color:var(--gold)}.primary{background:linear-gradient(135deg,#d8b36a,#b98a38);color:#15110a;border-color:transparent;font-weight:850}.primary:hover{filter:brightness(1.06)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:40px;align-items:end;padding:56px 0 28px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-weight:800}.hero h1{font-family:var(--serif);font-size:clamp(42px,6vw,84px);line-height:.95;margin:12px 0 18px;font-weight:650}.hero h1 em{font-weight:400;color:var(--gold)}.hero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:740px}.meter{border:1px solid var(--line);border-top-color:var(--gold);border-radius:var(--r);padding:20px;background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface) 70%,transparent));box-shadow:var(--shadow)}.meter-head{display:flex;align-items:center}.meter-head b{font-size:28px;color:var(--gold);margin-left:auto}.meter-row{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:12px;margin-top:12px;color:var(--muted);font-size:12px}.meter-row strong{color:var(--text)}
+    .workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(350px,.65fr);gap:24px;align-items:start}.stack{display:grid;gap:18px}.panel{background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 95%,transparent),color-mix(in srgb,var(--surface2) 86%,transparent));border:1px solid var(--line);border-radius:var(--r);padding:var(--space);box-shadow:0 20px 60px rgba(0,0,0,.16)}
+    .panel-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}.num{width:36px;height:36px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;color:var(--gold);font-weight:800;font-size:12px}.panel-head h2{font-family:var(--serif);font-size:24px;margin:0}.panel-head p{margin:3px 0 0;color:var(--muted);font-size:12px}.badge{margin-left:auto;border:1px solid var(--line);border-radius:999px;padding:7px 9px;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field.full{grid-column:1/-1}.field label{display:block;margin-bottom:7px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.12em}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:var(--bg);color:var(--text);outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 15%,transparent)}
+    .button-row{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}.hint{font-size:11px;color:var(--muted);line-height:1.6;margin:10px 0 0}.story-result{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:16px}.story-result>div{background:var(--bg);padding:16px}.story-result span{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.16em}.story-result p{font-family:var(--serif);line-height:1.5;margin:8px 0 0}
+    .cast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cast-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg)}.avatar{height:150px;position:relative;display:grid;place-items:end center;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(216,179,106,.24),transparent 28%),linear-gradient(150deg,#34131a,#0b1116 55%,#171015)}.avatar::before{content:"";position:absolute;width:72px;height:72px;border-radius:50%;top:30px;background:#09090d;box-shadow:0 0 0 1px rgba(216,179,106,.12)}.avatar::after{content:"";width:135px;height:105px;border-radius:60px 60px 8px 8px;background:#09090d;transform:translateY(24px)}.initials{position:absolute;bottom:10px;left:12px;color:var(--gold);font-family:var(--serif);font-size:28px;z-index:2}.cast-body{padding:12px}.cast-body input,.cast-body textarea{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:9px}.cast-body textarea{min-height:55px;margin-top:7px;resize:vertical}.role{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin:8px 0}
+    .scenes{display:grid;gap:10px}.scene{display:grid;grid-template-columns:44px 92px 1fr 36px;gap:10px;border:1px solid var(--line);background:var(--bg);border-radius:13px;padding:10px}.scene-no{display:grid;place-items:start center;padding-top:8px;color:var(--muted);font-size:11px}.thumb{min-height:108px;border-radius:9px;background:linear-gradient(145deg,#581d2a,#101116 65%);position:relative;overflow:hidden}.thumb::after{content:"";position:absolute;width:60px;height:100px;border-radius:50% 50% 0 0;background:#09090b;left:20px;top:25px;opacity:.85}.thumb span{position:absolute;z-index:2;left:8px;bottom:8px;font-size:8px;text-transform:uppercase;color:#fff}.scene-copy textarea,.scene-copy input{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:8px}.scene-copy textarea{min-height:58px;resize:vertical}.scene-copy input{margin-top:7px;color:var(--gold)}.scene-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px;color:var(--muted);font-size:9px;text-transform:uppercase}.scene-actions{display:flex;flex-direction:column;justify-content:center;gap:5px}.scene-actions button{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+    .preview-wrap{position:sticky;top:78px}.phone-shell{max-width:355px;margin:auto}.phone-label{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.phone{aspect-ratio:9/16;width:100%;background:#030304;border:1px solid color-mix(in srgb,var(--gold) 28%,var(--line));border-radius:24px;overflow:hidden;box-shadow:0 38px 80px rgba(0,0,0,.48);position:relative}.phone canvas{width:100%;height:100%;display:block}.transport{display:flex;align-items:center;gap:8px;margin-top:12px}.round{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:16px}.timeline{flex:1}.timeline input{width:100%;accent-color:var(--gold)}.time{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}.toggles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.toggle{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:11px}.toggle input{accent-color:var(--gold)}.record{width:100%;margin-top:10px}.capability{margin-top:8px;color:var(--muted);font-size:10px;line-height:1.5}.capability strong{color:var(--ok)}
+    .hardware{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.hardware button{padding:14px;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:12px}.hardware button.active{border-color:var(--gold);box-shadow:0 0 0 2px color-mix(in srgb,var(--gold) 12%,transparent)}.hardware small{display:block;color:var(--muted);margin-top:4px;line-height:1.4}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}.roadmap div{background:var(--bg);padding:14px}.roadmap b{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.12em}.roadmap span{display:block;margin-top:7px;color:var(--muted);font-size:11px;line-height:1.5}
+    .feedback{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:14px}.feedback input{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:10px}.feedback-note{font-size:10px;color:var(--muted);margin-top:8px}.footer{display:flex;gap:9px;align-items:center;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:30px 0}.footer strong{color:var(--gold);margin-left:auto}
+    .toast{position:fixed;right:20px;bottom:20px;z-index:99;background:#17181d;color:#fff;border:1px solid #34343a;border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}
+    @media(max-width:1050px){.hero,.workspace{grid-template-columns:1fr}.preview-wrap{position:relative;top:auto}.preview-wrap{grid-row:1}.phone-shell{max-width:420px}.roadmap{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.app{padding:0 12px 30px}.topbar{padding:10px 0}.top-actions .pill{display:none}.hero{padding-top:34px}.form-grid,.story-result{grid-template-columns:1fr}.field.full{grid-column:auto}.cast-grid{grid-template-columns:1fr}.cast-card{display:grid;grid-template-columns:120px 1fr}.avatar{height:auto;min-height:180px}.scene{grid-template-columns:30px 70px 1fr}.scene-actions{grid-column:3;flex-direction:row;justify-content:flex-end}.hardware,.roadmap{grid-template-columns:1fr}.toggles{grid-template-columns:1fr}.feedback{grid-template-columns:1fr}.footer{flex-wrap:wrap}.footer strong{width:100%;margin-left:0}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="mark"><b>A</b></div><span>ASTRADRAMA <small style="color:var(--gold)">BETA</small></span></div>
+    <div class="top-actions">
+      <span class="pill">Local Engine <b>●</b></span>
+      <button class="ghost" id="themeBtn" aria-label="Toggle theme">Theme</button>
+      <button class="ghost" id="resetBtn">Reset Demo</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">AstraLabs PH • Local Proof-of-Concept</div>
+      <h1>Story to vertical drama. <em>Locally.</em></h1>
+      <p>Turn a premise into a cast, storyboard and animated 9:16 motion-drama preview without paid APIs. This beta is intentionally honest: it uses deterministic local story templates, browser graphics, speech and sound, not generative video.</p>
+    </div>
+    <aside class="meter">
+      <div class="meter-head"><span class="eyebrow">Zero-Cost Meter</span><b>₱0</b></div>
+      <div class="meter-row"><span>External API</span><strong>₱0</strong></div>
+      <div class="meter-row"><span>Cloud rendering</span><strong>₱0</strong></div>
+      <div class="meter-row"><span>Processing</span><strong>Browser / local</strong></div>
+    </aside>
+  </section>
+
+  <main class="workspace">
+    <div class="stack">
+      <section class="panel">
+        <div class="panel-head"><div class="num">01</div><div><h2>StoryBrain</h2><p>Deterministic local beta engine</p></div><div class="badge">No network AI</div></div>
+        <div class="form-grid">
+          <div class="field full"><label for="title">Series title</label><input id="title" /></div>
+          <div class="field full"><label for="premise">Premise</label><textarea id="premise"></textarea></div>
+          <div class="field"><label for="genre">Genre</label><select id="genre"><option>Romance</option><option>Revenge</option><option>Thriller</option><option>Family</option><option>Comedy</option></select></div>
+          <div class="field"><label for="duration">Episode duration</label><select id="duration"><option value="20">20 sec</option><option value="30" selected>30 sec</option><option value="45">45 sec</option></select></div>
+        </div>
+        <div class="button-row"><button class="primary" id="generateBtn">Generate Episode</button><button class="ghost" id="demoBtn">Load Demo</button></div>
+        <p class="hint">The beta demonstrates the product workflow first. A production version can later swap the renderer for commercial-safe local video models on capable hardware.</p>
+        <div class="story-result"><div><span>Hook</span><p id="hook"></p></div><div><span>Cliffhanger</span><p id="cliff"></p></div></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><div class="num">02</div><div><h2>Cast Vault</h2><p>Recurring character identity</p></div><div class="badge" id="castCount">3 cast</div></div>
+        <div class="cast-grid" id="castGrid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><div class="num">03</div><div><h2>Storyboard</h2><p>Edit and reorder episode beats</p></div><div class="badge" id="sceneCount">6 scenes</div></div>
+        <div class="scenes" id="sceneList"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><div class="num">04</div><div><h2>Hardware Mode</h2><p>Guidance only in this beta</p></div></div>
+        <div class="hardware" id="hardware">
+          <button data-mode="Motion Comic" class="active"><b>8GB Mac / Low Power</b><small>Motion Comic • browser-local renderer</small></button>
+          <button data-mode="Enhanced Local"><b>16GB+ Apple Silicon</b><small>Enhanced Local • future model-assisted mode</small></button>
+          <button data-mode="Local Video Experimental"><b>NVIDIA 8GB+</b><small>Local Video Experimental • future open-model mode</small></button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head"><div class="num">05</div><div><h2>Production Evolution</h2><p>Keep the orchestration, upgrade the renderer</p></div></div>
+        <div class="roadmap"><div><b>Today</b><span>Free browser motion-comic engine.</span></div><div><b>Next</b><span>Commercial-safe local image, TTS and animation modules.</span></div><div><b>Later</b><span>Optional local video models on creator hardware.</span></div><div><b>Scale</b><span>Android/iOS controller + paid cloud render only as optional credits.</span></div></div>
+        <div class="feedback"><input id="feedback" placeholder="Quick beta note, e.g. 'make scenes more cinematic'"/><button class="ghost" id="saveFeedback">Save locally</button></div>
+        <div class="feedback-note">Feedback is stored only in this browser for the beta. Nothing is uploaded.</div>
+      </section>
+    </div>
+
+    <aside class="panel preview-wrap">
+      <div class="panel-head"><div class="num">▶</div><div><h2>Episode Preview</h2><p id="previewTitle">The Billionaire's Secret Bride</p></div><div class="badge" id="sceneBadge">Scene 1/6</div></div>
+      <div class="phone-shell">
+        <div class="phone-label"><span>9:16 Local Render</span><span id="modeLabel">Motion Comic</span></div>
+        <div class="phone"><canvas id="canvas" width="540" height="960" aria-label="Animated episode preview"></canvas></div>
+        <div class="transport">
+          <button class="round" id="playBtn" aria-label="Play or pause">▶</button>
+          <button class="round" id="restartBtn" aria-label="Restart">↺</button>
+          <div class="timeline"><input id="seek" type="range" min="0" max="30" value="0" step="0.05" aria-label="Preview timeline"/><div class="time"><span id="now">0:00</span><span id="total">0:30</span></div></div>
+        </div>
+        <div class="toggles"><label class="toggle"><span>Browser voice</span><input id="voice" type="checkbox"/></label><label class="toggle"><span>Impact SFX</span><input id="sound" type="checkbox" checked/></label></div>
+        <button class="ghost record" id="recordBtn">Record Visual Preview (.webm)</button>
+        <div class="capability" id="capability"><strong>Checking browser recording support…</strong></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer"><span>AstraDrama Beta</span><span>•</span><span>AstraLabs PH</span><span>•</span><span>Local proof-of-concept</span><strong>Story to vertical drama. Locally.</strong></footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const palettes=[['#08090d','#7b1622','#e6b96a'],['#070b12','#1f3952','#e7c276'],['#0c0709','#641723','#f0bd73'],['#0b1111','#1f5049','#e9b95f'],['#08090d','#38274d','#d35e59'],['#050508','#761722','#f2c979']];
+  const kits={
+    Romance:{roles:['Secret bride','Billionaire heir','Public rival'],traits:['resilient, guarded, quietly brave','controlled, conflicted, protective','polished, perceptive, ambitious'],voices:['warm and steady','low and restrained','silken and precise'],moods:['yearning','suspicion','intimacy','shock'],hook:'One secret promise is about to become public.'},
+    Revenge:{roles:['Wronged outsider','Powerful rival','Unlikely ally'],traits:['patient, relentless','charming, ruthless','clever, conflicted'],voices:['calm with an edge','silken and cold','quick and measured'],moods:['menace','resolve','betrayal','triumph'],hook:'The person they erased comes back with proof.'},
+    Thriller:{roles:['Reluctant witness','Unknown pursuer','Trusted investigator'],traits:['alert, resourceful','unreadable, precise','skeptical, brave'],voices:['urgent whisper','quiet and chilling','clipped and focused'],moods:['dread','pursuit','paranoia','revelation'],hook:'A message arrives from someone who should not be alive.'},
+    Family:{roles:['Returning daughter','Family patriarch','Protective sibling'],traits:['hopeful, stubborn','proud, vulnerable','practical, devoted'],voices:['open and emotional','weathered and firm','soft but certain'],moods:['nostalgia','friction','warmth','revelation'],hook:'One empty chair reveals the family secret.'},
+    Comedy:{roles:['Chaotic dreamer','Serious rival','Accidental accomplice'],traits:['bold, improvisational','precise, easily rattled','dry, dependable'],voices:['fast and playful','formal and exasperated','deadpan'],moods:['chaos','awkwardness','momentum','delight'],hook:'The perfect plan survives exactly three seconds.'}
+  };
+  const names=['Mara','Adrian','Celeste','Nico','Elena','Rafael','Sofia','Gabriel'];
+  const shots=['Macro detail','Wide reveal','Tracking two-shot','Orbit close-up','Low angle','Crash zoom','Overhead','Extreme close-up'];
+  const demo={title:"The Billionaire's Secret Bride",premise:"A hotel waitress discovers her secret husband, the heir who vanished after their courthouse wedding, is about to announce an engagement to another woman.",genre:'Romance',duration:30,hook:'She came to serve champagne. He came to announce a bride. They were already married.',cliffhanger:"Then the elevator opens, and Adrian's father is holding their marriage certificate.",characters:[{id:'c1',name:'Mara Reyes',role:'Secret bride',traits:'resilient, guarded, quietly brave',voice:'warm and steady'},{id:'c2',name:'Adrian Vale',role:'Billionaire heir',traits:'controlled, conflicted, protective',voice:'low and restrained'},{id:'c3',name:'Celeste Cruz',role:'Public fiancée',traits:'polished, perceptive, ambitious',voice:'silken and precise'}],scenes:[
+    {id:'s1',duration:4,shot:'Extreme close-up',action:"Champagne trembles on Mara's tray as a ring flashes beneath the ballroom lights.",dialogue:'MARA: That ring was supposed to be mine.',mood:'dread',palette:0},
+    {id:'s2',duration:5,shot:'Slow push-in',action:'Adrian steps onto the gold-lit stage beside Celeste. His eyes find Mara in the crowd.',dialogue:'HOST: Tonight, the Vale family welcomes a new bride.',mood:'revelation',palette:1},
+    {id:'s3',duration:5,shot:'Two-shot',action:'Mara corners Adrian in a mirrored service hall as red light sweeps across them.',dialogue:'MARA: Did our vows expire when you got rich?',mood:'confrontation',palette:2},
+    {id:'s4',duration:5,shot:'Handheld close-up',action:'Adrian shows the matching ring hidden on a chain under his shirt.',dialogue:'ADRIAN: I disappeared to keep you alive.',mood:'intimacy',palette:3},
+    {id:'s5',duration:5,shot:'Dutch angle',action:'A shadow moves behind frosted glass. Celeste has heard every word.',dialogue:'CELESTE: So the rumors were true.',mood:'suspicion',palette:4},
+    {id:'s6',duration:6,shot:'Crash zoom',action:'The elevator doors part. Victor Vale raises a sealed marriage certificate.',dialogue:'VICTOR: Tell your wife why her name is on my death list.',mood:'cliffhanger',palette:5}
+  ]};
+
+  let project=loadState()||structuredClone(demo), playing=false, elapsed=0, raf=0, start=0, lastScene=-1, activeMode='Motion Comic', recorder=null, chunks=[];
+  const canvas=$('#canvas'),ctx=canvas.getContext('2d'),seek=$('#seek');
+  function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('show'),1700)}
+  function saveState(){localStorage.setItem('astradrama-beta-project',JSON.stringify(project));localStorage.setItem('astradrama-beta-mode',activeMode)}
+  function loadState(){try{return JSON.parse(localStorage.getItem('astradrama-beta-project'))}catch{return null}}
+  function initials(n){return n.split(/s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase()}
+  function total(){return project.scenes.reduce((a,s)=>a+Number(s.duration||0),0)}
+  function fmt(n){n=Math.max(0,Math.round(n));return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`}
+  function currentSceneAt(t){let acc=0;for(let i=0;i<project.scenes.length;i++){const s=project.scenes[i];if(t<acc+s.duration)return {s,i,before:acc};acc+=s.duration}const i=Math.max(0,project.scenes.length-1);return {s:project.scenes[i],i,before:Math.max(0,total()-(project.scenes[i]?.duration||0))}}
+  function wrap(text,max){const words=text.split(/s+/),lines=[];let line='';for(const w of words){const test=(line+' '+w).trim();if(ctx.measureText(test).width>max&&line){lines.push(line);line=w}else line=test}if(line)lines.push(line);return lines}
+  function draw(now=performance.now()){
+    const cs=currentSceneAt(elapsed),s=cs.s;if(!s)return;const p=Math.min(1,Math.max(0,(elapsed-cs.before)/s.duration)),colors=palettes[s.palette%palettes.length]||palettes[0];
+    ctx.clearRect(0,0,540,960);const g=ctx.createLinearGradient(0,0,540,960);g.addColorStop(0,colors[1]);g.addColorStop(.52,colors[0]);g.addColorStop(1,'#020203');ctx.fillStyle=g;ctx.fillRect(0,0,540,960);
+    ctx.save();const shake=cs.i===project.scenes.length-1&&p>.65?Math.sin(now/17)*5:0;ctx.translate(shake,0);ctx.globalAlpha=.16;ctx.fillStyle=colors[2];ctx.beginPath();ctx.arc(420-p*90,170+p*40,250+p*55,0,Math.PI*2);ctx.fill();
+    for(let i=0;i<10;i++){ctx.globalAlpha=.05+(i%2)*.035;ctx.fillRect(((i*81+p*160)%700)-100,0,2,960)}
+    const z=1+p*.085;ctx.translate(270,500);ctx.scale(z,z);ctx.translate(-270,-500);
+    const lx=155-p*10,rx=385+p*12;ctx.globalAlpha=.92;ctx.fillStyle='#050509';ctx.beginPath();ctx.arc(lx,370,58,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(lx-105,760);ctx.quadraticCurveTo(lx-70,475,lx,450);ctx.quadraticCurveTo(lx+75,475,lx+110,760);ctx.fill();if(cs.i>0){ctx.globalAlpha=.84;ctx.beginPath();ctx.arc(rx,350,65,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(rx-120,760);ctx.quadraticCurveTo(rx-75,450,rx,430);ctx.quadraticCurveTo(rx+80,455,rx+125,760);ctx.fill()}
+    ctx.strokeStyle=colors[2];ctx.lineWidth=2;ctx.globalAlpha=.35+Math.sin(now/250)*.12;ctx.beginPath();ctx.moveTo(48,700-p*30);ctx.lineTo(492,575+p*30);ctx.stroke();ctx.restore();
+    const fade=Math.max(0,Math.min(1,(elapsed-cs.before)*2.8,(s.duration-(elapsed-cs.before))*3));ctx.globalAlpha=fade;ctx.fillStyle='rgba(0,0,0,.73)';ctx.fillRect(22,30,496,56);ctx.fillStyle=colors[2];ctx.font='700 16px Arial';ctx.fillText(`SCENE ${String(cs.i+1).padStart(2,'0')}  •  ${s.shot.toUpperCase()}`,44,66);
+    ctx.fillStyle='rgba(0,0,0,.82)';ctx.fillRect(22,724,496,170);ctx.fillStyle='#f7f1e8';ctx.textAlign='center';ctx.font='700 28px Arial';wrap(s.dialogue,440).slice(0,3).forEach((line,i)=>ctx.fillText(line,270,780+i*38));ctx.fillStyle=colors[2];ctx.font='700 12px Arial';ctx.fillText((s.mood||'dramatic').toUpperCase(),270,873);ctx.textAlign='left';ctx.globalAlpha=1;
+    if(elapsed<1.7){const a=Math.max(0,1-elapsed/1.7);ctx.fillStyle=`rgba(3,3,5,${a})`;ctx.fillRect(0,0,540,960);ctx.textAlign='center';ctx.fillStyle=`rgba(247,241,232,${a})`;ctx.font='700 38px Georgia';wrap(project.title.toUpperCase(),430).forEach((line,i)=>ctx.fillText(line,270,420+i*48));ctx.fillStyle=`rgba(216,179,106,${a})`;ctx.font='600 14px Arial';ctx.fillText('AN ASTRADRAMA LOCAL PREVIEW',270,540);ctx.textAlign='left'}
+    $('#sceneBadge').textContent=`Scene ${cs.i+1}/${project.scenes.length}`;
+  }
+  function impact(freq=86){if(!$('#sound').checked)return;try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const ac=new AC(),o=ac.createOscillator(),g=ac.createGain();o.type='sawtooth';o.frequency.setValueAtTime(freq,ac.currentTime);o.frequency.exponentialRampToValueAtTime(35,ac.currentTime+.35);g.gain.setValueAtTime(.0001,ac.currentTime);g.gain.exponentialRampToValueAtTime(.07,ac.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+.4);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+.42);o.onended=()=>ac.close()}catch{}}
+  function speak(text){if(!$('#voice').checked||!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text.replace(/^[A-Z ]+:/,''));u.rate=.88;u.pitch=.92;speechSynthesis.speak(u)}
+  function tick(now){if(!playing)return;elapsed=(now-start)/1000;const t=total();if(elapsed>=t){elapsed=t;playing=false;$('#playBtn').textContent='▶';updateTimeline();draw(now);return}const cs=currentSceneAt(elapsed);if(cs.i!==lastScene){lastScene=cs.i;impact(cs.i===project.scenes.length-1?55:90+cs.i*14);speak(cs.s.dialogue)}updateTimeline();draw(now);raf=requestAnimationFrame(tick)}
+  function playPause(){if(playing){playing=false;cancelAnimationFrame(raf);$('#playBtn').textContent='▶';return}if(elapsed>=total())elapsed=0;playing=true;lastScene=-1;start=performance.now()-elapsed*1000;$('#playBtn').textContent='❚❚';raf=requestAnimationFrame(tick)}
+  function restart(){playing=false;cancelAnimationFrame(raf);elapsed=0;lastScene=-1;$('#playBtn').textContent='▶';if('speechSynthesis'in window)speechSynthesis.cancel();updateTimeline();draw()}
+  function updateTimeline(){const t=total();seek.max=t;seek.value=Math.min(elapsed,t);$('#now').textContent=fmt(elapsed);$('#total').textContent=fmt(t)}
+  function bindForm(){
+    $('#title').value=project.title;$('#premise').value=project.premise;$('#genre').value=project.genre;$('#duration').value=project.duration;$('#hook').textContent=project.hook;$('#cliff').textContent=project.cliffhanger;$('#previewTitle').textContent=project.title;$('#castCount').textContent=`${project.characters.length} cast`;$('#sceneCount').textContent=`${project.scenes.length} scenes`;
+    $('#castGrid').innerHTML=project.characters.map((c,i)=>`<article class="cast-card" data-i="${i}"><div class="avatar"><span class="initials">${initials(c.name)}</span></div><div class="cast-body"><input data-k="name" value="${esc(c.name)}" aria-label="Character name"><div class="role">${esc(c.role)} • ${esc(c.voice)}</div><textarea data-k="traits" aria-label="Character traits">${esc(c.traits)}</textarea></div></article>`).join('');
+    $('#sceneList').innerHTML=project.scenes.map((s,i)=>`<article class="scene" data-i="${i}"><div class="scene-no">${String(i+1).padStart(2,'0')}</div><div class="thumb" style="background:linear-gradient(145deg,${palettes[s.palette%palettes.length][1]},#101116 68%)"><span>${esc(s.shot)}</span></div><div class="scene-copy"><textarea data-k="action" aria-label="Scene action">${esc(s.action)}</textarea><input data-k="dialogue" value="${esc(s.dialogue)}" aria-label="Scene dialogue"><div class="scene-meta"><span>${s.duration}s</span><span>${esc(s.mood)}</span></div></div><div class="scene-actions"><button data-move="-1" aria-label="Move scene up">↑</button><button data-move="1" aria-label="Move scene down">↓</button></div></article>`).join('');
+    saveState();updateTimeline();draw();
+  }
+  function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+  function generate(){
+    const genre=$('#genre').value,duration=Number($('#duration').value),title=$('#title').value.trim()||'Untitled Drama',premise=$('#premise').value.trim()||'A secret changes everything.',kit=kits[genre],count=duration===20?5:duration===30?6:8,secs=Math.floor(duration/count),chars=kit.roles.map((role,i)=>({id:`c${i+1}`,name:names[(title.length+i*2)%names.length],role,traits:kit.traits[i],voice:kit.voices[i]})),beats=[['A forbidden detail changes the room.','I was not supposed to see this.'],['A familiar face enters at the worst moment.','You came back.'],['A confrontation exposes the first lie.','Tell me what really happened.'],['An object from the past proves the connection.','You kept it all this time?'],['An ally chooses a side.','I am done protecting the wrong person.'],['A hidden witness steps forward.','You should have checked who was listening.'],['The apparent victory becomes a trap.','This was never your game.'],['The last clue reverses everything.','Then whose name is on that document?']];
+    const scenes=beats.slice(0,count).map((b,i)=>({id:`s${i+1}`,duration:i===count-1?duration-secs*(count-1):secs,shot:shots[i]||'Close-up',action:`${b[0]} ${premise.split(/[.!?]/)[0]}.`,dialogue:`${chars[i%chars.length].name.toUpperCase()}: ${b[1]}`,mood:kit.moods[i%kit.moods.length],palette:i%6}));
+    project={title,premise,genre,duration,hook:kit.hook,cliffhanger:`But the final clue points to ${chars[0].name}.`,characters:chars,scenes};restart();bindForm();toast('Local episode generated');
+  }
+  function setupRecording(){const ok='captureStream'in HTMLCanvasElement.prototype&&'MediaRecorder'in window;$('#capability').innerHTML=ok?'<strong>Recording supported.</strong> Exports the visual canvas as WebM. Browser voice/SFX are preview-only.':'Recording unavailable in this browser. Playback still works normally.';$('#recordBtn').disabled=!ok;$('#recordBtn').addEventListener('click',()=>{if(!ok)return;if(recorder&&recorder.state==='recording'){recorder.stop();return}const stream=canvas.captureStream(30);chunks=[];recorder=new MediaRecorder(stream,{mimeType:MediaRecorder.isTypeSupported('video/webm;codecs=vp9')?'video/webm;codecs=vp9':'video/webm'});recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};recorder.onstop=()=>{const blob=new Blob(chunks,{type:'video/webm'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`astradrama-${project.title.toLowerCase().replace(/[^a-z0-9]+/g,'-')}.webm`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('#recordBtn').textContent='Record Visual Preview (.webm)';toast('Visual preview exported')};recorder.start();restart();playPause();$('#recordBtn').textContent='Stop & Export Recording';toast('Recording started')})}
+  function wire(){
+    $('#generateBtn').onclick=generate;$('#demoBtn').onclick=()=>{project=structuredClone(demo);restart();bindForm();toast('Demo loaded')};$('#resetBtn').onclick=()=>{localStorage.removeItem('astradrama-beta-project');localStorage.removeItem('astradrama-beta-feedback');project=structuredClone(demo);restart();bindForm();toast('Beta reset')};$('#playBtn').onclick=playPause;$('#restartBtn').onclick=restart;seek.oninput=e=>{playing=false;cancelAnimationFrame(raf);elapsed=Number(e.target.value);$('#playBtn').textContent='▶';updateTimeline();draw()};
+    $('#castGrid').addEventListener('input',e=>{const card=e.target.closest('.cast-card');if(!card)return;project.characters[Number(card.dataset.i)][e.target.dataset.k]=e.target.value;card.querySelector('.initials').textContent=initials(project.characters[Number(card.dataset.i)].name);saveState();});
+    $('#sceneList').addEventListener('input',e=>{const row=e.target.closest('.scene');if(!row)return;project.scenes[Number(row.dataset.i)][e.target.dataset.k]=e.target.value;saveState();draw()});
+    $('#sceneList').addEventListener('click',e=>{const b=e.target.closest('button[data-move]');if(!b)return;const row=b.closest('.scene'),i=Number(row.dataset.i),j=i+Number(b.dataset.move);if(j<0||j>=project.scenes.length)return;[project.scenes[i],project.scenes[j]]=[project.scenes[j],project.scenes[i]];saveState();bindForm();toast('Scene reordered')});
+    $('#hardware').addEventListener('click',e=>{const b=e.target.closest('button[data-mode]');if(!b)return;activeMode=b.dataset.mode;document.querySelectorAll('#hardware button').forEach(x=>x.classList.toggle('active',x===b));$('#modeLabel').textContent=activeMode;localStorage.setItem('astradrama-beta-mode',activeMode)});
+    $('#saveFeedback').onclick=()=>{localStorage.setItem('astradrama-beta-feedback',$('#feedback').value);toast('Feedback saved locally')};$('#feedback').value=localStorage.getItem('astradrama-beta-feedback')||'';
+    $('#themeBtn').onclick=()=>{const root=document.documentElement,next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;localStorage.setItem('astradrama-beta-theme',next)};document.documentElement.dataset.theme=localStorage.getItem('astradrama-beta-theme')||'dark';
+  }
+  activeMode=localStorage.getItem('astradrama-beta-mode')||'Motion Comic';document.querySelectorAll('#hardware button').forEach(b=>b.classList.toggle('active',b.dataset.mode===activeMode));$('#modeLabel').textContent=activeMode;wire();bindForm();setupRecording();draw();
+})();
+</script>
+</body>
+</html>
