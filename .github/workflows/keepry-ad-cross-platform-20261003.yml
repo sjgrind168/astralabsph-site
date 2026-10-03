@@ -1,0 +1,115 @@
+name: Keepry Ad Cross Platform 20261003
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/keepry-ad-cross-platform-20261003.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish Keepry ad to Facebook TikTok Pinterest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util, json, time
+          from pathlib import Path
+
+          BASE=Path("marketing/automation")
+          VIDEO="https://d2ol7oe51mr4n9.cloudfront.net/user_3JfEPPPMrDFeZ3LG9KH2AM0SuU1/3975164d-0554-409b-b179-e6c39da89854.mp4"
+          HOME="https://www.astralabsph.com/"
+          KEY="[KEEPRY_AD_20261003_1830]"
+          TEXT=("Too many important documents and renewal dates to keep in your head? "
+                "Keepry brings files, important dates and reminders into one practical life-admin flow. "
+                "Less mental load. More peace of mind. "
+                "Google Play now. iOS coming soon. https://www.astralabsph.com/ "
+                "#Keepry #LifeAdmin #DocumentOrganizer #Reminders #AstraLabsPH "+KEY)
+
+          def load(path,name):
+              spec=importlib.util.spec_from_file_location(name,str(path))
+              m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
+
+          fb=load(BASE/"facebook/scripts/buffer_facebook.py","fb")
+          tt=load(BASE/"tiktok/scripts/buffer_tiktok.py","tt")
+          pn=load(BASE/"pinterest/scripts/buffer_pinterest.py","pn")
+
+          org=fb.verified_target()
+          torg,tiktok=tt.resolve_tiktok()
+          porg,board=pn.target()
+          if torg!=org or porg!=org or not board:
+              raise RuntimeError("Buffer target mismatch")
+
+          def hist(api,channel):
+              q=('query { posts(first:100,input:{organizationId:'+json.dumps(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+json.dumps(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId externalLink assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=api(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Buffer history")
+              return [e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+
+          def dedup(rows):
+              return any(KEY in str(x.get("text") or "") for x in rows)
+
+          def fb_post():
+              rows=hist(fb.buffer_query,fb.EXPECTED_PAGE_ID)
+              if dedup(rows): print("FB_DEDUPED"); return
+              q=("mutation { createPost(input:{text:"+fb.quoted(TEXT)+
+                 " channelId:"+fb.quoted(fb.EXPECTED_PAGE_ID)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " metadata:{facebook:{type:post}} assets:[{video:{url:"+fb.quoted(VIDEO)+"}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=fb.buffer_query(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("Facebook failed: "+str(res))
+              print("FB_CREATED",p["id"],p.get("status"),p.get("externalLink"))
+
+          def tt_post():
+              rows=hist(tt.gql,tiktok)
+              if dedup(rows): print("TT_DEDUPED"); return
+              q=("mutation { createPost(input:{text:"+tt.q(TEXT)+
+                 " channelId:"+tt.q(tiktok)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " metadata:{tiktok:{isAiGenerated:true}}"+
+                 " assets:[{video:{url:"+tt.q(VIDEO)+" metadata:{thumbnailOffset:2000}}}]})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=tt.gql(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("TikTok failed: "+str(res))
+              print("TT_CREATED",p["id"],p.get("status"),p.get("externalLink"))
+
+          def pin_post():
+              rows=hist(pn.query,pn.CHANNEL_ID)
+              if dedup(rows): print("PIN_DEDUPED"); return
+              q=("mutation { createPost(input:{text:"+pn.quoted(TEXT)+
+                 " channelId:"+pn.quoted(pn.CHANNEL_ID)+
+                 " schedulingType:automatic mode:shareNow aiAssisted:true"+
+                 " assets:[{video:{url:"+pn.quoted(VIDEO)+" metadata:{thumbnailOffset:2000}}}]"+
+                 " metadata:{pinterest:{boardServiceId:"+pn.quoted(board)+
+                 " title:"+pn.quoted("Keepry | Life admin, simplified")+
+                 " url:"+pn.quoted(HOME)+"}}})"+
+                 " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+                 " ... on MutationError { message } } }")
+              res=pn.query(q).get("createPost") or {}
+              p=res.get("post") if isinstance(res,dict) else None
+              if not p or not p.get("id"): raise RuntimeError("Pinterest failed: "+str(res))
+              print("PIN_CREATED",p["id"],p.get("status"),p.get("externalLink"))
+
+          fb_post(); time.sleep(5)
+          tt_post(); time.sleep(5)
+          pin_post()
+          print("KEEPRY_AD_CROSS_PLATFORM_COMPLETE")
+          PY
