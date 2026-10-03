@@ -40,3 +40,9 @@ body{background:var(--shop-bg)}
 .pdp-specs dd{margin:0;font-size:12px;font-weight:850;text-align:right}
 @media(max-width:980px){.pdp-about-layout{grid-template-columns:1fr}.pdp-thumbs{grid-template-columns:repeat(6,minmax(70px,1fr));overflow-x:auto;padding-bottom:3px}.pdp-thumb{min-width:70px}}
 @media(max-width:700px){.pdp-thumbs{display:flex;overflow-x:auto}.pdp-thumb{min-width:72px;width:72px}.pdp-about{padding:23px 18px}.pdp-about-head{align-items:flex-start;flex-direction:column}.pdp-about-list{grid-template-columns:1fr}.pdp-specs-row{grid-template-columns:1fr auto}}
+
+.pdp-searchline{margin:10px 0 0;color:#6e756a;font-size:12px;line-height:1.45}
+.pdp-searchline strong{color:#343a31;font-weight:850}
+.shop-search-intents{margin:18px 0 6px;display:flex;gap:8px;flex-wrap:wrap}
+.shop-search-intents a{font-size:11px;font-weight:850;text-decoration:none;color:#4e5748;background:#e8ecdf;border:1px solid #d7dccd;border-radius:999px;padding:9px 11px}
+.shop-search-intents a:hover{background:#182019;color:#fff;border-color:#182019}
