@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-03T09:40:15.839452+00:00",
-  "generated_at_pht": "2026-10-03T17:40:15.839462+08:00",
+  "generated_at_utc": "2026-10-03T09:52:40.078090+00:00",
+  "generated_at_pht": "2026-10-03T17:52:40.078102+08:00",
   "date_pht": "2026-10-03",
   "organization": {
     "id": "6aa059d0626d33004063293f",
@@ -16,14 +16,31 @@
       "today_counts": {
         "sent": 0,
         "sending": 0,
-        "scheduled": 0,
+        "scheduled": 2,
         "draft": 0,
         "error": 0
       },
       "today": {
         "sent": [],
         "sending": [],
-        "scheduled": [],
+        "scheduled": [
+          {
+            "id": "6ac0cfc13bfd38430fda1e6f",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T11:20:00.000Z",
+            "createdAt": "2026-10-03T09:49:53.722Z",
+            "externalLink": null,
+            "text": "Documents, renewals and reminders in one practical life-admin flow. https://www.astralabsph.com/ #Keepry #LifeAdmin #DocumentOrganizer #Productivity [K_OCT03_VIDEO]"
+          },
+          {
+            "id": "6ac0cfc1fec59133946f5387",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T10:20:00.000Z",
+            "createdAt": "2026-10-03T09:49:53.082Z",
+            "externalLink": null,
+            "text": "Officer quick check: 180 NM to go at 12 kn = 15 hours. Practical shipboard calculations for working officers. https://www.astralabsph.com/ #Astramate #DeckOfficer #Seafarers #MaritimeCalculations [A_OCT03_VIDEO]"
+          }
+        ],
         "draft": [],
         "error": []
       },
@@ -35,7 +52,56 @@
         "externalLink": "https://www.tiktok.com/@astralabsph/video/7691982210672381185?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
         "text": "Quick memory test: passport, licence, insurance. Can you name all 3 expiry dates without checking? #Keepry #LifeAdmin #DocumentOrganizer"
       },
-      "scheduled_future": [],
+      "scheduled_future": [
+        {
+          "id": "6ac0d04e7d53b827e0d585d1",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T02:00:00.000Z",
+          "createdAt": "2026-10-03T09:52:14.816Z",
+          "externalLink": null,
+          "text": "Compass error quick check: True 102°, Compass 105° = 3°W. https://www.astralabsph.com/ #Astramate #CompassError #DeckOfficer #Seafarers [A_OCT04_VIDEO]"
+        },
+        {
+          "id": "6ac0cfc3905eed02e05f3054",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T07:00:00.000Z",
+          "createdAt": "2026-10-03T09:49:55.608Z",
+          "externalLink": null,
+          "text": "From clutter to control: documents, renewal dates and reminders together with Keepry. https://www.astralabsph.com/ #Keepry #LifeAdmin #DocumentOrganizer #Reminders [K_OCT05_VIDEO]"
+        },
+        {
+          "id": "6ac0cfc33bfd38430fda1ee9",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T02:00:00.000Z",
+          "createdAt": "2026-10-03T09:49:55.042Z",
+          "externalLink": null,
+          "text": "Average speed check: 336 NM in 24 hours = 14 kn. Another practical officer check. https://www.astralabsph.com/ #Astramate #AverageSpeed #DeckOfficer #Seafarers [A_OCT05_VIDEO]"
+        },
+        {
+          "id": "6ac0cfc27d53b827e0d57b06",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T07:00:00.000Z",
+          "createdAt": "2026-10-03T09:49:54.362Z",
+          "externalLink": null,
+          "text": "Do not keep every important date in your head. Save it, date it, remind it with Keepry. https://www.astralabsph.com/ #Keepry #Reminders #LifeAdmin #Productivity [K_OCT04_VIDEO]"
+        },
+        {
+          "id": "6ac0cfc13bfd38430fda1e6f",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T11:20:00.000Z",
+          "createdAt": "2026-10-03T09:49:53.722Z",
+          "externalLink": null,
+          "text": "Documents, renewals and reminders in one practical life-admin flow. https://www.astralabsph.com/ #Keepry #LifeAdmin #DocumentOrganizer #Productivity [K_OCT03_VIDEO]"
+        },
+        {
+          "id": "6ac0cfc1fec59133946f5387",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T10:20:00.000Z",
+          "createdAt": "2026-10-03T09:49:53.082Z",
+          "externalLink": null,
+          "text": "Officer quick check: 180 NM to go at 12 kn = 15 hours. Practical shipboard calculations for working officers. https://www.astralabsph.com/ #Astramate #DeckOfficer #Seafarers #MaritimeCalculations [A_OCT03_VIDEO]"
+        }
+      ],
       "has_more": false
     },
     {
@@ -47,14 +113,31 @@
       "today_counts": {
         "sent": 0,
         "sending": 0,
-        "scheduled": 0,
+        "scheduled": 2,
         "draft": 0,
         "error": 0
       },
       "today": {
         "sent": [],
         "sending": [],
-        "scheduled": [],
+        "scheduled": [
+          {
+            "id": "6ac0cff2814d657011be170a",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T12:10:00.000Z",
+            "createdAt": "2026-10-03T09:50:42.063Z",
+            "externalLink": null,
+            "text": "KEEP THE FILE. SAVE THE DATE. SET THE REMINDER.  Important documents are easier to manage when the file, renewal date and reminder stay together. Keepry helps reduce the little pieces of life admin you otherwise have to keep in your head.  Google Play now. iOS coming soon. https:"
+          },
+          {
+            "id": "6ac0cff1ad7fd83bc5ebae50",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T11:10:00.000Z",
+            "createdAt": "2026-10-03T09:50:41.646Z",
+            "externalLink": null,
+            "text": "OFFICER QUICK CHECK  Distance to go: 180 NM Speed: 12 kn Time to go: 15 hours  Time = Distance ÷ Speed  A simple calculation, but the units still matter. Astramate is built for practical shipboard checks by working officers.  Available on iPhone + Android. https://www.astralabsph"
+          }
+        ],
         "draft": [],
         "error": []
       },
@@ -66,7 +149,56 @@
         "externalLink": "https://www.facebook.com/122116585029321731/posts/122118041193321731",
         "text": "⚓ Question for deck officers and officers onboard Which shipboard calculations do you still find yourself doing manually or checking across different tools? During actual operations, even simple calculations can become repetitive when you are moving between notes, calculators, fo"
       },
-      "scheduled_future": [],
+      "scheduled_future": [
+        {
+          "id": "6ac0cff3905eed02e05f39d9",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T08:00:00.000Z",
+          "createdAt": "2026-10-03T09:50:43.818Z",
+          "externalLink": null,
+          "text": "FROM CLUTTER TO CONTROL.  Documents in one place. Important dates recorded. Reminders ready before they are due.  Keepry is built to make everyday life admin easier to manage without carrying every detail in your head.  Google Play now. iOS coming soon. https://www.astralabsph.co"
+        },
+        {
+          "id": "6ac0cff33bfd38430fda24c2",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T03:00:00.000Z",
+          "createdAt": "2026-10-03T09:50:43.471Z",
+          "externalLink": null,
+          "text": "AVERAGE SPEED QUICK CHECK  Distance covered: 336 NM Time: 24 hours  Average Speed = Distance ÷ Time 336 ÷ 24 = 14 kn  Different problem, same rule: check the formula, check the units, then check the answer. Astramate is built for practical shipboard calculations.  https://www.ast"
+        },
+        {
+          "id": "6ac0cff3fec59133946f59ed",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T08:00:00.000Z",
+          "createdAt": "2026-10-03T09:50:43.010Z",
+          "externalLink": null,
+          "text": "DON'T KEEP IMPORTANT DATES IN YOUR HEAD.  Passport expiry. Driver's licence renewal. Insurance due date.  Keep the document, add the important date, and set the reminder in Keepry. Less mental load. More room for everything else.  Google Play now. iOS coming soon. https://www.ast"
+        },
+        {
+          "id": "6ac0cff2814d657011be1744",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T03:00:00.000Z",
+          "createdAt": "2026-10-03T09:50:42.558Z",
+          "externalLink": null,
+          "text": "COMPASS ERROR QUICK CHECK  True bearing: 102° Compass bearing: 105°  Error = True − Compass = −3° Answer: 3°W  A small sign error changes the answer. Astramate keeps the formula and working visible so you can review the check, not just accept a number.  https://www.astralabsph.co"
+        },
+        {
+          "id": "6ac0cff2814d657011be170a",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T12:10:00.000Z",
+          "createdAt": "2026-10-03T09:50:42.063Z",
+          "externalLink": null,
+          "text": "KEEP THE FILE. SAVE THE DATE. SET THE REMINDER.  Important documents are easier to manage when the file, renewal date and reminder stay together. Keepry helps reduce the little pieces of life admin you otherwise have to keep in your head.  Google Play now. iOS coming soon. https:"
+        },
+        {
+          "id": "6ac0cff1ad7fd83bc5ebae50",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T11:10:00.000Z",
+          "createdAt": "2026-10-03T09:50:41.646Z",
+          "externalLink": null,
+          "text": "OFFICER QUICK CHECK  Distance to go: 180 NM Speed: 12 kn Time to go: 15 hours  Time = Distance ÷ Speed  A simple calculation, but the units still matter. Astramate is built for practical shipboard checks by working officers.  Available on iPhone + Android. https://www.astralabsph"
+        }
+      ],
       "has_more": false
     },
     {
@@ -78,14 +210,31 @@
       "today_counts": {
         "sent": 0,
         "sending": 0,
-        "scheduled": 0,
+        "scheduled": 2,
         "draft": 0,
         "error": 0
       },
       "today": {
         "sent": [],
         "sending": [],
-        "scheduled": [],
+        "scheduled": [
+          {
+            "id": "6ac0cfc4fec59133946f53e0",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T13:10:00.000Z",
+            "createdAt": "2026-10-03T09:49:56.612Z",
+            "externalLink": null,
+            "text": "Keep documents, important dates and reminders together with Keepry.  https://www.astralabsph.com/ [K_OCT03_PIN]"
+          },
+          {
+            "id": "6ac0cfc4814d657011be1131",
+            "status": "scheduled",
+            "dueAt": "2026-10-03T12:40:00.000Z",
+            "createdAt": "2026-10-03T09:49:56.140Z",
+            "externalLink": null,
+            "text": "Officer quick check: 180 NM at 12 kn means 15 hours to go. Time = Distance ÷ Speed.  https://www.astralabsph.com/ [A_OCT03_PIN]"
+          }
+        ],
         "draft": [],
         "error": []
       },
@@ -97,7 +246,56 @@
         "externalLink": "https://www.pinterest.com/pin/1143844005389716973",
         "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
       },
-      "scheduled_future": [],
+      "scheduled_future": [
+        {
+          "id": "6ac0cfc63bfd38430fda1f34",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T08:30:00.000Z",
+          "createdAt": "2026-10-03T09:49:58.437Z",
+          "externalLink": null,
+          "text": "Keep important files organized in Keepry's local-first vault and connect them with the dates you need to remember.  https://www.astralabsph.com/ [K_OCT05_PIN]"
+        },
+        {
+          "id": "6ac0cfc5fec59133946f540a",
+          "status": "scheduled",
+          "dueAt": "2026-10-05T03:30:00.000Z",
+          "createdAt": "2026-10-03T09:49:57.942Z",
+          "externalLink": null,
+          "text": "Practical cargo and shipboard calculation tools for working officers, with visible formulas and working.  https://www.astralabsph.com/ [A_OCT05_PIN]"
+        },
+        {
+          "id": "6ac0cfc5905eed02e05f3093",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T08:30:00.000Z",
+          "createdAt": "2026-10-03T09:49:57.539Z",
+          "externalLink": null,
+          "text": "Keep renewal dates out of your head. Store the document, record the date and set the reminder.  https://www.astralabsph.com/ [K_OCT04_PIN]"
+        },
+        {
+          "id": "6ac0cfc57d53b827e0d57b9a",
+          "status": "scheduled",
+          "dueAt": "2026-10-04T03:30:00.000Z",
+          "createdAt": "2026-10-03T09:49:57.161Z",
+          "externalLink": null,
+          "text": "True 102°, Compass 105°. Error = True − Compass = −3°, so 3°W.  https://www.astralabsph.com/ [A_OCT04_PIN]"
+        },
+        {
+          "id": "6ac0cfc4fec59133946f53e0",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T13:10:00.000Z",
+          "createdAt": "2026-10-03T09:49:56.612Z",
+          "externalLink": null,
+          "text": "Keep documents, important dates and reminders together with Keepry.  https://www.astralabsph.com/ [K_OCT03_PIN]"
+        },
+        {
+          "id": "6ac0cfc4814d657011be1131",
+          "status": "scheduled",
+          "dueAt": "2026-10-03T12:40:00.000Z",
+          "createdAt": "2026-10-03T09:49:56.140Z",
+          "externalLink": null,
+          "text": "Officer quick check: 180 NM at 12 kn means 15 hours to go. Time = Distance ÷ Speed.  https://www.astralabsph.com/ [A_OCT03_PIN]"
+        }
+      ],
       "has_more": false
     }
   ]
