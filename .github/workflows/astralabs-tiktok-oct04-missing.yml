@@ -1,0 +1,55 @@
+name: AstraLabs TikTok Missing Oct04 Astramate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-tiktok-oct04-missing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Schedule missing Oct 4 Astramate TikTok
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util
+          from pathlib import Path
+          p=Path("marketing/automation/tiktok/scripts/buffer_tiktok.py")
+          s=importlib.util.spec_from_file_location("tt",p)
+          tt=importlib.util.module_from_spec(s); s.loader.exec_module(tt)
+          org,channel=tt.resolve_tiktok()
+          key="A_OCT04_VIDEO"
+          media="https://www.astralabsph.com/marketing/previews/astramate_v2_neural_voice_music_PREVIEW.mp4?pack=20261004a"
+          caption="Compass error quick check: True 102°, Compass 105° = 3°W. https://www.astralabsph.com/ #Astramate #CompassError #DeckOfficer #Seafarers ["+key+"]"
+          q=('query { posts(first:100,input:{organizationId:'+tt.q(org)+
+             ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+tt.q(channel)+
+             ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt assets { source mimeType } } } pageInfo { hasNextPage } } }')
+          obj=tt.gql(q).get("posts") or {}
+          rows=[e["node"] for e in obj.get("edges",[]) if isinstance(e.get("node"),dict)]
+          if any(key in (r.get("text") or "") for r in rows):
+              print("ALREADY_SCHEDULED",key); raise SystemExit(0)
+          queued=sum(r.get("status") in ("scheduled","sending") for r in rows)
+          if queued>=10: raise RuntimeError("TikTok Buffer free queue full")
+          due="2026-10-04T02:00:00.000Z"
+          m=("mutation { createPost(input:{text:"+tt.q(caption)+
+             " channelId:"+tt.q(channel)+
+             " schedulingType:automatic mode:customScheduled dueAt:"+tt.q(due)+
+             " aiAssisted:true metadata:{tiktok:{isAiGenerated:true}} assets:[{video:{url:"+tt.q(media)+" metadata:{thumbnailOffset:2000}}}]})"+
+             " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } } ... on MutationError { message } } }")
+          res=tt.gql(m).get("createPost") or {}
+          post=res.get("post") if isinstance(res,dict) else None
+          if not post or post.get("status")!="scheduled":
+              raise RuntimeError("Unconfirmed TikTok schedule: "+str(res))
+          print("TT_SCHEDULED",key,post["id"],post.get("dueAt"))
+          PY
