@@ -56,17 +56,17 @@ jobs:
               return rows
 
           facebook=[
-            ("A_OCT03_ETA","2026-10-03T11:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A02_astramate_facebook_4x5.png",
+            ("A_OCT03_ETA","2026-10-03T11:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1AQ_facebook.png?pack=20261003a",
              "OFFICER QUICK CHECK\n\nDistance to go: 180 NM\nSpeed: 12 kn\nTime to go: 15 hours\n\nTime = Distance ÷ Speed\n\nA simple calculation, but the units still matter. Astramate is built for practical shipboard checks by working officers.\n\nAvailable on iPhone + Android.\n"+home+"\n\n#Astramate #DeckOfficer #Seafarers #MaritimeTools #AstraLabsPH"),
-            ("K_OCT03_ORGANIZE","2026-10-03T12:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K02_keepry_facebook_4x5.png",
+            ("K_OCT03_ORGANIZE","2026-10-03T12:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1KQ_facebook.png?pack=20261003k",
              "KEEP THE FILE. SAVE THE DATE. SET THE REMINDER.\n\nImportant documents are easier to manage when the file, renewal date and reminder stay together. Keepry helps reduce the little pieces of life admin you otherwise have to keep in your head.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #LifeAdmin #DocumentOrganizer #Reminders #AstraLabsPH"),
-            ("A_OCT04_COMPASS","2026-10-04T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A03_astramate_facebook_4x5.png",
+            ("A_OCT04_COMPASS","2026-10-04T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1AC_facebook.png?pack=20261004a",
              "COMPASS ERROR QUICK CHECK\n\nTrue bearing: 102°\nCompass bearing: 105°\n\nError = True − Compass = −3°\nAnswer: 3°W\n\nA small sign error changes the answer. Astramate keeps the formula and working visible so you can review the check, not just accept a number.\n\n"+home+"\n\n#Astramate #CompassError #DeckOfficer #Navigation #AstraLabsPH"),
-            ("K_OCT04_DATES","2026-10-04T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K03_keepry_facebook_4x5.png",
+            ("K_OCT04_DATES","2026-10-04T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1KC_facebook.png?pack=20261004k",
              "DON'T KEEP IMPORTANT DATES IN YOUR HEAD.\n\nPassport expiry. Driver's licence renewal. Insurance due date.\n\nKeep the document, add the important date, and set the reminder in Keepry. Less mental load. More room for everything else.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #Reminders #Renewals #LifeAdmin #AstraLabsPH"),
-            ("A_OCT05_SPEED","2026-10-05T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A04_astramate_facebook_4x5.png",
+            ("A_OCT05_SPEED","2026-10-05T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1AV_facebook.png?pack=20261005a",
              "AVERAGE SPEED QUICK CHECK\n\nDistance covered: 336 NM\nTime: 24 hours\n\nAverage Speed = Distance ÷ Time\n336 ÷ 24 = 14 kn\n\nDifferent problem, same rule: check the formula, check the units, then check the answer. Astramate is built for practical shipboard calculations.\n\n"+home+"\n\n#Astramate #AverageSpeed #DeckOfficer #MaritimeTools #AstraLabsPH"),
-            ("K_OCT05_CONTROL","2026-10-05T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K04_keepry_facebook_4x5.png",
+            ("K_OCT05_CONTROL","2026-10-05T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/seven_day/day1/S26D1KV_facebook.png?pack=20261005k",
              "FROM CLUTTER TO CONTROL.\n\nDocuments in one place. Important dates recorded. Reminders ready before they are due.\n\nKeepry is built to make everyday life admin easier to manage without carrying every detail in your head.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #LifeAdmin #DocumentOrganizer #Productivity #AstraLabsPH")
           ]
 
@@ -75,7 +75,7 @@ jobs:
              "Officer quick check: 180 NM to go at 12 kn = 15 hours. Practical shipboard calculations for working officers. "+home+" #Astramate #DeckOfficer #Seafarers #MaritimeCalculations"),
             ("K_OCT03_VIDEO","2026-10-03T11:20:00.000Z","https://www.astralabsph.com/marketing/videos/v2/keepry_v2_voice_music_30fps_FINAL.mp4",
              "Documents, renewals and reminders in one practical life-admin flow. "+home+" #Keepry #LifeAdmin #DocumentOrganizer #Productivity"),
-            ("A_OCT04_VIDEO","2026-10-04T02:00:00.000Z","https://www.astralabsph.com/marketing/videos/astramate_16sec_vertical_motion_ad.mp4",
+            ("A_OCT04_VIDEO","2026-10-04T02:00:00.000Z","https://www.astralabsph.com/marketing/previews/astramate_v2_neural_voice_music_PREVIEW.mp4?pack=20261004a",
              "Compass error quick check: True 102°, Compass 105° = 3°W. "+home+" #Astramate #CompassError #DeckOfficer #Seafarers"),
             ("K_OCT04_VIDEO","2026-10-04T07:00:00.000Z","https://www.astralabsph.com/marketing/videos/keepry_16sec_vertical_motion_ad.mp4",
              "Do not keep every important date in your head. Save it, date it, remind it with Keepry. "+home+" #Keepry #Reminders #LifeAdmin #Productivity"),
