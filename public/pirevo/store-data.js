@@ -107,7 +107,12 @@ window.PIREVO_STORE = {
           "Care",
           "Stoneware + lid dishwasher-safe"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "programmable slow cooker for family meals",
+        "title": "7-Qt Programmable Slow Cooker for Family Meals | Crock-Pot | PIREVO",
+        "description": "Compare the Crock-Pot Design Series 7-qt programmable slow cooker for family meals, meal prep and entertaining, with specs and buying tradeoffs."
+      }
     },
     {
       "slug": "ninja-possiblecooker-pro-plus",
@@ -176,7 +181,12 @@ window.PIREVO_STORE = {
           "Care",
           "Pot, lid + spoon dishwasher-safe"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "large slow cooker and multicooker for family meals",
+        "title": "8.5-Qt Slow Cooker & Multicooker | Ninja PossibleCooker | PIREVO",
+        "description": "Compare the Ninja PossibleCooker PRO Plus 8.5-qt slow cooker and multicooker for family meals, meal prep and entertaining before checking Amazon."
+      }
     },
     {
       "slug": "crockpot-manual-7qt",
@@ -245,7 +255,12 @@ window.PIREVO_STORE = {
           "Care",
           "Lid + stoneware dishwasher-safe"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "7 quart slow cooker for large families",
+        "title": "7-Qt Slow Cooker for Large Families | Crock-Pot Manual | PIREVO",
+        "description": "Compare the Crock-Pot 7-quart manual slow cooker for large families, roasts, soups and batch cooking, with specs, features and tradeoffs."
+      }
     },
     {
       "slug": "wrangler-satchel",
@@ -310,7 +325,12 @@ window.PIREVO_STORE = {
           "Style",
           "Structured western-inspired satchel"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "women's western satchel bag with crossbody strap",
+        "title": "Women's Western Satchel Bag | Wrangler Top-Handle Tote | PIREVO",
+        "description": "See the Wrangler women's western satchel bag with top handles and crossbody strap, including size, carry options, details and buying tradeoffs."
+      }
     },
     {
       "slug": "angelkiss-hobo-satchel",
@@ -375,7 +395,12 @@ window.PIREVO_STORE = {
           "Fit",
           "Roomy daily bag"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "large hobo purse with multiple pockets",
+        "title": "Large Hobo Purse with Pockets | Angel Kiss Satchel | PIREVO",
+        "description": "Compare the Angel Kiss large hobo purse with multiple pockets for everyday carry, including dimensions, storage, material and practical tradeoffs."
+      }
     },
     {
       "slug": "lovevook-satchel",
@@ -440,7 +465,12 @@ window.PIREVO_STORE = {
           "Organization",
           "Multiple exterior + interior pockets"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "women's work tote and crossbody bag",
+        "title": "Women's Work Tote & Crossbody Bag | LOVEVOOK Satchel | PIREVO",
+        "description": "Compare the LOVEVOOK women's work tote and crossbody satchel, with dimensions, organizer pockets, strap details and everyday-use tradeoffs."
+      }
     },
     {
       "slug": "la-roche-posay-toleriane",
@@ -509,7 +539,12 @@ window.PIREVO_STORE = {
           "Pore claim",
           "Non-comedogenic per listing"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "fragrance free face moisturizer with niacinamide and ceramides",
+        "title": "Fragrance-Free Face Moisturizer with Ceramides | La Roche-Posay | PIREVO",
+        "description": "Compare La Roche-Posay Toleriane Double Repair, a fragrance-free face moisturizer with niacinamide, ceramide and glycerin, with key details."
+      }
     },
     {
       "slug": "cerave-moisturizing-cream",
@@ -578,7 +613,12 @@ window.PIREVO_STORE = {
           "Pore claim",
           "Non-comedogenic per listing"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "face and body moisturizer for dry skin",
+        "title": "Face & Body Moisturizer for Dry Skin | CeraVe Cream 19 oz | PIREVO",
+        "description": "Compare CeraVe Moisturizing Cream 19 oz for face and body, with ceramides and hyaluronic acid, plus texture, use cases and buying tradeoffs."
+      }
     },
     {
       "slug": "illiyoon-ceramide-ato",
@@ -647,7 +687,12 @@ window.PIREVO_STORE = {
           "Certification",
           "Vegan-certified per listing"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "Korean ceramide moisturizer for dry sensitive skin",
+        "title": "Korean Ceramide Moisturizer for Dry Sensitive Skin | ILLIYOON | PIREVO",
+        "description": "Compare ILLIYOON Ceramide Ato Concentrate Cream for dry and sensitive skin, with ceramide-focused formula details, size and practical tradeoffs."
+      }
     },
     {
       "slug": "aoc-wireless-gaming-headset",
@@ -718,7 +763,12 @@ window.PIREVO_STORE = {
           "Platforms",
           "PS5 / PS4 / PC / Mac / Switch; Xbox wired"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "wireless gaming headset for PS5 PC and Switch",
+        "title": "Wireless Gaming Headset for PS5, PC & Switch | AOC | PIREVO",
+        "description": "Compare the AOC wireless gaming headset for PS5, PC and Switch, including 2.4GHz, Bluetooth, battery, microphone and compatibility details."
+      }
     },
     {
       "slug": "govee-tv-backlight-3-lite",
@@ -788,7 +838,12 @@ window.PIREVO_STORE = {
           "Scenes",
           "99+ presets listed"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "TV backlight for gaming room 55 to 65 inch",
+        "title": "TV Backlight for Gaming Room 55–65 Inch | Govee 3 Lite | PIREVO",
+        "description": "Compare Govee TV Backlight 3 Lite for 55–65 inch TVs, with screen-sync lighting, app control, voice support and gaming-room use cases."
+      }
     },
     {
       "slug": "govee-smart-light-bar",
@@ -858,7 +913,12 @@ window.PIREVO_STORE = {
           "Recommended display",
           "Under 45 in per listing"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "RGB smart light bars for gaming desk",
+        "title": "RGB Smart Light Bars for Gaming Desk | Govee | PIREVO",
+        "description": "Compare Govee RGBICWW smart light bars for gaming desks and monitors, including placement, Matter support, app control and scene modes."
+      }
     },
     {
       "slug": "ynylchmx-fall-wreath",
@@ -924,7 +984,12 @@ window.PIREVO_STORE = {
           "Outdoor note",
           "Sheltered use recommended"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "20 inch fall wreath for front door",
+        "title": "20-Inch Fall Wreath for Front Door | YNYLCHMX | PIREVO",
+        "description": "Compare the YNYLCHMX 20-inch fall wreath for front doors, porches and walls, with size, styling, setup notes and outdoor-use tradeoffs."
+      }
     },
     {
       "slug": "rustic-harvest-fall-wreath",
@@ -989,7 +1054,12 @@ window.PIREVO_STORE = {
           "Setup",
           "Ready-to-hang positioning"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "24 inch fall wreath with sunflowers and pumpkins",
+        "title": "24-Inch Fall Wreath with Sunflowers & Pumpkins | PIREVO",
+        "description": "Compare this 24-inch harvest fall wreath with sunflowers, pumpkins and berries for front doors, mantels and seasonal home decor."
+      }
     },
     {
       "slug": "amagabeli-fireplace-tools",
@@ -1057,7 +1127,12 @@ window.PIREVO_STORE = {
           "Use",
           "Indoor hearth / wood stove / selected fire pits"
         ]
-      ]
+      ],
+      "seo": {
+        "intent": "5 piece fireplace tool set with stand",
+        "title": "5-Piece Fireplace Tool Set | AMAGABELI 31-Inch | PIREVO",
+        "description": "Compare the AMAGABELI 5-piece fireplace tool set with 31-inch stand, poker, tongs, brush and shovel for hearth and wood-stove setups."
+      }
     }
   ]
 };
