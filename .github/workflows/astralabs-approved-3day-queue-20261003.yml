@@ -1,0 +1,163 @@
+name: AstraLabs Approved Three-Day Queue Oct03-05
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/astralabs-approved-3day-queue-20261003.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Queue three-day Facebook TikTok Pinterest pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          root=Path("marketing/automation")
+          def mod(path,name):
+              spec=importlib.util.spec_from_file_location(name,path)
+              m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
+
+          fb=mod(root/"facebook/scripts/buffer_facebook.py","fb")
+          tt=mod(root/"tiktok/scripts/buffer_tiktok.py","tt")
+          pin=mod(root/"pinterest/scripts/buffer_pinterest.py","pin")
+
+          home="https://www.astralabsph.com/"
+          fb_org=fb.verified_target()
+          tt_org,tt_channel=tt.resolve_tiktok()
+          pin_org,pin_board=pin.target()
+          if not pin_board:
+              raise RuntimeError("Pinterest Apps board not resolved")
+
+          def history(graphql,quote,org,channel):
+              q=('query { posts(first:100,input:{organizationId:'+quote(org)+
+                 ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+quote(channel)+
+                 ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } } } pageInfo { hasNextPage } } }')
+              obj=graphql(q).get("posts") or {}
+              if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Buffer history")
+              rows=[e["node"] for e in obj["edges"] if isinstance(e.get("node"),dict)]
+              if any(r.get("channelId")!=channel for r in rows):
+                  raise RuntimeError("Cross-channel history")
+              return rows
+
+          facebook=[
+            ("A_OCT03_ETA","2026-10-03T11:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A02_astramate_facebook_4x5.png",
+             "OFFICER QUICK CHECK\n\nDistance to go: 180 NM\nSpeed: 12 kn\nTime to go: 15 hours\n\nTime = Distance ÷ Speed\n\nA simple calculation, but the units still matter. Astramate is built for practical shipboard checks by working officers.\n\nAvailable on iPhone + Android.\n"+home+"\n\n#Astramate #DeckOfficer #Seafarers #MaritimeTools #AstraLabsPH"),
+            ("K_OCT03_ORGANIZE","2026-10-03T12:10:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K02_keepry_facebook_4x5.png",
+             "KEEP THE FILE. SAVE THE DATE. SET THE REMINDER.\n\nImportant documents are easier to manage when the file, renewal date and reminder stay together. Keepry helps reduce the little pieces of life admin you otherwise have to keep in your head.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #LifeAdmin #DocumentOrganizer #Reminders #AstraLabsPH"),
+            ("A_OCT04_COMPASS","2026-10-04T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A03_astramate_facebook_4x5.png",
+             "COMPASS ERROR QUICK CHECK\n\nTrue bearing: 102°\nCompass bearing: 105°\n\nError = True − Compass = −3°\nAnswer: 3°W\n\nA small sign error changes the answer. Astramate keeps the formula and working visible so you can review the check, not just accept a number.\n\n"+home+"\n\n#Astramate #CompassError #DeckOfficer #Navigation #AstraLabsPH"),
+            ("K_OCT04_DATES","2026-10-04T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K03_keepry_facebook_4x5.png",
+             "DON'T KEEP IMPORTANT DATES IN YOUR HEAD.\n\nPassport expiry. Driver's licence renewal. Insurance due date.\n\nKeep the document, add the important date, and set the reminder in Keepry. Less mental load. More room for everything else.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #Reminders #Renewals #LifeAdmin #AstraLabsPH"),
+            ("A_OCT05_SPEED","2026-10-05T03:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/A04_astramate_facebook_4x5.png",
+             "AVERAGE SPEED QUICK CHECK\n\nDistance covered: 336 NM\nTime: 24 hours\n\nAverage Speed = Distance ÷ Time\n336 ÷ 24 = 14 kn\n\nDifferent problem, same rule: check the formula, check the units, then check the answer. Astramate is built for practical shipboard calculations.\n\n"+home+"\n\n#Astramate #AverageSpeed #DeckOfficer #MaritimeTools #AstraLabsPH"),
+            ("K_OCT05_CONTROL","2026-10-05T08:00:00.000Z","https://www.astralabsph.com/marketing/campaigns/facebook/K04_keepry_facebook_4x5.png",
+             "FROM CLUTTER TO CONTROL.\n\nDocuments in one place. Important dates recorded. Reminders ready before they are due.\n\nKeepry is built to make everyday life admin easier to manage without carrying every detail in your head.\n\nGoogle Play now. iOS coming soon.\n"+home+"\n\n#Keepry #LifeAdmin #DocumentOrganizer #Productivity #AstraLabsPH")
+          ]
+
+          tiktok=[
+            ("A_OCT03_VIDEO","2026-10-03T10:20:00.000Z","https://www.astralabsph.com/marketing/videos/v2/astramate_v2_voice_music_30fps_FINAL.mp4",
+             "Officer quick check: 180 NM to go at 12 kn = 15 hours. Practical shipboard calculations for working officers. "+home+" #Astramate #DeckOfficer #Seafarers #MaritimeCalculations"),
+            ("K_OCT03_VIDEO","2026-10-03T11:20:00.000Z","https://www.astralabsph.com/marketing/videos/v2/keepry_v2_voice_music_30fps_FINAL.mp4",
+             "Documents, renewals and reminders in one practical life-admin flow. "+home+" #Keepry #LifeAdmin #DocumentOrganizer #Productivity"),
+            ("A_OCT04_VIDEO","2026-10-04T02:00:00.000Z","https://www.astralabsph.com/marketing/videos/astramate_16sec_vertical_motion_ad.mp4",
+             "Compass error quick check: True 102°, Compass 105° = 3°W. "+home+" #Astramate #CompassError #DeckOfficer #Seafarers"),
+            ("K_OCT04_VIDEO","2026-10-04T07:00:00.000Z","https://www.astralabsph.com/marketing/videos/keepry_16sec_vertical_motion_ad.mp4",
+             "Do not keep every important date in your head. Save it, date it, remind it with Keepry. "+home+" #Keepry #Reminders #LifeAdmin #Productivity"),
+            ("A_OCT05_VIDEO","2026-10-05T02:00:00.000Z","https://www.astralabsph.com/marketing/videos/Astramate_Officer_Cargo_QuickCheck_HeyGen.mp4",
+             "Average speed check: 336 NM in 24 hours = 14 kn. Another practical officer check. "+home+" #Astramate #AverageSpeed #DeckOfficer #Seafarers"),
+            ("K_OCT05_VIDEO","2026-10-05T07:00:00.000Z","https://www.astralabsph.com/marketing/videos/Keepry_LifeAdmin_MemoryTest_HeyGen.mp4",
+             "From clutter to control: documents, renewal dates and reminders together with Keepry. "+home+" #Keepry #LifeAdmin #DocumentOrganizer #Reminders")
+          ]
+
+          pinterest=[
+            ("A_OCT03_PIN","2026-10-03T12:40:00.000Z","https://www.astralabsph.com/marketing/pins/astramate_eta.png","Officer quick check: 180 NM at 12 kn means 15 hours to go. Time = Distance ÷ Speed.","Astramate ETA & Speed Quick Check"),
+            ("K_OCT03_PIN","2026-10-03T13:10:00.000Z","https://www.astralabsph.com/marketing/pins/keepry_organize.png","Keep documents, important dates and reminders together with Keepry.","Keepry: Organize Life Admin"),
+            ("A_OCT04_PIN","2026-10-04T03:30:00.000Z","https://www.astralabsph.com/marketing/pins/astramate_compass.png","True 102°, Compass 105°. Error = True − Compass = −3°, so 3°W.","Astramate Compass Error Quick Check"),
+            ("K_OCT04_PIN","2026-10-04T08:30:00.000Z","https://www.astralabsph.com/marketing/pins/keepry_reminders.png","Keep renewal dates out of your head. Store the document, record the date and set the reminder.","Keepry Renewal Reminders"),
+            ("A_OCT05_PIN","2026-10-05T03:30:00.000Z","https://www.astralabsph.com/marketing/pins/astramate_cargo.png","Practical cargo and shipboard calculation tools for working officers, with visible formulas and working.","Astramate Cargo Calculation Tools"),
+            ("K_OCT05_PIN","2026-10-05T08:30:00.000Z","https://www.astralabsph.com/marketing/pins/keepry_vault.png","Keep important files organized in Keepry's local-first vault and connect them with the dates you need to remember.","Keepry Local-First Vault")
+          ]
+
+          def queue_fb():
+              rows=history(fb.buffer_query,fb.quoted,fb_org,fb.EXPECTED_PAGE_ID)
+              if sum(r.get("status") in ("scheduled","sending") for r in rows)+len(facebook)>10:
+                  raise RuntimeError("Facebook free queue capacity insufficient")
+              for key,due,media,caption in facebook:
+                  if any(key in (r.get("text") or "") or any(a.get("source")==media for a in r.get("assets") or []) for r in rows):
+                      print("FB_DEDUPED",key); continue
+                  text=caption+"\n\n["+key+"]"
+                  q=("mutation { createPost(input:{text:"+fb.quoted(text)+
+                     " channelId:"+fb.quoted(fb.EXPECTED_PAGE_ID)+
+                     " schedulingType:automatic mode:customScheduled dueAt:"+fb.quoted(due)+
+                     " aiAssisted:true metadata:{facebook:{type:post}} assets:[{image:{url:"+fb.quoted(media)+"}}]})"+
+                     " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } } ... on MutationError { message } } }")
+                  res=fb.buffer_query(q).get("createPost") or {}
+                  p=res.get("post") if isinstance(res,dict) else None
+                  if not p or p.get("status")!="scheduled":
+                      raise RuntimeError("Facebook schedule failed "+key+": "+str(res))
+                  print("FB_SCHEDULED",key,p["id"],p.get("dueAt"))
+                  rows.append({"id":p["id"],"status":"scheduled","dueAt":p.get("dueAt"),"text":text,"assets":p.get("assets") or [],"channelId":fb.EXPECTED_PAGE_ID})
+
+          def queue_tt():
+              rows=history(tt.gql,tt.q,tt_org,tt_channel)
+              if sum(r.get("status") in ("scheduled","sending") for r in rows)+len(tiktok)>10:
+                  raise RuntimeError("TikTok free queue capacity insufficient")
+              for key,due,media,caption in tiktok:
+                  if any(key in (r.get("text") or "") or any(a.get("source")==media for a in r.get("assets") or []) for r in rows):
+                      print("TT_DEDUPED",key); continue
+                  text=caption+" ["+key+"]"
+                  q=("mutation { createPost(input:{text:"+tt.q(text)+
+                     " channelId:"+tt.q(tt_channel)+
+                     " schedulingType:automatic mode:customScheduled dueAt:"+tt.q(due)+
+                     " aiAssisted:true metadata:{tiktok:{isAiGenerated:true}} assets:[{video:{url:"+tt.q(media)+" metadata:{thumbnailOffset:2000}}}]})"+
+                     " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } } ... on MutationError { message } } }")
+                  res=tt.gql(q).get("createPost") or {}
+                  p=res.get("post") if isinstance(res,dict) else None
+                  if not p or p.get("status")!="scheduled":
+                      raise RuntimeError("TikTok schedule failed "+key+": "+str(res))
+                  print("TT_SCHEDULED",key,p["id"],p.get("dueAt"))
+                  rows.append({"id":p["id"],"status":"scheduled","dueAt":p.get("dueAt"),"text":text,"assets":p.get("assets") or [],"channelId":tt_channel})
+
+          def queue_pin():
+              rows=history(pin.query,pin.quoted,pin_org,pin.CHANNEL_ID)
+              if sum(r.get("status") in ("scheduled","sending") for r in rows)+len(pinterest)>10:
+                  raise RuntimeError("Pinterest free queue capacity insufficient")
+              for key,due,media,caption,title in pinterest:
+                  if any(key in (r.get("text") or "") or any(a.get("source")==media for a in r.get("assets") or []) for r in rows):
+                      print("PIN_DEDUPED",key); continue
+                  landing=home+"?utm_source=pinterest&utm_medium=organic_social&utm_campaign=oct03_3day_pack&utm_content="+key
+                  text=caption+"\n\n"+home+" ["+key+"]"
+                  q=("mutation { createPost(input:{text:"+pin.quoted(text)+
+                     " channelId:"+pin.quoted(pin.CHANNEL_ID)+
+                     " schedulingType:automatic mode:customScheduled dueAt:"+pin.quoted(due)+
+                     " aiAssisted:true metadata:{pinterest:{boardServiceId:"+pin.quoted(pin_board)+
+                     " title:"+pin.quoted(title)+" url:"+pin.quoted(landing)+"}} assets:[{image:{url:"+pin.quoted(media)+"}}]})"+
+                     " { ... on PostActionSuccess { post { id status dueAt assets { mimeType source } } } ... on MutationError { message } } }")
+                  res=pin.query(q).get("createPost") or {}
+                  p=res.get("post") if isinstance(res,dict) else None
+                  if not p or p.get("status")!="scheduled":
+                      raise RuntimeError("Pinterest schedule failed "+key+": "+str(res))
+                  print("PIN_SCHEDULED",key,p["id"],p.get("dueAt"))
+                  rows.append({"id":p["id"],"status":"scheduled","dueAt":p.get("dueAt"),"text":text,"assets":p.get("assets") or [],"channelId":pin.CHANNEL_ID})
+
+          queue_fb()
+          queue_tt()
+          queue_pin()
+          print("THREE_DAY_BUFFER_PACK_COMPLETE")
+          PY
