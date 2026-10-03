@@ -1,0 +1,59 @@
+name: Keepry Ad Pinterest Fallback 20261003
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/keepry-ad-pinterest-fallback-20261003.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish Keepry ad frame to Pinterest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util, json
+          from pathlib import Path
+          p=Path("marketing/automation/pinterest/scripts/buffer_pinterest.py")
+          s=importlib.util.spec_from_file_location("pn",p)
+          pn=importlib.util.module_from_spec(s); s.loader.exec_module(pn)
+          org,board=pn.target()
+          if not board: raise RuntimeError("Pinterest board unresolved")
+          KEY="[KEEPRY_AD_20261003_PIN_FALLBACK]"
+          IMAGE="https://d2ol7oe51mr4n9.cloudfront.net/user_3JfEPPPMrDFeZ3LG9KH2AM0SuU1/3d00a294-07ee-45ed-aef6-cac7fa3177fe.png"
+          HOME="https://www.astralabsph.com/"
+          TEXT=("Too many important documents and renewal dates to keep in your head? "
+                "Keepry brings files, important dates and reminders into one practical life-admin flow. "
+                "Less mental load. More peace of mind. "+HOME+
+                " #Keepry #LifeAdmin #DocumentOrganizer #Reminders "+KEY)
+          q=('query { posts(first:100,input:{organizationId:'+pn.quoted(org)+
+             ',filter:{status:[scheduled,sent,sending,draft,error],channelIds:['+pn.quoted(pn.CHANNEL_ID)+
+             ']},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt externalLink assets { mimeType source } } } } }')
+          rows=[e["node"] for e in (pn.query(q).get("posts") or {}).get("edges",[]) if isinstance(e.get("node"),dict)]
+          if any(KEY in str(r.get("text") or "") for r in rows):
+              print("PIN_FALLBACK_DEDUPED"); raise SystemExit(0)
+          m=("mutation { createPost(input:{text:"+pn.quoted(TEXT)+
+             " channelId:"+pn.quoted(pn.CHANNEL_ID)+
+             " schedulingType:automatic mode:shareNow aiAssisted:true"+
+             " assets:[{image:{url:"+pn.quoted(IMAGE)+"}}]"+
+             " metadata:{pinterest:{boardServiceId:"+pn.quoted(board)+
+             " title:"+pn.quoted("Keepry | Life admin, simplified")+
+             " url:"+pn.quoted(HOME)+"}}})"+
+             " { ... on PostActionSuccess { post { id status dueAt externalLink assets { mimeType source } } }"+
+             " ... on MutationError { message } } }")
+          res=pn.query(m).get("createPost") or {}
+          post=res.get("post") if isinstance(res,dict) else None
+          if not post or not post.get("id"): raise RuntimeError("Pinterest fallback failed: "+str(res))
+          print("PIN_FALLBACK_CREATED",post["id"],post.get("status"),post.get("externalLink"))
+          PY
