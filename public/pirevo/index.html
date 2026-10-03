@@ -3,189 +3,148 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PIREVO | Smart finds worth discovering</title>
-<meta name="description" content="Premium practical shopping guides for home, desk, travel, kitchen, gifts and everyday upgrades. PIREVO helps shoppers compare what matters before they buy.">
+<title>PIREVO | Curated products worth discovering</title>
+<meta name="description" content="PIREVO is a trend-led shopping edit: researched Amazon products, premium collections and practical buying context built around what shoppers are actively looking for.">
 <link rel="canonical" href="https://www.astralabsph.com/pirevo/">
-<meta property="og:title" content="PIREVO | Smart finds worth discovering">
-<meta property="og:description" content="Useful shopping guides without the clutter.">
+<meta property="og:title" content="PIREVO | Curated products worth discovering">
+<meta property="og:description" content="Trend-led shopping edits backed by real product research.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.astralabsph.com/pirevo/">
 <link rel="stylesheet" href="/pirevo/styles.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"PIREVO","url":"https://www.astralabsph.com/pirevo/","description":"Smart finds worth discovering for curious shoppers everywhere.","publisher":{"@type":"Organization","name":"AstraLabs PH"}}</script>
+<link rel="stylesheet" href="/pirevo/shop.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="/pirevo/"><span class="brand-mark">P</span><span>PIREVO</span></a>
-    <nav class="nav-links">
-      <a href="#featured">Featured</a>
-      <a href="/pirevo/trends/">Trends</a>
-      <a href="#guides">Guides</a>
-      <a href="#astralabs-apps">Apps</a>
-      <a href="#how">How we choose</a>
-      <a class="pill" href="/pirevo/affiliate-disclosure.html">Disclosure</a>
+<div class="shop-announcement"><strong>OCTOBER SHOPPING WINDOW</strong> · Prime Big Deal Days Oct 6–7 · PIREVO shows researched picks, Amazon shows the current offer.</div>
+<header class="shop-header">
+  <div class="shop-nav">
+    <a class="shop-brandmark" href="/pirevo/"><i>P</i><span>PIREVO</span></a>
+    <nav class="shop-links">
+      <a href="#kitchen">Kitchen</a>
+      <a href="#bags">Fashion</a>
+      <a href="#beauty">Beauty</a>
+      <a href="#gaming">Gaming</a>
+      <a href="#fall-home">Home</a>
+      <a class="shop-pill" href="/pirevo/affiliate-disclosure.html">Disclosure</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero-premium">
-  <div class="wrap hero-premium-grid">
-    <div class="hero-copy">
-      <div class="eyebrow">SMART PRODUCT DISCOVERY</div>
-      <h1>Find the useful stuff.<br><span>Skip the clutter.</span></h1>
-      <p>PIREVO turns everyday buying decisions into practical, visual guides built around real use cases, tradeoffs, compatibility and value.</p>
-      <div class="hero-actions">
-        <a class="btn btn-dark" href="/pirevo/trends/">See live trend picks</a>
-        <a class="btn btn-light" href="#featured">Explore buying guides</a>
+<section class="shop-hero">
+  <div class="shop-wrap shop-hero-grid">
+    <div class="shop-hero-copy">
+      <div class="shop-kicker">THE PIREVO SHOP · TREND-LED PRODUCT DISCOVERY</div>
+      <h1>The edit, not<br>the <em>endless aisle.</em></h1>
+      <p>We watch what shoppers are clicking, saving and searching for, then filter exact products through Amazon sales evidence, review depth, value and real buying tradeoffs.</p>
+      <div class="shop-actions">
+        <a class="shop-btn dark" href="#shop">Shop the current edit</a>
+        <a class="shop-btn light" href="#how-we-pick">How we pick</a>
       </div>
-      <div class="hero-proof">
-        <div><strong>10</strong><span>original guides</span></div>
-        <div><strong>60</strong><span>buying categories</span></div>
-        <div><strong>$0</strong><span>pay-to-rank editorial</span></div>
+      <div class="shop-trust-row">
+        <span>Exact products</span><span>Current trend signals</span><span>Review-depth filter</span><span>No fake live pricing</span>
       </div>
     </div>
-    <div class="hero-visual-wrap">
-      <div class="hero-visual-card">
-        <img id="heroFeatureImage" alt="PIREVO featured shopping guide">
-        <div class="hero-visual-overlay"></div>
-        <div class="hero-visual-copy">
-          <span>EDITOR'S STARTING POINT</span>
-          <strong>Buy for the problem.<br>Not the hype.</strong>
-          <a href="/pirevo/guides/small-apartment-organization/">Open the guide →</a>
-        </div>
-      </div>
-      <div class="hero-float hero-float-a">Problem-first picks</div>
-      <div class="hero-float hero-float-b">No fake live pricing</div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-featured" id="featured">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">EDITOR'S STARTING POINTS</div><h2>Three guides worth opening first.</h2></div>
-      <p>High-utility categories with strong visual shopping intent and clear buying criteria.</p>
-    </div>
-    <div class="featured-grid" id="featuredGuides"></div>
-  </div>
-</section>
-
-<section class="section section-categories">
-  <div class="wrap">
-    <div class="section-head compact-head">
-      <div><div class="eyebrow">BROWSE BY USE CASE</div><h2>Shop the problem, not the aisle.</h2></div>
-    </div>
-    <div class="category-filter" id="categoryFilter"></div>
-  </div>
-</section>
-
-<section class="section" id="all-guides">
-  <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">ALL GUIDES</div><h2>Practical buying guides</h2></div>
-      <p>Built for everyday shoppers, with clear tradeoffs, fit checks and retailer verification instead of invented certainty.</p>
-    </div>
-    <div id="guides" class="guides-grid"></div>
-  </div>
-</section>
-
-<section class="section apps-commercial-section" id="astralabs-apps">
-  <div class="wrap">
-    <div class="apps-commercial-shell">
-      <div class="apps-commercial-head">
-        <div>
-          <div class="eyebrow">MORE FROM ASTRALABS PH</div>
-          <h2>Useful software, beyond shopping guides.</h2>
-        </div>
-        <p>PIREVO is part of AstraLabs PH. Astramate is now available on iPhone and Android, while Keepry is available on Android with iOS coming soon.</p>
-      </div>
-
-      <div class="apps-commercial-grid">
-        <article class="app-commercial-card app-commercial-astramate">
-          <div class="app-commercial-topline">
-            <img class="app-commercial-icon" src="/astramate-icon.webp" alt="Astramate app icon" loading="lazy">
-            <span class="app-commercial-status app-commercial-status-live">AVAILABLE ON iOS + ANDROID</span>
-          </div>
-          <div class="app-commercial-kicker">MARITIME TOOLKIT · ANDROID + IPHONE</div>
-          <h3>Shipboard math, less friction.</h3>
-          <p><strong>Astramate</strong> brings practical maritime calculation and reference tools together for seafarers, cadets and maritime students.</p>
-          <div class="app-commercial-tags">
-            <span>Cargo & stowage</span><span>Draft & trim</span><span>Practical tools</span>
-          </div>
-          <div class="app-commercial-actions app-commercial-store-row">
-            <a class="official-store-badge app-store-official" href="https://apps.apple.com/us/app/astramate/id6812828056" target="_blank" rel="noopener noreferrer" aria-label="Download Astramate on the App Store">
-              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-            </a>
-            <a class="official-store-badge google-play-official" href="https://play.google.com/store/apps/details?id=com.astralabs.astramate&utm_source=pirevo&utm_medium=website&utm_campaign=app_crosspromo&utm_content=astramate" target="_blank" rel="noopener noreferrer" aria-label="Get Astramate on Google Play">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
-            </a>
-            <a class="app-detail-link" href="/astramate/">Explore Astramate →</a>
-          </div>
-        </article>
-
-        <article class="app-commercial-card app-commercial-keepry">
-          <div class="app-commercial-topline">
-            <img class="app-commercial-icon" src="/keepry-icon.webp" alt="Keepry app icon" loading="lazy">
-            <span class="app-commercial-status app-commercial-status-live">AVAILABLE ON GOOGLE PLAY</span>
-          </div>
-          <div class="app-commercial-kicker">LIFE ADMIN & PRIVATE VAULT</div>
-          <h3>Keep the important stuff from slipping.</h3>
-          <p><strong>Keepry</strong> helps you organize tasks, reminders, important documents and digital IDs in one practical, local-first organizer.</p>
-          <div class="app-commercial-tags">
-            <span>Tasks & reminders</span><span>Document vault</span><span>Expiry dates</span>
-          </div>
-          <div class="app-commercial-actions app-commercial-store-row">
-            <a class="official-store-badge google-play-official" href="https://play.google.com/store/apps/details?id=com.astralabs.keepry&utm_source=pirevo&utm_medium=website&utm_campaign=app_crosspromo&utm_content=keepry" target="_blank" rel="noopener noreferrer" aria-label="Get Keepry on Google Play">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
-            </a>
-            <span class="ios-coming-soon" aria-disabled="true">iOS COMING SOON</span>
-            <a class="app-detail-link" href="/keepry/">Explore Keepry →</a>
-          </div>
-        </article>
-      </div>
-
-      <div class="apps-commercial-foot">
-        <span>Two focused apps. One independent studio.</span>
-        <a href="https://www.astralabsph.com/" target="_blank" rel="noopener noreferrer">Visit AstraLabs PH →</a>
-      </div>
+    <div class="shop-hero-editorial">
+      <a class="editorial-tile big" href="/pirevo/products/ninja-possiblecooker-pro-plus/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_kitchen">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71gzzsRuiZL._AC_UL900_SR900,600_.jpg" alt="Ninja PossibleCooker PRO Plus" referrerpolicy="no-referrer">
+        <div class="editorial-copy"><small>KITCHEN TRENDING</small><strong>The slow-cooker upgrade worth comparing.</strong><span>Shop the pick →</span></div>
+      </a>
+      <a class="editorial-tile" href="/pirevo/products/wrangler-satchel/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_bag">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81tsXDwr2cL._AC_UL900_SR900,600_.jpg" alt="Wrangler satchel bag" referrerpolicy="no-referrer">
+        <div class="editorial-copy"><small>POETCORE</small><strong>Satchels are back.</strong><span>Open the edit →</span></div>
+      </a>
+      <a class="editorial-tile" href="/pirevo/products/govee-tv-backlight-3-lite/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_gaming">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71MfcCcZzcL._AC_UL900_SR900,600_.jpg" alt="Govee TV Backlight 3 Lite" referrerpolicy="no-referrer">
+        <div class="editorial-copy"><small>GAMING ROOM</small><strong>Ambient setup glow.</strong><span>See the pick →</span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="how">
-  <div class="wrap">
-    <div class="how-panel">
-      <div class="how-intro">
-        <div class="eyebrow">THE PIREVO FILTER</div>
-        <h2>Useful before impressive.</h2>
-        <p>We start with the friction a buyer is trying to remove, then examine the criteria that make a category actually worth owning.</p>
-      </div>
-      <div class="trust-grid">
-        <article><span>01</span><strong>Problem first</strong><p>We begin with the use case, not a product catalog or trend list.</p></article>
-        <article><span>02</span><strong>Tradeoffs visible</strong><p>Size, compatibility, cleaning, storage and return friction stay in view.</p></article>
-        <article><span>03</span><strong>No pretend certainty</strong><p>Prices and stock move. We tell readers exactly what to verify before checkout.</p></article>
-      </div>
+<div class="shop-wrap">
+  <div class="shop-signalbar">
+    <strong>Current Pinterest signals</strong>
+    <span>Cookware clicks +125%</span>
+    <span>Crockpot dinner recipes +1,500%</span>
+    <span>Face lotions & creams +139%</span>
+    <span>Gaming room setups +700%</span>
+    <span>Satchel aesthetic +85%</span>
+    <span>Seasonal decor +81%</span>
+  </div>
+</div>
+
+<section class="shop-tools" id="shop">
+  <div class="shop-wrap">
+    <div class="shop-searchbox"><input id="shopSearch" type="search" placeholder="Search the PIREVO edit: bag, moisturizer, slow cooker…" aria-label="Search PIREVO products"><button id="clearSearch" type="button">Clear</button></div>
+    <div class="shop-filter-row">
+      <button class="shop-filter-chip" data-target="all">All products</button>
+      <button class="shop-filter-chip" data-target="kitchen">Kitchen Trending</button>
+      <button class="shop-filter-chip" data-target="bags">The Bag Edit</button>
+      <button class="shop-filter-chip" data-target="beauty">Beauty</button>
+      <button class="shop-filter-chip" data-target="gaming">Gaming Room</button>
+      <button class="shop-filter-chip" data-target="fall-home">Fall Home</button>
     </div>
+    <div id="searchStatus" class="search-status" aria-live="polite"></div>
   </div>
 </section>
+
+<section class="shop-section" id="kitchen"><div class="shop-wrap">
+  <div class="shop-section-head"><div><span>HIGH-INTENT · HIGHER COMMISSION</span><h2>Kitchen Trending</h2></div><p>Slow cookers and multicookers sit at the intersection of current Pinterest cooking momentum, meaningful order value and Amazon Kitchen's stronger commission rate.</p></div>
+  <div class="shop-collection-signal">Cookware outbound clicks +125% MoM · Crockpot dinner recipes +1,500% MoM</div>
+  <div class="shop-grid" id="shelf-kitchen"></div>
+</div></section>
+
+<section class="shop-section" id="bags"><div class="shop-wrap">
+  <div class="shop-section-head"><div><span>POETCORE · VISUAL FASHION</span><h2>The Bag Edit</h2></div><p>Satchels are one of the cleanest ways to monetize Pinterest's Poetcore direction because the trend maps directly to a purchasable object.</p></div>
+  <div class="shop-collection-signal">Satchel bags aesthetic +85%</div>
+  <div class="shop-grid" id="shelf-bags"></div>
+</div></section>
+
+<section class="shop-section" id="beauty"><div class="shop-wrap">
+  <div class="shop-section-head"><div><span>TRAFFIC ENGINE · DEEP REVIEWS</span><h2>Beauty Everyone Saves</h2></div><p>These are not miracle-claim products. They are high-evidence moisturizers with unusually deep rating histories and strong current shopping intent.</p></div>
+  <div class="shop-collection-signal">Face lotions & creams outbound clicks +139% MoM</div>
+  <div class="shop-grid" id="shelf-beauty"></div>
+</div></section>
+
+<section class="shop-section" id="gaming"><div class="shop-wrap">
+  <div class="shop-section-head"><div><span>SETUP CULTURE · BEFORE/AFTER CONTENT</span><h2>Gaming Room Upgrade</h2></div><p>Instead of chasing expensive PCs, this shelf focuses on lighting and audio products that transform the look and feel of a setup.</p></div>
+  <div class="shop-collection-signal">Gaming room setups +700% MoM</div>
+  <div class="shop-grid" id="shelf-gaming"></div>
+</div></section>
+
+<section class="shop-section" id="fall-home"><div class="shop-wrap">
+  <div class="shop-section-head"><div><span>SEASONAL · OCTOBER INTENT</span><h2>Cozy Fall Home</h2></div><p>Entryway and fireplace products are peaking at exactly the right time for visual Pinterest content and fall shopping.</p></div>
+  <div class="shop-collection-signal">Seasonal decor +81% · Fireplace accessories +66% · Wreaths +51%</div>
+  <div class="shop-grid" id="shelf-fall-home"></div>
+</div></section>
+
+<section class="shop-section" id="how-we-pick"><div class="shop-wrap">
+  <div class="how-panel">
+    <div class="how-intro"><div><div class="eyebrow">THE PIREVO FILTER</div><h2>Trend first. Product proof second.</h2></div><p>We do not publish a product because it happens to show five stars. Each launch pick is checked for trend relevance, Amazon category evidence, review depth, commission economics, Pinterest visual potential and return/compliance risk.</p></div>
+    <div class="trust-grid">
+      <article><span>01</span><strong>Demand collision</strong><p>The strongest products sit where Pinterest intent and Amazon purchase evidence overlap.</p></article>
+      <article><span>02</span><strong>Review confidence</strong><p>A 4.7 across thousands of buyers usually tells us more than a 5.0 based on a handful of ratings.</p></article>
+      <article><span>03</span><strong>Honest landing pages</strong><p>Every PDP includes the fit, the tradeoff and the exact retailer check to make before checkout.</p></article>
+    </div>
+  </div>
+
+  <div class="shop-guides">
+    <div class="shop-kicker">EDITORIAL BACKUP</div><h2>Want the deeper buying guide?</h2>
+    <div class="shop-guide-links">
+      <a href="/pirevo/guides/weeknight-kitchen-tools/">Weeknight Kitchen Tools<small>Evergreen kitchen buying criteria</small></a>
+      <a href="/pirevo/guides/home-office-desk-upgrades/">Home-Office Desk Upgrades<small>Practical desk and setup research</small></a>
+      <a href="/pirevo/guides/small-apartment-organization/">Small-Apartment Organization<small>Space-saving home decisions</small></a>
+    </div>
+  </div>
+</div></section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-grid">
-    <div><strong>PIREVO</strong><div>Smart finds worth discovering.</div><small>An AstraLabs PH project.</small></div>
-    <div>
-      <a href="/pirevo/editorial-policy.html">Editorial policy</a>
-      <a href="/pirevo/affiliate-disclosure.html">Affiliate disclosure</a>
-      <a href="/pirevo/privacy.html">Privacy</a>
-      <div>© <span data-year></span> AstraLabs PH</div>
-    </div>
-  </div>
-</footer>
+<footer class="shop-footer"><div class="shop-wrap shop-footer-grid">
+  <div><strong>PIREVO</strong><div>Smart finds worth discovering.</div><small>An AstraLabs PH project.</small></div>
+  <div><a href="/pirevo/editorial-policy.html">Editorial policy</a><a href="/pirevo/affiliate-disclosure.html">Affiliate disclosure</a><a href="/pirevo/privacy.html">Privacy</a><a href="https://www.astralabsph.com/">AstraLabs PH</a><div>© <span data-year></span> AstraLabs PH</div></div>
+</div></footer>
 
 <script src="/pirevo/config.js"></script>
-<script src="/pirevo/content.js"></script>
-<script src="/pirevo/guide-images.js"></script>
-<script src="/pirevo/app.js"></script>
-</body>
-</html>
+<script src="/pirevo/store-data.js"></script>
+<script src="/pirevo/shop.js"></script>
+</body></html>
