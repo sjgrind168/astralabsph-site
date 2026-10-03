@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-02T04:59:43.568596+00:00",
-  "generated_at_pht": "2026-10-02T12:59:43.568606+08:00",
-  "date_pht": "2026-10-02",
+  "generated_at_utc": "2026-10-03T09:40:15.839452+00:00",
+  "generated_at_pht": "2026-10-03T17:40:15.839462+08:00",
+  "date_pht": "2026-10-03",
   "organization": {
     "id": "6aa059d0626d33004063293f",
     "name": "My organization"
@@ -28,12 +28,12 @@
         "error": []
       },
       "latest_sent": {
-        "id": "6abcef3862d40f400310f58a",
+        "id": "6abf4c7845400a0e300d2188",
         "status": "sent",
-        "dueAt": "2026-09-30T11:15:05.067Z",
-        "createdAt": "2026-09-30T11:15:04.661Z",
-        "externalLink": "https://tiktok.com/@astralabsph/video/7691285292543905042",
-        "text": "Keep what matters with Keepry. Organize reminders, renewals, documents and everyday life admin in one practical place. Available now on Google Play. iOS coming soon. https://www.astralabsph.com/ #Keepry #LifeAdmin #ProductivityApp #AstraLabsPH #AstraSep30Keepry"
+        "dueAt": "2026-10-02T08:20:00.000Z",
+        "createdAt": "2026-10-02T06:17:28.155Z",
+        "externalLink": "https://www.tiktok.com/@astralabsph/video/7691982210672381185?utm_campaign=tt4d_open_api&utm_source=7103819247981182978",
+        "text": "Quick memory test: passport, licence, insurance. Can you name all 3 expiry dates without checking? #Keepry #LifeAdmin #DocumentOrganizer"
       },
       "scheduled_future": [],
       "has_more": false
@@ -59,12 +59,12 @@
         "error": []
       },
       "latest_sent": {
-        "id": "6abd084674300588bb15dce5",
+        "id": "6abf554bf534969795c2b65f",
         "status": "sent",
-        "dueAt": "2026-09-30T13:00:43.000Z",
-        "createdAt": "2026-09-30T13:00:43.000Z",
-        "externalLink": "https://www.facebook.com/122116585029321731/posts/122117807361321731",
-        "text": "⚓ AT SEA OR ASHORE, KEEP THE RIGHT TOOLS WITH YOU.  Meet two practical apps from AstraLabs PH, built to make everyday work and life a little easier.  📱 ASTRAMATE   For maritime students, cadets, aspiring officers, deck officers, and working seafarers.  Keep useful maritime calcul"
+        "dueAt": "2026-10-02T06:54:00.000Z",
+        "createdAt": "2026-10-02T06:54:00.000Z",
+        "externalLink": "https://www.facebook.com/122116585029321731/posts/122118041193321731",
+        "text": "⚓ Question for deck officers and officers onboard Which shipboard calculations do you still find yourself doing manually or checking across different tools? During actual operations, even simple calculations can become repetitive when you are moving between notes, calculators, fo"
       },
       "scheduled_future": [],
       "has_more": false
@@ -76,111 +76,28 @@
       "isLocked": false,
       "isQueuePaused": false,
       "today_counts": {
-        "sent": 2,
+        "sent": 0,
         "sending": 0,
-        "scheduled": 4,
+        "scheduled": 0,
         "draft": 0,
         "error": 0
       },
       "today": {
-        "sent": [
-          {
-            "id": "6abdf75126106f7332725114",
-            "status": "sent",
-            "dueAt": "2026-10-02T03:10:00.000Z",
-            "createdAt": "2026-10-01T06:01:53.552Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389686096",
-            "text": "Practical gift directions that still feel specific to the person receiving them. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
-          },
-          {
-            "id": "6abdf750b29c0fecf418e3f7",
-            "status": "sent",
-            "dueAt": "2026-10-02T02:00:00.000Z",
-            "createdAt": "2026-10-01T06:01:52.614Z",
-            "externalLink": "https://www.pinterest.com/pin/1143844005389682303",
-            "text": "Start with a routine the recipient already enjoys, then choose something genuinely useful. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_so"
-          }
-        ],
+        "sent": [],
         "sending": [],
-        "scheduled": [
-          {
-            "id": "6abdf755c2f059a6ae868011",
-            "status": "scheduled",
-            "dueAt": "2026-10-02T13:10:00.000Z",
-            "createdAt": "2026-10-01T06:01:57.706Z",
-            "externalLink": null,
-            "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
-          },
-          {
-            "id": "6abdf7547b21e6b4b73d32a8",
-            "status": "scheduled",
-            "dueAt": "2026-10-02T11:40:00.000Z",
-            "createdAt": "2026-10-01T06:01:56.713Z",
-            "externalLink": null,
-            "text": "Use light, texture and everyday routines to shift the mood without seasonal clutter. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm"
-          },
-          {
-            "id": "6abdf753c2f059a6ae867f5d",
-            "status": "scheduled",
-            "dueAt": "2026-10-02T08:10:00.000Z",
-            "createdAt": "2026-10-01T06:01:55.739Z",
-            "externalLink": null,
-            "text": "Comfort-first finds that keep earning their space long after the season changes. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_sou"
-          },
-          {
-            "id": "6abdf7527b21e6b4b73d3236",
-            "status": "scheduled",
-            "dueAt": "2026-10-02T06:40:00.000Z",
-            "createdAt": "2026-10-01T06:01:54.621Z",
-            "externalLink": null,
-            "text": "Easy-to-match ideas with everyday usefulness and simple return-friendly choices. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
-          }
-        ],
+        "scheduled": [],
         "draft": [],
         "error": []
       },
       "latest_sent": {
-        "id": "6abdf75126106f7332725114",
+        "id": "6abdf755c2f059a6ae868011",
         "status": "sent",
-        "dueAt": "2026-10-02T03:10:00.000Z",
-        "createdAt": "2026-10-01T06:01:53.552Z",
-        "externalLink": "https://www.pinterest.com/pin/1143844005389686096",
-        "text": "Practical gift directions that still feel specific to the person receiving them. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
+        "dueAt": "2026-10-02T13:10:00.000Z",
+        "createdAt": "2026-10-01T06:01:57.706Z",
+        "externalLink": "https://www.pinterest.com/pin/1143844005389716973",
+        "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
       },
-      "scheduled_future": [
-        {
-          "id": "6abdf755c2f059a6ae868011",
-          "status": "scheduled",
-          "dueAt": "2026-10-02T13:10:00.000Z",
-          "createdAt": "2026-10-01T06:01:57.706Z",
-          "externalLink": null,
-          "text": "Simple home comforts that remain practical through more than one season. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_source=pint"
-        },
-        {
-          "id": "6abdf7547b21e6b4b73d32a8",
-          "status": "scheduled",
-          "dueAt": "2026-10-02T11:40:00.000Z",
-          "createdAt": "2026-10-01T06:01:56.713Z",
-          "externalLink": null,
-          "text": "Use light, texture and everyday routines to shift the mood without seasonal clutter. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm"
-        },
-        {
-          "id": "6abdf753c2f059a6ae867f5d",
-          "status": "scheduled",
-          "dueAt": "2026-10-02T08:10:00.000Z",
-          "createdAt": "2026-10-01T06:01:55.739Z",
-          "externalLink": null,
-          "text": "Comfort-first finds that keep earning their space long after the season changes. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/cozy-fall-home-upgrades/?utm_sou"
-        },
-        {
-          "id": "6abdf7527b21e6b4b73d3236",
-          "status": "scheduled",
-          "dueAt": "2026-10-02T06:40:00.000Z",
-          "createdAt": "2026-10-01T06:01:54.621Z",
-          "externalLink": null,
-          "text": "Easy-to-match ideas with everyday usefulness and simple return-friendly choices. Explore the full PIREVO guide for practical comparison points and what to verify before buying.  Read the full PIREVO guide: https://www.astralabsph.com/pirevo/guides/gifts-under-30/?utm_source=pinte"
-        }
-      ],
+      "scheduled_future": [],
       "has_more": false
     }
   ]
