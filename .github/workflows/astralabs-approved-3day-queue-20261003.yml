@@ -116,8 +116,8 @@ jobs:
 
           def queue_tt():
               rows=history(tt.gql,tt.q,tt_org,tt_channel)
-              if sum(r.get("status") in ("scheduled","sending") for r in rows)+len(tiktok)>10:
-                  raise RuntimeError("TikTok free queue capacity insufficient")
+              if sum(r.get("status") in ("scheduled","sending") for r in rows)>=10:
+                  raise RuntimeError("TikTok free queue full")
               for key,due,media,caption in tiktok:
                   if any(key in (r.get("text") or "") or any(a.get("source")==media for a in r.get("assets") or []) for r in rows):
                       print("TT_DEDUPED",key); continue
