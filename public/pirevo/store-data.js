@@ -6,8 +6,8 @@ window.PIREVO_STORE = {
       "id": "kitchen",
       "name": "Kitchen Trending",
       "kicker": "HIGH-INTENT • HIGHER COMMISSION",
-      "description": "Slow cookers and multicookers riding a strong Pinterest cooking wave.",
-      "signal": "Cookware outbound clicks +125% MoM • Crockpot dinner recipes +1,500% MoM"
+      "description": "Slow cookers, multicookers and pantry-organization picks selected from current Pinterest and Amazon buying signals.",
+      "signal": "Cookware outbound clicks +125% MoM • Crockpot dinner recipes +1,500% MoM • Pantry organization search opportunity"
     },
     {
       "id": "bags",
@@ -39,6 +39,86 @@ window.PIREVO_STORE = {
     }
   ],
   "products": [
+    {
+      "slug": "churboro-spice-jars-25",
+      "collection": "kitchen",
+      "badge": "PANTRY TREND PICK",
+      "brand": "Churboro",
+      "shortName": "25-Pack Glass Spice Jars with Labels",
+      "fullName": "Churboro 25 Pack Glass Spice Jars with Labels, 4oz Spice Containers",
+      "asin": "B0B2L66CTW",
+      "rating": 4.7,
+      "reviews": 5943,
+      "rank": "#24 Food Jars & Canisters snapshot",
+      "commission": "4.5% Kitchen",
+      "image": "https://m.media-amazon.com/images/I/71ErmrfBnnL._AC_SL1500_.jpg",
+      "trend": "Pantry organization + glass spice jar search opportunity",
+      "why": "A search-friendly pantry-organization product with strong buyer evidence: 4.7-star snapshot across nearly 6,000 ratings and 1K+ bought in the past month when researched.",
+      "bestFor": "Pantry makeovers, spice drawers, cabinet organization and shoppers who want matching labeled spice containers.",
+      "caveat": "Each jar holds 4 fl oz, so larger bulk spice bags may need more than one jar. Metal lids and label style are part of the look, so verify the exact set before checkout.",
+      "bullets": [
+        "25 square 4-oz glass spice jars",
+        "Shaker lids + black metal caps",
+        "547 labels in multiple styles",
+        "Silicone funnel + chalk pen included",
+        "4.7-star / 5.9k-rating snapshot",
+        "1K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0B2L66CTW?tag=pirevo-20",
+      "galleryIds": [
+        "71ErmrfBnnL",
+        "51wJLSXHVIL",
+        "51FjwtQVuwL",
+        "41lTC0okPVL",
+        "41KIBAvZIoL",
+        "51b0cWS5L0L",
+        "51WBUJ6VkGL"
+      ],
+      "about": [
+        "The set includes 25 empty square glass spice jars, 25 shaker lids and 25 black metal screw caps.",
+        "Each jar holds 4 fluid ounces and uses a clear glass body so spice level is easy to see.",
+        "The package includes 547 labels across three label styles, including pre-printed and reusable blank labels.",
+        "Two shaker-hole patterns are included for finer powders and larger herbs or grains.",
+        "A silicone funnel and white chalk pen are included for refilling and custom labeling.",
+        "Amazon lists the glass as lead-free and the set as BPA-free, with dishwasher-safe care instructions.",
+        "The square format is designed for drawers, cabinets, racks and pantry organization."
+      ],
+      "details": [
+        [
+          "Jar count",
+          "25"
+        ],
+        [
+          "Capacity",
+          "4 fl oz each"
+        ],
+        [
+          "Material",
+          "Glass + metal"
+        ],
+        [
+          "Lids",
+          "Shaker lids + black metal caps"
+        ],
+        [
+          "Labels",
+          "547 total"
+        ],
+        [
+          "Included",
+          "Silicone funnel + chalk pen"
+        ],
+        [
+          "Care",
+          "Dishwasher-safe per listing"
+        ]
+      ],
+      "seo": {
+        "intent": "glass spice jars with labels for pantry organization",
+        "title": "Glass Spice Jars with Labels for Pantry Organization | Churboro | PIREVO",
+        "description": "Compare Churboro 25-pack 4 oz glass spice jars with labels for pantry and spice-drawer organization, including lids, labels, size, features and buying tradeoffs."
+      }
+    },
     {
       "slug": "crockpot-design-7qt",
       "collection": "kitchen",
