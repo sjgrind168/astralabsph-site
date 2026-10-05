@@ -1,5 +1,5 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "associateTag": "pirevo-20",
   "collections": [
     {
@@ -34,8 +34,8 @@ window.PIREVO_STORE = {
       "id": "fall-home",
       "name": "Cozy Fall Home",
       "kicker": "SEASONAL • OCTOBER INTENT",
-      "description": "High-rated fall entryway and fireplace pieces for the current home-decor window.",
-      "signal": "Seasonal decor +81% • Fireplace accessories +66% • Wreaths +51%"
+      "description": "Candle warmers, wreaths and fireplace accessories selected from current cozy-home, seasonal and gifting demand.",
+      "signal": "Seasonal decor +81% MoM • Wreaths & garlands +51% • Candle warmer/cozy-home demand"
     }
   ],
   "products": [
@@ -998,6 +998,91 @@ window.PIREVO_STORE = {
         "intent": "RGB smart light bars for gaming desk",
         "title": "RGB Smart Light Bars for Gaming Desk | Govee | PIREVO",
         "description": "Compare Govee RGBICWW smart light bars for gaming desks and monitors, including placement, Matter support, app control and scene modes."
+      }
+    },
+    {
+      "slug": "godonlif-candle-warmer-lamp",
+      "collection": "fall-home",
+      "badge": "COZY HOME TREND",
+      "brand": "GODONLIF",
+      "shortName": "Candle Warmer Lamp with Timer",
+      "fullName": "GODONLIF Candle Warmer Lamp with Timer, Dimmable Height-Adjustable Wax Melt Warmer",
+      "asin": "B0CTJGJL2T",
+      "rating": 4.6,
+      "reviews": 11053,
+      "rank": "60K+ bought last month snapshot",
+      "commission": "3% Home",
+      "image": "https://m.media-amazon.com/images/I/810vcJJDrkL._AC_SL1500_.jpg",
+      "trend": "Candle warmer lamp + cozy fall home + gifting search demand",
+      "why": "A high-velocity cozy-home product with strong social proof and current buyer activity. When researched, Amazon showed a 4.6-star snapshot across 11k+ ratings and 60K+ bought in the past month.",
+      "bestFor": "Bedrooms, living rooms, desks and gift shoppers who want fragrance from jar candles without lighting the wick.",
+      "caveat": "This is a corded heated appliance, not a decorative lamp only. Check jar clearance, bulb compatibility, surface placement and current safety instructions before use.",
+      "bullets": [
+        "24-hour cycle timer",
+        "Stepless dimming control",
+        "Height-adjustable lamp arm",
+        "Designed for jar candles",
+        "2 GU10 bulbs included per listing",
+        "4.6-star / 11k+ rating snapshot",
+        "60K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CTJGJL2T?tag=pirevo-20",
+      "galleryIds": [
+        "810vcJJDrkL",
+        "41Ahz+ihkiL",
+        "41CiRD7VpsL",
+        "41F1UvxbrrL",
+        "41zMYfZn+WL",
+        "41RztCm18cL",
+        "41xGzB+tTTL"
+      ],
+      "about": [
+        "The warmer uses an overhead bulb to warm a jar candle from the top rather than requiring the candle wick to be lit.",
+        "A dimming control lets the user adjust heat/light intensity and melting speed.",
+        "The listing includes a 24-hour cycle timer for scheduled operation.",
+        "The lamp height can be adjusted to accommodate different jar-candle sizes and clearances.",
+        "The current listing describes a metal base with a glass lampshade and a tabletop form factor.",
+        "Two GU10 bulbs are included with the product according to the current listing.",
+        "The listing positions it for bedrooms, living rooms, offices, gifting and seasonal home decor."
+      ],
+      "details": [
+        [
+          "Dimensions",
+          "5.5 × 5.5 × 12 in per listing"
+        ],
+        [
+          "Base material",
+          "Metal"
+        ],
+        [
+          "Shade",
+          "Glass"
+        ],
+        [
+          "Bulb base",
+          "GU10"
+        ],
+        [
+          "Power",
+          "Corded electric"
+        ],
+        [
+          "Controls",
+          "Dimming + timer"
+        ],
+        [
+          "Height",
+          "Adjustable"
+        ],
+        [
+          "Color researched",
+          "Black"
+        ]
+      ],
+      "seo": {
+        "intent": "candle warmer lamp with timer for cozy home decor",
+        "title": "Candle Warmer Lamp with Timer for Cozy Home Decor | GODONLIF | PIREVO",
+        "description": "Compare the GODONLIF candle warmer lamp with timer, dimming and adjustable height for jar candles, including key specs, use cases and buying tradeoffs."
       }
     },
     {
