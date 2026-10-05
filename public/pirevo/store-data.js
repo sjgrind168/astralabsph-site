@@ -38,6 +38,13 @@ window.PIREVO_STORE = {
       "signal": "Halloween is Pinterest's #2 most-searched holiday after Christmas • Holiday planning starts early"
     },
     {
+      "id": "gifts",
+      "name": "Top Gifts This Season",
+      "kicker": "HOLIDAY GIFTING • SEARCH-FIRST",
+      "description": "Giftable products selected for current Amazon demand, strong review evidence and clear holiday search intent across cozy, family, creative and everyday-use categories.",
+      "signal": "Holiday planning starts early • Gift searches are visual and use-case driven • Broad price points improve click coverage"
+    },
+    {
       "id": "fall-home",
       "name": "Cozy Fall Home",
       "kicker": "SEASONAL • OCTOBER INTENT",
@@ -1772,6 +1779,318 @@ window.PIREVO_STORE = {
         "intent": "5 piece fireplace tool set with stand",
         "title": "5-Piece Fireplace Tool Set | AMAGABELI 31-Inch | PIREVO",
         "description": "Compare the AMAGABELI 5-piece fireplace tool set with 31-inch stand, poker, tongs, brush and shovel for hearth and wood-stove setups."
+      }
+    },
+    {
+      "slug": "bedsure-gentlesoft-white-throw",
+      "collection": "gifts",
+      "badge": "COZY GIFT PICK",
+      "brand": "Bedsure",
+      "shortName": "GentleSoft White Throw Blanket",
+      "fullName": "Bedsure GentleSoft White Throw Blanket for Couch, Off White, 50 x 60 Inches",
+      "asin": "B0BPLB81LX",
+      "rating": 4.6,
+      "reviews": 27445,
+      "rank": "#1 Best Seller in Bed Throws snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/71v-XszFraL._AC_SL1500_.jpg",
+      "trend": "cozy Christmas gifts for women + homebody gifts + soft throw blanket gift intent",
+      "why": "A high-volume, low-friction gift prospect with 4.6 stars across 27k+ ratings, 10K+ bought in the past month when researched, and a #1 Bed Throws snapshot. It covers cozy gifting without requiring a high ticket price.",
+      "bestFor": "Moms, sisters, friends, coworkers, teens, homebodies and anyone who likes a soft couch or reading-corner upgrade.",
+      "caveat": "This is a lightweight fleece throw rather than a heavyweight winter blanket. The exact listing is the Off White 50 x 60-inch throw, so other colors/sizes should be treated as separate variants.",
+      "bullets": [
+        "Off White 50 x 60-inch throw",
+        "Lightweight soft fleece texture",
+        "Machine washable",
+        "4.6-star / 27k+ rating snapshot",
+        "10K+ bought in past month when researched",
+        "#1 Bed Throws snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0BPLB81LX?tag=pirevo-20",
+      "galleryIds": [
+        "71v-XszFraL",
+        "41nscM4V65L",
+        "5183w6eNklL",
+        "51uirYtcWFL",
+        "51CTG9KrZZL",
+        "41Ss70v2QsL"
+      ],
+      "about": [
+        "The exact PIREVO variant is the Off White 50 x 60-inch throw.",
+        "Bedsure describes the blanket as a lightweight flannel-fleece throw for couches, beds and reading spaces.",
+        "The neutral textured look is designed to work with a wide range of home styles.",
+        "The blanket is machine washable for routine care.",
+        "The listing positions it specifically as a holiday, birthday and housewarming gift.",
+        "Amazon currently shows unusually strong seasonal buying activity for this exact listing."
+      ],
+      "details": [
+        [
+          "Size",
+          "50 x 60 in"
+        ],
+        [
+          "Color",
+          "Off White"
+        ],
+        [
+          "Material",
+          "Polyester fleece"
+        ],
+        [
+          "Care",
+          "Machine washable"
+        ],
+        [
+          "Use",
+          "Couch / bed / reading corner"
+        ],
+        [
+          "Amazon snapshot",
+          "10K+ bought last month"
+        ],
+        [
+          "Category snapshot",
+          "#1 Bed Throws"
+        ]
+      ],
+      "seo": {
+        "intent": "cozy Christmas gifts for women",
+        "title": "Cozy Christmas Gift for Women | Bedsure GentleSoft Throw Blanket | PIREVO",
+        "description": "Compare the Bedsure GentleSoft Off White 50 x 60 throw blanket as a cozy Christmas gift for women, moms, friends and homebodies, with current buyer evidence and tradeoffs."
+      }
+    },
+    {
+      "slug": "stanley-quencher-30-rose-quartz",
+      "collection": "gifts",
+      "badge": "VIRAL EVERYDAY GIFT",
+      "brand": "STANLEY",
+      "shortName": "Quencher H2.0 30 oz, Rose Quartz 2.0",
+      "fullName": "STANLEY Quencher H2.0 Tumbler with Handle and Straw, 30 oz, Rose Quartz 2.0",
+      "asin": "B0CP9YB3Q4",
+      "rating": 4.7,
+      "reviews": 205943,
+      "rank": "#2 Insulated Tumblers snapshot",
+      "commission": "Kitchen / Drinkware",
+      "image": "https://m.media-amazon.com/images/I/51-U5dEbEBL._AC_SL1500_.jpg",
+      "trend": "insulated tumbler gift for women + travel cup gift + everyday viral gift",
+      "why": "A mainstream gift with exceptional proof depth: 4.7 stars across 205k+ ratings, 5K+ bought in the past month when researched, Amazon's Choice, and a #2 Insulated Tumblers snapshot for the exact 30 oz Rose Quartz 2.0 listing.",
+      "bestFor": "Commuters, gym-goers, students, coworkers and anyone who regularly carries water or iced drinks throughout the day.",
+      "caveat": "The FlowState lid is designed to resist splashes, not to behave like a fully sealed leakproof bottle. Some reviews also mention leakage, so it is better kept upright in a cup holder or on a desk.",
+      "bullets": [
+        "30 oz Rose Quartz 2.0 exact variant",
+        "Double-wall vacuum insulation",
+        "3-position FlowState lid",
+        "Cup-holder compatible base",
+        "4.7-star / 205k+ rating snapshot",
+        "5K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CP9YB3Q4?tag=pirevo-20",
+      "galleryIds": [
+        "51-U5dEbEBL",
+        "31CNE+44-xL",
+        "31r88l25d6L",
+        "41GV7E7LFyL",
+        "41UZwVBKalL",
+        "311i2v23XHL"
+      ],
+      "about": [
+        "The exact PIREVO variant is the 30 oz Quencher H2.0 in Rose Quartz 2.0.",
+        "The tumbler uses double-wall vacuum insulation for hot, cold and iced drinks.",
+        "Its FlowState lid rotates between a straw opening, drink opening and covered position.",
+        "The 30 oz size uses a narrow base designed to fit most vehicle cup holders.",
+        "The tumbler includes a reusable straw and comfort-grip handle.",
+        "The stainless-steel body is dishwasher safe."
+      ],
+      "details": [
+        [
+          "Capacity",
+          "30 fl oz"
+        ],
+        [
+          "Color",
+          "Rose Quartz 2.0"
+        ],
+        [
+          "Material",
+          "Stainless steel"
+        ],
+        [
+          "Lid",
+          "3-position FlowState"
+        ],
+        [
+          "Care",
+          "Dishwasher safe"
+        ],
+        [
+          "Fit",
+          "Most cup holders"
+        ],
+        [
+          "Amazon snapshot",
+          "5K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "insulated tumbler gift for women",
+        "title": "Insulated Tumbler Gift for Women | STANLEY Quencher 30 oz Rose Quartz | PIREVO",
+        "description": "Compare the STANLEY Quencher H2.0 30 oz Rose Quartz 2.0 as a holiday gift, including insulation, lid design, review depth, current buyer evidence and tradeoffs."
+      }
+    },
+    {
+      "slug": "lego-botanicals-tiny-plants",
+      "collection": "gifts",
+      "badge": "CREATIVE GIFT PICK",
+      "brand": "LEGO",
+      "shortName": "Botanicals Tiny Plants 10329",
+      "fullName": "LEGO Botanicals Tiny Plants Building Set for Adults, 10329",
+      "asin": "B0CDCL6Y5T",
+      "rating": 4.9,
+      "reviews": 6328,
+      "rank": "Strong adult-build gift snapshot",
+      "commission": "Toys / Home decor",
+      "image": "https://m.media-amazon.com/images/I/81SEw3QMkkL._AC_SL1500_.jpg",
+      "trend": "LEGO gifts for adults + plant lover gifts + desk decor + mindful hobby gift",
+      "why": "One of the strongest gift candidates by review confidence: 4.9 stars across 6.3k+ ratings and 3K+ bought in the past month when researched. It crosses hobby, decor and plant-lover gifting in one highly visual product.",
+      "bestFor": "Adult LEGO fans, plant lovers, creative coworkers, couples and anyone who enjoys a relaxing hands-on build that becomes display decor.",
+      "caveat": "This is a 758-piece building project rather than a ready-made plant display, so it suits recipients who enjoy assembling sets.",
+      "bullets": [
+        "758-piece adult building set",
+        "Builds 9 miniature plants",
+        "Arid, tropical + carnivorous plant designs",
+        "4.9-star / 6.3k+ rating snapshot",
+        "3K+ bought in past month when researched",
+        "Display-friendly home / desk decor"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CDCL6Y5T?tag=pirevo-20",
+      "galleryIds": [
+        "81SEw3QMkkL",
+        "51-0W6l0SLL",
+        "51FIUZChSUL",
+        "51wXB6CYRqL",
+        "51lp+693PAL",
+        "51TNeCUsjSL"
+      ],
+      "about": [
+        "The set builds nine miniature plants based on arid, tropical and carnivorous species.",
+        "Each plant sits in a brick-built terracotta-style pot for display after the build is finished.",
+        "The kit contains 758 pieces and is marketed primarily to adult builders.",
+        "The tallest finished plant is listed at over 6.5 inches high.",
+        "The set can be displayed across a desk, shelf, kitchen or coffee table rather than kept as one large model.",
+        "LEGO positions the set as a gift for birthdays, anniversaries and other special occasions."
+      ],
+      "details": [
+        [
+          "Set",
+          "LEGO Botanicals 10329"
+        ],
+        [
+          "Pieces",
+          "758"
+        ],
+        [
+          "Plants",
+          "9"
+        ],
+        [
+          "Audience",
+          "Adults 18+"
+        ],
+        [
+          "Tallest build",
+          "Over 6.5 in"
+        ],
+        [
+          "Use",
+          "Build + display"
+        ],
+        [
+          "Amazon snapshot",
+          "3K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "LEGO gifts for adults and plant lovers",
+        "title": "LEGO Gift for Adults & Plant Lovers | Botanicals Tiny Plants 10329 | PIREVO",
+        "description": "Compare LEGO Botanicals Tiny Plants 10329 as a creative Christmas gift for adults and plant lovers, including piece count, display value, buyer evidence and tradeoffs."
+      }
+    },
+    {
+      "slug": "moonka-frameo-digital-photo-frame",
+      "collection": "gifts",
+      "badge": "MEMORY GIFT",
+      "brand": "moonka",
+      "shortName": "10.1-Inch FRAMEO WiFi Photo Frame",
+      "fullName": "Frameo 10.1 Inch WiFi Digital Photo Frame, 32GB, 1280 x 800 IPS Touch Screen",
+      "asin": "B09QX7M71C",
+      "rating": 4.7,
+      "reviews": 1454,
+      "rank": "Amazon's Choice snapshot",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/71f3TKbgtHL._AC_SL1500_.jpg",
+      "trend": "digital photo frame gift for parents + grandparents + family memory gift",
+      "why": "A more personal holiday-gift angle than another gadget. The exact 10.1-inch black model has a 4.7-star snapshot, 1.4k+ ratings and 500+ bought in the past month when researched, with remote photo sharing as the core gift hook.",
+      "bestFor": "Parents, grandparents, couples and long-distance families who want an easy way to keep a shared stream of photos visible at home.",
+      "caveat": "The frame requires 2.4 GHz Wi-Fi for remote sharing and needs external power. It is not a cordless battery-powered frame.",
+      "bullets": [
+        "10.1-inch 1280 x 800 IPS display",
+        "32GB built-in storage",
+        "FRAMEO app photo/video sharing",
+        "Auto-rotate + wall-mount support",
+        "4.7-star / 1.4k+ rating snapshot",
+        "500+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B09QX7M71C?tag=pirevo-20",
+      "galleryIds": [
+        "71f3TKbgtHL",
+        "51+FEpL9d3L",
+        "51NQoiC30DL",
+        "51Wm2SfMQQL",
+        "51-cMLIsvEL",
+        "51OK6nIxJCL"
+      ],
+      "about": [
+        "The exact PIREVO model is the 10.1-inch Wi-Fi version in black.",
+        "The IPS touchscreen has a listed resolution of 1280 x 800.",
+        "The frame includes 32GB of internal storage and supports offline viewing of stored photos.",
+        "Photos and short videos can be sent from a phone through the FRAMEO app when the frame is connected to Wi-Fi.",
+        "The software supports multiple contributors so family members can send new photos to the same frame.",
+        "The frame supports auto-rotation, slideshow settings, brightness controls and wall mounting."
+      ],
+      "details": [
+        [
+          "Screen",
+          "10.1 in IPS touchscreen"
+        ],
+        [
+          "Resolution",
+          "1280 x 800"
+        ],
+        [
+          "Storage",
+          "32GB built in"
+        ],
+        [
+          "Wi-Fi",
+          "2.4 GHz"
+        ],
+        [
+          "Sharing",
+          "FRAMEO app"
+        ],
+        [
+          "Mounting",
+          "Tabletop / wall"
+        ],
+        [
+          "Amazon snapshot",
+          "500+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "digital photo frame gift for parents and grandparents",
+        "title": "Digital Photo Frame Gift for Parents | 10.1-Inch FRAMEO 32GB | PIREVO",
+        "description": "Compare this 10.1-inch FRAMEO WiFi digital photo frame as a Christmas gift for parents and grandparents, including 32GB storage, phone sharing and buying tradeoffs."
       }
     }
   ]
