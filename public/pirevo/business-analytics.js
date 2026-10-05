@@ -34,6 +34,7 @@
   }
   function ensureGA(){
     if(!allowed())return false;
+    if(window.gtag){window.__PIREVO_GA_INIT=true;return true}
     if(window.__PIREVO_GA_INIT)return !!window.gtag;
     window.__PIREVO_GA_INIT=true;
     window.dataLayer=window.dataLayer||[];
@@ -55,6 +56,8 @@
     gtag("event",name,{...attribution(),page_type:pageType(),...productContext(),...params});
   }
   function init(){
+    if(window.__PIREVO_ANALYTICS_BOUND)return;
+    window.__PIREVO_ANALYTICS_BOUND=true;
     ensureGA();
     if(!allowed())return;
     const ctx=productContext(),attr=attribution();
