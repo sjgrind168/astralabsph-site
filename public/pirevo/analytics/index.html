@@ -217,7 +217,7 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
   }
 
   async function snapshot(){
-    const res=await fetch(C.analyticsDbUrl+"/rest/v1/rpc/pirevo_dashboard_snapshot",{
+    const res=await fetch(C.analyticsDbUrl+"/rest/v1/rpc/pirevo_dashboard_private",{
       method:"POST",
       cache:"no-store",
       headers:{
@@ -225,14 +225,14 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
         Authorization:"Bearer "+C.analyticsAnonKey,
         "Content-Type":"application/json"
       },
-      body:JSON.stringify({p_days:7,p_token:token})
+      body:JSON.stringify({p_token:token})
     });
     if(!res.ok)throw new Error("analytics access");
     return res.json();
   }
 
   function renderKpis(k={}){
-    $("kVisitors").textContent=fmt(k.visitors);
+    $("kVisitors").textContent=fmt(k.visitors??k.users);
     $("kSessions").textContent=fmt(k.sessions);
     $("kPinterest").textContent=fmt(k.pinterest_traffic);
     $("kGoogle").textContent=fmt(k.google_organic);
@@ -282,7 +282,7 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
   function renderQueries(data){
     const gsc=data.search_console||{};
     const gscQueries=Array.isArray(gsc.top_queries)?gsc.top_queries:[];
-    const own=data.top_searches||[];
+    const own=(data.top_searches||data.searches||[]).map(r=>({query:r.query||r.term,searches:r.searches}));
     const rows=gscQueries.length?gscQueries:own;
     $("querySource").textContent=gscQueries.length?"Google Search Console":"on-site search";
     $("queryList").innerHTML=rows.length?rows.slice(0,5).map((r,i)=>{
@@ -328,9 +328,9 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
   function render(data){
     const k=data.kpis||{};
     renderKpis(k);
-    renderTraffic(data.traffic_sources||[],k.sessions||0);
-    renderLanding(data.top_landing_pages||[]);
-    renderProducts(data.top_products||[]);
+    renderTraffic((data.traffic_sources||data.traffic||[]).map(r=>({source:r.source||r.name,sessions:r.sessions??r.value})),k.sessions||0);
+    renderLanding(data.top_landing_pages||data.landing_pages||[]);
+    renderProducts((data.top_products||data.products||[]).map(r=>({product_slug:r.product_slug||r.slug,item_name:r.item_name||r.name,clicks:r.clicks})));
     renderQueries(data);
     renderCampaigns(data.campaigns||[]);
     renderGsc(data.search_console||{});
