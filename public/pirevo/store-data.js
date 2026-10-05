@@ -1086,6 +1086,162 @@ window.PIREVO_STORE = {
       }
     },
     {
+      "slug": "eldnacele-halloween-skull-candles",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN INDOOR PICK",
+      "brand": "Eldnacele",
+      "shortName": "Skull Halloween Flameless Candles",
+      "fullName": "Eldnacele Skull Halloween Flameless Candles with 6-Hour Timer, 3-Pack",
+      "asin": "B088CY6B1V",
+      "rating": 4.8,
+      "reviews": 2038,
+      "rank": "#50 Flameless Candles snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/71zN9EZrriS._AC_SL1500_.jpg",
+      "trend": "Halloween mantel decor + skull decor + flameless spooky candle search intent",
+      "why": "A strong indoor Halloween decor candidate with 4.8 stars across 2k+ ratings and 2K+ bought in the past month when researched. It gives the seasonal section an indoor/mantel product instead of making every Halloween pick yard-focused.",
+      "bestFor": "Mantels, coffee tables, shelves, entry tables and Halloween parties where a spooky candle look is wanted without an open flame.",
+      "caveat": "These use real paraffin wax shells, are not waterproof and should be kept away from direct heat or sunlight. Each candle also needs two AA batteries, not included.",
+      "bullets": [
+        "3 Halloween-themed pillar candles",
+        "Skull, raven and spider-web decals",
+        "6-hour repeating timer",
+        "Real paraffin wax exterior",
+        "4.8-star / 2k+ rating snapshot",
+        "2K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B088CY6B1V?tag=pirevo-20",
+      "galleryIds": [
+        "71zN9EZrriS",
+        "51awzjiGIgS",
+        "51SHc9TCG7L",
+        "51y2O5ZB+QL",
+        "51FXVKOO4cL",
+        "51iG-2g+TXL"
+      ],
+      "about": [
+        "The set contains three cream-colored flameless pillar candles with Halloween-themed decals.",
+        "The designs include a skull, a raven/crow and a spider-web motif.",
+        "Each candle measures about 3 inches in diameter by 6 inches high.",
+        "A built-in timer runs the candle for six hours and turns it off for eighteen hours before repeating.",
+        "The candle shells use unscented paraffin wax with LED lighting rather than an exposed flame.",
+        "Each candle requires two AA batteries, which are not included."
+      ],
+      "details": [
+        [
+          "Pack size",
+          "3"
+        ],
+        [
+          "Size",
+          "3 in x 6 in each"
+        ],
+        [
+          "Timer",
+          "6h on / 18h off"
+        ],
+        [
+          "Power",
+          "2 AA batteries each"
+        ],
+        [
+          "Material",
+          "Paraffin wax shell"
+        ],
+        [
+          "Use",
+          "Indoor"
+        ],
+        [
+          "Amazon snapshot",
+          "2K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "Halloween skull flameless candles with timer",
+        "title": "Halloween Skull Flameless Candles with Timer | Eldnacele | PIREVO",
+        "description": "Compare Eldnacele skull Halloween flameless candles with a 6-hour timer for mantels, tables and spooky indoor decor, including buyer evidence and tradeoffs."
+      }
+    },
+    {
+      "slug": "aiseno-skeleton-stakes",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN YARD PICK",
+      "brand": "AISENO",
+      "shortName": "Realistic Skeleton Groundbreaker Stakes",
+      "fullName": "AISENO Realistic Skeleton Stakes Halloween Decorations for Lawn, Garden and Graveyard",
+      "asin": "B07DNB1MDQ",
+      "rating": 4.6,
+      "reviews": 1825,
+      "rank": "#1 Decorative Garden Stakes snapshot",
+      "commission": "Patio / Home",
+      "image": "https://m.media-amazon.com/images/I/71uCNl-4XXL._AC_SL1000_.jpg",
+      "trend": "Halloween skeleton yard decor + graveyard setup + outdoor groundbreaker search intent",
+      "why": "A dedicated outdoor Halloween prospect with 4.6 stars across 1.8k+ ratings, 7K+ bought in the past month when researched, Amazon's Choice status, and a #1 Decorative Garden Stakes snapshot.",
+      "bestFor": "Front yards, lawns, graveyard scenes, garden beds and haunted-house displays that need a fast skeleton-groundbreaker effect.",
+      "caveat": "The skull itself does not include a ground stake, and some reviews mention mixed stability or arm-stake durability. Best used where the soil can hold the arm stakes securely.",
+      "bullets": [
+        "1 skull + 2 skeleton arm stakes",
+        "Outdoor graveyard / yard setup",
+        "No-tool ground installation",
+        "4.6-star / 1.8k+ rating snapshot",
+        "7K+ bought in past month when researched",
+        "#1 Decorative Garden Stakes snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07DNB1MDQ?tag=pirevo-20",
+      "galleryIds": [
+        "71uCNl-4XXL",
+        "61KdPiuGZOL",
+        "61-fsoISRXL",
+        "61AKVid4WLL",
+        "41gdYy+e9IL",
+        "51hyRAceJPL"
+      ],
+      "about": [
+        "The set includes one realistic skull plus two skeleton arm stakes.",
+        "The arm pieces push directly into lawn or soil to create a skeleton-crawling-out-of-the-ground effect.",
+        "The pieces can be spaced and angled to vary the graveyard scene.",
+        "Amazon positions the set for lawns, gardens, cemetery scenes, graveyards and haunted-house displays.",
+        "The sculpted finish is designed to resemble aged bone.",
+        "The skull is placed on the ground rather than mounted on its own stake."
+      ],
+      "details": [
+        [
+          "Pieces",
+          "3"
+        ],
+        [
+          "Includes",
+          "1 skull + 2 arm stakes"
+        ],
+        [
+          "Material",
+          "Resin"
+        ],
+        [
+          "Use",
+          "Outdoor"
+        ],
+        [
+          "Setup",
+          "Ground stakes, no tools"
+        ],
+        [
+          "Amazon snapshot",
+          "7K+ bought last month"
+        ],
+        [
+          "Category snapshot",
+          "#1 Decorative Garden Stakes"
+        ]
+      ],
+      "seo": {
+        "intent": "Halloween skeleton yard decorations outdoor",
+        "title": "Halloween Skeleton Yard Decorations | AISENO Groundbreaker Stakes | PIREVO",
+        "description": "Compare AISENO realistic skeleton groundbreaker stakes for Halloween yards, graveyard scenes and outdoor displays, including setup, buyer evidence and tradeoffs."
+      }
+    },
+    {
       "slug": "homemory-50-flameless-tealights",
       "collection": "seasonal",
       "badge": "HALLOWEEN + CHRISTMAS",
