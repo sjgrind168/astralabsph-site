@@ -1,5 +1,5 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "associateTag": "pirevo-20",
   "collections": [
     {
@@ -29,6 +29,13 @@ window.PIREVO_STORE = {
       "kicker": "SETUP CULTURE • VISUAL SHOPPING",
       "description": "Lighting and audio upgrades for a cleaner, more immersive gaming room.",
       "signal": "Gaming room setups +700% MoM"
+    },
+    {
+      "id": "seasonal",
+      "name": "Seasonal Must-Haves",
+      "kicker": "HALLOWEEN NOW • CHRISTMAS EARLY",
+      "description": "Fast-moving Halloween and early Christmas picks selected for seasonal search demand, strong Amazon evidence and highly visual Pinterest potential.",
+      "signal": "Halloween is Pinterest's #2 most-searched holiday after Christmas • Holiday planning starts early"
     },
     {
       "id": "fall-home",
@@ -998,6 +1005,318 @@ window.PIREVO_STORE = {
         "intent": "RGB smart light bars for gaming desk",
         "title": "RGB Smart Light Bars for Gaming Desk | Govee | PIREVO",
         "description": "Compare Govee RGBICWW smart light bars for gaming desks and monitors, including placement, Matter support, app control and scene modes."
+      }
+    },
+    {
+      "slug": "zpisf-halloween-spider-webs",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN MUST-HAVE",
+      "brand": "ZPISF",
+      "shortName": "1400 Sq Ft Spider Webs + 150 Spiders",
+      "fullName": "ZPISF 1400 Sq Ft Halloween Spider Webs Decorations with 150 Extra Fake Spiders",
+      "asin": "B07YCSNLDG",
+      "rating": 4.6,
+      "reviews": 4686,
+      "rank": "#1 Outdoor Holiday Decorations snapshot",
+      "commission": "Seasonal/Home",
+      "image": "https://m.media-amazon.com/images/I/81MIMkpq4xL._AC_SL1500_.jpg",
+      "trend": "Halloween outdoor decor + haunted-house + giant spider-web search intent",
+      "why": "A high-velocity Halloween decorating pick with 40K+ bought in the past month when researched, 4.6 stars across 4.6k+ ratings, and a highly visual yard/porch transformation use case.",
+      "bestFor": "Porches, yards, bushes, windows, haunted-house setups and party spaces that need a big visual Halloween effect without a complicated install.",
+      "caveat": "The webbing is intentionally very stretchy and can be messy to remove if overworked. Keep it away from open flames and heat sources.",
+      "bullets": [
+        "1400 sq ft stretch-web coverage",
+        "150 extra fake spiders included",
+        "Indoor + outdoor decorating use",
+        "4.6-star / 4.6k+ rating snapshot",
+        "40K+ bought in past month when researched",
+        "#1 Outdoor Holiday Decorations snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07YCSNLDG?tag=pirevo-20",
+      "galleryIds": [
+        "81MIMkpq4xL",
+        "613BFFGhKbL",
+        "61zmpEDShbL",
+        "5126EvoEiNL",
+        "51A3N3VQI-L",
+        "61fZZcAs+gL"
+      ],
+      "about": [
+        "The set contains a large quantity of stretchable white spider webbing plus 150 small fake spiders.",
+        "Amazon lists the webbing as covering up to 1,400 square feet when stretched.",
+        "The material can be pulled into irregular shapes for windows, bushes, walls, furniture and outdoor displays.",
+        "The listing positions the set for haunted houses, Halloween parties, yards, porches and indoor rooms.",
+        "The included spiders are designed to attach directly to the webbing.",
+        "The material is lightweight and reusable when removed carefully."
+      ],
+      "details": [
+        [
+          "Coverage",
+          "Up to 1,400 sq ft"
+        ],
+        [
+          "Included spiders",
+          "150"
+        ],
+        [
+          "Material",
+          "Artificial PET"
+        ],
+        [
+          "Use",
+          "Indoor / outdoor"
+        ],
+        [
+          "Color",
+          "White"
+        ],
+        [
+          "Style",
+          "Stretchable cobweb"
+        ],
+        [
+          "Amazon snapshot",
+          "40K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "giant spider webs for outdoor Halloween decorations",
+        "title": "Giant Spider Webs for Outdoor Halloween Decorations | ZPISF | PIREVO",
+        "description": "Compare ZPISF 1400 sq ft Halloween spider webs with 150 fake spiders for porch, yard and haunted-house decorating, including size, features and buying tradeoffs."
+      }
+    },
+    {
+      "slug": "homemory-50-flameless-tealights",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN + CHRISTMAS",
+      "brand": "Homemory",
+      "shortName": "50-Pack Flameless Tea Lights",
+      "fullName": "Homemory 50-Pack Flameless Tea Lights Candles, Battery Operated, 200+ Hours",
+      "asin": "B0CTY4SH7M",
+      "rating": 4.7,
+      "reviews": 9155,
+      "rank": "#17 Flameless Candles snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/61yMkLpdCFL._AC_SL1500_.jpg",
+      "trend": "Flameless tea lights for Halloween pumpkins, Christmas luminaries and cozy seasonal displays",
+      "why": "One product can serve both Halloween and Christmas content. It has a 4.7-star snapshot across 9k+ ratings, long runtime, and strong visual use cases from jack-o'-lanterns to holiday luminaries.",
+      "bestFor": "Jack-o'-lanterns, lanterns, table settings, Christmas villages, luminaries and homes that want candlelight without an open flame.",
+      "caveat": "This version has no timer or remote, and Amazon lists it as not waterproof. It is better for protected displays than exposed outdoor weather.",
+      "bullets": [
+        "50 flameless LED tea lights",
+        "200+ hour claimed runtime",
+        "Replaceable CR2032 batteries included",
+        "Warm amber flicker",
+        "4.7-star / 9.1k+ rating snapshot",
+        "Useful across Halloween + Christmas"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CTY4SH7M?tag=pirevo-20",
+      "galleryIds": [
+        "61yMkLpdCFL",
+        "41H0L-vMMsL",
+        "51l4XWpd-zL",
+        "415uzLOtWCL",
+        "418bSYBxDdL",
+        "41GcbsSLwZL"
+      ],
+      "about": [
+        "The pack includes 50 battery-operated LED tea lights with batteries pre-installed.",
+        "Amazon describes the lights as producing a warm amber flicker designed to resemble traditional candlelight.",
+        "The listing claims more than 200 hours of runtime per light under typical use.",
+        "The compact size fits many standard tea-light holders, lanterns and pumpkin displays.",
+        "The CR2032 coin batteries are replaceable.",
+        "This version does not include a timer or remote control."
+      ],
+      "details": [
+        [
+          "Pack size",
+          "50"
+        ],
+        [
+          "Runtime",
+          "200+ hours claimed"
+        ],
+        [
+          "Battery",
+          "CR2032, pre-installed"
+        ],
+        [
+          "Light",
+          "Warm amber flicker"
+        ],
+        [
+          "Timer / remote",
+          "No"
+        ],
+        [
+          "Water resistance",
+          "Not waterproof"
+        ],
+        [
+          "Use",
+          "Indoor / protected seasonal displays"
+        ]
+      ],
+      "seo": {
+        "intent": "flameless tea lights for Halloween pumpkins and Christmas luminaries",
+        "title": "Flameless Tea Lights for Halloween & Christmas | Homemory 50-Pack | PIREVO",
+        "description": "Compare Homemory 50-pack flameless tea lights for Halloween pumpkins, Christmas luminaries and seasonal displays, including runtime, batteries and tradeoffs."
+      }
+    },
+    {
+      "slug": "creative-hobbies-window-candles-6",
+      "collection": "seasonal",
+      "badge": "CHRISTMAS CLASSIC",
+      "brand": "Creative Hobbies",
+      "shortName": "6-Pack Dusk-to-Dawn Window Candles",
+      "fullName": "Creative Hobbies Electric Window Candle Lamps with Brass Plated Base, Dusk-to-Dawn Sensor, 6 Pack",
+      "asin": "B08JD6GWPR",
+      "rating": 4.6,
+      "reviews": 1210,
+      "rank": "#132 Candle Lamps snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/61QhlLxf7VL._AC_SL1500_.jpg",
+      "trend": "Christmas window candles + traditional holiday curb appeal + dusk-to-dawn convenience",
+      "why": "A classic Christmas search product with 4.6 stars across 1.2k+ ratings and 200+ bought in the past month when researched. The automatic dusk-to-dawn behavior gives it a clear practical hook beyond decor.",
+      "bestFor": "Front-facing windows, traditional Christmas decor, entryways and shoppers who want automatic evening window lighting without changing batteries.",
+      "caveat": "These are corded indoor window candles, not battery-operated outdoor lights. Some reviews mention mixed long-term reliability, so placement and cord routing matter.",
+      "bullets": [
+        "6 plug-in window candles",
+        "Dusk-to-dawn light sensor",
+        "Brass-plated bases",
+        "5-ft power cords",
+        "4.6-star / 1.2k+ rating snapshot",
+        "200+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B08JD6GWPR?tag=pirevo-20",
+      "galleryIds": [
+        "61QhlLxf7VL",
+        "41yHfIQTXiL",
+        "31uDl1v41hL",
+        "31bt1exSk5L",
+        "21hRKX5PNlL",
+        "21iDFqiYxdL"
+      ],
+      "about": [
+        "The six-pack uses plug-in electric window candles with brass-plated bases.",
+        "A built-in light sensor turns each candle on in darkness and off when ambient light returns.",
+        "Each candle is about 6.75 inches tall before the bulb and roughly 9 inches overall.",
+        "The listing includes clear C7/E12 bulbs and five-foot power cords.",
+        "The product is intended for indoor window, mantel and room use.",
+        "The dusk-to-dawn sensor removes the need for a separate timer."
+      ],
+      "details": [
+        [
+          "Pack size",
+          "6"
+        ],
+        [
+          "Control",
+          "Dusk-to-dawn sensor"
+        ],
+        [
+          "Power",
+          "120V plug-in"
+        ],
+        [
+          "Cord",
+          "5 ft each"
+        ],
+        [
+          "Bulb",
+          "C7 / E12"
+        ],
+        [
+          "Height",
+          "Approx. 9 in with bulb"
+        ],
+        [
+          "Use",
+          "Indoor"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas window candles with dusk to dawn sensor",
+        "title": "Christmas Window Candles with Dusk-to-Dawn Sensor | Creative Hobbies | PIREVO",
+        "description": "Compare Creative Hobbies 6-pack Christmas window candles with dusk-to-dawn sensors, plug-in power, classic brass bases and key buying tradeoffs."
+      }
+    },
+    {
+      "slug": "homemory-christmas-tree-candles",
+      "collection": "seasonal",
+      "badge": "CHRISTMAS VISUAL PICK",
+      "brand": "Homemory",
+      "shortName": "Christmas Tree Flameless Candles",
+      "fullName": "Homemory Christmas Tree Candles with 6-Hour Timer, 2-Pack, 8.5-Inch",
+      "asin": "B0CM92TY2T",
+      "rating": 4.7,
+      "reviews": 171,
+      "rank": "Monitored seasonal visual pick",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/71aY04Td8WL._AC_SL1500_.jpg",
+      "trend": "Christmas mantel decor + flameless candle + cozy holiday gift search intent",
+      "why": "A highly visual Christmas decor item with a 4.7-star snapshot and strong Pinterest-friendly styling. Review depth is lighter than our core catalog, so PIREVO treats it as a monitored seasonal visual pick rather than a proven evergreen winner.",
+      "bestFor": "Mantels, dining tables, shelves, windowsills and giftable holiday decor where real-wax appearance matters but an open flame is undesirable.",
+      "caveat": "Review depth is still modest at 171 ratings. The candles use AA batteries that are not included and are intended for indoor use.",
+      "bullets": [
+        "2 tree-shaped flameless candles",
+        "8.5-inch height",
+        "6-hour daily timer mode",
+        "Real-wax-style exterior",
+        "4.7-star / 171-rating snapshot",
+        "Monitored seasonal visual pick"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CM92TY2T?tag=pirevo-20",
+      "galleryIds": [
+        "71aY04Td8WL",
+        "51o-maTHItL",
+        "51mSDyIfsUL",
+        "51+9hhkI-QL",
+        "51heCYp+1zL",
+        "51x9cTcw3WL"
+      ],
+      "about": [
+        "The set contains two green Christmas-tree-shaped flameless candles.",
+        "Amazon lists a constant-light mode and a repeating six-hour timer mode.",
+        "The candles use a waxy exterior and a flickering LED flame effect.",
+        "Each candle is approximately 8.5 inches tall.",
+        "The timer is designed to turn the candles on at the same time each day after initial activation.",
+        "Two AA batteries per candle are required and are not included."
+      ],
+      "details": [
+        [
+          "Pack size",
+          "2"
+        ],
+        [
+          "Height",
+          "8.5 in"
+        ],
+        [
+          "Timer",
+          "6-hour daily cycle"
+        ],
+        [
+          "Power",
+          "2 AA batteries each"
+        ],
+        [
+          "Material",
+          "Waxy exterior"
+        ],
+        [
+          "Use",
+          "Indoor"
+        ],
+        [
+          "Review depth",
+          "171-rating snapshot"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas tree flameless candles with timer",
+        "title": "Christmas Tree Flameless Candles with Timer | Homemory | PIREVO",
+        "description": "Compare Homemory Christmas tree flameless candles with a 6-hour timer for mantel, table and holiday decor, including size, battery needs and tradeoffs."
       }
     },
     {
