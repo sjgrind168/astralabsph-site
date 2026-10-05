@@ -1,0 +1,22 @@
+{
+  "report_version": 1,
+  "generated_at": "2026-10-05T07:27:02.373Z",
+  "timezone": "Asia/Manila",
+  "status": "BLOCKED_CONFIG",
+  "blockers": [
+    "PIREVO GA4 measurement ID is blank in public/pirevo/config.js",
+    "GitHub analytics API variables/secrets still need one-time Google setup"
+  ],
+  "configuration": {
+    "ga4_measurement_id_configured": false,
+    "ga4_property_id_configured": false,
+    "gsc_site_configured": false,
+    "google_service_account_configured": false
+  },
+  "ga4": null,
+  "search_console": null,
+  "business_summary": null,
+  "notes": [
+    "Scheduler and analytics code are installed. No traffic numbers are fabricated before data sources are connected."
+  ]
+}
