@@ -1,0 +1,519 @@
+{
+  "updated": "2026-10-06",
+  "status": "TREND_50_CATALOG",
+  "total_new_products": 50,
+  "categories": [
+    "home-organization",
+    "kitchen",
+    "beauty",
+    "tech",
+    "gaming",
+    "pets",
+    "fitness",
+    "travel",
+    "car",
+    "kids"
+  ],
+  "products": [
+    {
+      "priority": 1,
+      "slug": "amazon-basics-wire-rack",
+      "asin": "B01LWP8AL2",
+      "collection": "home-organization",
+      "rank": "#23 Home Storage & Organization snapshot",
+      "rating": 4.6,
+      "reviews": 263899,
+      "destination": "https://www.astralabsph.com/pirevo/products/amazon-basics-wire-rack/index.html"
+    },
+    {
+      "priority": 2,
+      "slug": "amazon-basics-storage-cubes-6",
+      "asin": "B0711RQMNF",
+      "collection": "home-organization",
+      "rank": "#26 Home Storage & Organization snapshot",
+      "rating": 4.7,
+      "reviews": 120177,
+      "destination": "https://www.astralabsph.com/pirevo/products/amazon-basics-storage-cubes-6/index.html"
+    },
+    {
+      "priority": 3,
+      "slug": "veken-shower-caddy-6",
+      "asin": "B0CJ56M8D4",
+      "collection": "home-organization",
+      "rank": "#29 Home Storage & Organization snapshot",
+      "rating": 4.6,
+      "reviews": 15552,
+      "destination": "https://www.astralabsph.com/pirevo/products/veken-shower-caddy-6/index.html"
+    },
+    {
+      "priority": 4,
+      "slug": "vtopmart-drawer-organizers-25",
+      "asin": "B08KXKVT4K",
+      "collection": "home-organization",
+      "rank": "#30 Home Storage & Organization snapshot",
+      "rating": 4.7,
+      "reviews": 49774,
+      "destination": "https://www.astralabsph.com/pirevo/products/vtopmart-drawer-organizers-25/index.html"
+    },
+    {
+      "priority": 5,
+      "slug": "cisily-sink-organizer",
+      "asin": "B0C3QZ7SNF",
+      "collection": "home-organization",
+      "rank": "#12 Home Storage & Organization snapshot",
+      "rating": 4.6,
+      "reviews": 15192,
+      "destination": "https://www.astralabsph.com/pirevo/products/cisily-sink-organizer/index.html"
+    },
+    {
+      "priority": 6,
+      "slug": "owala-freesip-24-dark",
+      "asin": "B085DTZQNZ",
+      "collection": "kitchen",
+      "rank": "#1 Kitchen & Dining snapshot",
+      "rating": 4.6,
+      "reviews": 140599,
+      "destination": "https://www.astralabsph.com/pirevo/products/owala-freesip-24-dark/index.html"
+    },
+    {
+      "priority": 7,
+      "slug": "etekcity-kitchen-scale",
+      "asin": "B0113UZJE2",
+      "collection": "kitchen",
+      "rank": "#3 Kitchen & Dining snapshot",
+      "rating": 4.6,
+      "reviews": 177569,
+      "destination": "https://www.astralabsph.com/pirevo/products/etekcity-kitchen-scale/index.html"
+    },
+    {
+      "priority": 8,
+      "slug": "rubbermaid-brilliance-5",
+      "asin": "B079M8FPTW",
+      "collection": "kitchen",
+      "rank": "#5 Kitchen & Dining snapshot",
+      "rating": 4.7,
+      "reviews": 59778,
+      "destination": "https://www.astralabsph.com/pirevo/products/rubbermaid-brilliance-5/index.html"
+    },
+    {
+      "priority": 9,
+      "slug": "alpha-grillers-thermometer",
+      "asin": "B00S93EQUK",
+      "collection": "kitchen",
+      "rank": "#13 Kitchen & Dining snapshot",
+      "rating": 4.8,
+      "reviews": 92549,
+      "destination": "https://www.astralabsph.com/pirevo/products/alpha-grillers-thermometer/index.html"
+    },
+    {
+      "priority": 10,
+      "slug": "kitchenaid-kitchen-shears",
+      "asin": "B07PZF3QS3",
+      "collection": "kitchen",
+      "rank": "#15 Kitchen & Dining snapshot",
+      "rating": 4.8,
+      "reviews": 72574,
+      "destination": "https://www.astralabsph.com/pirevo/products/kitchenaid-kitchen-shears/index.html"
+    },
+    {
+      "priority": 11,
+      "slug": "medicube-zero-pore-pad",
+      "asin": "B09V7Z4TJG",
+      "collection": "beauty",
+      "rank": "#1 Beauty & Personal Care snapshot",
+      "rating": 4.6,
+      "reviews": 33532,
+      "destination": "https://www.astralabsph.com/pirevo/products/medicube-zero-pore-pad/index.html"
+    },
+    {
+      "priority": 12,
+      "slug": "mighty-patch-original-36",
+      "asin": "B074PVTPBW",
+      "collection": "beauty",
+      "rank": "#2 Beauty & Personal Care snapshot",
+      "rating": 4.6,
+      "reviews": 189136,
+      "destination": "https://www.astralabsph.com/pirevo/products/mighty-patch-original-36/index.html"
+    },
+    {
+      "priority": 13,
+      "slug": "clean-skin-club-towels-xl",
+      "asin": "B07PBXXNCY",
+      "collection": "beauty",
+      "rank": "#3 Beauty & Personal Care snapshot",
+      "rating": 4.8,
+      "reviews": 43347,
+      "destination": "https://www.astralabsph.com/pirevo/products/clean-skin-club-towels-xl/index.html"
+    },
+    {
+      "priority": 14,
+      "slug": "eos-vanilla-cashmere-lotion",
+      "asin": "B08KT2Z93D",
+      "collection": "beauty",
+      "rank": "#4 Beauty & Personal Care snapshot",
+      "rating": 4.7,
+      "reviews": 67845,
+      "destination": "https://www.astralabsph.com/pirevo/products/eos-vanilla-cashmere-lotion/index.html"
+    },
+    {
+      "priority": 15,
+      "slug": "panoxyl-10-foaming-wash",
+      "asin": "B081KL2QYJ",
+      "collection": "beauty",
+      "rank": "#10 Beauty & Personal Care snapshot",
+      "rating": 4.6,
+      "reviews": 83825,
+      "destination": "https://www.astralabsph.com/pirevo/products/panoxyl-10-foaming-wash/index.html"
+    },
+    {
+      "priority": 16,
+      "slug": "apple-airtag-2",
+      "asin": "B0GJTFXNRX",
+      "collection": "tech",
+      "rank": "#3 Electronics snapshot",
+      "rating": 4.6,
+      "reviews": 11546,
+      "destination": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html"
+    },
+    {
+      "priority": 17,
+      "slug": "echo-dot-charcoal",
+      "asin": "B09B8V1LZ3",
+      "collection": "tech",
+      "rank": "#6 Electronics snapshot",
+      "rating": 4.7,
+      "reviews": 200484,
+      "destination": "https://www.astralabsph.com/pirevo/products/echo-dot-charcoal/index.html"
+    },
+    {
+      "priority": 18,
+      "slug": "roku-streaming-stick-hd",
+      "asin": "B0DXXYS4BJ",
+      "collection": "tech",
+      "rank": "#7 Electronics snapshot",
+      "rating": 4.6,
+      "reviews": 24867,
+      "destination": "https://www.astralabsph.com/pirevo/products/roku-streaming-stick-hd/index.html"
+    },
+    {
+      "priority": 19,
+      "slug": "beats-solo-4-black",
+      "asin": "B0CZPLV566",
+      "collection": "tech",
+      "rank": "#15 Electronics snapshot",
+      "rating": 4.6,
+      "reviews": 29414,
+      "destination": "https://www.astralabsph.com/pirevo/products/beats-solo-4-black/index.html"
+    },
+    {
+      "priority": 20,
+      "slug": "amazon-smart-plug-2",
+      "asin": "B0D9C2V83V",
+      "collection": "tech",
+      "rank": "#16 Electronics snapshot",
+      "rating": 4.7,
+      "reviews": 571232,
+      "destination": "https://www.astralabsph.com/pirevo/products/amazon-smart-plug-2/index.html"
+    },
+    {
+      "priority": 21,
+      "slug": "xbox-controller-shock-blue",
+      "asin": "B0F1J12R6N",
+      "collection": "gaming",
+      "rank": "#5 Video Game Consoles & Accessories snapshot",
+      "rating": 4.7,
+      "reviews": 1909,
+      "destination": "https://www.astralabsph.com/pirevo/products/xbox-controller-shock-blue/index.html"
+    },
+    {
+      "priority": 22,
+      "slug": "amfilm-switch2-onetouch",
+      "asin": "B0DRCKDWD1",
+      "collection": "gaming",
+      "rank": "#7 Video Game Consoles & Accessories snapshot",
+      "rating": 4.6,
+      "reviews": 17174,
+      "destination": "https://www.astralabsph.com/pirevo/products/amfilm-switch2-onetouch/index.html"
+    },
+    {
+      "priority": 23,
+      "slug": "samsung-switch2-microsd-256",
+      "asin": "B0F3VTCZK8",
+      "collection": "gaming",
+      "rank": "#14 Video Game Consoles & Accessories snapshot",
+      "rating": 4.8,
+      "reviews": 3911,
+      "destination": "https://www.astralabsph.com/pirevo/products/samsung-switch2-microsd-256/index.html"
+    },
+    {
+      "priority": 24,
+      "slug": "nintendo-joycon-neon",
+      "asin": "B01N6QJ58Y",
+      "collection": "gaming",
+      "rank": "#18 Video Game Consoles & Accessories snapshot",
+      "rating": 4.7,
+      "reviews": 82986,
+      "destination": "https://www.astralabsph.com/pirevo/products/nintendo-joycon-neon/index.html"
+    },
+    {
+      "priority": 25,
+      "slug": "kontrolfreek-galaxy-black",
+      "asin": "B0B4862QNJ",
+      "collection": "gaming",
+      "rank": "#27 Video Game Consoles & Accessories snapshot",
+      "rating": 4.6,
+      "reviews": 6321,
+      "destination": "https://www.astralabsph.com/pirevo/products/kontrolfreek-galaxy-black/index.html"
+    },
+    {
+      "priority": 26,
+      "slug": "earth-rated-dog-wipes",
+      "asin": "B07NHL31CC",
+      "collection": "pets",
+      "rank": "#1 Dog Grooming Supplies snapshot",
+      "rating": 4.6,
+      "reviews": 70354,
+      "destination": "https://www.astralabsph.com/pirevo/products/earth-rated-dog-wipes/index.html"
+    },
+    {
+      "priority": 27,
+      "slug": "swihauk-slicker-brush",
+      "asin": "B0CLLPVZRV",
+      "collection": "pets",
+      "rank": "#5 Dog Grooming Supplies snapshot",
+      "rating": 4.6,
+      "reviews": 14328,
+      "destination": "https://www.astralabsph.com/pirevo/products/swihauk-slicker-brush/index.html"
+    },
+    {
+      "priority": 28,
+      "slug": "sleekez-dog-brush-5",
+      "asin": "B00VC8DQX2",
+      "collection": "pets",
+      "rank": "#6 Dog Grooming Supplies snapshot",
+      "rating": 4.6,
+      "reviews": 36885,
+      "destination": "https://www.astralabsph.com/pirevo/products/sleekez-dog-brush-5/index.html"
+    },
+    {
+      "priority": 29,
+      "slug": "maxpower-grooming-rake",
+      "asin": "B07P2N8HQH",
+      "collection": "pets",
+      "rank": "#16 Dog Grooming Supplies snapshot",
+      "rating": 4.6,
+      "reviews": 59945,
+      "destination": "https://www.astralabsph.com/pirevo/products/maxpower-grooming-rake/index.html"
+    },
+    {
+      "priority": 30,
+      "slug": "buenkee-grooming-vacuum",
+      "asin": "B0D7W1P79Y",
+      "collection": "pets",
+      "rank": "#8 Dog Grooming Clipper Kits snapshot",
+      "rating": 4.6,
+      "reviews": 3528,
+      "destination": "https://www.astralabsph.com/pirevo/products/buenkee-grooming-vacuum/index.html"
+    },
+    {
+      "priority": 31,
+      "slug": "amazon-basics-neoprene-dumbbells",
+      "asin": "B01LR5S6HK",
+      "collection": "fitness",
+      "rank": "#3 Exercise & Fitness Equipment snapshot",
+      "rating": 4.8,
+      "reviews": 15741,
+      "destination": "https://www.astralabsph.com/pirevo/products/amazon-basics-neoprene-dumbbells/index.html"
+    },
+    {
+      "priority": 32,
+      "slug": "gaiam-thick-yoga-mat",
+      "asin": "B07H9PZDQW",
+      "collection": "fitness",
+      "rank": "#19 Exercise & Fitness Equipment snapshot",
+      "rating": 4.6,
+      "reviews": 46703,
+      "destination": "https://www.astralabsph.com/pirevo/products/gaiam-thick-yoga-mat/index.html"
+    },
+    {
+      "priority": 33,
+      "slug": "crz-butterluxe-leggings",
+      "asin": "B09P1GB319",
+      "collection": "fitness",
+      "rank": "#7 Exercise & Fitness Equipment snapshot",
+      "rating": 4.6,
+      "reviews": 18715,
+      "destination": "https://www.astralabsph.com/pirevo/products/crz-butterluxe-leggings/index.html"
+    },
+    {
+      "priority": 34,
+      "slug": "under-armour-tech-2-tee",
+      "asin": "B0785VXRX2",
+      "collection": "fitness",
+      "rank": "#21 Exercise & Fitness Equipment snapshot",
+      "rating": 4.6,
+      "reviews": 111051,
+      "destination": "https://www.astralabsph.com/pirevo/products/under-armour-tech-2-tee/index.html"
+    },
+    {
+      "priority": 35,
+      "slug": "new-balance-608-v5",
+      "asin": "B07B421VFF",
+      "collection": "fitness",
+      "rank": "#24 Exercise & Fitness Equipment snapshot",
+      "rating": 4.6,
+      "reviews": 89435,
+      "destination": "https://www.astralabsph.com/pirevo/products/new-balance-608-v5/index.html"
+    },
+    {
+      "priority": 36,
+      "slug": "tessan-europe-adapter-2",
+      "asin": "B0B27HX6P7",
+      "collection": "travel",
+      "rank": "#2 Luggage & Travel Gear snapshot",
+      "rating": 4.6,
+      "reviews": 7941,
+      "destination": "https://www.astralabsph.com/pirevo/products/tessan-europe-adapter-2/index.html"
+    },
+    {
+      "priority": 37,
+      "slug": "travel-inspira-luggage-scale",
+      "asin": "B07QFTGGYF",
+      "collection": "travel",
+      "rank": "#4 Luggage & Travel Gear snapshot",
+      "rating": 4.7,
+      "reviews": 22205,
+      "destination": "https://www.astralabsph.com/pirevo/products/travel-inspira-luggage-scale/index.html"
+    },
+    {
+      "priority": 38,
+      "slug": "taygeer-carryon-backpack",
+      "asin": "B09MQWWP87",
+      "collection": "travel",
+      "rank": "#5 Luggage & Travel Gear snapshot",
+      "rating": 4.7,
+      "reviews": 30747,
+      "destination": "https://www.astralabsph.com/pirevo/products/taygeer-carryon-backpack/index.html"
+    },
+    {
+      "priority": 39,
+      "slug": "bagsmart-hanging-toiletry",
+      "asin": "B07SL2RKJK",
+      "collection": "travel",
+      "rank": "#12 Luggage & Travel Gear snapshot",
+      "rating": 4.8,
+      "reviews": 64829,
+      "destination": "https://www.astralabsph.com/pirevo/products/bagsmart-hanging-toiletry/index.html"
+    },
+    {
+      "priority": 40,
+      "slug": "bagail-packing-cubes-8",
+      "asin": "B08S35399Y",
+      "collection": "travel",
+      "rank": "#13 Luggage & Travel Gear snapshot",
+      "rating": 4.6,
+      "reviews": 44237,
+      "destination": "https://www.astralabsph.com/pirevo/products/bagail-packing-cubes-8/index.html"
+    },
+    {
+      "priority": 41,
+      "slug": "ancel-ad310-obd2",
+      "asin": "B01G5EA74I",
+      "collection": "car",
+      "rank": "#12 Automotive snapshot",
+      "rating": 4.6,
+      "reviews": 66967,
+      "destination": "https://www.astralabsph.com/pirevo/products/ancel-ad310-obd2/index.html"
+    },
+    {
+      "priority": 42,
+      "slug": "cerakote-headlight-kit",
+      "asin": "B084RQKLV8",
+      "collection": "car",
+      "rank": "#15 Automotive snapshot",
+      "rating": 4.6,
+      "reviews": 75054,
+      "destination": "https://www.astralabsph.com/pirevo/products/cerakote-headlight-kit/index.html"
+    },
+    {
+      "priority": 43,
+      "slug": "hotor-trunk-organizer",
+      "asin": "B0CM6KVCSX",
+      "collection": "car",
+      "rank": "#1 Trunk Organizers cross-check",
+      "rating": 4.6,
+      "reviews": 6174,
+      "destination": "https://www.astralabsph.com/pirevo/products/hotor-trunk-organizer/index.html"
+    },
+    {
+      "priority": 44,
+      "slug": "usanooks-microfiber-12",
+      "asin": "B08BRJHJF9",
+      "collection": "car",
+      "rank": "#6 Automotive / #1 Exterior Car Care Microfiber Cloths cross-check",
+      "rating": 4.6,
+      "reviews": 17081,
+      "destination": "https://www.astralabsph.com/pirevo/products/usanooks-microfiber-12/index.html"
+    },
+    {
+      "priority": 45,
+      "slug": "mobil1-afe-0w20-5qt",
+      "asin": "B00J00X5YO",
+      "collection": "car",
+      "rank": "#3 Automotive snapshot",
+      "rating": 4.8,
+      "reviews": 6438,
+      "destination": "https://www.astralabsph.com/pirevo/products/mobil1-afe-0w20-5qt/index.html"
+    },
+    {
+      "priority": 46,
+      "slug": "crayola-airbrush-kit",
+      "asin": "B0DTB2N2D9",
+      "collection": "kids",
+      "rank": "#5 Toys & Games snapshot",
+      "rating": 4.8,
+      "reviews": 1531,
+      "destination": "https://www.astralabsph.com/pirevo/products/crayola-airbrush-kit/index.html"
+    },
+    {
+      "priority": 47,
+      "slug": "cupkin-animal-sticker-book",
+      "asin": "B098PMWSVS",
+      "collection": "kids",
+      "rank": "#11 Toys & Games snapshot",
+      "rating": 4.8,
+      "reviews": 6877,
+      "destination": "https://www.astralabsph.com/pirevo/products/cupkin-animal-sticker-book/index.html"
+    },
+    {
+      "priority": 48,
+      "slug": "playdoh-36-pack",
+      "asin": "B00JM5GZGW",
+      "collection": "kids",
+      "rank": "#14 Toys & Games snapshot",
+      "rating": 4.8,
+      "reviews": 28824,
+      "destination": "https://www.astralabsph.com/pirevo/products/playdoh-36-pack/index.html"
+    },
+    {
+      "priority": 49,
+      "slug": "lego-city-police-motorcycle-60455",
+      "asin": "B0DRW5NFHG",
+      "collection": "kids",
+      "rank": "#13 Toys & Games snapshot",
+      "rating": 4.9,
+      "reviews": 981,
+      "destination": "https://www.astralabsph.com/pirevo/products/lego-city-police-motorcycle-60455/index.html"
+    },
+    {
+      "priority": 50,
+      "slug": "kawaii-squishy-30pack",
+      "asin": "B0DG2VRFV7",
+      "collection": "kids",
+      "rank": "#2 Toys & Games snapshot",
+      "rating": 4.6,
+      "reviews": 5231,
+      "destination": "https://www.astralabsph.com/pirevo/products/kawaii-squishy-30pack/index.html"
+    }
+  ]
+}
