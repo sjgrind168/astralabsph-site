@@ -283,18 +283,15 @@ def main():
             report["status"] = "ERROR"
             report["blockers"].append(f"Analytics API error: {type(exc).__name__}: {exc}")
 
-    dated = OUT / f"{today.isoformat()}.json"
-    latest = OUT / "latest.json"
-    payload = json.dumps(report, indent=2, ensure_ascii=False) + "\n"
-    dated.write_text(payload, encoding="utf-8")
-    latest.write_text(payload, encoding="utf-8")
-
-    print("PIREVO_BUSINESS_ANALYTICS")
+    # Privacy rule: this repository is public, so actual business metrics are never
+    # written into the repository or printed into public Actions logs.
+    print("PIREVO_BUSINESS_ANALYTICS_HEALTH")
     print(json.dumps({
         "status": report["status"],
-        "window": report["window"],
+        "ga4_access": bool(report.get("ga4")),
+        "gsc_access": bool(report.get("search_console")),
+        "collection_enabled": bool(measurement_id),
         "blockers": report["blockers"],
-        "summary": report["business_summary"],
     }, indent=2))
 
 if __name__ == "__main__":
