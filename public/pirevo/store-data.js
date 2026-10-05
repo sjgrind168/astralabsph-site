@@ -2092,6 +2092,240 @@ window.PIREVO_STORE = {
         "title": "Digital Photo Frame Gift for Parents | 10.1-Inch FRAMEO 32GB | PIREVO",
         "description": "Compare this 10.1-inch FRAMEO WiFi digital photo frame as a Christmas gift for parents and grandparents, including 32GB storage, phone sharing and buying tradeoffs."
       }
+    },
+    {
+      "slug": "anker-nano-3in1-10k",
+      "collection": "gifts",
+      "badge": "PRACTICAL TECH GIFT",
+      "brand": "Anker",
+      "shortName": "Nano 3-in-1 10K Portable Charger",
+      "fullName": "Anker Nano 3-in-1 Portable Charger, 10,000mAh 30W Travel Power Bank with Built-In USB-C Cable and Foldable Wall Plug, Black",
+      "asin": "B0CX4992Z8",
+      "rating": 4.6,
+      "reviews": 3111,
+      "rank": "2K+ bought in past month snapshot",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61QjXMm2VTL._AC_SL1500_.jpg",
+      "trend": "practical tech gifts + travel charger + stocking gift for phone users",
+      "why": "A strong utility gift with 4.6 stars across 3.1k+ ratings and 2K+ bought in the past month when researched. The 3-in-1 design combines a wall charger, 10,000mAh power bank and built-in USB-C cable.",
+      "bestFor": "Travelers, commuters, students, coworkers and iPhone/Android users who would rather carry one charger than a tangle of cables and bricks.",
+      "caveat": "This exact listing is the black 10,000mAh 30W version. It is compact for its feature set but still heavier than a tiny emergency battery, and the built-in plug is designed around compatible wall outlets.",
+      "bullets": [
+        "10,000mAh battery capacity",
+        "30W two-way fast charging",
+        "Built-in USB-C cable",
+        "Foldable wall plug",
+        "4.6-star / 3.1k+ rating snapshot",
+        "2K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CX4992Z8?tag=pirevo-20",
+      "galleryIds": [
+        "61QjXMm2VTL",
+        "614OfiBkyZL",
+        "71ukAnxkWQL",
+        "61NmRnphNJL",
+        "41OJMOaIuWL",
+        "41YcnfuYG3L"
+      ],
+      "about": [
+        "The exact PIREVO variant is the black 10,000mAh 30W Anker Nano 3-in-1.",
+        "It combines a portable battery, foldable wall charger and built-in USB-C cable in one device.",
+        "The charger supports up to 30W two-way USB-C charging.",
+        "Anker lists simultaneous charging support for two devices.",
+        "The product is designed for travel and everyday carry rather than high-capacity laptop-only use.",
+        "The package includes the charger/power bank and Anker support coverage."
+      ],
+      "details": [
+        [
+          "Capacity",
+          "10,000mAh"
+        ],
+        [
+          "Output",
+          "Up to 30W"
+        ],
+        [
+          "Built-in cable",
+          "USB-C"
+        ],
+        [
+          "Wall plug",
+          "Foldable"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Use",
+          "Travel / everyday charging"
+        ],
+        [
+          "Amazon snapshot",
+          "2K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "practical tech gifts for travelers and phone users",
+        "title": "Practical Tech Gift: Anker Nano 3-in-1 10K Charger | PIREVO",
+        "description": "Compare the Anker Nano 3-in-1 10,000mAh 30W portable charger as a practical holiday gift, including built-in USB-C cable, foldable wall plug and current buyer evidence."
+      }
+    },
+    {
+      "slug": "jbl-clip-5-black",
+      "collection": "gifts",
+      "badge": "PORTABLE AUDIO GIFT",
+      "brand": "JBL",
+      "shortName": "Clip 5 Bluetooth Speaker, Black",
+      "fullName": "JBL Clip 5 Ultra-Portable Waterproof & Dustproof Bluetooth Speaker, Black",
+      "asin": "B0CTP56C5R",
+      "rating": 4.6,
+      "reviews": 9101,
+      "rank": "Amazon's Choice • 5K+ bought in past month",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/81BdIR8hyUL._AC_SL1500_.jpg",
+      "trend": "portable Bluetooth speaker gift + gifts for travelers + outdoor audio gift",
+      "why": "A broad holiday gift with 4.6 stars across 9.1k+ ratings, Amazon's Choice status and 5K+ bought in the past month when researched. The built-in carabiner gives it a clear travel/outdoor hook.",
+      "bestFor": "Travelers, students, hikers, beach-goers, commuters and anyone who wants a small speaker that can clip onto a bag.",
+      "caveat": "The Clip 5 is intentionally compact, so it is built for portability rather than room-filling bass. Battery life depends on volume and Playtime Boost settings.",
+      "bullets": [
+        "Ultra-portable Bluetooth speaker",
+        "Integrated wide-opening carabiner",
+        "IP67 waterproof + dustproof",
+        "Up to 12 hours playtime",
+        "4.6-star / 9.1k+ rating snapshot",
+        "5K+ bought in past month when researched"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CTP56C5R?tag=pirevo-20",
+      "galleryIds": [
+        "81BdIR8hyUL",
+        "41jYyKRVqmL",
+        "51RR066xJ0L",
+        "51TczVPyDSL",
+        "41nGYOs7TxL",
+        "41I3on1fFXL"
+      ],
+      "about": [
+        "The exact PIREVO variant is the JBL Clip 5 in black.",
+        "The speaker uses an integrated carabiner so it can clip onto bags, straps and loops.",
+        "JBL lists up to 12 hours of playtime, with additional time available through Playtime Boost.",
+        "The IP67 rating covers water and dust resistance for outdoor use.",
+        "Two Clip 5 speakers can be paired for stereo, and compatible Auracast speakers can be linked together.",
+        "The package includes the speaker, charging cable and documentation."
+      ],
+      "details": [
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Battery",
+          "Up to 12 hours"
+        ],
+        [
+          "Protection",
+          "IP67"
+        ],
+        [
+          "Mounting",
+          "Integrated carabiner"
+        ],
+        [
+          "Connection",
+          "Bluetooth"
+        ],
+        [
+          "Use",
+          "Travel / outdoor / everyday"
+        ],
+        [
+          "Amazon snapshot",
+          "5K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "portable Bluetooth speaker gift for travelers",
+        "title": "Portable Bluetooth Speaker Gift | JBL Clip 5 Black | PIREVO",
+        "description": "Compare the JBL Clip 5 Black as a portable holiday gift for travelers, students and outdoor use, including IP67 protection, carabiner design and current Amazon buyer evidence."
+      }
+    },
+    {
+      "slug": "national-tree-wintry-pine-garland",
+      "collection": "seasonal",
+      "badge": "CHRISTMAS GARLAND PICK",
+      "brand": "National Tree Company",
+      "shortName": "9-ft Pre-Lit Wintry Pine Garland",
+      "fullName": "National Tree Company 9ft Pre-Lit Wintry Pine Flocked Christmas Garland with 100 Clear Lights, 184 Tips, Pinecones and Red Berries",
+      "asin": "B00EJ2E1HI",
+      "rating": 4.6,
+      "reviews": 1004,
+      "rank": "Established Christmas garland pick",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81MkaqhUh+L.jpg",
+      "trend": "pre-lit Christmas garland for mantel + staircase + classic holiday greenery",
+      "why": "A classic Christmas-decor product with a 4.6-star / 1k+ rating cross-check and strong long-term category fit. It fills a missing mantel/staircase decor role in the seasonal collection.",
+      "bestFor": "Mantels, stair railings, doorways and shelves where a fuller traditional pine-and-berry Christmas look is wanted.",
+      "caveat": "Customer feedback is mixed on light reliability and value, so this is a monitored seasonal decor pick rather than a high-volume winner. It is also a plug-in pre-lit decoration, so outlet placement matters.",
+      "bullets": [
+        "9-ft artificial Christmas garland",
+        "100 clear lights",
+        "184 branch tips",
+        "Flocked pine with pinecones + red berries",
+        "4.6-star / 1k+ rating cross-check",
+        "Monitored Christmas decor pick"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00EJ2E1HI?tag=pirevo-20",
+      "galleryIds": [
+        "81MkaqhUh+L",
+        "51wor90wwUL",
+        "41LqSJpCQOL",
+        "51RoxbZocpL",
+        "41Yw+KgfobL",
+        "51EH7tzr2ML"
+      ],
+      "about": [
+        "The garland is approximately nine feet long and uses a Wintry Pine branch style.",
+        "The design includes flocking, pinecones and red berries for a traditional holiday look.",
+        "The exact listing is pre-lit with 100 clear lights.",
+        "Amazon customer summaries frequently mention fullness and mantel decorating as strengths.",
+        "The garland is intended for indoor seasonal decorating and covered decorative placements.",
+        "Some customer feedback mentions inconsistent lighting performance, which PIREVO flags as the main tradeoff."
+      ],
+      "details": [
+        [
+          "Length",
+          "9 ft"
+        ],
+        [
+          "Lights",
+          "100 clear"
+        ],
+        [
+          "Tips",
+          "184"
+        ],
+        [
+          "Decor",
+          "Flocking, pinecones, red berries"
+        ],
+        [
+          "Use",
+          "Mantel / stairs / doorway"
+        ],
+        [
+          "Power",
+          "Plug-in"
+        ],
+        [
+          "Status",
+          "Monitored seasonal pick"
+        ]
+      ],
+      "seo": {
+        "intent": "pre lit Christmas garland for mantel and stairs",
+        "title": "Pre-Lit Christmas Garland for Mantels & Stairs | National Tree Company | PIREVO",
+        "description": "Compare this 9-ft National Tree Company pre-lit Wintry Pine Christmas garland for mantels, stairs and doorways, including lights, branch count and buying tradeoffs."
+      }
     }
   ]
 };
