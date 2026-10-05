@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root{--ink:#132018;--deep:#183a28;--green:#456e4d;--mid:#78976c;--lime:#cfe78f;--paper:#f5f2e9;--card:#fbfaf5;--line:#e3dfd3;--muted:#70786d;--shadow:0 12px 36px rgba(26,35,27,.07)}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(135deg,#f7f4ec 0%,#f3f0e6 52%,#eef1e5 100%);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    body{min-height:100vh}
+    .shell{max-width:1740px;margin:0 auto;padding:26px 30px 38px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:20px}
+    .mark{width:54px;height:54px;position:relative}
+    .mark:before,.mark:after{content:"";position:absolute;width:27px;height:42px;background:var(--deep);border-radius:28px 2px 28px 2px;transform:rotate(-38deg);left:6px;top:7px}
+    .mark:after{transform:rotate(38deg) scaleX(-1);left:25px}
+    .brandword{font-family:Georgia,serif;font-size:42px;letter-spacing:.06em}
+    .divider{width:1px;height:56px;background:#bdc3b8;margin:0 5px}
+    h1{font-family:Georgia,serif;font-weight:500;font-size:44px;margin:0}
+    .sub{font-size:11px;letter-spacing:.38em;color:var(--muted);margin-top:8px}
+    .period{text-align:right;font-family:Georgia,serif;font-size:18px}
+    .period small{display:block;font:500 10px Inter,sans-serif;letter-spacing:.22em;color:var(--muted);margin-top:8px}
+    .liveDot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#7dbf58;box-shadow:0 0 0 5px rgba(125,191,88,.12);margin-right:8px}
+    .kpis{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;margin-bottom:18px}
+    .card{background:rgba(255,255,255,.62);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.85);border-radius:16px;box-shadow:var(--shadow)}
+    .kpi{padding:20px 18px 17px;min-height:138px}
+    .kpiHead{display:flex;align-items:center;gap:9px;font-family:Georgia,serif;font-size:17px}
+    .icon{width:25px;height:25px;display:grid;place-items:center;color:var(--deep);font-weight:800}
+    .num{font-family:Georgia,serif;font-size:42px;line-height:1;margin:18px 0 8px}
+    .cap{font-size:9px;letter-spacing:.2em;color:#7b8178;text-transform:uppercase}
+    .gridTop{display:grid;grid-template-columns:1.25fr .9fr .95fr .85fr;gap:16px;margin-bottom:16px}
+    .panel{padding:22px 22px 18px;min-height:305px}
+    .title{font-family:Georgia,serif;font-size:22px;margin:0 0 18px;display:flex;align-items:center;gap:10px}
+    .traffic{display:grid;grid-template-columns:200px 1fr;align-items:center;gap:18px}
+    .donut{width:190px;height:190px;border-radius:50%;position:relative;background:conic-gradient(var(--deep) 0 35%,#567f55 35% 58%,#8daa66 58% 77%,#aeb99b 77% 89%,#d7d6ce 89% 100%)}
+    .donut:after{content:"";position:absolute;inset:48px;border-radius:50%;background:#fbfaf5}
+    .donutCenter{position:absolute;inset:0;z-index:2;display:grid;place-content:center;text-align:center;font-family:Georgia,serif;font-size:31px}
+    .donutCenter small{font-size:14px;color:var(--muted)}
+    .legend{display:grid;gap:14px}
+    .legendRow{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;font-family:Georgia,serif;font-size:16px}
+    .dot{width:11px;height:11px;border-radius:50%;background:#ccc}
+    .list{display:grid;gap:0}
+    .row{display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;min-height:45px;border-top:1px solid var(--line);font-family:Georgia,serif;font-size:15px}
+    .row:first-child{border-top:0}
+    .rank{color:var(--green)}
+    .metric{font-weight:700}
+    .queryRow{grid-template-columns:26px 1fr}
+    .bottom{display:grid;grid-template-columns:1.58fr 1fr;gap:16px}
+    .table{width:100%;border-collapse:collapse;font-size:14px}
+    .table th{text-align:left;font-size:9px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;padding:0 10px 11px}
+    .table td{border-top:1px solid var(--line);padding:11px 10px}
+    .table td:first-child{font-family:Georgia,serif}
+    .rightStack{display:grid;grid-template-rows:auto auto;gap:16px}
+    .searchStats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .mini{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.32)}
+    .mini label{font-family:Georgia,serif;font-size:14px}
+    .mini strong{display:block;font-family:Georgia,serif;font-size:30px;font-weight:500;margin:8px 0 7px}
+    .spark{height:26px;background:linear-gradient(165deg,transparent 48%,#8cbb55 49% 53%,rgba(140,187,85,.12) 54%);border-radius:4px}
+    .maturity{min-height:92px;padding:20px 24px;background:linear-gradient(90deg,#eef3df,#f7f7ee);display:flex;gap:16px;align-items:center}
+    .leaf{font-size:32px}
+    .maturity strong{font-family:Georgia,serif;font-size:20px}
+    .maturity p{margin:5px 0 0;color:#526052;font-size:13px}
+    .statusline{margin-top:14px;font-size:11px;color:#788076}
+    .error{color:#9a4d3c}
+    .skeleton{color:#a6aa9f}
+    @media(max-width:1200px){.kpis{grid-template-columns:repeat(4,1fr)}.gridTop{grid-template-columns:1fr 1fr}.bottom{grid-template-columns:1fr}.traffic{grid-template-columns:170px 1fr}.donut{width:160px;height:160px}.donut:after{inset:40px}}
+    @media(max-width:720px){.shell{padding:18px 14px}.brandword,.divider,.sub{display:none}h1{font-size:29px}.period{font-size:14px}.kpis{grid-template-columns:repeat(2,1fr)}.gridTop{grid-template-columns:1fr}.traffic{grid-template-columns:1fr}.donut{margin:auto}.searchStats{grid-template-columns:1fr 1fr}.table{font-size:11px}.panel{padding:17px}.kpi{min-height:120px}.num{font-size:35px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <div class="mark"></div>
+      <div class="brandword">PIREVO</div>
+      <div class="divider"></div>
+      <div><h1>PIREVO Analytics</h1><div class="sub">DISCOVER · SHOP · MEASURE</div></div>
+    </div>
+    <div class="period"><span class="liveDot"></span>Last 7 days<small id="fresh">AUTO REFRESH · 60 SEC</small></div>
+  </header>
+
+  <section class="kpis">
+    <div class="card kpi"><div class="kpiHead"><span class="icon">◉</span>Users</div><div class="num" id="users">—</div><div class="cap">Unique visitors</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">▥</span>Sessions</div><div class="num" id="sessions">—</div><div class="cap">Total sessions</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">P</span>Pinterest Traffic</div><div class="num" id="pinterest">—</div><div class="cap">From Pinterest</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">G</span>Google Organic</div><div class="num" id="google">—</div><div class="cap">From Search</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">◇</span>Product Views</div><div class="num" id="views">—</div><div class="cap">Product page views</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">a</span>Amazon Clicks</div><div class="num" id="amazon">—</div><div class="cap">Outbound clicks</div></div>
+    <div class="card kpi"><div class="kpiHead"><span class="icon">↗</span>CTR</div><div class="num" id="ctr">—</div><div class="cap">Product page CTR</div></div>
+  </section>
+
+  <section class="gridTop">
+    <div class="card panel"><h2 class="title">Traffic Source Breakdown</h2><div class="traffic"><div style="position:relative"><div class="donut" id="donut"></div><div class="donutCenter"><span id="donutSessions">—</span><small>Sessions</small></div></div><div class="legend" id="trafficLegend"></div></div></div>
+    <div class="card panel"><h2 class="title">▤ Top Landing Pages</h2><div class="list" id="landing"></div></div>
+    <div class="card panel"><h2 class="title">♧ Top Products by Amazon Clicks</h2><div class="list" id="products"></div></div>
+    <div class="card panel"><h2 class="title">⌕ Top Search Queries</h2><div class="list" id="queries"></div></div>
+  </section>
+
+  <section class="bottom">
+    <div class="card panel"><h2 class="title">Ⓟ Pinterest Campaign Performance</h2><table class="table"><thead><tr><th>Campaign</th><th>Visits</th><th>Product Views</th><th>Amazon Clicks</th><th>CTR</th></tr></thead><tbody id="campaigns"></tbody></table><div class="statusline">Pinterest attribution uses PIREVO GA4 referral + UTM data.</div></div>
+    <div class="rightStack">
+      <div class="card panel" style="min-height:0"><h2 class="title">▥ Search Console Summary</h2><div class="searchStats"><div class="mini"><label>Impressions</label><strong id="impressions">—</strong><div class="spark"></div></div><div class="mini"><label>Clicks</label><strong id="gclicks">—</strong><div class="spark"></div></div><div class="mini"><label>CTR</label><strong id="gctr">—</strong><div class="spark"></div></div><div class="mini"><label>Avg Position</label><strong id="position">—</strong><div class="spark"></div></div></div><div class="statusline" id="scDelay">Search Console is not realtime and normally has a Google reporting delay.</div></div>
+      <div class="card maturity"><div class="leaf">❧</div><div><strong>Data maturity status</strong><p id="maturity">Loading current PIREVO business data…</p><div class="statusline" id="activeNow">Active PIREVO users now: —</div></div></div>
+    </div>
+  </section>
+  <div class="statusline" id="errors"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>n==null?'—':Number(n).toLocaleString();
+const pct=n=>n==null?'—':Number(n).toFixed(1)+'%';
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const colors=['#183a28','#567f55','#8daa66','#aeb99b','#d7d6ce'];
+
+function render(d){
+  $('users').textContent=fmt(d.kpis.users); $('sessions').textContent=fmt(d.kpis.sessions);
+  $('pinterest').textContent=fmt(d.kpis.pinterestTraffic); $('google').textContent=fmt(d.kpis.googleOrganic);
+  $('views').textContent=fmt(d.kpis.productViews); $('amazon').textContent=fmt(d.kpis.amazonClicks); $('ctr').textContent=pct(d.kpis.ctr);
+  $('donutSessions').textContent=fmt(d.kpis.sessions);
+  let acc=0,stops=[];
+  (d.traffic||[]).forEach((x,i)=>{const a=acc,b=acc+(x.pct||0);stops.push(colors[i]+' '+a+'% '+b+'%');acc=b});
+  if(stops.length)$('donut').style.background='conic-gradient('+stops.join(',')+')';
+  $('trafficLegend').innerHTML=(d.traffic||[]).map((x,i)=>'<div class="legendRow"><span class="dot" style="background:'+colors[i]+'"></span><span>'+esc(x.name)+'</span><strong>'+pct(x.pct)+'</strong></div>').join('')||'<span class="skeleton">Waiting for traffic data…</span>';
+  $('landing').innerHTML=(d.landingPages||[]).map((x,i)=>'<div class="row"><span class="rank">'+(i+1)+'</span><span>'+esc(x.name)+'</span><strong>'+fmt(x.sessions)+'</strong></div>').join('')||'<span class="skeleton">Waiting for landing-page data…</span>';
+  $('products').innerHTML=(d.products||[]).map((x,i)=>'<div class="row"><span class="rank">'+(i+1)+'</span><span>'+esc(x.name)+'</span><strong>'+fmt(x.clicks)+'</strong></div>').join('')||'<span class="skeleton">No Amazon clicks recorded yet.</span>';
+  $('queries').innerHTML=(d.queries||[]).map((x,i)=>'<div class="row queryRow"><span class="rank">'+(i+1)+'</span><span>'+esc(x.query)+'</span></div>').join('')||'<span class="skeleton">Search Console data is still maturing.</span>';
+  $('campaigns').innerHTML=(d.campaigns||[]).map(x=>'<tr><td>'+esc(x.campaign)+'</td><td>'+fmt(x.visits)+'</td><td>'+fmt(x.productViews)+'</td><td>'+fmt(x.amazonClicks)+'</td><td>'+pct(x.ctr)+'</td></tr>').join('')||'<tr><td colspan="5" class="skeleton">No attributable Pinterest campaign activity yet.</td></tr>';
+  const s=d.searchConsole||{};$('impressions').textContent=fmt(s.impressions);$('gclicks').textContent=fmt(s.clicks);$('gctr').textContent=pct(s.ctr);$('position').textContent=s.position==null?'—':Number(s.position).toFixed(1);
+  if(s.dataThrough)$('scDelay').textContent='Search Console reporting through '+s.dataThrough+' · Google data is delayed.';
+  $('maturity').textContent=d.maturity||'Data collection active.';
+  $('activeNow').textContent='Active PIREVO users now: '+fmt(d.realtime&&d.realtime.activeUsers);
+  $('fresh').textContent='UPDATED '+new Date(d.generatedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+' · AUTO REFRESH 60 SEC';
+  $('errors').innerHTML=(d.errors||[]).length?'<span class="error">Data notes: '+esc(d.errors.join(' · '))+'</span>':'';
+}
+function load(){google.script.run.withSuccessHandler(render).withFailureHandler(e=>{$('errors').innerHTML='<span class="error">'+esc(e.message||e)+'</span>'}).getDashboardData()}
+load();setInterval(load,60000);
+</script>
+</body>
+</html>
