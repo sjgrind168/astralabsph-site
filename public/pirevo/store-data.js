@@ -99,20 +99,6 @@ window.PIREVO_STORE = {
       "kicker": "GIFTS • CRAFTS • BUILDING",
       "description": "Creative toys, building sets and activity picks with strong category placement and gift-friendly visual appeal.",
       "signal": "Holiday gifts • creative play • activities"
-    },
-    {
-      "id": "organization",
-      "name": "Organization & Small Spaces",
-      "kicker": "HIGH-INTENT · BEFORE/AFTER FRIENDLY",
-      "description": "Pantry, sink, drawer and small-space organizers chosen for visual transformation potential and practical search intent.",
-      "signal": "Kitchen organization + small-space storage + apartment reset intent"
-    },
-    {
-      "id": "smart-home",
-      "name": "Smart Home & Everyday Tech",
-      "kicker": "USEFUL TECH · HOME UPGRADE",
-      "description": "Useful smart-home and everyday tech picks with strong search intent and current buyer proof.",
-      "signal": "Air quality + smart lighting + practical home-tech upgrades"
     }
   ],
   "products": [
@@ -3592,7 +3578,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "cisily-sink-caddy",
-      "collection": "organization",
+      "collection": "home-organization",
       "badge": "30K+ BOUGHT / MONTH",
       "brand": "Cisily",
       "shortName": "9.25-Inch Sink Caddy",
@@ -3654,7 +3640,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "oxo-pop-5pc",
-      "collection": "organization",
+      "collection": "home-organization",
       "badge": "PANTRY CLASSIC",
       "brand": "OXO",
       "shortName": "5-Piece POP Container Set",
@@ -3716,7 +3702,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "vtopmart-food-bins-4",
-      "collection": "organization",
+      "collection": "home-organization",
       "badge": "PANTRY VISUAL PICK",
       "brand": "Vtopmart",
       "shortName": "4-Pack Food Storage Organizer Bins",
@@ -3778,7 +3764,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "spaceaid-bag-organizer",
-      "collection": "organization",
+      "collection": "home-organization",
       "badge": "DRAWER RESET PICK",
       "brand": "SpaceAid",
       "shortName": "Bamboo Food Bag Organizer",
@@ -4336,7 +4322,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "levoit-core-200s",
-      "collection": "smart-home",
+      "collection": "tech",
       "badge": "10K+ BOUGHT / MONTH",
       "brand": "Levoit",
       "shortName": "Core 200S-P Smart Air Purifier",
@@ -4398,7 +4384,7 @@ window.PIREVO_STORE = {
     },
     {
       "slug": "govee-table-lamp-2",
-      "collection": "smart-home",
+      "collection": "tech",
       "badge": "3K+ BOUGHT / MONTH",
       "brand": "Govee",
       "shortName": "RGBIC Smart Table Lamp 2",
