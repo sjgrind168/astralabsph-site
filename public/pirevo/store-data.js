@@ -99,6 +99,20 @@ window.PIREVO_STORE = {
       "kicker": "GIFTS • CRAFTS • BUILDING",
       "description": "Creative toys, building sets and activity picks with strong category placement and gift-friendly visual appeal.",
       "signal": "Holiday gifts • creative play • activities"
+    },
+    {
+      "id": "organization",
+      "name": "Organization & Small Spaces",
+      "kicker": "HIGH-INTENT · BEFORE/AFTER FRIENDLY",
+      "description": "Pantry, sink, drawer and small-space organizers chosen for visual transformation potential and practical search intent.",
+      "signal": "Kitchen organization + small-space storage + apartment reset intent"
+    },
+    {
+      "id": "smart-home",
+      "name": "Smart Home & Everyday Tech",
+      "kicker": "USEFUL TECH · HOME UPGRADE",
+      "description": "Useful smart-home and everyday tech picks with strong search intent and current buyer proof.",
+      "signal": "Air quality + smart lighting + practical home-tech upgrades"
     }
   ],
   "products": [
@@ -3574,6 +3588,998 @@ window.PIREVO_STORE = {
         "intent": "30-pack kawaii squishy toys kids",
         "title": "30-Pack Kawaii Squishy Toys | #2 Toys & Games snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: 30 Pack Kawaii Squishy Mini Animal Sensory Toys and Party Favors. 4.6★ across 5,231 ratings with current Amazon category evidence."
+      }
+    },
+    {
+      "slug": "cisily-sink-caddy",
+      "collection": "organization",
+      "badge": "30K+ BOUGHT / MONTH",
+      "brand": "Cisily",
+      "shortName": "9.25-Inch Sink Caddy",
+      "fullName": "Cisily Sponge Holder for Kitchen Sink, Black 9.25-Inch Stainless Steel Sink Organizer",
+      "asin": "B0C3QZ7SNF",
+      "rating": 4.6,
+      "reviews": 15084,
+      "rank": "Amazon's Choice • 30K+ bought in past month",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81shIEM-H2L._AC_SL1500_.jpg",
+      "trend": "kitchen sink organization + small counter reset + renter-friendly storage",
+      "why": "A high-velocity organization pick with 4.6 stars, 15k+ ratings and 30K+ bought in the past month when researched.",
+      "bestFor": "Small kitchens, renters and anyone who wants soap, sponge and brushes off a cluttered counter.",
+      "caveat": "Measure sink-side clearance first; this exact variant is the black 9.25-inch countertop model.",
+      "bullets": [
+        "Rotatable drainage spout",
+        "304 stainless steel",
+        "Compact 9.25-inch footprint",
+        "4.6-star / 15k+ rating snapshot",
+        "30K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0C3QZ7SNF?tag=pirevo-20",
+      "galleryIds": [
+        "81shIEM-H2L"
+      ],
+      "about": [
+        "Compact countertop sink caddy with divided storage.",
+        "Rotating spout directs water back toward the sink.",
+        "Holds soap, sponge and multiple brushes.",
+        "Exact PIREVO variant is black, 9.25 inches wide."
+      ],
+      "details": [
+        [
+          "Material",
+          "304 stainless steel"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Width",
+          "9.25 in"
+        ],
+        [
+          "Use",
+          "Kitchen sink organization"
+        ],
+        [
+          "Demand snapshot",
+          "30K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "kitchen sink organizer for small spaces",
+        "title": "Kitchen Sink Organizer for Small Spaces | Cisily Sink Caddy | PIREVO",
+        "description": "Compare the Cisily 9.25-inch sink caddy for small kitchens, including drainage design, dimensions, buyer evidence and tradeoffs."
+      }
+    },
+    {
+      "slug": "oxo-pop-5pc",
+      "collection": "organization",
+      "badge": "PANTRY CLASSIC",
+      "brand": "OXO",
+      "shortName": "5-Piece POP Container Set",
+      "fullName": "OXO Good Grips POP Airtight Food Storage Containers for Pantry, 5-Piece Set",
+      "asin": "B07TD9QT97",
+      "rating": 4.6,
+      "reviews": 1,
+      "rank": "Established pantry organization pick",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/91mbvV+T+mL._AC_SL1500_.jpg",
+      "trend": "pantry organization + airtight food storage + aesthetic pantry reset",
+      "why": "A recognizable pantry-organization product with a 4.6-star listing snapshot and strong search fit for pantry reset content.",
+      "bestFor": "Flour, sugar, cereal, oats, pasta and other dry pantry staples.",
+      "caveat": "This is the 5-piece set; larger bundles and individual containers are separate variants.",
+      "bullets": [
+        "Airtight push-button lids",
+        "Stackable pantry design",
+        "Dishwasher-safe containers",
+        "5-piece exact set",
+        "Strong pantry-search fit"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07TD9QT97?tag=pirevo-20",
+      "galleryIds": [
+        "91mbvV+T+mL"
+      ],
+      "about": [
+        "Five-piece airtight pantry container set.",
+        "Push-button lid creates the seal and doubles as a handle.",
+        "Stackable design helps use vertical pantry space.",
+        "Exact PIREVO listing is the 5-piece white-lid set."
+      ],
+      "details": [
+        [
+          "Set",
+          "5 pieces"
+        ],
+        [
+          "Material",
+          "BPA-free plastic"
+        ],
+        [
+          "Care",
+          "Dishwasher safe"
+        ],
+        [
+          "Use",
+          "Dry pantry storage"
+        ],
+        [
+          "Seal",
+          "Push-button airtight"
+        ]
+      ],
+      "seo": {
+        "intent": "airtight pantry containers for organization",
+        "title": "Airtight Pantry Containers | OXO POP 5-Piece Set | PIREVO",
+        "description": "Compare the OXO POP 5-piece pantry container set for airtight, stackable dry-food storage and pantry organization."
+      }
+    },
+    {
+      "slug": "vtopmart-food-bins-4",
+      "collection": "organization",
+      "badge": "PANTRY VISUAL PICK",
+      "brand": "Vtopmart",
+      "shortName": "4-Pack Food Storage Organizer Bins",
+      "fullName": "Vtopmart 4 Pack Food Storage Organizer Bins, Clear Plastic, 4 Compartments",
+      "asin": "B097M3XJ49",
+      "rating": 4.7,
+      "reviews": 5000,
+      "rank": "4.7-star exact-ASIN cross-check",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81IqFARJWlL.jpg",
+      "trend": "snack organization + pantry bins + clear cabinet storage",
+      "why": "A 4.7-star exact-ASIN cross-check with roughly 5k reviews and a highly visual before/after pantry use case.",
+      "bestFor": "Snack packets, spice pouches, drink mixes and small pantry items that disappear in deep cabinets.",
+      "caveat": "Fixed compartment dividers work best for packets and small items, not bulky boxes.",
+      "bullets": [
+        "4 clear organizer bins",
+        "4 compartments per bin",
+        "Easy pantry visibility",
+        "4.7-star exact-ASIN cross-check",
+        "Strong before/after creative potential"
+      ],
+      "amazon": "https://www.amazon.com/dp/B097M3XJ49?tag=pirevo-20",
+      "galleryIds": [
+        "81IqFARJWlL"
+      ],
+      "about": [
+        "Clear pantry bins with divided compartments.",
+        "Designed for packets, snacks and small packaged foods.",
+        "Transparent walls make contents easier to scan.",
+        "Useful in pantry, cabinet or refrigerator zones."
+      ],
+      "details": [
+        [
+          "Pack",
+          "4 bins"
+        ],
+        [
+          "Material",
+          "Clear plastic"
+        ],
+        [
+          "Compartments",
+          "4 per bin"
+        ],
+        [
+          "Use",
+          "Pantry / fridge / cabinet"
+        ],
+        [
+          "Rating cross-check",
+          "4.7"
+        ]
+      ],
+      "seo": {
+        "intent": "clear pantry bins for snack organization",
+        "title": "Clear Pantry Bins for Snack Organization | Vtopmart 4-Pack | PIREVO",
+        "description": "Compare Vtopmart clear divided pantry bins for snacks, packets and cabinet organization, including fit and use cases."
+      }
+    },
+    {
+      "slug": "spaceaid-bag-organizer",
+      "collection": "organization",
+      "badge": "DRAWER RESET PICK",
+      "brand": "SpaceAid",
+      "shortName": "Bamboo Food Bag Organizer",
+      "fullName": "SpaceAid Bag Storage Organizer for Kitchen Drawer, Bamboo, 4 Slots",
+      "asin": "B0B3RJJKLS",
+      "rating": 4.6,
+      "reviews": 7950,
+      "rank": "4.6-star exact-ASIN cross-check",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/71gWT0sGNyL.jpg",
+      "trend": "zip bag drawer organization + bamboo kitchen organizer + drawer reset",
+      "why": "A 4.6-star exact-ASIN cross-check with roughly 8k reviews and a simple transformation angle for messy food-storage-bag drawers.",
+      "bestFor": "Gallon, quart, sandwich and snack bag storage in kitchen drawers.",
+      "caveat": "Drawer dimensions matter, and some buyers report tight fit with certain slider-style quart bags.",
+      "bullets": [
+        "Bamboo drawer organizer",
+        "Four labeled-style bag slots",
+        "Fits common bag sizes",
+        "4.6-star / ~8k exact-ASIN cross-check",
+        "Strong drawer-reset visual"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0B3RJJKLS?tag=pirevo-20",
+      "galleryIds": [
+        "71gWT0sGNyL"
+      ],
+      "about": [
+        "Bamboo organizer designed for food-storage bag boxes and loose bags.",
+        "Four main sections group common bag sizes.",
+        "Made for drawer placement rather than countertop display.",
+        "Check drawer height and depth before ordering."
+      ],
+      "details": [
+        [
+          "Material",
+          "Bamboo"
+        ],
+        [
+          "Slots",
+          "4"
+        ],
+        [
+          "Use",
+          "Kitchen drawer"
+        ],
+        [
+          "Bag sizes",
+          "Gallon / quart / sandwich / snack"
+        ],
+        [
+          "Rating cross-check",
+          "4.6"
+        ]
+      ],
+      "seo": {
+        "intent": "ziplock bag organizer for kitchen drawer",
+        "title": "Food Bag Organizer for Kitchen Drawers | SpaceAid Bamboo | PIREVO",
+        "description": "Compare the SpaceAid bamboo food bag organizer for gallon, quart, sandwich and snack bags, including drawer-fit tradeoffs."
+      }
+    },
+    {
+      "slug": "fullstar-pro-chopper",
+      "collection": "kitchen",
+      "badge": "10K+ BOUGHT / MONTH",
+      "brand": "Fullstar",
+      "shortName": "Pro Vegetable Chopper & Spiralizer",
+      "fullName": "Fullstar Pro Original Vegetable Chopper & Spiralizer, 5-Cup Container",
+      "asin": "B0764HS4SL",
+      "rating": 4.5,
+      "reviews": 96015,
+      "rank": "10K+ bought in past month",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/81GZZyozv-L._AC_SL1500_.jpg",
+      "trend": "meal prep gadgets + vegetable chopper + weeknight kitchen shortcuts",
+      "why": "A huge-volume kitchen tool with 96k+ reviews and 10K+ bought in the past month when researched.",
+      "bestFor": "Fast onion, potato and vegetable prep for weeknight cooking and meal prep.",
+      "caveat": "Sharp blades need careful handling and thorough cleaning; this is a manual prep tool, not an electric processor.",
+      "bullets": [
+        "Multi-blade prep tool",
+        "5-cup collection container",
+        "Chop + slice + spiralize",
+        "96k+ rating snapshot",
+        "10K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0764HS4SL?tag=pirevo-20",
+      "galleryIds": [
+        "81GZZyozv-L"
+      ],
+      "about": [
+        "Manual vegetable chopper with interchangeable cutting functions.",
+        "Food drops into a collection container below the blade grid.",
+        "Designed for quick repetitive prep.",
+        "Exact PIREVO ASIN is the original Pro chopper/spiralizer."
+      ],
+      "details": [
+        [
+          "Container",
+          "5 cups"
+        ],
+        [
+          "Operation",
+          "Manual"
+        ],
+        [
+          "Use",
+          "Chop / slice / spiralize"
+        ],
+        [
+          "Rating snapshot",
+          "4.5"
+        ],
+        [
+          "Demand",
+          "10K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "vegetable chopper for meal prep",
+        "title": "Vegetable Chopper for Meal Prep | Fullstar Pro | PIREVO",
+        "description": "Compare the Fullstar Pro vegetable chopper and spiralizer for fast weeknight meal prep, including review depth and tradeoffs."
+      }
+    },
+    {
+      "slug": "superdanny-10ft-power-strip",
+      "collection": "travel",
+      "badge": "10K+ BOUGHT / MONTH",
+      "brand": "SUPERDANNY",
+      "shortName": "10-ft Power Strip, 8 AC + 4 USB",
+      "fullName": "SUPERDANNY 10Ft Flat Plug Surge Protector Power Strip, 8 AC Outlets + 4 USB Ports",
+      "asin": "B0DZ254SSR",
+      "rating": 4.8,
+      "reviews": 813,
+      "rank": "10K+ bought in past month",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/612NrGLfOqL.jpg",
+      "trend": "dorm essentials + desk charging + travel/home charging station",
+      "why": "A newer high-velocity charging pick with 4.8 stars and 10K+ bought in the past month when researched.",
+      "bestFor": "Dorm rooms, home offices, desks and temporary travel setups with many devices.",
+      "caveat": "This is a 10-foot corded power strip, so it is better for destination setups than minimalist carry-on travel.",
+      "bullets": [
+        "8 AC outlets",
+        "4 USB ports including USB-C",
+        "10-ft flat-plug cord",
+        "Surge protection",
+        "4.8-star / 10K+ bought snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0DZ254SSR?tag=pirevo-20",
+      "galleryIds": [
+        "612NrGLfOqL"
+      ],
+      "about": [
+        "Multi-outlet power strip with USB charging.",
+        "Flat plug helps behind furniture.",
+        "Long 10-foot cord expands placement options.",
+        "Useful for dorm, office and charging-station setups."
+      ],
+      "details": [
+        [
+          "AC outlets",
+          "8"
+        ],
+        [
+          "USB ports",
+          "4"
+        ],
+        [
+          "Cord",
+          "10 ft"
+        ],
+        [
+          "Surge rating",
+          "1050J"
+        ],
+        [
+          "Demand",
+          "10K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "power strip for dorm room and desk charging",
+        "title": "Power Strip for Dorm & Desk Charging | SUPERDANNY 10-ft | PIREVO",
+        "description": "Compare the SUPERDANNY 10-foot power strip with 8 AC outlets and 4 USB ports for dorm rooms and desk charging."
+      }
+    },
+    {
+      "slug": "ugreen-nexode-pro-65w",
+      "collection": "travel",
+      "badge": "COMPACT CHARGER PICK",
+      "brand": "UGREEN",
+      "shortName": "Nexode Pro 65W 3-Port GaN Charger",
+      "fullName": "UGREEN Nexode Pro 65W GaN USB-C Slim Wall Charger, 3-Port",
+      "asin": "B0CD1NVW7R",
+      "rating": 4.6,
+      "reviews": 799,
+      "rank": "300+ bought in past month snapshot",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/51ljPGvwJnL.jpg",
+      "trend": "one charger for laptop phone tablet + compact GaN travel charger",
+      "why": "A compact 65W three-port GaN charger with current buyer activity and strong travel-tech search intent.",
+      "bestFor": "MacBook Air, phones, tablets and travelers trying to replace multiple charging bricks.",
+      "caveat": "Power is shared across ports when charging several devices at once, so not every port can deliver the full 65W simultaneously.",
+      "bullets": [
+        "65W max USB-C charging",
+        "3 charging ports",
+        "Slim GaN design",
+        "Foldable plug",
+        "300+ bought in past month snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CD1NVW7R?tag=pirevo-20",
+      "galleryIds": [
+        "51ljPGvwJnL"
+      ],
+      "about": [
+        "Compact GaN wall charger with three ports.",
+        "Single-port output can reach up to 65W.",
+        "Designed for laptops, tablets and phones.",
+        "Slim shape makes it useful for travel bags."
+      ],
+      "details": [
+        [
+          "Max output",
+          "65W"
+        ],
+        [
+          "Ports",
+          "3"
+        ],
+        [
+          "Technology",
+          "GaN"
+        ],
+        [
+          "Plug",
+          "Foldable"
+        ],
+        [
+          "Use",
+          "Travel / laptop / phone charging"
+        ]
+      ],
+      "seo": {
+        "intent": "65w travel charger for laptop and phone",
+        "title": "65W Travel Charger for Laptop & Phone | UGREEN Nexode Pro | PIREVO",
+        "description": "Compare the UGREEN Nexode Pro 65W slim GaN charger for laptop, phone and tablet travel charging."
+      }
+    },
+    {
+      "slug": "earth-rated-poop-bags-270",
+      "collection": "pets",
+      "badge": "50K+ BOUGHT / MONTH",
+      "brand": "Earth Rated",
+      "shortName": "270 Lavender Dog Poop Bags",
+      "fullName": "Earth Rated Dog Poop Bags on Refill Rolls, 270 Bags, Lavender",
+      "asin": "B00BSYR7K8",
+      "rating": 4.8,
+      "reviews": 250172,
+      "rank": "50K+ bought in past month",
+      "commission": "Pet",
+      "image": "https://m.media-amazon.com/images/I/71E4pNvGAdL._AC_SL1500_.jpg",
+      "trend": "dog walking essentials + recurring pet cleanup + high-repeat purchase intent",
+      "why": "One of the strongest demand signals in the expansion: 4.8 stars, 250k+ ratings and 50K+ bought in the past month.",
+      "bestFor": "Daily dog walks and owners who want thick refill rolls in a large count.",
+      "caveat": "This exact ASIN is the lavender-scented 270-count refill-roll version.",
+      "bullets": [
+        "270 bags",
+        "Lavender scented",
+        "Refill-roll format",
+        "4.8-star / 250k+ ratings",
+        "50K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00BSYR7K8?tag=pirevo-20",
+      "galleryIds": [
+        "71E4pNvGAdL"
+      ],
+      "about": [
+        "Large refill pack of dog waste bags.",
+        "Designed for standard roll-style dispensers.",
+        "Extra-thick leak-resistant positioning.",
+        "Exact variant is Lavender, 270 count."
+      ],
+      "details": [
+        [
+          "Count",
+          "270"
+        ],
+        [
+          "Scent",
+          "Lavender"
+        ],
+        [
+          "Format",
+          "Refill rolls"
+        ],
+        [
+          "Use",
+          "Dog walking"
+        ],
+        [
+          "Demand",
+          "50K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "dog poop bags refill rolls 270 count",
+        "title": "Dog Poop Bags Refill Rolls | Earth Rated 270 Count | PIREVO",
+        "description": "Compare Earth Rated 270-count lavender dog poop bag refill rolls, including exact variant and buyer demand."
+      }
+    },
+    {
+      "slug": "chomchom-pet-hair-roller",
+      "collection": "pets",
+      "badge": "PET HAIR CLASSIC",
+      "brand": "ChomChom Roller",
+      "shortName": "Reusable Pet Hair Remover",
+      "fullName": "ChomChom Roller Pet Hair Remover, Original Size Reusable Lint Roller",
+      "asin": "B00BAGTNAQ",
+      "rating": 4.5,
+      "reviews": 205503,
+      "rank": "205k+ visible review cross-check",
+      "commission": "Pet",
+      "image": "https://m.media-amazon.com/images/I/71mmJsbMGZL.jpg",
+      "trend": "pet hair remover for couch + reusable lint roller + shedding cleanup",
+      "why": "A long-running pet-cleanup product with a 4.5-star / 205k+ review cross-check and a clear recurring problem-solving use case.",
+      "bestFor": "Couches, bedding, rugs, car seats and fabric surfaces that collect dog or cat hair.",
+      "caveat": "It works best on fabric surfaces and is less useful for tight corners or hard floors.",
+      "bullets": [
+        "Reusable manual roller",
+        "No sticky refills",
+        "Furniture + bedding + car use",
+        "4.5-star / 205k+ review cross-check",
+        "Strong pet-cleanup search intent"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00BAGTNAQ?tag=pirevo-20",
+      "galleryIds": [
+        "71mmJsbMGZL"
+      ],
+      "about": [
+        "Reusable pet-hair roller for fabric surfaces.",
+        "Internal chamber collects lifted hair.",
+        "No disposable adhesive sheets required.",
+        "Original-size model in White."
+      ],
+      "details": [
+        [
+          "Type",
+          "Reusable lint roller"
+        ],
+        [
+          "Use",
+          "Furniture / bedding / car"
+        ],
+        [
+          "Refills",
+          "None"
+        ],
+        [
+          "Color",
+          "White"
+        ],
+        [
+          "Rating cross-check",
+          "4.5"
+        ]
+      ],
+      "seo": {
+        "intent": "pet hair remover for couch and furniture",
+        "title": "Pet Hair Remover for Couch & Furniture | ChomChom Roller | PIREVO",
+        "description": "Compare the ChomChom reusable pet hair roller for couches, bedding and car seats, including fit and limitations."
+      }
+    },
+    {
+      "slug": "catstages-tower-tracks",
+      "collection": "pets",
+      "badge": "10K+ BOUGHT / MONTH",
+      "brand": "Catstages",
+      "shortName": "Tower of Tracks Cat Toy",
+      "fullName": "Catstages Tower of Tracks Interactive Cat Toy, 6 Spinning Balls",
+      "asin": "B00DT2WL26",
+      "rating": 4.6,
+      "reviews": 68414,
+      "rank": "10K+ bought in past month",
+      "commission": "Pet",
+      "image": "https://m.media-amazon.com/images/I/71Eq+rVKgvL._AC_SL1500_.jpg",
+      "trend": "indoor cat enrichment + interactive cat toy + multi-cat play",
+      "why": "A high-proof enrichment product with 4.6 stars, 68k+ ratings and 10K+ bought in the past month.",
+      "bestFor": "Indoor cats and multi-cat homes that need a simple self-play enrichment toy.",
+      "caveat": "It is a track-and-ball toy, so cats that ignore batting/chasing toys may lose interest.",
+      "bullets": [
+        "3-tier track tower",
+        "6 spinning balls",
+        "Non-slip base",
+        "4.6-star / 68k+ ratings",
+        "10K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00DT2WL26?tag=pirevo-20",
+      "galleryIds": [
+        "71Eq+rVKgvL"
+      ],
+      "about": [
+        "Three-tier interactive cat toy.",
+        "Six balls move around circular tracks.",
+        "Designed for batting, swatting and chasing.",
+        "Non-slip base supports solo or multi-cat play."
+      ],
+      "details": [
+        [
+          "Tiers",
+          "3"
+        ],
+        [
+          "Balls",
+          "6"
+        ],
+        [
+          "Use",
+          "Indoor cat enrichment"
+        ],
+        [
+          "Base",
+          "Non-slip"
+        ],
+        [
+          "Demand",
+          "10K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "interactive cat toy for indoor cats",
+        "title": "Interactive Cat Toy for Indoor Cats | Catstages Tower of Tracks | PIREVO",
+        "description": "Compare Catstages Tower of Tracks for indoor cat enrichment, including 3 tiers, 6 balls and current buyer demand."
+      }
+    },
+    {
+      "slug": "drop-stop-seat-gap",
+      "collection": "car",
+      "badge": "9K+ BOUGHT / MONTH",
+      "brand": "Drop Stop",
+      "shortName": "Original Car Seat Gap Fillers, 2-Pack",
+      "fullName": "Drop Stop 2 Original Car Seat Gap Fillers with Dash Pad and Light",
+      "asin": "B00BYH6C1E",
+      "rating": 4.6,
+      "reviews": 74677,
+      "rank": "9K+ bought in past month",
+      "commission": "Automotive",
+      "image": "https://m.media-amazon.com/images/I/71aaOjmFYtL._AC_SL1440_.jpg",
+      "trend": "car seat gap filler + prevent dropped phone + everyday car problem solver",
+      "why": "A simple pain-point product with 4.6 stars, 74k+ ratings and 9K+ bought in the past month.",
+      "bestFor": "Drivers tired of phones, keys, coins and cards disappearing between the seat and center console.",
+      "caveat": "Fit depends on the seat/console gap and seat-belt-catch position in your vehicle.",
+      "bullets": [
+        "Set of 2 gap fillers",
+        "Universal-style stretch fit",
+        "Moves with the seat",
+        "4.6-star / 74k+ ratings",
+        "9K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00BYH6C1E?tag=pirevo-20",
+      "galleryIds": [
+        "71aaOjmFYtL"
+      ],
+      "about": [
+        "Pair of seat-gap fillers designed to block the console crevice.",
+        "Slot fits around the seat-belt catch.",
+        "Material compresses to fit different gaps.",
+        "Includes two fillers for driver and passenger sides."
+      ],
+      "details": [
+        [
+          "Pack",
+          "2"
+        ],
+        [
+          "Placement",
+          "Seat / center console gap"
+        ],
+        [
+          "Use",
+          "Prevent dropped items"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Demand",
+          "9K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "car seat gap filler for dropped phones and keys",
+        "title": "Car Seat Gap Filler | Drop Stop Original 2-Pack | PIREVO",
+        "description": "Compare Drop Stop original car seat gap fillers for blocking the console crevice and preventing dropped phones, keys and coins."
+      }
+    },
+    {
+      "slug": "colorcoral-cleaning-gel",
+      "collection": "car",
+      "badge": "CLEANUP PROBLEM SOLVER",
+      "brand": "ColorCoral",
+      "shortName": "Cleaning Gel, 160g",
+      "fullName": "ColorCoral Cleaning Gel Universal Dust Cleaner for Keyboard, Car and Electronics, 160g",
+      "asin": "B07GW9TJ3G",
+      "rating": 4.3,
+      "reviews": 52000,
+      "rank": "500+ bought in past week snapshot",
+      "commission": "Automotive / Electronics",
+      "image": "https://m.media-amazon.com/images/I/714s4ksW5GL.jpg",
+      "trend": "car vent cleaner + keyboard cleaning + satisfying detail cleanup",
+      "why": "A highly visual cleanup product with long review history and current buyer activity, useful across car interiors and electronics.",
+      "bestFor": "Air vents, keyboards, dashboards and textured surfaces where loose dust is hard to wipe out.",
+      "caveat": "Buyer feedback is mixed on residue and longevity, so this is a monitored problem-solver rather than a premium pick.",
+      "bullets": [
+        "Reusable-style cleaning gel",
+        "Car + keyboard use",
+        "Gets into textured gaps",
+        "Large review history",
+        "Monitored due to mixed durability feedback"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07GW9TJ3G?tag=pirevo-20",
+      "galleryIds": [
+        "714s4ksW5GL"
+      ],
+      "about": [
+        "Soft cleaning gel for dust and debris in tight spaces.",
+        "Common use cases include keyboards and car vents.",
+        "Pressed onto surfaces rather than wiped like a cloth.",
+        "Best treated as a consumable cleaning aid."
+      ],
+      "details": [
+        [
+          "Weight",
+          "160g"
+        ],
+        [
+          "Use",
+          "Car / keyboard / electronics"
+        ],
+        [
+          "Type",
+          "Cleaning gel"
+        ],
+        [
+          "Status",
+          "Monitored pick"
+        ],
+        [
+          "Demand snapshot",
+          "500+ bought in past week"
+        ]
+      ],
+      "seo": {
+        "intent": "car vent and keyboard cleaning gel",
+        "title": "Car Vent & Keyboard Cleaning Gel | ColorCoral | PIREVO",
+        "description": "Compare ColorCoral cleaning gel for car vents, keyboards and textured electronics, including mixed durability feedback."
+      }
+    },
+    {
+      "slug": "levoit-core-200s",
+      "collection": "smart-home",
+      "badge": "10K+ BOUGHT / MONTH",
+      "brand": "Levoit",
+      "shortName": "Core 200S-P Smart Air Purifier",
+      "fullName": "Levoit Core 200S-P Smart Air Purifier, White",
+      "asin": "B08FJ678YK",
+      "rating": 4.6,
+      "reviews": 128009,
+      "rank": "Amazon's Choice • 10K+ bought/month",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/61YVFzh9kLL._AC_SL1500_.jpg",
+      "trend": "bedroom air purifier + dorm air purifier + smart home wellness",
+      "why": "One of the deepest-proof home products in the expansion: 4.6 stars, 128k+ ratings and 10K+ bought in the past month.",
+      "bestFor": "Bedrooms, dorm rooms, pet homes and small-to-medium living spaces needing quieter filtration.",
+      "caveat": "Replacement filters are an ongoing cost, and room-size claims depend on how frequently you want the air cycled.",
+      "bullets": [
+        "Smart + voice control",
+        "3-in-1 filtration",
+        "Sleep mode",
+        "4.6-star / 128k+ ratings",
+        "10K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B08FJ678YK?tag=pirevo-20",
+      "galleryIds": [
+        "61YVFzh9kLL"
+      ],
+      "about": [
+        "Compact smart air purifier with 360-degree intake.",
+        "Supports app and voice-control features.",
+        "Uses a multi-stage replacement filter.",
+        "Designed for bedrooms, dorms and smaller living areas."
+      ],
+      "details": [
+        [
+          "Model",
+          "Core 200S-P"
+        ],
+        [
+          "Control",
+          "App / touch / voice"
+        ],
+        [
+          "Filter",
+          "3-in-1"
+        ],
+        [
+          "Color",
+          "White"
+        ],
+        [
+          "Demand",
+          "10K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "smart air purifier for bedroom and dorm room",
+        "title": "Smart Air Purifier for Bedroom & Dorm | Levoit Core 200S-P | PIREVO",
+        "description": "Compare the Levoit Core 200S-P smart air purifier for bedrooms, dorms and pet homes, including control options and buyer evidence."
+      }
+    },
+    {
+      "slug": "govee-table-lamp-2",
+      "collection": "smart-home",
+      "badge": "3K+ BOUGHT / MONTH",
+      "brand": "Govee",
+      "shortName": "RGBIC Smart Table Lamp 2",
+      "fullName": "Govee RGBIC Smart Table Lamp 2, Touch Bedside Lamp with Matter",
+      "asin": "B0D41XL87F",
+      "rating": 4.7,
+      "reviews": 2528,
+      "rank": "Amazon's Choice • 3K+ bought/month",
+      "commission": "Home / Electronics",
+      "image": "https://m.media-amazon.com/images/I/61ZuP03II9L._AC_SL1500_.jpg",
+      "trend": "smart bedside lamp + RGB room decor + dorm room lighting",
+      "why": "A 4.7-star smart-lighting pick with 2.5k+ ratings and 3K+ bought in the past month when researched.",
+      "bestFor": "Bedrooms, gaming spaces, dorm rooms and desks where ambient color plus useful white light is wanted.",
+      "caveat": "This exact model is corded, not a rechargeable cordless lamp.",
+      "bullets": [
+        "RGBIC color lighting",
+        "Matter / Alexa compatibility",
+        "Touch control",
+        "64+ scene modes",
+        "4.7-star / 3K+ bought snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0D41XL87F?tag=pirevo-20",
+      "galleryIds": [
+        "61ZuP03II9L"
+      ],
+      "about": [
+        "Smart bedside/table lamp with RGBIC lighting.",
+        "Supports Matter and major voice-assistant ecosystems.",
+        "Includes touch controls and preset scenes.",
+        "Exact listing is corded electric."
+      ],
+      "details": [
+        [
+          "Type",
+          "Smart table lamp"
+        ],
+        [
+          "Control",
+          "Touch / app / voice"
+        ],
+        [
+          "Scenes",
+          "64+"
+        ],
+        [
+          "Power",
+          "Corded"
+        ],
+        [
+          "Demand",
+          "3K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "smart bedside lamp for bedroom and dorm",
+        "title": "Smart Bedside Lamp for Bedroom & Dorm | Govee Table Lamp 2 | PIREVO",
+        "description": "Compare the Govee RGBIC Smart Table Lamp 2 for bedroom, dorm and gaming-room lighting, including Matter support and scene modes."
+      }
+    },
+    {
+      "slug": "cosrx-snail-mucin-96",
+      "collection": "beauty",
+      "badge": "40K+ BOUGHT / MONTH",
+      "brand": "COSRX",
+      "shortName": "Snail Mucin 96 Essence",
+      "fullName": "COSRX Snail Mucin 96% Repairing Essence, 3.38 oz",
+      "asin": "B00PBX3L7K",
+      "rating": 4.6,
+      "reviews": 90239,
+      "rank": "40K+ bought in past month search snapshot",
+      "commission": "Beauty",
+      "image": "https://m.media-amazon.com/images/I/416kUGx2rQL.jpg",
+      "trend": "K-beauty hydrating essence + snail mucin + glass-skin routines",
+      "why": "A major K-beauty demand signal with a 4.6-star / 90k+ review cross-check and 40K+ bought-in-past-month search snapshot.",
+      "bestFor": "Shoppers building a hydrating K-beauty routine and comparing lightweight essence-style moisturization.",
+      "caveat": "Snail secretion filtrate is a niche ingredient; patch testing is sensible for reactive skin.",
+      "bullets": [
+        "96% snail mucin positioning",
+        "Lightweight essence texture",
+        "K-beauty staple",
+        "4.6-star / 90k+ review cross-check",
+        "40K+ bought-in-past-month search snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00PBX3L7K?tag=pirevo-20",
+      "galleryIds": [
+        "416kUGx2rQL"
+      ],
+      "about": [
+        "Hydrating facial essence centered on snail secretion filtrate.",
+        "Designed as a lightweight step before heavier moisturizers.",
+        "Popular within Korean skincare routines.",
+        "Exact listing is the 3.38 oz / 100 ml size."
+      ],
+      "details": [
+        [
+          "Size",
+          "3.38 oz / 100 ml"
+        ],
+        [
+          "Type",
+          "Hydrating essence"
+        ],
+        [
+          "Origin",
+          "K-beauty"
+        ],
+        [
+          "Use",
+          "Face skincare"
+        ],
+        [
+          "Demand snapshot",
+          "40K+ bought last month search result"
+        ]
+      ],
+      "seo": {
+        "intent": "snail mucin essence for hydrating skincare",
+        "title": "Snail Mucin Essence for Hydrating Skincare | COSRX 96 | PIREVO",
+        "description": "Compare COSRX Snail Mucin 96 Essence for lightweight hydration, including size, review depth and buyer-demand snapshot."
+      }
+    },
+    {
+      "slug": "elf-halo-glow-3",
+      "collection": "beauty",
+      "badge": "VIRAL BEAUTY PICK",
+      "brand": "e.l.f.",
+      "shortName": "Halo Glow Liquid Filter, Shade 3",
+      "fullName": "e.l.f. Halo Glow Liquid Filter, 3 Light/Medium",
+      "asin": "B0B5MGBDHZ",
+      "rating": 4.5,
+      "reviews": 944,
+      "rank": "2K+ bought in past month snapshot",
+      "commission": "Beauty",
+      "image": "https://m.media-amazon.com/images/I/61FYeDYHfFL.jpg",
+      "trend": "glowy makeup + complexion booster + affordable beauty trend",
+      "why": "A strong affordable-beauty search product with 2K+ bought in the past month on the exact shade listing when researched.",
+      "bestFor": "Shoppers wanting a luminous complexion booster that can be worn alone, mixed or layered.",
+      "caveat": "Shade matching matters; this exact ASIN is Shade 3 Light/Medium and should not be treated as universal.",
+      "bullets": [
+        "Shade 3 Light/Medium exact variant",
+        "Luminous complexion booster",
+        "Hyaluronic acid + squalane positioning",
+        "4.5-star exact listing",
+        "2K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0B5MGBDHZ?tag=pirevo-20",
+      "galleryIds": [
+        "61FYeDYHfFL"
+      ],
+      "about": [
+        "Liquid complexion booster with luminous finish.",
+        "Can be used alone or layered with makeup.",
+        "Exact PIREVO listing is Shade 3 Light/Medium.",
+        "Vegan and cruelty-free positioning on the listing."
+      ],
+      "details": [
+        [
+          "Shade",
+          "3 Light/Medium"
+        ],
+        [
+          "Type",
+          "Complexion booster"
+        ],
+        [
+          "Finish",
+          "Luminous"
+        ],
+        [
+          "Use",
+          "Face / body glow"
+        ],
+        [
+          "Demand",
+          "2K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "glowy complexion booster affordable makeup",
+        "title": "Glowy Complexion Booster | e.l.f. Halo Glow Shade 3 | PIREVO",
+        "description": "Compare e.l.f. Halo Glow Liquid Filter Shade 3 Light/Medium for luminous makeup looks, including exact variant and buyer demand."
       }
     }
   ]
