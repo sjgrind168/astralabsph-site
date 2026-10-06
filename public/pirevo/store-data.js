@@ -3619,68 +3619,6 @@ window.PIREVO_STORE = {
       }
     },
     {
-      "slug": "cisily-sink-caddy",
-      "collection": "home-organization",
-      "badge": "30K+ BOUGHT / MONTH",
-      "brand": "Cisily",
-      "shortName": "9.25-Inch Sink Caddy",
-      "fullName": "Cisily Sponge Holder for Kitchen Sink, Black 9.25-Inch Stainless Steel Sink Organizer",
-      "asin": "B0C3QZ7SNF",
-      "rating": 4.6,
-      "reviews": 15084,
-      "rank": "Amazon's Choice • 30K+ bought in past month",
-      "commission": "Home",
-      "image": "https://m.media-amazon.com/images/I/81shIEM-H2L._AC_SL1500_.jpg",
-      "trend": "kitchen sink organization + small counter reset + renter-friendly storage",
-      "why": "A high-velocity organization pick with 4.6 stars, 15k+ ratings and 30K+ bought in the past month when researched.",
-      "bestFor": "Small kitchens, renters and anyone who wants soap, sponge and brushes off a cluttered counter.",
-      "caveat": "Measure sink-side clearance first; this exact variant is the black 9.25-inch countertop model.",
-      "bullets": [
-        "Rotatable drainage spout",
-        "304 stainless steel",
-        "Compact 9.25-inch footprint",
-        "4.6-star / 15k+ rating snapshot",
-        "30K+ bought in past month"
-      ],
-      "amazon": "https://www.amazon.com/dp/B0C3QZ7SNF?tag=pirevo-20",
-      "galleryIds": [
-        "81shIEM-H2L"
-      ],
-      "about": [
-        "Compact countertop sink caddy with divided storage.",
-        "Rotating spout directs water back toward the sink.",
-        "Holds soap, sponge and multiple brushes.",
-        "Exact PIREVO variant is black, 9.25 inches wide."
-      ],
-      "details": [
-        [
-          "Material",
-          "304 stainless steel"
-        ],
-        [
-          "Color",
-          "Black"
-        ],
-        [
-          "Width",
-          "9.25 in"
-        ],
-        [
-          "Use",
-          "Kitchen sink organization"
-        ],
-        [
-          "Demand snapshot",
-          "30K+ bought last month"
-        ]
-      ],
-      "seo": {
-        "intent": "kitchen sink organizer for small spaces",
-        "title": "Kitchen Sink Organizer for Small Spaces | Cisily Sink Caddy | PIREVO",
-        "description": "Compare the Cisily 9.25-inch sink caddy for small kitchens, including drainage design, dimensions, buyer evidence and tradeoffs."
-      }
-    },
-    {
       "slug": "oxo-pop-5pc",
       "collection": "home-organization",
       "badge": "PANTRY CLASSIC",
