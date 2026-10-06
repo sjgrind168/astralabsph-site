@@ -1,13 +1,13 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "associateTag": "pirevo-20",
   "collections": [
     {
       "id": "kitchen",
       "name": "Kitchen Trending",
       "kicker": "HIGH-INTENT • HIGHER COMMISSION",
-      "description": "Slow cookers, multicookers and pantry-organization picks selected from current Pinterest and Amazon buying signals.",
-      "signal": "Cookware outbound clicks +125% MoM • Crockpot dinner recipes +1,500% MoM • Pantry organization search opportunity"
+      "description": "Kitchen tools and appliances selected from Amazon demand plus TikTok, Instagram and broader social-shopping momentum.",
+      "signal": "Cross-platform kitchen discovery • Amazon buyer activity • visual utility and gift potential"
     },
     {
       "id": "bags",
@@ -20,8 +20,8 @@ window.PIREVO_STORE = {
       "id": "beauty",
       "name": "Beauty Everyone Saves",
       "kicker": "TRAFFIC ENGINE • PROVEN DEMAND",
-      "description": "Moisturizers with unusually deep review evidence and current Pinterest shopping momentum.",
-      "signal": "Face lotions & creams outbound clicks +139% MoM"
+      "description": "Skincare and beauty picks filtered through TikTok/TikTok Shop, Amazon demand, review depth and broader social-shopping signals.",
+      "signal": "TikTok beauty velocity • Amazon buyer activity • cross-platform K-beauty and skincare demand"
     },
     {
       "id": "gaming",
@@ -5194,6 +5194,236 @@ window.PIREVO_STORE = {
         "intent": "pruning snips for flowers herbs and small garden plants",
         "title": "Pruning Snips for Flowers & Herbs | Fiskars 6-Inch | PIREVO",
         "description": "Compare Fiskars 6-inch non-stick pruning snips for flowers, herbs and small garden plants, including blade design, review depth and lock durability tradeoffs."
+      }
+    },
+    {
+      "slug": "biodance-bio-collagen-real-deep-mask",
+      "collection": "beauty",
+      "badge": "TIKTOK + AMAZON TREND",
+      "brand": "BIODANCE",
+      "shortName": "Bio-Collagen Real Deep Mask 4-Pack",
+      "fullName": "BIODANCE Bio-Collagen Real Deep Mask, Hydrating Overnight Hydrogel Face Mask, 34g x 4",
+      "asin": "B0B2RM68G2",
+      "rating": 4.5,
+      "reviews": 48204,
+      "rank": "10K+ bought in past week snapshot",
+      "commission": "Beauty",
+      "image": "https://m.media-amazon.com/images/I/51ubxqzNGIL._SL1000_.jpg",
+      "trend": "Exact 4-pack has 14K TikTok Shop sales snapshot plus 10K+ Amazon purchases in the past week",
+      "why": "One of the clearest cross-platform beauty signals in this research pass: the exact 4-pack appears on Biodance's official TikTok Shop with 14K sold, while the same Amazon ASIN showed 4.5 stars across 48K+ ratings and 10K+ bought in the past week.",
+      "bestFor": "K-beauty shoppers looking for an overnight hydrogel mask focused on hydration, pores and a glass-skin style routine.",
+      "caveat": "The 4.5-star rating is at PIREVO's lower preferred threshold, and viral skincare is heavily counterfeited on secondary marketplaces. Confirm the exact 4-pack and current seller on Amazon.",
+      "bullets": [
+        "Exact ASIN B0B2RM68G2",
+        "Official TikTok Shop exact 4-pack: 14K sold snapshot",
+        "Amazon: 10K+ bought in past week snapshot",
+        "4.5-star / 48K+ ratings snapshot",
+        "4 hydrogel masks, 34g each",
+        "Strong cross-platform K-beauty discovery signal"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0B2RM68G2?tag=pirevo-20",
+      "galleryIds": [
+        "51ubxqzNGIL",
+        "61YEopUmlqL",
+        "610IgxQeWyL",
+        "6166ORRIHbL",
+        "712oAAov1ML",
+        "71BzYNReciL"
+      ],
+      "about": [
+        "The exact Amazon listing is a four-mask box, 34 g per mask.",
+        "Amazon describes the mask around hydration, pore care, elasticity and plumping.",
+        "The exact 4-pack also appears on Biodance's official U.S. TikTok Shop with 14K sold in the research snapshot.",
+        "Amazon's exact ASIN showed 4.5 stars across 48,204 ratings and 10K+ bought in the past week when checked.",
+        "PIREVO treats TikTok sales and Amazon buyer activity as separate signals and does not assume one platform's price or stock applies to the other.",
+        "Because viral skincare attracts counterfeits, verify seller identity and exact pack size before checkout."
+      ],
+      "details": [
+        [
+          "Pack",
+          "4 masks"
+        ],
+        [
+          "Mask weight",
+          "34 g each"
+        ],
+        [
+          "Format",
+          "Hydrogel face mask"
+        ],
+        [
+          "Amazon rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Amazon ratings snapshot",
+          "48,204"
+        ],
+        [
+          "Amazon buyer activity",
+          "10K+ bought in past week"
+        ],
+        [
+          "TikTok Shop exact item",
+          "14K sold snapshot"
+        ]
+      ],
+      "seo": {
+        "intent": "biodance bio collagen real deep mask 4 pack",
+        "title": "Biodance Bio-Collagen Real Deep Mask 4-Pack | TikTok + Amazon Trend | PIREVO",
+        "description": "Compare the exact Biodance Bio-Collagen Real Deep Mask 4-pack, a cross-platform TikTok Shop and Amazon trend with current rating, buyer-activity and product details."
+      }
+    },
+    {
+      "slug": "laneige-lip-sleeping-mask",
+      "collection": "beauty",
+      "badge": "TIKTOK + AMAZON TREND",
+      "brand": "LANEIGE",
+      "shortName": "Lip Sleeping Mask",
+      "fullName": "LANEIGE Lip Sleeping Mask, Korean Overnight Treatment for Dry Lips",
+      "asin": "B07XXPHQZK",
+      "rating": 4.6,
+      "reviews": 37527,
+      "rank": "2K+ bought in past week snapshot",
+      "commission": "Beauty",
+      "image": "https://m.media-amazon.com/images/I/51VfrPOslWL._SL1500_.jpg",
+      "trend": "Official Laneige TikTok Shop momentum + strong Amazon repeat demand",
+      "why": "The official Laneige TikTok Shop showed roughly 5K sold for the Lip Sleeping Mask listing, while Amazon's exact ASIN showed 4.6 stars across 37K+ ratings and 2K+ bought in the past week. It also appears repeatedly in current October shopping coverage.",
+      "bestFor": "Dry-lip routines, beauty gifting, stocking stuffers and shoppers who want a well-established overnight lip treatment.",
+      "caveat": "TikTok Shop carries multiple flavors and limited-edition variants. PIREVO links to Amazon ASIN B07XXPHQZK, so verify the exact flavor/variant before checkout.",
+      "bullets": [
+        "Exact ASIN B07XXPHQZK",
+        "Official Laneige TikTok Shop: ~5K sold listing snapshot",
+        "Amazon: 2K+ bought in past week snapshot",
+        "4.6-star / 37K+ ratings snapshot",
+        "Overnight leave-on lip treatment",
+        "Holiday gifting + social beauty crossover"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07XXPHQZK?tag=pirevo-20",
+      "galleryIds": [
+        "51VfrPOslWL",
+        "61G9QwUWXJL",
+        "911Gy-0S2gL",
+        "71n7Pvs706L",
+        "713HMJ1bqWL",
+        "71AQMnwU54L"
+      ],
+      "about": [
+        "Amazon describes this as a leave-on overnight lip mask with Berry Fruit Complex, shea butter and murumuru seed butter.",
+        "The exact Amazon ASIN showed 4.6 stars across 37,527 ratings and 2K+ bought in the past week when checked.",
+        "Laneige's official U.S. TikTok Shop showed approximately 5K sold for its Lip Sleeping Mask listing in the research snapshot.",
+        "The product is also appearing in current October 2026 shopping and gift coverage, giving it an additional cross-platform confirmation layer.",
+        "TikTok carries several flavors and limited editions, so PIREVO treats the Amazon ASIN as the checkout identity.",
+        "Amazon remains the source of live seller, stock, price and exact variant details."
+      ],
+      "details": [
+        [
+          "Format",
+          "Overnight lip mask"
+        ],
+        [
+          "Use",
+          "Leave-on lip treatment"
+        ],
+        [
+          "Amazon rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Amazon ratings snapshot",
+          "37,527"
+        ],
+        [
+          "Amazon buyer activity",
+          "2K+ bought in past week"
+        ],
+        [
+          "TikTok Shop listing",
+          "~5K sold snapshot"
+        ]
+      ],
+      "seo": {
+        "intent": "laneige lip sleeping mask overnight dry lips",
+        "title": "Laneige Lip Sleeping Mask | TikTok + Amazon Trend | PIREVO",
+        "description": "Compare the Laneige Lip Sleeping Mask, a cross-platform TikTok Shop and Amazon beauty trend with current rating, buyer-activity, ingredients and variant tradeoffs."
+      }
+    },
+    {
+      "slug": "astercook-13pc-knife-set",
+      "collection": "kitchen",
+      "badge": "SOCIAL + AMAZON TREND",
+      "brand": "Astercook",
+      "shortName": "13-Piece Kitchen Knife Set",
+      "fullName": "Astercook Knife Set, 13 Pieces with Anti-Rust Coating and 6 Blade Guards",
+      "asin": "B0D9B96TBX",
+      "rating": 4.8,
+      "reviews": 6545,
+      "rank": "1K+ bought in past week snapshot",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/714bnp4jQrL._AC_SL1500_.jpg",
+      "trend": "Astercook social-commerce momentum + Amazon buyer velocity + current Prime shopping coverage",
+      "why": "Astercook has an active official TikTok Shop footprint while this exact Amazon 13-piece ASIN showed 4.8 stars across 6,545 ratings and 1K+ bought in the past week. Current Amazon shopping coverage is also highlighting Astercook knife sets.",
+      "bestFor": "First-apartment kitchens, compact storage, holiday gifts and shoppers who prefer blade guards instead of a large countertop block.",
+      "caveat": "TikTok Shop Astercook listings include different piece counts and block configurations. This PIREVO page is specifically for Amazon ASIN B0D9B96TBX, the 13-piece set with six blade guards.",
+      "bullets": [
+        "Exact ASIN B0D9B96TBX",
+        "4.8-star / 6.5K-rating Amazon snapshot",
+        "1K+ bought in past week snapshot",
+        "13-piece set with 6 blade guards",
+        "Anti-rust / non-stick coated blades per listing",
+        "Cross-platform Astercook brand momentum"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0D9B96TBX?tag=pirevo-20",
+      "galleryIds": [
+        "714bnp4jQrL",
+        "71RQxDq1lYL",
+        "81+PjoveLqL",
+        "813569i-BfL",
+        "81JbLSZ4YeL",
+        "71FpMmDGxiL"
+      ],
+      "about": [
+        "The exact Amazon listing includes chef, slicing, santoku, bread, utility and paring knives, kitchen shears and six blade guards.",
+        "Amazon lists an anti-rust coating and dishwasher-safe care for the set.",
+        "The exact ASIN showed 4.8 stars across 6,545 ratings and 1K+ bought in the past week when researched.",
+        "Astercook also has an active official TikTok Shop presence, but TikTok listings vary by piece count and configuration.",
+        "PIREVO therefore uses the Amazon ASIN, not the TikTok listing, as the exact checkout identity.",
+        "The compact blade-guard format is a different use case from larger knife-block sets already circulating on social commerce."
+      ],
+      "details": [
+        [
+          "Pieces",
+          "13"
+        ],
+        [
+          "Blade guards",
+          "6"
+        ],
+        [
+          "Material",
+          "Stainless steel"
+        ],
+        [
+          "Care",
+          "Dishwasher-safe per listing"
+        ],
+        [
+          "Amazon rating snapshot",
+          "4.8★"
+        ],
+        [
+          "Amazon ratings snapshot",
+          "6,545"
+        ],
+        [
+          "Amazon buyer activity",
+          "1K+ bought in past week"
+        ]
+      ],
+      "seo": {
+        "intent": "astercook 13 piece kitchen knife set blade guards",
+        "title": "Astercook 13-Piece Kitchen Knife Set | Social + Amazon Trend | PIREVO",
+        "description": "Compare the Astercook 13-piece kitchen knife set with six blade guards, current Amazon rating and buyer-activity evidence, plus cross-platform social-commerce context."
       }
     }
   ]
