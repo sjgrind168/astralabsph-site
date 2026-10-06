@@ -63,10 +63,17 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 .right-stack{display:grid;grid-template-rows:auto 1fr;gap:14px}
 .gsc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}.gsc-grid>div{padding:8px 14px 12px;border-right:1px solid var(--line)}.gsc-grid>div:last-child{border-right:0}.gsc-grid span{display:block;font-family:Georgia,serif;font-size:14px}.gsc-grid strong{display:block;font-family:Georgia,serif;font-weight:500;font-size:29px;margin-top:9px}
 .maturity-card{border:1px solid #d7dfbd;background:linear-gradient(115deg,#f3f6e8,#eef3dc);border-radius:17px;padding:20px;display:flex;gap:16px;align-items:center;box-shadow:var(--shadow)}
+.research-signals{margin-top:14px}
+.signal-note{margin:-2px 0 14px;font-family:Georgia,serif;color:var(--muted);font-size:13px;line-height:1.5}
+.signal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.signal-chip{border:1px solid var(--line);background:#f6f4ed;border-radius:12px;padding:12px 13px;min-height:67px}
+.signal-chip strong{display:block;font-family:Georgia,serif;font-size:17px;font-weight:500;color:var(--forest)}
+.signal-chip span{display:block;margin-top:5px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.35}
 .maturity-leaf{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#dce9b6;color:var(--forest);transform:rotate(45deg)}.maturity-card strong{font-family:Georgia,serif;font-size:19px}.maturity-card p{margin:6px 0 0;font-family:Georgia,serif;color:#4d574b;font-size:13px;line-height:1.5}
 .dash-foot{display:flex;justify-content:space-between;gap:20px;padding:16px 8px 0;font-size:9px;letter-spacing:.1em;color:#7d8078;text-transform:uppercase}
 .locked{min-height:100vh;display:grid;place-items:center;padding:30px}.locked-card{width:min(520px,100%);background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:24px;padding:50px;text-align:center}.locked-card .brand-mark{margin:0 auto 18px}.locked-card h1{font-size:34px;margin:0}.locked-card p{font-family:Georgia,serif;color:var(--muted);line-height:1.6}
 @media(max-width:1350px){.kpi-grid{grid-template-columns:repeat(4,1fr)}.mid-grid{grid-template-columns:1fr 1fr}.bottom-grid{grid-template-columns:1fr}.traffic-body{grid-template-columns:170px 1fr}}
+@media(max-width:980px){.signal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.dash{padding:18px 12px}.dash-head{align-items:flex-start}.brand-word,.brand-rule,.brand-sub{display:none}.dash-head h1{font-size:28px}.head-meta{min-width:auto}.kpi-grid{grid-template-columns:repeat(2,1fr)}.kpi{min-height:125px}.kpi strong{font-size:32px}.mid-grid{grid-template-columns:1fr}.traffic-body{grid-template-columns:1fr}.donut{margin:auto}.bottom-grid{grid-template-columns:1fr}.gsc-grid{grid-template-columns:1fr 1fr}.gsc-grid>div:nth-child(2){border-right:0}.gsc-grid>div{border-bottom:1px solid var(--line)}.dash-foot{flex-direction:column}.campaign-panel{overflow:hidden}}
 
 </style>
@@ -154,6 +161,24 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
             <p id="maturityText">Initialization period. Waiting for the first live business signals.</p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="panel research-signals" aria-label="Pinterest research signals">
+      <div class="panel-title"><h2>Pinterest Research Signals</h2><span>research snapshots · not live traffic</span></div>
+      <p class="signal-note">External Pinterest demand signals used by PIREVO for product research and creative prioritization. These are research snapshots, separate from the live Pinterest-attributed sessions shown above.</p>
+      <div class="signal-grid">
+        <div class="signal-chip"><strong>+125%</strong><span>Cookware outbound clicks</span></div>
+        <div class="signal-chip"><strong>+1,500%</strong><span>Crockpot dinner recipes</span></div>
+        <div class="signal-chip"><strong>+139%</strong><span>Face lotions &amp; creams</span></div>
+        <div class="signal-chip"><strong>+700%</strong><span>Gaming room setups</span></div>
+        <div class="signal-chip"><strong>+85%</strong><span>Satchel aesthetic</span></div>
+        <div class="signal-chip"><strong>#2</strong><span>Halloween holiday search position snapshot</span></div>
+        <div class="signal-chip"><strong>#1</strong><span>Christmas holiday search moment snapshot</span></div>
+        <div class="signal-chip"><strong>+81%</strong><span>Seasonal decor</span></div>
+        <div class="signal-chip"><strong>+200%</strong><span>Cleaning reset</span></div>
+        <div class="signal-chip"><strong>+940%</strong><span>Garden inspiration</span></div>
+        <div class="signal-chip"><strong>+140%</strong><span>Cold foam recipes</span></div>
       </div>
     </section>
 
