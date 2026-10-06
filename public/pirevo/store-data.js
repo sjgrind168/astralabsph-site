@@ -99,6 +99,48 @@ window.PIREVO_STORE = {
       "kicker": "GIFTS • CRAFTS • BUILDING",
       "description": "Creative toys, building sets and activity picks with strong category placement and gift-friendly visual appeal.",
       "signal": "Holiday gifts • creative play • activities"
+    },
+    {
+      "id": "home-office",
+      "name": "Home Office & Desk",
+      "kicker": "WORKSPACE RESET • ERGONOMIC MICRO-UPGRADES",
+      "description": "Desk and workspace upgrades selected for organization, ergonomics and strong current Amazon buyer evidence.",
+      "signal": "Desk setup + organization intent • work-from-home utility • visual before/after potential"
+    },
+    {
+      "id": "cleaning",
+      "name": "Cleaning & Reset",
+      "kicker": "RESET ROUTINES • HIGH-VELOCITY CLEANING",
+      "description": "Cleaning tools chosen where current buyer activity meets Pinterest reset, organization and before/after search behavior.",
+      "signal": "Cleaning list by room +175% • laundry room organization small space +390% • reset aesthetic +200%"
+    },
+    {
+      "id": "coffee-bar",
+      "name": "Coffee & Home Café",
+      "kicker": "HOME CAFÉ • MATCHA • COLD FOAM",
+      "description": "Coffee and drink-making tools for the home-café wave, filtered for current demand, ratings and visual recipe/search potential.",
+      "signal": "Cold foam recipe +140% • home-café and matcha setup momentum • giftable countertop tools"
+    },
+    {
+      "id": "tools-diy",
+      "name": "Tools & DIY",
+      "kicker": "DIY UTILITY • PRECISION TOOLS",
+      "description": "Practical DIY tools with strong current purchase evidence, review depth and clear home-project search intent.",
+      "signal": "Home repair tool-kit intent • micro-makeovers • practical project problem-solvers"
+    },
+    {
+      "id": "sleep-bedroom",
+      "name": "Sleep & Bedroom",
+      "kicker": "COZY RECOVERY • BEDROOM UPGRADES",
+      "description": "Bedroom comfort products selected for cozy, restorative search intent and current buyer evidence.",
+      "signal": "Cozy bedroom planning • recovery-zone upgrades • high-intent bedding searches"
+    },
+    {
+      "id": "outdoor-garden",
+      "name": "Outdoor & Garden",
+      "kicker": "MICRO ESCAPES • GARDEN MOMENTS",
+      "description": "Garden and outdoor picks aimed at small-space upgrades, hands-on hobbies and highly visual before/after content.",
+      "signal": "Garden inspiration ideas +940% • balcony makeover ideas +165% • vertical gardening +82%"
     }
   ],
   "products": [
@@ -4566,6 +4608,654 @@ window.PIREVO_STORE = {
         "intent": "glowy complexion booster affordable makeup",
         "title": "Glowy Complexion Booster | e.l.f. Halo Glow Shade 3 | PIREVO",
         "description": "Compare e.l.f. Halo Glow Liquid Filter Shade 3 Light/Medium for luminous makeup looks, including exact variant and buyer demand."
+      }
+    },
+    {
+      "slug": "wali-monitor-stand-stt003",
+      "collection": "home-office",
+      "badge": "HOME OFFICE BESTSELLER",
+      "brand": "WALI",
+      "shortName": "Adjustable Monitor Stand STT003",
+      "fullName": "WALI Computer Monitor Stand for Desk, Adjustable Laptop Riser, up to 44 lbs, STT003, Metal Black",
+      "asin": "B094QTGHNZ",
+      "rating": 4.7,
+      "reviews": 17568,
+      "rank": "#1 Computer Monitor Stands • 3K+ bought/month",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/51kULJHh4BL._AC_SL1500_.jpg",
+      "trend": "desk setup + ergonomic monitor height + under-stand storage",
+      "why": "A high-confidence workspace pick: #1 in Computer Monitor Stands when researched, 4.7 stars across 17k+ ratings, Amazon's Choice and 3K+ bought in the past month.",
+      "bestFor": "Home offices, dorm desks and compact workspaces that need better monitor height plus usable storage underneath.",
+      "caveat": "The platform is compact and supports up to 44 lb; measure larger monitor bases first. The highest height can feel less stable on uneven desks.",
+      "bullets": [
+        "3 height settings: 3.9, 4.7 and 5.5 in",
+        "44 lb maximum support",
+        "Vented metal platform",
+        "Under-stand storage space",
+        "4.7-star / 17k+ rating snapshot",
+        "3K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B094QTGHNZ?tag=pirevo-20",
+      "galleryIds": [
+        "51kULJHh4BL",
+        "31VzBQ+jwWL",
+        "414jSPgYGtL",
+        "51qbnePSMkL",
+        "41Acd88KCXL"
+      ],
+      "about": [
+        "Metal monitor/laptop riser with three selectable height settings.",
+        "The 14.6 x 9.3-inch platform supports monitors, laptops and small printers.",
+        "Vent holes help airflow when used with a laptop.",
+        "Rubber pads protect the desk and reduce slipping.",
+        "The open area under the platform can hold a keyboard, notebook or accessories."
+      ],
+      "details": [
+        [
+          "Platform",
+          "14.6 x 9.3 in"
+        ],
+        [
+          "Height",
+          "3.9 / 4.7 / 5.5 in"
+        ],
+        [
+          "Capacity",
+          "Up to 44 lb"
+        ],
+        [
+          "Material",
+          "Metal"
+        ],
+        [
+          "Color",
+          "Metal Black"
+        ],
+        [
+          "Demand",
+          "3K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "adjustable monitor stand for home office desk",
+        "title": "Adjustable Monitor Stand for Home Office | WALI STT003 | PIREVO",
+        "description": "Compare the WALI STT003 adjustable monitor stand for home-office and desk setups, with 3 height levels, 44 lb support, storage space and current Amazon buyer evidence."
+      }
+    },
+    {
+      "slug": "huanuo-monitor-riser-3height",
+      "collection": "home-office",
+      "badge": "DESK SETUP PICK",
+      "brand": "HUANUO",
+      "shortName": "3-Height Monitor Riser",
+      "fullName": "HUANUO Monitor Stand Riser, 3 Height Adjustable, Vented Desk Organizer for Monitor, Laptop, PC and Printer",
+      "asin": "B07H4DMLVH",
+      "rating": 4.7,
+      "reviews": 19443,
+      "rank": "#16 Computer Monitor Stands • 2K+ bought/month",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61JLNvkVv4L._AC_SL1500_.jpg",
+      "trend": "small desk organization + laptop riser + ergonomic eye-level setup",
+      "why": "A second high-proof home-office option with 4.7 stars across 19k+ ratings, Amazon's Choice and 2K+ bought in the past month, plus three height settings and ventilation.",
+      "bestFor": "Laptop-as-second-screen setups, office monitors and small desks where height adjustment and airflow matter.",
+      "caveat": "Some buyer feedback mentions wobble at the tallest setting. Check monitor-base width and desk stability before using it fully extended.",
+      "bullets": [
+        "3 height levels",
+        "Supports up to 44 lb",
+        "Vented platform",
+        "Anti-slip rubber feet",
+        "4.7-star / 19k+ rating snapshot",
+        "2K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07H4DMLVH?tag=pirevo-20",
+      "galleryIds": [
+        "61JLNvkVv4L",
+        "31j4-i9EjqL",
+        "41Hd8XzfkeL",
+        "412h2PuYZTL",
+        "41G0237lKgL"
+      ],
+      "about": [
+        "Height-adjustable monitor and laptop riser with three settings.",
+        "Supports monitors, laptops up to about 15.6 inches, printers and game consoles.",
+        "The vented top helps dissipate heat from laptops and electronics.",
+        "Rubber pads add grip and help protect desktop surfaces.",
+        "Open space underneath can be used for small desk accessories."
+      ],
+      "details": [
+        [
+          "Height",
+          "3.94 / 4.72 / 5.51 in"
+        ],
+        [
+          "Capacity",
+          "Up to 44 lb"
+        ],
+        [
+          "Platform",
+          "Approx. 15.4 x 9.8 in"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Use",
+          "Monitor / laptop / printer"
+        ],
+        [
+          "Demand",
+          "2K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "monitor riser for small home office desk",
+        "title": "Monitor Riser for Small Home Office Desks | HUANUO | PIREVO",
+        "description": "Compare the HUANUO 3-height monitor riser for small home-office desks, laptops and monitors, including ventilation, 44 lb support and current buyer evidence."
+      }
+    },
+    {
+      "slug": "ocedar-easywring-spin-mop",
+      "collection": "cleaning",
+      "badge": "CLEANING VELOCITY PICK",
+      "brand": "O-Cedar",
+      "shortName": "EasyWring Spin Mop & Bucket",
+      "fullName": "O-Cedar EasyWring Microfiber Spin Mop, Bucket Floor Cleaning System, Red and Gray, Standard",
+      "asin": "B00WSWGVZQ",
+      "rating": 4.6,
+      "reviews": 196262,
+      "rank": "#1 Household Mops & Bucket Sets cross-check • 50K+ bought/month",
+      "commission": "Home / Household",
+      "image": "https://m.media-amazon.com/images/I/819wSV5AEEL.jpg",
+      "trend": "cleaning reset + before-and-after floors + room-by-room cleaning routines",
+      "why": "One of the strongest new-category prospects: 4.6 stars across roughly 196k ratings with a current cross-check around 50K monthly sales, matching Pinterest's rising cleaning-reset behavior.",
+      "bestFor": "Households with sealed hard floors that want hands-free wringing and a reusable microfiber system.",
+      "caveat": "Durability and the spin mechanism receive mixed buyer feedback. It is a proven high-volume system, but not every long-term user reports the same bucket or mop-head durability.",
+      "bullets": [
+        "Foot-pedal hands-free wringing",
+        "Reusable microfiber mop head",
+        "360-degree triangular mop head",
+        "Splash guard bucket",
+        "4.6-star / ~196k rating cross-check",
+        "~50K monthly sales cross-check"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00WSWGVZQ?tag=pirevo-20",
+      "galleryIds": [
+        "819wSV5AEEL",
+        "71RlyZizCPL",
+        "81e6vvJXbmL",
+        "81DwCONwUNL",
+        "81Km6gd6hqL"
+      ],
+      "about": [
+        "Spin-mop system with a foot pedal that controls the bucket wringer.",
+        "Microfiber mop head is reusable and machine washable.",
+        "Triangular head rotates to reach corners and under furniture.",
+        "Splash guard helps contain water while wringing and moving the bucket.",
+        "Designed for sealed hard-floor cleaning."
+      ],
+      "details": [
+        [
+          "System",
+          "Mop + wringer bucket"
+        ],
+        [
+          "Head",
+          "Microfiber"
+        ],
+        [
+          "Control",
+          "Foot-pedal spin wringer"
+        ],
+        [
+          "Floor type",
+          "Sealed hard floors"
+        ],
+        [
+          "Rating cross-check",
+          "4.6 / ~196k"
+        ],
+        [
+          "Demand cross-check",
+          "~50K sales/month"
+        ]
+      ],
+      "seo": {
+        "intent": "spin mop and bucket for weekly cleaning reset",
+        "title": "Spin Mop & Bucket for Cleaning Resets | O-Cedar EasyWring | PIREVO",
+        "description": "Compare the O-Cedar EasyWring spin mop and bucket for weekly cleaning resets, including hands-free wringing, microfiber cleaning, buyer scale and durability tradeoffs."
+      }
+    },
+    {
+      "slug": "circle-joy-rechargeable-frother",
+      "collection": "coffee-bar",
+      "badge": "HOME CAFÉ VELOCITY PICK",
+      "brand": "CIRCLE JOY",
+      "shortName": "Rechargeable 3-Speed Milk Frother",
+      "fullName": "CIRCLE JOY Rechargeable Handheld Milk Frother Wand with Stand, 3 Speeds, 3 Whisks and Storage Box, Black",
+      "asin": "B0G3PDFXJS",
+      "rating": 4.6,
+      "reviews": 1983,
+      "rank": "#8 Milk Frothers • 7K+ bought/month",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/71foHQXs3NL._AC_SL1500_.jpg",
+      "trend": "home café engineering + matcha latte + cold foam + protein drink mixing",
+      "why": "A sharp home-café candidate with 4.6 stars, Amazon's Choice, a #8 Milk Frothers snapshot and 7K+ bought in the past month. It also maps neatly to cold-foam and matcha search behavior.",
+      "bestFor": "Home-café setups, matcha drinkers, latte makers and anyone mixing protein powder or hot chocolate without a countertop appliance.",
+      "caveat": "The main body should not be rinsed directly. It is a handheld mixer, not a heated automatic frother.",
+      "bullets": [
+        "3 speed settings",
+        "3 interchangeable stainless whisks",
+        "1500mAh rechargeable battery",
+        "Stand + storage box",
+        "4.6-star / 1.9k+ rating snapshot",
+        "7K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0G3PDFXJS?tag=pirevo-20",
+      "galleryIds": [
+        "71foHQXs3NL",
+        "41UwjdnKDSL",
+        "413TIMjH4pL",
+        "51lJdNpA4nL",
+        "41PqJxo8yaL"
+      ],
+      "about": [
+        "Rechargeable handheld frother with low, medium and high speed settings.",
+        "Includes a double-ring frothing whisk, egg-beater whisk and powder-mixing hook.",
+        "A 1500mAh internal battery replaces disposable AA batteries.",
+        "Comes with a countertop stand and travel/storage box.",
+        "Detachable whisk heads rinse clean, but the motor body should not be submerged."
+      ],
+      "details": [
+        [
+          "Speeds",
+          "3"
+        ],
+        [
+          "Whisks",
+          "3"
+        ],
+        [
+          "Battery",
+          "1500mAh rechargeable"
+        ],
+        [
+          "Storage",
+          "Stand + box"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Demand",
+          "7K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "rechargeable milk frother for matcha and home cafe",
+        "title": "Rechargeable Milk Frother for Matcha & Home Café | CIRCLE JOY | PIREVO",
+        "description": "Compare the CIRCLE JOY rechargeable 3-speed milk frother for matcha, lattes, cold foam and home-café setups, with three whisks and current Amazon demand evidence."
+      }
+    },
+    {
+      "slug": "aeropress-original-b0047",
+      "collection": "coffee-bar",
+      "badge": "COFFEE CULT PICK",
+      "brand": "AeroPress",
+      "shortName": "Original Coffee Press",
+      "fullName": "AeroPress Original Coffee Press, French Press, Pour-Over & Espresso Style, 10 oz",
+      "asin": "B0047BIWSK",
+      "rating": 4.6,
+      "reviews": 26378,
+      "rank": "#2 Coffee Presses • 3K+ bought/month",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/61u3sW4Vx4L._AC_SL1500_.jpg",
+      "trend": "home café + manual coffee ritual + travel coffee + screen-free hobby",
+      "why": "A proven coffee-tool pick with 4.6 stars across 26k+ ratings, Amazon's Choice, #2 in Coffee Presses and 3K+ bought in the past month. It also fits the hands-on, slower home-café trend.",
+      "bestFor": "Coffee enthusiasts, travelers and small kitchens that want a compact manual brewer without an espresso machine.",
+      "caveat": "It brews a small batch and has a learning curve around grind size, water temperature and ratios. Shoppers wanting push-button convenience should look elsewhere.",
+      "bullets": [
+        "10 oz brewing capacity",
+        "French press + pour-over + espresso-style methods",
+        "Under-two-minute brew claim",
+        "Compact manual design",
+        "4.6-star / 26k+ rating snapshot",
+        "3K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0047BIWSK?tag=pirevo-20",
+      "galleryIds": [
+        "61u3sW4Vx4L",
+        "31-3hkNS8GL",
+        "41lA5lfhclL",
+        "41OUD8UdVWL",
+        "41bFaNZVL5L"
+      ],
+      "about": [
+        "Manual coffee press that combines immersion brewing with paper microfiltration.",
+        "Designed for rich coffee with less grit than a typical French press.",
+        "Can make concentrated coffee for latte-style drinks as well as regular cups.",
+        "Compact and lightweight enough for work, travel and camping.",
+        "Uses paper microfilters and a manual plunge, with no power connection."
+      ],
+      "details": [
+        [
+          "Capacity",
+          "10 oz"
+        ],
+        [
+          "Brew style",
+          "Manual immersion + press"
+        ],
+        [
+          "Filter",
+          "Paper microfilter"
+        ],
+        [
+          "Power",
+          "None"
+        ],
+        [
+          "Use",
+          "Home / work / travel"
+        ],
+        [
+          "Demand",
+          "3K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "manual coffee maker for home cafe and travel",
+        "title": "Manual Coffee Maker for Home Café & Travel | AeroPress Original | PIREVO",
+        "description": "Compare the AeroPress Original as a compact manual coffee maker for home cafés and travel, including 10 oz capacity, multiple brew styles and current buyer evidence."
+      }
+    },
+    {
+      "slug": "bosch-glm100-23-laser",
+      "collection": "tools-diy",
+      "badge": "DIY PRECISION PICK",
+      "brand": "Bosch",
+      "shortName": "GLM100-23 100-ft Laser Measure",
+      "fullName": "BOSCH GLM100-23 100 Ft Blaze Laser Distance Measure with Backlit Display and 2 AA Batteries",
+      "asin": "B0C76CPGC7",
+      "rating": 4.6,
+      "reviews": 2719,
+      "rank": "#3 Laser Distance Meters • 3K+ bought/month",
+      "commission": "Tools & Home Improvement",
+      "image": "https://m.media-amazon.com/images/I/518l-mjGtdL._AC_SL1000_.jpg",
+      "trend": "DIY room measuring + furniture planning + home micro-makeovers",
+      "why": "A useful DIY problem-solver with 4.6 stars, Amazon's Choice, #3 in Laser Distance Meters and 3K+ bought in the past month. It converts a common project pain point into a highly searchable product.",
+      "bestFor": "DIYers, renters, homeowners and renovators measuring rooms, furniture placement, walls and project distances.",
+      "caveat": "The red laser can be harder to see in bright outdoor conditions, and this model focuses on straightforward distance measurement rather than advanced area/volume functions.",
+      "bullets": [
+        "Up to 100-ft measuring range",
+        "±1/16-in stated accuracy",
+        "Backlit display",
+        "Feet / inches / meters",
+        "4.6-star / 2.7k+ rating snapshot",
+        "3K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0C76CPGC7?tag=pirevo-20",
+      "galleryIds": [
+        "518l-mjGtdL",
+        "41n0YzQUt6L",
+        "315GDAdWYlL",
+        "51fOx+ozxDL",
+        "413x+nSNLvL"
+      ],
+      "about": [
+        "Compact laser-distance tool designed for straightforward room and project measurements.",
+        "Measures up to 100 feet with stated accuracy within 1/16 inch.",
+        "Backlit display improves readability in darker rooms.",
+        "Supports feet, inches, fractions/decimals and metric units.",
+        "Includes two AA batteries."
+      ],
+      "details": [
+        [
+          "Range",
+          "Up to 100 ft"
+        ],
+        [
+          "Accuracy",
+          "±1/16 in stated"
+        ],
+        [
+          "Display",
+          "Backlit"
+        ],
+        [
+          "Power",
+          "2 AA batteries"
+        ],
+        [
+          "Color",
+          "Bosch blue"
+        ],
+        [
+          "Demand",
+          "3K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "laser measure for DIY room and furniture projects",
+        "title": "Laser Measure for DIY Rooms & Projects | Bosch GLM100-23 | PIREVO",
+        "description": "Compare the Bosch GLM100-23 100-ft laser measure for DIY room, furniture and renovation projects, including accuracy, display, range and current buyer evidence."
+      }
+    },
+    {
+      "slug": "franklin-m210-stud-finder",
+      "collection": "tools-diy",
+      "badge": "DIY HIGH-VELOCITY PICK",
+      "brand": "Franklin Sensors",
+      "shortName": "ProSensor M210 Stud Finder",
+      "fullName": "Franklin Sensors ProSensor M210 13-Sensor Stud Finder with Live Wire Detection",
+      "asin": "B0917VXLDK",
+      "rating": 4.6,
+      "reviews": 6506,
+      "rank": "#2 Stud Finders • 10K+ bought/month",
+      "commission": "Tools & Home Improvement",
+      "image": "https://m.media-amazon.com/images/I/61edrHfaFlL._AC_SL1500_.jpg",
+      "trend": "picture hanging + DIY wall projects + renter-friendly home upgrades",
+      "why": "One of the strongest utility prospects in the new pass: 4.6 stars across 6.5k+ ratings, Amazon's Choice and 10K+ bought in the past month. It has direct use in wall-mount and micro-makeover projects.",
+      "bestFor": "Picture hanging, TV mounting, shelving and DIY wall projects where finding the full width of studs matters.",
+      "caveat": "It costs more than basic magnetic finders, and live-wire detection is an aid rather than a substitute for proper electrical safety checks.",
+      "bullets": [
+        "13 sensing elements",
+        "Shows full width of studs",
+        "Live-wire detection",
+        "Deep scan up to about 1.7 in",
+        "4.6-star / 6.5k+ rating snapshot",
+        "10K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0917VXLDK?tag=pirevo-20",
+      "galleryIds": [
+        "61edrHfaFlL",
+        "31sFkzKwYKL",
+        "51g9tN+zAuL",
+        "5102rkDYFAL",
+        "514nnQP6v2L"
+      ],
+      "about": [
+        "Stud finder uses 13 sensors to scan a wider area than one- or two-sensor models.",
+        "LED array shows the detected width and center of a stud.",
+        "No calibration step is required before scanning.",
+        "Supports deep detection up to roughly 1.7 inches for wood and metal studs.",
+        "Includes live-wire indication, bubble level and pencil caddy; batteries are not included."
+      ],
+      "details": [
+        [
+          "Sensors",
+          "13"
+        ],
+        [
+          "Deep scan",
+          "Up to ~1.7 in"
+        ],
+        [
+          "Stud types",
+          "Wood + metal"
+        ],
+        [
+          "Extra",
+          "Live-wire indication"
+        ],
+        [
+          "Power",
+          "2 AA batteries, not included"
+        ],
+        [
+          "Demand",
+          "10K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "stud finder for picture hanging and DIY wall projects",
+        "title": "Stud Finder for DIY Wall Projects | Franklin ProSensor M210 | PIREVO",
+        "description": "Compare the Franklin ProSensor M210 stud finder for picture hanging, shelves and DIY walls, with 13 sensors, live-wire indication and strong current Amazon demand."
+      }
+    },
+    {
+      "slug": "downcool-queen-mattress-topper",
+      "collection": "sleep-bedroom",
+      "badge": "COZY BEDROOM PICK",
+      "brand": "DOWNCOOL",
+      "shortName": "Queen Memory Foam Mattress Topper",
+      "fullName": "DOWNCOOL Queen Mattress Topper Memory Foam, Bamboo-Viscose Cooling Pillow Top, Fits 8–21 Inch Mattresses",
+      "asin": "B0HDBBJMCX",
+      "rating": 4.6,
+      "reviews": 2457,
+      "rank": "#18 Mattress Toppers • 1K+ bought/month",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81ldaMnlcmL._AC_SL1500_.jpg",
+      "trend": "cozy bedroom + restorative sleep zone + cooling bedding search intent",
+      "why": "A strong entry into bedroom comfort with 4.6 stars across 2.4k+ ratings, 1K+ bought in the past month and a #18 Mattress Toppers snapshot.",
+      "bestFor": "Queen beds that feel too firm or need a softer, more cushioned surface without replacing the mattress.",
+      "caveat": "Cooling performance is mixed in buyer feedback, and some shoppers describe the topper as thinner than expected. Treat 'cooling' as a design claim to evaluate, not a guaranteed result.",
+      "bullets": [
+        "Queen-size pillow-top topper",
+        "Memory foam + 3D polyester fill",
+        "Bamboo-viscose blend top",
+        "Fits 8–21-in mattresses",
+        "4.6-star / 2.4k+ rating snapshot",
+        "1K+ bought in past month"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0HDBBJMCX?tag=pirevo-20",
+      "galleryIds": [
+        "81ldaMnlcmL",
+        "417rxDc7onL",
+        "4143ZoERg6L",
+        "51GhSvRD6RL",
+        "51gXLqVsnuL"
+      ],
+      "about": [
+        "Pillow-top mattress topper uses a memory-foam and fiber fill for added cushioning.",
+        "Top fabric blends bamboo-derived viscose and polyester with a breathable 3D-air layer.",
+        "Elastic deep-pocket skirt is designed for mattresses 8 to 21 inches thick.",
+        "Machine washable on a gentle cold cycle according to the listing.",
+        "Needs 24 to 48 hours after unpacking to regain loft."
+      ],
+      "details": [
+        [
+          "Size",
+          "Queen"
+        ],
+        [
+          "Fit",
+          "8–21 in mattress depth"
+        ],
+        [
+          "Top",
+          "Bamboo-viscose / polyester"
+        ],
+        [
+          "Fill",
+          "Memory foam + polyester fiber"
+        ],
+        [
+          "Care",
+          "Machine washable"
+        ],
+        [
+          "Demand",
+          "1K+ bought last month"
+        ]
+      ],
+      "seo": {
+        "intent": "cooling mattress topper for cozy queen bedroom",
+        "title": "Queen Mattress Topper for a Cozy Bedroom | DOWNCOOL | PIREVO",
+        "description": "Compare the DOWNCOOL Queen memory-foam pillow-top mattress topper for cozy bedroom upgrades, including deep-pocket fit, buyer evidence and mixed cooling feedback."
+      }
+    },
+    {
+      "slug": "fiskars-6in-pruning-snips",
+      "collection": "outdoor-garden",
+      "badge": "GARDEN TOOL PICK",
+      "brand": "Fiskars",
+      "shortName": "6-in Non-Stick Pruning Snips",
+      "fullName": "Fiskars 6-Inch Non-Stick Pruning Snips with Steel Blades, Easy-Action Spring and SoftGrip Handles",
+      "asin": "B01MU8CP1W",
+      "rating": 4.6,
+      "reviews": 50804,
+      "rank": "Established high-review garden-tool pick",
+      "commission": "Patio / Lawn & Garden",
+      "image": "https://m.media-amazon.com/images/I/61Gtr7q1HkL.jpg",
+      "trend": "garden inspiration + hands-on plant care + backyard botanist hobby",
+      "why": "A high-review, low-friction gardening tool with a 4.6-star / ~50k-rating cross-check. It aligns with Pinterest's surge in garden inspiration and hands-on botanical hobbies.",
+      "bestFor": "Deadheading flowers, harvesting herbs and vegetables, trimming small stems and detail pruning.",
+      "caveat": "The center lock receives mixed feedback and some long-term users report durability issues. These are fine-detail snips, not heavy-duty branch pruners.",
+      "bullets": [
+        "6-inch precision pruning snips",
+        "Non-stick steel blades",
+        "Easy-action spring",
+        "SoftGrip handles",
+        "4.6-star / ~50k rating cross-check",
+        "Best for flowers, herbs and small stems"
+      ],
+      "amazon": "https://www.amazon.com/dp/B01MU8CP1W?tag=pirevo-20",
+      "galleryIds": [
+        "61Gtr7q1HkL",
+        "41FbuhYrGhL",
+        "41lmugfwl3L",
+        "41HxcycqZrL",
+        "315qoT0AL+L"
+      ],
+      "about": [
+        "Compact precision snips intended for flowers, herbs and small stems.",
+        "Non-stick steel blades are designed to resist sap and residue buildup.",
+        "Spring action automatically opens the blades after each cut.",
+        "SoftGrip handles improve comfort and control.",
+        "The lock keeps blades closed for storage, although buyer feedback on the lock is mixed."
+      ],
+      "details": [
+        [
+          "Length",
+          "6 in"
+        ],
+        [
+          "Blade",
+          "Non-stick steel"
+        ],
+        [
+          "Action",
+          "Spring opening"
+        ],
+        [
+          "Handle",
+          "SoftGrip"
+        ],
+        [
+          "Use",
+          "Flowers / herbs / small stems"
+        ],
+        [
+          "Rating cross-check",
+          "4.6 / ~50k"
+        ]
+      ],
+      "seo": {
+        "intent": "pruning snips for flowers herbs and small garden plants",
+        "title": "Pruning Snips for Flowers & Herbs | Fiskars 6-Inch | PIREVO",
+        "description": "Compare Fiskars 6-inch non-stick pruning snips for flowers, herbs and small garden plants, including blade design, review depth and lock durability tradeoffs."
       }
     }
   ]
