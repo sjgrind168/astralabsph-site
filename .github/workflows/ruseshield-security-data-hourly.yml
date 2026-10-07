@@ -1,0 +1,85 @@
+name: RuseShield Security Data Hourly
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ruseshield-security-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check signing secret
+        id: gate
+        shell: bash
+        env:
+          SIGNING_KEY_B64: ${{ secrets.RUSESHIELD_INTEL_SIGNING_PRIVATE_KEY_B64 }}
+        run: |
+          if [ -z "$SIGNING_KEY_B64" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "RuseShield signing secret is not configured yet. Skipping safely."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Restore signing key
+        if: steps.gate.outputs.ready == 'true'
+        shell: bash
+        env:
+          SIGNING_KEY_B64: ${{ secrets.RUSESHIELD_INTEL_SIGNING_PRIVATE_KEY_B64 }}
+        run: |
+          printf '%s' "$SIGNING_KEY_B64" | base64 --decode > "$RUNNER_TEMP/ruseshield-signing-private.pem"
+          chmod 600 "$RUNNER_TEMP/ruseshield-signing-private.pem"
+
+      - name: Build signed Security Data
+        if: steps.gate.outputs.ready == 'true'
+        id: build
+        shell: bash
+        env:
+          PHISHTANK_APP_KEY: ${{ secrets.PHISHTANK_APP_KEY }}
+          RUSESHIELD_INTEL_SIGNING_KEY_FILE: ${{ runner.temp }}/ruseshield-signing-private.pem
+          RUSESHIELD_SECURITY_DATA_OUT: ${{ runner.temp }}/ruseshield-security-data
+          RUSESHIELD_SECURITY_DATA_PUBLIC_BASE: https://raw.githubusercontent.com/${{ github.repository }}/ruseshield-security-data
+          RUSESHIELD_CURRENT_MANIFEST_URL: https://raw.githubusercontent.com/${{ github.repository }}/ruseshield-security-data/manifest.json
+        run: |
+          node tools/ruseshield-intelligence/update-security-data.mjs
+          UPDATED="$(node -e "const s=require(process.argv[1]);process.stdout.write(String(Boolean(s.updated)))" "$RUNNER_TEMP/ruseshield-security-data/update-status.json")"
+          echo "updated=$UPDATED" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/ruseshield-security-data/update-status.json"
+
+      - name: Publish current signed pack to data branch
+        if: steps.gate.outputs.ready == 'true' && steps.build.outputs.updated == 'true'
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          PUB="$RUNNER_TEMP/ruseshield-publish"
+          mkdir -p "$PUB"
+          cp "$RUNNER_TEMP/ruseshield-security-data/manifest.json" "$PUB/"
+          cp "$RUNNER_TEMP/ruseshield-security-data/phishtank-global-v1.json" "$PUB/"
+          cp "$RUNNER_TEMP/ruseshield-security-data/phishtank-global-v1.sig.json" "$PUB/"
+          cp "$RUNNER_TEMP/ruseshield-security-data/trusted-key.json" "$PUB/"
+          cp "$RUNNER_TEMP/ruseshield-security-data/update-status.json" "$PUB/status.json"
+          cd "$PUB"
+          git init -q
+          git checkout --orphan ruseshield-security-data >/dev/null 2>&1
+          git config user.name "RuseShield Intelligence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          git commit -m "RuseShield Security Data $(date -u +%Y-%m-%dT%H:%M:%SZ)" >/dev/null
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin HEAD:ruseshield-security-data
