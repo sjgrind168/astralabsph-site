@@ -28,6 +28,7 @@
       <a href="#beauty">Beauty</a>
       <a href="#gaming">Gaming</a>
       <a href="#fall-home">Home</a>
+      <a href="#astralabs-apps">Apps</a>
       <a class="shop-pill" href="/pirevo/affiliate-disclosure.html">Disclosure</a>
     </nav>
   </div>
@@ -48,18 +49,42 @@
         <span>Exact products</span><span>Current trend signals</span><span>Review-depth filter</span><span>No fake live pricing</span>
       </div>
     </div>
-    <div class="shop-hero-editorial">
-      <a class="editorial-tile big" href="/pirevo/products/ninja-possiblecooker-pro-plus/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_kitchen">
+    <div class="shop-hero-editorial" id="heroEditorial" role="region" aria-roledescription="carousel" aria-label="PIREVO featured edits" tabindex="0">
+      <a class="editorial-tile big" data-hero-slot="big" href="/pirevo/products/ninja-possiblecooker-pro-plus/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_big">
         <img src="https://images-na.ssl-images-amazon.com/images/I/71gzzsRuiZL._AC_UL900_SR900,600_.jpg" alt="Ninja PossibleCooker PRO Plus" referrerpolicy="no-referrer">
         <div class="editorial-copy"><small>KITCHEN TRENDING</small><strong>The slow-cooker upgrade worth comparing.</strong><span>Shop the pick →</span></div>
       </a>
-      <a class="editorial-tile" href="/pirevo/products/wrangler-satchel/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_bag">
+      <a class="editorial-tile" data-hero-slot="smallTop" href="/pirevo/products/wrangler-satchel/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_smalltop">
         <img src="https://m.media-amazon.com/images/I/71XWf9AWPAL._AC_SL1500_.jpg" alt="Wrangler satchel bag" referrerpolicy="no-referrer">
         <div class="editorial-copy"><small>POETCORE</small><strong>Satchels are back.</strong><span>Open the edit →</span></div>
       </a>
-      <a class="editorial-tile" href="/pirevo/products/govee-tv-backlight-3-lite/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=launch_edit&utm_content=hero_gaming">
+      <a class="editorial-tile" data-hero-slot="smallBottom" href="/pirevo/products/govee-tv-backlight-3-lite/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_smallbottom">
         <img src="https://images-na.ssl-images-amazon.com/images/I/71MfcCcZzcL._AC_UL900_SR900,600_.jpg" alt="Govee TV Backlight 3 Lite" referrerpolicy="no-referrer">
         <div class="editorial-copy"><small>GAMING ROOM</small><strong>Ambient setup glow.</strong><span>See the pick →</span></div>
+      </a>
+      <div class="hero-carousel-controls" aria-label="Featured edit controls">
+        <button class="hero-arrow hero-prev" type="button" aria-label="Previous featured edit">‹</button>
+        <div class="hero-dots" id="heroDots" aria-label="Choose featured edit"></div>
+        <button class="hero-arrow hero-next" type="button" aria-label="Next featured edit">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="astralabs-app-strip" id="astralabs-apps">
+  <div class="shop-wrap">
+    <div class="apps-strip-head">
+      <div><span>FROM THE MAKERS OF PIREVO</span><strong>Mobile apps by AstraLabs PH</strong></div>
+      <a href="https://www.astralabsph.com/">Explore AstraLabs →</a>
+    </div>
+    <div class="apps-mini-grid">
+      <a class="app-mini-card" href="/astramate/?utm_source=pirevo&utm_medium=website&utm_campaign=astralabs_apps&utm_content=astramate">
+        <img src="/marketing/campaigns/facebook/A03_astramate_facebook_4x5.png" alt="Astramate mobile app by AstraLabs PH" loading="lazy">
+        <div><small>MARITIME TOOLS · iPHONE + ANDROID</small><h2>Astramate</h2><p>Practical maritime calculators, cargo, stability and onboard reference tools for seafarers.</p><span>Explore the app →</span></div>
+      </a>
+      <a class="app-mini-card" href="/keepry/?utm_source=pirevo&utm_medium=website&utm_campaign=astralabs_apps&utm_content=keepry">
+        <img src="/marketing/campaigns/facebook/K02_keepry_facebook_4x5.png" alt="Keepry mobile app by AstraLabs PH" loading="lazy">
+        <div><small>PRIVATE VAULT + LIFE ADMIN · ANDROID</small><h2>Keepry</h2><p>Keep documents, important dates and reminders together in one local-first personal organizer.</p><span>Explore the app →</span></div>
       </a>
     </div>
   </div>
@@ -334,6 +359,106 @@
   <div><a href="/pirevo/editorial-policy.html">Editorial policy</a><a href="/pirevo/affiliate-disclosure.html">Affiliate disclosure</a><a href="/pirevo/privacy.html">Privacy</a><a href="https://www.astralabsph.com/">AstraLabs PH</a><div>© <span data-year></span> AstraLabs PH</div></div>
 </div></footer>
 
+<script>
+(function(){
+  const sets=[
+    {
+      big:{kicker:"KITCHEN TRENDING",title:"The slow-cooker upgrade worth comparing.",cta:"Shop the pick →",href:"/pirevo/products/ninja-possiblecooker-pro-plus/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_big",image:"https://images-na.ssl-images-amazon.com/images/I/71gzzsRuiZL._AC_UL900_SR900,600_.jpg",alt:"Ninja PossibleCooker PRO Plus"},
+      smallTop:{kicker:"POETCORE",title:"Satchels are back.",cta:"Open the edit →",href:"/pirevo/products/wrangler-satchel/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_smalltop",image:"https://m.media-amazon.com/images/I/71XWf9AWPAL._AC_SL1500_.jpg",alt:"Wrangler top-handle satchel tote"},
+      smallBottom:{kicker:"GAMING ROOM",title:"Ambient setup glow.",cta:"See the pick →",href:"/pirevo/products/govee-tv-backlight-3-lite/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide1_smallbottom",image:"https://images-na.ssl-images-amazon.com/images/I/71MfcCcZzcL._AC_UL900_SR900,600_.jpg",alt:"Govee TV Backlight 3 Lite"}
+    },
+    {
+      big:{kicker:"TIKTOK + AMAZON BEAUTY",title:"The K-beauty mask crossing every feed.",cta:"Explore the trend →",href:"/pirevo/products/biodance-bio-collagen-real-deep-mask/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide2_big",image:"https://m.media-amazon.com/images/I/51ubxqzNGIL._SL1000_.jpg",alt:"Biodance Bio-Collagen Real Deep Mask 4-Pack"},
+      smallTop:{kicker:"HALLOWEEN NOW",title:"Spooky season goes big.",cta:"Shop seasonal →",href:"/pirevo/products/zpisf-halloween-spider-webs/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide2_smalltop",image:"https://m.media-amazon.com/images/I/81MIMkpq4xL._AC_SL1500_.jpg",alt:"ZPISF Halloween spider webs with spiders"},
+      smallBottom:{kicker:"SMART EVERYDAY",title:"Keep tabs on what matters.",cta:"See the pick →",href:"/pirevo/products/apple-airtag-2/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide2_smallbottom",image:"https://m.media-amazon.com/images/I/61Qd9Z9caRL.jpg",alt:"Apple AirTag 2nd Generation"}
+    },
+    {
+      big:{kicker:"HOME RESET",title:"The drawer reset that earns the before-and-after.",cta:"Organize the edit →",href:"/pirevo/products/vtopmart-drawer-organizers-25/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide3_big",image:"https://m.media-amazon.com/images/I/81yj+PUYVxL.jpg",alt:"Vtopmart 25-piece clear drawer organizer set"},
+      smallTop:{kicker:"GIFT SEASON",title:"A viral everyday gift.",cta:"Open the gift →",href:"/pirevo/products/stanley-quencher-30-rose-quartz/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide3_smalltop",image:"https://m.media-amazon.com/images/I/51-U5dEbEBL._AC_SL1500_.jpg",alt:"Stanley Quencher 30 ounce Rose Quartz"},
+      smallBottom:{kicker:"TRAVEL SMART",title:"Pack the counter, not the chaos.",cta:"See the pick →",href:"/pirevo/products/bagsmart-hanging-toiletry/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide3_smallbottom",image:"https://m.media-amazon.com/images/I/61gMY7ZvcrL.jpg",alt:"BAGSMART hanging toiletry bag"}
+    },
+    {
+      big:{kicker:"BEAUTY CULT FAVORITE",title:"The overnight lip ritual with staying power.",cta:"Explore beauty →",href:"/pirevo/products/laneige-lip-sleeping-mask/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide4_big",image:"https://m.media-amazon.com/images/I/51VfrPOslWL._SL1500_.jpg",alt:"Laneige Lip Sleeping Mask"},
+      smallTop:{kicker:"SOCIAL + AMAZON",title:"A compact knife set climbing the feed.",cta:"See the set →",href:"/pirevo/products/astercook-13pc-knife-set/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide4_smalltop",image:"https://m.media-amazon.com/images/I/714bnp4jQrL._AC_SL1500_.jpg",alt:"Astercook 13-piece kitchen knife set"},
+      smallBottom:{kicker:"CLEANING RESET",title:"The spin-mop reset everyone understands.",cta:"Open the pick →",href:"/pirevo/products/ocedar-easywring-spin-mop/index.html?utm_source=pirevo&utm_medium=homepage&utm_campaign=hero_rotation&utm_content=slide4_smallbottom",image:"https://m.media-amazon.com/images/I/819wSV5AEEL.jpg",alt:"O-Cedar EasyWring Spin Mop and Bucket"}
+    }
+  ];
+  const root=document.getElementById("heroEditorial");
+  if(!root)return;
+  const slots={};
+  ["big","smallTop","smallBottom"].forEach(name=>slots[name]=root.querySelector('[data-hero-slot="'+name+'"]'));
+  const dots=document.getElementById("heroDots");
+  let index=0,timer=null,startX=null,restartTimer=null;
+  const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function updateSlot(el,item){
+    if(!el||!item)return;
+    el.href=item.href;
+    const img=el.querySelector("img");
+    const copy=el.querySelector(".editorial-copy");
+    img.src=item.image; img.alt=item.alt;
+    copy.querySelector("small").textContent=item.kicker;
+    copy.querySelector("strong").textContent=item.title;
+    copy.querySelector("span").textContent=item.cta;
+  }
+  function render(next,animate=true){
+    index=(next+sets.length)%sets.length;
+    if(animate&&!reduced)root.classList.add("is-changing");
+    window.setTimeout(()=>{
+      const set=sets[index];
+      Object.keys(slots).forEach(name=>updateSlot(slots[name],set[name]));
+      [...dots.children].forEach((dot,i)=>{
+        dot.classList.toggle("active",i===index);
+        dot.setAttribute("aria-current",i===index?"true":"false");
+      });
+      root.setAttribute("aria-label","PIREVO featured edits, slide "+(index+1)+" of "+sets.length);
+      root.classList.remove("is-changing");
+      preload((index+1)%sets.length);
+    },animate&&!reduced?170:0);
+  }
+  function preload(i){Object.values(sets[i]).forEach(item=>{const im=new Image();im.src=item.image})}
+  function next(){render(index+1)}
+  function prev(){render(index-1)}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  function start(){
+    stop();
+    if(!reduced&&document.visibilityState==="visible")timer=setInterval(next,6500);
+  }
+  function manual(fn){
+    fn(); stop();
+    clearTimeout(restartTimer);
+    restartTimer=setTimeout(start,9000);
+  }
+
+  sets.forEach((_,i)=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="hero-dot"+(i===0?" active":"");
+    b.setAttribute("aria-label","Show featured edit "+(i+1));
+    b.setAttribute("aria-current",i===0?"true":"false");
+    b.addEventListener("click",()=>manual(()=>render(i)));
+    dots.appendChild(b);
+  });
+  root.querySelector(".hero-next").addEventListener("click",()=>manual(next));
+  root.querySelector(".hero-prev").addEventListener("click",()=>manual(prev));
+  root.addEventListener("mouseenter",stop);
+  root.addEventListener("mouseleave",start);
+  root.addEventListener("focusin",stop);
+  root.addEventListener("focusout",e=>{if(!root.contains(e.relatedTarget))start()});
+  root.addEventListener("keydown",e=>{
+    if(e.key==="ArrowRight"){e.preventDefault();manual(next)}
+    if(e.key==="ArrowLeft"){e.preventDefault();manual(prev)}
+  });
+  root.addEventListener("touchstart",e=>{startX=e.changedTouches[0].clientX;stop()},{passive:true});
+  root.addEventListener("touchend",e=>{
+    if(startX===null)return;
+    const dx=e.changedTouches[0].clientX-startX; startX=null;
+    if(Math.abs(dx)>42)manual(dx<0?next:prev); else start();
+  },{passive:true});
+  document.addEventListener("visibilitychange",()=>document.visibilityState==="visible"?start():stop());
+  preload(1);
+  start();
+})();
+</script>
 <script src="/pirevo/config.js"></script>
 <script src="/pirevo/business-analytics.js"></script>
 <script src="/pirevo/store-data.js"></script>
