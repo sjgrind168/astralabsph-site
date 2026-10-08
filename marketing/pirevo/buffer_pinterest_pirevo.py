@@ -3,8 +3,8 @@
 
 Scope is intentionally narrow:
 - PIREVO Finds board only
-- public Wave 1 assets only
-- PIREVO guide destinations only
+- public PIREVO Wave 2 premium assets
+- exact PIREVO product-page destinations
 - max 3 new pins per run
 - fail closed on ambiguous board/channel/history/public asset validation
 """
@@ -16,11 +16,11 @@ from pathlib import Path
 API="https://api.buffer.com"
 CHANNEL_ID="6aa06411cd8b9c702c2ff8ff"
 BOARD_NAME="PIREVO Finds"
-QUEUE_TARGET=10
-TOTAL_QUEUE_CAP=10
-MAX_ADD_PER_RUN=10
+QUEUE_TARGET=3
+TOTAL_QUEUE_CAP=3
+MAX_ADD_PER_RUN=3
 ROOT=Path(__file__).resolve().parents[2]
-MANIFEST=ROOT/"public/pirevo/assets/pins/wave1/manifest.json"
+MANIFEST=ROOT/"public/pirevo/assets/pins/wave2/manifest.json"
 REPORT=ROOT/"marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json"
 
 def q(v): return json.dumps(str(v),ensure_ascii=True)
@@ -75,9 +75,10 @@ def history(org):
     return rows
 
 def load_pins():
+    if not MANIFEST.exists(): raise RuntimeError("Wave 2 manifest not rendered yet")
     doc=json.loads(MANIFEST.read_text(encoding="utf-8"))
     pins=doc.get("pins") or []
-    if len(pins)!=30: raise RuntimeError("Expected exactly 30 Wave 1 pins")
+    if len(pins)!=10: raise RuntimeError("Expected exactly 10 Wave 2 pins")
     seen=set()
     for p in pins:
         pid=p.get("id")
@@ -86,16 +87,16 @@ def load_pins():
         if len(str(p.get("title","")))>100: raise RuntimeError("Pinterest title over 100 chars")
         img=str(p.get("imageUrl",""))
         dest=str(p.get("destination",""))
-        if not img.startswith("https://www.astralabsph.com/pirevo/assets/pins/wave1/") or not img.endswith(".jpg"):
-            raise RuntimeError("Unapproved PIREVO image URL")
-        if not dest.startswith("https://www.astralabsph.com/pirevo/guides/"):
-            raise RuntimeError("Unapproved PIREVO landing URL")
+        if not img.startswith("https://www.astralabsph.com/pirevo/assets/pins/wave2/") or not img.endswith(".jpg"):
+            raise RuntimeError("Unapproved PIREVO Wave 2 image URL")
+        if not dest.startswith("https://www.astralabsph.com/pirevo/products/"):
+            raise RuntimeError("Unapproved PIREVO product landing URL")
     return pins
 
 def landing(pin):
     u=urllib.parse.urlsplit(pin["destination"])
     qs=urllib.parse.parse_qsl(u.query,keep_blank_values=True)
-    qs += [("utm_source","pinterest"),("utm_medium","organic"),("utm_campaign","pirevo_wave1"),("utm_content",pin["id"])]
+    qs += [("utm_source","pinterest"),("utm_medium","organic"),("utm_campaign",str(pin.get("campaign") or "pirevo_wave2")),("utm_content",pin["id"])]
     return urllib.parse.urlunsplit((u.scheme,u.netloc,u.path,urllib.parse.urlencode(qs),u.fragment))
 
 def marker(pid): return "utm_content="+pid
@@ -113,7 +114,7 @@ def verify_image(url):
 def create_pin(pin,board_id):
     url=landing(pin)
     desc=str(pin.get("description") or "").strip()
-    text=(desc+"\n\nRead the full PIREVO guide: "+url).strip()
+    text=(desc+"\n\nSee the full PIREVO pick: "+url).strip()
     if len(text)>800: text=text[:760].rsplit(" ",1)[0]+"…\n\n"+url
     mutation=("mutation { createPost(input:{ text:"+q(text)+
               " channelId:"+q(CHANNEL_ID)+
