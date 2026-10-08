@@ -3,7 +3,7 @@
 
 Scope is intentionally narrow:
 - PIREVO Finds board only
-- public PIREVO Wave 2 premium assets
+- Halloween Wave 3 first, then remaining Wave 2 premium assets
 - exact PIREVO product-page destinations
 - max 3 new pins per run
 - fail closed on ambiguous board/channel/history/public asset validation
@@ -20,7 +20,10 @@ QUEUE_TARGET=3
 TOTAL_QUEUE_CAP=3
 MAX_ADD_PER_RUN=3
 ROOT=Path(__file__).resolve().parents[2]
-MANIFEST=ROOT/"public/pirevo/assets/pins/wave2/manifest.json"
+MANIFESTS=[
+    ("wave3-halloween",ROOT/"public/pirevo/assets/pins/wave3-halloween/manifest.json",16,"https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/"),
+    ("wave2",ROOT/"public/pirevo/assets/pins/wave2/manifest.json",10,"https://www.astralabsph.com/pirevo/assets/pins/wave2/"),
+]
 REPORT=ROOT/"marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json"
 
 def q(v): return json.dumps(str(v),ensure_ascii=True)
@@ -75,28 +78,34 @@ def history(org):
     return rows
 
 def load_pins():
-    if not MANIFEST.exists(): raise RuntimeError("Wave 2 manifest not rendered yet")
-    doc=json.loads(MANIFEST.read_text(encoding="utf-8"))
-    pins=doc.get("pins") or []
-    if len(pins)!=10: raise RuntimeError("Expected exactly 10 Wave 2 pins")
-    seen=set()
-    for p in pins:
-        pid=p.get("id")
-        if not pid or pid in seen: raise RuntimeError("Duplicate/missing pin id")
-        seen.add(pid)
-        if len(str(p.get("title","")))>100: raise RuntimeError("Pinterest title over 100 chars")
-        img=str(p.get("imageUrl",""))
-        dest=str(p.get("destination",""))
-        if not img.startswith("https://www.astralabsph.com/pirevo/assets/pins/wave2/") or not img.endswith(".jpg"):
-            raise RuntimeError("Unapproved PIREVO Wave 2 image URL")
-        if not dest.startswith("https://www.astralabsph.com/pirevo/products/"):
-            raise RuntimeError("Unapproved PIREVO product landing URL")
-    return pins
+    """Load seasonal Wave 3 first, then preserve remaining Wave 2 backlog."""
+    all_pins=[]; seen=set()
+    for wave,path,expected,image_prefix in MANIFESTS:
+        if not path.exists():
+            if wave=="wave3-halloween":
+                raise RuntimeError("Halloween Wave 3 manifest not rendered yet")
+            continue
+        doc=json.loads(path.read_text(encoding="utf-8"))
+        pins=doc.get("pins") or []
+        if len(pins)!=expected: raise RuntimeError(f"Expected exactly {expected} pins in {wave}")
+        for p in pins:
+            pid=p.get("id")
+            if not pid or pid in seen: raise RuntimeError("Duplicate/missing pin id across manifests")
+            seen.add(pid)
+            if len(str(p.get("title","")))>100: raise RuntimeError("Pinterest title over 100 chars")
+            img=str(p.get("imageUrl",""))
+            dest=str(p.get("destination",""))
+            if not img.startswith(image_prefix) or not img.endswith(".jpg"):
+                raise RuntimeError(f"Unapproved PIREVO image URL in {wave}")
+            if not dest.startswith("https://www.astralabsph.com/pirevo/products/"):
+                raise RuntimeError("Unapproved PIREVO product landing URL")
+            all_pins.append(p)
+    return all_pins
 
 def landing(pin):
     u=urllib.parse.urlsplit(pin["destination"])
     qs=urllib.parse.parse_qsl(u.query,keep_blank_values=True)
-    qs += [("utm_source","pinterest"),("utm_medium","organic"),("utm_campaign",str(pin.get("campaign") or "pirevo_wave2")),("utm_content",pin["id"])]
+    qs += [("utm_source","pinterest"),("utm_medium","organic"),("utm_campaign",str(pin.get("campaign") or "pirevo_pinterest")),("utm_content",pin["id"])]
     return urllib.parse.urlunsplit((u.scheme,u.netloc,u.path,urllib.parse.urlencode(qs),u.fragment))
 
 def marker(pid): return "utm_content="+pid
