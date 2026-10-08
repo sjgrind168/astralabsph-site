@@ -1,5 +1,5 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-07",
+  "updated": "2026-10-09",
   "associateTag": "pirevo-20",
   "collections": [
     {
@@ -5424,6 +5424,278 @@ window.PIREVO_STORE = {
         "intent": "astercook 13 piece kitchen knife set blade guards",
         "title": "Astercook 13-Piece Kitchen Knife Set | Social + Amazon Trend | PIREVO",
         "description": "Compare the Astercook 13-piece kitchen knife set with six blade guards, current Amazon rating and buyer-activity evidence, plus cross-platform social-commerce context."
+      }
+    },
+    {
+      "slug": "ocato-giant-spider-web",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN OUTDOOR PICK",
+      "brand": "OCATO",
+      "shortName": "200-in Web + 59-in Giant Spider",
+      "fullName": "OCATO 200\" Halloween Decorations Spider Web Outdoor + 59\" Giant Spider Décor",
+      "asin": "B07TWF8JZ1",
+      "rating": 4.5,
+      "reviews": 5815,
+      "rank": "30K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Home / Patio",
+      "image": "https://m.media-amazon.com/images/I/81hVDI68wPL._AC_SX679_.jpg",
+      "trend": "giant spider + outdoor web decor + haunted porch and yard search intent",
+      "why": "A high-velocity outdoor Halloween pick with 4.5 stars across 5,815 ratings, 30K+ bought in the past month and an Amazon's Choice snapshot on Oct. 9, 2026.",
+      "bestFor": "Porches, yards, haunted-house setups and party entrances that need one oversized focal point.",
+      "caveat": "Outdoor placement still depends on weather and secure anchoring. Confirm the exact current package contents, seller and stock on Amazon.",
+      "bullets": [
+        "Exact ASIN B07TWF8JZ1",
+        "4.5-star / 5,815-rating snapshot",
+        "30K+ bought in past month",
+        "Amazon’s Choice snapshot",
+        "200-inch web + 59-inch giant spider in current listing",
+        "Outdoor / indoor Halloween decor use"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07TWF8JZ1?tag=pirevo-20",
+      "galleryIds": [
+        "81hVDI68wPL"
+      ],
+      "about": [
+        "The current Amazon listing centers on a large triangular spider web paired with a 59-inch giant spider.",
+        "PIREVO validated the exact ASIN on Oct. 9, 2026 at 4.5 stars across 5,815 ratings.",
+        "Amazon showed 30K+ bought in the past month and an Amazon's Choice badge at research time.",
+        "The product is positioned for outdoor and indoor Halloween decorating, including yards, homes, parties and haunted-house setups.",
+        "Amazon remains the source of live price, seller, stock and exact package contents."
+      ],
+      "details": [
+        [
+          "Main web",
+          "200 in"
+        ],
+        [
+          "Giant spider",
+          "59 in"
+        ],
+        [
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Ratings snapshot",
+          "5,815"
+        ],
+        [
+          "Buyer activity",
+          "30K+ bought last month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "giant spider web outdoor Halloween decorations",
+        "title": "Giant Spider Web Outdoor Halloween Decor | OCATO | PIREVO",
+        "description": "Compare the OCATO 200-inch Halloween spider web with 59-inch giant spider, including current Amazon rating, review depth and buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "joyin-hanging-skeleton-ghosts",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN HANGING PICK",
+      "brand": "JOYIN",
+      "shortName": "3-Pack Hanging Skeleton Ghosts",
+      "fullName": "JOYIN 3 Pack Hanging Halloween Skeleton Ghosts Decorations, Grim Reapers",
+      "asin": "B07VVH83KM",
+      "rating": 4.5,
+      "reviews": 2549,
+      "rank": "#1 Best Seller snapshot • 5K+ bought in past month",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/61Lpr6swZtL._AC_SX679_.jpg",
+      "trend": "hanging grim reaper decor + porch tree entryway Halloween intent",
+      "why": "A strong hanging-decor candidate with 4.5 stars across 2,549 ratings, 5K+ bought in the past month and a #1 Best Seller snapshot on Oct. 9, 2026.",
+      "bestFor": "Trees, porches, entryways and party spaces where vertical hanging decor creates movement and height.",
+      "caveat": "Hanging decorations need secure placement and enough clearance. Confirm dimensions and exact current pack details on Amazon.",
+      "bullets": [
+        "Exact ASIN B07VVH83KM",
+        "4.5-star / 2,549-rating snapshot",
+        "5K+ bought in past month",
+        "#1 Best Seller snapshot",
+        "Three hanging skeleton / grim-reaper decorations",
+        "Outdoor Halloween decor positioning"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07VVH83KM?tag=pirevo-20",
+      "galleryIds": [
+        "61Lpr6swZtL"
+      ],
+      "about": [
+        "The current listing is a three-pack of hanging Halloween skeleton ghost / grim-reaper decorations.",
+        "PIREVO validated the exact ASIN on Oct. 9, 2026 at 4.5 stars across 2,549 ratings.",
+        "Amazon showed 5K+ bought in the past month and a #1 Best Seller signal at research time.",
+        "The format is suited to porches, trees, entryways and outdoor Halloween displays.",
+        "Amazon remains the source of current price, seller, stock and exact product dimensions."
+      ],
+      "details": [
+        [
+          "Pack",
+          "3 hanging decorations"
+        ],
+        [
+          "Theme",
+          "Skeleton ghosts / grim reapers"
+        ],
+        [
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Ratings snapshot",
+          "2,549"
+        ],
+        [
+          "Buyer activity",
+          "5K+ bought last month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "hanging skeleton ghost Halloween decorations outdoor",
+        "title": "Hanging Skeleton Ghost Halloween Decorations | JOYIN | PIREVO",
+        "description": "Compare JOYIN 3-pack hanging skeleton ghost decorations with current Amazon rating, review depth, bestseller and buyer-activity signals."
+      }
+    },
+    {
+      "slug": "cyantor-halloween-creepy-cloth-5",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN VALUE PICK",
+      "brand": "Cyantor",
+      "shortName": "5-Pack Black Creepy Cloth",
+      "fullName": "Cyantor 5Pcs Halloween Creepy Cloth Black 30 × 72 Inch",
+      "asin": "B09C5Q8S89",
+      "rating": 4.6,
+      "reviews": 1743,
+      "rank": "20K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/91HvHi81uNL._AC_SX679_.jpg",
+      "trend": "cheap Halloween room transformation + draping + haunted-house layering",
+      "why": "A low-friction seasonal decor item with 4.6 stars across 1,743 ratings, 20K+ bought in the past month and an Amazon's Choice snapshot on Oct. 9, 2026.",
+      "bestFor": "Mantels, doorways, walls, tables and haunted-house layering where inexpensive texture creates a bigger visual effect.",
+      "caveat": "This is lightweight decorative fabric rather than a structural outdoor material. Confirm current dimensions and care notes before use.",
+      "bullets": [
+        "Exact ASIN B09C5Q8S89",
+        "4.6-star / 1,743-rating snapshot",
+        "20K+ bought in past month",
+        "Amazon’s Choice snapshot",
+        "5 pieces in current listing",
+        "30 × 72 inch listing size"
+      ],
+      "amazon": "https://www.amazon.com/dp/B09C5Q8S89?tag=pirevo-20",
+      "galleryIds": [
+        "91HvHi81uNL"
+      ],
+      "about": [
+        "The current listing is a five-piece pack of black Halloween creepy cloth, listed at 30 × 72 inches per piece.",
+        "PIREVO validated the exact ASIN on Oct. 9, 2026 at 4.6 stars across 1,743 ratings.",
+        "Amazon showed 20K+ bought in the past month and an Amazon's Choice badge at research time.",
+        "The product is positioned for both indoor and outdoor spooky decorating, with common uses around walls, doors, furniture and party scenes.",
+        "Amazon remains the source of live price, seller, stock and exact package details."
+      ],
+      "details": [
+        [
+          "Pack",
+          "5 pieces"
+        ],
+        [
+          "Listed size",
+          "30 × 72 in"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Buyer activity",
+          "20K+ bought last month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "black creepy cloth Halloween decorations indoor outdoor",
+        "title": "Black Creepy Cloth Halloween Decor 5-Pack | Cyantor | PIREVO",
+        "description": "Compare the Cyantor 5-pack black creepy cloth for Halloween decor with current Amazon rating, review depth and 20K+ monthly buyer-activity snapshot."
+      }
+    },
+    {
+      "slug": "miulee-ghost-pillow-covers-2",
+      "collection": "seasonal",
+      "badge": "HALLOWEEN COZY PICK",
+      "brand": "MIULEE",
+      "shortName": "Ghost Pillow Covers, Set of 2",
+      "fullName": "MIULEE White Halloween Pillow Covers Cute Ghost Decor Set of 2, 18 × 18",
+      "asin": "B0F72LLCPZ",
+      "rating": 4.6,
+      "reviews": 722,
+      "rank": "3K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81X-okmCKRL._AC_SX679_.jpg",
+      "trend": "cute ghost decor + cozy Halloween living room + soft spooky aesthetic",
+      "why": "A softer Halloween aesthetic with 4.6 stars across 722 ratings, 3K+ bought in the past month and an Amazon's Choice snapshot on Oct. 9, 2026.",
+      "bestFor": "Couches, beds, porch seating and living rooms that want Halloween styling without a full horror theme.",
+      "caveat": "These are pillow covers rather than filled pillows. Confirm insert requirements, fabric care and exact current variant on Amazon.",
+      "bullets": [
+        "Exact ASIN B0F72LLCPZ",
+        "4.6-star / 722-rating snapshot",
+        "3K+ bought in past month",
+        "Amazon’s Choice snapshot",
+        "Set of 2 pillow covers",
+        "18 × 18 inch listing size"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0F72LLCPZ?tag=pirevo-20",
+      "galleryIds": [
+        "81X-okmCKRL"
+      ],
+      "about": [
+        "The current listing is a set of two white Halloween pillow covers with cute ghost styling.",
+        "PIREVO validated the exact ASIN on Oct. 9, 2026 at 4.6 stars across 722 ratings.",
+        "Amazon showed 3K+ bought in the past month and an Amazon's Choice badge at research time.",
+        "The listing positions the covers for couches, sofas, beds, porches and living rooms.",
+        "These are covers rather than filled pillows; Amazon remains the source of live price, seller, stock and current variant details."
+      ],
+      "details": [
+        [
+          "Pack",
+          "2 covers"
+        ],
+        [
+          "Listed size",
+          "18 × 18 in"
+        ],
+        [
+          "Theme",
+          "Cute ghost"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Buyer activity",
+          "3K+ bought last month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "cute ghost Halloween pillow covers 18x18",
+        "title": "Cute Ghost Halloween Pillow Covers | MIULEE Set of 2 | PIREVO",
+        "description": "Compare MIULEE cute ghost Halloween pillow covers, set of two 18x18 covers, with current Amazon rating, review depth and buyer-activity evidence."
       }
     }
   ]
