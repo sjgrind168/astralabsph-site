@@ -112,3 +112,144 @@ body{background:var(--shop-bg)}
 @media(prefers-reduced-motion:reduce){
   .shop-hero-editorial .editorial-tile,.hero-dot,.hero-arrow,.app-mini-card{transition:none}
 }
+
+
+/* ===== PIREVO HALLOWEEN STOREFRONT TAKEOVER · OCT 2026 ===== */
+.halloween-season{
+  --halloween-ink:#17120f;
+  --halloween-night:#1a151d;
+  --halloween-plum:#2b172d;
+  --halloween-orange:#f47a2a;
+  --halloween-pumpkin:#ff9b45;
+  --halloween-cream:#fff7ea;
+  --halloween-lime:#d6ff78;
+  background:
+    radial-gradient(circle at 8% 5%,rgba(244,122,42,.10),transparent 27rem),
+    linear-gradient(#fffaf3,#f8f5ee 40%,#fffaf3);
+}
+.halloween-season .halloween-announcement{
+  background:#17120f;
+  color:#fff7ea;
+  border-bottom:1px solid rgba(244,122,42,.35);
+}
+.halloween-season .halloween-announcement strong{color:#ff9b45}
+.halloween-season .shop-header{
+  background:rgba(255,250,243,.93);
+  border-bottom-color:rgba(54,33,22,.12);
+}
+.halloween-season .shop-brandmark i{
+  background:linear-gradient(145deg,#f47a2a,#8f3a1f);
+  color:#fff;
+  box-shadow:0 8px 22px rgba(244,122,42,.25);
+}
+.halloween-season .shop-pill{border-color:#f47a2a}
+.halloween-season .shop-hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 13% 12%,rgba(244,122,42,.19),transparent 25rem),
+    radial-gradient(circle at 92% 10%,rgba(139,78,146,.17),transparent 25rem),
+    linear-gradient(135deg,#fff8ed 0%,#f4eee7 50%,#efe7ef 100%);
+}
+.halloween-season .shop-hero:before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;opacity:.14;
+  background-image:
+    linear-gradient(30deg,transparent 46%,rgba(43,23,45,.18) 47%,rgba(43,23,45,.18) 48%,transparent 49%),
+    linear-gradient(150deg,transparent 46%,rgba(43,23,45,.15) 47%,rgba(43,23,45,.15) 48%,transparent 49%);
+  background-size:90px 90px;
+  mask-image:linear-gradient(to right,transparent,black 70%,black);
+}
+.halloween-season .shop-kicker{color:#a1471f;letter-spacing:.14em}
+.halloween-season .shop-hero-copy h1{color:#1d1720}
+.halloween-season .shop-hero-copy h1 em{color:#a84c25}
+.halloween-season .shop-btn.dark{
+  background:linear-gradient(135deg,#1d1720,#382039);
+  color:#fff7ea;
+  box-shadow:0 12px 28px rgba(43,23,45,.20);
+}
+.halloween-season .shop-btn.light{border-color:rgba(168,76,37,.28);background:rgba(255,255,255,.72)}
+.halloween-season .shop-trust-row span:before{background:#f47a2a}
+.halloween-season .shop-hero-editorial{
+  box-shadow:0 28px 65px rgba(41,24,34,.22);
+}
+.halloween-season .editorial-copy small{color:#ffd5b5}
+.halloween-season .hero-dot.active{background:#ff9b45}
+
+/* Halloween landing strip */
+.halloween-entry{padding:32px 0 24px;background:#17120f;color:#fff7ea;position:relative;overflow:hidden}
+.halloween-entry:before{
+  content:"";position:absolute;right:-110px;top:-220px;width:470px;height:470px;border-radius:50%;
+  background:radial-gradient(circle,rgba(244,122,42,.22),rgba(244,122,42,0) 68%);
+}
+.halloween-entry-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;margin-bottom:18px;position:relative}
+.halloween-entry-head>div{max-width:760px}
+.halloween-eyebrow{display:block;font-size:9px;font-weight:950;letter-spacing:.18em;color:#ff9b45;margin-bottom:8px}
+.halloween-entry-head h2{font-family:Georgia,serif;font-size:clamp(30px,4vw,48px);line-height:.98;font-weight:500;margin:0 0 9px;color:#fff7ea}
+.halloween-entry-head p{margin:0;max-width:690px;color:#cfc5bd;font-size:13px;line-height:1.55}
+.halloween-entry-head>a{white-space:nowrap;color:#d6ff78;font-size:11px;font-weight:900;text-decoration:none;padding-bottom:4px;border-bottom:1px solid rgba(214,255,120,.42)}
+.halloween-entry-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+.halloween-entry-card{
+  min-width:0;text-decoration:none;color:#fff7ea;background:#241c20;border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:10px;display:grid;grid-template-rows:150px auto auto auto;overflow:hidden;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.halloween-entry-card:hover{transform:translateY(-4px);border-color:rgba(244,122,42,.48);background:#2d2226}
+.halloween-entry-card img{width:100%;height:150px;object-fit:contain;background:#f5f0e9;border-radius:13px;margin-bottom:10px}
+.halloween-entry-card span{font-size:8px;font-weight:950;letter-spacing:.13em;color:#ff9b45}
+.halloween-entry-card strong{font-family:Georgia,serif;font-size:18px;font-weight:500;line-height:1.05;margin:5px 0 7px}
+.halloween-entry-card small{font-size:9px;line-height:1.3;color:#bcb0a9}
+.halloween-entry-card.glow span{color:#e3b8ff}
+.halloween-entry-card.pumpkins span{color:#d6ff78}
+
+/* Search + seasonal shelf */
+.halloween-season .halloween-intents a:nth-child(-n+4){
+  background:#241c20;color:#fff7ea;border-color:#563829;
+}
+.halloween-season .halloween-intents a:nth-child(-n+4):hover{background:#f47a2a;color:#17120f;border-color:#f47a2a}
+.halloween-season .halloween-filter{background:#241c20;color:#fff7ea;border-color:#f47a2a}
+.halloween-season .halloween-section-head span{color:#b24d21}
+.halloween-season .halloween-section-head h2{color:#20161f}
+.halloween-season .halloween-signal{
+  background:linear-gradient(90deg,#241c20,#33202f);
+  color:#fff1df;
+  border-color:rgba(244,122,42,.22);
+}
+.halloween-season #seasonal{
+  background:
+    radial-gradient(circle at 100% 0,rgba(244,122,42,.10),transparent 24rem),
+    linear-gradient(#fffaf4,#fff);
+}
+.halloween-season #seasonal .seasonal-subhead:not(.christmas){
+  border-left:4px solid #f47a2a;padding-left:14px;
+}
+.halloween-season #seasonal .seasonal-subhead:not(.christmas) span{color:#ad481e}
+.halloween-season #seasonal .shop-product-card[data-collection="seasonal"]:has(.shop-badge[class]){
+  border-color:rgba(76,45,32,.12);
+}
+.halloween-season #seasonal .shop-badge{
+  background:#20161f;color:#fff7ea;border-color:rgba(244,122,42,.34);
+}
+.halloween-season #seasonal .shop-view{color:#9f421c}
+
+/* Keep AstraLabs strip visually secondary during seasonal takeover */
+.halloween-season .astralabs-app-strip{padding-top:22px;background:#fffaf3}
+
+@media(max-width:980px){
+  .halloween-entry-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .halloween-entry{padding:24px 0 18px}
+  .halloween-entry-head{align-items:flex-start;flex-direction:column;gap:10px}
+  .halloween-entry-head h2{font-size:34px}
+  .halloween-entry-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .halloween-entry-card{grid-template-rows:116px auto auto auto;padding:8px}
+  .halloween-entry-card img{height:116px}
+  .halloween-entry-card strong{font-size:15px}
+  .halloween-season .shop-hero:before{opacity:.08}
+}
+@media(max-width:440px){
+  .halloween-entry-grid{grid-template-columns:1fr}
+  .halloween-entry-card{grid-template-columns:98px 1fr;grid-template-rows:auto auto auto;column-gap:10px;align-items:center}
+  .halloween-entry-card img{width:98px;height:98px;grid-row:1/4;margin:0}
+}
