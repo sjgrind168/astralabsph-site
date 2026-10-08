@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/pirevo-pinterest-queue.yml'
       - 'marketing/pirevo/buffer_pinterest_pirevo.py'
+      - 'public/pirevo/assets/pins/wave2/manifest.json'
   schedule:
     - cron: '20 0 * * *'
   workflow_dispatch:
@@ -29,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Replenish PIREVO Finds queue safely
+      - name: Replenish PIREVO Finds queue safely (max 3 premium Pins)
         run: python3 marketing/pirevo/buffer_pinterest_pirevo.py
 
       - name: Persist PIREVO queue proof
