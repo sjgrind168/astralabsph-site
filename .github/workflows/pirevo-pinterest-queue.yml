@@ -7,8 +7,10 @@ on:
       - '.github/workflows/pirevo-pinterest-queue.yml'
       - 'marketing/pirevo/buffer_pinterest_pirevo.py'
       - 'public/pirevo/assets/pins/wave2/manifest.json'
+      - 'public/pirevo/assets/pins/wave3-halloween/manifest.json'
   schedule:
     - cron: '20 0 * * *'
+    - cron: '20 7 * * *'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +32,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Replenish PIREVO Finds queue safely (max 3 premium Pins)
+      - name: Replenish PIREVO Finds queue safely (Halloween priority, max 3 Pins)
         run: python3 marketing/pirevo/buffer_pinterest_pirevo.py
 
       - name: Persist PIREVO queue proof
