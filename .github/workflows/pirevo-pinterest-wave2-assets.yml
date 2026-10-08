@@ -1,0 +1,63 @@
+name: PIREVO Pinterest Wave 2 Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-pinterest-wave2-assets.yml'
+      - 'marketing/pirevo/render_pinterest_wave2.py'
+      - 'marketing/pirevo/PINTEREST_PIN_COPY_WAVE2_20261009.json'
+      - 'public/pirevo/store-data.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pirevo-pinterest-wave2-assets
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image renderer
+        run: python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
+      - name: Render 10 premium PIREVO Pinterest Wave 2 assets
+        run: python marketing/pirevo/render_pinterest_wave2.py
+
+      - name: Validate Wave 2 inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          COUNT="$(find public/pirevo/assets/pins/wave2 -maxdepth 1 -type f -name '[0-9][0-9]_*.jpg' | wc -l | tr -d ' ')"
+          test "$COUNT" = "10"
+          test -s public/pirevo/assets/pins/wave2/manifest.json
+          test -s public/pirevo/assets/pins/wave2/QA_contact_sheet.jpg
+          grep -q '"count": 10' public/pirevo/assets/pins/wave2/manifest.json
+          echo "PIREVO_WAVE2_ASSET_QA_OK count=$COUNT"
+
+      - name: Persist Wave 2 assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Asset Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/pirevo/assets/pins/wave2
+          if git diff --cached --quiet; then
+            echo "NO_WAVE2_ASSET_CHANGE"
+            exit 0
+          fi
+          git commit -m 'PIREVO: render Pinterest Wave 2 premium assets'
+          git pull --rebase origin main
+          git push origin HEAD:main
