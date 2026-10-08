@@ -32,10 +32,10 @@ window.PIREVO_STORE = {
     },
     {
       "id": "seasonal",
-      "name": "Seasonal Must-Haves",
-      "kicker": "HALLOWEEN NOW • CHRISTMAS EARLY",
-      "description": "Fast-moving Halloween and early Christmas picks selected for seasonal search demand, strong Amazon evidence and highly visual Pinterest potential.",
-      "signal": "Halloween is Pinterest's #2 most-searched holiday after Christmas • Holiday planning starts early"
+      "name": "Halloween Shop + Holiday Preview",
+      "kicker": "HALLOWEEN TAKEOVER • CHRISTMAS PREVIEW",
+      "description": "A Halloween-first seasonal shop with 16 researched picks across outdoor haunts, webs and bats, lighting, porch decor and cozy spooky accents.",
+      "signal": "4.5★+ exact-ASIN validation • buyer activity • review depth • visual seasonal intent"
     },
     {
       "id": "gifts",
@@ -1181,7 +1181,9 @@ window.PIREVO_STORE = {
         "intent": "giant spider webs for outdoor Halloween decorations",
         "title": "Giant Spider Webs for Outdoor Halloween Decorations | ZPISF | PIREVO",
         "description": "Compare ZPISF 1400 sq ft Halloween spider webs with 150 fake spiders for porch, yard and haunted-house decorating, including size, features and buying tradeoffs."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "webs-walls"
     },
     {
       "slug": "eldnacele-halloween-skull-candles",
@@ -1259,7 +1261,9 @@ window.PIREVO_STORE = {
         "intent": "Halloween skull flameless candles with timer",
         "title": "Halloween Skull Flameless Candles with Timer | Eldnacele | PIREVO",
         "description": "Compare Eldnacele skull Halloween flameless candles with a 6-hour timer for mantels, tables and spooky indoor decor, including buyer evidence and tradeoffs."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "lights-glow"
     },
     {
       "slug": "aiseno-skeleton-stakes",
@@ -1337,7 +1341,9 @@ window.PIREVO_STORE = {
         "intent": "Halloween skeleton yard decorations outdoor",
         "title": "Halloween Skeleton Yard Decorations | AISENO Groundbreaker Stakes | PIREVO",
         "description": "Compare AISENO realistic skeleton groundbreaker stakes for Halloween yards, graveyard scenes and outdoor displays, including setup, buyer evidence and tradeoffs."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "outdoor-haunt"
     },
     {
       "slug": "homemory-50-flameless-tealights",
@@ -1415,7 +1421,9 @@ window.PIREVO_STORE = {
         "intent": "flameless tea lights for Halloween pumpkins and Christmas luminaries",
         "title": "Flameless Tea Lights for Halloween & Christmas | Homemory 50-Pack | PIREVO",
         "description": "Compare Homemory 50-pack flameless tea lights for Halloween pumpkins, Christmas luminaries and seasonal displays, including runtime, batteries and tradeoffs."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "lights-glow"
     },
     {
       "slug": "creative-hobbies-window-candles-6",
@@ -1493,7 +1501,9 @@ window.PIREVO_STORE = {
         "intent": "Christmas window candles with dusk to dawn sensor",
         "title": "Christmas Window Candles with Dusk-to-Dawn Sensor | Creative Hobbies | PIREVO",
         "description": "Compare Creative Hobbies 6-pack Christmas window candles with dusk-to-dawn sensors, plug-in power, classic brass bases and key buying tradeoffs."
-      }
+      },
+      "season": "christmas",
+      "seasonalGroup": "christmas"
     },
     {
       "slug": "homemory-christmas-tree-candles",
@@ -1571,7 +1581,9 @@ window.PIREVO_STORE = {
         "intent": "Christmas tree flameless candles with timer",
         "title": "Christmas Tree Flameless Candles with Timer | Homemory | PIREVO",
         "description": "Compare Homemory Christmas tree flameless candles with a 6-hour timer for mantel, table and holiday decor, including size, battery needs and tradeoffs."
-      }
+      },
+      "season": "christmas",
+      "seasonalGroup": "christmas"
     },
     {
       "slug": "godonlif-candle-warmer-lamp",
@@ -2416,7 +2428,9 @@ window.PIREVO_STORE = {
         "intent": "pre lit Christmas garland for mantel and stairs",
         "title": "Pre-Lit Christmas Garland for Mantels & Stairs | National Tree Company | PIREVO",
         "description": "Compare this 9-ft National Tree Company pre-lit Wintry Pine Christmas garland for mantels, stairs and doorways, including lights, branch count and buying tradeoffs."
-      }
+      },
+      "season": "christmas",
+      "seasonalGroup": "christmas"
     },
     {
       "slug": "amazon-basics-wire-rack",
@@ -5492,7 +5506,9 @@ window.PIREVO_STORE = {
         "intent": "giant spider web outdoor Halloween decorations",
         "title": "Giant Spider Web Outdoor Halloween Decor | OCATO | PIREVO",
         "description": "Compare the OCATO 200-inch Halloween spider web with 59-inch giant spider, including current Amazon rating, review depth and buyer-activity evidence."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "webs-walls"
     },
     {
       "slug": "joyin-hanging-skeleton-ghosts",
@@ -5560,7 +5576,9 @@ window.PIREVO_STORE = {
         "intent": "hanging skeleton ghost Halloween decorations outdoor",
         "title": "Hanging Skeleton Ghost Halloween Decorations | JOYIN | PIREVO",
         "description": "Compare JOYIN 3-pack hanging skeleton ghost decorations with current Amazon rating, review depth, bestseller and buyer-activity signals."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "outdoor-haunt"
     },
     {
       "slug": "cyantor-halloween-creepy-cloth-5",
@@ -5628,7 +5646,9 @@ window.PIREVO_STORE = {
         "intent": "black creepy cloth Halloween decorations indoor outdoor",
         "title": "Black Creepy Cloth Halloween Decor 5-Pack | Cyantor | PIREVO",
         "description": "Compare the Cyantor 5-pack black creepy cloth for Halloween decor with current Amazon rating, review depth and 20K+ monthly buyer-activity snapshot."
-      }
+      },
+      "season": "halloween",
+      "seasonalGroup": "webs-walls"
     },
     {
       "slug": "miulee-ghost-pillow-covers-2",
@@ -5696,6 +5716,560 @@ window.PIREVO_STORE = {
         "intent": "cute ghost Halloween pillow covers 18x18",
         "title": "Cute Ghost Halloween Pillow Covers | MIULEE Set of 2 | PIREVO",
         "description": "Compare MIULEE cute ghost Halloween pillow covers, set of two 18x18 covers, with current Amazon rating, review depth and buyer-activity evidence."
+      },
+      "season": "halloween",
+      "seasonalGroup": "cute-cozy"
+    },
+    {
+      "slug": "piteno-140-bat-wall-decor",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "webs-walls",
+      "badge": "HALLOWEEN WALL PICK",
+      "brand": "Piteno",
+      "shortName": "140-Piece 3D Bat Wall Decor",
+      "fullName": "Piteno 140Pcs Bats Halloween Decorations, Realistic PVC 3D Black Bat Stickers",
+      "asin": "B0F831L31B",
+      "rating": 4.6,
+      "reviews": 1233,
+      "rank": "40K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/61Dme-fvWvL._AC_SX679_.jpg",
+      "trend": "bat-wall gallery + staircase swarm + indoor Halloween room transformation",
+      "why": "Validated Oct. 9, 2026 at 4.6 stars across 1,233 ratings, with 40K+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Walls, staircases, windows and party backdrops that need a high-impact bat swarm without bulky props.",
+      "caveat": "Adhesive performance depends on the wall surface. Test a small area first and confirm removal guidance on the live listing.",
+      "bullets": [
+        "Exact ASIN B0F831L31B",
+        "140-piece bat set",
+        "3D PVC bat stickers",
+        "4.6★ / 1,233 ratings snapshot",
+        "40K+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0F831L31B?tag=pirevo-20",
+      "galleryIds": [
+        "61Dme-fvWvL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.6 stars across 1,233 ratings.",
+        "Amazon showed 40K+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Walls, staircases, windows and party backdrops that need a high-impact bat swarm without bulky props.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "140-piece bat set"
+        ],
+        [
+          "Feature",
+          "3D PVC bat stickers"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings snapshot",
+          "1,233"
+        ],
+        [
+          "Demand snapshot",
+          "40K+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "140-piece 3d bat wall decor Halloween",
+        "title": "140-Piece 3D Bat Wall Decor | Piteno | PIREVO Halloween Edit",
+        "description": "Compare Piteno 140-Piece 3D Bat Wall Decor with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "ljlnion-300led-purple-halloween-lights",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "lights-glow",
+      "badge": "HALLOWEEN LIGHTING PICK",
+      "brand": "LJLNION",
+      "shortName": "300-LED Purple Halloween String Lights",
+      "fullName": "300 LED Halloween Lights, 98.5FT Purple String Lights with 8 Lighting Modes",
+      "asin": "B088FQW939",
+      "rating": 4.6,
+      "reviews": 1168,
+      "rank": "2K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/81ZR3OWJVqL._AC_SX679_.jpg",
+      "trend": "purple ambient Halloween lighting + indoor/outdoor party atmosphere",
+      "why": "Validated Oct. 9, 2026 at 4.6 stars across 1,168 ratings, with 2K+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Long indoor or outdoor runs where purple ambient lighting needs to cover fences, bedrooms, patios or party spaces.",
+      "caveat": "Confirm the exact power setup, connection limits and current waterproof guidance on Amazon.",
+      "bullets": [
+        "Exact ASIN B088FQW939",
+        "300 LEDs",
+        "98.5-ft listing length",
+        "4.6★ / 1,168 ratings snapshot",
+        "2K+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B088FQW939?tag=pirevo-20",
+      "galleryIds": [
+        "81ZR3OWJVqL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.6 stars across 1,168 ratings.",
+        "Amazon showed 2K+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Long indoor or outdoor runs where purple ambient lighting needs to cover fences, bedrooms, patios or party spaces.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "300 LEDs"
+        ],
+        [
+          "Feature",
+          "98.5-ft listing length"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings snapshot",
+          "1,168"
+        ],
+        [
+          "Demand snapshot",
+          "2K+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "300-led purple halloween string lights Halloween",
+        "title": "300-LED Purple Halloween String Lights | LJLNION | PIREVO Halloween Edit",
+        "description": "Compare LJLNION 300-LED Purple Halloween String Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "goosh-skeleton-puppy-inflatable",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "outdoor-haunt",
+      "badge": "HALLOWEEN INFLATABLE PICK",
+      "brand": "GOOSH",
+      "shortName": "5.5-ft Skeleton Puppy Inflatable",
+      "fullName": "GOOSH 5.5 FT Halloween Skeleton Puppy Inflatable Yard Decoration with Built-in LEDs",
+      "asin": "B08BC5YWTD",
+      "rating": 4.6,
+      "reviews": 1329,
+      "rank": "3K+ bought in past month snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/71Eq9akgdqL._AC_SX679_.jpg",
+      "trend": "family-friendly yard inflatable + skeleton-pumpkin visual + high seasonal velocity",
+      "why": "Validated Oct. 9, 2026 at 4.6 stars across 1,329 ratings, with 3K+ bought in past month on Amazon.",
+      "bestFor": "Front yards, lawns and Halloween party entrances that want a playful skeleton theme instead of a gore-heavy prop.",
+      "caveat": "Inflatables need power, anchoring and enough clearance. Confirm included hardware and weather-use instructions.",
+      "bullets": [
+        "Exact ASIN B08BC5YWTD",
+        "5.5-ft listing height",
+        "Built-in LEDs per listing",
+        "4.6★ / 1,329 ratings snapshot",
+        "3K+ bought in past month snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B08BC5YWTD?tag=pirevo-20",
+      "galleryIds": [
+        "71Eq9akgdqL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.6 stars across 1,329 ratings.",
+        "Amazon showed 3K+ bought in past month snapshot at research time.",
+        "Front yards, lawns and Halloween party entrances that want a playful skeleton theme instead of a gore-heavy prop.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "5.5-ft listing height"
+        ],
+        [
+          "Feature",
+          "Built-in LEDs per listing"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings snapshot",
+          "1,329"
+        ],
+        [
+          "Demand snapshot",
+          "3K+ bought in past month snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "5.5-ft skeleton puppy inflatable Halloween",
+        "title": "5.5-ft Skeleton Puppy Inflatable | GOOSH | PIREVO Halloween Edit",
+        "description": "Compare GOOSH 5.5-ft Skeleton Puppy Inflatable with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "goothy-pumpkin-pathway-lights-4",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "outdoor-haunt",
+      "badge": "HALLOWEEN PATHWAY PICK",
+      "brand": "GOOTHY",
+      "shortName": "4-Pack Pumpkin Pathway Lights",
+      "fullName": "Halloween Pumpkin Pathway Lights Outdoor, 7FT 4-Pack LED Pumpkin Stake Lights",
+      "asin": "B097PC5J8C",
+      "rating": 4.5,
+      "reviews": 304,
+      "rank": "500+ bought in past month snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/91Cs42Gz+nL._AC_SX679_PIbundle-4,TopRight,0,0_SH20_.jpg",
+      "trend": "pumpkin-lined walkway + driveway Halloween lighting",
+      "why": "Validated Oct. 9, 2026 at 4.5 stars across 304 ratings, with 500+ bought in past month on Amazon.",
+      "bestFor": "Walkways, driveways and lawn edges where a row of illuminated pumpkins can guide guests into the display.",
+      "caveat": "This sits at PIREVO's minimum preferred 4.5-star threshold, so verify current reviews and weather details.",
+      "bullets": [
+        "Exact ASIN B097PC5J8C",
+        "4 pumpkin stake lights",
+        "7-ft listing length",
+        "4.5★ / 304 ratings snapshot",
+        "500+ bought in past month snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B097PC5J8C?tag=pirevo-20",
+      "galleryIds": [
+        "91Cs42Gz+nL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.5 stars across 304 ratings.",
+        "Amazon showed 500+ bought in past month snapshot at research time.",
+        "Walkways, driveways and lawn edges where a row of illuminated pumpkins can guide guests into the display.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "4 pumpkin stake lights"
+        ],
+        [
+          "Feature",
+          "7-ft listing length"
+        ],
+        [
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Ratings snapshot",
+          "304"
+        ],
+        [
+          "Demand snapshot",
+          "500+ bought in past month snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "4-pack pumpkin pathway lights Halloween",
+        "title": "4-Pack Pumpkin Pathway Lights | GOOTHY | PIREVO Halloween Edit",
+        "description": "Compare GOOTHY 4-Pack Pumpkin Pathway Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "hexagram-halloween-doormat",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "porch-entry",
+      "badge": "HALLOWEEN PORCH PICK",
+      "brand": "Hexagram",
+      "shortName": "17 × 29 Halloween Welcome Mat",
+      "fullName": "Hexagram Halloween Door Mat, Welcome Mat for Front Door Outdoor 17 × 29",
+      "asin": "B0B4K86JVT",
+      "rating": 4.7,
+      "reviews": 459,
+      "rank": "500+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/81YEO5YeqgL._AC_SX679_.jpg",
+      "trend": "front-porch Halloween styling + cat-and-pumpkin welcome-mat search",
+      "why": "Validated Oct. 9, 2026 at 4.7 stars across 459 ratings, with 500+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Front doors and porches that need a low-effort Halloween cue before guests reach the main decorations.",
+      "caveat": "Confirm the current material, thickness, dimensions and cleaning guidance before buying.",
+      "bullets": [
+        "Exact ASIN B0B4K86JVT",
+        "17 × 29 listing size",
+        "Cat + pumpkin theme",
+        "4.7★ / 459 ratings snapshot",
+        "500+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0B4K86JVT?tag=pirevo-20",
+      "galleryIds": [
+        "81YEO5YeqgL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.7 stars across 459 ratings.",
+        "Amazon showed 500+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Front doors and porches that need a low-effort Halloween cue before guests reach the main decorations.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "17 × 29 listing size"
+        ],
+        [
+          "Feature",
+          "Cat + pumpkin theme"
+        ],
+        [
+          "Rating snapshot",
+          "4.7★"
+        ],
+        [
+          "Ratings snapshot",
+          "459"
+        ],
+        [
+          "Demand snapshot",
+          "500+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "17 × 29 halloween welcome mat Halloween",
+        "title": "17 × 29 Halloween Welcome Mat | Hexagram | PIREVO Halloween Edit",
+        "description": "Compare Hexagram 17 × 29 Halloween Welcome Mat with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "sophena-wooden-ghost-door-wreath",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "porch-entry",
+      "badge": "HALLOWEEN DOOR PICK",
+      "brand": "Sophena",
+      "shortName": "Wooden Ghost Door Wreath",
+      "fullName": "Halloween Wooden Ghost Door Wreath / Sign with Pumpkin and Black Cat Decor",
+      "asin": "B0D78CR42K",
+      "rating": 4.7,
+      "reviews": 258,
+      "rank": "1K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/71DHFW54taL._AC_SX679_.jpg",
+      "trend": "ghost-door sign + farmhouse Halloween porch styling",
+      "why": "Validated Oct. 9, 2026 at 4.7 stars across 258 ratings, with 1K+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Front doors, walls and covered porch setups that want a cute Halloween focal point instead of a full foliage wreath.",
+      "caveat": "Confirm exact dimensions, material finish and outdoor exposure guidance on Amazon.",
+      "bullets": [
+        "Exact ASIN B0D78CR42K",
+        "Wooden door decoration",
+        "Ghost + pumpkin + black cat",
+        "4.7★ / 258 ratings snapshot",
+        "1K+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0D78CR42K?tag=pirevo-20",
+      "galleryIds": [
+        "71DHFW54taL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.7 stars across 258 ratings.",
+        "Amazon showed 1K+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Front doors, walls and covered porch setups that want a cute Halloween focal point instead of a full foliage wreath.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "Wooden door decoration"
+        ],
+        [
+          "Feature",
+          "Ghost + pumpkin + black cat"
+        ],
+        [
+          "Rating snapshot",
+          "4.7★"
+        ],
+        [
+          "Ratings snapshot",
+          "258"
+        ],
+        [
+          "Demand snapshot",
+          "1K+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "wooden ghost door wreath Halloween",
+        "title": "Wooden Ghost Door Wreath | Sophena | PIREVO Halloween Edit",
+        "description": "Compare Sophena Wooden Ghost Door Wreath with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "brizled-purple-orange-halloween-lights",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "lights-glow",
+      "badge": "HALLOWEEN COLOR PICK",
+      "brand": "Brizled",
+      "shortName": "240-LED Purple & Orange Halloween Lights",
+      "fullName": "Brizled Halloween Lights Outdoor, 95.14FT 240 LED Purple & Orange Lights",
+      "asin": "B0915Y7T92",
+      "rating": 4.7,
+      "reviews": 2985,
+      "rank": "4K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/81mQYAojZtL._AC_SX679_.jpg",
+      "trend": "classic orange-purple Halloween lighting + large outdoor coverage",
+      "why": "Validated Oct. 9, 2026 at 4.7 stars across 2,985 ratings, with 4K+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Outdoor fences, porch lines, trees and party spaces that want unmistakable orange-and-purple Halloween color.",
+      "caveat": "Long light runs require planning around outlets and connection limits. Verify live specifications on Amazon.",
+      "bullets": [
+        "Exact ASIN B0915Y7T92",
+        "240 LEDs",
+        "95.14-ft listing length",
+        "4.7★ / 2,985 ratings snapshot",
+        "4K+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0915Y7T92?tag=pirevo-20",
+      "galleryIds": [
+        "81mQYAojZtL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.7 stars across 2,985 ratings.",
+        "Amazon showed 4K+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Outdoor fences, porch lines, trees and party spaces that want unmistakable orange-and-purple Halloween color.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "240 LEDs"
+        ],
+        [
+          "Feature",
+          "95.14-ft listing length"
+        ],
+        [
+          "Rating snapshot",
+          "4.7★"
+        ],
+        [
+          "Ratings snapshot",
+          "2,985"
+        ],
+        [
+          "Demand snapshot",
+          "4K+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "240-led purple & orange halloween lights Halloween",
+        "title": "240-LED Purple & Orange Halloween Lights | Brizled | PIREVO Halloween Edit",
+        "description": "Compare Brizled 240-LED Purple & Orange Halloween Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "denicmic-solar-halloween-path-lights-10",
+      "collection": "seasonal",
+      "season": "halloween",
+      "seasonalGroup": "lights-glow",
+      "badge": "HALLOWEEN SOLAR PICK",
+      "brand": "DenicMic",
+      "shortName": "10-Pack Solar Purple Path Lights",
+      "fullName": "DenicMic Solar Halloween Lights Outdoor Waterproof 10 Pack",
+      "asin": "B0D455GNZ3",
+      "rating": 4.5,
+      "reviews": 10116,
+      "rank": "10K+ bought in past month • Amazon's Choice snapshot",
+      "commission": "Seasonal / Home",
+      "image": "https://m.media-amazon.com/images/I/81CA9ESbDrL._AC_SX679_PIbundle-10,TopRight,0,0_SH20_.jpg",
+      "trend": "solar pathway lighting + purple yard glow + no-outlet Halloween setup",
+      "why": "Validated Oct. 9, 2026 at 4.5 stars across 10,116 ratings, with 10K+ bought in past month • Amazon's Choice on Amazon.",
+      "bestFor": "Pathways, garden edges and lawns where shoppers want purple Halloween lighting without running a plug-in string across the yard.",
+      "caveat": "Solar performance depends on daylight exposure and weather. Confirm charge-time and runtime before checkout.",
+      "bullets": [
+        "Exact ASIN B0D455GNZ3",
+        "10-pack solar path lights",
+        "Purple LED listing",
+        "4.5★ / 10,116 ratings snapshot",
+        "10K+ bought in past month • Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0D455GNZ3?tag=pirevo-20",
+      "galleryIds": [
+        "81CA9ESbDrL"
+      ],
+      "about": [
+        "PIREVO validated the exact Amazon ASIN on Oct. 9, 2026.",
+        "Current snapshot: 4.5 stars across 10,116 ratings.",
+        "Amazon showed 10K+ bought in past month • Amazon's Choice snapshot at research time.",
+        "Pathways, garden edges and lawns where shoppers want purple Halloween lighting without running a plug-in string across the yard.",
+        "Amazon remains the source of live price, seller, stock and exact product specifications."
+      ],
+      "details": [
+        [
+          "Feature",
+          "10-pack solar path lights"
+        ],
+        [
+          "Feature",
+          "Purple LED listing"
+        ],
+        [
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Ratings snapshot",
+          "10,116"
+        ],
+        [
+          "Demand snapshot",
+          "10K+ bought in past month • Amazon's Choice snapshot"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "10-pack solar purple path lights Halloween",
+        "title": "10-Pack Solar Purple Path Lights | DenicMic | PIREVO Halloween Edit",
+        "description": "Compare DenicMic 10-Pack Solar Purple Path Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
       }
     }
   ]
