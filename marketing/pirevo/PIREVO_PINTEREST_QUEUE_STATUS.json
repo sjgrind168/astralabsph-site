@@ -1,12 +1,28 @@
 {
-  "generated_at_utc": "2026-10-08T06:11:10.579871+00:00",
+  "generated_at_utc": "2026-10-08T17:10:16.791692+00:00",
   "board": "PIREVO Finds",
   "scheduled_total_before": 0,
   "pirevo_scheduled_before": 0,
-  "unused_before": 0,
-  "capacity": 0,
-  "created": [],
+  "unused_before": 10,
+  "capacity": 3,
+  "created": [
+    {
+      "pin_id": "biodance-mask-w2",
+      "buffer_id": "6ac7ce795eef519b9dd46210",
+      "dueAt": "2026-10-09T02:00:00.000Z"
+    },
+    {
+      "pin_id": "laneige-lip-mask-w2",
+      "buffer_id": "6ac7ce7a357f26ef51984b22",
+      "dueAt": "2026-10-09T03:10:00.000Z"
+    },
+    {
+      "pin_id": "medicube-pore-pad-w2",
+      "buffer_id": "6ac7ce7c777d0616a6fa09c3",
+      "dueAt": "2026-10-09T06:40:00.000Z"
+    }
+  ],
   "mode": "write",
-  "scheduled_total_after": 0,
-  "pirevo_scheduled_after": 0
+  "scheduled_total_after": 3,
+  "pirevo_scheduled_after": 3
 }
