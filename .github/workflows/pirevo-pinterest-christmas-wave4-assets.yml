@@ -1,0 +1,63 @@
+name: PIREVO Pinterest Christmas Wave 4 Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-pinterest-christmas-wave4-assets.yml'
+      - 'marketing/pirevo/render_pinterest_christmas_wave4.py'
+      - 'marketing/pirevo/PINTEREST_PIN_COPY_CHRISTMAS_WAVE4_20261009.json'
+      - 'public/pirevo/store-data.js'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pirevo-pinterest-christmas-wave4-assets
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image renderer
+        run: python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
+      - name: Render 20 premium Christmas Pins
+        run: python marketing/pirevo/render_pinterest_christmas_wave4.py
+
+      - name: Validate Christmas Wave 4 inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          COUNT="$(find public/pirevo/assets/pins/wave4-christmas -maxdepth 1 -type f -name '[0-9][0-9]_*.jpg' | wc -l | tr -d ' ')"
+          test "$COUNT" = "20"
+          test -s public/pirevo/assets/pins/wave4-christmas/manifest.json
+          test -s public/pirevo/assets/pins/wave4-christmas/QA_contact_sheet.jpg
+          grep -q '"count": 20' public/pirevo/assets/pins/wave4-christmas/manifest.json
+          echo "PIREVO_CHRISTMAS_WAVE4_ASSET_QA_OK count=$COUNT"
+
+      - name: Persist Christmas Wave 4 assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Asset Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/pirevo/assets/pins/wave4-christmas
+          if git diff --cached --quiet; then
+            echo "NO_CHRISTMAS_WAVE4_ASSET_CHANGE"
+            exit 0
+          fi
+          git commit -m 'PIREVO: render Christmas Pinterest Wave 4 assets'
+          git pull --rebase origin main
+          git push origin HEAD:main
