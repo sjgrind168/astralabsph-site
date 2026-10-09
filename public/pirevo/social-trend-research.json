@@ -1,0 +1,296 @@
+{
+  "reviewed_at": "2026-10-10",
+  "market": "US",
+  "description": "Editorial social-commerce radar, manually researched. Signals are not a live API feed. Verified catalog ratings are Oct 9, 2026 snapshots and may change.",
+  "methodology": "Detect published social/trend signals; match brands and exact variants in the PIREVO catalog; display a dated Amazon rating/review snapshot where available; separate exact-product signals from brand or category signals; research new candidates without presenting unverified Amazon ratings.",
+  "minimum_rating_for_catalog_spotlight": 4.5,
+  "coverage": [
+    {
+      "platform": "TikTok",
+      "status": "Published external editorial and official shop signals"
+    },
+    {
+      "platform": "Instagram",
+      "status": "Published editorial coverage; individual product matching pending"
+    },
+    {
+      "platform": "Pinterest",
+      "status": "Official Pinterest Trends and Pinterest Predicts signals"
+    },
+    {
+      "platform": "YouTube",
+      "status": "No individual product demand figures imported"
+    },
+    {
+      "platform": "Threads",
+      "status": "No verifiable product-level signal imported"
+    },
+    {
+      "platform": "Facebook",
+      "status": "No native product trend metrics imported"
+    }
+  ],
+  "products": [
+    {
+      "slug": "cosrx-snail-mucin-96",
+      "name": "COSRX Snail Mucin 96 Essence",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "product",
+      "signal": "TikTok-viral exact essence referenced in Good Housekeeping's September 2026 researched list.",
+      "sources": [
+        {
+          "title": "Good Housekeeping · TikTok-viral picks · Sep 28, 2026",
+          "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/g73836535/viral-tiktok-products-amazon-sale/"
+        }
+      ],
+      "priority": "high",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 90239,
+      "asin": "B00PBX3L7K",
+      "product_url": "/pirevo/products/cosrx-snail-mucin-96/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "biodance-bio-collagen-real-deep-mask",
+      "name": "Biodance Bio-Collagen Real Deep Mask",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "brand/category",
+      "signal": "Biodance is prominent in TikTok Shop trending discovery. The exact 4-pack has separate earlier documented TikTok Shop and Amazon catalog snapshots, not live sales.",
+      "sources": [
+        {
+          "title": "TikTok Shop · trending discovery",
+          "url": "https://shop.tiktok.com/us/k/top-trending-products-on-tiktok"
+        }
+      ],
+      "priority": "high",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.5,
+      "reviews": 48204,
+      "asin": "B0B2RM68G2",
+      "product_url": "/pirevo/products/biodance-bio-collagen-real-deep-mask/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "medicube-zero-pore-pad",
+      "name": "medicube Zero Pore Pad 2.0",
+      "platforms": [
+        "TikTok",
+        "Instagram"
+      ],
+      "scope": "brand/category",
+      "signal": "medicube appears in TikTok Shop shopping discovery and recent beauty coverage. Those signals do not verify the exact pad variant's platform rank.",
+      "sources": [
+        {
+          "title": "TikTok Shop · top Amazon products",
+          "url": "https://shop.tiktok.com/us/k/top-amazon-products"
+        },
+        {
+          "title": "2026 skincare shopping coverage",
+          "url": "https://www.whowhatwear.com/fashion/shopping/chic-amazon-fashion-beauty-home-items-2026"
+        }
+      ],
+      "priority": "high",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 33532,
+      "asin": "B09V7Z4TJG",
+      "product_url": "/pirevo/products/medicube-zero-pore-pad/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "owala-freesip-24-dark",
+      "name": "Owala FreeSip 24 oz bottle",
+      "platforms": [
+        "Instagram",
+        "TikTok"
+      ],
+      "scope": "brand/category",
+      "signal": "Owala brand highlighted in October 2026 shopping coverage. Exact size/color are not verified as a separate viral item.",
+      "sources": [
+        {
+          "title": "People · Oct 2026 trending shopping brands",
+          "url": "https://people.com/amazon-october-prime-day-lowest-prices-ever-2026-12120523"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 140599,
+      "asin": "B085DTZQNZ",
+      "product_url": "/pirevo/products/owala-freesip-24-dark/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "ninja-possiblecooker-pro-plus",
+      "name": "Ninja PossibleCooker PRO Plus",
+      "platforms": [
+        "TikTok",
+        "Instagram"
+      ],
+      "scope": "brand/category",
+      "signal": "Kitchen multicookers and Ninja appliances feature in recent Amazon shopping coverage. Specific PossibleCooker variant has a catalog Amazon rating snapshot, not a verified social sales rank.",
+      "sources": [
+        {
+          "title": "Food & Wine · Ninja and kitchen finds",
+          "url": "https://www.foodandwine.com/best-amazon-deals-long-weekend-october-2026-12165000"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 6755,
+      "asin": "B0GT5SV7VD",
+      "product_url": "/pirevo/products/ninja-possiblecooker-pro-plus/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "crockpot-manual-7qt",
+      "name": "Crock-Pot 7-Quart Slow Cooker",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category",
+      "signal": "Crock-Pot products appear in October shopping coverage; cozy cooking and fall recipes are an editorial Pinterest content hypothesis, not a verified current Pinterest keyword volume for this SKU.",
+      "sources": [
+        {
+          "title": "People · Crock-Pot and home shopping · Oct 2026",
+          "url": "https://people.com/amazon-october-prime-day-lowest-prices-ever-2026-12120523"
+        },
+        {
+          "title": "Pinterest Trends · US shopping signals",
+          "url": "https://trends.pinterest.com/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 62488,
+      "asin": "B003OAJGJO",
+      "product_url": "/pirevo/products/crockpot-manual-7qt/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": "stanley-quencher-30-rose-quartz",
+      "name": "Stanley Quencher H2.0 30 oz",
+      "platforms": [
+        "Instagram",
+        "TikTok"
+      ],
+      "scope": "brand/category",
+      "signal": "Stanley tumblers appear in October shopping roundups; exact Rose Quartz 30 oz variant is a catalog match, not an independently verified social bestseller.",
+      "sources": [
+        {
+          "title": "People · October shopping roundup",
+          "url": "https://people.com/amazon-october-prime-day-lowest-prices-ever-2026-12120523"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 205943,
+      "asin": "B0CP9YB3Q4",
+      "product_url": "/pirevo/products/stanley-quencher-30-rose-quartz/index.html",
+      "rating_reviewed_at": "2026-10-09"
+    },
+    {
+      "slug": null,
+      "name": "Niorsun rechargeable/battery wall sconces",
+      "platforms": [
+        "Instagram"
+      ],
+      "scope": "product",
+      "signal": "Reported in October 2026 Instagram-viral Amazon products; exact Amazon ASIN and review quality have not been verified against the PIREVO catalog.",
+      "sources": [
+        {
+          "title": "NY Post · Instagram viral Amazon products · Oct 6, 2026",
+          "url": "https://nypost.com/2026/10/06/shopping/viral-amazon-products-on-sale-for-prime-day/"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified"
+    },
+    {
+      "slug": null,
+      "name": "SpaceAid washer-dryer countertop",
+      "platforms": [
+        "Instagram"
+      ],
+      "scope": "product",
+      "signal": "Mentioned in Instagram-viral Amazon finds; product variant, ASIN and rating require verification before storefront publication.",
+      "sources": [
+        {
+          "title": "NY Post · Instagram viral Amazon products",
+          "url": "https://nypost.com/2026/10/06/shopping/viral-amazon-products-on-sale-for-prime-day/"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified"
+    },
+    {
+      "slug": null,
+      "name": "Ninja Crispi Glass Air Fryer",
+      "platforms": [
+        "Instagram",
+        "TikTok"
+      ],
+      "scope": "product",
+      "signal": "Appears in October Instagram and TikTok shopping coverage. Confirm Amazon rating, reviews and actual model before adding a listing.",
+      "sources": [
+        {
+          "title": "NY Post · Instagram viral Amazon products",
+          "url": "https://nypost.com/2026/10/06/shopping/viral-amazon-products-on-sale-for-prime-day/"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified"
+    },
+    {
+      "slug": null,
+      "name": "Ninja Foodi NeverDull Knife System",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "product",
+      "signal": "Listed by TikTok Shop's October merchandising guide. Separate Amazon ASIN and rating verification still required.",
+      "sources": [
+        {
+          "title": "TikTok Shop · October seller trends",
+          "url": "https://seller-us.tiktok.com/university/essay?knowledge_id=8974080364971789"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified"
+    }
+  ],
+  "summary": {
+    "catalog_count": 134,
+    "matched_listed": 7,
+    "needs_validation": 4,
+    "platforms_covered": [
+      "TikTok",
+      "Instagram",
+      "Pinterest"
+    ],
+    "unverified_platforms": [
+      "Threads",
+      "YouTube",
+      "Facebook"
+    ]
+  }
+}
