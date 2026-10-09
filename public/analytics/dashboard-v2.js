@@ -51,7 +51,16 @@ function initialize(){
  const qs=new URLSearchParams(location.search);
  state.tab=P.includes(qs.get("tab"))?qs.get("tab"):"overview";
  id("unlockForm").addEventListener("submit",e=>{e.preventDefault();const t=id("accessCode").value.trim();if(t)authorize(t)});
- qa("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>showTab(btn.dataset.tab,true)));
+ qa("[data-tab]").forEach((btn,index,arr)=>{
+  btn.addEventListener("click",()=>showTab(btn.dataset.tab,true));
+  btn.addEventListener("keydown",e=>{
+   const step=(e.key==="ArrowRight"||e.key==="ArrowDown")?1:(e.key==="ArrowLeft"||e.key==="ArrowUp")?-1:0;
+   if(!step&&e.key!=="Home"&&e.key!=="End")return;
+   e.preventDefault();
+   const target=e.key==="Home"?0:e.key==="End"?arr.length-1:(index+step+arr.length)%arr.length;
+   arr[target].click();arr[target].focus();
+  });
+ });
  id("period").addEventListener("change",e=>{state.period=Number(e.target.value)||7;load()});
  id("compare").addEventListener("change",e=>{state.compare=e.target.checked;load()});
  id("refresh").addEventListener("click",()=>load());
@@ -243,6 +252,7 @@ function renderPirevo(){
 }
 function renderDigital(){
  set("digitalBookClicks",fm(total("book_clicks")));
+ set("publishedTitles","1");
  set("digitalRoyalty",usd(m("kdp","royalties_usd")));
  set("digitalUnits",fm(m("kdp","book_units")));
  chart("digitalChart",[{key:"book_clicks",name:"Book referrals"}],{title:"Daily PIREVO book referrals"});
