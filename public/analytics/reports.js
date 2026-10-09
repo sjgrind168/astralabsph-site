@@ -9,7 +9,7 @@ const add=(tag,text,cls)=>{const x=document.createElement(tag);if(text!=null)x.t
 const sourceMetric=(state,provider,metric,app="all")=>(state.platforms?.metrics||[]).find(x=>x.provider===provider&&x.metric===metric&&x.app_key===app)||null;
 const value=(state,p,m,app="all")=>{const r=sourceMetric(state,p,m,app);return r?.metric_value==null?null:Number(r.metric_value)};
 const srcStatus=(state,provider)=>state.platforms?.sources?.find(x=>x.provider===provider)?.status==="imported"?"Verified snapshot":"Awaiting import";
-let selected="all",trends=null,lastReport=null;
+let selected="all",trends=null,lastReport=null,lastTrendState=null;
 const linksOnly=(p)=>{
  const x=document.createElement("a");
  if(p.slug&&/^[-a-z0-9]+$/.test(p.slug)){x.href="/pirevo/products/"+p.slug+"/index.html";x.textContent="Open PIREVO product ↗";return x}
@@ -136,13 +136,64 @@ function paintRecommendations(items){
   select.value=savedStatus(x.id);select.addEventListener("change",()=>setStatus(x.id,select.value));label.append(select);article.append(label);root.append(article);
  }
 }
+
+function campaignUrl(item,source){
+ const content=item.slug.toLowerCase().replace(/[^a-z0-9-]/g,"").slice(0,100);
+ const url=new URL("/pirevo/products/"+encodeURIComponent(content)+"/","https://www.astralabsph.com");
+ url.searchParams.set("utm_source",source);
+ url.searchParams.set("utm_medium","organic_social");
+ url.searchParams.set("utm_campaign","pirevo_trend_test_202610");
+ url.searchParams.set("utm_content",content);
+ return url.toString();
+}
+async function copyCampaign(btn,url){
+ try{await navigator.clipboard.writeText(url);btn.textContent="Copied";setTimeout(()=>{btn.textContent="Copy URL"},1800)}
+ catch{window.prompt("Copy this tracked PIREVO link:",url)}
+}
+function paintTrendFunnel(state){
+ const tbody=$("rTrendFunnelRows");if(!tbody)return;
+ tbody.replaceChildren();
+ const report=state.trendPerformance;
+ if(!report){
+  block("rTrendFunnelPeriod","No authorized product-level report available. Check the private reporting connection.");
+  tbody.append(tableRow(["Trend performance unavailable","—","—","—","—","—"]));
+  ["rTrendProductViews","rTrendAmazonClicks","rTrendTrackedProducts"].forEach(k=>block(k,"—"));
+  return;
+ }
+ const listed=(trends?.products||[]).filter(x=>x.status==="in_catalog");
+ const matched=new Map((report.products||[]).map(x=>[x.product_slug,x]));
+ const list=listed.map(item=>({...item,...(matched.get(item.slug)||{})}));
+ list.sort((a,b)=>(Number(b.amazon_outbounds||0)-Number(a.amazon_outbounds||0))||(Number(b.product_views||0)-Number(a.product_views||0))||(Number(b.product_card_clicks||0)-Number(a.product_card_clicks||0))||a.name.localeCompare(b.name));
+ const views=list.reduce((n,p)=>n+Number(p.product_views||0),0);
+ const clicks=list.reduce((n,p)=>n+Number(p.amazon_outbounds||0),0);
+ const active=list.filter(p=>Number(p.product_views||0)+Number(p.product_card_clicks||0)+Number(p.amazon_outbounds||0)>0).length;
+ block("rTrendProductViews",fmt(views));block("rTrendAmazonClicks",fmt(clicks));block("rTrendTrackedProducts",fmt(active));
+ block("rTrendFunnelPeriod",fmt(list.length)+" vetted Trends products · "+date(report.window_start)+" to "+date(report.window_end)+" · events tracked in Asia/Manila · source: PIREVO first-party analytics");
+ if(!list.length){tbody.append(tableRow(["Trend source loading","—","—","—","—","—"]));return}
+ // Rank active products first, then show a practical 15-product launch shortlist.
+ for(const item of list.slice(0,15)){
+  const tr=document.createElement("tr");
+  const td=add("td");const a=add("a",item.name);a.href="/pirevo/products/"+encodeURIComponent(item.slug)+"/";a.target="_blank";a.rel="noopener noreferrer";td.append(a);tr.append(td);
+  const v=Number(item.product_views||0),c=Number(item.amazon_outbounds||0);
+  for(const value of [v,Number(item.product_card_clicks||0),c])tr.append(add("td",fmt(value)));
+  tr.append(add("td",v>0?(100*c/v).toFixed(1)+"%":"—"));
+  const linktd=add("td");
+  const btn=add("button","Copy URL","report-copy-link");btn.type="button";
+  btn.title="Copy tracked Pinterest campaign URL for this exact product page";
+  btn.addEventListener("click",()=>copyCampaign(btn,campaignUrl(item,"pinterest")));
+  linktd.append(btn);tr.append(linktd);tbody.append(tr);
+ }
+ if(lastReport)lastReport.trend_product_performance=report.products||[];
+}
+
 function render(state){
+ lastTrendState={trendPerformance:state.trendPerformance};
  const m=metrics(state),score=createScorecard(state,m),next=recommendations(state,m),captured=new Date().toISOString();
  lastReport={generated_at:captured,timezone:"Asia/Manila",first_party_reporting_window:state.daily?{start:state.daily.window_start,end:state.daily.window_end,days:state.period}:null,
   definitions:{sessions:"first-party visits; not deduplicated across AstraLabs and PIREVO",outbound_clicks:"not purchases",financial:"provider reporting periods differ; do not add gross sales, pending payout and estimated revenue"},
   scorecard:score,recommendations:next.map(x=>({...x,status:savedStatus(x.id)})),
   latest_provider_metrics:(state.platforms?.metrics||[]).map(x=>({provider:x.provider,app:x.app_key,metric:x.metric,value:x.metric_value,unit:x.metric_unit,period_start:x.period_start,period_end:x.period_end,source:x.source_name,captured_at:x.captured_at})),
-  selected_period_daily_events:(state.daily?.days||[]),trend_research:trends?{reviewed_at:trends.reviewed_at,products:trends.products}:null};
+  selected_period_daily_events:(state.daily?.days||[]),trend_product_performance:state.trendPerformance?.products||null,trend_research:trends?{reviewed_at:trends.reviewed_at,products:trends.products}:null};
  block("reportPirevoSessions",fmt(m.pSessions));block("reportSiteSessions",fmt(m.webSessions));
  block("reportMeta","Report generated "+new Date(captured).toLocaleString("en-PH")+" · site events: "+(state.daily?date(state.daily.window_start)+" to "+date(state.daily.window_end):"unavailable")+" · separate financial source periods · no synthetic trends");
  const table=$("reportScorecard");if(table){table.replaceChildren();score.forEach(x=>table.append(tableRow([x.channel,x.performance,x.source,x.status])))}
@@ -151,7 +202,7 @@ function render(state){
   ["AdMob",srcStatus(state,"admob")],["Amazon Associates",state.amazon?"Verified report":"Awaiting report"],
   ["Apple",srcStatus(state,"app_store_connect")],["KDP",srcStatus(state,"kdp")],["Native social insights","Awaiting authorized metrics"]
  ]){const row=add("div",null,"report-source-row");row.append(add("strong",n),add("span",s));source.append(row)}}
- paintRecommendations(next);trendPaint();
+ paintRecommendations(next);trendPaint();paintTrendFunnel(state);
 }
 function download(name,type,body){
  const blob=new Blob([body],{type});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
@@ -183,6 +234,7 @@ async function init(){
   trends=await r.json();
   trendPaint();
   if(lastReport){lastReport.trend_research={reviewed_at:trends.reviewed_at,products:trends.products}}
+  if(lastTrendState)paintTrendFunnel(lastTrendState);
  }catch{trendPaint()}
 }
 window.ASTRA_REPORTS={init,render};

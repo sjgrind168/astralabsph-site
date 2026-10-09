@@ -4,7 +4,7 @@
 <meta name="description" content="Private AstraLabs PH portfolio analytics dashboard with source-aware financial and performance reports.">
 <link rel="stylesheet" href="/analytics/dashboard-v2.css?v=2">
 <link rel="stylesheet" href="/analytics/ga-report-v3.css?v=4">
-<link rel="stylesheet" href="/analytics/reports.css?v=1">
+<link rel="stylesheet" href="/analytics/reports.css?v=2">
 </head><body>
 <section id="locked" class="lock" aria-label="Private dashboard login">
 <form id="unlockForm" class="lock-card">
@@ -116,6 +116,20 @@
 </table></div></article>
 <div class="section-head"><div><div class="kicker">What to optimize next</div><h2>Actionable growth experiments</h2></div><p>Evidence → test → success metric. Save statuses locally on this browser.</p></div>
 <div id="reportRecommendations" class="report-recommendations"><div class="empty">Preparing recommendations from tracked metrics…</div></div>
+<div class="section-head"><div><div class="kicker">Product-level conversion tracking</div><h2>Which Trend picks attract buyers?</h2></div><p>Actual PIREVO product visits, product-card clicks and Amazon outbounds for the selected website period.</p></div>
+<article class="panel report-funnel-panel">
+ <div class="panel-head"><h3>Trend product leaderboard</h3><span>Outbound clicks ≠ sales · ranked by real engagement</span></div>
+ <div class="report-trend-kpis">
+  <div><strong id="rTrendProductViews">—</strong><small>Trend product views</small></div>
+  <div><strong id="rTrendAmazonClicks">—</strong><small>Amazon outbound clicks</small></div>
+  <div><strong id="rTrendTrackedProducts">—</strong><small>Products with tracked interest</small></div>
+ </div>
+ <div class="report-info" id="rTrendFunnelPeriod">Checking private product-level metrics…</div>
+ <div class="table-scroll"><table><thead><tr>
+  <th>Trend product</th><th>Detail views</th><th>Card clicks</th><th>Amazon clicks</th><th>Click/view ratio</th><th>Campaign link</th>
+ </tr></thead><tbody id="rTrendFunnelRows"><tr><td colspan="6">Awaiting verified product data…</td></tr></tbody></table></div>
+ <p class="note">No traffic for a product is recorded as zero only within an authorized, successfully fetched period. Click/view ratio is not an Amazon purchase conversion rate. Campaign URLs use UTMs to preserve first-party source attribution.</p>
+</article>
 <div class="section-head"><div><div class="kicker">Social discovery → Amazon validation</div><h2>PIREVO trend research pipeline</h2></div><p>Listed, high-rated catalog matches and candidates awaiting Amazon verification.</p></div>
 <div class="report-trend-tools">
  <button type="button" data-report-trend="all" aria-pressed="true">All leads</button>
@@ -130,6 +144,6 @@
 <footer class="footer"><span>AstraLabs PH Analytics v2 · Private portfolio reporting</span><span>Real tracked history only · All money sources separately labeled</span></footer>
 </main></div>
 <script src="/pirevo/config.js"></script>
-<script src="/analytics/reports.js?v=1" defer></script>
-<script src="/analytics/dashboard-v2.js?v=5" defer></script>
+<script src="/analytics/reports.js?v=2" defer></script>
+<script src="/analytics/dashboard-v2.js?v=6" defer></script>
 </body></html>

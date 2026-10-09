@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials","rep
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const percent=n=>n==null||!Number.isFinite(Number(n))?"—":Number(n).toFixed(1).replace(/\.0$/,"")+"%";
@@ -404,12 +404,13 @@ async function load(){
  ["platforms",rpc("pirevo_platform_report_snapshot",{p_token:token})],
  ["amazon",rpc("pirevo_amazon_earnings_snapshot",{p_token:token})],
  ["daily",rpc("astralabs_portfolio_daily_v2",{p_days:days,p_token:token})],
+ ["trendPerformance",rpc("pirevo_trend_product_performance",{p_days:days,p_token:token})],
  ["previous",state.compare?rpc("astralabs_portfolio_daily_range_v2",{p_days:days,p_token:token,p_shift_days:days}):Promise.resolve(null)]
  ];
  const settled=await Promise.allSettled(requests.map(x=>x[1]));
  if(n!==state.seq)return;
  let successful=0;
- settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous")successful++});
+ settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance")successful++});
  renderAll();
  id("refresh").disabled=false;
  id("sourceHealth").textContent=successful+"/5 reporting sources accessible";
