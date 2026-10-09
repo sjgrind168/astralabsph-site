@@ -8,6 +8,7 @@ on:
       - 'marketing/pirevo/buffer_pinterest_pirevo.py'
       - 'public/pirevo/assets/pins/wave2/manifest.json'
       - 'public/pirevo/assets/pins/wave3-halloween/manifest.json'
+      - 'public/pirevo/assets/pins/wave4-christmas/manifest.json'
   schedule:
     - cron: '20 0 * * *'
     - cron: '20 7 * * *'
