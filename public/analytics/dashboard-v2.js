@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials"];
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const percent=n=>n==null||!Number.isFinite(Number(n))?"—":Number(n).toFixed(1).replace(/\.0$/,"")+"%";
@@ -67,6 +67,14 @@ function initialize(){
  qa("[data-platform]").forEach(b=>b.addEventListener("click",()=>{state.platform=b.dataset.platform;paintPlatform()}));
  qa("[data-app]").forEach(b=>b.addEventListener("click",()=>{state.app=b.dataset.app;paintPlatform()}));
  qa("[data-social]").forEach(b=>b.addEventListener("click",()=>{state.social=b.dataset.social;paintSocial()}));
+ qa("[data-overview-focus], [data-overview-chart]").forEach(b=>b.addEventListener("click",()=>{
+  const value=b.dataset.overviewFocus||b.dataset.overviewChart;
+  if(!["sessions","views","amazon","store"].includes(value))return;
+  state.overviewFocus=value;renderGAOverviewTrend();
+ }));
+ qa("[data-report-jump]").forEach(b=>b.addEventListener("click",e=>{
+  e.preventDefault();showTab(b.dataset.reportJump,true);
+ }));
  showTab(state.tab,false);
  const candidate=fromUrl||saved;
  if(candidate)authorize(candidate);else{id("locked").hidden=false;id("dashboard").hidden=true}
@@ -101,7 +109,7 @@ function sourcePeriod(provider,name,app="all"){
 function sourceStatus(provider){const x=(state.platforms?.sources||[]).find(v=>v.provider===provider);return x?.status==="imported"?"Verified snapshot":"Awaiting report"}
 function dataset(){return state.daily?.days||[]}
 function total(key){return dataset().reduce((a,b)=>a+Number(b[key]||0),0)}
-const COLORS=["#006241","#b98f4f","#7fa99a","#294f42"];
+const COLORS=["#397dd0","#35a5a6","#d0a35d","#7799bb"];
 function svgEl(type,atts,content){
  const e=document.createElementNS("http://www.w3.org/2000/svg",type);
  for(const [k,v]of Object.entries(atts||{}))e.setAttribute(k,String(v));
@@ -187,7 +195,7 @@ function renderSummary(){
  reportBadge("kdpSource",sourceStatus("kdp"),!!metric("kdp","royalties_usd"));
 }
 function renderOverview(){
- chart("overviewTraffic",[{key:"pirevo_sessions",name:"Pirevo sessions"},{key:"site_sessions",name:"AstraLabs sessions",color:"#c8a96b"}],{title:"Website sessions per calendar day"});
+ renderGAOverviewTrend();
  barList("overviewApps",[
   {name:"Astramate",value:m("google_play","device_acquisitions","astramate")},
   {name:"Keepry",value:m("google_play","device_acquisitions","keepry")}
@@ -208,7 +216,64 @@ function renderOverview(){
  const clicks=Number(state.base?.kpis?.amazon_clicks||0),product=Number(state.base?.kpis?.product_views||0);
  const place=id("opportunityText");
  place.textContent=product>0?"PIREVO recorded "+fm(product)+" product views and "+fm(clicks)+" Amazon outbound clicks in the selected period. Test a stronger product-page call to action and judge the result by outbound clicks per view.":curr>0?"Traffic is being tracked, but product-view signals are sparse. Check landing-page pathways and product discovery before increasing promotional volume.":"First-party traffic history is limited. Confirm attribution links and wait for measurable engagement before ranking growth opportunities.";
+ renderGAOverviewDetails();
 }
+
+function renderGAOverviewTrend(){
+ const focus=state.overviewFocus||"sessions";
+ const options={
+  sessions:[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#397dd0"},{key:"site_sessions",name:"AstraLabs sessions",color:"#35a5a6"}],
+  views:[{key:"pirevo_views",name:"PIREVO page views",color:"#397dd0"},{key:"site_views",name:"AstraLabs page views",color:"#35a5a6"}],
+  amazon:[{key:"amazon_clicks",name:"Amazon outbound clicks",color:"#397dd0"}],
+  store:[{key:"store_clicks",name:"App store button clicks",color:"#397dd0"}]
+ };
+ const series=options[focus]||options.sessions;
+ chart("overviewTraffic",series,{title:"Daily "+series.map(x=>x.name).join(" and ")});
+ qa("[data-overview-focus]").forEach(btn=>{
+  const active=btn.dataset.overviewFocus===focus;
+  btn.setAttribute("aria-pressed",String(active));btn.classList.toggle("is-active",active)
+ });
+ qa("[data-overview-chart]").forEach(btn=>btn.setAttribute("aria-pressed",String(btn.dataset.overviewChart===focus)));
+}
+function renderGAOverviewDetails(){
+ const daily=state.daily?.days||[],valid=!!state.daily;
+ const sum=k=>daily.reduce((n,r)=>n+Number(r[k]||0),0);
+ const value=(label,key)=>set(label,valid?fm(sum(key)):"—");
+ value("overviewPirevoSessions","pirevo_sessions");value("overviewSiteSessions","site_sessions");
+ set("overviewCombinedViews",valid?fm(sum("pirevo_views")+sum("site_views")):"—");
+ value("overviewAmazonClicks","amazon_clicks");value("overviewStoreClicks","store_clicks");
+ const merged=new Map();
+ for(const list of [state.base?.traffic_sources||[],state.site?.site_sources||[]]){
+  for(const row of list){
+   const label=String(row.source||"direct").trim().toLowerCase()||"direct";
+   const n=Number(row.sessions||0);
+   if(!Number.isFinite(n)||n<0)continue;
+   const key=label==="(direct)"?"direct":label;
+   merged.set(key,(merged.get(key)||0)+n);
+  }
+ }
+ barList("overviewAcquisition",[...merged].sort((a,b)=>b[1]-a[1]).map(([label,value])=>({name:label.charAt(0).toUpperCase()+label.slice(1),value})),"No recorded source sessions in the selected period.");
+ const metrics=[
+  ["PIREVO product views","Product page engagement",sum("product_views")],
+  ["Amazon outbound clicks","Amazon links, not purchases",sum("amazon_clicks")],
+  ["App interest clicks","Internal app links across both sites",sum("app_clicks")+sum("pirevo_app_clicks")],
+  ["App store referrals","Outbound Play Store or Apple buttons",sum("store_clicks")],
+  ["Book referrals","Clicks to book listings",sum("book_clicks")]
+ ];
+ const root=id("overviewEngagement");if(root){
+  root.replaceChildren();
+  if(!valid)empty(root,"Daily first-party event reporting is unavailable.");
+  else for(const [label,caption,count] of metrics){
+   const row=document.createElement("div");row.className="ga-engagement-row";
+   const detail=document.createElement("div"),title=document.createElement("span"),small=document.createElement("small");
+   title.textContent=label;small.textContent=caption;detail.append(title,small);
+   const strong=document.createElement("strong");strong.textContent=fm(count);
+   row.append(detail,strong);root.append(row);
+  }
+ }
+ barList("overviewTopPages",(state.site?.top_pages||[]).map(x=>({name:x.path==="/"?"/ · Homepage":String(x.path),value:Number(x.views||0)})),"Top pages appear after AstraLabs website traffic is tracked.");
+}
+
 function paintPlatform(){
  qa("[data-platform]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.platform===state.platform)));
  qa("[data-app]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.app===state.app)));
