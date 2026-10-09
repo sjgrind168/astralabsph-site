@@ -1,11 +1,22 @@
 {
-  "generated_at_utc": "2026-10-08T21:20:59.266256+00:00",
+  "generated_at_utc": "2026-10-09T05:19:04.009095+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 3,
-  "pirevo_scheduled_before": 3,
-  "unused_before": 23,
-  "capacity": 0,
-  "created": [],
+  "scheduled_total_before": 1,
+  "pirevo_scheduled_before": 1,
+  "unused_before": 16,
+  "capacity": 2,
+  "created": [
+    {
+      "pin_id": "zpisf-webs-h3",
+      "buffer_id": "6ac879489db755aaaac65b8e",
+      "dueAt": "2026-10-09T08:10:00.000Z"
+    },
+    {
+      "pin_id": "ocato-web-h3",
+      "buffer_id": "6ac87949f07e682de6a4c934",
+      "dueAt": "2026-10-09T11:40:00.000Z"
+    }
+  ],
   "mode": "write",
   "scheduled_total_after": 3,
   "pirevo_scheduled_after": 3
