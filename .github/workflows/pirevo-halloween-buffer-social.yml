@@ -1,0 +1,181 @@
+name: PIREVO Halloween Buffer Social Wave
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-halloween-buffer-social.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pirevo-halloween-buffer-social
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Schedule PIREVO Halloween videos to Buffer TikTok and Facebook
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+
+          API="https://api.buffer.com"
+          KEY=os.environ.get("ASTRALABS_BUFFER_API_KEY","").strip()
+          if not KEY:
+              raise SystemExit("Missing ASTRALABS_BUFFER_API_KEY")
+
+          FB="6ab15144ea19ca0bdea6d621"
+          TT="6ab18682ea19ca0bdeaa1d77"
+          MAX_SCHEDULED_PER_CHANNEL=10
+
+          def q(v): return json.dumps(str(v),ensure_ascii=True)
+
+          def gql(query):
+              req=urllib.request.Request(
+                  API,
+                  data=json.dumps({"query":query}).encode(),
+                  headers={"Authorization":"Bearer "+KEY,"Content-Type":"application/json","User-Agent":"PIREVO-Halloween-Buffer-Social/1.0"},
+                  method="POST")
+              try:
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      payload=json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(f"Buffer HTTP {e.code}") from None
+              except urllib.error.URLError:
+                  raise RuntimeError("Buffer network error") from None
+              if payload.get("errors"):
+                  raise RuntimeError("Buffer GraphQL rejected request: "+json.dumps(payload["errors"])[:500])
+              data=payload.get("data")
+              if not isinstance(data,dict):
+                  raise RuntimeError("Buffer response missing data")
+              return data
+
+          orgs=((gql("query { account { organizations { id name } } }").get("account") or {}).get("organizations") or [])
+          if len(orgs)!=1:
+              raise RuntimeError("Ambiguous Buffer organization")
+          org=orgs[0]["id"]
+
+          channels=gql("query { channels(input:{organizationId:"+q(org)+"}) { id service isDisconnected isLocked isQueuePaused } }").get("channels") or []
+          by_id={c["id"]:c for c in channels if c.get("id")}
+          for cid,service in ((FB,"facebook"),(TT,"tiktok")):
+              c=by_id.get(cid)
+              if not c or str(c.get("service","")).lower()!=service:
+                  raise RuntimeError(f"Expected {service} channel not found")
+              if c.get("isDisconnected") or c.get("isLocked") or c.get("isQueuePaused"):
+                  raise RuntimeError(f"{service} channel unavailable/paused")
+
+          def history(cid):
+              query=("query { posts(first:100,input:{organizationId:"+q(org)+
+                     ",filter:{status:[scheduled,sent,sending,draft,error],channelIds:["+q(cid)+
+                     "]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } } } pageInfo { hasNextPage } } }")
+              p=gql(query).get("posts") or {}
+              if not isinstance(p.get("edges"),list) or (p.get("pageInfo") or {}).get("hasNextPage"):
+                  raise RuntimeError("Incomplete Buffer history")
+              rows=[e["node"] for e in p["edges"] if isinstance(e.get("node"),dict)]
+              if any(x.get("channelId")!=cid for x in rows):
+                  raise RuntimeError("Cross-channel Buffer history")
+              return rows
+
+          def verify_video(url):
+              req=urllib.request.Request(url,headers={"Range":"bytes=0-31","User-Agent":"PIREVO-Halloween-Video-Proof/1.0"})
+              try:
+                  with urllib.request.urlopen(req,timeout=25) as r:
+                      sig=r.read(16)
+                      ctype=(r.headers.get("Content-Type") or "").lower()
+                      if r.status not in (200,206) or len(sig)<8 or sig[4:8]!=b"ftyp" or "video" not in ctype:
+                          raise RuntimeError("Public MP4 verification failed: "+url)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(f"Video HTTP {e.code}: {url}") from None
+
+          videos=[
+            {
+              "key":"01_outdoor",
+              "video":"https://www.astralabsph.com/pirevo/assets/social/halloween-wave3/01_outdoor-haunt.mp4",
+              "fb_due":"2026-10-10T03:30:00.000Z",
+              "tt_due":"2026-10-10T11:30:00.000Z",
+              "fb_text":"BUILD THE HAUNT. 🕸️ Giant webs, hanging ghosts and skeleton groundbreakers from the PIREVO Halloween Edit.\n\nExplore the full seasonal shop: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_halloween_wave3&utm_content=fb_outdoor#seasonal\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#HalloweenDecor #HalloweenYard #SpookySeason #PIREVO [PIREVO_HALLOWEEN_FB_01]",
+              "tt_text":"Build the haunt 🕸️ Giant webs, hanging ghosts + skeleton yard picks from PIREVO. astralabsph.com/pirevo #HalloweenDecor #HalloweenYard #SpookySeason #PIREVO [PIREVO_HALLOWEEN_TT_01]"
+            },
+            {
+              "key":"02_webs_walls",
+              "video":"https://www.astralabsph.com/pirevo/assets/social/halloween-wave3/02_webs-walls-cozy.mp4",
+              "fb_due":"2026-10-11T03:30:00.000Z",
+              "tt_due":"2026-10-11T11:30:00.000Z",
+              "fb_text":"WALLS, WEBS + SOFT SPOOKY. 🦇 3D bat swarms, creepy cloth, ghost door decor and cozy ghost pillows from the PIREVO Halloween Edit.\n\nBrowse the full edit: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_halloween_wave3&utm_content=fb_walls#seasonal\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#HalloweenHome #BatDecor #GhostDecor #PIREVO [PIREVO_HALLOWEEN_FB_02]",
+              "tt_text":"Bat swarm or soft spooky? 🦇 3D bats, creepy cloth + ghost decor from the PIREVO Halloween Edit. astralabsph.com/pirevo #HalloweenHome #GhostDecor #BatDecor #PIREVO [PIREVO_HALLOWEEN_TT_02]"
+            },
+            {
+              "key":"03_lights",
+              "video":"https://www.astralabsph.com/pirevo/assets/social/halloween-wave3/03_lights-glow.mp4",
+              "fb_due":"2026-10-12T03:30:00.000Z",
+              "tt_due":"2026-10-12T11:30:00.000Z",
+              "fb_text":"AFTER DARK, HALLOWEEN WAKES UP. 🔮 Purple glow, orange-and-purple string lights, solar pathway lights and pumpkin stakes from the PIREVO seasonal edit.\n\nSee the picks: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_halloween_wave3&utm_content=fb_lights#seasonal\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#HalloweenLights #SpookyLighting #HalloweenDecor #PIREVO [PIREVO_HALLOWEEN_FB_03]",
+              "tt_text":"After dark is the whole point 🔮 Purple glow, pumpkin paths + Halloween lights from PIREVO. astralabsph.com/pirevo #HalloweenLights #SpookyLighting #HalloweenDecor #PIREVO [PIREVO_HALLOWEEN_TT_03]"
+            },
+            {
+              "key":"04_porch",
+              "video":"https://www.astralabsph.com/pirevo/assets/social/halloween-wave3/04_porch-party.mp4",
+              "fb_due":"2026-10-13T03:30:00.000Z",
+              "tt_due":"2026-10-13T11:30:00.000Z",
+              "fb_text":"FROM THE FRONT DOOR IN. 🎃 Halloween welcome mat, skull candlelight, pumpkin-ready flameless lights and a playful yard inflatable from PIREVO.\n\nFull Halloween Edit: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_halloween_wave3&utm_content=fb_porch#seasonal\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#HalloweenPorch #PumpkinDecor #SkullDecor #PIREVO [PIREVO_HALLOWEEN_FB_04]",
+              "tt_text":"Front door to pumpkin glow 🎃 Porch, skull + party picks from the PIREVO Halloween Edit. astralabsph.com/pirevo #HalloweenPorch #PumpkinDecor #HalloweenFinds #PIREVO [PIREVO_HALLOWEEN_TT_04]"
+            }
+          ]
+
+          for item in videos:
+              verify_video(item["video"])
+
+          def create(cid,service,text,due,video):
+              meta="metadata:{facebook:{type:post}}" if service=="facebook" else "metadata:{tiktok:{isAiGenerated:false}}"
+              vmeta="" if service=="facebook" else " metadata:{thumbnailOffset:2000}"
+              query=("mutation { createPost(input:{ text:"+q(text)+
+                     " channelId:"+q(cid)+
+                     " schedulingType:automatic mode:customScheduled dueAt:"+q(due)+
+                     " aiAssisted:true "+meta+
+                     " assets:[{video:{url:"+q(video)+vmeta+"}}]})"+
+                     " { ... on PostActionSuccess { post { id status dueAt } }"+
+                     " ... on MutationError { message } } }")
+              out=gql(query).get("createPost") or {}
+              post=out.get("post") if isinstance(out,dict) else None
+              if not post or not post.get("id") or post.get("status")!="scheduled":
+                  raise RuntimeError(service+" schedule failed: "+str(out.get("message","unknown"))[:180])
+              return post
+
+          results=[]
+          for cid,service,text_key,due_key,marker_prefix in (
+              (FB,"facebook","fb_text","fb_due","PIREVO_HALLOWEEN_FB_"),
+              (TT,"tiktok","tt_text","tt_due","PIREVO_HALLOWEEN_TT_"),
+          ):
+              rows=history(cid)
+              scheduled=sum(x.get("status")=="scheduled" for x in rows)
+              capacity=max(0,MAX_SCHEDULED_PER_CHANNEL-scheduled)
+              print(service,"scheduled before:",scheduled,"capacity:",capacity)
+              for item in videos:
+                  if capacity<=0: break
+                  marker="["+marker_prefix+item["key"][:2]+"]"
+                  # captions carry exact markers ending 01..04; dedupe by campaign prefix + ordinal.
+                  ordinal=item["key"][:2]
+                  exact="["+marker_prefix+ordinal+"]"
+                  if any(exact in str(r.get("text") or "") for r in rows):
+                      print("DEDUPED",service,item["key"]); continue
+                  if any(any((a.get("source") or "")==item["video"] for a in (r.get("assets") or [])) for r in rows):
+                      print("VIDEO_ALREADY_USED",service,item["key"]); continue
+                  post=create(cid,service,item[text_key],item[due_key],item["video"])
+                  results.append({"service":service,"key":item["key"],"post_id":post["id"],"dueAt":post.get("dueAt")})
+                  rows.append({"id":post["id"],"status":"scheduled","dueAt":post.get("dueAt"),"text":item[text_key],"assets":[{"source":item["video"]}],"channelId":cid})
+                  capacity-=1
+
+          print("PIREVO_HALLOWEEN_BUFFER_SOCIAL_OK")
+          print(json.dumps(results,ensure_ascii=False))
+          PY
