@@ -126,7 +126,7 @@
   }
   function event(name,params={}){
     dbEvent(name,params);
-    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth")gaEvent(name,params);
+    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth"||name==="app_click")gaEvent(name,params);
   }
   function init(){
     if(window.__PIREVO_ANALYTICS_BOUND)return;
@@ -155,6 +155,11 @@
         const ctx=productContext();
         const asin=(href.match(/\/dp\/([A-Z0-9]{10})/i)||[])[1]||ctx.item_id||"";
         event("affiliate_click",{item_id:asin,link_text:safe(a.textContent,100)});
+        return;
+      }
+      const appTarget=(href.match(/\/(astramate|keepry)\/(?:\?|#|$)/i)||[])[1];
+      if(appTarget){
+        event("app_click",{item_name:appTarget.toLowerCase(),link_text:safe(a.textContent,100)});
         return;
       }
       if(/\/pirevo\/products\//.test(href)){
