@@ -22,7 +22,8 @@ MAX_ADD_PER_RUN=3
 ROOT=Path(__file__).resolve().parents[2]
 MANIFESTS=[
     ("wave3-halloween",ROOT/"public/pirevo/assets/pins/wave3-halloween/manifest.json",16,"https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/"),
-    ("wave4-christmas",ROOT/"public/pirevo/assets/pins/wave4-christmas/manifest.json",0,"https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/"),
+    ("wave2",ROOT/"public/pirevo/assets/pins/wave2/manifest.json",10,"https://www.astralabsph.com/pirevo/assets/pins/wave2/"),
+    ("wave4-christmas",ROOT/"public/pirevo/assets/pins/wave4-christmas/manifest.json",20,"https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/"),
 ]
 REPORT=ROOT/"marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json"
 
@@ -78,7 +79,7 @@ def history(org):
     return rows
 
 def load_pins():
-    """Load seasonal Wave 3 first, then preserve remaining Wave 2 backlog."""
+    """Read approved Halloween, evergreen and gift waves; preserve unique asset IDs."""
     all_pins=[]; seen=set()
     for wave,path,expected,image_prefix in MANIFESTS:
         if not path.exists():
@@ -158,7 +159,38 @@ def main():
     if os.getenv("PIREVO_PINTEREST_PUBLISH_ENABLED","").lower()!="true":
         report["mode"]="dry_run"; write_report(report)
         print("PIREVO_PIN_DRY_RUN",json.dumps(report)); return
-    for pin in unused[:capacity]:
+    # Mix one seasonal, one evergreen, and one Christmas/gifting creative.
+    # Avoid repeats from the latest queue/history, including different waves of
+    # the same product. No extra publishing volume beyond the existing 3-pin cap.
+    import re
+    def sku(pin):
+        m=re.search(r"/pirevo/products/([^/?#]+)/",str(pin.get("destination","")))
+        return m.group(1) if m else ""
+    buckets={
+        "wave3-halloween":[x for x in unused if str(x.get("id","")).endswith("-h3")],
+        "wave2":[x for x in unused if str(x.get("id","")).endswith("-w2")],
+        "wave4-christmas":[x for x in unused if str(x.get("id","")).endswith("-w4")]
+    }
+    recently_promoted=set()
+    for post in prior[:9]:
+        m=re.search(r"/pirevo/products/([^/?#]+)/",str(post.get("text") or ""))
+        if m: recently_promoted.add(m.group(1))
+    selected=[];selected_skus=set()
+    for group in ("wave3-halloween","wave2","wave4-christmas"):
+        for pin in buckets[group]:
+            slug=sku(pin)
+            if slug and slug not in recently_promoted and slug not in selected_skus:
+                selected.append(pin);selected_skus.add(slug);break
+    # Fill vacancies without violating recent-product rotation or history dedup.
+    for pin in unused:
+        if len(selected)>=capacity: break
+        slug=sku(pin)
+        if pin not in selected and slug and slug not in recently_promoted and slug not in selected_skus:
+            selected.append(pin);selected_skus.add(slug)
+    report["rotation"]={"recent_products_excluded":len(recently_promoted),
+                        "eligible_selected":[p["id"] for p in selected[:capacity]],
+                        "waves":["halloween","evergreen","gifting"]}
+    for pin in selected[:capacity]:
         # Reconcile before every write.
         current=history(org)
         if len([x for x in current if x.get("status")=="scheduled"])>=TOTAL_QUEUE_CAP: break
