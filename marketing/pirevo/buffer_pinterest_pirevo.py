@@ -3,7 +3,7 @@
 
 Scope is intentionally narrow:
 - PIREVO Finds board only
-- Halloween Wave 3 first, then remaining Wave 2 premium assets
+- seasonal queue only: Halloween Wave 3 first, Christmas Wave 4 next
 - exact PIREVO product-page destinations
 - max 3 new pins per run
 - fail closed on ambiguous board/channel/history/public asset validation
@@ -22,7 +22,7 @@ MAX_ADD_PER_RUN=3
 ROOT=Path(__file__).resolve().parents[2]
 MANIFESTS=[
     ("wave3-halloween",ROOT/"public/pirevo/assets/pins/wave3-halloween/manifest.json",16,"https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/"),
-    ("wave2",ROOT/"public/pirevo/assets/pins/wave2/manifest.json",10,"https://www.astralabsph.com/pirevo/assets/pins/wave2/"),
+    ("wave4-christmas",ROOT/"public/pirevo/assets/pins/wave4-christmas/manifest.json",0,"https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/"),
 ]
 REPORT=ROOT/"marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json"
 
@@ -87,7 +87,8 @@ def load_pins():
             continue
         doc=json.loads(path.read_text(encoding="utf-8"))
         pins=doc.get("pins") or []
-        if len(pins)!=expected: raise RuntimeError(f"Expected exactly {expected} pins in {wave}")
+        if expected and len(pins)!=expected: raise RuntimeError(f"Expected exactly {expected} pins in {wave}")
+        if wave=="wave4-christmas" and not pins: continue
         for p in pins:
             pid=p.get("id")
             if not pid or pid in seen: raise RuntimeError("Duplicate/missing pin id across manifests")
