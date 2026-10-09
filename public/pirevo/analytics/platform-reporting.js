@@ -25,6 +25,9 @@ async function load(){
   });
   if(!res.ok)throw Error("Private report unavailable");
   const data=await res.json();
+  const referrals=document.getElementById("kdpBookReferrals");
+  if(referrals)referrals.textContent=Number.isFinite(Number(data.book_referrals_7d))?
+    new Intl.NumberFormat("en-US").format(Number(data.book_referrals_7d)):"—";
   const status=new Map((data.sources||[]).map(s=>[s.provider,s.status]));
   const metrics=data.metrics||[];
   for(const card of document.querySelectorAll(".platform-card")){
