@@ -82,6 +82,22 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 @media(max-width:1050px){.amazon-report-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){.amazon-report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.amazon-report-stat strong{font-size:26px}}
 
+
+.growth-panel{margin-top:14px}
+.growth-kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+.growth-stat{background:#f6f4ed;border:1px solid var(--line);border-radius:13px;padding:13px;min-width:0}
+.growth-stat span{font-size:10px;color:var(--muted);letter-spacing:.065em;line-height:1.4;text-transform:uppercase;display:block;min-height:28px}
+.growth-stat strong{display:block;font-family:Georgia,serif;font-size:29px;font-weight:500;margin-top:9px}
+.growth-panel .growth-note{font-family:Georgia,serif;color:var(--muted);line-height:1.55;font-size:12px;margin:11px 0}
+.growth-tables{display:grid;grid-template-columns:1.7fr .7fr;gap:17px;margin-top:15px}
+.growth-page{display:flex;justify-content:space-between;padding:10px 1px;border-bottom:1px solid var(--line);font-size:13px;gap:8px}
+.growth-page span{overflow:hidden;text-overflow:ellipsis}
+.growth-page strong{font-weight:600}
+.growth-label{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--forest2);font-weight:700}
+.growth-status{font-size:11px;color:var(--forest2);margin-top:12px}
+@media(max-width:1140px){.growth-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.growth-tables{grid-template-columns:1fr}}
+@media(max-width:650px){.growth-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
@@ -175,6 +191,35 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
       <span>Live first-party analytics · GA4 G-16044108056 · Search Console verified</span>
     </footer>
   
+
+<section class="panel growth-panel" aria-label="AstraLabs and PIREVO first-party website counters">
+ <div class="panel-title"><h2>Website Views &amp; App Interest</h2><span>AstraLabs PH + PIREVO · Last 7 days</span></div>
+ <p class="growth-note">These are tracked <strong>website page views</strong>, not Pinterest Pin impressions or Google Search Console impressions. AstraLabs counters start from this tracker deployment; historical GA4 data has not been backfilled.</p>
+ <div class="growth-kpis">
+  <div class="growth-stat"><span>AstraLabs visitors</span><strong id="growthSiteVisitors">—</strong></div>
+  <div class="growth-stat"><span>AstraLabs sessions</span><strong id="growthSiteSessions">—</strong></div>
+  <div class="growth-stat"><span>AstraLabs page views</span><strong id="growthSitePageviews">—</strong></div>
+  <div class="growth-stat"><span>PIREVO page views</span><strong id="growthPirevoPageviews">—</strong></div>
+  <div class="growth-stat"><span>PIREVO → Apps clicks</span><strong id="growthPirevoAppClicks">—</strong></div>
+  <div class="growth-stat"><span>App store button clicks</span><strong id="growthSiteStoreClicks">—</strong></div>
+ </div>
+ <div class="growth-tables">
+  <div>
+   <div class="growth-label">App click funnel</div>
+   <div class="table-wrap"><table>
+    <thead><tr><th>App</th><th>PIREVO clicks</th><th>App landing views</th><th>AstraLabs app clicks</th><th>Google Play clicks</th><th>App Store clicks</th></tr></thead>
+    <tbody id="growthAppRows"><tr><td colspan="6">Loading app counters…</td></tr></tbody>
+   </table></div>
+  </div>
+  <div>
+   <div class="growth-label">Top AstraLabs pages</div>
+   <div id="growthTopPages"><div class="empty">Loading page views…</div></div>
+  </div>
+ </div>
+ <p id="growthStatus" class="growth-status">Connecting to private site counters…</p>
+ <p class="growth-note">Store button clicks show <strong>outbound interest</strong>, not confirmed installations or purchases. Google Search impressions remain in Search Console. Pinterest impressions and saves require Pinterest Business Analytics and are not inferred from website traffic.</p>
+</section>
+
 <section class="panel amazon-report-panel" aria-label="Amazon Associates account performance">
   <div class="panel-title"><h2>Amazon Associates Earnings</h2><span>Verified report · all tracking IDs</span></div>
   <div class="amazon-report-grid">
@@ -385,5 +430,6 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 })();
 </script>
 <script src="/pirevo/analytics/amazon-earnings.js"></script>
+<script src="/pirevo/analytics/site-growth.js"></script>
 </body>
 </html>
