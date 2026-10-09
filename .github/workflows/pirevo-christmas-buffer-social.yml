@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/pirevo-christmas-buffer-social.yml'
       - 'public/pirevo/assets/social/christmas-wave4/**'
   workflow_dispatch:
 
