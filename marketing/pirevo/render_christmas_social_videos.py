@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import subprocess
+import subprocess, shutil
 from pathlib import Path
 from PIL import Image, ImageFilter
 
@@ -18,6 +18,13 @@ GROUPS={
 }
 OUT.mkdir(parents=True,exist_ok=True)
 WORK.mkdir(parents=True,exist_ok=True)
+FFMPEG=shutil.which("ffmpeg")
+if not FFMPEG:
+    try:
+        import imageio_ffmpeg
+        FFMPEG=imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception as exc:
+        raise SystemExit("ffmpeg unavailable; install ffmpeg or imageio-ffmpeg") from exc
 
 def make_frame(src:Path,dst:Path):
     im=Image.open(src).convert("RGB")
@@ -39,5 +46,5 @@ for name,files in GROUPS.items():
     concat.append(f"file '{(group/'04.jpg').as_posix()}'\n")
     listfile=group/"concat.txt";listfile.write_text("".join(concat),encoding="utf-8")
     out=OUT/f"{name}.mp4"
-    subprocess.run(["ffmpeg","-y","-f","concat","-safe","0","-i",str(listfile),"-vf","fps=30,format=yuv420p","-c:v","libx264","-preset","medium","-crf","20","-movflags","+faststart",str(out)],check=True)
+    subprocess.run([FFMPEG,"-y","-f","concat","-safe","0","-i",str(listfile),"-vf","fps=30,format=yuv420p","-c:v","libx264","-preset","medium","-crf","20","-movflags","+faststart",str(out)],check=True)
 print("PIREVO_CHRISTMAS_SOCIAL_VIDEO_OK count=5")
