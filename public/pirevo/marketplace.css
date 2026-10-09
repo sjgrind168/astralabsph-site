@@ -1,0 +1,48 @@
+
+/* PIREVO marketplace expansion: preserved Halloween storefront and existing product grids */
+.market-depts{background:#141a15;color:#f7f7ee;padding:22px 0 25px}
+.market-depts-inner{width:min(1240px,calc(100% - 34px));margin:auto}
+.market-depts .market-eyebrow,.market-books .market-eyebrow,.market-digital .market-eyebrow{font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+.market-depts .market-eyebrow{color:#d6ff78}
+.market-depts h2{font-size:clamp(25px,3.3vw,40px);margin:9px 0 16px;color:#fff;font-family:Georgia,serif;font-weight:500;line-height:1.1}
+.market-depts-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+.market-dept{background:#263127;border:1px solid #465245;color:#f3f7ee;text-decoration:none;min-height:115px;padding:16px 13px;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;transition:transform .2s,border-color .2s}
+.market-dept:hover,.market-dept:focus-visible{transform:translateY(-2px);border-color:#d6ff78}
+.market-dept-symbol{font-family:Georgia,serif;font-size:24px;color:#d6ff78;line-height:1}
+.market-dept strong{font-size:13px;letter-spacing:.01em}
+.market-dept small{font-size:10px;color:#bac9b6}
+.market-books{background:#ece8e0;padding:55px 0 58px}
+.market-books-inner,.market-digital-inner{width:min(1240px,calc(100% - 34px));margin:auto}
+.market-books-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.market-books .market-eyebrow,.market-digital .market-eyebrow{color:#61765b}
+.market-books h2,.market-digital h2{font-family:Georgia,serif;font-size:clamp(33px,4.3vw,56px);line-height:1.06;margin:9px 0;color:#202620;font-weight:500;letter-spacing:-.035em}
+.market-books-head p{max-width:485px;line-height:1.7;color:#666d65;font-size:14px}
+.market-book-card{background:#fffefa;border:1px solid #ddd9cf;border-radius:22px;box-shadow:0 14px 38px rgba(31,38,31,.07);display:grid;grid-template-columns:minmax(205px,300px) 1fr;gap:39px;padding:30px 36px;align-items:center}
+.market-book-cover{background:linear-gradient(140deg,#e5e2d5,#f7f5ee);padding:13px;border-radius:14px;min-height:325px;display:flex;align-items:center;justify-content:center}
+.market-book-cover img{width:100%;max-height:350px;object-fit:contain;filter:drop-shadow(0 12px 16px #20221633)}
+.market-book-copy{min-width:0}
+.market-book-copy .market-publisher{font-size:11px;font-weight:800;letter-spacing:.16em;color:#596e51;text-transform:uppercase}
+.market-book-copy h3{font-family:Georgia,serif;font-size:clamp(29px,3.6vw,49px);font-weight:500;letter-spacing:-.035em;line-height:1.12;margin:12px 0;color:#1b251b}
+.market-book-copy .market-book-subtitle{font-size:15px;line-height:1.5;color:#444c44;font-weight:650;margin:0 0 14px}
+.market-book-copy p{color:#5d655d;font-size:14px;line-height:1.8}
+.market-book-tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 23px}
+.market-book-tags span{border:1px solid #d4dacc;background:#f2f5ec;border-radius:999px;padding:7px 10px;color:#3d5541;font-weight:750;font-size:10px;text-transform:uppercase;letter-spacing:.04em}
+.market-book-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px}
+.market-book-actions a{border-radius:10px;padding:12px 17px;text-decoration:none;font-size:13px;font-weight:850;display:inline-flex;align-items:center;justify-content:center;min-height:45px;transition:opacity .2s}
+.market-book-actions a:hover{opacity:.78}
+.market-book-primary{background:#173e2c;color:#fff}
+.market-book-secondary{background:#e8f1d4;color:#1a3929;border:1px solid #c9d9b8}
+.market-book-link{color:#213a29;text-decoration:underline!important;text-underline-offset:4px}
+.market-book-fine{font-size:11px!important;color:#7b817a!important;margin:15px 0 0!important}
+.market-digital{background:#fbf9f4;padding:42px 0 52px}
+.market-digital-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:28px;align-items:center}
+.market-digital p{color:#616c63;line-height:1.7;font-size:14px}
+.market-digital-lanes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.market-digital-lane{padding:19px;border-radius:15px;border:1px solid #e2dfd3;background:#fff;display:flex;flex-direction:column;gap:6px;color:#242d23;text-decoration:none}
+.market-digital-lane strong{font-size:15px}
+.market-digital-lane small{font-size:12px;line-height:1.45;color:#767f74}
+.market-digital-lane.live{border-color:#bbc9b0}
+.market-marketplace-disclosure{width:min(1240px,calc(100% - 34px));margin:15px auto 0;color:#6c746d;font-size:11px;line-height:1.6}
+@media(max-width:1120px){.market-depts-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:770px){.market-book-card{grid-template-columns:1fr;gap:22px;padding:18px}.market-book-cover{min-height:210px}.market-book-cover img{max-height:260px}.market-books-head{display:block}.market-digital-inner{grid-template-columns:1fr}.market-depts-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:470px){.market-depts-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.market-book-actions a{flex:1;min-width:130px}.market-book-cover{min-height:170px}}

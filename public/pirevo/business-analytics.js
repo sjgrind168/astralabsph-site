@@ -20,6 +20,7 @@
     const p=location.pathname;
     if(/\/pirevo\/products\//.test(p))return"product";
     if(/\/pirevo\/guides\//.test(p))return"guide";
+    if(/\/pirevo\/books\//.test(p))return"book";
     if(/\/pirevo\/analytics\//.test(p))return"analytics";
     if(/\/pirevo\/?$/.test(p))return"storefront";
     return"pirevo_other";
@@ -126,7 +127,7 @@
   }
   function event(name,params={}){
     dbEvent(name,params);
-    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth"||name==="app_click")gaEvent(name,params);
+    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth"||name==="app_click"||name==="book_outbound")gaEvent(name,params);
   }
   function init(){
     if(window.__PIREVO_ANALYTICS_BOUND)return;
@@ -151,6 +152,11 @@
     document.addEventListener("click",e=>{
       const a=e.target.closest("a"); if(!a)return;
       const href=a.href||"";
+      if(a.hasAttribute("data-book-edition")){
+        const edition=safe(a.getAttribute("data-book-edition"),24);
+        event("book_outbound",{item_name:"Timmy and the Time-Traveling Watch",item_id:edition==="kindle"?"B0FX95D9LL":"B0FXDNX4DV",link_text:edition});
+        return;
+      }
       if(/amazon\.com/i.test(href)){
         const ctx=productContext();
         const asin=(href.match(/\/dp\/([A-Z0-9]{10})/i)||[])[1]||ctx.item_id||"";
