@@ -69,6 +69,19 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 @media(max-width:1350px){.kpi-grid{grid-template-columns:repeat(4,1fr)}.mid-grid{grid-template-columns:1fr 1fr}.bottom-grid{grid-template-columns:1fr}.traffic-body{grid-template-columns:170px 1fr}}
 @media(max-width:760px){.dash{padding:18px 12px}.dash-head{align-items:flex-start}.brand-word,.brand-rule,.brand-sub{display:none}.dash-head h1{font-size:28px}.head-meta{min-width:auto}.kpi-grid{grid-template-columns:repeat(2,1fr)}.kpi{min-height:125px}.kpi strong{font-size:32px}.mid-grid{grid-template-columns:1fr}.traffic-body{grid-template-columns:1fr}.donut{margin:auto}.bottom-grid{grid-template-columns:1fr}.gsc-grid{grid-template-columns:1fr 1fr}.gsc-grid>div:nth-child(2){border-right:0}.gsc-grid>div{border-bottom:1px solid var(--line)}.dash-foot{flex-direction:column}.campaign-panel{overflow:hidden}}
 
+
+/* Private verified Associates report (separate from on-site affiliate-click tracking). */
+.amazon-report-panel{margin-top:14px}
+.amazon-report-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.amazon-report-stat{background:#f6f4ec;border:1px solid var(--line);border-radius:13px;padding:18px 15px;min-width:0}
+.amazon-report-stat span{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.5}
+.amazon-report-stat strong{font-family:Georgia,serif;display:block;font-size:29px;font-weight:500;margin-top:8px;white-space:nowrap}
+.amazon-report-stat small{display:block;color:var(--muted);font-size:10px;margin-top:6px}
+.amazon-report-meta{font-size:12px;margin:14px 0 5px;color:var(--forest2);font-weight:600}
+.amazon-report-note{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+@media(max-width:1050px){.amazon-report-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.amazon-report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.amazon-report-stat strong{font-size:26px}}
+
 </style>
 </head>
 <body>
@@ -161,7 +174,21 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
       <span>PIREVO · Smart finds worth discovering.</span>
       <span>Live first-party analytics · GA4 G-16044108056 · Search Console verified</span>
     </footer>
-  </main>
+  
+<section class="panel amazon-report-panel" aria-label="Amazon Associates account performance">
+  <div class="panel-title"><h2>Amazon Associates Earnings</h2><span>Verified report · all tracking IDs</span></div>
+  <div class="amazon-report-grid">
+    <div class="amazon-report-stat"><span>Earned this month</span><strong id="amzEarnMonth">—</strong><small>US dollars, reported</small></div>
+    <div class="amazon-report-stat"><span>Earned last 30 days</span><strong id="amzEarn30">—</strong><small>Commissions + bounties</small></div>
+    <div class="amazon-report-stat"><span>Amazon clicks this month</span><strong id="amzClicksMonth">—</strong><small>Amazon-reported</small></div>
+    <div class="amazon-report-stat"><span>Amazon clicks · 30 days</span><strong id="amzClicks30">—</strong><small>Amazon-reported</small></div>
+    <div class="amazon-report-stat"><span>Ordered items this month</span><strong id="amzOrdersMonth">—</strong><small>Amazon-reported</small></div>
+  </div>
+  <p class="amazon-report-meta" id="amzReportStatus">Loading verified Amazon report…</p>
+  <p class="amazon-report-note">Revenue values are private verified Amazon Associates snapshots, not automatic live earnings. The report covers <strong>all account tracking IDs</strong>, not PIREVO-only sales. Amazon-reported clicks may differ from PIREVO outbound events.</p>
+</section>
+
+</main>
 
   <section class="locked" id="locked" hidden>
     <div class="locked-card">
@@ -357,5 +384,6 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
   document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")load()});
 })();
 </script>
+<script src="/pirevo/analytics/amazon-earnings.js"></script>
 </body>
 </html>
