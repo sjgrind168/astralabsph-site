@@ -30,25 +30,42 @@ async function load(){
     new Intl.NumberFormat("en-US").format(Number(data.book_referrals_7d)):"—";
   const status=new Map((data.sources||[]).map(s=>[s.provider,s.status]));
   const metrics=data.metrics||[];
+  const specific=(provider,metric,app)=>
+    metrics.find(x=>x.provider===provider&&x.metric===metric&&x.app_key===app);
+  const bothApps=(metric)=>{
+    const a=specific("google_play",metric,"astramate");
+    const k=specific("google_play",metric,"keepry");
+    if(!a||!k)return null;
+    return {...a,metric_value:Number(a.metric_value)+Number(k.metric_value)};
+  };
   for(const card of document.querySelectorAll(".platform-card")){
    const provider=card.dataset.provider,s=status.get(provider)||"not_connected";
    const badge=card.querySelector(".platform-status");
-   badge.textContent=s==="not_connected"?"Awaiting access":"Report imported";
+   badge.textContent=s==="not_connected"?"Awaiting report":"Verified snapshot";
    badge.classList.toggle("live",s!=="not_connected");
    for(const m of card.querySelectorAll("[data-metric]")){
-    const chosen=metrics.find(x=>x.provider===provider&&x.metric===m.dataset.metric&&
-      (x.app_key==="all"||x.app_key===null));
+    let chosen=null;
+    if(provider==="google_play"&&(m.dataset.metric==="installed_audience"||m.dataset.metric==="device_acquisitions")){
+      chosen=bothApps(m.dataset.metric);
+    }else if(provider==="google_play"&&(m.dataset.metric==="gross_revenue_usd"||m.dataset.metric==="one_time_orders")){
+      chosen=specific(provider,m.dataset.metric,"keepry");
+    }else{
+      chosen=specific(provider,m.dataset.metric,"all");
+    }
     m.textContent=amount(chosen);
    }
    const available=metrics.filter(x=>x.provider===provider);
    if(available.length){
-    const latest=available.reduce((a,b)=>!a||b.period_end>a.period_end?b:a,null);
+    const latest=available.reduce((a,b)=>!a||b.captured_at>a.captured_at?b:a,null);
     card.querySelector("[data-source-note]").textContent=
-     "Latest imported report through "+latest.period_end+" · "+latest.source_name+
-     " · "+latest.report_status+" · not live";
+      provider==="google_play"?
+      "As of Oct 9: Astramate 7 installed, 10 acquisitions; Keepry 8 installed, 16 acquisitions. $4.79 is Keepry gross customer sales including tax, through Oct 7. Not net proceeds.":
+      provider==="admob"?
+      "Estimates: Oct month-to-date $0.00; Sept ~$0.01 (unrounded $0.008). Impressions are for last 7 days. Not finalized payouts.":
+      "Imported snapshot dated "+latest.period_end+" · "+latest.source_name+" · not automatically synced.";
    }
   }
-  root.textContent="Provider values are read from private verified imports. Not connected means no authorized report source. Reload after a confirmed import.";
+  root.textContent="Last reviewed Oct 9, 2026 · Google Play & AdMob are verified manual snapshots, not continuous API connections. Apple & KDP financial imports are still pending.";
  }catch{
   root.textContent="Private provider reporting is unavailable. No earnings have been inferred.";
  }
