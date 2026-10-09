@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/pirevo/styles.css">
 <link rel="stylesheet" href="/pirevo/shop.css">
 <link rel="stylesheet" href="/pirevo/marketplace.css">
-<link rel="stylesheet" href="/pirevo/social-radar.css?v=1">
+<link rel="stylesheet" href="/pirevo/social-radar.css?v=2">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.astralabsph.com/pirevo/#website","url":"https://www.astralabsph.com/pirevo/","name":"PIREVO","description":"Trend-led product research and curated affiliate shopping guides from AstraLabs PH.","publisher":{"@type":"Organization","name":"AstraLabs PH","url":"https://www.astralabsph.com/"}},{"@type":"CollectionPage","url":"https://www.astralabsph.com/pirevo/","name":"PIREVO Product Finds","isPartOf":{"@id":"https://www.astralabsph.com/pirevo/#website"},"about":["Holiday gifts","Halloween decorations","Christmas decorations","Slow cookers","Women's satchel bags","Face moisturizers","Gaming room lighting","Fall home decor"]}]}</script>
 </head>
 <body class="halloween-season">
@@ -383,15 +383,23 @@
 <div class="shop-wrap">
  <div class="social-radar-head">
   <div><div class="social-radar-eyebrow">SOCIAL DISCOVERY · AMAZON QUALITY SCREEN</div><h2 id="socialRadarTitle">Seen on the feeds. Checked for the shop.</h2></div>
-  <p>Research-led picks inspired by TikTok, Instagram and Pinterest shopping signals. Exact Amazon products are linked below only when already listed and backed by a dated PIREVO rating snapshot.</p>
+  <p>Browse rated Amazon picks matched to TikTok, Instagram, Pinterest topics and recent Amazon shopping coverage. Every card distinguishes exact-product evidence from broader category inspiration.</p>
  </div>
- <div class="social-radar-filter" role="group" aria-label="Filter social shopping signals">
-  <button type="button" data-radar-filter="all" aria-pressed="true">All signals</button>
+ <div class="social-radar-filter" role="group" aria-label="Filter product research signals">
+  <button type="button" data-radar-filter="all" aria-pressed="true">All picks</button>
   <button type="button" data-radar-filter="TikTok" aria-pressed="false">TikTok</button>
   <button type="button" data-radar-filter="Instagram" aria-pressed="false">Instagram</button>
   <button type="button" data-radar-filter="Pinterest" aria-pressed="false">Pinterest</button>
+  <button type="button" data-radar-filter="Amazon Finds" aria-pressed="false">Amazon Finds</button>
  </div>
- <div class="social-radar-grid" id="socialRadarGrid" aria-live="polite"><p class="social-radar-empty">Loading editorially checked product matches…</p></div>
+ <div class="social-radar-controls">
+  <label class="social-radar-search">Search picks <input type="search" id="socialRadarSearch" placeholder="Beauty, bags, kitchen, gifts…" autocomplete="off"></label>
+  <label>Category <select id="socialRadarCategory"><option value="all">All categories</option></select></label>
+  <label>Sort <select id="socialRadarSort"><option value="featured">Featured</option><option value="rating">Top rated</option><option value="reviews">Most reviewed</option></select></label>
+ </div>
+ <div class="social-radar-count" id="socialRadarCount" role="status" aria-live="polite">Loading quality-screened finds…</div>
+ <div class="social-radar-grid" id="socialRadarGrid"><p class="social-radar-empty">Loading editorially checked product matches…</p></div>
+ <div class="social-radar-more"><button type="button" id="socialRadarMore" hidden>Show more researched products ↓</button></div>
  <div class="social-radar-footer"><span id="socialRadarStatus">Manual editorial checks · Amazon ratings are snapshots, not live feeds</span><a href="#trend-50">Browse all Trend 50 products →</a></div>
 </div></section>
 
@@ -527,5 +535,5 @@
 <script src="/pirevo/business-analytics.js"></script>
 <script src="/pirevo/store-data.js"></script>
 <script src="/pirevo/shop.js"></script>
-<script src="/pirevo/social-radar.js?v=1" defer></script>
+<script src="/pirevo/social-radar.js?v=2" defer></script>
 </body></html>
