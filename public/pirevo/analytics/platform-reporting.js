@@ -59,7 +59,7 @@ async function load(){
     const latest=available.reduce((a,b)=>!a||b.captured_at>a.captured_at?b:a,null);
     card.querySelector("[data-source-note]").textContent=
       provider==="google_play"?
-      "As of Oct 9: Astramate 7 installed, 10 acquisitions; Keepry 8 installed, 16 acquisitions. $4.79 is Keepry gross customer sales including tax, through Oct 7. Not net proceeds.":
+      "Verified Oct 9: $3.98 September earnings balance, pending scheduled payout (Google normally initiates around Oct 15). Keepry gross $4.79 includes tax, less $0.72 fees and $0.09 VAT. Astramate: 7 installed, 10 acquisitions; Keepry: 8 installed, 16 acquisitions. Manual snapshots only.":
       provider==="admob"?
       "Estimates: Oct month-to-date $0.00; Sept ~$0.01 (unrounded $0.008). Impressions are for last 7 days. Not finalized payouts.":
       "Imported snapshot dated "+latest.period_end+" · "+latest.source_name+" · not automatically synced.";
