@@ -35,7 +35,7 @@ function render(){
   S.collections.forEach(c=>{
     if(c.id==="seasonal"){
       const halloween=S.products.filter(p=>p.collection==="seasonal"&&p.season==="halloween").sort((a,b)=>(b.reviews||0)-(a.reviews||0));
-      const christmas=S.products.filter(p=>(p.collection==="seasonal"&&p.season==="christmas")||p.holidayGiftGroup)
+      const christmas=S.products.filter(p=>p.season==="christmas"||p.holidayGiftGroup)
         .sort((a,b)=>{const order={decor:0,kids:1,adults:2};const ag=giftGroup(a),bg=giftGroup(b);return (order[ag]??9)!==(order[bg]??9)?(order[ag]??9)-(order[bg]??9):(b.reviews||0)-(a.reviews||0)});
       renderShelf("seasonal",halloween); renderShelf("christmas",christmas);
     } else renderShelf(c.id,S.products.filter(p=>p.collection===c.id));
@@ -54,7 +54,7 @@ function applyCardVisibility(){
   });
   const ss=$("#searchStatus"); if(ss)ss.textContent=q?`Showing matches for “${input.value.trim()}”`:"";
   const hs=$("#halloweenFilterStatus"); if(hs)hs.textContent=activeHalloweenGroup==="all"?"Showing all Halloween picks.":`Showing ${$$('#shelf-seasonal .shop-product-card:not([hidden])').length} Halloween picks in this style.`;
-  const cs=$("#christmasFilterStatus"); if(cs)cs.textContent=activeChristmasGroup==="all"?"Showing all 20 Christmas picks.":`Showing ${$$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks in this group.`;
+  const cs=$("#christmasFilterStatus"); if(cs)cs.textContent=activeChristmasGroup==="all"?`Showing all ${$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks.`:`Showing ${$$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks in this group.`;
 }
 function setupSearch(){
   const input=$("#shopSearch"),clear=$("#clearSearch"); if(!input)return;
