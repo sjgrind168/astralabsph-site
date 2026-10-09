@@ -1,0 +1,91 @@
+name: PIREVO Christmas Buffer Social Wave
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/pirevo/assets/social/christmas-wave4/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pirevo-christmas-buffer-social
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Schedule PIREVO Christmas videos to Buffer TikTok and Facebook
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+
+          API="https://api.buffer.com"
+          KEY=os.environ.get("ASTRALABS_BUFFER_API_KEY","").strip()
+          FB="6ab15144ea19ca0bdea6d621"
+          TT="6ab18682ea19ca0bdeaa1d77"
+          if not KEY: raise SystemExit("Missing Buffer secret")
+          def q(v): return json.dumps(str(v),ensure_ascii=True)
+          def gql(query):
+              req=urllib.request.Request(API,data=json.dumps({"query":query}).encode(),headers={"Authorization":"Bearer "+KEY,"Content-Type":"application/json","User-Agent":"PIREVO-Christmas-Buffer-Social/1.0"},method="POST")
+              try:
+                  with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+              except urllib.error.HTTPError as e: raise RuntimeError(f"Buffer HTTP {e.code}") from None
+              if payload.get("errors") or not isinstance(payload.get("data"),dict): raise RuntimeError("Buffer GraphQL rejected request")
+              return payload["data"]
+          orgs=((gql("query { account { organizations { id name } } }").get("account") or {}).get("organizations") or [])
+          if len(orgs)!=1: raise RuntimeError("Ambiguous Buffer organization")
+          org=orgs[0]["id"]
+          channels=gql("query { channels(input:{organizationId:"+q(org)+"}) { id service isDisconnected isLocked isQueuePaused } }").get("channels") or []
+          byid={c["id"]:c for c in channels}
+          for cid,service in ((FB,"facebook"),(TT,"tiktok")):
+              c=byid.get(cid)
+              if not c or str(c.get("service","")).lower()!=service or c.get("isDisconnected") or c.get("isLocked") or c.get("isQueuePaused"):
+                  raise RuntimeError(service+" channel unavailable")
+          def history(cid):
+              z=gql("query { posts(first:100,input:{organizationId:"+q(org)+",filter:{status:[scheduled,sent,sending,draft,error],channelIds:["+q(cid)+"]},sort:[{field:createdAt,direction:desc}]}) { edges { node { id text status dueAt channelId assets { mimeType source } } } pageInfo { hasNextPage } } }").get("posts") or {}
+              if not isinstance(z.get("edges"),list) or (z.get("pageInfo") or {}).get("hasNextPage"): raise RuntimeError("Incomplete history")
+              return [e["node"] for e in z["edges"] if isinstance(e.get("node"),dict)]
+          def verify(url):
+              req=urllib.request.Request(url,headers={"Range":"bytes=0-31","User-Agent":"PIREVO-Christmas-Video-Proof/1.0"})
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  sig=r.read(16)
+                  if r.status not in (200,206) or len(sig)<8 or sig[4:8]!=b"ftyp": raise RuntimeError("Video verification failed "+url)
+          def create(cid,service,text,due,video):
+              meta="metadata:{facebook:{type:post}}" if service=="facebook" else "metadata:{tiktok:{isAiGenerated:false}}"
+              vmeta="" if service=="facebook" else " metadata:{thumbnailOffset:2000}"
+              query=("mutation { createPost(input:{text:"+q(text)+" channelId:"+q(cid)+" schedulingType:automatic mode:customScheduled dueAt:"+q(due)+" aiAssisted:true "+meta+" assets:[{video:{url:"+q(video)+vmeta+"}}]}) { ... on PostActionSuccess { post { id status dueAt } } ... on MutationError { message } } }")
+              obj=gql(query).get("createPost") or {};p=obj.get("post") if isinstance(obj,dict) else None
+              if not p or p.get("status")!="scheduled": raise RuntimeError(service+" schedule failed: "+str(obj.get("message","unknown"))[:160])
+              return p
+          base="https://www.astralabsph.com/pirevo/assets/social/christmas-wave4/"
+          posts=[
+            ("01_christmas-decor.mp4","2026-10-14T03:30:00.000Z","2026-10-14T11:30:00.000Z","CHRISTMAS DECOR STARTS HERE. ✨ Window candles, tree-shaped flameless candles, pre-lit garland and warm fairy lights from the PIREVO Christmas Preview.\n\nShop the seasonal edit: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_christmas_wave4&utm_content=fb_decor#christmas-preview\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#ChristmasDecor #HolidayDecor #Christmas2026 #PIREVO [PIREVO_XMAS_FB_01]","Christmas decor ideas ✨ Window candles, garland + warm fairy lights from PIREVO. astralabsph.com/pirevo #ChristmasDecor #HolidayDecor #PIREVO [PIREVO_XMAS_TT_01]"),
+            ("02_kids-creative-gifts.mp4","2026-10-15T03:30:00.000Z","2026-10-15T11:30:00.000Z","CREATIVE GIFTS FOR KIDS. 🎁 Glow rock painting, mess-free Crayola, a 140-piece art case and Play-Doh for a very busy Christmas break.\n\nSee all kids picks: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_christmas_wave4&utm_content=fb_kidscreative#christmas-preview\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#ChristmasGiftsForKids #KidsGifts #CreativeKids #PIREVO [PIREVO_XMAS_FB_02]","Creative Christmas gifts for kids 🎁 Rock painting, Crayola + Play-Doh picks from PIREVO. astralabsph.com/pirevo #ChristmasGiftsForKids #KidsGifts #PIREVO [PIREVO_XMAS_TT_02]"),
+            ("03_kids-teen-tech-gifts.mp4","2026-10-16T03:30:00.000Z","2026-10-16T11:30:00.000Z","KIDS + TEEN GIFT IDEAS. 🎮 Sticker-book downtime, Nintendo Joy-Con, Echo Dot and a portable Bluetooth speaker.\n\nBrowse the Christmas Preview: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_christmas_wave4&utm_content=fb_teentech#christmas-preview\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#TeenGifts #GamingGifts #TechGifts #PIREVO [PIREVO_XMAS_FB_03]","Kids + teen gifts 🎮 Nintendo, Echo Dot, stickers + portable audio from PIREVO. astralabsph.com/pirevo #TeenGifts #GamingGifts #TechGifts #PIREVO [PIREVO_XMAS_TT_03]"),
+            ("04_adult-host-cozy-gifts.mp4","2026-10-17T03:30:00.000Z","2026-10-17T11:30:00.000Z","ADULT GIFTS THAT ACTUALLY GET USED. 🎄 A desk lunch warmer, charcuterie set, Stanley tumbler and cozy throw blanket.\n\nSee the adult gift edit: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_christmas_wave4&utm_content=fb_adultcozy#christmas-preview\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#ChristmasGifts #GiftsForAdults #CozyGifts #PIREVO [PIREVO_XMAS_FB_04]","Christmas gifts adults can actually use 🎄 Lunch warmer, charcuterie, Stanley + cozy throw. astralabsph.com/pirevo #GiftsForAdults #ChristmasGifts #PIREVO [PIREVO_XMAS_TT_04]"),
+            ("05_adult-travel-creative-gifts.mp4","2026-10-18T03:30:00.000Z","2026-10-18T11:30:00.000Z","FOR THE TRAVELER, BUILDER OR PERSON WHO HAS EVERYTHING. ✈️ LEGO Botanicals, JBL Clip, AirTag and BAGSMART travel organization.\n\nExplore all 20 Christmas picks: https://www.astralabsph.com/pirevo/?utm_source=facebook&utm_medium=organic_social&utm_campaign=pirevo_christmas_wave4&utm_content=fb_travelcreative#christmas-preview\n\nAffiliate disclosure: PIREVO may earn from qualifying purchases.\n\n#TravelGifts #TechGifts #LEGOForAdults #PIREVO [PIREVO_XMAS_FB_05]","Travel + creative gifts ✈️ LEGO Botanicals, JBL, AirTag + BAGSMART from PIREVO. astralabsph.com/pirevo #TravelGifts #TechGifts #PIREVO [PIREVO_XMAS_TT_05]")
+          ]
+          results=[]
+          for file,fb_due,tt_due,fb_text,tt_text in posts:
+              verify(base+file)
+          for cid,service,ti,di,marker in ((FB,"facebook",3,1,"PIREVO_XMAS_FB_"),(TT,"tiktok",4,2,"PIREVO_XMAS_TT_")):
+              rows=history(cid)
+              for n,item in enumerate(posts,1):
+                  file=item[0]; text=item[ti];due=item[di];exact=f"[{marker}{n:02d}]"
+                  if any(exact in str(r.get("text") or "") for r in rows): continue
+                  p=create(cid,service,text,due,base+file)
+                  results.append({"service":service,"post_id":p["id"],"dueAt":p.get("dueAt"),"video":file})
+                  rows.append({"id":p["id"],"text":text,"status":"scheduled","channelId":cid,"assets":[{"source":base+file}]})
+          print("PIREVO_CHRISTMAS_BUFFER_SOCIAL_OK")
+          print(json.dumps(results,ensure_ascii=False))
+          PY
