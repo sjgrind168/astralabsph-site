@@ -105,6 +105,25 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 @media(max-width:1140px){.growth-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.growth-tables{grid-template-columns:1fr}}
 @media(max-width:650px){.growth-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+
+/* Private multi-platform reporting. No invented earnings or implied connections. */
+.platform-panel{margin-top:14px}
+.platform-intro{color:#6a746a;font-family:Georgia,serif;font-size:13px;line-height:1.7;margin:0 0 16px}
+.platform-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.platform-card{padding:18px 16px;border:1px solid #dfdfd4;background:linear-gradient(160deg,#fffdfa,#f4f2ea);border-radius:15px;min-width:0;display:flex;flex-direction:column;gap:11px}
+.platform-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.platform-card-head strong{font-family:Georgia,serif;font-size:17px;font-weight:500;color:#1d392b}
+.platform-card .platform-status{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#637269;background:#ecf0e5;padding:5px 7px;border-radius:6px;white-space:nowrap}
+.platform-card .platform-status.live{background:#e0f3d2;color:#295b26}
+.platform-metric{display:flex;justify-content:space-between;align-items:end;gap:6px;border-top:1px solid #e5e5dc;padding-top:9px}
+.platform-metric span{font-size:11px;color:#768076;line-height:1.3}
+.platform-metric strong{font-family:Georgia,serif;font-weight:500;font-size:23px}
+.platform-card small{font-size:10px;line-height:1.5;color:#778077}
+.platform-card a{margin-top:auto;align-self:flex-start;color:#265740;font-size:11px;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.platform-report-note{font-size:11px;color:#657368;line-height:1.6;margin:14px 0 0}
+@media(max-width:1050px){.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.platform-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -249,6 +268,43 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
  </div>
  <p id="growthStatus" class="growth-status">Connecting to private site counters…</p>
  <p class="growth-note">Store button clicks show <strong>outbound interest</strong>, not confirmed installations or purchases. Google Search impressions remain in Search Console. Pinterest impressions and saves require Pinterest Business Analytics and are not inferred from website traffic.</p>
+</section>
+
+
+<section class="panel platform-panel" aria-label="App earnings and publishing platform reports">
+ <div class="panel-title"><h2>App &amp; Publishing Earnings</h2><span>Private provider reports · source dated</span></div>
+ <p class="platform-intro">AstraLabs revenue cockpit: Google Play, AdMob, Apple App Store Connect, and KDP. A dash means <strong>no verified report imported</strong>, never zero earnings. Data will not update automatically until each provider is authorized and a secure reporting workflow is enabled.</p>
+ <div class="platform-grid">
+  <article class="platform-card" data-provider="google_play">
+   <div class="platform-card-head"><strong>Google Play</strong><span class="platform-status">Not connected</span></div>
+   <div class="platform-metric"><span>Installs / acquisitions</span><strong data-metric="acquisitions">—</strong></div>
+   <div class="platform-metric"><span>Developer proceeds</span><strong data-metric="proceeds_usd">—</strong></div>
+   <small data-source-note>Awaiting Play Console reports. Revenue and installs need separate authorized data exports.</small>
+   <a href="https://play.google.com/console/" target="_blank" rel="noopener noreferrer">Open Play Console ↗</a>
+  </article>
+  <article class="platform-card" data-provider="admob">
+   <div class="platform-card-head"><strong>Google AdMob</strong><span class="platform-status">Not connected</span></div>
+   <div class="platform-metric"><span>Estimated ad earnings</span><strong data-metric="estimated_earnings_usd">—</strong></div>
+   <div class="platform-metric"><span>Ad impressions</span><strong data-metric="ad_impressions">—</strong></div>
+   <small data-source-note>Awaiting AdMob reporting API authorization. Estimated earnings are not settled payouts.</small>
+   <a href="https://admob.google.com/" target="_blank" rel="noopener noreferrer">Open AdMob ↗</a>
+  </article>
+  <article class="platform-card" data-provider="app_store_connect">
+   <div class="platform-card-head"><strong>App Store Connect</strong><span class="platform-status">Not connected</span></div>
+   <div class="platform-metric"><span>First-time downloads</span><strong data-metric="first_time_downloads">—</strong></div>
+   <div class="platform-metric"><span>Apple proceeds</span><strong data-metric="proceeds_usd">—</strong></div>
+   <small data-source-note>Awaiting App Store Connect reports. Proceeds differ from customer spending.</small>
+   <a href="https://appstoreconnect.apple.com/" target="_blank" rel="noopener noreferrer">Open App Store Connect ↗</a>
+  </article>
+  <article class="platform-card" data-provider="kdp">
+   <div class="platform-card-head"><strong>Amazon KDP</strong><span class="platform-status">Not connected</span></div>
+   <div class="platform-metric"><span>Reported royalties</span><strong data-metric="royalties_usd">—</strong></div>
+   <div class="platform-metric"><span>Paid book units</span><strong data-metric="book_units">—</strong></div>
+   <small data-source-note>KDP royalty reports remain separate from Amazon Associates affiliate commissions.</small>
+   <a href="https://kdpreports.amazon.com/" target="_blank" rel="noopener noreferrer">Open KDP Reports ↗</a>
+  </article>
+ </div>
+ <p id="platformReportStatus" class="platform-report-note">Checking private report availability…</p>
 </section>
 
 <section class="panel amazon-report-panel" aria-label="Amazon Associates account performance">
@@ -467,5 +523,6 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 </script>
 <script src="/pirevo/analytics/amazon-earnings.js"></script>
 <script src="/pirevo/analytics/site-growth.js"></script>
+<script src="/pirevo/analytics/platform-reporting.js"></script>
 </body>
 </html>
