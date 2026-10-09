@@ -1,0 +1,66 @@
+name: PIREVO Halloween Social Videos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pirevo-halloween-social-videos.yml'
+      - 'marketing/pirevo/render_halloween_social_videos.py'
+      - 'public/pirevo/assets/pins/wave3-halloween/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pirevo-halloween-social-videos
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install renderer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --disable-pip-version-check --no-cache-dir pillow==11.3.0
+
+      - name: Render 4 vertical Halloween social videos
+        run: python marketing/pirevo/render_halloween_social_videos.py
+
+      - name: Validate social videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          COUNT="$(find public/pirevo/assets/social/halloween-wave3 -maxdepth 1 -type f -name '*.mp4' | wc -l | tr -d ' ')"
+          test "$COUNT" = "4"
+          for f in public/pirevo/assets/social/halloween-wave3/*.mp4; do
+            test -s "$f"
+            ffprobe -v error -show_entries stream=width,height -of csv=s=x:p=0 "$f" | grep -q '^1080x1920$'
+          done
+          echo "PIREVO_HALLOWEEN_SOCIAL_VIDEO_QA_OK count=$COUNT"
+
+      - name: Persist social videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AstraLabs PIREVO Social Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add public/pirevo/assets/social/halloween-wave3
+          if git diff --cached --quiet; then
+            echo "NO_SOCIAL_VIDEO_CHANGE"
+            exit 0
+          fi
+          git commit -m 'PIREVO: render Halloween social videos'
+          git pull --rebase origin main
+          git push origin HEAD:main
