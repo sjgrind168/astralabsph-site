@@ -1,11 +1,27 @@
 {
-  "generated_at_utc": "2026-10-09T06:20:00.778928+00:00",
+  "generated_at_utc": "2026-10-09T14:24:22.530536+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 3,
-  "pirevo_scheduled_before": 3,
+  "scheduled_total_before": 0,
+  "pirevo_scheduled_before": 0,
   "unused_before": 34,
-  "capacity": 0,
-  "created": [],
+  "capacity": 3,
+  "created": [
+    {
+      "pin_id": "piteno-bats-h3",
+      "buffer_id": "6ac8f917810582311ae3fd0a",
+      "dueAt": "2026-10-10T02:00:00.000Z"
+    },
+    {
+      "pin_id": "cyantor-cloth-h3",
+      "buffer_id": "6ac8f918443de896597fa211",
+      "dueAt": "2026-10-10T03:10:00.000Z"
+    },
+    {
+      "pin_id": "joyin-ghosts-h3",
+      "buffer_id": "6ac8f91957c4b87d9cf58c3a",
+      "dueAt": "2026-10-10T06:40:00.000Z"
+    }
+  ],
   "mode": "write",
   "scheduled_total_after": 3,
   "pirevo_scheduled_after": 3
