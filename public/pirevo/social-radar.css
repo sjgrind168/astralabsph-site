@@ -1,0 +1,28 @@
+
+.social-radar{padding:53px 0 58px;background:#eff3eb;scroll-margin-top:85px}
+.social-radar-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:22px}
+.social-radar-eyebrow{color:#4a795e;font-weight:850;font-size:10px;letter-spacing:.17em}
+.social-radar h2{font-family:Georgia,serif;color:#19392c;font-size:clamp(30px,4vw,52px);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin:9px 0}
+.social-radar-head p{max-width:465px;color:#647568;font-size:13px;line-height:1.7;margin:0}
+.social-radar-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:17px}
+.social-radar-filter button{border:1px solid #d4dfd5;background:#fff;color:#436752;border-radius:999px;padding:9px 15px;font-size:12px;font-weight:750;cursor:pointer}
+.social-radar-filter button[aria-pressed=true]{background:#006241;border-color:#006241;color:#fff}
+.social-radar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;min-height:80px}
+.social-radar-card{background:#fff;border:1px solid #dce7dd;border-radius:15px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px #1b412510}
+.social-radar-img{aspect-ratio:5/4;background:#f5f7f1;display:flex;align-items:center;justify-content:center;padding:13px}
+.social-radar-img img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.social-radar-copy{padding:16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.social-radar-tags{display:flex;gap:5px;flex-wrap:wrap}
+.social-radar-tags span{color:#286748;background:#e7f4e9;border-radius:6px;padding:4px 7px;font-size:9px;font-weight:750}
+.social-radar-copy h3{font-size:15px;line-height:1.35;color:#1b3928;margin:0;font-weight:800}
+.social-radar-rating{font-size:12px;color:#536b59}.social-radar-rating strong{color:#164b30}
+.social-radar-copy p{font-size:11px;line-height:1.65;color:#657469;margin:0;flex:1}
+.social-radar-scope{font-size:10px;font-weight:750;color:#849183}
+.social-radar-links{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+.social-radar-links a{color:#006241;text-decoration:underline;text-underline-offset:3px;font-size:11px;font-weight:800}
+.social-radar-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#738378;font-size:11px;margin-top:18px}
+.social-radar-footer a{color:#006241;font-weight:750;text-decoration:none}
+.social-radar-empty{padding:20px;color:#697b6b}
+@media(max-width:1150px){.social-radar-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:770px){.social-radar-head{display:block}.social-radar-head p{max-width:none;margin-top:10px}.social-radar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:470px){.social-radar-grid{grid-template-columns:1fr}.social-radar-card{display:grid;grid-template-columns:130px minmax(0,1fr)}.social-radar-img{aspect-ratio:auto;min-height:180px}.social-radar-copy{padding:13px}.social-radar-footer{align-items:flex-start;flex-direction:column}}
