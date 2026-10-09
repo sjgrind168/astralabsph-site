@@ -54,7 +54,7 @@ function applyCardVisibility(){
   });
   const ss=$("#searchStatus"); if(ss)ss.textContent=q?`Showing matches for “${input.value.trim()}”`:"";
   const hs=$("#halloweenFilterStatus"); if(hs)hs.textContent=activeHalloweenGroup==="all"?"Showing all Halloween picks.":`Showing ${$$('#shelf-seasonal .shop-product-card:not([hidden])').length} Halloween picks in this style.`;
-  const cs=$("#christmasFilterStatus"); if(cs)cs.textContent=activeChristmasGroup==="all"?`Showing all ${$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks.`:`Showing ${$$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks in this group.`;
+  const cs=$("#christmasFilterStatus"); if(cs)cs.textContent=activeChristmasGroup==="all"?`Showing all ${$$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks.`:`Showing ${$$('#shelf-christmas .shop-product-card:not([hidden])').length} Christmas picks in this group.`;
 }
 function setupSearch(){
   const input=$("#shopSearch"),clear=$("#clearSearch"); if(!input)return;
