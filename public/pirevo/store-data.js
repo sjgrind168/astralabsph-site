@@ -1503,7 +1503,8 @@ window.PIREVO_STORE = {
         "description": "Compare Creative Hobbies 6-pack Christmas window candles with dusk-to-dawn sensors, plug-in power, classic brass bases and key buying tradeoffs."
       },
       "season": "christmas",
-      "seasonalGroup": "christmas"
+      "seasonalGroup": "christmas",
+      "holidayGroup": "decor"
     },
     {
       "slug": "homemory-christmas-tree-candles",
@@ -1583,7 +1584,8 @@ window.PIREVO_STORE = {
         "description": "Compare Homemory Christmas tree flameless candles with a 6-hour timer for mantel, table and holiday decor, including size, battery needs and tradeoffs."
       },
       "season": "christmas",
-      "seasonalGroup": "christmas"
+      "seasonalGroup": "christmas",
+      "holidayGroup": "decor"
     },
     {
       "slug": "godonlif-candle-warmer-lamp",
@@ -1960,7 +1962,8 @@ window.PIREVO_STORE = {
         "intent": "cozy Christmas gifts for women",
         "title": "Cozy Christmas Gift for Women | Bedsure GentleSoft Throw Blanket | PIREVO",
         "description": "Compare the Bedsure GentleSoft Off White 50 x 60 throw blanket as a cozy Christmas gift for women, moms, friends and homebodies, with current buyer evidence and tradeoffs."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "stanley-quencher-30-rose-quartz",
@@ -2038,7 +2041,8 @@ window.PIREVO_STORE = {
         "intent": "insulated tumbler gift for women",
         "title": "Insulated Tumbler Gift for Women | STANLEY Quencher 30 oz Rose Quartz | PIREVO",
         "description": "Compare the STANLEY Quencher H2.0 30 oz Rose Quartz 2.0 as a holiday gift, including insulation, lid design, review depth, current buyer evidence and tradeoffs."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "lego-botanicals-tiny-plants",
@@ -2116,7 +2120,8 @@ window.PIREVO_STORE = {
         "intent": "LEGO gifts for adults and plant lovers",
         "title": "LEGO Gift for Adults & Plant Lovers | Botanicals Tiny Plants 10329 | PIREVO",
         "description": "Compare LEGO Botanicals Tiny Plants 10329 as a creative Christmas gift for adults and plant lovers, including piece count, display value, buyer evidence and tradeoffs."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "moonka-frameo-digital-photo-frame",
@@ -2350,7 +2355,8 @@ window.PIREVO_STORE = {
         "intent": "portable Bluetooth speaker gift for travelers",
         "title": "Portable Bluetooth Speaker Gift | JBL Clip 5 Black | PIREVO",
         "description": "Compare the JBL Clip 5 Black as a portable holiday gift for travelers, students and outdoor use, including IP67 protection, carabiner design and current Amazon buyer evidence."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "national-tree-wintry-pine-garland",
@@ -2430,7 +2436,8 @@ window.PIREVO_STORE = {
         "description": "Compare this 9-ft National Tree Company pre-lit Wintry Pine Christmas garland for mantels, stairs and doorways, including lights, branch count and buying tradeoffs."
       },
       "season": "christmas",
-      "seasonalGroup": "christmas"
+      "seasonalGroup": "christmas",
+      "holidayGroup": "decor"
     },
     {
       "slug": "amazon-basics-wire-rack",
@@ -2814,7 +2821,8 @@ window.PIREVO_STORE = {
         "intent": "airtag 2nd generation tech",
         "title": "AirTag 2nd Generation | #3 Electronics snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Apple AirTag 2nd Generation Item Tracker. 4.6★ across 11,546 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "echo-dot-charcoal",
@@ -2838,7 +2846,8 @@ window.PIREVO_STORE = {
         "intent": "echo dot, charcoal tech",
         "title": "Echo Dot, Charcoal | #6 Electronics snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Amazon Echo Dot Smart Speaker, Charcoal. 4.7★ across 200,484 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "kids"
     },
     {
       "slug": "roku-streaming-stick-hd",
@@ -3006,7 +3015,8 @@ window.PIREVO_STORE = {
         "intent": "joy-con neon red / neon blue gaming",
         "title": "Joy-Con Neon Red / Neon Blue | #18 Video Game Consoles & Accessories snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Nintendo Joy-Con Left/Right Neon Red and Neon Blue. 4.7★ across 82,986 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "kids"
     },
     {
       "slug": "kontrolfreek-galaxy-black",
@@ -3366,7 +3376,8 @@ window.PIREVO_STORE = {
         "intent": "hanging toiletry bag travel",
         "title": "Hanging Toiletry Bag | #12 Luggage & Travel Gear snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: BAGSMART Toiletry Bag with Hanging Hook. 4.8★ across 64,829 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "adults"
     },
     {
       "slug": "bagail-packing-cubes-8",
@@ -3558,7 +3569,8 @@ window.PIREVO_STORE = {
         "intent": "animal habitats sticker book kids",
         "title": "Animal Habitats Sticker Book | #11 Toys & Games snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Cupkin Animal Habitats Sticker Book with 500+ Stickers. 4.8★ across 6,877 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "kids"
     },
     {
       "slug": "playdoh-36-pack",
@@ -3582,7 +3594,8 @@ window.PIREVO_STORE = {
         "intent": "36-pack case of colors kids",
         "title": "36-Pack Case of Colors | #14 Toys & Games snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Play-Doh Modeling Compound 36-Pack Case of Colors. 4.8★ across 28,824 ratings with current Amazon category evidence."
-      }
+      },
+      "holidayGiftGroup": "kids"
     },
     {
       "slug": "lego-city-police-motorcycle-60455",
@@ -6270,6 +6283,496 @@ window.PIREVO_STORE = {
         "intent": "10-pack solar purple path lights Halloween",
         "title": "10-Pack Solar Purple Path Lights | DenicMic | PIREVO Halloween Edit",
         "description": "Compare DenicMic 10-Pack Solar Purple Path Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
+      }
+    },
+    {
+      "slug": "brightown-fairy-lights-12",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "decor",
+      "badge": "CHRISTMAS LIGHTING PICK",
+      "brand": "Brightown",
+      "shortName": "12-Pack Battery Fairy Lights",
+      "fullName": "Brightown 12 Pack LED Fairy Lights, 7ft 20LED Battery Operated Warm White String Lights",
+      "asin": "B07WG18RLT",
+      "rating": 4.6,
+      "reviews": 50200,
+      "rank": "10K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Home",
+      "image": "https://m.media-amazon.com/images/I/81hC1pcYxUL._AC_SL1500_.jpg",
+      "trend": "Christmas table glow + wreath, mantel and centerpiece lighting",
+      "why": "High-volume seasonal lighting pick with a 4.6-star research snapshot, roughly 50K ratings, 10K+ bought in the past month on Amazon and an Amazon's Choice signal.",
+      "bestFor": "Wreaths, centerpieces, glass jars, mantels, tables and small Christmas displays that need cordless warm-white glow.",
+      "caveat": "Each strand is battery powered. Runtime and outdoor use depend on the battery pack and placement, so verify the current listing details before checkout.",
+      "bullets": [
+        "Exact ASIN B07WG18RLT",
+        "12 individual 7-ft strands",
+        "20 LEDs per strand",
+        "4.6★ research snapshot",
+        "~50K ratings research snapshot",
+        "10K+ bought/month Amazon snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07WG18RLT?tag=pirevo-20",
+      "galleryIds": [
+        "81hC1pcYxUL"
+      ],
+      "about": [
+        "The exact Amazon listing is a 12-pack of 7-foot warm-white battery fairy-light strands with 20 LEDs per strand.",
+        "Amazon showed 10K+ bought in the past month and an Amazon's Choice badge in the researched listing snapshot.",
+        "Third-party Amazon-market trackers in 2026 place the ASIN around 4.6 stars with roughly 50K ratings.",
+        "The small-wire format works well for Christmas centerpieces, wreaths, vases and table decor.",
+        "Amazon remains the source of current seller, stock, price and exact battery / weather-use details."
+      ],
+      "details": [
+        [
+          "Pack",
+          "12 strands"
+        ],
+        [
+          "Length",
+          "7 ft each"
+        ],
+        [
+          "LEDs",
+          "20 per strand"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings research",
+          "~50K"
+        ],
+        [
+          "Demand",
+          "10K+ bought/month"
+        ]
+      ],
+      "seo": {
+        "intent": "battery fairy lights Christmas decor",
+        "title": "Christmas Fairy Lights 12-Pack | Brightown | PIREVO",
+        "description": "Compare Brightown 12-pack battery fairy lights for Christmas wreaths, centerpieces and table decor with current demand and rating research."
+      }
+    },
+    {
+      "slug": "joyin-glow-rock-painting-kit",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "badge": "KIDS CREATIVE GIFT",
+      "brand": "JOYIN",
+      "shortName": "Glow-in-the-Dark Rock Painting Kit",
+      "fullName": "JOYIN Glow in the Dark Rock Painting Kit for Kids Ages 6–12",
+      "asin": "B08HD89CX6",
+      "rating": 4.7,
+      "reviews": 11736,
+      "rank": "10K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Toys",
+      "image": "https://m.media-amazon.com/images/I/811-oY6xryL._AC_SL1500_.jpg",
+      "trend": "screen-free craft gift + glow-in-the-dark activity + kids holiday gifting",
+      "why": "Strong kids-gift signal with a 4.7-star research snapshot, 11K+ reviews, Amazon's Choice and 10K+ bought in the past month on the current listing.",
+      "bestFor": "Kids ages roughly 6–12 who like art projects, painting, crafts and screen-free holiday activities.",
+      "caveat": "The set contains craft materials and small pieces. Check age guidance and current package contents before gifting.",
+      "bullets": [
+        "Exact ASIN B08HD89CX6",
+        "Glow-in-the-dark rock painting kit",
+        "4.7★ research snapshot",
+        "11K+ review snapshot",
+        "10K+ bought/month Amazon snapshot",
+        "Amazon's Choice snapshot"
+      ],
+      "amazon": "https://www.amazon.com/dp/B08HD89CX6?tag=pirevo-20",
+      "galleryIds": [
+        "811-oY6xryL"
+      ],
+      "about": [
+        "The current Amazon listing describes a glow-in-the-dark rock painting kit with paints, rocks, brushes and decorative accessories.",
+        "Amazon showed an Amazon's Choice badge and 10K+ bought in the past month in the researched snapshot.",
+        "2026 market tracking placed the exact ASIN at about 4.7 stars with more than 11K reviews.",
+        "The listing explicitly positions the kit as a Christmas and gift-exchange option for kids.",
+        "Amazon remains the source of live price, seller, stock and current package contents."
+      ],
+      "details": [
+        [
+          "Age positioning",
+          "6–12"
+        ],
+        [
+          "Type",
+          "Craft / painting kit"
+        ],
+        [
+          "Rating snapshot",
+          "4.7★"
+        ],
+        [
+          "Reviews research",
+          "11K+"
+        ],
+        [
+          "Demand",
+          "10K+ bought/month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas craft gifts for kids",
+        "title": "Glow Rock Painting Kit Christmas Gift for Kids | JOYIN | PIREVO",
+        "description": "Compare JOYIN's glow-in-the-dark rock painting kit, a high-demand creative Christmas gift for kids ages 6–12."
+      }
+    },
+    {
+      "slug": "crayola-color-wonder-magic-light-brush",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "badge": "MESS-FREE KIDS GIFT",
+      "brand": "Crayola",
+      "shortName": "Color Wonder Magic Light Brush",
+      "fullName": "Crayola Color Wonder Magic Light Brush Mess-Free Painting Station",
+      "asin": "B084Y3DLFJ",
+      "rating": 4.6,
+      "reviews": 9065,
+      "rank": "8K+ bought/month Amazon snapshot",
+      "commission": "Toys",
+      "image": "https://m.media-amazon.com/images/I/81q13+KL29L._AC_SL1500_.jpg",
+      "trend": "mess-free toddler art gift + holiday creative play",
+      "why": "A practical young-kids gift with 4.6 stars across 9,065 ratings and 8K+ bought in the past month in the researched Amazon listing.",
+      "bestFor": "Young kids who enjoy painting and parents who prefer a lower-mess creative activity.",
+      "caveat": "Color Wonder products use special paper and supplies. Confirm refill compatibility and current included sheets before gifting.",
+      "bullets": [
+        "Exact ASIN B084Y3DLFJ",
+        "4.6★ / 9,065 ratings snapshot",
+        "8K+ bought/month Amazon snapshot",
+        "Mess-free Color Wonder format",
+        "Magic light-up brush",
+        "Holiday-gift positioning on Amazon"
+      ],
+      "amazon": "https://www.amazon.com/dp/B084Y3DLFJ?tag=pirevo-20",
+      "galleryIds": [
+        "81q13+KL29L"
+      ],
+      "about": [
+        "The current Amazon listing is the Crayola Color Wonder Magic Light Brush painting station.",
+        "Amazon showed 4.6 stars across 9,065 ratings and 8K+ bought in the past month in the researched snapshot.",
+        "The listing explicitly describes it as a holiday gift for toddlers and kids.",
+        "The brush lights up to reveal the selected paint color and the Color Wonder format is designed to reduce mess on ordinary surfaces.",
+        "Amazon remains the source of live seller, stock, price and exact included-supply details."
+      ],
+      "details": [
+        [
+          "Brand",
+          "Crayola"
+        ],
+        [
+          "Type",
+          "Mess-free painting station"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings snapshot",
+          "9,065"
+        ],
+        [
+          "Demand",
+          "8K+ bought/month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "mess free Christmas art gift for kids",
+        "title": "Crayola Color Wonder Magic Light Brush Gift | PIREVO",
+        "description": "Compare the Crayola Color Wonder Magic Light Brush, a 4.6-star mess-free painting gift with strong current Amazon demand."
+      }
+    },
+    {
+      "slug": "crayola-inspiration-art-case-140",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "badge": "KIDS ART GIFT",
+      "brand": "Crayola",
+      "shortName": "Inspiration Art Case, 140 Pieces",
+      "fullName": "Crayola Inspiration Art Case Coloring Set, 140pc Space Theme",
+      "asin": "B00CI6J5JQ",
+      "rating": 4.8,
+      "reviews": 30393,
+      "rank": "1K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Toys",
+      "image": "https://m.media-amazon.com/images/I/61EyjnzyunL._AC_SL1500_.jpg",
+      "trend": "big unboxing gift + organized art supplies + screen-free creative play",
+      "why": "High-confidence classic gift with 4.8 stars across 30K+ ratings, an Amazon's Choice badge and 1K+ bought in the past month in the researched listing.",
+      "bestFor": "Kids who draw, color and craft and want one portable case with crayons, markers, pencils and paper.",
+      "caveat": "The case is substantial and contains many supplies. Confirm the exact current 140-piece configuration and age guidance before checkout.",
+      "bullets": [
+        "Exact ASIN B00CI6J5JQ",
+        "140-piece art kit",
+        "4.8★ / 30,393 ratings snapshot",
+        "1K+ bought/month Amazon snapshot",
+        "Amazon's Choice snapshot",
+        "Portable organized case"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00CI6J5JQ?tag=pirevo-20",
+      "galleryIds": [
+        "61EyjnzyunL"
+      ],
+      "about": [
+        "The current listing includes crayons, washable markers, colored pencils, drawing sheets and a portable space-themed case.",
+        "Amazon showed 4.8 stars across 30,393 ratings, Amazon's Choice and 1K+ bought in the past month in the researched snapshot.",
+        "The set is positioned as an all-in-one art starter kit for young artists.",
+        "Its large piece count and portable case make it especially giftable for Christmas and school-break creative time.",
+        "Amazon remains the source of live seller, stock, price and exact current piece mix."
+      ],
+      "details": [
+        [
+          "Pieces",
+          "140"
+        ],
+        [
+          "Type",
+          "Art / coloring kit"
+        ],
+        [
+          "Rating snapshot",
+          "4.8★"
+        ],
+        [
+          "Ratings snapshot",
+          "30,393"
+        ],
+        [
+          "Demand",
+          "1K+ bought/month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas art gifts for kids",
+        "title": "Crayola Inspiration Art Case 140pc Christmas Gift | PIREVO",
+        "description": "Compare the Crayola 140-piece Inspiration Art Case, a 4.8-star creative gift with over 30K ratings."
+      }
+    },
+    {
+      "slug": "crockpot-20oz-electric-lunch-box",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "adults",
+      "badge": "PRACTICAL ADULT GIFT",
+      "brand": "Crock-Pot",
+      "shortName": "20-oz Electric Lunch Box",
+      "fullName": "Crock-Pot 20-Ounce Electric Lunch Box Portable Food Warmer, Blush Pink",
+      "asin": "B09BDGQYW5",
+      "rating": 4.6,
+      "reviews": 12103,
+      "rank": "10K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/71JqPgwUuIL._AC_SL1500_.jpg",
+      "trend": "office gift + commuter lunch warmer + practical gifts for adults",
+      "why": "A practical work-and-travel gift with 4.6 stars, 12K+ ratings, Amazon's Choice and 10K+ bought in the past month on the researched Amazon page.",
+      "bestFor": "Office workers, commuters, road-trippers and anyone who regularly carries soup, leftovers or hot lunches.",
+      "caveat": "This is a warmer rather than a full cooker. Check voltage, capacity and heat-up expectations for the recipient's routine.",
+      "bullets": [
+        "Exact ASIN B09BDGQYW5",
+        "20-oz capacity",
+        "4.6★ / 12,103 ratings snapshot",
+        "10K+ bought/month Amazon snapshot",
+        "Amazon's Choice snapshot",
+        "Portable detachable-cord design"
+      ],
+      "amazon": "https://www.amazon.com/dp/B09BDGQYW5?tag=pirevo-20",
+      "galleryIds": [
+        "71JqPgwUuIL"
+      ],
+      "about": [
+        "The current Amazon listing is a 20-ounce Crock-Pot portable electric lunch warmer in Blush Pink.",
+        "Amazon showed Amazon's Choice and 10K+ bought in the past month in the researched snapshot.",
+        "The listing surfaced 4.6 stars across roughly 12K ratings in current related product information.",
+        "The food container and inner lid are described as dishwasher-safe, with a detachable cord for portability.",
+        "Amazon remains the source of current seller, price, stock, voltage and warranty details."
+      ],
+      "details": [
+        [
+          "Capacity",
+          "20 oz"
+        ],
+        [
+          "Use",
+          "Portable food warmer"
+        ],
+        [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Ratings snapshot",
+          "12,103"
+        ],
+        [
+          "Demand",
+          "10K+ bought/month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "practical Christmas gifts for adults work",
+        "title": "Crock-Pot Electric Lunch Box Gift | Practical Christmas Pick | PIREVO",
+        "description": "Compare the Crock-Pot 20-ounce electric lunch box, a high-demand practical Christmas gift for work and travel."
+      }
+    },
+    {
+      "slug": "smirly-bamboo-charcuterie-board",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "adults",
+      "badge": "HOST GIFT PICK",
+      "brand": "SMIRLY",
+      "shortName": "Large Bamboo Charcuterie Board Set",
+      "fullName": "SMIRLY Large Bamboo Charcuterie Cheese Board Set with Serving Accessories",
+      "asin": "B07DL7ZV31",
+      "rating": 4.8,
+      "reviews": 21050,
+      "rank": "1K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Kitchen",
+      "image": "https://m.media-amazon.com/images/I/8142dAEim3L._AC_SL1500_.jpg",
+      "trend": "host gift + couples gift + holiday entertaining",
+      "why": "A strong adult-gift and entertaining pick with a 4.8-star 2026 market snapshot, roughly 21K ratings, Amazon's Choice and 1K+ bought in the past month on Amazon.",
+      "bestFor": "Hosts, couples, new homeowners and anyone who likes holiday grazing boards, cheese nights or casual entertaining.",
+      "caveat": "Bamboo boards are generally hand-wash items. Confirm exact included tools, dimensions and care instructions before gifting.",
+      "bullets": [
+        "Exact ASIN B07DL7ZV31",
+        "Large bamboo board set",
+        "4.8★ / ~21K ratings research snapshot",
+        "1K+ bought/month Amazon snapshot",
+        "Amazon's Choice snapshot",
+        "Gift-box / entertaining positioning"
+      ],
+      "amazon": "https://www.amazon.com/dp/B07DL7ZV31?tag=pirevo-20",
+      "galleryIds": [
+        "8142dAEim3L"
+      ],
+      "about": [
+        "The current Amazon listing positions the SMIRLY bamboo board as a gift for couples, new homeowners and entertaining.",
+        "Amazon showed an Amazon's Choice badge and 1K+ bought in the past month in the researched page snapshot.",
+        "Current 2026 Amazon-market trackers place the exact ASIN around 4.8 stars with roughly 21K ratings.",
+        "The board includes serving accessories and a matching bamboo fruit tray in the researched listing.",
+        "Amazon remains the source of live price, seller, stock, exact accessory count and care instructions."
+      ],
+      "details": [
+        [
+          "Material",
+          "Bamboo"
+        ],
+        [
+          "Use",
+          "Charcuterie / serving"
+        ],
+        [
+          "Rating research",
+          "4.8★"
+        ],
+        [
+          "Ratings research",
+          "~21K"
+        ],
+        [
+          "Demand",
+          "1K+ bought/month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas gifts for couples and hosts",
+        "title": "SMIRLY Charcuterie Board Christmas Gift for Couples | PIREVO",
+        "description": "Compare the SMIRLY bamboo charcuterie board set, a high-rated Christmas gift for couples, hosts and new homeowners."
+      }
+    },
+    {
+      "slug": "bolabutty-portable-bluetooth-speaker",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "adults",
+      "badge": "TECH GIFT PICK",
+      "brand": "BolaButty",
+      "shortName": "Portable Bluetooth Speaker",
+      "fullName": "BolaButty Portable Wireless Bluetooth Speaker, IPX5 Waterproof, Up to 20H Playtime",
+      "asin": "B0BRKPVZB4",
+      "rating": 4.5,
+      "reviews": 36053,
+      "rank": "10K+ bought/month Amazon snapshot • Amazon's Choice",
+      "commission": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/81l7mB5LhsL._AC_SL1500_.jpg",
+      "trend": "budget tech gift + portable speaker + teen and adult gift intent",
+      "why": "A high-volume budget tech gift with 4.5 stars across 36,053 ratings, Amazon's Choice and 10K+ bought in the past month in the researched Amazon listing.",
+      "bestFor": "Teens and adults who want a simple portable speaker for home, parties, camping, beach trips or casual travel.",
+      "caveat": "Audio preferences are personal. Check current codec, charging, battery-life and waterproof-use details before gifting.",
+      "bullets": [
+        "Exact ASIN B0BRKPVZB4",
+        "4.5★ / 36,053 ratings snapshot",
+        "10K+ bought/month Amazon snapshot",
+        "Amazon's Choice snapshot",
+        "IPX5 waterproof listing",
+        "Up to 20-hour playtime listing"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0BRKPVZB4?tag=pirevo-20",
+      "galleryIds": [
+        "81l7mB5LhsL"
+      ],
+      "about": [
+        "The current Amazon listing describes a portable Bluetooth 5.3 speaker with IPX5 waterproofing, TWS pairing and up to 20 hours of playtime.",
+        "Amazon showed 4.5 stars across 36,053 ratings and 10K+ bought in the past month in the researched snapshot.",
+        "The page also carried an Amazon's Choice badge.",
+        "Its broad use cases make it a practical tech gift for teens and adults rather than a niche gadget.",
+        "Amazon remains the source of current seller, price, stock, charging and compatibility details."
+      ],
+      "details": [
+        [
+          "Type",
+          "Portable Bluetooth speaker"
+        ],
+        [
+          "Water resistance",
+          "IPX5 listing"
+        ],
+        [
+          "Playtime",
+          "Up to 20h listing"
+        ],
+        [
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Ratings snapshot",
+          "36,053"
+        ],
+        [
+          "Demand",
+          "10K+ bought/month"
+        ]
+      ],
+      "seo": {
+        "intent": "budget Christmas tech gifts for adults teens",
+        "title": "Portable Bluetooth Speaker Christmas Gift | BolaButty | PIREVO",
+        "description": "Compare the BolaButty portable Bluetooth speaker, a high-volume 4.5-star budget tech gift with 10K+ monthly Amazon buyer activity."
       }
     }
   ]
