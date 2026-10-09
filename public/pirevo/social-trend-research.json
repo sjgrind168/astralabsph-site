@@ -1,8 +1,8 @@
 {
   "reviewed_at": "2026-10-10",
   "market": "US",
-  "description": "Editorial social-commerce radar, manually researched. Signals are not a live API feed. Verified catalog ratings are Oct 9, 2026 snapshots and may change.",
-  "methodology": "Detect published social/trend signals; match brands and exact variants in the PIREVO catalog; display a dated Amazon rating/review snapshot where available; separate exact-product signals from brand or category signals; research new candidates without presenting unverified Amazon ratings.",
+  "description": "Dated cross-platform editorial trend radar with exact product/brand/category evidence tiers, US Amazon catalog matches and 4.5-star rating snapshots. Not a live social analytics feed.",
+  "methodology": "Curate supported social/category stories, map to existing exact ASIN listings rated ≥4.5★ with ≥400 snapshot reviews, label category hypotheses, exclude duplicates, and hold unverified new candidates in research queue.",
   "minimum_rating_for_catalog_spotlight": 4.5,
   "coverage": [
     {
@@ -52,7 +52,8 @@
       "reviews": 90239,
       "asin": "B00PBX3L7K",
       "product_url": "/pirevo/products/cosrx-snail-mucin-96/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
     },
     {
       "slug": "biodance-bio-collagen-real-deep-mask",
@@ -75,7 +76,8 @@
       "reviews": 48204,
       "asin": "B0B2RM68G2",
       "product_url": "/pirevo/products/biodance-bio-collagen-real-deep-mask/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
     },
     {
       "slug": "medicube-zero-pore-pad",
@@ -103,7 +105,8 @@
       "reviews": 33532,
       "asin": "B09V7Z4TJG",
       "product_url": "/pirevo/products/medicube-zero-pore-pad/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
     },
     {
       "slug": "owala-freesip-24-dark",
@@ -127,7 +130,8 @@
       "reviews": 140599,
       "asin": "B085DTZQNZ",
       "product_url": "/pirevo/products/owala-freesip-24-dark/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
     },
     {
       "slug": "ninja-possiblecooker-pro-plus",
@@ -151,7 +155,8 @@
       "reviews": 6755,
       "asin": "B0GT5SV7VD",
       "product_url": "/pirevo/products/ninja-possiblecooker-pro-plus/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
     },
     {
       "slug": "crockpot-manual-7qt",
@@ -178,7 +183,8 @@
       "reviews": 62488,
       "asin": "B003OAJGJO",
       "product_url": "/pirevo/products/crockpot-manual-7qt/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
     },
     {
       "slug": "stanley-quencher-30-rose-quartz",
@@ -202,7 +208,946 @@
       "reviews": 205943,
       "asin": "B0CP9YB3Q4",
       "product_url": "/pirevo/products/stanley-quencher-30-rose-quartz/index.html",
-      "rating_reviewed_at": "2026-10-09"
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "wrangler-satchel",
+      "name": "Top-Handle Satchel Tote",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category",
+      "signal": "Pinterest's Poetcore satchel aesthetic. PIREVO selection: Everyday styling, fall outfits and shoppers wanting a structured bag without designer pricing..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 2943,
+      "asin": "B0DCHF14TR",
+      "product_url": "/pirevo/products/wrangler-satchel/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "bags"
+    },
+    {
+      "slug": "angelkiss-hobo-satchel",
+      "name": "Large Hobo Satchel",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category",
+      "signal": "Pinterest's Poetcore satchel aesthetic. PIREVO selection: Daily carry, commuters and shoppers who prefer a roomy, less rigid handbag..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 5395,
+      "asin": "B07B7KQ8YM",
+      "product_url": "/pirevo/products/angelkiss-hobo-satchel/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "bags"
+    },
+    {
+      "slug": "lovevook-satchel",
+      "name": "Leather-Look Satchel Tote",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category",
+      "signal": "Pinterest's Poetcore satchel aesthetic. PIREVO selection: Work, commuting and shoppers wanting a dressier everyday satchel..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 463,
+      "asin": "B0DSHQKLTB",
+      "product_url": "/pirevo/products/lovevook-satchel/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "bags"
+    },
+    {
+      "slug": "godonlif-candle-warmer-lamp",
+      "name": "Candle Warmer Lamp with Timer",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Bedrooms, living rooms, desks and gift shoppers who want fragrance from jar candles without lighting the wick..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 11053,
+      "asin": "B0CTJGJL2T",
+      "product_url": "/pirevo/products/godonlif-candle-warmer-lamp/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "fall-home"
+    },
+    {
+      "slug": "govee-smart-light-bar",
+      "name": "RGBICWW Smart Light Bar",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Gaming desks, monitor setups and room-lighting makeovers..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 7382,
+      "asin": "B0G7G17YTQ",
+      "product_url": "/pirevo/products/govee-smart-light-bar/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gaming"
+    },
+    {
+      "slug": "govee-table-lamp-2",
+      "name": "RGBIC Smart Table Lamp 2",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Bedrooms, gaming spaces, dorm rooms and desks where ambient color plus useful white light is wanted..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 2528,
+      "asin": "B0D41XL87F",
+      "product_url": "/pirevo/products/govee-table-lamp-2/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "tech"
+    },
+    {
+      "slug": "lego-botanicals-tiny-plants",
+      "name": "Botanicals Tiny Plants 10329",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Adult LEGO fans, plant lovers, creative coworkers, couples and anyone who enjoys a relaxing hands-on build that becomes display decor..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.9,
+      "reviews": 6328,
+      "asin": "B0CDCL6Y5T",
+      "product_url": "/pirevo/products/lego-botanicals-tiny-plants/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "eldnacele-halloween-skull-candles",
+      "name": "Skull Halloween Flameless Candles",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Mantels, coffee tables, shelves, entry tables and Halloween parties where a spooky candle look is wanted without an open flame..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 2038,
+      "asin": "B088CY6B1V",
+      "product_url": "/pirevo/products/eldnacele-halloween-skull-candles/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "homemory-50-flameless-tealights",
+      "name": "50-Pack Flameless Tea Lights",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Jack-o'-lanterns, lanterns, table settings, Christmas villages, luminaries and homes that want candlelight without an open flame..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 9155,
+      "asin": "B0CTY4SH7M",
+      "product_url": "/pirevo/products/homemory-50-flameless-tealights/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "brightown-fairy-lights-12",
+      "name": "12-Pack Battery Fairy Lights",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Wreaths, centerpieces, glass jars, mantels, tables and small Christmas displays that need cordless warm-white glow..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 50200,
+      "asin": "B07WG18RLT",
+      "product_url": "/pirevo/products/brightown-fairy-lights-12/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "bcp-prelit-outdoor-wreath",
+      "name": "Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Seasonal home decorators.",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 1478,
+      "asin": "B0CKDPZTDV",
+      "product_url": "/pirevo/products/bcp-prelit-outdoor-wreath/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "piteno-140-bat-wall-decor",
+      "name": "140-Piece 3D Bat Wall Decor",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest comfort-focused decor and personal-ritual content direction, not an exact SKU trend. PIREVO selection: Walls, staircases, windows and party backdrops that need a high-impact bat swarm without bulky props..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 1233,
+      "asin": "B0F831L31B",
+      "product_url": "/pirevo/products/piteno-140-bat-wall-decor/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "bedsure-gentlesoft-white-throw",
+      "name": "GentleSoft White Throw Blanket",
+      "platforms": [
+        "Pinterest",
+        "Amazon Finds"
+      ],
+      "scope": "category hypothesis",
+      "signal": "soft cozy home comfort and seasonal gift content, not a verified platform-wide product ranking. PIREVO selection: Moms, sisters, friends, coworkers, teens, homebodies and anyone who likes a soft couch or reading-corner upgrade..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 27445,
+      "asin": "B0BPLB81LX",
+      "product_url": "/pirevo/products/bedsure-gentlesoft-white-throw/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "eos-vanilla-cashmere-lotion",
+      "name": "Vanilla Cashmere Body Lotion",
+      "platforms": [
+        "Pinterest",
+        "Amazon Finds"
+      ],
+      "scope": "category hypothesis",
+      "signal": "soft cozy home comfort and seasonal gift content, not a verified platform-wide product ranking. PIREVO selection: Body-care shoppers who like a sweet vanilla scent..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 67845,
+      "asin": "B08KT2Z93D",
+      "product_url": "/pirevo/products/eos-vanilla-cashmere-lotion/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "laneige-lip-sleeping-mask",
+      "name": "Lip Sleeping Mask",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "brand/category",
+      "signal": "recent skincare and self-care shopping coverage; exact variants may differ. PIREVO selection: Dry-lip routines, beauty gifting, stocking stuffers and shoppers who want a well-established overnight lip treatment..",
+      "sources": [
+        {
+          "title": "People October 2026 low-cost Amazon best-selling products",
+          "url": "https://people.com/last-chance-amazon-prime-big-deal-days-under-25-2026-12120526"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 37527,
+      "asin": "B07XXPHQZK",
+      "product_url": "/pirevo/products/laneige-lip-sleeping-mask/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "cerave-moisturizing-cream",
+      "name": "Moisturizing Cream 19 oz",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "brand/category",
+      "signal": "recent skincare and self-care shopping coverage; exact variants may differ. PIREVO selection: Face-and-body shoppers wanting a widely used fragrance-free cream format..",
+      "sources": [
+        {
+          "title": "People October 2026 low-cost Amazon best-selling products",
+          "url": "https://people.com/last-chance-amazon-prime-big-deal-days-under-25-2026-12120526"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 148709,
+      "asin": "B00TTD9BRC",
+      "product_url": "/pirevo/products/cerave-moisturizing-cream/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "illiyoon-ceramide-ato",
+      "name": "Ceramide Ato Concentrate Cream",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "brand/category",
+      "signal": "recent skincare and self-care shopping coverage; exact variants may differ. PIREVO selection: Shoppers exploring richer Korean moisturizers and fragrance-conscious routines..",
+      "sources": [
+        {
+          "title": "People October 2026 low-cost Amazon best-selling products",
+          "url": "https://people.com/last-chance-amazon-prime-big-deal-days-under-25-2026-12120526"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 8618,
+      "asin": "B077RTL1HJ",
+      "product_url": "/pirevo/products/illiyoon-ceramide-ato/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "la-roche-posay-toleriane",
+      "name": "Toleriane Double Repair Moisturizer",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "brand/category",
+      "signal": "recent skincare and self-care shopping coverage; exact variants may differ. PIREVO selection: Shoppers comparing established daily moisturizers and fragrance-free options..",
+      "sources": [
+        {
+          "title": "People October 2026 low-cost Amazon best-selling products",
+          "url": "https://people.com/last-chance-amazon-prime-big-deal-days-under-25-2026-12120526"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 51991,
+      "asin": "B01N9SPQHQ",
+      "product_url": "/pirevo/products/la-roche-posay-toleriane/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "mighty-patch-original-36",
+      "name": "Mighty Patch Original, 36 Count",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "category",
+      "signal": "TikTok beauty routines and cleaning-gadget content; no SKU-specific engagement data. PIREVO selection: Simple hydrocolloid spot-covering routines..",
+      "sources": [
+        {
+          "title": "Good Housekeeping October 2026 TikTok shopping categories",
+          "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/g73836535/viral-tiktok-products-amazon-sale/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 189136,
+      "asin": "B074PVTPBW",
+      "product_url": "/pirevo/products/mighty-patch-original-36/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "clean-skin-club-towels-xl",
+      "name": "Clean Towels XL, 50 Count",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "category",
+      "signal": "TikTok beauty routines and cleaning-gadget content; no SKU-specific engagement data. PIREVO selection: People who prefer a fresh face towel per use..",
+      "sources": [
+        {
+          "title": "Good Housekeeping October 2026 TikTok shopping categories",
+          "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/g73836535/viral-tiktok-products-amazon-sale/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 43347,
+      "asin": "B07PBXXNCY",
+      "product_url": "/pirevo/products/clean-skin-club-towels-xl/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "fullstar-pro-chopper",
+      "name": "Pro Vegetable Chopper & Spiralizer",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "category",
+      "signal": "TikTok beauty routines and cleaning-gadget content; no SKU-specific engagement data. PIREVO selection: Fast onion, potato and vegetable prep for weeknight cooking and meal prep..",
+      "sources": [
+        {
+          "title": "Good Housekeeping October 2026 TikTok shopping categories",
+          "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/g73836535/viral-tiktok-products-amazon-sale/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.5,
+      "reviews": 96015,
+      "asin": "B0764HS4SL",
+      "product_url": "/pirevo/products/fullstar-pro-chopper/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
+    },
+    {
+      "slug": "ocedar-easywring-spin-mop",
+      "name": "EasyWring Spin Mop & Bucket",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "category",
+      "signal": "TikTok beauty routines and cleaning-gadget content; no SKU-specific engagement data. PIREVO selection: Households with sealed hard floors that want hands-free wringing and a reusable microfiber system..",
+      "sources": [
+        {
+          "title": "Good Housekeeping October 2026 TikTok shopping categories",
+          "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/g73836535/viral-tiktok-products-amazon-sale/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 196262,
+      "asin": "B00WSWGVZQ",
+      "product_url": "/pirevo/products/ocedar-easywring-spin-mop/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "cleaning"
+    },
+    {
+      "slug": "elf-halo-glow-3",
+      "name": "Halo Glow Liquid Filter, Shade 3",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "Pinterest 2026 expression-led makeup as an editorial creative hypothesis. PIREVO selection: Shoppers wanting a luminous complexion booster that can be worn alone, mixed or layered..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.5,
+      "reviews": 944,
+      "asin": "B0B5MGBDHZ",
+      "product_url": "/pirevo/products/elf-halo-glow-3/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "beauty"
+    },
+    {
+      "slug": "astercook-13pc-knife-set",
+      "name": "13-Piece Kitchen Knife Set",
+      "platforms": [
+        "Instagram"
+      ],
+      "scope": "product",
+      "signal": "Astercook knife-set brand featured in the Instagram-viral products roundup; exact variant is not independently confirmed. PIREVO selection: First-apartment kitchens, compact storage, holiday gifts and shoppers who prefer blade guards instead of a large countertop block..",
+      "sources": [
+        {
+          "title": "NY Post October 2026 Instagram/TikTok-viral Amazon picks",
+          "url": "https://nypost.com/2026/10/06/shopping/viral-amazon-products-on-sale-for-prime-day/"
+        }
+      ],
+      "priority": "high",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 6545,
+      "asin": "B0D9B96TBX",
+      "product_url": "/pirevo/products/astercook-13pc-knife-set/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
+    },
+    {
+      "slug": "churboro-spice-jars-25",
+      "name": "25-Pack Glass Spice Jars with Labels",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "kitchen and pantry tools featured across October shopping-category coverage, not verified viral SKUs. PIREVO selection: Pantry makeovers, spice drawers, cabinet organization and shoppers who want matching labeled spice containers..",
+      "sources": [
+        {
+          "title": "Food & Wine October 2026 kitchen appliances and tools",
+          "url": "https://www.foodandwine.com/best-amazon-deals-long-weekend-october-2026-12165000"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 5943,
+      "asin": "B0B2L66CTW",
+      "product_url": "/pirevo/products/churboro-spice-jars-25/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
+    },
+    {
+      "slug": "rubbermaid-brilliance-5",
+      "name": "Brilliance Food Storage Set",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "kitchen and pantry tools featured across October shopping-category coverage, not verified viral SKUs. PIREVO selection: Meal prep, leftovers and clear stackable storage..",
+      "sources": [
+        {
+          "title": "Food & Wine October 2026 kitchen appliances and tools",
+          "url": "https://www.foodandwine.com/best-amazon-deals-long-weekend-october-2026-12165000"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 59778,
+      "asin": "B079M8FPTW",
+      "product_url": "/pirevo/products/rubbermaid-brilliance-5/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "kitchen"
+    },
+    {
+      "slug": "vtopmart-drawer-organizers-25",
+      "name": "25-Piece Clear Drawer Organizer Set",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "kitchen and pantry tools featured across October shopping-category coverage, not verified viral SKUs. PIREVO selection: Makeup, kitchen, office and bedside drawers..",
+      "sources": [
+        {
+          "title": "Food & Wine October 2026 kitchen appliances and tools",
+          "url": "https://www.foodandwine.com/best-amazon-deals-long-weekend-october-2026-12165000"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 49774,
+      "asin": "B08KXKVT4K",
+      "product_url": "/pirevo/products/vtopmart-drawer-organizers-25/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "home-organization"
+    },
+    {
+      "slug": "anker-nano-3in1-10k",
+      "name": "Nano 3-in-1 10K Portable Charger",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Travelers, commuters, students, coworkers and iPhone/Android users who would rather carry one charger than a tangle of cables and bricks..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 3111,
+      "asin": "B0CX4992Z8",
+      "product_url": "/pirevo/products/anker-nano-3in1-10k/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "echo-dot-charcoal",
+      "name": "Echo Dot, Charcoal",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Bedrooms, kitchens and offices using Alexa..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 200484,
+      "asin": "B09B8V1LZ3",
+      "product_url": "/pirevo/products/echo-dot-charcoal/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "tech"
+    },
+    {
+      "slug": "jbl-clip-5-black",
+      "name": "Clip 5 Bluetooth Speaker, Black",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Travelers, students, hikers, beach-goers, commuters and anyone who wants a small speaker that can clip onto a bag..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 9101,
+      "asin": "B0CTP56C5R",
+      "product_url": "/pirevo/products/jbl-clip-5-black/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "roku-streaming-stick-hd",
+      "name": "Streaming Stick HD",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Older TVs and secondary rooms needing streaming..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 24867,
+      "asin": "B0DXXYS4BJ",
+      "product_url": "/pirevo/products/roku-streaming-stick-hd/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "tech"
+    },
+    {
+      "slug": "touchat-wearable-blanket-hoodie",
+      "name": "Touchat Wearable Blanket Hoodie",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Holiday gifts for adults.",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 6450,
+      "asin": "B0BX92ZT75",
+      "product_url": "/pirevo/products/touchat-wearable-blanket-hoodie/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gifts"
+    },
+    {
+      "slug": "smirly-bamboo-charcuterie-board",
+      "name": "Large Bamboo Charcuterie Board Set",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "practical tech and gifting interest in current Amazon shopping coverage, no per-SKU social reach. PIREVO selection: Hosts, couples, new homeowners and anyone who likes holiday grazing boards, cheese nights or casual entertaining..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 21050,
+      "asin": "B07DL7ZV31",
+      "product_url": "/pirevo/products/smirly-bamboo-charcuterie-board/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "seasonal"
+    },
+    {
+      "slug": "amazon-smart-plug-2",
+      "name": "Smart Plug 2-Pack",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "brand/category",
+      "signal": "Amazon Smart Plug named in recent tech-deal coverage; confirm exact generation when shopping. PIREVO selection: Alexa households automating lamps and simple appliances..",
+      "sources": [
+        {
+          "title": "People October 2026 low-cost Amazon best-selling products",
+          "url": "https://people.com/last-chance-amazon-prime-big-deal-days-under-25-2026-12120526"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 571232,
+      "asin": "B0D9C2V83V",
+      "product_url": "/pirevo/products/amazon-smart-plug-2/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "tech"
+    },
+    {
+      "slug": "govee-tv-backlight-3-lite",
+      "name": "TV Backlight 3 Lite",
+      "platforms": [
+        "Pinterest"
+      ],
+      "scope": "category hypothesis",
+      "signal": "mood-lit gaming and tech-room transformation content hypothesis, not verified exact product virality. PIREVO selection: TV gaming rooms and entertainment spaces where ambient lighting is part of the look..",
+      "sources": [
+        {
+          "title": "Pinterest Predicts 2026 official category forecasts",
+          "url": "https://newsroom.pinterest.com/news/pinterest-predicts-nonconformity-self-preservation-and-escapism-drive-21-trends-for-2026/"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.5,
+      "reviews": 10581,
+      "asin": "B0CHS2BGHY",
+      "product_url": "/pirevo/products/govee-tv-backlight-3-lite/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "gaming"
+    },
+    {
+      "slug": "bagsmart-hanging-toiletry",
+      "name": "Hanging Toiletry Bag",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "travel organization and packing shopper use-cases, without verified individual social trend metrics. PIREVO selection: Hotels, cruises and trips with limited bathroom counter space..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.8,
+      "reviews": 64829,
+      "asin": "B07SL2RKJK",
+      "product_url": "/pirevo/products/bagsmart-hanging-toiletry/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "travel"
+    },
+    {
+      "slug": "taygeer-carryon-backpack",
+      "name": "TSA Carry-On Travel Backpack",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "travel organization and packing shopper use-cases, without verified individual social trend metrics. PIREVO selection: Flights and short trips using a backpack-style carry-on..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 30747,
+      "asin": "B09MQWWP87",
+      "product_url": "/pirevo/products/taygeer-carryon-backpack/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "travel"
+    },
+    {
+      "slug": "bagail-packing-cubes-8",
+      "name": "8-Set Packing Cubes",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "travel organization and packing shopper use-cases, without verified individual social trend metrics. PIREVO selection: Travelers separating outfits and accessories..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.6,
+      "reviews": 44237,
+      "asin": "B08S35399Y",
+      "product_url": "/pirevo/products/bagail-packing-cubes-8/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "travel"
+    },
+    {
+      "slug": "travel-inspira-luggage-scale",
+      "name": "Digital Luggage Scale",
+      "platforms": [
+        "Amazon Finds"
+      ],
+      "scope": "category",
+      "signal": "travel organization and packing shopper use-cases, without verified individual social trend metrics. PIREVO selection: Frequent flyers and cruise travelers..",
+      "sources": [
+        {
+          "title": "People October 2026 Amazon best shopping finds",
+          "url": "https://people.com/best-amazon-prime-day-deals-october-2026-12120514"
+        }
+      ],
+      "priority": "medium",
+      "status": "in_catalog",
+      "amazon_status": "catalog_snapshot",
+      "rating": 4.7,
+      "reviews": 22205,
+      "asin": "B07QFTGGYF",
+      "product_url": "/pirevo/products/travel-inspira-luggage-scale/index.html",
+      "rating_reviewed_at": "2026-10-09",
+      "category": "travel"
     },
     {
       "slug": null,
@@ -280,12 +1225,13 @@
   ],
   "summary": {
     "catalog_count": 134,
-    "matched_listed": 7,
+    "matched_listed": 46,
     "needs_validation": 4,
     "platforms_covered": [
       "TikTok",
       "Instagram",
-      "Pinterest"
+      "Pinterest",
+      "Amazon Finds"
     ],
     "unverified_platforms": [
       "Threads",
