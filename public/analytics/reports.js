@@ -171,7 +171,7 @@ function paintTrendFunnel(state){
  block("rTrendFunnelPeriod",fmt(list.length)+" vetted Trends products · "+date(report.window_start)+" to "+date(report.window_end)+" · events tracked in Asia/Manila · source: PIREVO first-party analytics");
  if(!list.length){tbody.append(tableRow(["Trend source loading","—","—","—","—","—"]));return}
  // Rank active products first, then show a practical 15-product launch shortlist.
- for(const item of list.slice(0,15)){
+ for(const item of list){
   const tr=document.createElement("tr");
   const td=add("td");const a=add("a",item.name);a.href="/pirevo/products/"+encodeURIComponent(item.slug)+"/";a.target="_blank";a.rel="noopener noreferrer";td.append(a);tr.append(td);
   const v=Number(item.product_views||0),c=Number(item.amazon_outbounds||0);

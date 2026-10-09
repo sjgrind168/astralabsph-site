@@ -41,3 +41,7 @@
 .report-copy-link:hover{background:#d7ebd9}
 .report-funnel-panel{margin-bottom:15px}
 @media(max-width:440px){.report-trend-kpis{gap:6px}.report-trend-kpis div{padding:9px}.report-trend-kpis strong{font-size:20px}}
+
+/* Keep all 46 vetted products accessible without excessive page height. */
+.report-funnel-panel .table-scroll{max-height:530px;overflow:auto}
+.report-funnel-panel thead{position:sticky;top:0;background:#f6faf6;z-index:1}
