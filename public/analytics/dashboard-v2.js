@@ -1,7 +1,7 @@
 
 (()=>{
 "use strict";
-const P=["overview","mobile","pirevo","digital","website","admob","socials"];
+const P=["overview","mobile","pirevo","digital","website","admob","socials","reports"];
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
@@ -67,6 +67,8 @@ function initialize(){
  qa("[data-platform]").forEach(b=>b.addEventListener("click",()=>{state.platform=b.dataset.platform;paintPlatform()}));
  qa("[data-app]").forEach(b=>b.addEventListener("click",()=>{state.app=b.dataset.app;paintPlatform()}));
  qa("[data-social]").forEach(b=>b.addEventListener("click",()=>{state.social=b.dataset.social;paintSocial()}));
+ id("openReportsFromPirevo")?.addEventListener("click",()=>showTab("reports",true));
+ window.ASTRA_REPORTS?.init();
  qa("[data-overview-focus], [data-overview-chart]").forEach(b=>b.addEventListener("click",()=>{
   const value=b.dataset.overviewFocus||b.dataset.overviewChart;
   if(!["sessions","views","amazon","store"].includes(value))return;
@@ -84,7 +86,7 @@ function showTab(name,historyPush){
  state.tab=name;
  qa("[data-tab]").forEach(b=>{const selected=b.dataset.tab===name;b.setAttribute("aria-selected",String(selected));b.tabIndex=selected?0:-1});
  qa(".tabpanel").forEach(p=>p.hidden=p.dataset.panel!==name);
- const titles={overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels"};
+ const titles={overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels",reports:"Performance reports"};
  id("pageTitle").textContent=titles[name];
  id("pageDescription").textContent={
   overview:"Your earnings, audience and business momentum in one place.",
@@ -93,7 +95,8 @@ function showTab(name,historyPush){
   digital:"Original books, publishing royalties and future digital products.",
   website:"Visitors, page engagement, app referrals and search visibility.",
   admob:"Advertising impressions, revenue estimates and monetization health.",
-  socials:"Content performance, referral traffic and audience opportunities."
+  socials:"Content performance, referral traffic and audience opportunities.",
+  reports:"Cross-business performance scorecard, verified trends and measurable optimization plans."
  }[name];
  document.title=titles[name]+" | AstraLabs PH Analytics";
  if(historyPush){const u=new URL(location.href);u.searchParams.set("tab",name);history.replaceState(null,"",u.pathname+u.search)}
@@ -386,6 +389,8 @@ function paintSocial(){
 }
 function renderAll(){
  renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();
+ chart("reportTrafficChart",[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],{title:"Cross-site tracked sessions per calendar day"});
+ window.ASTRA_REPORTS?.render(state);
 }
 async function load(){
  if(!state.token)return;
