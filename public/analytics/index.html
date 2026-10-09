@@ -4,7 +4,7 @@
 <meta name="description" content="Private AstraLabs PH portfolio analytics dashboard with source-aware financial and performance reports.">
 <link rel="stylesheet" href="/analytics/dashboard-v2.css?v=2">
 <link rel="stylesheet" href="/analytics/ga-report-v3.css?v=4">
-<link rel="stylesheet" href="/analytics/reports.css?v=3">
+<link rel="stylesheet" href="/analytics/reports.css?v=4">
 </head><body>
 <section id="locked" class="lock" aria-label="Private dashboard login">
 <form id="unlockForm" class="lock-card">
@@ -109,6 +109,14 @@
  <article class="panel"><div class="panel-head"><h3>Tracked audience performance</h3><span>Actual daily events · no projections</span></div><div class="chart-wrap" id="reportTrafficChart"><div class="empty">Loading daily activity…</div></div></article>
  <article class="panel"><div class="panel-head"><h3>Source readiness</h3><span>Verified data versus missing imports</span></div><div id="reportSourceHealth"><div class="empty">Checking sources…</div></div></article>
 </div>
+<div class="section-head"><div><div class="kicker">Revenue-first conversion</div><h2>Amazon orders and commissions</h2></div><p>Actual affiliate account report, separate from PIREVO website click events.</p></div>
+<div class="cards report-revenue-cards">
+ <article class="card"><label>Amazon Associates clicks</label><strong id="reportAmazonAcctClicks">—</strong><small>Account-wide · provider report period</small></article>
+ <article class="card"><label>Ordered items</label><strong id="reportAmazonOrders">—</strong><small>Verified Amazon Associates report, not site clicks</small></article>
+ <article class="card"><label>Shipped items</label><strong id="reportAmazonShipped">—</strong><small>Provider confirmed · not the same as orders</small></article>
+ <article class="card"><label>Affiliate commissions</label><strong id="reportAmazonCommission">—</strong><small>Reported earnings, not guaranteed payout</small></article>
+</div>
+<div class="report-info" id="reportAmazonSource">Awaiting Amazon Associates report. PIREVO's click events cannot confirm retailer checkouts.</div>
 <div class="section-head"><div><div class="kicker">Business by business</div><h2>Portfolio performance scorecard</h2></div><p>Separate source windows. A missing report is not a zero result.</p></div>
 <article class="panel"><div class="table-scroll"><table>
 <thead><tr><th>Business / channel</th><th>Verified performance</th><th>Reporting evidence</th><th>Data status</th></tr></thead>
@@ -144,6 +152,6 @@
 <footer class="footer"><span>AstraLabs PH Analytics v2 · Private portfolio reporting</span><span>Real tracked history only · All money sources separately labeled</span></footer>
 </main></div>
 <script src="/pirevo/config.js"></script>
-<script src="/analytics/reports.js?v=3" defer></script>
+<script src="/analytics/reports.js?v=4" defer></script>
 <script src="/analytics/dashboard-v2.js?v=6" defer></script>
 </body></html>

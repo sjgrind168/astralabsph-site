@@ -193,8 +193,17 @@ function render(state){
   definitions:{sessions:"first-party visits; not deduplicated across AstraLabs and PIREVO",outbound_clicks:"not purchases",financial:"provider reporting periods differ; do not add gross sales, pending payout and estimated revenue"},
   scorecard:score,recommendations:next.map(x=>({...x,status:savedStatus(x.id)})),
   latest_provider_metrics:(state.platforms?.metrics||[]).map(x=>({provider:x.provider,app:x.app_key,metric:x.metric,value:x.metric_value,unit:x.metric_unit,period_start:x.period_start,period_end:x.period_end,source:x.source_name,captured_at:x.captured_at})),
+  amazon_verified_report:state.amazon?.month_to_date||null,
   selected_period_daily_events:(state.daily?.days||[]),trend_product_performance:state.trendPerformance?.products||null,trend_research:trends?{reviewed_at:trends.reviewed_at,products:trends.products}:null};
  block("reportPirevoSessions",fmt(m.pSessions));block("reportSiteSessions",fmt(m.webSessions));
+ block("reportAmazonAcctClicks",m.amz?fmt(m.amz.clicks):"—");
+ block("reportAmazonOrders",m.amz?.ordered_items==null?"—":fmt(m.amz.ordered_items));
+ block("reportAmazonShipped",m.amz?.shipped_items==null?"—":fmt(m.amz.shipped_items));
+ block("reportAmazonCommission",m.amz?usd(m.amz.earnings_usd):"—");
+ block("reportAmazonSource",m.amz?
+   "Amazon Associates account-wide report through "+date(m.amz.reported_through)+". This may include activity from other affiliate links and tracking IDs. Website click activity is separately measured and must not be treated as a checkout.":
+   "Verified retailer orders unavailable. Do not infer Amazon purchases from PIREVO click events.");
+
  block("reportMeta","Report generated "+new Date(captured).toLocaleString("en-PH")+" · site events: "+(state.daily?date(state.daily.window_start)+" to "+date(state.daily.window_end):"unavailable")+" · separate financial source periods · no synthetic trends");
  const table=$("reportScorecard");if(table){table.replaceChildren();score.forEach(x=>table.append(tableRow([x.channel,x.performance,x.source,x.status])))}
  const source=$("reportSourceHealth");if(source){source.replaceChildren();for(const [n,s] of [
