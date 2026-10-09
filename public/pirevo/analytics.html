@@ -169,9 +169,9 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
         <article class="panel search-console">
           <div class="panel-title"><h2>Search Console Summary</h2><span id="gscAge">latest snapshot</span></div>
           <div class="gsc-grid">
-            <div><span>Impressions</span><strong id="gImpressions">0</strong></div>
-            <div><span>Clicks</span><strong id="gClicks">0</strong></div>
-            <div><span>CTR</span><strong id="gCtr">0%</strong></div>
+            <div><span>Impressions</span><strong id="gImpressions">—</strong></div>
+            <div><span>Clicks</span><strong id="gClicks">—</strong></div>
+            <div><span>CTR</span><strong id="gCtr">—</strong></div>
             <div><span>Avg Position</span><strong id="gPosition">—</strong></div>
           </div>
         </article>
@@ -372,6 +372,11 @@ h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
   }
 
   function renderGsc(g={}){
+    if(!g.captured_at){
+      ["gImpressions","gClicks","gCtr","gPosition"].forEach(id=>$(id).textContent="—");
+      $("gscAge").textContent="awaiting first GSC snapshot";
+      return;
+    }
     $("gImpressions").textContent=fmtCompact(g.impressions);
     $("gClicks").textContent=fmt(g.clicks);
     $("gCtr").textContent=pct(g.ctr);
