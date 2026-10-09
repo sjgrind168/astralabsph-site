@@ -4323,30 +4323,30 @@ window.PIREVO_STORE = {
       "fullName": "Levoit Core 200S-P Smart Air Purifier, White",
       "asin": "B08FJ678YK",
       "rating": 4.6,
-      "reviews": 128009,
-      "rank": "Amazon's Choice • 10K+ bought/month",
+      "reviews": 128041,
+      "rank": "10K+ bought in the past month (Oct. 9, 2026 Amazon snapshot)",
       "commission": "Home",
-      "image": "https://m.media-amazon.com/images/I/61YVFzh9kLL._AC_SL1500_.jpg",
+      "image": "https://m.media-amazon.com/images/I/61YVFzh9kLL._AC_SX679_.jpg",
       "trend": "bedroom air purifier + dorm air purifier + smart home wellness",
-      "why": "One of the deepest-proof home products in the expansion: 4.6 stars, 128k+ ratings and 10K+ bought in the past month.",
+      "why": "On Oct. 9, 2026, the exact Amazon U.S. ASIN showed 4.6 stars across 128,041 ratings and 10k+ bought in the past month. This is a dated research snapshot, not live pricing or a guarantee of future demand.",
       "bestFor": "Bedrooms, dorm rooms, pet homes and small-to-medium living spaces needing quieter filtration.",
       "caveat": "Replacement filters are an ongoing cost, and room-size claims depend on how frequently you want the air cycled.",
       "bullets": [
-        "Smart + voice control",
-        "3-in-1 filtration",
-        "Sleep mode",
-        "4.6-star / 128k+ ratings",
-        "10K+ bought in past month"
+        "Exact Amazon ASIN B08FJ678YK",
+        "4.6★ / 128,041 ratings snapshot",
+        "10K+ bought in the past month snapshot",
+        "Bedrooms, dorm rooms, pet homes and small-to-medium living spaces needing quieter filtration.",
+        "Replacement filters are an ongoing cost, and room-size claims depend on how frequently you want the air cycled."
       ],
       "amazon": "https://www.amazon.com/dp/B08FJ678YK?tag=pirevo-20",
       "galleryIds": [
         "61YVFzh9kLL"
       ],
       "about": [
-        "Compact smart air purifier with 360-degree intake.",
-        "Supports app and voice-control features.",
-        "Uses a multi-stage replacement filter.",
-        "Designed for bedrooms, dorms and smaller living areas."
+        "Core 200S-P smart air purifier, white color variant.",
+        "Designed for bedrooms and dorm rooms with app and voice-control features.",
+        "Uses a multi-stage filter and offers a sleep mode.",
+        "Check replacement-filter compatibility and ongoing filter cost before purchase."
       ],
       "details": [
         [
@@ -4366,8 +4366,20 @@ window.PIREVO_STORE = {
           "White"
         ],
         [
-          "Demand",
-          "10K+ bought last month"
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Review count snapshot",
+          "128,041"
+        ],
+        [
+          "Demand snapshot",
+          "10K+ bought in the past month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
         ]
       ],
       "seo": {
@@ -4385,30 +4397,30 @@ window.PIREVO_STORE = {
       "fullName": "Govee RGBIC Smart Table Lamp 2, Touch Bedside Lamp with Matter",
       "asin": "B0D41XL87F",
       "rating": 4.7,
-      "reviews": 2528,
-      "rank": "Amazon's Choice • 3K+ bought/month",
+      "reviews": 2541,
+      "rank": "5K+ bought in the past month (Oct. 9, 2026 Amazon snapshot)",
       "commission": "Home / Electronics",
-      "image": "https://m.media-amazon.com/images/I/61ZuP03II9L._AC_SL1500_.jpg",
+      "image": "https://m.media-amazon.com/images/I/618yTEtHltL._AC_SX679_.jpg",
       "trend": "smart bedside lamp + RGB room decor + dorm room lighting",
-      "why": "A 4.7-star smart-lighting pick with 2.5k+ ratings and 3K+ bought in the past month when researched.",
+      "why": "On Oct. 9, 2026, the exact Amazon U.S. ASIN showed 4.7 stars across 2,541 ratings and 5k+ bought in the past month. This is a dated research snapshot, not live pricing or a guarantee of future demand.",
       "bestFor": "Bedrooms, gaming spaces, dorm rooms and desks where ambient color plus useful white light is wanted.",
       "caveat": "This exact model is corded, not a rechargeable cordless lamp.",
       "bullets": [
-        "RGBIC color lighting",
-        "Matter / Alexa compatibility",
-        "Touch control",
-        "64+ scene modes",
-        "4.7-star / 3K+ bought snapshot"
+        "Exact Amazon ASIN B0D41XL87F",
+        "4.7★ / 2,541 ratings snapshot",
+        "5K+ bought in the past month snapshot",
+        "Bedrooms, gaming spaces, dorm rooms and desks where ambient color plus useful white light is wanted.",
+        "This exact model is corded, not a rechargeable cordless lamp."
       ],
       "amazon": "https://www.amazon.com/dp/B0D41XL87F?tag=pirevo-20",
       "galleryIds": [
-        "61ZuP03II9L"
+        "618yTEtHltL"
       ],
       "about": [
-        "Smart bedside/table lamp with RGBIC lighting.",
-        "Supports Matter and major voice-assistant ecosystems.",
-        "Includes touch controls and preset scenes.",
-        "Exact listing is corded electric."
+        "RGBIC Smart Table Lamp 2, exact corded tabletop model.",
+        "Supports touch control, Matter and compatible smart-home ecosystems.",
+        "Includes multiple ambient color and scene modes.",
+        "Requires a power connection; it is not a cordless rechargeable lamp."
       ],
       "details": [
         [
@@ -4428,8 +4440,20 @@ window.PIREVO_STORE = {
           "Corded"
         ],
         [
-          "Demand",
-          "3K+ bought last month"
+          "Rating snapshot",
+          "4.7★"
+        ],
+        [
+          "Review count snapshot",
+          "2,541"
+        ],
+        [
+          "Demand snapshot",
+          "5K+ bought in the past month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
         ]
       ],
       "seo": {
@@ -4447,30 +4471,30 @@ window.PIREVO_STORE = {
       "fullName": "COSRX Snail Mucin 96% Repairing Essence, 3.38 oz",
       "asin": "B00PBX3L7K",
       "rating": 4.6,
-      "reviews": 90239,
-      "rank": "40K+ bought in past month search snapshot",
+      "reviews": 107988,
+      "rank": "50K+ bought in the past month (Oct. 9, 2026 Amazon snapshot)",
       "commission": "Beauty",
-      "image": "https://m.media-amazon.com/images/I/416kUGx2rQL.jpg",
+      "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._SX679_.jpg",
       "trend": "K-beauty hydrating essence + snail mucin + glass-skin routines",
-      "why": "A major K-beauty demand signal with a 4.6-star / 90k+ review cross-check and 40K+ bought-in-past-month search snapshot.",
+      "why": "On Oct. 9, 2026, the exact Amazon U.S. ASIN showed 4.6 stars across 107,988 ratings and 50k+ bought in the past month. This is a dated research snapshot, not live pricing or a guarantee of future demand.",
       "bestFor": "Shoppers building a hydrating K-beauty routine and comparing lightweight essence-style moisturization.",
       "caveat": "Snail secretion filtrate is a niche ingredient; patch testing is sensible for reactive skin.",
       "bullets": [
-        "96% snail mucin positioning",
-        "Lightweight essence texture",
-        "K-beauty staple",
-        "4.6-star / 90k+ review cross-check",
-        "40K+ bought-in-past-month search snapshot"
+        "Exact Amazon ASIN B00PBX3L7K",
+        "4.6★ / 107,988 ratings snapshot",
+        "50K+ bought in the past month snapshot",
+        "Shoppers building a hydrating K-beauty routine and comparing lightweight essence-style moisturization.",
+        "Snail secretion filtrate is a niche ingredient; patch testing is sensible for reactive skin."
       ],
       "amazon": "https://www.amazon.com/dp/B00PBX3L7K?tag=pirevo-20",
       "galleryIds": [
         "416kUGx2rQL"
       ],
       "about": [
-        "Hydrating facial essence centered on snail secretion filtrate.",
-        "Designed as a lightweight step before heavier moisturizers.",
-        "Popular within Korean skincare routines.",
-        "Exact listing is the 3.38 oz / 100 ml size."
+        "Snail secretion filtrate-centered hydrating serum/essence.",
+        "The exact Amazon listing is the 3.38 oz / 100 ml bottle.",
+        "Designed as a lightweight hydration step in a facial skincare routine.",
+        "Patch test if your skin is sensitive to unfamiliar ingredients."
       ],
       "details": [
         [
@@ -4490,8 +4514,20 @@ window.PIREVO_STORE = {
           "Face skincare"
         ],
         [
+          "Rating snapshot",
+          "4.6★"
+        ],
+        [
+          "Review count snapshot",
+          "107,988"
+        ],
+        [
           "Demand snapshot",
-          "40K+ bought last month search result"
+          "50K+ bought in the past month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
         ]
       ],
       "seo": {
@@ -4509,30 +4545,30 @@ window.PIREVO_STORE = {
       "fullName": "e.l.f. Halo Glow Liquid Filter, 3 Light/Medium",
       "asin": "B0B5MGBDHZ",
       "rating": 4.5,
-      "reviews": 944,
-      "rank": "2K+ bought in past month snapshot",
+      "reviews": 21189,
+      "rank": "3K+ bought in the past month (Oct. 9, 2026 Amazon snapshot)",
       "commission": "Beauty",
-      "image": "https://m.media-amazon.com/images/I/61FYeDYHfFL.jpg",
+      "image": "https://m.media-amazon.com/images/I/61FYeDYHfFL._SX679_.jpg",
       "trend": "glowy makeup + complexion booster + affordable beauty trend",
-      "why": "A strong affordable-beauty search product with 2K+ bought in the past month on the exact shade listing when researched.",
+      "why": "On Oct. 9, 2026, the exact Amazon U.S. ASIN showed 4.5 stars across 21,189 ratings and 3k+ bought in the past month. This is a dated research snapshot, not live pricing or a guarantee of future demand.",
       "bestFor": "Shoppers wanting a luminous complexion booster that can be worn alone, mixed or layered.",
       "caveat": "Shade matching matters; this exact ASIN is Shade 3 Light/Medium and should not be treated as universal.",
       "bullets": [
-        "Shade 3 Light/Medium exact variant",
-        "Luminous complexion booster",
-        "Hyaluronic acid + squalane positioning",
-        "4.5-star exact listing",
-        "2K+ bought in past month"
+        "Exact Amazon ASIN B0B5MGBDHZ",
+        "4.5★ / 21,189 ratings snapshot",
+        "3K+ bought in the past month snapshot",
+        "Shoppers wanting a luminous complexion booster that can be worn alone, mixed or layered.",
+        "Shade matching matters; this exact ASIN is Shade 3 Light/Medium and should not be treated as universal."
       ],
       "amazon": "https://www.amazon.com/dp/B0B5MGBDHZ?tag=pirevo-20",
       "galleryIds": [
         "61FYeDYHfFL"
       ],
       "about": [
-        "Liquid complexion booster with luminous finish.",
-        "Can be used alone or layered with makeup.",
-        "Exact PIREVO listing is Shade 3 Light/Medium.",
-        "Vegan and cruelty-free positioning on the listing."
+        "Halo Glow Liquid Filter complexion booster in exact shade 3 Light/Medium.",
+        "Creates a luminous, soft-focus makeup finish.",
+        "Can be worn alone or combined with a makeup routine.",
+        "Shade matching is essential; verify shade 3 Light/Medium before checkout."
       ],
       "details": [
         [
@@ -4552,8 +4588,20 @@ window.PIREVO_STORE = {
           "Face / body glow"
         ],
         [
-          "Demand",
-          "2K+ bought last month"
+          "Rating snapshot",
+          "4.5★"
+        ],
+        [
+          "Review count snapshot",
+          "21,189"
+        ],
+        [
+          "Demand snapshot",
+          "3K+ bought in the past month"
+        ],
+        [
+          "Research date",
+          "Oct. 9, 2026"
         ]
       ],
       "seo": {
