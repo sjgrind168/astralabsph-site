@@ -109,7 +109,7 @@ function sourcePeriod(provider,name,app="all"){
 function sourceStatus(provider){const x=(state.platforms?.sources||[]).find(v=>v.provider===provider);return x?.status==="imported"?"Verified snapshot":"Awaiting report"}
 function dataset(){return state.daily?.days||[]}
 function total(key){return dataset().reduce((a,b)=>a+Number(b[key]||0),0)}
-const COLORS=["#397dd0","#35a5a6","#d0a35d","#7799bb"];
+const COLORS=["#006241","#7BB8A2","#C8A96B","#4E8B73"];
 function svgEl(type,atts,content){
  const e=document.createElementNS("http://www.w3.org/2000/svg",type);
  for(const [k,v]of Object.entries(atts||{}))e.setAttribute(k,String(v));
@@ -117,30 +117,52 @@ function svgEl(type,atts,content){
  return e;
 }
 function chart(target,series,options={}){
- const root=id(target);if(!root)return;root.replaceChildren();
- const data=dataset(),limit=Math.max(0,...data.flatMap(d=>series.map(s=>Number(d[s.key]||0))));
- if(!data.length||limit===0){empty(root,options.empty||"No tracked activity in this reporting window. The graph will populate from actual events.");return}
- const W=720,H=265,L=40,T=14,R=14,B=36,w=W-L-R,h=H-T-B;
- const svg=svgEl("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":options.title||"Actual daily event trend"});
- for(let k=0;k<5;k++){const y=T+(h/4)*k;svg.append(svgEl("line",{x1:L,x2:W-R,y1:y,y2:y,class:"grid-line"}));svg.append(svgEl("text",{x:1,y:y+4,class:"axis-label"},fm(Math.round(limit*(1-k/4)))))}
- const px=i=>L+(data.length===1?w/2:i*w/(data.length-1));
- const py=v=>T+h-(Math.max(0,Number(v)||0)/limit)*h;
- series.forEach((s,j)=>{
-  const color=s.color||COLORS[j%COLORS.length];
-  const pts=data.map((d,i)=>px(i)+","+py(d[s.key])).join(" ");
-  svg.append(svgEl("polyline",{points:pts,fill:"none",stroke:color,"stroke-width":j===0?3:2.5,"stroke-linecap":"round","stroke-linejoin":"round"}));
-  data.forEach((d,i)=>{if(data.length>45&&i%7!==0&&i!==data.length-1)return;
-   const c=svgEl("circle",{cx:px(i),cy:py(d[s.key]),r:data.length>45?2.5:3.6,fill:color,stroke:"#fff","stroke-width":1.4});
-   c.append(svgEl("title",{},clean(d.date)+" · "+s.name+": "+fm(d[s.key])));svg.append(c)
+ const root=id(target);if(!root)return;
+ root.replaceChildren();
+ const data=dataset(),valid=series.filter(s=>s?.key);
+ const limit=Math.max(0,...data.flatMap(row=>valid.map(s=>Math.max(0,Number(row[s.key])||0))));
+ if(!data.length||limit<=0){
+  empty(root,options.empty||"No tracked activity in this reporting window. Bars will appear as events are recorded.");
+  return;
+ }
+ // Grouped vertical bars: one group per actual calendar date, one colored bar per source.
+ // Empty or zero-value dates are preserved, never estimated or interpolated.
+ const W=720,H=265,L=45,T=17,R=16,B=36,w=W-L-R,h=H-T-B,seriesCount=valid.length;
+ const svg=svgEl("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":options.title||"Daily activity bar chart"});
+ const daySlot=w/data.length,groupWidth=Math.min(daySlot*.82,50),innerGap=seriesCount>1?Math.min(2,groupWidth*.09):0;
+ const barWidth=Math.max(.75,(groupWidth-innerGap*(seriesCount-1))/seriesCount);
+ const yAxisMax=Math.max(1,Math.ceil(limit/4)*4);
+ const plotY=n=>T+h-Math.min(yAxisMax,Math.max(0,Number(n)||0))/yAxisMax*h;
+ for(let tick=0;tick<=4;tick++){
+  const fraction=tick/4,y=T+h-fraction*h;
+  svg.append(svgEl("line",{x1:L,x2:W-R,y1:y,y2:y,class:"grid-line"}));
+  svg.append(svgEl("text",{x:L-7,y:y+4,"text-anchor":"end",class:"axis-label"},fm(Math.round(yAxisMax*fraction))));
+ }
+ data.forEach((row,index)=>{
+  const groupLeft=L+index*daySlot+(daySlot-groupWidth)/2;
+  valid.forEach((s,j)=>{
+   const n=Math.max(0,Number(row[s.key])||0),top=plotY(n),height=T+h-top;
+   if(n<=0)return;
+   const x=groupLeft+j*(barWidth+innerGap);
+   const rect=svgEl("rect",{x:x.toFixed(2),y:top.toFixed(2),width:barWidth.toFixed(2),height:Math.max(1,height).toFixed(2),rx:Math.min(2,barWidth/3).toFixed(2),fill:s.color||COLORS[j%COLORS.length]});
+   rect.append(svgEl("title",{},clean(row.date)+" · "+s.name+": "+fm(n)));
+   svg.append(rect);
   });
  });
  const mid=Math.floor((data.length-1)/2);
- const labels=[0,mid,data.length-1].filter((n,i,a)=>a.indexOf(n)===i);
- for(const index of labels)svg.append(svgEl("text",{x:px(index),y:H-10,"text-anchor":index===0?"start":index===data.length-1?"end":"middle",class:"axis-label"},clean(data[index].date).slice(5)));
+ const indices=data.length<=7?[...data.keys()]:[0,mid,data.length-1];
+ for(const index of [...new Set(indices)]){
+  const cx=L+(index+.5)*daySlot;
+  svg.append(svgEl("text",{x:cx,y:H-11,"text-anchor":"middle",class:"axis-label"},clean(data[index].date).slice(5)));
+ }
  root.append(svg);
  const legend=document.createElement("div");legend.className="legend";
- for(const [i,s]of series.entries()){const span=document.createElement("span");const mark=document.createElement("i");mark.style.background=s.color||COLORS[i%COLORS.length];span.append(mark,document.createTextNode(s.name));legend.append(span)}
- root.append(legend)
+ for(const [i,s] of valid.entries()){
+  const span=document.createElement("span"),mark=document.createElement("i");
+  mark.style.background=s.color||COLORS[i%COLORS.length];
+  span.append(mark,document.createTextNode(s.name));legend.append(span);
+ }
+ root.append(legend);
 }
 function barList(target,data,reason){
  const root=id(target);if(!root)return;root.replaceChildren();const valid=(data||[]).filter(x=>Number(x.value)>0).slice(0,8);
@@ -222,10 +244,10 @@ function renderOverview(){
 function renderGAOverviewTrend(){
  const focus=state.overviewFocus||"sessions";
  const options={
-  sessions:[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#397dd0"},{key:"site_sessions",name:"AstraLabs sessions",color:"#35a5a6"}],
-  views:[{key:"pirevo_views",name:"PIREVO page views",color:"#397dd0"},{key:"site_views",name:"AstraLabs page views",color:"#35a5a6"}],
-  amazon:[{key:"amazon_clicks",name:"Amazon outbound clicks",color:"#397dd0"}],
-  store:[{key:"store_clicks",name:"App store button clicks",color:"#397dd0"}]
+  sessions:[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],
+  views:[{key:"pirevo_views",name:"PIREVO page views",color:"#006241"},{key:"site_views",name:"AstraLabs page views",color:"#7BB8A2"}],
+  amazon:[{key:"amazon_clicks",name:"Amazon outbound clicks",color:"#006241"}],
+  store:[{key:"store_clicks",name:"App store button clicks",color:"#006241"}]
  };
  const series=options[focus]||options.sessions;
  chart("overviewTraffic",series,{title:"Daily "+series.map(x=>x.name).join(" and ")});
@@ -303,7 +325,7 @@ function renderPirevo(){
  set("pRevenue",amazon?usd(amazon.earnings_usd):"—");
  set("pOrders",amazon?.ordered_items==null?"—":fm(amazon.ordered_items));
  set("pPinterest",k.pinterest_traffic==null?"—":fm(k.pinterest_traffic));
- chart("pirevoChart",[{key:"pirevo_sessions",name:"Sessions"},{key:"product_views",name:"Product views",color:"#c8a96b"},{key:"amazon_clicks",name:"Amazon outbound",color:"#7fa99a"}],{title:"PIREVO first-party commerce engagement"});
+ chart("pirevoChart",[{key:"pirevo_sessions",name:"Sessions"},{key:"product_views",name:"Product views",color:"#C8A96B"},{key:"amazon_clicks",name:"Amazon outbound",color:"#7BB8A2"}],{title:"PIREVO first-party commerce engagement"});
  barList("pSources",(state.base?.traffic_sources||[]).map(r=>({name:r.source,value:Number(r.sessions||0)})),"No recorded source sessions in this period.");
  rows("pProducts",(state.base?.top_products||[]),[r=>r.item_name||r.product_slug||"Product",r=>fm(r.clicks)]);
  rows("pCampaigns",(state.base?.campaigns||[]),[r=>r.campaign||"Campaign",r=>fm(r.visits),r=>fm(r.amazon_clicks),r=>percent(r.ctr)]);
@@ -329,7 +351,7 @@ function renderWebsite(){
  set("webViews",s.page_views==null?"—":fm(s.page_views));
  set("webAppClicks",s.app_clicks==null?"—":fm(s.app_clicks));
  set("webStoreClicks",s.store_clicks==null?"—":fm(s.store_clicks));
- chart("webChart",[{key:"site_sessions",name:"Sessions"},{key:"site_views",name:"Page views",color:"#c8a96b"}],{title:"AstraLabs website visits and page views"});
+ chart("webChart",[{key:"site_sessions",name:"Sessions"},{key:"site_views",name:"Page views",color:"#C8A96B"}],{title:"AstraLabs website visits and page views"});
  barList("webSources",(state.site?.site_sources||[]).map(r=>({name:r.source,value:Number(r.sessions||0)})),"No source data collected.");
  barList("webPages",(state.site?.top_pages||[]).map(r=>({name:r.path==="/"?"/ · Home":r.path,value:Number(r.views||0)})),"Website event collection starts from its deployment date.");
  rows("webApps",(state.site?.apps||[]),[r=>r.app==="keepry"?"Keepry":"Astramate",r=>fm(r.app_landing_views),r=>fm(r.google_play_clicks),r=>fm(r.app_store_clicks)]);
@@ -357,7 +379,7 @@ function paintSocial(){
  set("socialPosts","—");
  barList("socialSources",shown,"No attributed website sessions from the selected social channel for this period.");
  if(state.social==="all"){
-  chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social sessions"},{key:"site_social_sessions",name:"AstraLabs social sessions",color:"#c8a96b"}],{title:"Daily tracked sessions with social referrers"});
+  chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social sessions"},{key:"site_social_sessions",name:"AstraLabs social sessions",color:"#C8A96B"}],{title:"Daily tracked sessions with social referrers"});
  }else empty(id("socialChart"),"Native "+state.social+" impressions and per-platform historical activity require an authorized analytics integration. Aggregate website referrals are shown separately.");
  const socialRows=platforms.filter(p=>state.social==="all"||state.social===p).map(p=>({p,site:shown.find(x=>x.name===p)?.value||0}));
  rows("socialRows",socialRows,[r=>r.p.charAt(0).toUpperCase()+r.p.slice(1),r=>fm(r.site),r=>"Awaiting native API",r=>r.p==="pinterest"?"PIREVO Buffer posting; native metrics pending":"Not imported"]);
