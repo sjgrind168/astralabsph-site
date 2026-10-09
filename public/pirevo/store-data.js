@@ -6774,6 +6774,486 @@ window.PIREVO_STORE = {
         "title": "Portable Bluetooth Speaker Christmas Gift | BolaButty | PIREVO",
         "description": "Compare the BolaButty portable Bluetooth speaker, a high-volume 4.5-star budget tech gift with 10K+ monthly Amazon buyer activity."
       }
+    },
+    {
+      "slug": "bcp-prelit-outdoor-wreath",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "decor",
+      "seasonalGroup": "christmas",
+      "badge": "CHRISTMAS DECOR",
+      "brand": "Best Choice Products",
+      "shortName": "Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration",
+      "fullName": "Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration, LED Metal Holiday Decor for Home w/ 120 Lights, Bow - Green/Red",
+      "asin": "B0CKDPZTDV",
+      "rating": 4.6,
+      "reviews": 1478,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/91b92RrTLUL._AC_SL1500_.jpg",
+      "trend": "Christmas decor shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.6 stars across 1,478 ratings. Selected for Christmas decorating relevance.",
+      "bestFor": "Seasonal home decorators",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B0CKDPZTDV",
+        "4.6★ research rating",
+        "1,478 ratings in research snapshot",
+        "36IN WREATH & BOW SET: This attractive decoration is the perfect way to turn your door, window, or entryway walls into a festive display",
+        "120 LED LIGHTS: An array of environmentally-friendly LED lights pull less power, and remain cool to the touch with classic, holiday-themed colors powered by a 2"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0CKDPZTDV?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "36IN WREATH & BOW SET: This attractive decoration is the perfect way to turn your door, window, or entryway walls into a festive display",
+        "120 LED LIGHTS: An array of environmentally-friendly LED lights pull less power, and remain cool to the touch with classic, holiday-themed colors powered by a 2-prong power cord",
+        "QUICK SETUP: A simple, six-piece assembly comes together with zip ties in a few easy steps and is ready to hang in as little as 30 minutes",
+        "ALL-WEATHER: This wreath features a heavy wire frame overlaid with rain, snow-, and wind-resistant glittery fabric to withstand the colder months",
+        "COMPACT STORAGE: When the holidays are over, break this wreath down and stack the pieces together to fit in a handy storage bag or box of your choice; OVERALL DIMENSIONS: 36\"(Dia) x 3.5\"(Thick)"
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B0CKDPZTDV"
+        ],
+        [
+          "Rating",
+          "4.6★"
+        ],
+        [
+          "Rating count",
+          "1478"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas decor Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration",
+        "title": "Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration | PIREVO Christmas Edit",
+        "description": "Compare Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration, LED Metal Holiday Decor for Home w/ 120 Lights, B. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "shareconn-106-christmas-ornaments",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "decor",
+      "seasonalGroup": "christmas",
+      "badge": "CHRISTMAS DECOR",
+      "brand": "SHareconn",
+      "shortName": "SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations",
+      "fullName": "SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations",
+      "asin": "B09BMSBWWH",
+      "rating": 4.7,
+      "reviews": 1898,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/81aUFe3tf4L._AC_SL1500_.jpg",
+      "trend": "Christmas decor shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.7 stars across 1,898 ratings. Selected for Christmas decorating relevance.",
+      "bestFor": "Seasonal home decorators",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B09BMSBWWH",
+        "4.7★ research rating",
+        "1,898 ratings in research snapshot",
+        "Easy to Hang106pcs Christmas decoration balls and other decorations are all worn with a lanyard and can be hung up after unpacking.More convenient and time-savi",
+        "Unique DesignChristmas balls are made into multi-finish and novelty Shape ball ornaments, make your Christmas tree more beautiful."
+      ],
+      "amazon": "https://www.amazon.com/dp/B09BMSBWWH?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "Easy to Hang106pcs Christmas decoration balls and other decorations are all worn with a lanyard and can be hung up after unpacking.More convenient and time-saving.",
+        "Unique DesignChristmas balls are made into multi-finish and novelty Shape ball ornaments, make your Christmas tree more beautiful.",
+        "Shatterproof Material Made of high-quality plastic.Not easy to break. Don't worry about the broken glass injuring you and your child's hands.",
+        "Perfect FitPerfect fit for Christmas tree, home decoration, wedding and party decoration, make a great addition to your Christmas and holiday decoration.",
+        "Ideal Decorations SHareconn 2026 new Christmas tree decorations collections. There are different colors and different sizes of decorative balls to make you enjoy Christmas."
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B09BMSBWWH"
+        ],
+        [
+          "Rating",
+          "4.7★"
+        ],
+        [
+          "Rating count",
+          "1898"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas decor SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations",
+        "title": "SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations | PIREVO Christmas Edit",
+        "description": "Compare SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "touchat-wearable-blanket-hoodie",
+      "collection": "gifts",
+      "season": "christmas",
+      "holidayGroup": "adults",
+      "seasonalGroup": "christmas",
+      "badge": "ADULT GIFT PICK",
+      "brand": "Touchat",
+      "shortName": "Touchat Wearable Blanket Hoodie",
+      "fullName": "Touchat Wearable Blanket Hoodie, Oversized Sherpa Fleece Sweatshirt Blanket with Giant Hood Pocket and Sleeves for Adult, Warm & Cozy Grey Blanket Gifts for Women",
+      "asin": "B0BX92ZT75",
+      "rating": 4.8,
+      "reviews": 6450,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/61BqtWA1DqL._AC_SL1500_.jpg",
+      "trend": "Christmas adults shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.8 stars across 6,450 ratings. Selected for Christmas gift relevance.",
+      "bestFor": "Holiday gifts for adults",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B0BX92ZT75",
+        "4.8★ research rating",
+        "6,450 ratings in research snapshot",
+        "Sherpa&Fleece",
+        "Imported"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0BX92ZT75?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "Sherpa&Fleece",
+        "Imported",
+        "Soft Fluffy & Convenient: Wearable blanket for adults is made of fleece and Sherpa fabric which keeps you warm no matter how low the temperature is; It's also a convenient blanket hoodie for climbing mountains, picnics, campfires party and sports",
+        "Practical Hoodie Design: The cozy blanket hoodie comes with extra-large pocket to hold all your necessities; built-in sleeves are suitable for lounging at home or enjoying outdoor activities, the best choice for women who pursue ultimate warmth and convenience",
+        "One Size Fits All: The oversized blanket sweatshirt is perfect for people of most shapes and sizes, sitting on the sofa, bed, movie theater, park, beach or any other occasion; No impact on your walking, working or entertainment experience, even your pets will also envy you for the top feeling of wearing the blanket as well"
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B0BX92ZT75"
+        ],
+        [
+          "Rating",
+          "4.8★"
+        ],
+        [
+          "Rating count",
+          "6450"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas adults Touchat Wearable Blanket Hoodie",
+        "title": "Touchat Wearable Blanket Hoodie | PIREVO Christmas Edit",
+        "description": "Compare Touchat Wearable Blanket Hoodie, Oversized Sherpa Fleece Sweatshirt Blanket with Giant Hood Pocket and Sleeves for Adult. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "snap-circuits-jr-stem-kit",
+      "collection": "kids",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "seasonalGroup": "christmas",
+      "badge": "KIDS GIFT PICK",
+      "brand": "Snap Circuits",
+      "shortName": "SNAP CIRCUITS Jr. SC-100 STEM Electronics Kit",
+      "fullName": "SNAP CIRCUITS Jr. SC-100 STEM Electronics Kit, 100+ Projects, Ages 8+",
+      "asin": "B00008BFZH",
+      "rating": 4.8,
+      "reviews": 29431,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/71wjLjOAVBL._AC_SL1500_.jpg",
+      "trend": "Christmas kids shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.8 stars across 29,431 ratings. Selected for Christmas gift relevance.",
+      "bestFor": "Kids who enjoy creative play and learning",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B00008BFZH",
+        "4.8★ research rating",
+        "29,431 ratings in research snapshot",
+        "SO MANY TOYS IN A SNAP: Make dozens of cool electronic gadgets - all from one box! A safe and fun way to introduce children ages 8+ to the basics of electrical ",
+        "PROJECTS THEY'LL LOVE: So many fun electric-powered projects you can make and play! Ages 8 to 108 will love building 100+ projects! Have fun while building prac"
+      ],
+      "amazon": "https://www.amazon.com/dp/B00008BFZH?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "SO MANY TOYS IN A SNAP: Make dozens of cool electronic gadgets - all from one box! A safe and fun way to introduce children ages 8+ to the basics of electrical engineering! Build exciting projects and toys using the included colorful instruction book!.Ideal for ages:8 years and up",
+        "PROJECTS THEY'LL LOVE: So many fun electric-powered projects you can make and play! Ages 8 to 108 will love building 100+ projects! Have fun while building practical skills and learning the basics of circuitry. Build a flying saucer in a snap and watch it take off and sound the alarm! Kit includes 29 Snap Circuits parts.",
+        "GREAT GIFT Give the gift of learning and fun this holiday season! Snap Circuits kits will keep kids busy and having fun all year round. Combine with other Snap Circuits kits for even more projects!",
+        "NO EXTRA TOOLS NEEDED Elenco Snap Circuits kits include everything you need to start learning immediately - and more. Unlike traditional electronics kits, no soldering or tools are required to build. The numbered and color coded pieces snap easily onto the included plastic grid. Batteries required.",
+        "AWARD WINNING KITS! We're proud to produce high quality products loved by kids, parents,and educators. Snap Circuits kits have won a number of awards - including the Specialty Toy of the Year Award, Seriously STEM! award, Good Housekeeping's Best Toys, Purdue University's Engineering Gift Guide, National Parenting Center's Seal of Approval, Toy Insider's Top Holiday Toys, placement on the Dr. Toy list of 100 Best Children's Products and placement on the Dr. Toy list of Best E"
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B00008BFZH"
+        ],
+        [
+          "Rating",
+          "4.8★"
+        ],
+        [
+          "Rating count",
+          "29431"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas kids SNAP CIRCUITS Jr. SC-100 STEM Electronics Kit",
+        "title": "SNAP CIRCUITS Jr. SC-100 STEM Electronics Kit | PIREVO Christmas Edit",
+        "description": "Compare SNAP CIRCUITS Jr. SC-100 STEM Electronics Kit, 100+ Projects, Ages 8+. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "national-geographic-magic-chemistry",
+      "collection": "kids",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "seasonalGroup": "christmas",
+      "badge": "KIDS GIFT PICK",
+      "brand": "Blue Marble",
+      "shortName": "National Geographic Magic Chemistry Set with 10 Tricks for Kids Ages 8-12",
+      "fullName": "National Geographic Magic Chemistry Set with 10 Tricks for Kids Ages 8-12",
+      "asin": "B085WF9CHH",
+      "rating": 4.7,
+      "reviews": 13205,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/81NatkvAvpL._AC_SL1500_.jpg",
+      "trend": "Christmas kids shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.7 stars across 13,205 ratings. Selected for Christmas gift relevance.",
+      "bestFor": "Kids who enjoy creative play and learning",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B085WF9CHH",
+        "4.7★ research rating",
+        "13,205 ratings in research snapshot",
+        "MAGIC SCIENCE YOUR KIDS WILL LOVE - These 10 science experiments are mind-blowing! Girls and boys will, make a coin float, change the color of water, have snow ",
+        "SHOW OFF FOR FRIENDS AND FAMILY - Each experiment is specially designed to be performed as a magic trick! The included magic wand and white gloves let your chil"
+      ],
+      "amazon": "https://www.amazon.com/dp/B085WF9CHH?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "MAGIC SCIENCE YOUR KIDS WILL LOVE - These 10 science experiments are mind-blowing! Girls and boys will, make a coin float, change the color of water, have snow magically appear, and much more! You won't find experiments like these anywhere else",
+        "SHOW OFF FOR FRIENDS AND FAMILY - Each experiment is specially designed to be performed as a magic trick! The included magic wand and white gloves let your children dress the part, too. Magic for kids has never been this fun and educational!",
+        "EVEN THE EXPERIMENT GUIDE IS AWESOME - Our one-of-a-kind experiment guide has illustrated, kid-friendly instructions as well as insight into the science that creates the magic, techniques used by real scientists, and loads of fascinating facts!",
+        "EVERYTHING YOU NEED - Sometimes science kits leave you searching for tools to conduct the experiments. Not this kit! You get all the tools you need for each of the experiments, so the magical science fun can start the moment you open the box!",
+        "AMAZON EXCLUSIVE - Blue Marble has developed this product exclusively for Amazon."
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B085WF9CHH"
+        ],
+        [
+          "Rating",
+          "4.7★"
+        ],
+        [
+          "Rating count",
+          "13205"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas kids National Geographic Magic Chemistry Set with 10 Tricks for Kids Ages 8-12",
+        "title": "National Geographic Magic Chemistry Set with 10 Tricks for Kids Ages 8-12 | PIREVO Christmas Edit",
+        "description": "Compare National Geographic Magic Chemistry Set with 10 Tricks for Kids Ages 8-12. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "creativity-for-kids-holiday-gem-kit",
+      "collection": "kids",
+      "season": "christmas",
+      "holidayGroup": "kids",
+      "seasonalGroup": "christmas",
+      "badge": "KIDS GIFT PICK",
+      "brand": "Creativity for Kids",
+      "shortName": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive",
+      "fullName": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive Stickers & 2 Suncatchers with 1000+ Colorful Gems | Fun for Parties, Gifts, Ornaments & Seasonal Décor (Ages 6+)",
+      "asin": "B08CMKBJNT",
+      "rating": 4.6,
+      "reviews": 423,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/81vOCI0ofLL._AC_SL1500_.jpg",
+      "trend": "Christmas kids shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.6 stars across 423 ratings. Selected for Christmas gift relevance.",
+      "bestFor": "Kids who enjoy creative play and learning",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B08CMKBJNT",
+        "4.6★ research rating",
+        "423 ratings in research snapshot",
+        "HOLIDAY BIG GEM DIAMOND PAINTING: Get into the holiday spirit with this all-in-one Creativity for Kids craft kit! Create dazzling Christmas crafts for kids as y",
+        "ALL-IN-ONE HOLIDAY KIT: Everything kids need is included—big gems, gem tray, diamond painting stylus, wax square, 2 suction cups, and 2 suncatcher stands. Large"
+      ],
+      "amazon": "https://www.amazon.com/dp/B08CMKBJNT?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "HOLIDAY BIG GEM DIAMOND PAINTING: Get into the holiday spirit with this all-in-one Creativity for Kids craft kit! Create dazzling Christmas crafts for kids as you design 12 holographic stickers and 2 festive suncatchers—perfect for decorating gifts, windows, notebooks, or cards. With over 1,000 big, colorful gems, a gem tray, and stylus, kids can enjoy hours of merry, screen-free fun this season",
+        "ALL-IN-ONE HOLIDAY KIT: Everything kids need is included—big gems, gem tray, diamond painting stylus, wax square, 2 suction cups, and 2 suncatcher stands. Larger diamond dots make crafting frustration-free for beginners. Simply peel, pick up, and place your gems to create stunning holiday art. A bright and joyful twist on classic gem art kits for kids 8-12+, perfect for winter crafts for kids!",
+        "SPARKLE & SHINE: Add shimmer to the season with gem-studded stickers and suncatchers that sparkle in the light! Use your finished designs to decorate cards, gifts, or journals—or hang them in a sunny window for a magical touch. A festive way to spread cheer, this kit lets kids turn every creation into a sparkling keepsake, making it one of the most creative Christmas activities for kids this winter",
+        "FESTIVE FAMILY FUN: A perfect activity for cozy craft nights, classrooms, or playdates! This hands-on DIY Christmas craft kit builds fine motor skills, patience, and creativity while keeping kids entertained all season long. It’s a great addition to any collection of kids crafts and makes a perfect pick for kids Christmas gifts and holiday party activities",
+        "CREATED BY THE EXPERTS IN CREATIVE PLAY: Founded in 1976 in Cleveland, Ohio, Creativity for Kids has proudly designed high-quality crafts for kids ages 6–8+ that inspire imagination, build confidence, and turn screen-free time into hands-on fun. The Holiday Big Gem Diamond Painting Kit is made with kid-friendly materials. Trusted by parents and loved by kids, we’ve been crafting joy for generations"
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B08CMKBJNT"
+        ],
+        [
+          "Rating",
+          "4.6★"
+        ],
+        [
+          "Rating count",
+          "423"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas kids Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive",
+        "title": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive | PIREVO Christmas Edit",
+        "description": "Compare Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive Stickers & 2 Suncatchers with 1000+ Colorfu. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "eddie-bauer-sherpa-throw",
+      "collection": "gifts",
+      "season": "christmas",
+      "holidayGroup": "adults",
+      "seasonalGroup": "christmas",
+      "badge": "ADULT GIFT PICK",
+      "brand": "Eddie Bauer",
+      "shortName": "Eddie Bauer - Sherpa Reverse Throw Blanket for Bed or Couch",
+      "fullName": "Eddie Bauer - Sherpa Reverse Throw Blanket for Bed or Couch, 50 x 60",
+      "asin": "B01HTQQGHS",
+      "rating": 4.6,
+      "reviews": 9568,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/71lxYabdaXL._AC_SL1500_.jpg",
+      "trend": "Christmas adults shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.6 stars across 9,568 ratings. Selected for Christmas gift relevance.",
+      "bestFor": "Holiday gifts for adults",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B01HTQQGHS",
+        "4.6★ research rating",
+        "9,568 ratings in research snapshot",
+        "SUPER SOFT SHERPA & FLEECE REVERSIBLE DESIGN: One side features smooth brushed fleece while the other offers plush sherpa warmth. Customers love how incredibly ",
+        "COZY WARMTH WITHOUT HEAVY BULK: Lightweight yet warm construction keeps you comfortable year-round. Perfect for chilly evenings, movie nights, or adding an extr"
+      ],
+      "amazon": "https://www.amazon.com/dp/B01HTQQGHS?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "SUPER SOFT SHERPA & FLEECE REVERSIBLE DESIGN: One side features smooth brushed fleece while the other offers plush sherpa warmth. Customers love how incredibly soft and cozy it feels for relaxing on the couch, reading, or watching TV.",
+        "COZY WARMTH WITHOUT HEAVY BULK: Lightweight yet warm construction keeps you comfortable year-round. Perfect for chilly evenings, movie nights, or adding an extra layer to your bed during colder months.",
+        "CLASSIC PLAID CABIN DECOR: The timeless cabin plaid design brings rustic lodge style to any room. Use it as a decorative couch throw, bed accent blanket, or cozy cabin accessory.",
+        "PERFECT COUCH THROW SIZE – 50x60: Ideal size for sofas, recliners, and beds while still easy to fold and store. Great for living rooms, bedrooms, dorms, travel, or camping.",
+        "DURABLE & EASY CARE: Machine washable and designed to stay soft wash after wash. Quality stitching and durable fabric help prevent pilling and maintain long-lasting comfort."
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B01HTQQGHS"
+        ],
+        [
+          "Rating",
+          "4.6★"
+        ],
+        [
+          "Rating count",
+          "9568"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas adults Eddie Bauer - Sherpa Reverse Throw Blanket for Bed or Couch",
+        "title": "Eddie Bauer - Sherpa Reverse Throw Blanket for Bed or Couch | PIREVO Christmas Edit",
+        "description": "Compare Eddie Bauer - Sherpa Reverse Throw Blanket for Bed or Couch, 50 x 60. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
+    },
+    {
+      "slug": "shareconn-48-prelit-christmas-wreath",
+      "collection": "seasonal",
+      "season": "christmas",
+      "holidayGroup": "decor",
+      "seasonalGroup": "christmas",
+      "badge": "CHRISTMAS DECOR",
+      "brand": "SHareconn",
+      "shortName": "SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor",
+      "fullName": "SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor",
+      "asin": "B0D97ZWVJF",
+      "rating": 4.7,
+      "reviews": 101,
+      "rank": "October 9, 2026 research snapshot",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/918kIYWvYkL._AC_SL1500_.jpg",
+      "trend": "Christmas decor shopping",
+      "why": "Amazon snapshot Oct. 9, 2026: 4.7 stars across 101 ratings. Selected for Christmas decorating relevance.",
+      "bestFor": "Seasonal home decorators",
+      "caveat": "Check current item size, variant, age guidance where applicable, availability and price on Amazon.",
+      "bullets": [
+        "Verified ASIN B0D97ZWVJF",
+        "4.7★ research rating",
+        "101 ratings in research snapshot",
+        "𝐑𝐞𝐚𝐥𝐢𝐬𝐭𝐢𝐜 𝐖𝐫𝐞𝐚𝐭𝐡This 48in green wreath features ultra-realistic 618 pvc tips greenery and 21 pine cones & 21 group red berries—nearly identical t",
+        "𝐑𝐞𝐝 𝐁𝐨𝐰 𝐀𝐜𝐜𝐞𝐧𝐭This big christmas wreath comes adorned with a pre-lit bow that amps up the festive vibe, strung with vibrant colored lights to make e"
+      ],
+      "amazon": "https://www.amazon.com/dp/B0D97ZWVJF?tag=pirevo-20",
+      "galleryIds": [],
+      "about": [
+        "𝐑𝐞𝐚𝐥𝐢𝐬𝐭𝐢𝐜 𝐖𝐫𝐞𝐚𝐭𝐡This 48in green wreath features ultra-realistic 618 pvc tips greenery and 21 pine cones & 21 group red berries—nearly identical to fresh pine. Tough against the elements, so you can enjoy its charm for seasons without a hitch.",
+        "𝐑𝐞𝐝 𝐁𝐨𝐰 𝐀𝐜𝐜𝐞𝐧𝐭This big christmas wreath comes adorned with a pre-lit bow that amps up the festive vibe, strung with vibrant colored lights to make every glow feel brighter and more joyful. When lit, it shines with a warm, lively radiance that turns any space into a cozy holiday haven.",
+        "𝐏𝐫𝐞-𝐥𝐢𝐭 𝐃𝐞𝐬𝐢𝐠𝐧This huge christams wreath outsides comes pre-wrapped with 210 warm white & multi-color LEDs, plus 60 more on the bow, no messy light stringing needed! Effortlessly brighten your home with instant holiday cheer.",
+        "𝐄𝐚𝐬𝐲 𝐀𝐬𝐬𝐞𝐦𝐛𝐥𝐲This 48'' light up wreath comes in 3 interlocking sections for quick setup—just secure with screws (included). No hassle, no tools needed! Compact Storage, Disassembles in minutes for space-saving storage, keeping your decor neat until next season.",
+        "𝐖𝐢𝐝𝐞 𝐀𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧This 48-inch pre-lit Christmas wreath is a classic decorative piece that works beautifully just about anywhere—ideal for walls, fireplaces, stores, hotels, living rooms, Christmas parties, and any indoor or outdoor space. It’s the perfect choice to boost that wonderful holiday cheer and spirit."
+      ],
+      "details": [
+        [
+          "ASIN",
+          "B0D97ZWVJF"
+        ],
+        [
+          "Rating",
+          "4.7★"
+        ],
+        [
+          "Rating count",
+          "101"
+        ],
+        [
+          "Research date",
+          "October 9, 2026"
+        ]
+      ],
+      "seo": {
+        "intent": "Christmas decor SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor",
+        "title": "SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor | PIREVO Christmas Edit",
+        "description": "Compare SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor. Verified Amazon product details, features and Oct. 2026 rating snapshot."
+      }
     }
   ]
 };
