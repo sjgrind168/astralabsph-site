@@ -1221,12 +1221,107 @@
       "priority": "research",
       "status": "research_queue",
       "amazon_status": "not_verified"
+    },
+    {
+      "slug": null,
+      "name": "Compact kitchen food-prep gadget video",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "creator video/category signal, not verified SKU sales",
+      "signal": "TikTok creator video presents a kitchen gadget; precise product/model, ownership rights, current demand, Amazon ASIN and buyer rating remain unverified.",
+      "sources": [
+        {
+          "title": "TikTok · #TikTokMadeMeBuyIt creator video, viewed Oct 10 2026",
+          "url": "https://www.tiktok.com/@kitchenconqueror/video/7170801533565766958"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified",
+      "discovery_channel": "TikTok hashtag video"
+    },
+    {
+      "slug": null,
+      "name": "Rotating soap-dispensing dish scrubber",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "creator video/category signal, not verified SKU sales",
+      "signal": "TikTok creator video shows a 360-degree dish brush and soap dispenser; verify genuine brand, exact Amazon matching variant, current rating and safety before storefront use.",
+      "sources": [
+        {
+          "title": "TikTok · #TikTokMadeMeBuyIt creator video, viewed Oct 10 2026",
+          "url": "https://www.tiktok.com/@dailysunbeam/video/7606012776712015122"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified",
+      "discovery_channel": "TikTok hashtag video"
+    },
+    {
+      "slug": null,
+      "name": "Portable novelty power bank for travel",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "creator video/category signal, not verified SKU sales",
+      "signal": "TikTok creator discusses a cute portable power bank, but model specifications, airline battery rules, Amazon ASIN and buyer reviews need independent verification.",
+      "sources": [
+        {
+          "title": "TikTok · #TikTokMadeMeBuyIt creator video, viewed Oct 10 2026",
+          "url": "https://www.tiktok.com/@gavrcyai/video/7669048334987906334"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified",
+      "discovery_channel": "TikTok hashtag video"
+    },
+    {
+      "slug": null,
+      "name": "Remote-controlled motorized curtains",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "creator video/category signal, not verified SKU sales",
+      "signal": "TikTok creator shows motorized curtains; need compatibility, safety, seller quality and current Amazon review validation.",
+      "sources": [
+        {
+          "title": "TikTok · #TikTokMadeMeBuyIt creator video, viewed Oct 10 2026",
+          "url": "https://www.tiktok.com/@alexfindsbest/video/7578168112730606870"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified",
+      "discovery_channel": "TikTok hashtag video"
+    },
+    {
+      "slug": null,
+      "name": "Compact bedroom mini projector",
+      "platforms": [
+        "TikTok"
+      ],
+      "scope": "creator video/category signal, not verified SKU sales",
+      "signal": "TikTok mini projector showcase; do not assume exact model viral or accurate claimed screen performance without independent specs and rating evidence.",
+      "sources": [
+        {
+          "title": "TikTok · #TikTokMadeMeBuyIt creator video, viewed Oct 10 2026",
+          "url": "https://www.tiktok.com/@provision_projectors/video/7345162057332821281"
+        }
+      ],
+      "priority": "research",
+      "status": "research_queue",
+      "amazon_status": "not_verified",
+      "discovery_channel": "TikTok hashtag video"
     }
   ],
   "summary": {
     "catalog_count": 134,
     "matched_listed": 46,
-    "needs_validation": 4,
+    "needs_validation": 9,
     "platforms_covered": [
       "TikTok",
       "Instagram",
