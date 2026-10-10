@@ -1,27 +1,33 @@
 {
-  "generated_at_utc": "2026-10-10T05:57:39.942367+00:00",
+  "generated_at_utc": "2026-10-10T13:46:56.596113+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 1,
-  "pirevo_scheduled_before": 1,
-  "unused_before": 38,
-  "capacity": 2,
+  "scheduled_total_before": 0,
+  "pirevo_scheduled_before": 0,
+  "unused_before": 36,
+  "capacity": 3,
   "created": [
     {
-      "pin_id": "aiseno-stakes-h3",
-      "buffer_id": "6ac9d3d4c4de2d2b12186971",
-      "dueAt": "2026-10-10T08:10:00.000Z"
+      "pin_id": "goosh-puppy-h3",
+      "buffer_id": "6aca41d1f91f772d4595afb3",
+      "dueAt": "2026-10-11T02:00:00.000Z"
     },
     {
-      "pin_id": "ninja-possiblecooker-w2",
-      "buffer_id": "6ac9d3d5c4de2d2b1218699a",
-      "dueAt": "2026-10-10T11:40:00.000Z"
+      "pin_id": "astercook-knives-w2",
+      "buffer_id": "6aca41d2c4de2d2b122b9447",
+      "dueAt": "2026-10-11T03:10:00.000Z"
+    },
+    {
+      "pin_id": "xmas-window-candles-w4",
+      "buffer_id": "6aca41d3bba9419ccb03b413",
+      "dueAt": "2026-10-11T06:40:00.000Z"
     }
   ],
   "rotation": {
-    "recent_products_excluded": 8,
+    "recent_products_excluded": 9,
     "eligible_selected": [
-      "aiseno-stakes-h3",
-      "ninja-possiblecooker-w2"
+      "goosh-puppy-h3",
+      "astercook-knives-w2",
+      "xmas-window-candles-w4"
     ],
     "waves": [
       "halloween",
