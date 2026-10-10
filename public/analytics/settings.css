@@ -1,0 +1,27 @@
+
+/* Personal security settings, pinned to desktop sidebar bottom. */
+.sidebar-settings{flex:none;display:flex;width:100%;align-items:center;gap:12px;padding:12px 14px;
+ border:1px solid #e1e8df;border-radius:10px;background:#f6f9f4;color:#375746;
+ text-align:left;font-size:12px;font-weight:750;cursor:pointer}
+.sidebar-settings:hover,.sidebar-settings[aria-selected=true]{background:#d4e9e2;color:#006241;border-color:#b7d7c1}
+.sidebar-settings[aria-selected=true]{box-shadow:inset 3px 0 #006241}
+.sidebar-settings .tab-icon{font-size:18px;color:inherit}
+.settings-layout{display:grid;grid-template-columns:minmax(290px,1.2fr) minmax(270px,.9fr);gap:16px;align-items:start}
+.settings-security form{display:grid;gap:8px;max-width:430px;margin-top:18px}
+.settings-security label{font-weight:750;color:#325640;font-size:11px;margin-top:10px}
+.settings-security input{border:1px solid #cbdacf;background:#fff;border-radius:9px;padding:14px 15px;
+ font-size:20px;letter-spacing:.28em;font-variant-numeric:tabular-nums;max-width:340px}
+.settings-security input::placeholder{color:#a4b4a8;letter-spacing:.22em}
+.settings-primary{margin-top:15px;background:#006241;color:white;border:1px solid #006241;padding:12px 17px;border-radius:9px;font-weight:750;max-width:340px}
+#settingsPinMessage{font-size:12px;min-height:20px;color:#b1443c;font-weight:650}
+#settingsPinMessage.success{color:#006241}
+.settings-session-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #e7eee6;padding:11px 0;font-size:11px}
+.settings-session-row span{color:#6e8273}.settings-session-row strong{color:#254a35;text-align:right}
+.settings-logout{margin-top:16px;border:1px solid #bcd2c2;background:#fff;border-radius:9px;color:#006241;font-weight:750;padding:11px 14px}
+.settings-logout:hover{background:#ecf5eb}
+.lock-card .pin-input{text-align:center;letter-spacing:.5em;font-size:27px;font-variant-numeric:tabular-nums}
+.lock-card .pin-hint{font-size:10px;color:#708778;margin:4px 0}
+@media(max-width:1000px){.settings-layout{grid-template-columns:1fr}}
+@media(max-width:720px){.sidebar-settings{width:auto;padding:8px;min-width:37px;justify-content:center}
+ .sidebar-settings .settings-label{display:none}.sidebar-settings .tab-icon{font-size:18px}
+ .settings-security input{max-width:100%}.settings-layout{gap:10px}}
