@@ -53,7 +53,7 @@ function tableRow(cells){
  return tr
 }
 function block(id,text){
- const n=$(id);if(n)n.textContent=text;
+ const n=$(id);if(n){n.textContent=text;if(n.dataset.earning==="true")n.dataset.amountPresent=String(text)!=="—"?"true":"false"}
 }
 function metrics(state){
  const days=state.daily?.days||[],hasDays=!!state.daily,k=state.base?.kpis||{},site=state.site?.astralabs||{},amz=state.amazon?.month_to_date;
@@ -78,9 +78,9 @@ function createScorecard(state,m){
  const last=d=>d?date(d):"Not imported",status=p=>srcStatus(state,p);
  return [
   {channel:"Mobile apps · Google Play",performance:usd(m.gross)+" gross Keepry; "+(m.playA==null||m.playK==null?"—":fmt(m.playA+m.playK))+" acquired devices",source:"Play Console · gross through "+last(sourceMetric(state,"google_play","gross_revenue_usd","keepry")?.period_end)+"; acquisitions in a separate 28-day period",status:status("google_play")},
-  {channel:"Mobile apps · App Store",performance:(m.apple==null?"—":"≈"+usd(m.apple))+" estimated displayed proceeds; "+fmt(value(state,"app_store_connect","first_time_downloads"))+" first-time downloads; "+fmt(value(state,"app_store_connect","in_app_purchases"))+" IAPs",source:"Astramate Apple Analytics snapshot · "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_start)+" to "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_end)+" · amount rounded by Apple, not final payment; Keepry iOS review pending",status:status("app_store_connect")},
+  {channel:"Mobile apps · App Store",performance:(m.apple==null?"—":usd(m.apple))+" estimated displayed proceeds; "+fmt(value(state,"app_store_connect","first_time_downloads"))+" first-time downloads; "+fmt(value(state,"app_store_connect","in_app_purchases"))+" IAPs",source:"Astramate Apple Analytics snapshot · "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_start)+" to "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_end)+" · amount rounded by Apple, not final payment; Keepry iOS review pending",status:status("app_store_connect")},
   {channel:"PIREVO affiliate",performance:fmt(m.pSessions)+" sessions; "+fmt(m.pOutbound)+" Amazon outbound; "+(m.amz?usd(m.amz.earnings_usd)+" commission":"— affiliate commission"),source:"First-party events for selected period; Amazon Associates account-level snapshot",status:state.base?"Website live + earnings snapshot":"Awaiting events"},
-  {channel:"Digital products · KDP",performance:usd(m.kdp)+" royalties; "+fmt(m.bookRef)+" referrals",source:"KDP royalty report (not imported); PIREVO book-referral events",status:status("kdp")},
+  {channel:"Digital products · KDP",performance:usd(m.kdp)+" royalties; "+fmt(m.bookRef)+" referrals",source:m.kdp==null?"KDP Reports not connected: royalty reports have not been imported; PIREVO book referrals are not book sales":"Imported KDP report snapshot; PIREVO book referrals are tracked separately",status:status("kdp")},
   {channel:"AstraLabs website",performance:fmt(m.webSessions)+" sessions; "+fmt(m.webViews)+" page views; "+fmt(m.storeClicks)+" store clicks",source:"First-party events · selected period",status:state.site?"Tracked":"Awaiting events"},
   {channel:"AdMob",performance:usd(m.admob)+" estimated earnings",source:"AdMob snapshot, period "+last(sourceMetric(state,"admob","estimated_earnings_usd")?.period_end),status:status("admob")},
   {channel:"Socials",performance:fmt(m.socialSessions)+" attributed web sessions; native impressions —",source:"First-party referrals; social network impressions not connected",status:"Native metrics awaiting import"}

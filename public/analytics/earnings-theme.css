@@ -1,0 +1,8 @@
+/* Financial values in detail tabs. Missing sources retain neutral dash. Overview unchanged. */
+#pane-mobile .card [data-earning="true"][data-amount-present="true"],
+#pane-pirevo .card [data-earning="true"][data-amount-present="true"],
+#pane-digital .card [data-earning="true"][data-amount-present="true"],
+#pane-admob .card [data-earning="true"][data-amount-present="true"],
+#pane-reports .card [data-earning="true"][data-amount-present="true"]{
+ color:#006241!important;
+}

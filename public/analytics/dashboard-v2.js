@@ -12,7 +12,7 @@ const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":"≈"+new Intl.
 const percent=n=>n==null||!Number.isFinite(Number(n))?"—":Number(n).toFixed(1).replace(/\.0$/,"")+"%";
 const clean=s=>String(s??"");
 const datePretty=s=>{if(!s)return"Not yet reported";const d=new Date(String(s).slice(0,10)+"T12:00:00Z");return Number.isNaN(d.getTime())?s:d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"})};
-const set=(key,value)=>qa('[data-v="'+key+'"]').forEach(e=>e.textContent=value);
+const set=(key,value)=>qa('[data-v="'+key+'"]').forEach(e=>{e.textContent=value;if(e.dataset.earning==="true")e.dataset.amountPresent=String(value)!=="—"?"true":"false"});
 const note=(key,value)=>qa('[data-note="'+key+'"]').forEach(e=>e.textContent=value);
 const empty=(node,message)=>{if(!node)return;node.replaceChildren();const p=document.createElement("div");p.className="empty";p.textContent=message;node.append(p)};
 const cell=(tr,value,klass)=>{const td=document.createElement("td");td.textContent=value; if(klass)td.className=klass;tr.append(td)};
@@ -325,7 +325,7 @@ function paintPlatform(){
  set("appleViews",fm(am("product_page_views")));
  set("appleCTR",am("store_conversion_rate")==null?"—":Number(am("store_conversion_rate")).toFixed(2)+"%");
  set("appleIAP",fm(am("in_app_purchases")));
- set("appleProceedsApp",roundedApple(am("proceeds_usd")));
+ set("appleProceedsApp",usd(am("proceeds_usd")));
  note("appleDownloads",sourcePeriod("app_store_connect","first_time_downloads",ak));
  note("appleProceedsApp",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate");
  const source=metric("app_store_connect","first_time_downloads","astramate");
@@ -334,7 +334,7 @@ function paintPlatform(){
  rows("appleRows",appleApps.map(app=>({app,down:am("first_time_downloads",app),impressions:am("app_store_impressions",app),views:am("product_page_views",app),iap:am("in_app_purchases",app),proceeds:am("proceeds_usd",app)})),[
   r=>r.app==="astramate"?"Astramate":"Keepry",
   r=>r.app==="astramate"?"Ready for Distribution":"Waiting for Review",
-  r=>fm(r.down),r=>fm(r.impressions),r=>fm(r.views),r=>fm(r.iap),r=>roundedApple(r.proceeds)
+  r=>fm(r.down),r=>fm(r.impressions),r=>fm(r.views),r=>fm(r.iap),r=>usd(r.proceeds)
  ]);
 }
 function renderPirevo(){
@@ -363,6 +363,11 @@ function renderDigital(){
  set("digitalBookClicks",fm(total("book_clicks")));
  set("publishedTitles","1");
  set("digitalRoyalty",usd(m("kdp","royalties_usd")));
+ const kdpConnected=!!metric("kdp","royalties_usd")||!!metric("kdp","book_units");
+ id("kdpSourceStatus").textContent=kdpConnected?"KDP imported report · "+sourcePeriod("kdp","royalties_usd"):"Not connected to KDP Reports";
+ id("kdpHistoryStatus").textContent=kdpConnected?"Imported snapshot · not a daily trend":"Not connected";
+ id("kdpHistoryMessage").textContent=kdpConnected?"KDP sales and royalty snapshots are imported. A dated daily earnings history requires an additional KDP report. Book referrals are not sales.":"No KDP sales report has been imported. This panel is prepared for future KDP reporting, but is not connected to live KDP Analytics. Book referrals are not confirmed sales.";
+ id("kdpConnectionNote").firstChild.textContent=kdpConnected?"KDP reporting is based on imported snapshots, not a live KDP API. Royalties are separate from Amazon Associates commissions. ":"KDP is not connected to a live sales feed. To display verified units and royalties, import an authorized KDP Reports export. Missing earnings remain —, not $0. KDP royalties are separate from Amazon Associates commissions. ";
  set("digitalUnits",fm(m("kdp","book_units")));
  chart("digitalChart",[{key:"book_clicks",name:"Book referrals"}],{title:"Daily PIREVO book referrals"});
 }
