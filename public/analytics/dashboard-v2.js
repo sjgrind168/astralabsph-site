@@ -467,7 +467,7 @@ function paintSocial(){
 }
 
 function renderAll(){
- renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();
+ renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();window.ASTRA_SOCIAL_NATIVE?.render(state);
  chart("reportTrafficChart",[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],{title:"Cross-site tracked sessions per calendar day"});
  window.ASTRA_REPORTS?.render(state);
 }
