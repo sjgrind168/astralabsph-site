@@ -1,7 +1,7 @@
 
 (()=>{
 "use strict";
-const P=["overview","mobile","pirevo","digital","website","admob","socials","reports","settings"];
+const P=["overview","mobile","pirevo","digital","website","admob","socials","reports"];
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
@@ -26,103 +26,32 @@ async function rpc(name,args){
   headers:{"apikey":C.analyticsAnonKey,"Authorization":"Bearer "+C.analyticsAnonKey,"Content-Type":"application/json"},
   body:JSON.stringify(args)
  });
- if(!res.ok){
-  const raw=await res.json().catch(()=>({}));
-  if(res.status===401||res.status===403||/unauthorized|session_expired/i.test(raw.message||""))throw Error("SESSION_EXPIRED");
-  throw Error("Source "+name+" unavailable");
- }
+ if(!res.ok)throw Error(res.status===401||res.status===403?"Invalid dashboard access":"Source "+name+" unavailable");
  return res.json();
 }
-
-const SESSION_KEY="astralabs_analytics_session_v1";
-let sessionExpiry="";
-function persistSession(token,expiry=""){
- state.token=token;sessionExpiry=expiry;
- try{sessionStorage.setItem(SESSION_KEY,JSON.stringify({token,expires_at:expiry}));localStorage.removeItem("pirevo_analytics_access")}catch{}
-}
-function launch(token,expiry=""){
- persistSession(token,expiry);
- const loc=new URL(location.href);if(loc.hash)history.replaceState(null,"",loc.pathname+loc.search);
- id("accessCode").value="";id("lockError").textContent="";
+function launch(token){
+ state.token=token;
+ const stored=new URL(location.href);
+ stored.hash="";
+ history.replaceState(null,"",stored.pathname+stored.search);
+ try{localStorage.setItem("pirevo_analytics_access",token)}catch{}
  id("locked").hidden=true;id("dashboard").hidden=false;
  load();
 }
-function lockDashboard(reason=""){
- const previous=state.token;
- state.token="";sessionExpiry="";state.seq++;
- try{sessionStorage.removeItem(SESSION_KEY);localStorage.removeItem("pirevo_analytics_access")}catch{}
- id("locked").hidden=false;id("dashboard").hidden=true;
- id("lockError").textContent=reason;
- id("accessCode").value="";
- if(previous)rpc("astra_analytics_pin_logout",{p_token:previous}).catch(()=>{});
+async function authorize(t){
+ id("lockError").textContent="Checking private dashboard access…";
+ try{await rpc("pirevo_dashboard_snapshot",{p_days:7,p_token:t});
+  id("lockError").textContent="";launch(t);
+ }catch(e){id("lockError").textContent="Unable to verify access. Check the private dashboard code."}
 }
-async function authorize(pin){
- const output=id("lockError"),submit=q("#unlockForm button[type=submit]");
- if(!/^\d{4}$/.test(pin)){output.textContent="Enter exactly four digits.";return}
- submit.disabled=true;output.textContent="Verifying your PIN…";
- try{
-  const result=await rpc("astra_analytics_pin_login",{p_pin:pin});
-  if(!result?.ok){
-   const wait=Number(result?.retry_after_seconds||0);
-   output.textContent=result.error==="temporarily_locked"
-    ?"Too many incorrect attempts. Try again in "+Math.ceil(wait/60)+" minute(s)."
-    :result.error==="pin_not_configured"?"PIN setup is pending."
-    :"Incorrect PIN. "+Number(result?.attempts_remaining||0)+" attempt(s) remaining.";
-   return;
-  }
-  if(typeof result.token!=="string"||result.token.length<40)throw Error("Invalid session");
-  launch(result.token,result.expires_at||"");
- }catch(e){output.textContent="Unable to verify PIN right now. Check the connection and try again."}
- finally{submit.disabled=false;id("accessCode").value=""}
-}
-async function restoreSession(candidate){
- if(!candidate||typeof candidate.token!=="string")return;
- if(candidate.expires_at&&Date.parse(candidate.expires_at)<=Date.now()){
-  try{sessionStorage.removeItem(SESSION_KEY)}catch{};return;
- }
- try{
-  await rpc("pirevo_dashboard_snapshot",{p_days:7,p_token:candidate.token});
-  launch(candidate.token,candidate.expires_at||"");
- }catch{
-  try{sessionStorage.removeItem(SESSION_KEY)}catch{}
-  id("lockError").textContent="Session expired. Enter your 4-digit PIN again.";
- }
-}
-async function updatePin(event){
- event.preventDefault();
- const current=id("currentPin").value,newPin=id("newPin").value,confirmed=id("confirmPin").value;
- const output=id("settingsPinMessage"),btn=id("changePinButton");
- output.className="";
- if(!/^\d{4}$/.test(current)||!/^\d{4}$/.test(newPin)){
-  output.textContent="All fields must contain exactly four digits.";return;
- }
- if(newPin!==confirmed){output.textContent="The new PIN and confirmation do not match.";return}
- btn.disabled=true;output.textContent="Updating PIN…";
- try{
-  const result=await rpc("astra_analytics_pin_change",{p_token:state.token,p_current_pin:current,p_new_pin:newPin});
-  if(!result?.ok){
-   const messages={session_expired:"Session expired. Sign in again.",incorrect_current_pin:"Current PIN is incorrect.",
-      choose_less_predictable_pin:"Choose a less predictable PIN. Avoid sequences and repeating digits.",pin_must_change:"Choose a PIN different from the current one."};
-   output.textContent=messages[result.error]||"Could not update the PIN.";
-   if(result.error==="session_expired")lockDashboard("Session expired. Sign in again.");
-   return;
-  }
-  persistSession(result.token,result.expires_at||"");
-  id("settingsPinForm").reset();
-  output.className="success";output.textContent="PIN changed. Other sessions have been signed out.";
- }catch{output.textContent="PIN update failed. Please try again."}
- finally{btn.disabled=false}
-}
-
 function initialize(){
- let saved=null;
- try{const raw=sessionStorage.getItem(SESSION_KEY);if(raw)saved=JSON.parse(raw);localStorage.removeItem("pirevo_analytics_access")}catch{}
- if(location.hash)history.replaceState(null,"",location.pathname+location.search);
+ const params=new URLSearchParams(location.hash.replace(/^#/,""));
+ const fromUrl=params.get("access");
+ let saved="";
+ try{saved=localStorage.getItem("pirevo_analytics_access")||""}catch{}
  const qs=new URLSearchParams(location.search);
  state.tab=P.includes(qs.get("tab"))?qs.get("tab"):"overview";
- id("unlockForm").addEventListener("submit",e=>{e.preventDefault();authorize(id("accessCode").value.trim())});
- id("settingsPinForm").addEventListener("submit",updatePin);
- id("settingsLogout").addEventListener("click",()=>lockDashboard("Dashboard locked. Enter your PIN to continue."));
+ id("unlockForm").addEventListener("submit",e=>{e.preventDefault();const t=id("accessCode").value.trim();if(t)authorize(t)});
  qa("[data-tab]").forEach((btn,index,arr)=>{
   btn.addEventListener("click",()=>showTab(btn.dataset.tab,true));
   btn.addEventListener("keydown",e=>{
@@ -150,15 +79,15 @@ function initialize(){
   e.preventDefault();showTab(b.dataset.reportJump,true);
  }));
  showTab(state.tab,false);
- id("locked").hidden=false;id("dashboard").hidden=true;
- if(saved)restoreSession(saved);
+ const candidate=fromUrl||saved;
+ if(candidate)authorize(candidate);else{id("locked").hidden=false;id("dashboard").hidden=true}
 }
 function showTab(name,historyPush){
  if(!P.includes(name))name="overview";
  state.tab=name;
  qa("[data-tab]").forEach(b=>{const selected=b.dataset.tab===name;b.setAttribute("aria-selected",String(selected));b.tabIndex=selected?0:-1});
  qa(".tabpanel").forEach(p=>p.hidden=p.dataset.panel!==name);
- const titles={overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels",reports:"Performance reports",settings:"Settings & security"};
+ const titles={overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels",reports:"Performance reports"};
  id("pageTitle").textContent=titles[name];
  id("pageDescription").textContent={
   overview:"Your earnings, audience and business momentum in one place.",
@@ -168,8 +97,7 @@ function showTab(name,historyPush){
   website:"Visitors, page engagement, app referrals and search visibility.",
   admob:"Advertising impressions, revenue estimates and monetization health.",
   socials:"Content performance, referral traffic and audience opportunities.",
-  reports:"Cross-business performance scorecard, verified trends and measurable optimization plans.",
-  settings:"Change your 4-digit PIN and control dashboard access."
+  reports:"Cross-business performance scorecard, verified trends and measurable optimization plans."
  }[name];
  document.title=titles[name]+" | AstraLabs PH Analytics";
  if(historyPush){const u=new URL(location.href);u.searchParams.set("tab",name);history.replaceState(null,"",u.pathname+u.search)}
@@ -502,9 +430,6 @@ async function load(){
  if(n!==state.seq)return;
  let successful=0;
  settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance")successful++});
- if(successful===0&&settled.some(x=>x.status==="rejected"&&String(x.reason?.message||"").includes("SESSION_EXPIRED"))){
-  id("refresh").disabled=false;lockDashboard("Session expired. Enter your PIN again.");return;
- }
  renderAll();
  id("refresh").disabled=false;
  id("sourceHealth").textContent=successful+"/5 reporting sources accessible";
