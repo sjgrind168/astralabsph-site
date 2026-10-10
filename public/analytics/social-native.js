@@ -56,12 +56,12 @@ function render(state,helpers){
   put("socialNative",view?formatted(view.metric_value):"—");
   note("socialNativeStatus",view?rangeKind(n)+" · "+sourceInfo(view):"No verified view metric from this platform");
   put("socialFollowers",follow?formatted(follow.metric_value):"—");
-  note("socialFollowersStatus",follow?"Account total as of "+sourceInfo(follow):"Follower data not available");
+  note("socialFollowersStatus",follow?"Account total as of "+sourceInfo(follow):n==="pinterest"?"Follower count awaiting independent verification; setup-day Metricool zeros are inconclusive":"Follower data not available");
   put("socialPosts",published?formatted(published.metric_value):"—");
   note("socialPostsStatus",published?contentKind(n)+" · "+sourceInfo(published):"Period-qualified published count unavailable");
  }
  label("socialViewsLabel",n==="tiktok"?"Visible-video lifetime plays":n==="pinterest"?"Pin impressions":n==="facebook"?"Facebook views":"Native impressions / views");
- label("socialPostsLabel",n==="tiktok"?"Visible videos":n==="pinterest"?"Pins on boards":"Published posts");
+ label("socialPostsLabel",n==="tiktok"?"Visible videos":n==="pinterest"?"Pins on boards":n==="facebook"?"Published posts & reels":"Published posts");
  label("socialNativeSourceBadge",state.socialMetrics?
    connected+"/6 connected · "+coverage+"/6 dated views sources · TikTok lifetime counts separate":
    "Social source unavailable · last verified data not loaded");
@@ -123,13 +123,14 @@ function render(state,helpers){
   add("Page visits","facebook","page_visits","Not website sessions");
   add("Interactions","facebook","interactions","Not retailer orders");
   add("Net new followers","facebook","new_followers","28-day reporting period");
-  disclaimer="Facebook views and unique viewers are separate metrics. Source window Sep 11–Oct 8, 2026. Published-post period count still awaiting verification.";
+  add("Published posts & reels","facebook","published_posts","Meta Published list, 28-day source");
+  disclaimer="Facebook views and unique viewers are separate metrics. Meta published posts and reels Sep 11–Oct 8 exclude scheduled content, drafts and Stories.";
  }else if(n==="pinterest"){
   add("Outbound clicks","pinterest","outbound_clicks","Not Amazon orders");
   add("Saves","pinterest","saves","30-day native report");
   add("PIREVO Pins","pinterest","pirevo_board_pins","Current board inventory");
   add("Audience","pinterest","total_audience","Provider estimate");
-  disclaimer="Pinterest impressions cover the Created Pins report, not unique viewers. Board inventory is not the count published this month. Pinterest followers are not verified.";
+  disclaimer="Pinterest impressions cover the Created Pins report, not unique viewers. Board inventory is not the count published this month. Pinterest followers remain unverified; setup-day Metricool zeros are not conclusive.";
  }else if(n==="tiktok"){
   add("Current followers","tiktok","followers","Profile count");
   add("Profile likes","tiktok","likes","Lifetime public profile count");
