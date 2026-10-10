@@ -325,9 +325,9 @@ function paintPlatform(){
  set("appleViews",fm(am("product_page_views")));
  set("appleCTR",am("store_conversion_rate")==null?"—":Number(am("store_conversion_rate")).toFixed(2)+"%");
  set("appleIAP",fm(am("in_app_purchases")));
- set("appleProceeds",roundedApple(am("proceeds_usd")));
+ set("appleProceedsApp",roundedApple(am("proceeds_usd")));
  note("appleDownloads",sourcePeriod("app_store_connect","first_time_downloads",ak));
- note("appleProceeds",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate");
+ note("appleProceedsApp",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate");
  const source=metric("app_store_connect","first_time_downloads","astramate");
  id("applePeriod").textContent=source?"Apple snapshot · "+datePretty(source.period_start)+" to "+datePretty(source.period_end)+" · Keepry iOS awaiting review":"No imported Apple performance report";
  const appleApps=state.app==="all"?["astramate","keepry"]:[state.app];
