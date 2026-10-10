@@ -8,7 +8,7 @@ const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], i
 const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
-const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":"≈"+new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
+const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
 const percent=n=>n==null||!Number.isFinite(Number(n))?"—":Number(n).toFixed(1).replace(/\.0$/,"")+"%";
 const clean=s=>String(s??"");
 const datePretty=s=>{if(!s)return"Not yet reported";const d=new Date(String(s).slice(0,10)+"T12:00:00Z");return Number.isNaN(d.getTime())?s:d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"})};
