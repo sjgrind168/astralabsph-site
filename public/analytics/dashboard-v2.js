@@ -441,7 +441,10 @@ function paintSocial(){
  note("socialNativeStatus",usable.length?(usable.length===1?"Source-reported views or impressions":"Sum across "+usable.length+" networks · not unique audience"):"No imported native views");
  note("socialFollowersStatus",follow.length?(state.social==="all"?follow.length+"/6 networks with verified follower counts":"Provider-reported account followers"):"No verified follower count");
  note("socialPostsStatus",withPosts.length?(state.social==="all"?withPosts.length+"/6 networks with period-published posts":"Provider reporting window; does not include scheduled drafts"):"No verified posts imported");
- id("socialNativeSourceBadge").textContent=social?(social.sources||[]).filter(x=>x.status==="imported_snapshot").length+"/6 channels have native reporting snapshots · others awaiting access":"Source connection unavailable · first-party referrals still shown";
+ const connections=social?.sources||[];
+ const connected=connections.filter(x=>x.connection_status==="connected").length;
+ const imported=connections.filter(x=>x.status==="imported_snapshot").length;
+ id("socialNativeSourceBadge").textContent=social?connected+"/6 Metricool accounts connected · "+imported+"/6 with historical analytics":"Source connection unavailable · first-party referrals still shown";
  barList("socialSources",shown,"No attributed website sessions from the selected social channel for this period.");
  if(state.social==="all"){
   chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social sessions"},{key:"site_social_sessions",name:"AstraLabs social sessions",color:"#C8A96B"}],{title:"Daily tracked sessions with social referrers"});
@@ -459,7 +462,7 @@ function paintSocial(){
   r=>r.posts?fm(r.posts.metric_value):"—",
   r=>fm(r.site),
   r=>r.view?(r.view.source_name+" · "+datePretty(r.view.period_start)+" to "+datePretty(r.view.period_end)+" · "+r.view.evidence_scope)
-   :r.p==="tiktok"||r.p==="facebook"?"Connected for Buffer publishing · native insights awaiting reporting connection":"Not imported"
+   :connections.find(x=>x.network===r.p)?.connection_status==="connected"?"Connected to Metricool · historical insights pending from "+datePretty(connections.find(x=>x.network===r.p)?.verified_at)+". New-connection zeroes are not prior-month activity.":"Not imported"
  ]);
 }
 
