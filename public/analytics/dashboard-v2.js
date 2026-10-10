@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials","rep
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":"≈"+new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
@@ -420,21 +420,49 @@ function renderAdmob(){
 }
 function paintSocial(){
  qa("[data-social]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.social===state.social)));
- const sources=[...(state.base?.traffic_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"Pirevo"})),...(state.site?.site_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"AstraLabs"}))];
+ const sources=[...(state.base?.traffic_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"PIREVO"})),...(state.site?.site_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"AstraLabs"}))];
  const platforms=["tiktok","facebook","youtube","instagram","threads","pinterest"];
  const mapped=platforms.map(name=>({name,value:sources.filter(s=>s.source===name).reduce((a,b)=>a+b.sessions,0)}));
  const shown=state.social==="all"?mapped:mapped.filter(x=>x.name===state.social);
  set("socialVisits",fm(shown.reduce((a,b)=>a+b.value,0)));
- set("socialNative","—");
- set("socialFollowers","—");
- set("socialPosts","—");
+ const social=state.socialMetrics;
+ const metrics=social?.metrics||[];
+ const selected=state.social==="all"?platforms:[state.social];
+ const snapshot=(p,k)=>metrics.find(m=>m.network===p&&m.metric===k)||null;
+ const usable=selected.filter(p=>snapshot(p,"native_views")!=null);
+ const views=usable.reduce((n,p)=>n+Number(snapshot(p,"native_views").metric_value),0);
+ const follow=selected.filter(p=>snapshot(p,"followers")!=null);
+ const followers=follow.reduce((n,p)=>n+Number(snapshot(p,"followers").metric_value),0);
+ const withPosts=selected.filter(p=>snapshot(p,"published_posts")!=null);
+ const posts=withPosts.reduce((n,p)=>n+Number(snapshot(p,"published_posts").metric_value),0);
+ set("socialNative",usable.length?fm(views):"—");
+ set("socialFollowers",follow.length?fm(followers):"—");
+ set("socialPosts",withPosts.length?fm(posts):"—");
+ note("socialNativeStatus",usable.length?(usable.length===1?"Source-reported views or impressions":"Sum across "+usable.length+" networks · not unique audience"):"No imported native views");
+ note("socialFollowersStatus",follow.length?(state.social==="all"?follow.length+"/6 networks with verified follower counts":"Provider-reported account followers"):"No verified follower count");
+ note("socialPostsStatus",withPosts.length?(state.social==="all"?withPosts.length+"/6 networks with period-published posts":"Provider reporting window; does not include scheduled drafts"):"No verified posts imported");
+ id("socialNativeSourceBadge").textContent=social?(social.sources||[]).filter(x=>x.status==="imported_snapshot").length+"/6 channels have native reporting snapshots · others awaiting access":"Source connection unavailable · first-party referrals still shown";
  barList("socialSources",shown,"No attributed website sessions from the selected social channel for this period.");
  if(state.social==="all"){
   chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social sessions"},{key:"site_social_sessions",name:"AstraLabs social sessions",color:"#C8A96B"}],{title:"Daily tracked sessions with social referrers"});
- }else empty(id("socialChart"),"Native "+state.social+" impressions and per-platform historical activity require an authorized analytics integration. Aggregate website referrals are shown separately.");
- const socialRows=platforms.filter(p=>state.social==="all"||state.social===p).map(p=>({p,site:shown.find(x=>x.name===p)?.value||0}));
- rows("socialRows",socialRows,[r=>r.p.charAt(0).toUpperCase()+r.p.slice(1),r=>fm(r.site),r=>"Awaiting native API",r=>r.p==="pinterest"?"PIREVO Buffer posting; native metrics pending":"Not imported"]);
+ }else{
+  const view=snapshot(state.social,"native_views");
+  empty(id("socialChart"),view
+   ?"Latest "+state.social+" metric imported for "+datePretty(view.period_start)+" to "+datePretty(view.period_end)+". Historical native daily bar data is not yet imported; chart above tracks site referrals, not native impressions."
+   :"Native "+state.social+" analytics haven't been imported. Site referrals remain separate and may have incomplete attribution.");
+ }
+ const socialRows=platforms.filter(p=>state.social==="all"||state.social===p).map(p=>({p,site:shown.find(x=>x.name===p)?.value||0,view:snapshot(p,"native_views"),followers:snapshot(p,"followers"),posts:snapshot(p,"published_posts")}));
+ rows("socialRows",socialRows,[
+  r=>r.p.charAt(0).toUpperCase()+r.p.slice(1),
+  r=>r.view?fm(r.view.metric_value):"—",
+  r=>r.followers?fm(r.followers.metric_value):"—",
+  r=>r.posts?fm(r.posts.metric_value):"—",
+  r=>fm(r.site),
+  r=>r.view?(r.view.source_name+" · "+datePretty(r.view.period_start)+" to "+datePretty(r.view.period_end)+" · "+r.view.evidence_scope)
+   :r.p==="tiktok"||r.p==="facebook"?"Connected for Buffer publishing · native insights awaiting reporting connection":"Not imported"
+ ]);
 }
+
 function renderAll(){
  renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();
  chart("reportTrafficChart",[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],{title:"Cross-site tracked sessions per calendar day"});
@@ -454,12 +482,13 @@ async function load(){
  ["daily",rpc("astralabs_portfolio_daily_v2",{p_days:days,p_token:token})],
  ["trendPerformance",rpc("pirevo_trend_product_performance",{p_days:days,p_token:token})],
  ["kdpSync",rpc("pirevo_kdp_sync_snapshot",{p_token:token})],
+ ["socialMetrics",rpc("astralabs_social_metrics_snapshot",{p_token:token})],
  ["previous",state.compare?rpc("astralabs_portfolio_daily_range_v2",{p_days:days,p_token:token,p_shift_days:days}):Promise.resolve(null)]
  ];
  const settled=await Promise.allSettled(requests.map(x=>x[1]));
  if(n!==state.seq)return;
  let successful=0;
- settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync")successful++});
+ settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics")successful++});
  renderAll();
  id("refresh").disabled=false;
  id("sourceHealth").textContent=successful+"/5 reporting sources accessible";

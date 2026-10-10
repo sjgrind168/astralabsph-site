@@ -209,7 +209,7 @@ function render(state){
  const source=$("reportSourceHealth");if(source){source.replaceChildren();for(const [n,s] of [
   ["PIREVO tracker",state.base?"Tracking":"Unavailable"],["AstraLabs tracker",state.site?"Tracking":"Unavailable"],["Google Play",srcStatus(state,"google_play")],
   ["AdMob",srcStatus(state,"admob")],["Amazon Associates",state.amazon?"Verified report":"Awaiting report"],
-  ["Apple",srcStatus(state,"app_store_connect")],["KDP",srcStatus(state,"kdp")],["Native social insights","Awaiting authorized metrics"]
+  ["Apple",srcStatus(state,"app_store_connect")],["KDP",srcStatus(state,"kdp")],["Native social insights",state.socialMetrics?((state.socialMetrics.sources||[]).filter(x=>x.status==="imported_snapshot").length+"/6 sources imported · mixed periods"):"Awaiting authorized reporting"]
  ]){const row=add("div",null,"report-source-row");row.append(add("strong",n),add("span",s));source.append(row)}}
  paintRecommendations(next);trendPaint();paintTrendFunnel(state);
 }
