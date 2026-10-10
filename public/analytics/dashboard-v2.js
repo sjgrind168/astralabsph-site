@@ -419,55 +419,11 @@ function renderAdmob(){
  rows("adBreakdown",(state.platforms?.metrics||[]).filter(x=>x.provider==="admob"),[r=>r.metric.replaceAll("_"," "),r=>r.metric_value==null?"—":r.metric_unit==="USD"?"$"+Number(r.metric_value).toFixed(3):fm(r.metric_value),r=>datePretty(r.period_start)+" – "+datePretty(r.period_end),r=>r.report_status]);
 }
 function paintSocial(){
- qa("[data-social]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.social===state.social)));
- const sources=[...(state.base?.traffic_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"PIREVO"})),...(state.site?.site_sources||[]).map(x=>({source:clean(x.source).toLowerCase(),sessions:Number(x.sessions||0),from:"AstraLabs"}))];
- const platforms=["tiktok","facebook","youtube","instagram","threads","pinterest"];
- const mapped=platforms.map(name=>({name,value:sources.filter(s=>s.source===name).reduce((a,b)=>a+b.sessions,0)}));
- const shown=state.social==="all"?mapped:mapped.filter(x=>x.name===state.social);
- set("socialVisits",fm(shown.reduce((a,b)=>a+b.value,0)));
- const social=state.socialMetrics;
- const metrics=social?.metrics||[];
- const selected=state.social==="all"?platforms:[state.social];
- const snapshot=(p,k)=>metrics.find(m=>m.network===p&&m.metric===k)||null;
- const usable=selected.filter(p=>snapshot(p,"native_views")!=null);
- const views=usable.reduce((n,p)=>n+Number(snapshot(p,"native_views").metric_value),0);
- const follow=selected.filter(p=>snapshot(p,"followers")!=null);
- const followers=follow.reduce((n,p)=>n+Number(snapshot(p,"followers").metric_value),0);
- const withPosts=selected.filter(p=>snapshot(p,"published_posts")!=null);
- const posts=withPosts.reduce((n,p)=>n+Number(snapshot(p,"published_posts").metric_value),0);
- set("socialNative",usable.length?fm(views):"—");
- set("socialFollowers",follow.length?fm(followers):"—");
- set("socialPosts",withPosts.length?fm(posts):"—");
- note("socialNativeStatus",usable.length?(usable.length===1?"Source-reported views or impressions":"Sum across "+usable.length+" networks · not unique audience"):"No imported native views");
- note("socialFollowersStatus",follow.length?(state.social==="all"?follow.length+"/6 networks with verified follower counts":"Provider-reported account followers"):"No verified follower count");
- note("socialPostsStatus",withPosts.length?(state.social==="all"?withPosts.length+"/6 networks with period-published posts":"Provider reporting window; does not include scheduled drafts"):"No verified posts imported");
- const connections=social?.sources||[];
- const connected=connections.filter(x=>x.connection_status==="connected").length;
- const imported=connections.filter(x=>x.status==="imported_snapshot").length;
- id("socialNativeSourceBadge").textContent=social?connected+"/6 Metricool accounts connected · "+imported+"/6 with historical analytics":"Source connection unavailable · first-party referrals still shown";
- barList("socialSources",shown,"No attributed website sessions from the selected social channel for this period.");
- if(state.social==="all"){
-  chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social sessions"},{key:"site_social_sessions",name:"AstraLabs social sessions",color:"#C8A96B"}],{title:"Daily tracked sessions with social referrers"});
- }else{
-  const view=snapshot(state.social,"native_views");
-  empty(id("socialChart"),view
-   ?"Latest "+state.social+" metric imported for "+datePretty(view.period_start)+" to "+datePretty(view.period_end)+". Historical native daily bar data is not yet imported; chart above tracks site referrals, not native impressions."
-   :"Native "+state.social+" analytics haven't been imported. Site referrals remain separate and may have incomplete attribution.");
- }
- const socialRows=platforms.filter(p=>state.social==="all"||state.social===p).map(p=>({p,site:shown.find(x=>x.name===p)?.value||0,view:snapshot(p,"native_views"),followers:snapshot(p,"followers"),posts:snapshot(p,"published_posts")}));
- rows("socialRows",socialRows,[
-  r=>r.p.charAt(0).toUpperCase()+r.p.slice(1),
-  r=>r.view?fm(r.view.metric_value):"—",
-  r=>r.followers?fm(r.followers.metric_value):"—",
-  r=>r.posts?fm(r.posts.metric_value):"—",
-  r=>fm(r.site),
-  r=>r.view?(r.view.source_name+" · "+datePretty(r.view.period_start)+" to "+datePretty(r.view.period_end)+" · "+r.view.evidence_scope)
-   :connections.find(x=>x.network===r.p)?.connection_status==="connected"?"Connected to Metricool · historical insights pending from "+datePretty(connections.find(x=>x.network===r.p)?.verified_at)+". New-connection zeroes are not prior-month activity.":"Not imported"
- ]);
+ window.ASTRA_SOCIAL_NATIVE?.render(state,{set,note,rows,empty,barList,chart,fm,datePretty});
 }
 
 function renderAll(){
- renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();window.ASTRA_SOCIAL_NATIVE?.render(state);
+ renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();
  chart("reportTrafficChart",[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],{title:"Cross-site tracked sessions per calendar day"});
  window.ASTRA_REPORTS?.render(state);
 }

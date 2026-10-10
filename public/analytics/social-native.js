@@ -1,110 +1,154 @@
-
+/* AstraLabs PH unified Socials renderer.
+ * Sole owner of cards, labels, rows, chart and details on Socials tab.
+ * Every metric is source-backed, identified by its scope, and never imputed.
+ */
 (function(){
 "use strict";
-const F=n=>n==null?"—":Number(n).toLocaleString("en-US");
-const pretty=d=>{if(!d)return "";const [y,m,day]=String(d).slice(0,10).split("-");return [m,day,y].join("/")};
-const title=(parent,txt)=>{const e=document.createElement("strong");e.textContent=txt;parent.append(e)};
-function render(state){
- const net=state.social||"all",root=document.getElementById("socialNativeDetails");
- if(!root)return;
- const metrics=state.socialMetrics?.metrics||[];
- const record=(n,k)=>metrics.find(x=>x.network===n&&x.metric===k);
- const value=(n,k)=>record(n,k)?.metric_value;
- const set=(name,v)=>{const e=document.querySelector('[data-v="'+name+'"]');if(e)e.textContent=v};
- const note=(name,v)=>{const e=document.querySelector('[data-note="'+name+'"]');if(e)e.textContent=v};
- const label=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
- label("socialViewsLabel",net==="tiktok"?"Lifetime plays · visible videos":net==="pinterest"?"Pinterest impressions":net==="facebook"?"Facebook views":"Native views / impressions");
- label("socialPostsLabel",net==="tiktok"?"Visible videos":net==="pinterest"?"Pins on boards":"Published posts");
- if(net==="all"){
-   set("socialNative","—");note("socialNativeStatus","Choose a platform · lifetime, 28-day and 30-day totals differ");
-   set("socialPosts","—");note("socialPostsStatus","Choose a platform · published posts differ from current inventory");
- }
- if(net==="tiktok"){
-   set("socialNative",F(value("tiktok","visible_video_views_total")));
-   note("socialNativeStatus","Lifetime plays on 23 visible videos · NOT last 30 days");
-   set("socialPosts",F(value("tiktok","visible_videos")));
-   note("socialPostsStatus","Current public inventory · not posts in website date range");
- }
- if(net==="pinterest"){
-   set("socialPosts",F(value("pinterest","board_pin_inventory")));
-   note("socialPostsStatus","Current board inventory, not 30-day published posts");
- }
- const tr=[...document.querySelectorAll("#socialRows tr")];
- for(const row of tr){
-  const cells=row.querySelectorAll("td");if(cells.length!==6)continue;
-  const p=(cells[0].textContent||"").trim().toLowerCase();
-  if(p==="tiktok"){
-    cells[1].textContent=F(value("tiktok","visible_video_views_total"))+" (lifetime)";
-    cells[3].textContent=F(value("tiktok","visible_videos"))+" visible";
-    cells[5].textContent="TikTok live creator profile, Oct 10 · lifetime playback totals · Metricool prior-day history awaiting backfill";
-  }
-  if(p==="pinterest"){
-    cells[3].textContent=F(value("pinterest","board_pin_inventory"))+" on boards";
-    cells[5].textContent="Pinterest Business Analytics · impressions Sep 10–Oct 10; Pins are current board inventory";
-  }
-  if(p==="facebook"&&record("facebook","native_views")){
-    cells[5].textContent="Meta Business Suite Sep 11–Oct 8 (views) · follower snapshot Oct 10 · post count pending period-qualified import";
-  }
- }
- root.hidden=false;root.replaceChildren();
- const h=document.createElement("div");h.className="social-native-head";
- const heading=document.createElement("h3");heading.textContent=net==="all"?"Native data source coverage":net.charAt(0).toUpperCase()+net.slice(1)+" · verified detail";
- const mark=document.createElement("span");mark.textContent=net==="facebook"?"Sep 11–Oct 8, 2026":net==="pinterest"?"Sep 10–Oct 10, 2026":net==="tiktok"?"Account snapshot Oct 10, 2026":"Separate verified reporting windows";
- h.append(heading,mark);root.append(h);
- const g=document.createElement("div");g.className="social-facts";root.append(g);
- function fact(k,v,sub){
-  if(v==null)return;const box=document.createElement("div");box.className="social-fact";
-  const n=document.createElement("strong");n.textContent=typeof v==="number"?F(v):String(v);
-  const t=document.createElement("small");t.textContent=k;
-  const d=document.createElement("span");d.textContent=sub||"";
-  box.append(n,t,d);g.append(box);
- }
- let disclosure="";
- if(net==="facebook"){
-   fact("Viewers",value("facebook","viewers"),"People, not views");
-   fact("Page visits",value("facebook","page_visits"),"Not website sessions");
-   fact("Interactions",value("facebook","interactions"),"28-day content activity");
-   fact("Net new follows",value("facebook","new_followers"),"28-day reporting period");
-   disclosure="Current Facebook Page followers: 29 as of Oct 10. Meta daily view series is available. The period-qualified total of published posts remains unverified.";
- } else if(net==="pinterest"){
-   fact("Outbound clicks",value("pinterest","outbound_clicks"),"Not Amazon orders");
-   fact("Saves",value("pinterest","saves"),"Reported 30-day value");
-   fact("PIREVO board Pins",value("pinterest","pirevo_board_pins"),"Board inventory");
-   fact("Audience",value("pinterest","total_audience"),"Estimated 30-day people");
-   disclosure="Pinterest 98 impressions (newer 30-day source). Board Pins: 37 PIREVO + 15 AstraLabs. Pinterest profile follower count is not yet reliably loaded. Pinterest outbound clicks and attributed website sessions are distinct.";
- } else if(net==="tiktok"){
-   fact("Lifetime video plays",value("tiktok","visible_video_views_total"),"Sum of visible video counters");
-   fact("Current followers",value("tiktok","followers"),"Profile total");
-   fact("Visible videos",value("tiktok","visible_videos"),"Current inventory");
-   fact("Profile likes",value("tiktok","likes"),"Not a period count");
-   disclosure="2,833 plays are accumulated on 23 visible videos, NOT views gained in the last 30 days. Metricool started on Oct 10 and has not backfilled 7/30-day data.";
- } else if(net==="all"){
-   fact("Facebook views",value("facebook","native_views"),"28 days ending Oct 8");
-   fact("Pinterest impressions",value("pinterest","native_views"),"30 days ending Oct 10");
-   fact("TikTok visible video plays",value("tiktok","visible_video_views_total"),"Lifetime counts");
-   fact("Connected accounts","6 / 6","Reporting dates differ");
-   disclosure="These source figures are intentionally NOT summed into one audience total. Source-tagged PIREVO traffic, retailer orders and commission records are separate.";
- }else{
-   fact("Followers",value(net,"followers"),"Provider account metric");
-   fact("Published posts",value(net,"published_posts"),"Provider reporting period");
-   disclosure="Metricool connected. Check exact source date and period before comparing against another platform.";
- }
- const paragraph=document.createElement("p");paragraph.className="note";paragraph.textContent=disclosure;root.append(paragraph);
- if(net==="facebook"){
-  const daily=(state.socialMetrics?.daily||[]).filter(x=>x.network==="facebook"&&x.metric==="views").sort((a,b)=>String(a.day).localeCompare(String(b.day)));
-  if(daily.length){
-   const plot=document.getElementById("socialChart");plot.replaceChildren();
-   const subtitle=document.createElement("p");subtitle.className="social-plot-label";subtitle.textContent="Meta Business Suite · "+daily.length+" days · "+F(daily.reduce((a,b)=>a+Number(b.metric_value),0))+" Facebook views";
-   const bars=document.createElement("div");bars.className="social-daily-bars";
-   const max=Math.max(1,...daily.map(x=>Number(x.metric_value)));
-   bars.setAttribute("role","img");bars.setAttribute("aria-label","Daily Facebook views from "+daily[0].day+" to "+daily.at(-1).day);
-   for(const d of daily){const bar=document.createElement("div");bar.className="social-daily-bar";bar.title=d.day+": "+F(d.metric_value)+" views";bar.style.height=Math.max(2,100*Number(d.metric_value)/max)+"%";bars.append(bar)}
-   const axis=document.createElement("div");axis.className="social-daily-axis";
-   const s=document.createElement("span");s.textContent=pretty(daily[0].day);
-   const e=document.createElement("span");e.textContent=pretty(daily.at(-1).day);
-   axis.append(s,e);plot.append(subtitle,bars,axis);
-  }
- }
+const NETWORKS=["tiktok","facebook","youtube","instagram","threads","pinterest"];
+const LABELS={tiktok:"TikTok",facebook:"Facebook",youtube:"YouTube",instagram:"Instagram",threads:"Threads",pinterest:"Pinterest"};
+const formatted=n=>n==null||!Number.isFinite(Number(n))?"—":Number(n).toLocaleString("en-US",{maximumFractionDigits:0});
+const pretty=d=>{if(!d)return "Date unavailable";const v=String(d).slice(0,10),parts=v.split("-");return parts.length===3?parts[1]+"/"+parts[2]+"/"+parts[0]:v};
+function sourceInfo(r){return r?.period_start&&r?.period_end?pretty(r.period_start)+(r.period_start===r.period_end?"":" – "+pretty(r.period_end)):"Source date not available";}
+function dom(name){return document.getElementById(name)}
+function build(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el}
+function canonical(source){
+ const s=String(source||"").toLowerCase().trim();
+ if(/tiktok|tiktok\.com/.test(s))return "tiktok";
+ if(/facebook|(^|[^a-z])fb([^a-z]|$)|fb\.com/.test(s))return "facebook";
+ if(/youtube|youtu\.be/.test(s))return "youtube";
+ if(/instagram|instagr\.am/.test(s))return "instagram";
+ if(/threads|threads\.net/.test(s))return "threads";
+ if(/pinterest|pin\.it/.test(s))return "pinterest";
+ return null;
 }
-window.ASTRA_SOCIAL_NATIVE={render};
+function render(state,helpers){
+ const h=helpers||{},n=NETWORKS.includes(state.social)?state.social:"all";
+ const raw=Array.isArray(state.socialMetrics?.metrics)?state.socialMetrics.metrics:[];
+ const connections=Array.isArray(state.socialMetrics?.sources)?state.socialMetrics.sources:[];
+ const daily=Array.isArray(state.socialMetrics?.daily)?state.socialMetrics.daily:[];
+ const rec=(net,key)=>raw.find(x=>x.network===net&&x.metric===key)||null;
+ const val=(net,key)=>rec(net,key)?.metric_value;
+ const put=(name,v)=>{const e=document.querySelector('[data-v="'+name+'"]');if(e)e.textContent=v};
+ const note=(name,v)=>{const e=document.querySelector('[data-note="'+name+'"]');if(e)e.textContent=v};
+ const label=(name,v)=>{const e=dom(name);if(e)e.textContent=v};
+ const metric=(net)=>net==="tiktok"?rec(net,"visible_video_views_total"):rec(net,"native_views");
+ const content=(net)=>net==="tiktok"?rec(net,"visible_videos"):net==="pinterest"?rec(net,"board_pin_inventory"):rec(net,"published_posts");
+ const rangeKind=(net)=>net==="tiktok"?"Cumulative public lifetime plays":net==="pinterest"?"Native impressions":net==="facebook"?"Meta native views":"Metricool native views";
+ const contentKind=(net)=>net==="tiktok"?"Visible video inventory":net==="pinterest"?"Pins on boards":"Published in provider period";
+ const coverage=NETWORKS.filter(p=>rec(p,"native_views")!==null).length;
+ const connected=connections.filter(x=>x.connection_status==="connected").length;
+ document.querySelectorAll("[data-social]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.social===n)));
+ const sources=[...(state.base?.traffic_sources||[]),...(state.site?.site_sources||[])];
+ const sessions=NETWORKS.map(p=>({name:LABELS[p],slug:p,value:sources.filter(x=>canonical(x.source)===p).reduce((sum,x)=>sum+(Number(x.sessions)||0),0)}));
+ const siteAvailable=Boolean(state.base||state.site);
+ const selected=n==="all"?sessions:sessions.filter(x=>x.slug===n);
+ put("socialVisits",siteAvailable?formatted(selected.reduce((sum,r)=>sum+r.value,0)):"—");
+ note("socialReferrals",siteAvailable?"First-party website sessions · website period selector applies":"Website referral sources unavailable");
+ if(n==="all"){
+  put("socialNative","—");
+  note("socialNativeStatus",coverage+"/6 dated platform views sources; choose a channel to avoid mixing periods");
+  const followerSources=NETWORKS.filter(p=>rec(p,"followers"));
+  put("socialFollowers",followerSources.length?formatted(followerSources.reduce((sum,p)=>sum+Number(val(p,"followers")),0)):"—");
+  note("socialFollowersStatus",followerSources.length+"/6 account totals summed, NOT unique audience");
+  put("socialPosts","—");note("socialPostsStatus","Choose a channel · period posts and cumulative inventory differ");
+ }else{
+  const view=metric(n),follow=rec(n,"followers"),published=content(n);
+  put("socialNative",view?formatted(view.metric_value):"—");
+  note("socialNativeStatus",view?rangeKind(n)+" · "+sourceInfo(view):"No verified view metric from this platform");
+  put("socialFollowers",follow?formatted(follow.metric_value):"—");
+  note("socialFollowersStatus",follow?"Account total as of "+sourceInfo(follow):"Follower data not available");
+  put("socialPosts",published?formatted(published.metric_value):"—");
+  note("socialPostsStatus",published?contentKind(n)+" · "+sourceInfo(published):"Period-qualified published count unavailable");
+ }
+ label("socialViewsLabel",n==="tiktok"?"Visible-video lifetime plays":n==="pinterest"?"Pin impressions":n==="facebook"?"Facebook views":"Native impressions / views");
+ label("socialPostsLabel",n==="tiktok"?"Visible videos":n==="pinterest"?"Pins on boards":"Published posts");
+ label("socialNativeSourceBadge",state.socialMetrics?
+   connected+"/6 connected · "+coverage+"/6 dated views sources · TikTok lifetime counts separate":
+   "Social source unavailable · last verified data not loaded");
+ if(typeof h.barList==="function")h.barList("socialSources",selected,"No attributed website sessions from the selected channel during the website date range.");
+ else {
+  const area=dom("socialSources");if(area)area.replaceChildren(build("div","empty","Website-referral breakdown unavailable"));
+ }
+ const chart=dom("socialChart");
+ const points=daily.filter(x=>x.network===n&&x.metric==="views"&&Number.isFinite(Number(x.metric_value))).sort((a,b)=>String(a.day).localeCompare(String(b.day)));
+ if(n!=="all"&&points.length){
+  chart.replaceChildren();
+  const interval=build("p","social-plot-label",LABELS[n]+" native daily views · "+pretty(points[0].day)+" – "+pretty(points[points.length-1].day)+" · historical provider dates");
+  const bars=build("div","social-daily-bars");
+  bars.setAttribute("role","img");
+  bars.setAttribute("aria-label",LABELS[n]+" daily view counts from "+pretty(points[0].day)+" to "+pretty(points[points.length-1].day));
+  const max=Math.max(1,...points.map(x=>Number(x.metric_value)));
+  points.forEach(x=>{const bar=build("div","social-daily-bar");bar.style.height=Math.max(2,100*Number(x.metric_value)/max)+"%";bar.title=pretty(x.day)+": "+formatted(x.metric_value)+" views";bars.append(bar)});
+  const axis=build("div","social-daily-axis");
+  axis.append(build("span","",pretty(points[0].day)),build("span","",pretty(points[points.length-1].day)));
+  chart.append(interval,bars,axis);
+ }else if(n==="all"&&typeof h.chart==="function"){
+  h.chart("socialChart",[{key:"pirevo_social_sessions",name:"PIREVO social referrals",color:"#006241"},{key:"site_social_sessions",name:"AstraLabs social referrals",color:"#7BB8A2"}],
+   {title:"Verified first-party website social referrals by day (not native reach)",
+   empty:"No recorded social website sessions in this website reporting period. Native platform exposure is shown separately below."});
+ }else if(chart){
+  const r=metric(n);
+  chart.replaceChildren(build("div","empty",
+   r?LABELS[n]+" "+rangeKind(n).toLowerCase()+" are recorded for "+sourceInfo(r)+
+      ", but native DAILY history has not been imported. No invented bar chart.": 
+     LABELS[n]+" account connected; native daily views are not yet available. Website referrals are separate."));
+ }
+ const tableRows=(n==="all"?NETWORKS:[n]).map(net=>({net,view:metric(net),followers:rec(net,"followers"),published:content(net),referral:sessions.find(x=>x.slug===net)?.value||0}));
+ if(typeof h.rows==="function")h.rows("socialRows",tableRows,[
+  r=>LABELS[r.net],
+  r=>r.view?formatted(r.view.metric_value)+(r.net==="tiktok"?" (lifetime)":""):"—",
+  r=>r.followers?formatted(r.followers.metric_value):"—",
+  r=>r.published?formatted(r.published.metric_value)+(r.net==="pinterest"?" on boards":r.net==="tiktok"?" visible":""):"—",
+  r=>siteAvailable?formatted(r.referral):"—",
+  r=>r.view?rangeKind(r.net)+" · "+r.view.source_name+" · "+sourceInfo(r.view):
+   r.followers?"Profile account snapshot · "+r.followers.source_name+" · "+sourceInfo(r.followers):
+   connections.find(x=>x.network===r.net)?.connection_status==="connected"?"Connected; verifiable historical metrics pending":"No verified source"
+ ]);
+ const detail=dom("socialNativeDetails");if(!detail)return;
+ detail.hidden=false;detail.replaceChildren();
+ const head=build("div","social-native-head");
+ head.append(build("h3","",n==="all"?"Cross-platform reporting scope":LABELS[n]+" · verified data"),
+   build("span","",n==="all"?"Periods vary":sourceInfo(metric(n)||rec(n,"followers")||content(n))));
+ detail.append(head);
+ const grid=build("div","social-facts");
+ detail.append(grid);
+ const add=(name,net,key,scope)=>{const x=rec(net,key);if(!x)return;
+  const box=build("div","social-fact");
+  box.append(build("strong","",formatted(x.metric_value)),build("small","",name),
+   build("span","",scope||sourceInfo(x)));grid.append(box)
+ };
+ let disclaimer="";
+ if(n==="facebook"){
+  add("Unique viewers","facebook","viewers","28-day Meta report");
+  add("Page visits","facebook","page_visits","Not website sessions");
+  add("Interactions","facebook","interactions","Not retailer orders");
+  add("Net new followers","facebook","new_followers","28-day reporting period");
+  disclaimer="Facebook views and unique viewers are separate metrics. Source window Sep 11–Oct 8, 2026. Published-post period count still awaiting verification.";
+ }else if(n==="pinterest"){
+  add("Outbound clicks","pinterest","outbound_clicks","Not Amazon orders");
+  add("Saves","pinterest","saves","30-day native report");
+  add("PIREVO Pins","pinterest","pirevo_board_pins","Current board inventory");
+  add("Audience","pinterest","total_audience","Provider estimate");
+  disclaimer="Pinterest impressions cover the Created Pins report, not unique viewers. Board inventory is not the count published this month. Pinterest followers are not verified.";
+ }else if(n==="tiktok"){
+  add("Current followers","tiktok","followers","Profile count");
+  add("Profile likes","tiktok","likes","Lifetime public profile count");
+  add("Visible videos","tiktok","visible_videos","Current inventory");
+  add("Lifetime visible-video plays","tiktok","visible_video_views_total","Cumulative, NOT last 30 days");
+  disclaimer="TikTok public video play totals are historical accumulated counters, NOT current-month gains. Metricool hasn't backfilled dated videos yet.";
+ }else if(n==="all"){
+  add("Facebook views","facebook","native_views","28-day period");
+  add("Pinterest impressions","pinterest","native_views","30-day period");
+  add("TikTok lifetime plays","tiktok","visible_video_views_total","Cumulative video counters");
+  const box=build("div","social-fact");
+  box.append(build("strong","",connected+"/6"),build("small","","Linked social accounts"),build("span","","Native metrics have different windows"));
+  grid.append(box);
+  disclaimer="Dated Facebook views, Pinterest impressions and lifetime TikTok plays are deliberately NOT summed. Clicks from the platforms, website sessions and Amazon checkouts are different funnel stages.";
+ }else{
+  add("Followers",n,"followers","Provider snapshot");add("Posts in reporting window",n,"published_posts","Metricool reporting period");
+  disclaimer="Source-backed metrics for "+LABELS[n]+". The website period selector controls first-party referrals; it does not change native provider snapshot dates.";
+ }
+ detail.append(build("p","note",disclaimer));
+}
+window.ASTRA_SOCIAL_NATIVE=Object.freeze({render});
 })();

@@ -4,3 +4,9 @@
 .social-plot-label{font-size:11px;color:#567761;margin:5px 0 12px}.social-daily-bars{display:flex;align-items:flex-end;gap:3px;height:180px;padding:7px 4px 0;border-bottom:1px solid #c0d6c5;background:linear-gradient(#fff,#f5faf5);border-radius:5px}.social-daily-bar{flex:1;min-width:3px;background:#006241;border-radius:3px 3px 0 0}.social-daily-bar:hover{opacity:.65}.social-daily-axis{display:flex;justify-content:space-between;color:#6f8273;font-size:10px;margin-top:7px}
 @media(max-width:850px){.social-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){.social-daily-bars{height:130px;gap:2px}.social-fact strong{font-size:20px}}
+
+/* Keep scope qualifiers legible beside the channel metrics. */
+#pane-socials [data-note="socialNativeStatus"],
+#pane-socials [data-note="socialPostsStatus"],
+#pane-socials [data-note="socialFollowersStatus"]{line-height:1.4}
+#pane-socials .social-native-details[hidden]{display:none}
