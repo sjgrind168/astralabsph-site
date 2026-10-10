@@ -1,14 +1,28 @@
 {
-  "generated_at_utc": "2026-10-09T18:23:05.478381+00:00",
+  "generated_at_utc": "2026-10-10T05:57:39.942367+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 3,
-  "pirevo_scheduled_before": 3,
+  "scheduled_total_before": 1,
+  "pirevo_scheduled_before": 1,
   "unused_before": 38,
-  "capacity": 0,
-  "created": [],
+  "capacity": 2,
+  "created": [
+    {
+      "pin_id": "aiseno-stakes-h3",
+      "buffer_id": "6ac9d3d4c4de2d2b12186971",
+      "dueAt": "2026-10-10T08:10:00.000Z"
+    },
+    {
+      "pin_id": "ninja-possiblecooker-w2",
+      "buffer_id": "6ac9d3d5c4de2d2b1218699a",
+      "dueAt": "2026-10-10T11:40:00.000Z"
+    }
+  ],
   "rotation": {
     "recent_products_excluded": 8,
-    "eligible_selected": [],
+    "eligible_selected": [
+      "aiseno-stakes-h3",
+      "ninja-possiblecooker-w2"
+    ],
     "waves": [
       "halloween",
       "evergreen",
