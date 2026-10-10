@@ -13,7 +13,7 @@ assert.doesNotMatch(socialSource,/window\.location\.reload/);
 assert.match(socialSource,/state\.socialMetrics\?\.daily/);
 assert.match(socialSource,/visible_video_views_total/);
 assert.match(socialSource,/board_pin_inventory/);
-assert.match(socialSource,/metric_unit/);
+assert.match(socialSource,/rangeKind/);
 assert.match(socialSource,/NOT last 30 days/);
 assert.match(socialSource,/dataset\.social===n/);
 assert.match(socialSource,/chart\.replaceChildren\(build\("div","empty"/);
