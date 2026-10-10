@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials","rep
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":"≈"+new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
@@ -360,16 +360,40 @@ function renderPirevo(){
  note("searchConsole",gsc.captured_at?"GSC report through "+datePretty(gsc.window_end):"Search Console report not imported");
 }
 function renderDigital(){
+ const report=state.kdpSync?.sync||null;
+ const imported=state.platforms?.metrics?.some(x=>x.provider==="kdp"&&x.metric==="book_units")||false;
+ const synced=!!report?.last_success_at;
+ const royalties=m("kdp","royalties_usd");
+ const processed=m("kdp","book_units");
  set("digitalBookClicks",fm(total("book_clicks")));
  set("publishedTitles","1");
- set("digitalRoyalty",usd(m("kdp","royalties_usd")));
- const kdpConnected=!!metric("kdp","royalties_usd")||!!metric("kdp","book_units");
- id("kdpSourceStatus").textContent=kdpConnected?"KDP imported report · "+sourcePeriod("kdp","royalties_usd"):"Not connected to KDP Reports";
- id("kdpHistoryStatus").textContent=kdpConnected?"Imported snapshot · not a daily trend":"Not connected";
- id("kdpHistoryMessage").textContent=kdpConnected?"KDP sales and royalty snapshots are imported. A dated daily earnings history requires an additional KDP report. Book referrals are not sales.":"No KDP sales report has been imported. This panel is prepared for future KDP reporting, but is not connected to live KDP Analytics. Book referrals are not confirmed sales.";
- id("kdpConnectionNote").firstChild.textContent=kdpConnected?"KDP reporting is based on imported snapshots, not a live KDP API. Royalties are separate from Amazon Associates commissions. ":"KDP is not connected to a live sales feed. To display verified units and royalties, import an authorized KDP Reports export. Missing earnings remain —, not $0. KDP royalties are separate from Amazon Associates commissions. ";
- set("digitalUnits",fm(m("kdp","book_units")));
- chart("digitalChart",[{key:"book_clicks",name:"Book referrals"}],{title:"Daily PIREVO book referrals"});
+ set("digitalRoyalty",usd(royalties));
+ set("digitalUnits",fm(processed));
+ id("kdpLastSynced").textContent=synced?new Date(report.last_success_at).toLocaleString("en-PH",{dateStyle:"medium",timeStyle:"short",timeZone:"Asia/Manila"})+" PHT":"Awaiting first verified check";
+ id("kdpVerifiedPeriod").textContent=report?.report_period_start&&report.report_period_end
+  ?datePretty(report.report_period_start)+" – "+datePretty(report.report_period_end):"Awaiting KDP report";
+ const badge=id("kdpSyncBadge");
+ const status=report?.status||"pending";
+ badge.textContent=status==="success"?"Synced":status==="partial"?"Orders synced · royalties pending":status==="authentication_required"?"Sign-in required":status==="source_unavailable"?"Source unavailable":"Awaiting sync";
+ badge.dataset.syncStatus=status;
+ const stale=report?.last_success_at&&(Date.now()-Date.parse(report.last_success_at)>36*60*60*1000);
+ let message="";
+ if(status==="authentication_required")message="KDP session expired. Sign back in at KDP Reports to resume authorized checks. Last verified values remain dated.";
+ else if(status==="source_unavailable")message="KDP reporting could not be read. Source unavailable; previously imported figures are historical, not live.";
+ else if(synced)message="Imported from authenticated KDP Reports. "+(report.data_note||"")+" "+(stale?"Last successful import is over 36 hours old. Please refresh authorization/check schedule.":"Latest import recorded. Further updates depend on scheduled browser access.");
+ else message="KDP sync is prepared, but no verified sales report has been captured.";
+ id("kdpSyncMessage").textContent=message;
+ id("kdpSourceStatus").textContent=imported?sourcePeriod("kdp","book_units"):"Awaiting verified processed units";
+ id("kdpHistoryStatus").textContent=imported?"Source-backed imports":"No imports";
+ id("kdpHistoryMessage").textContent=synced
+  ?"KDP processed orders are documented per report period. Estimated royalties remain unavailable until imported from a royalty-specific report."
+  :"No verified KDP report imported. Book referrals are not confirmed sales.";
+ const history=state.kdpSync?.recent_snapshots||[];
+ rows("kdpSyncRows",history,[r=>datePretty(r.report_period_start)+" – "+datePretty(r.report_period_end),
+  r=>r.report_name||"KDP report",r=>fm(r.units),r=>r.royalties_usd==null?"—":usd(r.royalties_usd),
+  r=>r.checked_at?new Date(r.checked_at).toLocaleDateString("en-PH",{timeZone:"Asia/Manila"}):"—"]);
+ id("kdpConnectionNote").firstChild.textContent="KDP source: authenticated report snapshots, not a live public API. Missing royalties remain —, not $0. Book referrals do not equal sales. KDP royalties are separate from Amazon Associates commissions. ";
+ chart("digitalChart",[{key:"book_clicks",name:"Book referrals"}],{title:"Daily PIREVO book referrals (not KDP sales)"});
 }
 function renderWebsite(){
  const s=state.site?.astralabs||{};
@@ -429,12 +453,13 @@ async function load(){
  ["amazon",rpc("pirevo_amazon_earnings_snapshot",{p_token:token})],
  ["daily",rpc("astralabs_portfolio_daily_v2",{p_days:days,p_token:token})],
  ["trendPerformance",rpc("pirevo_trend_product_performance",{p_days:days,p_token:token})],
+ ["kdpSync",rpc("pirevo_kdp_sync_snapshot",{p_token:token})],
  ["previous",state.compare?rpc("astralabs_portfolio_daily_range_v2",{p_days:days,p_token:token,p_shift_days:days}):Promise.resolve(null)]
  ];
  const settled=await Promise.allSettled(requests.map(x=>x[1]));
  if(n!==state.seq)return;
  let successful=0;
- settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance")successful++});
+ settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync")successful++});
  renderAll();
  id("refresh").disabled=false;
  id("sourceHealth").textContent=successful+"/5 reporting sources accessible";

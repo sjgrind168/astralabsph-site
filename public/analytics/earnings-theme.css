@@ -6,3 +6,13 @@
 #pane-reports .card [data-earning="true"][data-amount-present="true"]{
  color:#006241!important;
 }
+
+/* KDP reporting source health: no false live-feed or sales claims. */
+.kdp-sync-panel{margin:14px 0 17px}
+.kdp-sync-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.kdp-sync-cols>div{padding:12px;border-radius:9px;border:1px solid #e5ece5;background:#f8fbf8;min-width:0}
+.kdp-sync-cols small{font-size:10px;color:#748675;display:block;margin-bottom:5px}
+.kdp-sync-cols strong{display:block;color:#214b34;font-size:12px;overflow-wrap:anywhere}
+.kdp-sync-badge{font-size:10px;color:#477058;font-weight:800;padding:6px 10px;background:#eaf4eb;border-radius:999px}
+.kdp-sync-badge[data-sync-status="authentication_required"],.kdp-sync-badge[data-sync-status="source_unavailable"]{background:#fff3e0;color:#8c5c18}
+@media(max-width:700px){.kdp-sync-cols{grid-template-columns:1fr}}
