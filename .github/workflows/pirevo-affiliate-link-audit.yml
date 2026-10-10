@@ -1,0 +1,26 @@
+name: PIREVO Amazon Affiliate Link Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/pirevo/**'
+      - 'tests/pirevo-affiliate-links.cjs'
+      - '.github/workflows/pirevo-affiliate-link-audit.yml'
+  pull_request:
+    paths:
+      - 'public/pirevo/**'
+      - 'tests/pirevo-affiliate-links.cjs'
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check catalog, tag consistency, guide builders and static links
+        run: node tests/pirevo-affiliate-links.cjs
