@@ -18,7 +18,7 @@ const isBag = title=>/\b(bag|tote|pouch|sling|backpack|wallet|handbag|crossbody)
 const isJewelry = title=>/\b(earrings?|bracelets?|rings?|necklaces?|pendants?|rosary|anklets?|scapular|bangle|charms?)\b/i.test(title);
 function groupOf(p){
   const c=label(p.category).toLowerCase(),t=label(p.title);
-  if(isBag(t))return 'Bags';
+  if(c==='bags'||isBag(t))return 'Bags';
   if(c==='fashion' && isJewelry(t))return 'Jewelry';
   if(c==='fashion' && /\b(lip tint|makeup|beauty|cosmetic)\b/i.test(t))return 'Accessories';
   if(['rings','necklaces','earrings','bracelets','jewelry'].includes(c))return 'Jewelry';
@@ -128,7 +128,7 @@ function placeCategoryImage(imgId,p){
 }
 function setupFeatureImages(){
   const dress=sampleBy('Fashion',['mustard & ivory pleated dress','wide-leg pants','hoodie','jeans']);
-  const bag=sampleBy('Bags',['mini l','3-way','leather']);
+  const bag=sampleBy('Bags',['woven pu leather','quilted pu leather','bowling','mini pouch','3-way','leather']);
   const jewelry=sampleBy('Jewelry',['paperclip necklace','mesh bracelet','ring']);
   setHeroImage('heroPrimaryImage','heroPrimary',dress||jewelry);
   setHeroImage('heroSecondaryImage','heroSecondary',bag||jewelry);
@@ -173,7 +173,7 @@ function openProduct(id,{push=true}={}){
   const link=safeShopee(p.url);
   $('detailShopee').href=link||'#';
   $('detailShopee').hidden=!link;
-  text($('detailVariants'),'');
+  text($('detailVariants'),Array.isArray(p.variants)&&p.variants.length?'Options in latest seller export: '+p.variants.map(v=>v.name).join(' · ')+' (confirm current options on Shopee)':'');
   scrim.hidden=false;detailDialog.hidden=false;document.body.classList.add('locked');
   showPhoto();detailDialog.scrollTop=0;
   if(push)updateShareUrl(p.id);
@@ -227,6 +227,10 @@ function bind(){
   $('mobileMenu').querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   $('closeDialog').addEventListener('click',()=>closeProduct());scrim.addEventListener('click',()=>closeProduct());
   $('prevImage').addEventListener('click',()=>changePhoto(-1));$('nextImage').addEventListener('click',()=>changePhoto(1));
+  $('backToMerchlab').addEventListener('click',()=>{closeProduct();$('catalog').scrollIntoView({behavior:'smooth'});});
+  $('detailShopee').addEventListener('click',()=>{$('shopeeReturn').hidden=false;});
+  $('dismissReturn').addEventListener('click',()=>{$('shopeeReturn').hidden=true;});
+  $('returnCatalog').addEventListener('click',()=>{$('shopeeReturn').hidden=true;closeProduct();});
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){if(!detailDialog.hidden)closeProduct();else closeMenu();return;}
     if(!detailDialog.hidden){

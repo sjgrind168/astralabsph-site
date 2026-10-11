@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-11",
+  "sources": {
+    "basic": "mass_update_basic_info_80730266_20261011174445.xlsx",
+    "sales": "mass_update_sales_info_80730266_20261011174500.xlsx",
+    "media": "mass_update_media_info_80730266_20261011174522.xlsx"
+  },
+  "totalProducts": 305,
+  "totalVariants": 369,
+  "added": 16,
+  "removed": 1,
+  "addedIDs": [
+    "44568978723",
+    "44768744537",
+    "49168712835",
+    "52218718352",
+    "52368962667",
+    "52556946243",
+    "53055770123",
+    "53255934050",
+    "53556943137",
+    "53768651679",
+    "54718692619",
+    "55318747820",
+    "56918931298",
+    "57018773494",
+    "58056934433",
+    "58159598200"
+  ],
+  "noLongerInExportIDs": [
+    "28244693035"
+  ],
+  "catalogStockZeroCount": 14,
+  "categories": {
+    "Bags": 8,
+    "Fashion": 22,
+    "Earrings": 91,
+    "Bracelets": 48,
+    "Accessories": 20,
+    "Necklaces": 82,
+    "Rings": 34
+  }
+}

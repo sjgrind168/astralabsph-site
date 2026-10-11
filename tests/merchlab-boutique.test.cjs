@@ -7,9 +7,9 @@ const publicDir=path.join(base,'public','merchlab');
 const dist=path.join(base,'dist','merchlab');
 const all=Array.from({length:8},(_,i)=>JSON.parse(fs.readFileSync(path.join(publicDir,'products-'+(i+1)+'.json'),'utf8'))).flat();
 
-test('MerchLab retains all 290 unique source catalog IDs',()=>{
-  assert.equal(all.length,290);
-  assert.equal(new Set(all.map(p=>String(p.id))).size,290);
+test('MerchLab retains all 305 unique source catalog IDs from seller export',()=>{
+  assert.equal(all.length,305);
+  assert.equal(new Set(all.map(p=>String(p.id))).size,305);
 });
 test('every catalog item retains a product-specific Shopee PH URL',()=>{
   for(const p of all){
@@ -33,7 +33,7 @@ test('postbuild generates exact-item canonical pages and preserves existing site
   const sitemap=fs.readFileSync(path.join(base,'dist','sitemap.xml'),'utf8');
   const merchlabSitemap=fs.readFileSync(path.join(dist,'sitemap.xml'),'utf8');
   assert.match(sitemap,/https:\/\/www\.astralabsph\.com\/pirevo\//);
-  assert.equal((merchlabSitemap.match(/<loc>/g)||[]).length,295);
+  assert.equal((merchlabSitemap.match(/<loc>/g)||[]).length,310);
   for(const p of all){
     const page=fs.readFileSync(path.join(dist,'p',String(p.id),'index.html'),'utf8');
     assert.ok(page.includes(p.url.replaceAll('&','&amp;')),'Shopee link missing on '+p.id);
@@ -43,4 +43,22 @@ test('postbuild generates exact-item canonical pages and preserves existing site
   }
   for(const cat of ['fashion','bags','jewelry','accessories'])
     assert.ok(fs.existsSync(path.join(dist,'c',cat,'index.html')));
+});
+
+test('official icon, safe external Shopee links and return path are shipped',()=>{
+  const logo=path.join(publicDir,'merchlab-official-icon.webp');
+  assert.ok(fs.existsSync(logo));
+  assert.ok(fs.statSync(logo).size>1500);
+  const html=fs.readFileSync(path.join(publicDir,'index.html'),'utf8');
+  assert.match(html,/merchlab-official-icon\.webp/);
+  assert.match(html,/id="backToMerchlab"/);
+  assert.match(html,/id="shopeeReturn"/);
+  const js=fs.readFileSync(path.join(publicDir,'merchlab.js'),'utf8');
+  assert.match(js,/\$\('detailShopee'\)\.addEventListener/);
+  assert.equal(all.find(p=>p.id==='57918501585').priceMin,899);
+  assert.ok(all.find(p=>p.id==='52218718352'));
+  assert.ok(!all.find(p=>p.id==='28244693035'));
+  const generated=fs.readFileSync(path.join(dist,'p','57918501585','index.html'),'utf8');
+  assert.match(generated,/target="_blank" rel="noopener noreferrer"/);
+  assert.match(generated,/Return to MerchLab products/);
 });
