@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "product": "RuseShield Security Data",
+  "channel": "global-phishing",
+  "version": "phishtank-20261011-010244Z-7fc37726001f",
+  "generatedAt": "2026-10-11T01:02:44.988Z",
+  "expiresAt": "2026-10-12T03:02:44.988Z",
+  "recordCount": 67808,
+  "threatUrlHashAlgorithm": "sha256-canonical-url-v1",
+  "packUrl": "https://raw.githubusercontent.com/sjgrind168/astralabsph-site/ruseshield-security-data/phishtank-global-v1.json?v=97373ebe5d458ffe",
+  "signatureUrl": "https://raw.githubusercontent.com/sjgrind168/astralabsph-site/ruseshield-security-data/phishtank-global-v1.sig.json?v=1e2c906e27092a58",
+  "sha256": "97373ebe5d458ffead9c61024786fc0668cc43139596f0d5a6903d9e5c0ff44d",
+  "sizeBytes": 4883131,
+  "signatureAlgorithm": "Ed25519",
+  "keyId": "rs-ed25519-039059e0434e8d46",
+  "minimumAppVersion": "0.4.1",
+  "source": {
+    "name": "PhishTank",
+    "verifiedOnly": true,
+    "onlineOnly": true,
+    "sourceEtag": "\"7fc37726001faedba475787fdc6f0b34\"",
+    "sourceLastModified": "Sun, 11 Oct 2026 00:22:33 GMT"
+  },
+  "privacy": "This manifest and pack contain public threat fingerprints only. RuseShield user scan content is never uploaded by this updater."
+}
