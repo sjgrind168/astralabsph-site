@@ -1,33 +1,27 @@
 {
-  "generated_at_utc": "2026-10-10T13:46:56.596113+00:00",
+  "generated_at_utc": "2026-10-11T05:53:03.029397+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 0,
-  "pirevo_scheduled_before": 0,
-  "unused_before": 36,
-  "capacity": 3,
+  "scheduled_total_before": 1,
+  "pirevo_scheduled_before": 1,
+  "unused_before": 33,
+  "capacity": 2,
   "created": [
     {
-      "pin_id": "goosh-puppy-h3",
-      "buffer_id": "6aca41d1f91f772d4595afb3",
-      "dueAt": "2026-10-11T02:00:00.000Z"
+      "pin_id": "goothy-path-h3",
+      "buffer_id": "6acb2441b07d37ac979827e6",
+      "dueAt": "2026-10-11T08:10:00.000Z"
     },
     {
-      "pin_id": "astercook-knives-w2",
-      "buffer_id": "6aca41d2c4de2d2b122b9447",
-      "dueAt": "2026-10-11T03:10:00.000Z"
-    },
-    {
-      "pin_id": "xmas-window-candles-w4",
-      "buffer_id": "6aca41d3bba9419ccb03b413",
-      "dueAt": "2026-10-11T06:40:00.000Z"
+      "pin_id": "vtopmart-drawer-w2",
+      "buffer_id": "6acb2442bba9419ccb26db2d",
+      "dueAt": "2026-10-11T11:40:00.000Z"
     }
   ],
   "rotation": {
     "recent_products_excluded": 9,
     "eligible_selected": [
-      "goosh-puppy-h3",
-      "astercook-knives-w2",
-      "xmas-window-candles-w4"
+      "goothy-path-h3",
+      "vtopmart-drawer-w2"
     ],
     "waves": [
       "halloween",
