@@ -1,0 +1,46 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const base=path.resolve(__dirname,'..');
+const publicDir=path.join(base,'public','merchlab');
+const dist=path.join(base,'dist','merchlab');
+const all=Array.from({length:8},(_,i)=>JSON.parse(fs.readFileSync(path.join(publicDir,'products-'+(i+1)+'.json'),'utf8'))).flat();
+
+test('MerchLab retains all 290 unique source catalog IDs',()=>{
+  assert.equal(all.length,290);
+  assert.equal(new Set(all.map(p=>String(p.id))).size,290);
+});
+test('every catalog item retains a product-specific Shopee PH URL',()=>{
+  for(const p of all){
+    const u=new URL(p.url);
+    assert.equal(u.hostname,'shopee.ph');
+    assert.match(u.pathname,/^\/product\/\d+\/\d+$/);
+    assert.equal(u.pathname.split('/').at(-1),String(p.id));
+    assert.ok(p.cover||p.images?.length);
+  }
+});
+test('redesigned homepage loads all eight existing catalog files',()=>{
+  const html=fs.readFileSync(path.join(publicDir,'index.html'),'utf8');
+  const js=fs.readFileSync(path.join(publicDir,'merchlab.js'),'utf8');
+  for(const id of ['catalog','productDialog','mobileMenu','searchInput','how-to-order','contact'])assert.match(html,new RegExp('id="'+id+'"'));
+  assert.match(js,/Array\.from\(\{length:8\}/);
+  assert.match(html,/merchlab\.css/);
+  assert.match(html,/merchlab\.js/);
+  assert.doesNotMatch(html,/data:image\/webp;base64/);
+});
+test('postbuild generates exact-item canonical pages and preserves existing sitemap entries',()=>{
+  const sitemap=fs.readFileSync(path.join(base,'dist','sitemap.xml'),'utf8');
+  const merchlabSitemap=fs.readFileSync(path.join(dist,'sitemap.xml'),'utf8');
+  assert.match(sitemap,/https:\/\/www\.astralabsph\.com\/pirevo\//);
+  assert.equal((merchlabSitemap.match(/<loc>/g)||[]).length,295);
+  for(const p of all){
+    const page=fs.readFileSync(path.join(dist,'p',String(p.id),'index.html'),'utf8');
+    assert.ok(page.includes(p.url.replaceAll('&','&amp;')),'Shopee link missing on '+p.id);
+    assert.ok(page.includes('rel="canonical"'));
+    assert.ok(page.includes('application/ld+json'));
+    assert.ok(page.includes('Recorded catalog price')||page.includes('View current price on Shopee'));
+  }
+  for(const cat of ['fashion','bags','jewelry','accessories'])
+    assert.ok(fs.existsSync(path.join(dist,'c',cat,'index.html')));
+});
