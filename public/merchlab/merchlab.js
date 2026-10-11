@@ -61,7 +61,10 @@ function makeCard(p){
   else price.textContent='See current price on Shopee';
   const action=document.createElement('a');action.href='/merchlab/p/'+encodeURIComponent(String(p.id))+'/';action.className='product-view';action.textContent='View full details ';
   const arrow=document.createElement('span');arrow.textContent='↗';action.append(arrow);
-  card.append(button,meta,h,price,action);
+  const add=document.createElement('button');add.type='button';add.className='product-add-bag';add.textContent='+ Add to Bag';add.setAttribute('aria-label','Add '+label(p.title)+' to shopping bag');
+  add.addEventListener('click',()=>window.MerchLabCart?.add(String(p.id)));
+  if(!(Number(p.stock)>0)){add.disabled=true;add.textContent='Unavailable in catalog';}
+  card.append(button,meta,h,price,action,add);
   return card;
 }
 function displayOrder(products){
@@ -171,6 +174,8 @@ function openProduct(id,{push=true}={}){
   text($('detailPrice'),catalogPrice(p)||'See current price on Shopee');
   text($('detailDescription'),String(p.description||'Check the full product listing for current details and options.'));
   const link=safeShopee(p.url);
+  $('detailAddToBag').disabled=!(Number(p.stock)>0);
+  $('detailAddToBag').textContent=Number(p.stock)>0?'+ Add to Bag':'Unavailable in catalog';
   $('detailShopee').href=link||'#';
   $('detailShopee').hidden=!link;
   text($('detailVariants'),Array.isArray(p.variants)&&p.variants.length?'Options in latest seller export: '+p.variants.map(v=>v.name).join(' · ')+' (confirm current options on Shopee)':'');
@@ -216,7 +221,7 @@ function bind(){
   document.querySelectorAll('[data-category-card]').forEach(b=>b.addEventListener('click',()=>selectCategory(b.dataset.categoryCard)));
   document.querySelectorAll('[data-scroll-category]').forEach(b=>b.addEventListener('click',()=>selectCategory(b.dataset.scrollCategory,{scroll:false})));
   $('searchTrigger').addEventListener('click',()=>{$('catalog').scrollIntoView({behavior:'smooth'});setTimeout(()=>$('searchInput').focus(),250);});
-  $('shopTrigger').addEventListener('click',()=>selectCategory('All'));
+  $('shopTrigger').addEventListener('click',()=>window.MerchLabCart?.open());
   $('searchInput').addEventListener('input',e=>{state.search=e.target.value;state.visible=24;renderCatalog()});
   $('sortSelect').addEventListener('change',e=>{state.sort=e.target.value;state.visible=24;renderCatalog()});
   $('availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.checked;state.visible=24;renderCatalog()});
@@ -227,6 +232,7 @@ function bind(){
   $('mobileMenu').querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   $('closeDialog').addEventListener('click',()=>closeProduct());scrim.addEventListener('click',()=>closeProduct());
   $('prevImage').addEventListener('click',()=>changePhoto(-1));$('nextImage').addEventListener('click',()=>changePhoto(1));
+  $('detailAddToBag').addEventListener('click',()=>{if(state.active)window.MerchLabCart?.add(String(state.active.id));});
   $('backToMerchlab').addEventListener('click',()=>{closeProduct();$('catalog').scrollIntoView({behavior:'smooth'});});
   $('detailShopee').addEventListener('click',()=>{$('shopeeReturn').hidden=false;});
   $('dismissReturn').addEventListener('click',()=>{$('shopeeReturn').hidden=true;});
@@ -263,6 +269,8 @@ async function init(){
       seen.add(String(p.id));return true;
     });
     state.featured=displayOrder(state.products);
+    window.MerchLabCatalog=state.products;
+    window.MerchLabCart?.registerProducts(state.products);
     setupFeatureImages();renderCatalog();
     const deepLink=new URL(location.href).searchParams.get('item');
     if(deepLink)openProduct(deepLink,{push:false});

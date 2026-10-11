@@ -81,3 +81,35 @@ test('slashless /merchlab URL resolves storefront assets, catalog and item links
     assert.match(generated,/href="\/merchlab\/"/);
   }
 });
+
+test('MerchLab shopping bag uses local browser storage and separate per-item Shopee handoff',()=>{
+  const html=fs.readFileSync(path.join(publicDir,'index.html'),'utf8');
+  const main=fs.readFileSync(path.join(publicDir,'merchlab.js'),'utf8');
+  const cart=fs.readFileSync(path.join(publicDir,'merchlab-cart.js'),'utf8');
+  const css=fs.readFileSync(path.join(publicDir,'merchlab.css'),'utf8');
+  assert.match(html,/id="cartCount"/);
+  assert.match(html,/id="detailAddToBag"/);
+  assert.match(html,/merchlab-cart\.js/);
+  assert.match(main,/product-add-bag/);
+  assert.match(main,/MerchLabCart\?\.registerProducts\(state\.products\)/);
+  assert.match(main,/MerchLabCart\?\.open\(\)/);
+  assert.match(cart,/localStorage\.setItem/);
+  assert.match(cart,/role="dialog"/);
+  assert.match(cart,/one item at a time/);
+  assert.match(cart,/Add to Cart on Shopee|add it to your cart/);
+  assert.match(cart,/target='_blank'/);
+  assert.match(cart,/noopener noreferrer/);
+  assert.match(cart,/Nothing is transferred automatically/);
+  assert.match(css,/#detailShopee\{justify-content:center/);
+  assert.match(css,/\.merchlab-bag\{/);
+});
+
+test('generated MerchLab product and collection pages support the saved shopping bag',()=>{
+  const product=fs.readFileSync(path.join(dist,'p','57918501585','index.html'),'utf8');
+  const collection=fs.readFileSync(path.join(dist,'c','bags','index.html'),'utf8');
+  assert.match(product,/data-merchlab-add="57918501585"/);
+  assert.match(product,/\/merchlab\/merchlab-cart\.js/);
+  assert.match(collection,/data-merchlab-add="/);
+  assert.match(collection,/\/merchlab\/merchlab-cart\.js/);
+  assert.match(collection,/href="\/merchlab\/p\//);
+});
