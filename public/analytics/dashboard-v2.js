@@ -456,4 +456,6 @@ async function load(){
 document.addEventListener("DOMContentLoaded",initialize);
 setInterval(()=>{if(!document.hidden&&state.token)load()},60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&state.token)load()});
+window.addEventListener("focus",()=>{if(!document.hidden&&state.token)load()});
+window.addEventListener("online",()=>{if(!document.hidden&&state.token)load()});
 })();
