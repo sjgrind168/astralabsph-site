@@ -1,27 +1,33 @@
 {
-  "generated_at_utc": "2026-10-11T05:53:03.029397+00:00",
+  "generated_at_utc": "2026-10-11T14:06:06.966227+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 1,
-  "pirevo_scheduled_before": 1,
-  "unused_before": 33,
-  "capacity": 2,
+  "scheduled_total_before": 0,
+  "pirevo_scheduled_before": 0,
+  "unused_before": 31,
+  "capacity": 3,
   "created": [
     {
-      "pin_id": "goothy-path-h3",
-      "buffer_id": "6acb2441b07d37ac979827e6",
-      "dueAt": "2026-10-11T08:10:00.000Z"
+      "pin_id": "denicmic-solar-h3",
+      "buffer_id": "6acb97d0d9cab260a7fd28ce",
+      "dueAt": "2026-10-12T02:00:00.000Z"
     },
     {
-      "pin_id": "vtopmart-drawer-w2",
-      "buffer_id": "6acb2442bba9419ccb26db2d",
-      "dueAt": "2026-10-11T11:40:00.000Z"
+      "pin_id": "airtag-smart-w2",
+      "buffer_id": "6acb97d1d9cab260a7fd28fe",
+      "dueAt": "2026-10-12T03:10:00.000Z"
+    },
+    {
+      "pin_id": "xmas-tree-candles-w4",
+      "buffer_id": "6acb97d2b07d37ac97ab89ba",
+      "dueAt": "2026-10-12T06:40:00.000Z"
     }
   ],
   "rotation": {
     "recent_products_excluded": 9,
     "eligible_selected": [
-      "goothy-path-h3",
-      "vtopmart-drawer-w2"
+      "denicmic-solar-h3",
+      "airtag-smart-w2",
+      "xmas-tree-candles-w4"
     ],
     "waves": [
       "halloween",
