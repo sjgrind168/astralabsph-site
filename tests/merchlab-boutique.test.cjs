@@ -62,3 +62,22 @@ test('official icon, safe external Shopee links and return path are shipped',()=
   assert.match(generated,/target="_blank" rel="noopener noreferrer"/);
   assert.match(generated,/Return to MerchLab products/);
 });
+
+test('slashless /merchlab URL resolves storefront assets, catalog and item links to correct absolute paths',()=>{
+  const html=fs.readFileSync(path.join(publicDir,'index.html'),'utf8');
+  const js=fs.readFileSync(path.join(publicDir,'merchlab.js'),'utf8');
+  const base='https://www.astralabsph.com/merchlab';
+  assert.match(html,/<base href="\/merchlab\/">/);
+  for(const expected of ['/merchlab/merchlab.css','/merchlab/merchlab.js','/merchlab/merchlab-official-icon.webp']){
+    assert.ok(html.includes(expected),'Missing absolute resource '+expected);
+    assert.equal(new URL(expected,base).pathname,expected);
+  }
+  assert.match(js, /'\/merchlab\/products-'/);
+  assert.match(js, /action\.href='\/merchlab\/p\/'/);
+  for(const loc of ['p/57918501585','c/fashion']){
+    const generated=fs.readFileSync(path.join(dist,...loc.split('/'),'index.html'),'utf8');
+    assert.match(generated,/href="\/merchlab\/merchlab.css\?/);
+    assert.match(generated,/src="\/merchlab\/merchlab-official-icon.webp"/);
+    assert.match(generated,/href="\/merchlab\/"/);
+  }
+});

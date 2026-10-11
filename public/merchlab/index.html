@@ -2,6 +2,8 @@
 <html lang="en-PH">
 <head>
   <meta charset="UTF-8">
+  <!-- Stable base URL protects assets and links when shared as /merchlab without a slash. -->
+  <base href="/merchlab/">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f8f5ef">
   <meta name="description" content="Discover MerchLab's curated fashion, bags, jewelry and accessories. Browse real products and complete your order securely on Shopee Philippines.">
@@ -11,17 +13,17 @@
   <meta property="og:description" content="Curated fashion, bags and jewelry with product-specific Shopee Philippines checkout.">
   <meta property="og:url" content="https://www.astralabsph.com/merchlab/">
   <link rel="preconnect" href="https://cf.shopee.ph" crossorigin>
-  <link rel="icon" href="./merchlab-official-icon.webp" type="image/webp">
-  <link rel="stylesheet" href="./merchlab.css">
+  <link rel="icon" href="/merchlab/merchlab-official-icon.webp" type="image/webp">
+  <link rel="stylesheet" href="/merchlab/merchlab.css?v=20261011-slash-fix">
   <title>MerchLab PH | Fashion, Bags & Jewelry | Everyday Style, Elevated</title>
-  <script src="./merchlab.js" defer></script>
+  <script src="/merchlab/merchlab.js?v=20261011-slash-fix" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#catalog">Skip to products</a>
   <div class="announcement"><span>CURATED FOR PHILIPPINE SHOPPERS</span><span class="announcement-sep">✦</span><span>Complete checkout on Shopee Philippines</span></div>
   <header class="site-header" id="top">
     <div class="header-inner container">
-      <a class="brand" href="./" aria-label="MerchLab homepage"><img class="brand-icon" src="./merchlab-official-icon.webp" alt="" width="48" height="48"><span class="brand-word">MerchLab<span class="brand-dot">.</span></span></a>
+      <a class="brand" href="/merchlab/" aria-label="MerchLab homepage"><img class="brand-icon" src="/merchlab/merchlab-official-icon.webp" alt="" width="48" height="48"><span class="brand-word">MerchLab<span class="brand-dot">.</span></span></a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <button class="nav-link is-active" type="button" data-nav="All">Shop all</button>
         <button class="nav-link" type="button" data-nav="Fashion">Fashion</button>
@@ -118,7 +120,7 @@
     </section>
     <section class="feature-note container" id="how-to-order"><div class="feature-note-copy"><p class="section-kicker">SIMPLE, SECURE SHOPPING</p><h2>Find it here.<br><em>Order on Shopee.</em></h2><p>Browse our collection, choose a piece, and open its exact Shopee product listing to check current prices, available options, shipping and payment methods before ordering.</p><a class="button button-dark" href="#catalog">Browse products <span aria-hidden="true">↗</span></a></div><div class="feature-steps"><div><span>01</span><div><h3>Explore</h3><p>Discover your favorites in fashion, bags, jewelry and accessories.</p></div></div><div><span>02</span><div><h3>View details</h3><p>See photos and available catalog information for an item.</p></div></div><div><span>03</span><div><h3>Shop on Shopee PH</h3><p>Confirm the latest item details and complete your purchase on Shopee.</p></div></div></div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div><a class="brand footer-brand" href="#top"><img class="brand-icon" src="./merchlab-official-icon.webp" alt="" width="48" height="48"><span class="brand-word">MerchLab<span class="brand-dot">.</span></span></a><p>Everyday style, elevated.<br>Curated for shoppers in the Philippines.</p></div><div class="footer-menu"><div><strong>SHOP</strong><button type="button" data-nav="Fashion">Fashion</button><button type="button" data-nav="Bags">Bags</button><button type="button" data-nav="Jewelry">Jewelry</button><button type="button" data-nav="Accessories">Accessories</button></div><div id="contact"><strong>CONTACT &amp; SUPPORT</strong><a href="#how-to-order">How to order</a><a href="#catalog">Browse products</a><span>For item questions, open its Shopee listing and use Chat with Seller.</span></div></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> MerchLab PH. An AstraLabs PH storefront.</span><span>Product availability, prices and checkout are handled on Shopee Philippines.</span></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="brand footer-brand" href="#top"><img class="brand-icon" src="/merchlab/merchlab-official-icon.webp" alt="" width="48" height="48"><span class="brand-word">MerchLab<span class="brand-dot">.</span></span></a><p>Everyday style, elevated.<br>Curated for shoppers in the Philippines.</p></div><div class="footer-menu"><div><strong>SHOP</strong><button type="button" data-nav="Fashion">Fashion</button><button type="button" data-nav="Bags">Bags</button><button type="button" data-nav="Jewelry">Jewelry</button><button type="button" data-nav="Accessories">Accessories</button></div><div id="contact"><strong>CONTACT &amp; SUPPORT</strong><a href="#how-to-order">How to order</a><a href="#catalog">Browse products</a><span>For item questions, open its Shopee listing and use Chat with Seller.</span></div></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> MerchLab PH. An AstraLabs PH storefront.</span><span>Product availability, prices and checkout are handled on Shopee Philippines.</span></div></footer>
   <div class="dialog-scrim" id="dialogScrim" hidden></div>
   <section id="productDialog" class="product-dialog" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1" hidden>
     <div class="dialog-top"><span>THE MERCHLAB EDIT / PRODUCT DETAILS</span><button type="button" id="closeDialog" class="icon-button" aria-label="Close product details">×</button></div>

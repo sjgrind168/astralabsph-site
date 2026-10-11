@@ -4,7 +4,7 @@
  * Catalog is read-only: IDs, photo URLs, prices and Shopee links are never altered.
  * All checkout links are product-specific destinations from the existing data.
  */
-const PRODUCT_FILES = Array.from({length:8},(_,i)=>'./products-'+(i+1)+'.json');
+const PRODUCT_FILES = Array.from({length:8},(_,i)=>'/merchlab/products-'+(i+1)+'.json');
 const state = {products:[],featured:[],category:'All',sub:'All',search:'',sort:'default',availableOnly:true,visible:24,active:null,photo:0,returnFocus:null,menuFocus:null};
 const $ = id=>document.getElementById(id);
 const fmt = new Intl.NumberFormat('en-PH',{style:'currency',currency:'PHP',maximumFractionDigits:0});
@@ -59,7 +59,7 @@ function makeCard(p){
   const stored=catalogPrice(p);
   if(stored){price.textContent=stored+' ';const note=document.createElement('span');note.textContent='· catalog price';price.append(note);}
   else price.textContent='See current price on Shopee';
-  const action=document.createElement('a');action.href='./p/'+encodeURIComponent(String(p.id))+'/';action.className='product-view';action.textContent='View full details ';
+  const action=document.createElement('a');action.href='/merchlab/p/'+encodeURIComponent(String(p.id))+'/';action.className='product-view';action.textContent='View full details ';
   const arrow=document.createElement('span');arrow.textContent='↗';action.append(arrow);
   card.append(button,meta,h,price,action);
   return card;
