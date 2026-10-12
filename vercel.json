@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "pirevo.astralabsph.com"
+        }
+      ],
+      "destination": "/pirevo/"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pirevo.astralabsph.com"
+        }
+      ],
+      "destination": "/pirevo/:path*"
+    }
+  ]
+}
