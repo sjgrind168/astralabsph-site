@@ -449,6 +449,7 @@ async function load(){
  let successful=0;
  settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics")successful++});
  renderAll();
+ if(successful>0){id("refreshTimestamp").textContent="Last checked: "+new Date().toLocaleString("en-PH",{timeZone:"Asia/Manila",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true})+" PHT";}else{id("refreshTimestamp").textContent="Last checked: sources unavailable";}
  id("refresh").disabled=false;
  id("sourceHealth").textContent=successful+"/5 reporting sources accessible";
  if(successful<5)id("sourceHealthDot").classList.remove("live");
