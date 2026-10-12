@@ -1,33 +1,27 @@
 {
-  "generated_at_utc": "2026-10-11T14:06:06.966227+00:00",
+  "generated_at_utc": "2026-10-12T06:04:20.204261+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 0,
-  "pirevo_scheduled_before": 0,
-  "unused_before": 31,
-  "capacity": 3,
+  "scheduled_total_before": 1,
+  "pirevo_scheduled_before": 1,
+  "unused_before": 28,
+  "capacity": 2,
   "created": [
     {
-      "pin_id": "denicmic-solar-h3",
-      "buffer_id": "6acb97d0d9cab260a7fd28ce",
-      "dueAt": "2026-10-12T02:00:00.000Z"
+      "pin_id": "brizled-lights-h3",
+      "buffer_id": "6acc7865a9411fbcc570847d",
+      "dueAt": "2026-10-12T08:10:00.000Z"
     },
     {
-      "pin_id": "airtag-smart-w2",
-      "buffer_id": "6acb97d1d9cab260a7fd28fe",
-      "dueAt": "2026-10-12T03:10:00.000Z"
-    },
-    {
-      "pin_id": "xmas-tree-candles-w4",
-      "buffer_id": "6acb97d2b07d37ac97ab89ba",
-      "dueAt": "2026-10-12T06:40:00.000Z"
+      "pin_id": "bagsmart-travel-w2",
+      "buffer_id": "6acc7866ea568e911a54116c",
+      "dueAt": "2026-10-12T11:40:00.000Z"
     }
   ],
   "rotation": {
     "recent_products_excluded": 9,
     "eligible_selected": [
-      "denicmic-solar-h3",
-      "airtag-smart-w2",
-      "xmas-tree-candles-w4"
+      "brizled-lights-h3",
+      "bagsmart-travel-w2"
     ],
     "waves": [
       "halloween",
