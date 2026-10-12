@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/analytics/reports.css?v=4">
 <link rel="stylesheet" href="/analytics/earnings-theme.css?v=2">
 <link rel="stylesheet" href="/analytics/social-native.css?v=2">
-</head><body>
+<style>.refresh-stack{display:flex;flex-direction:column;align-items:center;gap:5px}.refresh-stack #refresh{white-space:nowrap}.refresh-stack small{font-size:10px;color:#64776c;white-space:nowrap;font-weight:500}</style></head><body>
 <section id="locked" class="lock" aria-label="Private dashboard login">
 <form id="unlockForm" class="lock-card">
 <img class="lock-logo" src="/astralabs-logo.png" alt="AstraLabs PH official icon">
@@ -28,7 +28,7 @@
 <header class="top"><div><span class="eyebrow">AstraLabs PH / Reports</span><h1 id="pageTitle">Portfolio overview</h1><p id="pageDescription">Cross-platform reports and verified performance metrics.</p></div>
 <div class="toolbar"><label class="select-wrap">Website period <select id="period" aria-label="Website event reporting period"><option value="7">Last 7 days</option><option value="30">Last 30 days</option><option value="90">Last 90 days</option></select></label>
 <label class="select-wrap"><input type="checkbox" id="compare"> Compare previous</label>
-<button id="refresh" type="button" title="Refresh from verified data sources">↻ Refresh</button></div></header>
+<div class="refresh-stack"><button id="refresh" type="button" title="Refresh from verified data sources">↻ Refresh</button><small id="refreshTimestamp" role="status" aria-live="polite">Last checked: pending</small></div></div></header>
 <div class="statusbar"><span id="sourceHealthDot" class="status-dot"></span><strong id="sourceHealth">Connecting to private reporting…</strong><span class="status-pill" id="lastSync">Waiting for data</span><span id="dateCaption">Website events · Asia/Manila</span><span class="status-pill muted">Revenue snapshots are period-specific</span></div>
 <section class="tabpanel" role="tabpanel" id="pane-overview" aria-labelledby="tab-overview" data-panel="overview">
 <div class="ga-overview-intro"><div class="ga-context"><span class="ga-context-dot" aria-hidden="true"></span>PORTFOLIO REPORTS <span class="ga-context-divider">/</span> ACTIVITY SNAPSHOT</div><p>First-party site data for the selected period. Financial cards below retain their actual provider reporting dates.</p></div>
