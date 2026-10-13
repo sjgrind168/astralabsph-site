@@ -1,5 +1,5 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-09",
+  "updated": "2026-10-14",
   "associateTag": "pirevo-20",
   "collections": [
     {
@@ -3834,36 +3834,37 @@ window.PIREVO_STORE = {
     {
       "slug": "fullstar-pro-chopper",
       "collection": "kitchen",
-      "badge": "10K+ BOUGHT / MONTH",
+      "badge": "OCTOBER KITCHEN PICK",
       "brand": "Fullstar",
-      "shortName": "Pro Vegetable Chopper & Spiralizer",
-      "fullName": "Fullstar Pro Original Vegetable Chopper & Spiralizer, 5-Cup Container",
+      "shortName": "Original Pro 5-Cup Vegetable Chopper",
+      "fullName": "Fullstar Pro Original Vegetable Chopper & Spiralizer, All-in-1 Kitchen Tool",
       "asin": "B0764HS4SL",
       "rating": 4.5,
-      "reviews": 96015,
-      "rank": "10K+ bought in past month",
+      "reviews": 122631,
+      "rank": "4.5★ / 122,631 ratings · Oct 14 listing snapshot",
       "commission": "Kitchen",
       "image": "https://m.media-amazon.com/images/I/81GZZyozv-L._AC_SL1500_.jpg",
-      "trend": "meal prep gadgets + vegetable chopper + weeknight kitchen shortcuts",
-      "why": "A huge-volume kitchen tool with 96k+ reviews and 10K+ bought in the past month when researched.",
-      "bestFor": "Fast onion, potato and vegetable prep for weeknight cooking and meal prep.",
-      "caveat": "Sharp blades need careful handling and thorough cleaning; this is a manual prep tool, not an electric processor.",
+      "trend": "meal-prep shortcuts and practical kitchen gifts, October 2026",
+      "why": "The exact B0764HS4SL listing was checked October 14, 2026. Amazon displayed a 4.5-star average across 122,631 customer ratings. This is the classic 5-cup manual dicing model, not the separately selectable 6-, 8- or 14-in-1 variations.",
+      "bestFor": "Quick vegetable dicing for soups, salads, meal prep and everyday cooking.",
+      "caveat": "The classic dicing configuration must not be confused with separate mandoline/slicing variants. Blades are sharp; handle cautiously, and confirm the current selected variant, shipping and returns before buying.",
       "bullets": [
-        "Multi-blade prep tool",
-        "5-cup collection container",
-        "Chop + slice + spiralize",
-        "96k+ rating snapshot",
-        "10K+ bought in past month"
+        "Classic manual vegetable dicing configuration",
+        "5-cup catch container helps contain chopped ingredients",
+        "420 stainless-steel blades per Amazon listing",
+        "Top-rack dishwasher-safe per listing",
+        "4.5★ across 122,631 ratings at October 14 research"
       ],
       "amazon": "https://www.amazon.com/dp/B0764HS4SL?tag=pirevo-20",
       "galleryIds": [
         "81GZZyozv-L"
       ],
       "about": [
-        "Manual vegetable chopper with interchangeable cutting functions.",
-        "Food drops into a collection container below the blade grid.",
-        "Designed for quick repetitive prep.",
-        "Exact PIREVO ASIN is the original Pro chopper/spiralizer."
+        "Amazon's October 14 listing identifies the original Pro chopper, ASIN B0764HS4SL, with a five-cup catch container.",
+        "The original model features manual grid-style dicing; extra slicing/mandoline features are sold as separate selectable product variations.",
+        "The listing describes rust-resistant 420 stainless blades, a nonslip base and soft-grip handle.",
+        "Amazon labels the model top-rack dishwasher safe; blade components still need careful handling.",
+        "The October 14 snapshot displayed 4.5 stars across 122,631 customer ratings. Ratings and availability may change."
       ],
       "details": [
         [
@@ -3875,22 +3876,26 @@ window.PIREVO_STORE = {
           "Manual"
         ],
         [
-          "Use",
-          "Chop / slice / spiralize"
+          "Function",
+          "Original dicing model; verify variation before checkout"
         ],
         [
           "Rating snapshot",
-          "4.5"
+          "4.5★ · 122,631 ratings (Oct. 14, 2026)"
         ],
         [
-          "Demand",
-          "10K+ bought last month"
+          "Materials",
+          "420 stainless blades per listing"
+        ],
+        [
+          "Care",
+          "Top-rack dishwasher safe per listing"
         ]
       ],
       "seo": {
-        "intent": "vegetable chopper for meal prep",
-        "title": "Vegetable Chopper for Meal Prep | Fullstar Pro | PIREVO",
-        "description": "Compare the Fullstar Pro vegetable chopper and spiralizer for fast weeknight meal prep, including review depth and tradeoffs."
+        "intent": "original 5 cup vegetable chopper for meal prep",
+        "title": "Fullstar Original 5-Cup Vegetable Chopper for Meal Prep | PIREVO",
+        "description": "Compare Fullstar's original five-cup manual vegetable chopper, ASIN B0764HS4SL. Check dicing features, October 2026 Amazon rating snapshot, benefits, and buying tradeoffs."
       }
     },
     {
