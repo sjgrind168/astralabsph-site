@@ -34,7 +34,7 @@ function launch(token){
  const stored=new URL(location.href);
  stored.hash="";
  history.replaceState(null,"",stored.pathname+stored.search);
- try{localStorage.setItem("pirevo_analytics_access",token)}catch{}
+ try{sessionStorage.setItem("astra-akashic-session",token)}catch{/* Storage disabled in this browser */}
  id("locked").hidden=true;id("dashboard").hidden=false;
  load();
 }
@@ -42,16 +42,18 @@ async function authorize(t){
  id("lockError").textContent="Checking private dashboard access…";
  try{await rpc("pirevo_dashboard_snapshot",{p_days:7,p_token:t});
   id("lockError").textContent="";launch(t);
- }catch(e){id("lockError").textContent="Unable to verify access. Check the private dashboard code."}
+ }catch(e){try{sessionStorage.removeItem("astra-akashic-session")}catch{/* Storage disabled */} id("lockError").textContent="Your passkey session has expired. Unlock with Touch ID / Passkey."}
 }
 function initialize(){
- const params=new URLSearchParams(location.hash.replace(/^#/,""));
- const fromUrl=params.get("access");
  let saved="";
- try{saved=localStorage.getItem("pirevo_analytics_access")||""}catch{}
+ try{saved=sessionStorage.getItem("astra-akashic-session")||""}catch{/* Private browsing storage disabled */}
+ if(location.hash.startsWith("#access="))history.replaceState(null,"",location.pathname+location.search);
  const qs=new URLSearchParams(location.search);
  state.tab=P.includes(qs.get("tab"))?qs.get("tab"):"overview";
- id("unlockForm").addEventListener("submit",e=>{e.preventDefault();const t=id("accessCode").value.trim();if(t)authorize(t)});
+ document.addEventListener("akashic:authenticated",e=>{
+  const ownerSession=e.detail?.token;
+  if(typeof ownerSession==="string"&&ownerSession.startsWith("ash_"))void authorize(ownerSession);
+ });
  qa("[data-tab]").forEach((btn,index,arr)=>{
   btn.addEventListener("click",()=>showTab(btn.dataset.tab,true));
   btn.addEventListener("keydown",e=>{
@@ -79,7 +81,7 @@ function initialize(){
   e.preventDefault();showTab(b.dataset.reportJump,true);
  }));
  showTab(state.tab,false);
- const candidate=fromUrl||saved;
+ const candidate=saved;
  if(candidate)authorize(candidate);else{id("locked").hidden=false;id("dashboard").hidden=true}
 }
 function showTab(name,historyPush){

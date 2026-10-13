@@ -2,7 +2,7 @@ const endpoint="https://cscqulbludoyzsgniits.supabase.co/functions/v1/astralabs-
 const btn=document.getElementById("passkeyButton");
 const enroll=document.getElementById("enrollButton");
 const info=document.getElementById("passkeyInfo");
-const error=document.getElementById("loginError");
+const error=document.getElementById("loginError")||document.getElementById("lockError");
 let invite=new URLSearchParams(location.hash.slice(1)).get("enroll");
 if(invite){
   history.replaceState(null,"",location.pathname+location.search);
