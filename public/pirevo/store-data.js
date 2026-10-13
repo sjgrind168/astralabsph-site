@@ -7259,6 +7259,262 @@ window.PIREVO_STORE = {
         "title": "SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor | PIREVO Christmas Edit",
         "description": "Compare SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor. Verified Amazon product details, features and Oct. 2026 rating snapshot."
       }
+    },
+    {
+      "slug": "huggiegems-magnetic-spice-rack-4",
+      "collection": "home-organization",
+      "badge": "HIGH-DEMAND ORGANIZER",
+      "brand": "HuggieGems",
+      "shortName": "4-Pack Magnetic Refrigerator Spice Racks",
+      "fullName": "HuggieGems Metal Magnetic Spice Rack for Refrigerator, Black, 4 Pack",
+      "asin": "B0C3H9MJQV",
+      "rating": 4.8,
+      "reviews": 16099,
+      "rank": "Oct. 14 Amazon listing check; July 2026 third-party sales-demand estimate",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/71kyA2AybiL._AC_SL1500_.jpg",
+      "trend": "Pinterest kitchen organization + Amazon spice rack demand + small kitchen makeovers",
+      "why": "Exact Amazon 4-pack listing observed with 4.8 stars across 16,099 ratings. Third-party July 2026 market research estimated strong category sales; not a real-time verified sales figure.",
+      "bestFor": "Renters and small-kitchen shoppers with suitable magnetic refrigerator or appliance surfaces.",
+      "caveat": "The racks require a magnetic metal surface. Verify refrigerator material, rack dimensions, included pack count and weight suitability before checkout.",
+      "bullets": [
+        "Four black metal magnetic spice shelves",
+        "No-drill, movable refrigerator organization",
+        "Strong magnets advertised by the brand",
+        "4.8★ across 16,099 ratings (Oct. 14 snapshot)",
+        "Measure the available appliance side space"
+      ],
+      "about": [
+        "The exact selected listing is the black 4-pack, not a single shelf or alternate finish.",
+        "Use on magnetic refrigerator or compatible metal appliance sides to reclaim cabinet space.",
+        "No permanent holes are needed on suitable magnetic surfaces.",
+        "Avoid nonmagnetic stainless surfaces and check clearance around doors before ordering."
+      ],
+      "details": [
+        [
+          "Pack count",
+          "4 racks"
+        ],
+        [
+          "Material",
+          "Metal"
+        ],
+        [
+          "Mounting",
+          "Magnetic"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Amazon ASIN",
+          "B0C3H9MJQV"
+        ],
+        [
+          "Rating snapshot",
+          "4.8 / 16,099 (Oct. 14, 2026)"
+        ]
+      ],
+      "seo": {
+        "intent": "magnetic refrigerator spice rack 4 pack for small kitchen",
+        "title": "Magnetic Spice Rack 4 Pack for Small Kitchens | HuggieGems | PIREVO",
+        "description": "Compare HuggieGems black four-pack magnetic refrigerator spice organizers, Amazon review snapshot, benefits, surface compatibility and buying tradeoffs."
+      },
+      "amazon": "https://www.amazon.com/dp/B0C3H9MJQV?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "bunoxea-wall-spice-rack-4",
+      "collection": "home-organization",
+      "badge": "SMALL-KITCHEN FAVORITE",
+      "brand": "Bunoxea",
+      "shortName": "Wall-Mounted Spice Rack Set of 4",
+      "fullName": "Bunoxea Spice Rack Wall Mounted 4 Pack, Black, for Spice Jars & Seasonings",
+      "asin": "B0C1XLC962",
+      "rating": 4.6,
+      "reviews": 4140,
+      "rank": "Oct. 2026 Amazon listing; July 2026 third-party wall-rack sales estimate",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/81AX3mc3eyL._AC_SL1500_.jpg",
+      "trend": "Pantry organization + small kitchen wall/cabinet storage + food-editor October 2026 roundup",
+      "why": "Exact black four-piece listing observed on Amazon with 4.6 stars across 4,140 ratings. Featured among Food & Wine editors' useful October 2026 kitchen finds.",
+      "bestFor": "Small kitchens, pantry doors, cabinet interiors and shoppers who want visible spice access.",
+      "caveat": "Adhesive and screw installations differ in hold strength and surface suitability. Measure interior cabinet clearance, jar height and door closing space.",
+      "bullets": [
+        "Four black metal wall-mount spice racks",
+        "Screw or adhesive installation advertised",
+        "Four removable hooks included",
+        "11.4-inch nominal rack length",
+        "4.6★ and 4,140 Amazon ratings (research snapshot)"
+      ],
+      "about": [
+        "The selected Amazon listing is the Bunoxea black four-rack set, ASIN B0C1XLC962.",
+        "Brand lists both screw and adhesive installation choices.",
+        "Cabinet-door installations need measurement to avoid contact with interior shelves.",
+        "Weight capacity and adhesive reliability depend on installation and surface; follow retailer guidance."
+      ],
+      "details": [
+        [
+          "Pack",
+          "4 racks"
+        ],
+        [
+          "Color",
+          "Black"
+        ],
+        [
+          "Mounting",
+          "Screw or adhesive per listing"
+        ],
+        [
+          "Nominal width",
+          "11.41 in"
+        ],
+        [
+          "Extra",
+          "4 removable hooks"
+        ],
+        [
+          "Rating snapshot",
+          "4.6 / 4,140 (Oct. 2026)"
+        ]
+      ],
+      "seo": {
+        "intent": "wall mounted spice rack set of 4 small kitchen pantry door",
+        "title": "Wall-Mounted 4-Pack Spice Racks for Small Kitchens | Bunoxea | PIREVO",
+        "description": "See the Bunoxea black 4-pack wall spice rack organizer, Amazon rating snapshot, dimensions, mounting options and buyer tradeoffs."
+      },
+      "amazon": "https://www.amazon.com/dp/B0C1XLC962?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "vtopmart-under-sink-drawers-4",
+      "collection": "home-organization",
+      "badge": "CABINET RESET PICK",
+      "brand": "Vtopmart",
+      "shortName": "4-Pack Two-Tier Under-Sink Pull-Out Drawers",
+      "fullName": "Vtopmart 4 Pack Pull Out Bathroom Under Sink Organizer, Two-Tier",
+      "asin": "B0BZNPDHR9",
+      "rating": 4.6,
+      "reviews": 3789,
+      "rank": "Amazon Oct. 2026 listing snapshot; October kitchen editor coverage",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/81hvPx1U6mL.jpg",
+      "trend": "Under sink organizing + bathroom reset + kitchen cabinet declutter",
+      "why": "Exact 4-pack two-tier under-sink organizer Amazon listing checked with 4.6 stars and 3,789 customer ratings; related product category covered in October 2026 kitchen shopping guides.",
+      "bestFor": "Bathroom cabinets, pantry storage and kitchens needing vertical pull-out storage.",
+      "caveat": "Cabinet plumbing, pipes and hinges can block installation. Verify interior width, depth, drawer pullout clearance and exact selected 4-pack variant.",
+      "bullets": [
+        "Four two-tier organizer units in selected pack",
+        "Pull-out storage access",
+        "Designed for bathroom and under-sink cabinets",
+        "Clear containers and light-colored frame shown on selected listing imagery",
+        "4.6★ across 3,789 Amazon ratings (research snapshot)"
+      ],
+      "about": [
+        "The linked Amazon listing is a four-pack, not the separate two-pack advertised by some retailers.",
+        "Two-tier design uses otherwise wasted vertical cabinet space.",
+        "Sliding drawer trays keep products accessible when cabinets are deep.",
+        "Measure plumbing clearance and front opening before checkout."
+      ],
+      "details": [
+        [
+          "Pack",
+          "4 units"
+        ],
+        [
+          "Format",
+          "Two-tier pull-out organizers"
+        ],
+        [
+          "Placement",
+          "Under sink, vanity, pantry"
+        ],
+        [
+          "Colorway",
+          "Confirm on Amazon"
+        ],
+        [
+          "ASIN",
+          "B0BZNPDHR9"
+        ],
+        [
+          "Rating snapshot",
+          "4.6 / 3,789 (Oct. 2026)"
+        ]
+      ],
+      "seo": {
+        "intent": "four pack pull out two tier under sink cabinet organizer",
+        "title": "4-Pack Pull-Out Under-Sink Organizer | Vtopmart | PIREVO",
+        "description": "Compare Vtopmart four-pack two-tier pull-out under-sink organizers for bathrooms and kitchens, with cabinet fit advice and Amazon rating snapshot."
+      },
+      "amazon": "https://www.amazon.com/dp/B0BZNPDHR9?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "levoit-core-mini-p-air-purifier",
+      "collection": "home-organization",
+      "badge": "COMPACT HOME UPGRADE",
+      "brand": "LEVOIT",
+      "shortName": "Core Mini-P Compact Air Purifier",
+      "fullName": "LEVOIT Core Mini-P Compact Air Purifier for Bedroom, Office and Desktop, White",
+      "asin": "B09GTRVJQM",
+      "rating": 4.6,
+      "reviews": 45569,
+      "rank": "Amazon rating snapshot Oct. 2026; Food & Wine shopping October 2026",
+      "commission": "Amazon Associates",
+      "image": "https://m.media-amazon.com/images/I/71wGv7Fh2AL._AC_SL1500_.jpg",
+      "trend": "Small space comfort + compact appliances + room reset and work desk setups",
+      "why": "Recognized small-room air purifier model with Amazon 4.6 stars across approximately 45.6K rating snapshot and inclusion in October 2026 editor-selected practical kitchen finds.",
+      "bestFor": "Desks, bedrooms, dorm spaces or a small enclosed room where a compact air purifier is useful.",
+      "caveat": "Not a whole-home system. Verify coverage, replacement-filter availability and operating sound. Filtration is not a substitute for adequate ventilation or medical treatment.",
+      "bullets": [
+        "Compact white Core Mini-P configuration",
+        "Three-stage filter system per brand",
+        "Replacement filters are ongoing costs",
+        "Optional fragrance-pad feature on compatible model",
+        "4.6★ across 45,569 Amazon ratings (research snapshot)"
+      ],
+      "about": [
+        "The linked Amazon ASIN is the LEVOIT Core Mini-P white compact purifier, not the brand's larger Core 200S or Core 300 models.",
+        "Designed for compact rooms, desktops and bedrooms, rather than entire homes.",
+        "Check compatible replacement filters and their recurring cost before purchase.",
+        "The brand markets a fragrance-pad feature; follow manufacturer guidance and avoid adding essential oils to filter material unless instructed."
+      ],
+      "details": [
+        [
+          "Model",
+          "Core Mini-P"
+        ],
+        [
+          "Color",
+          "White"
+        ],
+        [
+          "Power",
+          "Electric"
+        ],
+        [
+          "Use",
+          "Compact bedroom / desk"
+        ],
+        [
+          "ASIN",
+          "B09GTRVJQM"
+        ],
+        [
+          "Rating snapshot",
+          "4.6 / 45,569 (Oct. 2026)"
+        ]
+      ],
+      "seo": {
+        "intent": "compact air purifier for bedroom office desktop Levoit Core Mini P",
+        "title": "Compact Air Purifier for Bedroom or Desk | LEVOIT Core Mini-P | PIREVO",
+        "description": "Research LEVOIT Core Mini-P compact air purifier for small rooms, desktop and bedroom use with review snapshot, replacement filter considerations and buyer tradeoffs."
+      },
+      "amazon": "https://www.amazon.com/dp/B09GTRVJQM?tag=pirevo-20",
+      "galleryIds": []
     }
   ]
 };
