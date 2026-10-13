@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://cscqulbludoyzsgniits.supabase.co; base-uri 'none'; form-action 'self'">
+<title>AstraLabs PH • Private Command Center</title><meta name="theme-color" content="#101d1c">
+<link rel="icon" href="/astralabs-logo.png"><link rel="stylesheet" href="/command-center/style.css?v=1"></head>
+<body>
+<section id="login" class="login-screen">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <img src="/astralabs-logo.png" alt="AstraLabs PH icon" width="72" height="72">
+    <span class="eyebrow">PRIVATE OPERATIONS • ASTRALABS PH</span>
+    <h1>The Akashic<br><em>Command Center</em></h1>
+    <p>One private operating ledger for the studio. Owner, Astra and AKAME access only. No records are embedded in this page.</p>
+    <label for="token">Private access token</label>
+    <input id="token" type="password" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="Paste your owner access token" required>
+    <button class="primary" type="submit">Unlock workspace <span>↗</span></button>
+    <small id="loginError" role="alert"></small><p class="micro">Use only your approved access token. Never paste it into public chats, URLs, or GitHub.</p>
+    <a href="/analytics/" class="back-link">← Return to existing analytics</a>
+  </form>
+</section>
+<div class="shell" id="app" hidden>
+  <aside class="side"><a href="/analytics/" class="identity"><img src="/astralabs-logo.png" alt="" width="36" height="36"><span><strong>ASTRALABS PH</strong><small>COMMAND CENTER / PRIVATE</small></span></a>
+    <p class="nav-title">Operations</p>
+    <nav id="navigation" class="nav"><button data-view="overview" class="active">◫ <span>Mission control</span></button><button data-view="tasks">☑ <span>Daily task monitor</span></button><button data-view="projects">▦ <span>Ongoing projects</span></button><button data-view="records">◈ <span>Akashic records</span></button><button data-view="audit">☷ <span>Audit & updates</span></button><button data-view="protocol">◇ <span>Agent guidelines</span></button></nav>
+    <div class="side-foot"><span class="live-dot"></span><strong id="connection">Private connection</strong><small>All dates in Asia/Manila</small><a href="/analytics/">↗ Analytics (unchanged)</a><button id="logout">Lock workspace</button></div>
+  </aside>
+  <div class="main-wrap">
+    <header class="header"><div><p class="eyebrow">ASTRALABS PH / INTERNAL OPERATIONS</p><h1 id="viewTitle">Mission control</h1><p class="intro" id="viewSubtitle">Your studio at a glance, with evidence over assumptions.</p></div>
+      <div class="header-controls"><span id="actorBadge" class="identity-badge"></span><button id="refreshBtn" title="Fetch current private records">↻ Refresh</button><span id="clock"></span></div>
+    </header>
+    <div class="meta"><span id="today"></span><span id="lastSync">Waiting for secure records</span><span class="private-chip">PRIVATE • AUTHENTICATED</span></div>
+    <main class="workspace" id="content" aria-live="polite"></main>
+    <footer>Akashic Records · Versioned project truth · Source-linked evidence · AstraLabs PH</footer>
+  </div>
+</div>
+<div id="modal" class="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header><div><small>SECURE RECORD EDITOR</small><h2 id="modalTitle">Update record</h2></div><button id="modalClose" aria-label="Close dialog">×</button></header><form id="modalForm"><div id="modalFields"></div><p class="form-note">Every update records the responsible actor and timestamp. Published Akashic versions remain in history.</p><div class="modal-actions"><button type="button" id="modalCancel">Cancel</button><button class="primary" type="submit">Save update</button></div></form></section></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/command-center/app.js?v=1"></script>
+</body></html>
