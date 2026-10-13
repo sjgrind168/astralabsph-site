@@ -1,0 +1,67 @@
+/* Match AstraLabs PH Analytics design language without modifying its dashboard. */
+:root{color-scheme:light;--bg:#f7f4ed;--panel:#fff;--ink:#202b27;--muted:#66776e;--accent:#006241;--border:#dfe6df;--forest:#1e3932;--mint:#d4e9e2}
+html,body{background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+.login-screen{background:linear-gradient(140deg,#f7f4ed 0%,#e8f0e8 100%);min-height:100vh}
+.login-card{background:#fff;color:var(--ink);border:1px solid #e0e8df;box-shadow:0 22px 80px #26382b19;border-radius:19px}
+.login-card h1{font-size:clamp(34px,4.2vw,46px);letter-spacing:-1.5px}
+.login-card h1 em{color:#006241}
+.login-card p,.login-card .micro,.back-link{color:#64786d}
+.login-card img{border:1px solid #e9eee8;box-shadow:0 4px 15px #26382b12}
+.eyebrow{color:#006241;font-size:10px;letter-spacing:.16em;font-weight:850}
+.login-card .primary,.primary{background:#006241;color:#fff;border:1px solid #006241;border-radius:10px}
+.login-card .primary:hover,.primary:hover{background:#004d33;color:#fff}
+.login-card small{color:#9f403a}
+.shell{grid-template-columns:240px minmax(0,1fr);background:var(--bg)}
+.side{background:var(--forest);color:#f5fcf9;min-height:100vh;padding:26px 14px;z-index:5;border-right:none}
+.identity{padding:5px 7px 18px;border-bottom:1px solid #4e6d60;gap:10px;margin-bottom:15px}
+.identity strong{color:#fff;font-size:13px;letter-spacing:.4px}
+.identity small{color:#c3d4cd;font-size:9px}
+.identity img{border:1px solid #e1eee6;background:white}
+.nav-title{color:#adcabe;font-size:10px;margin:7px 10px 13px}
+.nav button{color:#e0ede7;border:1px solid transparent;font-size:13px;font-weight:650;border-radius:9px}
+.nav button.active,.nav button:hover{background:#315347;color:#fff;border-color:#57776a}
+.side-foot{border-top:1px solid #527368}
+.side-foot a,.side-foot small{color:#e3f5e9}
+.side-foot button{border:1px solid #65887a;color:#e9f4ea}
+.side-foot button:hover{background:#315347}
+.live-dot{background:#a6dfae;box-shadow:0 0 0 4px #a6dfae23}
+.header{padding:30px clamp(18px,2.7vw,43px) 22px}
+.header h1{color:#20352a;font-size:31px;letter-spacing:-1px}
+.header .intro{color:#718378}
+.header-controls button,.toolbar button,.mini-btn{background:#fff;border:1px solid #ceded1;color:#205640;border-radius:9px}
+.header-controls button:hover,.toolbar button:hover,.mini-btn:hover{background:#e7f4e9}
+.identity-badge,.private-chip,.pill{border:1px solid #d0e3d5;background:#e6f2e9;color:#235e42}
+.header-controls #clock,.meta{color:#647a6e}
+.meta{margin:0 clamp(18px,2.7vw,43px);border-top:1px solid #e2e8e1;border-bottom:1px solid #e2e8e1}
+.workspace{padding:28px clamp(18px,2.7vw,43px) 50px}
+.stat,.panel{background:#fff;border:1px solid #e3e8e2;border-radius:15px;box-shadow:0 5px 17px #26382b08}
+.stat label{color:#64786d}
+.stat strong{color:#1f3c30}
+.stat strong.ok{color:#006241}
+.stat small,.section-heading p{color:#77877f}
+.section-heading h2{color:#20382f;font-size:18px}
+.project-card,.record-card{background:#fff;border:1px solid #e0e8e0;border-radius:13px}
+.project-card h3,.record-card h3{color:#1e3932}
+.project-card p,.record-card p,.record-card pre,.project-card .next{color:#61766a}
+.project-card button,.record-card button{border-color:#ceded2;color:#006241;background:#f8fcf9}
+.project-card button:hover,.record-card button:hover{background:#e8f4ed}
+.status{background:#e9f5e9;border-color:#cadecd;color:#285d3c}
+.status.paused,.status.blocked{background:#f9eee8;border-color:#e5c8bb;color:#994d33}
+.status.needs-review,.status.review{background:#fbf5e4;border-color:#eadca9;color:#806522}
+.task{border-bottom:1px solid #e7ece7}
+.task strong{color:#243e2f}
+.task.done strong{color:#3d7250}
+.task p,.task-time,.audit-line small{color:#73867a}
+.area h3{color:#006241}
+input,textarea,select{background:#fff;color:#233a2e;border:1px solid #ccdcd0}
+input:focus,textarea:focus,select:focus{outline:2px solid #519872}
+.modal{background:#fff;color:#1e3932;border:1px solid #d6e5d8}
+.modal header small{color:#006241}
+.modal header button,.form-field label,.form-note{color:#708379}
+.modal-actions button:not(.primary){color:#264839;border-color:#cddfd2}
+.protocol-text{color:#475e51}
+.audit-line{border-bottom:1px solid #e7ece7}
+#toast{background:#1e3932;color:#fff}
+.main-wrap>footer{color:#819185}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.side{min-height:0;padding:11px 15px;position:sticky;top:0;height:auto;display:block}.identity{margin:0 0 8px;padding:0;border:none}.identity strong{font-size:11px}.nav{display:flex;gap:6px;flex-direction:row;overflow-x:auto;scrollbar-width:thin}.nav button{white-space:nowrap}.nav-title,.side-foot{display:none}}
+@media(max-width:560px){.header{padding:18px}.workspace{padding:18px}.meta{margin:0 18px}.login-card{padding:26px}.stat{box-shadow:none}}
