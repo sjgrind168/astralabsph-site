@@ -6,17 +6,17 @@
 <link rel="icon" href="/astralabs-logo.png"><link rel="stylesheet" href="/command-center/style.css?v=1"></head>
 <body>
 <section id="login" class="login-screen">
-  <form class="login-card" id="loginForm" autocomplete="off">
+  <div class="login-card" id="loginForm">
     <img src="/astralabs-logo.png" alt="AstraLabs PH icon" width="72" height="72">
     <span class="eyebrow">PRIVATE OPERATIONS • ASTRALABS PH</span>
     <h1>The Akashic<br><em>Command Center</em></h1>
     <p>One private operating ledger for the studio. Owner, Astra and AKAME access only. No records are embedded in this page.</p>
-    <label for="token">Private access token</label>
-    <input id="token" type="password" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="Paste your owner access token" required>
-    <button class="primary" type="submit">Unlock workspace <span>↗</span></button>
-    <small id="loginError" role="alert"></small><p class="micro">Use only your approved access token. Never paste it into public chats, URLs, or GitHub.</p>
+    <p id="passkeyInfo">Secure sign-in with your device passkey. No passwords or access codes needed.</p>
+    <button class="primary" id="passkeyButton" type="button">Unlock with Touch ID / Passkey <span>↗</span></button>
+    <button class="primary" id="enrollButton" type="button" hidden>Set up my passkey <span>↗</span></button>
+    <small id="loginError" role="alert"></small><p class="micro">Your fingerprint or Face ID stays on your device. Only the verified public credential is registered.</p>
     <a href="/analytics/" class="back-link">← Return to existing analytics</a>
-  </form>
+  </div>
 </section>
 <div class="shell" id="app" hidden>
   <aside class="side"><a href="/analytics/" class="identity"><img src="/astralabs-logo.png" alt="" width="36" height="36"><span><strong>ASTRALABS PH</strong><small>COMMAND CENTER / PRIVATE</small></span></a>
@@ -35,5 +35,6 @@
 </div>
 <div id="modal" class="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header><div><small>SECURE RECORD EDITOR</small><h2 id="modalTitle">Update record</h2></div><button id="modalClose" aria-label="Close dialog">×</button></header><form id="modalForm"><div id="modalFields"></div><p class="form-note">Every update records the responsible actor and timestamp. Published Akashic versions remain in history.</p><div class="modal-actions"><button type="button" id="modalCancel">Cancel</button><button class="primary" type="submit">Save update</button></div></form></section></div>
 <div id="toast" role="status" aria-live="polite"></div>
-<script type="module" src="/command-center/app.js?v=1"></script>
+<script type="module" src="/command-center/app.js?v=2"></script>
+<script type="module" src="/command-center/passkey.js?v=1"></script>
 </body></html>
