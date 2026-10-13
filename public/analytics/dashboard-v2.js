@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials","rep
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,appleDistribution:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
@@ -28,6 +28,26 @@ async function rpc(name,args){
  });
  if(!res.ok)throw Error(res.status===401||res.status===403?"Invalid dashboard access":"Source "+name+" unavailable");
  return res.json();
+}
+async function appleDistributionStatus(){
+ if(!C.analyticsAnonKey||!C.analyticsDbUrl)throw Error("Apple public listing connection missing");
+ const res=await fetch(C.analyticsDbUrl+"/functions/v1/astralabs-apple-distribution",{
+  headers:{"apikey":C.analyticsAnonKey,"authorization":"Bearer "+C.analyticsAnonKey},
+  cache:"no-store"
+ });
+ if(!res.ok)throw Error("Apple listing status unavailable");
+ const data=await res.json();
+ if(!data.ok||!Array.isArray(data.apps))throw Error("Invalid Apple listing status response");
+ return data;
+}
+function appleListingFor(app){
+ return (state.appleDistribution?.apps||[]).find(x=>x.app_key===app)||null;
+}
+function appleListingLabel(app){
+ const p=appleListingFor(app);
+ if(!p||!p.checked_at)return "Storefront status not checked";
+ if(!p.available)return "Store listing not verified";
+ return p.last_error?"Last confirmed live · v"+p.version+" (refresh pending)":"Live · v"+p.version+" (PH)";
 }
 function launch(token){
  state.token=token;
@@ -215,7 +235,7 @@ function renderSummary(){
  note("admobMTD",sourcePeriod("admob","estimated_earnings_usd")+" · estimated");
  note("installedTotal",sourcePeriod("google_play","installed_audience","astramate"));
  note("kdpRoyalty",sourcePeriod("kdp","royalties_usd"));
- note("appleProceeds",sourcePeriod("app_store_connect","proceeds_usd"));
+ note("appleProceeds",sourcePeriod("app_store_connect","proceeds_usd")+(metric("app_store_connect","proceeds_usd","keepry")?"":" · Astramate-only historical snapshot; Keepry private sales awaiting import"));
  note("socialReferrals","First-party referral sessions, not platform impressions");
  reportBadge("playSource",sourceStatus("google_play"),!!state.platforms?.metrics?.some(x=>x.provider==="google_play"));
  reportBadge("admobSource",sourceStatus("admob"),!!metric("admob","estimated_earnings_usd"));
@@ -234,7 +254,7 @@ function renderOverview(){
  {name:"Amazon Associates",amt:state.amazon?.month_to_date?usd(state.amazon.month_to_date.earnings_usd):"—",kind:"Affiliate earnings, account level",period:state.amazon?.month_to_date?"Through "+datePretty(state.amazon.month_to_date.reported_through):"Awaiting report"},
  {name:"AdMob",amt:usd(m("admob","estimated_earnings_usd")),kind:"Estimated advertising earnings",period:sourcePeriod("admob","estimated_earnings_usd")},
  {name:"KDP",amt:usd(m("kdp","royalties_usd")),kind:"Royalties",period:sourcePeriod("kdp","royalties_usd")},
- {name:"App Store Connect",amt:roundedApple(m("app_store_connect","proceeds_usd")),kind:"Estimated rounded proceeds, not final payout",period:sourcePeriod("app_store_connect","proceeds_usd")}
+ {name:"App Store Connect",amt:roundedApple(m("app_store_connect","proceeds_usd")),kind:"Estimated rounded proceeds, not final payout",period:sourcePeriod("app_store_connect","proceeds_usd")+(metric("app_store_connect","proceeds_usd","keepry")?"":" · Astramate-only; Keepry Apple report not yet imported")}
  ],[r=>r.name,r=>r.kind,r=>r.period,r=>r.amt]);
  const curr=total("pirevo_sessions")+total("site_sessions");
  const prev=(state.previous?.days||[]).reduce((a,d)=>a+Number(d.pirevo_sessions||0)+Number(d.site_sessions||0),0);
@@ -328,14 +348,19 @@ function paintPlatform(){
  set("appleCTR",am("store_conversion_rate")==null?"—":Number(am("store_conversion_rate")).toFixed(2)+"%");
  set("appleIAP",fm(am("in_app_purchases")));
  set("appleProceedsApp",usd(am("proceeds_usd")));
- note("appleDownloads",sourcePeriod("app_store_connect","first_time_downloads",ak));
- note("appleProceedsApp",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate");
+ const keepryReported=Boolean(metric("app_store_connect","first_time_downloads","keepry"));
+ const coverage=(ak==="all"&&!keepryReported)?" · Astramate historical snapshot only; Keepry private metrics pending":"";
+ note("appleDownloads",sourcePeriod("app_store_connect","first_time_downloads",ak)+coverage);
+ note("appleProceedsApp",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
  const source=metric("app_store_connect","first_time_downloads","astramate");
- id("applePeriod").textContent=source?"Apple snapshot · "+datePretty(source.period_start)+" to "+datePretty(source.period_end)+" · Keepry iOS awaiting review":"No imported Apple performance report";
+ const listingCount=(state.appleDistribution?.apps||[]).filter(x=>x.available).length;
+ id("applePeriod").textContent=(source?"Private Apple snapshot · "+datePretty(source.period_start)+" to "+datePretty(source.period_end):"No private Apple performance report")+" · PH listings "+listingCount+"/2 confirmed live"+(keepryReported?"":" · Keepry private metrics not yet imported");
+ const liveLine=id("appleListingStatus");
+ if(liveLine)liveLine.textContent="Official Apple storefront: Keepry "+appleListingLabel("keepry")+"; Astramate "+appleListingLabel("astramate")+" · downloads and revenue require App Store Connect reports.";
  const appleApps=state.app==="all"?["astramate","keepry"]:[state.app];
  rows("appleRows",appleApps.map(app=>({app,down:am("first_time_downloads",app),impressions:am("app_store_impressions",app),views:am("product_page_views",app),iap:am("in_app_purchases",app),proceeds:am("proceeds_usd",app)})),[
   r=>r.app==="astramate"?"Astramate":"Keepry",
-  r=>r.app==="astramate"?"Ready for Distribution":"Waiting for Review",
+  r=>appleListingLabel(r.app),
   r=>fm(r.down),r=>fm(r.impressions),r=>fm(r.views),r=>fm(r.iap),r=>usd(r.proceeds)
  ]);
 }
@@ -444,6 +469,7 @@ async function load(){
  ["trendPerformance",rpc("pirevo_trend_product_performance",{p_days:days,p_token:token})],
  ["kdpSync",rpc("pirevo_kdp_sync_snapshot",{p_token:token})],
  ["socialMetrics",rpc("astralabs_social_metrics_snapshot",{p_token:token})],
+ ["appleDistribution",appleDistributionStatus()],
  ["previous",state.compare?rpc("astralabs_portfolio_daily_range_v2",{p_days:days,p_token:token,p_shift_days:days}):Promise.resolve(null)]
  ];
  const settled=await Promise.allSettled(requests.map(x=>x[1]));

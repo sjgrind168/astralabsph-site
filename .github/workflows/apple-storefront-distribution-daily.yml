@@ -1,0 +1,27 @@
+name: Apple App Store distribution check (public, no paid APIs)
+on:
+  schedule:
+    # 09:20 Asia/Manila, best-effort GitHub Actions schedule
+    - cron: "20 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: apple-storefront-distribution
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Apple storefront availability and refresh private source cache
+        run: node tools/refresh-apple-storefront.mjs
+      - name: Provenance note
+        run: echo "Public Apple listing metadata only. App Store Connect downloads and proceeds require separate authenticated import."
