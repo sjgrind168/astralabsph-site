@@ -1,3 +1,8 @@
+# SUPERSEDED BY PIREVO PINTEREST CREATIVE SOP v3 (2026-10-14)
+**IMPORTANT AGENT ALERT:** This older v2 document remains for history, but its generic editorial guidelines are NOT sufficient for production. The owner's later hard-lock v3 forbids boxed product cards and oversized color/text modules even at 1000x1500 dimensions. No active agent may create or publish Pins without reading `marketing/pirevo/PIREVO_Pinterest_Creative_SOP_v3_HARD_LOCK_2026-10-14.md`, using `marketing/pirevo/validate_pinterest_v3.py` and obtaining per-finished-asset approval. All older renderers and the Buffer PIREVO queue writer are quarantined; old queue is stopped. 10-15/day remains an aspirational quality-gated target only.
+
+---
+
 # PIREVO Pinterest Sales Studio — Production Standard v2.0
 Updated: 2026-10-14 Asia/Manila
 Owner: AstraLabs PH / PIREVO
