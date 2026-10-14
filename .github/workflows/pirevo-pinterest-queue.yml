@@ -1,57 +1,15 @@
-name: PIREVO Pinterest Queue
-
+# Owner-approved PIREVO v3 legacy quarantine — 2026-10-14.
+# The previous boxed-card generator / queue must never auto-run again.
+name: PIREVO Legacy queue — QUARANTINED
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/pirevo-pinterest-queue.yml'
-      - 'marketing/pirevo/buffer_pinterest_pirevo.py'
-      - 'public/pirevo/assets/pins/wave2/manifest.json'
-      - 'public/pirevo/assets/pins/wave3-halloween/manifest.json'
-      - 'public/pirevo/assets/pins/wave4-christmas/manifest.json'
-  schedule:
-    - cron: '20 0 * * *'
-    - cron: '20 7 * * *'
   workflow_dispatch:
-
 permissions:
-  contents: write
-
-concurrency:
-  group: astralabs-pinterest-channel-write
-  cancel-in-progress: false
-
+  contents: read
 jobs:
-  queue:
+  block_legacy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
-      PIREVO_PINTEREST_PUBLISH_ENABLED: 'true'
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Replenish PIREVO Finds queue safely (Halloween priority, max 3 Pins)
-        run: python3 marketing/pirevo/buffer_pinterest_pirevo.py
-
-      - name: Persist PIREVO queue proof
-        shell: bash
+      - name: Reject legacy publisher / renderer
         run: |
-          set -euo pipefail
-          git config user.name 'AstraLabs PIREVO Queue Bot'
-          git config user.email 'actions@users.noreply.github.com'
-          git add marketing/pirevo/PIREVO_PINTEREST_QUEUE_STATUS.json
-          if git diff --cached --quiet; then
-            echo "NO_QUEUE_REPORT_CHANGE"
-            exit 0
-          fi
-          git commit -m 'PIREVO: record Pinterest queue status'
-          git pull --rebase origin main
-          git push origin HEAD:main
-
-# wave2-loaded-20261009
-# halloween-wave3-loaded-20261009
-
-# christmas-wave4-loaded-20261009
+          echo "::error::PIREVO_LEGACY_TEMPLATE_DISABLED_V3. Owner approved full-bleed SOP v3 only; this workflow is permanently quarantined pending an explicit versioned replacement."
+          exit 1
