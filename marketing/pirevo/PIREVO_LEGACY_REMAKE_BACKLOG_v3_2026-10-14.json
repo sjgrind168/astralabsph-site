@@ -52,5 +52,222 @@
     "require_per_pin_permalink": true,
     "US_CA_only": true
   },
-  "note": "76 is number of historical source generator outputs, not observed live Pinterest Pins. Historical URLs stay untouched pending exact audit. No new remake claimed without saved new media and QA evidence."
+  "note": "76 is number of historical source generator outputs, not observed live Pinterest Pins. Historical URLs stay untouched pending exact audit. No new remake claimed without saved new media and QA evidence.",
+  "buffer_sent_reported_total": 73,
+  "buffer_sent_observed_old_wave_subset": 20,
+  "buffer_sent_audit_date": "2026-10-14 PHT",
+  "buffer_sent_disclaimer": "Buffer sent status is NOT verified native Pinterest live permalink; these are audited sent entries only. Page currently shows first 20 entries. Do not claim 20 live.",
+  "buffer_sent_old_wave_examples": [
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 14, 11:10 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/05_rock-painting-kit.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA glow-in-the-dark rock painting kit for creative kids and screen-free holiday time. See why this exact PIREVO pick made the Christmas preview.",
+      "idx": 1,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 14, 10:00 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/13_homemory-tealights.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nUse flameless tea lights inside pumpkins, luminaries and Halloween table decor for easy glow. See the exact PIREVO pick and research-backed buying notes.",
+      "idx": 2,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 9:10 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/04_fairy-lights.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nUse warm-white battery fairy lights in wreaths, centerpieces, jars and holiday table decor. See the exact PIREVO pick and current demand snapshot.",
+      "idx": 3,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 7:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/10_halloween-spider-webs.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nFast-impact Halloween decor for parties, porches and spooky room setups. See the PIREVO pick and what comes in the set before buying.\n\nSee the full PIREVO pick:...",
+      "idx": 4,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 4:10 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/12_eldnacele-skull-candles.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nAdd skull-themed candlelight to mantels, shelves and Halloween tables without an open flame. See the exact PIREVO product, rating snapshot and timer details.",
+      "idx": 5,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 2:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/03_prelit-garland.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nDress a mantel, staircase or doorway with a 9-foot pre-lit Wintry Pine garland. See the exact PIREVO pick and product details before checkout.",
+      "idx": 6,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 11:10 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/09_stanley-quencher.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA giftable everyday tumbler with strong social recognition. See the PIREVO pick, exact variant and what to verify before checkout.\n\nSee the full PIREVO pick:...",
+      "idx": 7,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 10:00 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/11_ljlnion-purple-lights.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nCreate a moody purple Halloween backdrop across bedrooms, patios, fences or party spaces. See the PIREVO pick, research snapshot and current product details.",
+      "idx": 8,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 7:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/08_bagsmart-toiletry.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA travel organizer designed to keep toiletries visible and contained. See the PIREVO pick, packing use cases and size details before buying.",
+      "idx": 9,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 4:10 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/10_brizled-purple-orange.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nWrap porches, fences and trees in classic purple-and-orange Halloween lighting. Open the exact PIREVO pick for rating evidence, coverage notes and buying checks.",
+      "idx": 10,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 2:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/02_tree-candles.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nAdd warm holiday candlelight with tree-shaped flameless candles. Open the PIREVO page for the exact product, timer details and current buying notes.",
+      "idx": 11,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 11:10 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/07_apple-airtag.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA compact everyday tracker for keys, bags and luggage. See the exact PIREVO pick, compatibility notes and what to verify before buying.",
+      "idx": 12,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 10:00 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/09_denicmic-solar-path.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nAdd purple Halloween glow along pathways, lawns and garden edges with solar stake lights. See the exact PIREVO pick, rating snapshot and what to verify before buying.",
+      "idx": 13,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 7:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/06_vtopmart-drawer-organizers.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA satisfying home-organization reset for vanity, kitchen and everyday drawers. Open the PIREVO pick for sizing, use cases and buying checks.",
+      "idx": 14,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 4:10 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/08_goothy-pumpkin-path.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nGuide trick-or-treaters with illuminated pumpkin pathway stakes for the lawn, driveway or walkway. Compare the exact PIREVO pick and current product details.",
+      "idx": 15,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 2:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/01_window-candles.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nCreate a classic Christmas window glow with a six-pack of dusk-to-dawn electric candles. See the exact PIREVO pick, rating snapshot and buying checks before ordering.",
+      "idx": 16,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 11:10 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/05_astercook-knives.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA compact knife set with blade guards, strong Amazon ratings and social-commerce momentum. Compare the exact 13-piece PIREVO pick before checkout.",
+      "idx": 17,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 10:00 AM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/07_goosh-skeleton-puppy.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA playful skeleton-puppy Halloween inflatable for yards, lawns and party entrances. See the PIREVO research snapshot and exact product page before checkout.",
+      "idx": 18,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 10, 7:40 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/04_ninja-possiblecooker.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA versatile countertop multicooker for slow cooking and more. See the PIREVO comparison points, buyer evidence and what to verify before buying.",
+      "idx": 19,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    },
+    {
+      "sent_label": "Post sent for astralabsph pinterest channel on Oct 10, 4:10 PM (Asia/Manila)",
+      "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave3-halloween/06_aiseno-skeleton-stakes.jpg",
+      "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nCreate a Halloween graveyard effect with realistic skeleton groundbreaker yard stakes. See the exact researched PIREVO pick, rating snapshot and outdoor setup considerations.",
+      "idx": 20,
+      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "pinterest_live_permalink": null,
+      "remake_asset": null,
+      "remake_public_url": null
+    }
+  ],
+  "buffer_current_queue_after_quarantine": {
+    "scheduled": 0,
+    "errored": 1,
+    "drafts": 4,
+    "legacy_moved_to_drafts": [
+      "14_hexagram-doormat.jpg",
+      "15_sophena-ghost-door.jpg",
+      "06_magic-light-brush.jpg"
+    ],
+    "observed": "2026-10-14 PHT"
+  }
 }
