@@ -1,0 +1,36 @@
+name: PIREVO Pinterest V3 Full-Bleed Quality Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'marketing/pirevo/**'
+      - 'public/pirevo/assets/pins/v3/**'
+      - 'public/pirevo/store-data.js'
+      - '.github/workflows/pirevo-pinterest-*.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-creative-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install no-cost inspection dependency
+        run: python3 -m pip install --disable-pip-version-check pillow==11.3.0
+      - name: Regress old boxed design and enforce quarantined paths
+        run: python3 -m unittest discover -s marketing/pirevo/tests -p 'test_pinterest_v3.py' -v
+      - name: Validate all individually approved full-bleed assets, if any
+        run: python3 marketing/pirevo/validate_pinterest_v3.py
+      - name: Confirm no publish on a missing QA signoff
+        shell: bash
+        run: |
+          if python3 marketing/pirevo/validate_pinterest_v3.py --require-ready; then
+            echo "Approved media present and verified. Does not mean published."
+          else
+            echo "::notice::No fully approved V3 media. Pinterest publication must remain blocked."
+          fi
+# This workflow ONLY validates. It never automatically publishes or approves.
