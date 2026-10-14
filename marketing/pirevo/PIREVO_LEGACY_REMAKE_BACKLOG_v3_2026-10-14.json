@@ -310,5 +310,39 @@
       "vtopmart-under-sink-drawers-4 (rail system mismatch)"
     ],
     "preexisting_pin_unreposted": "https://ph.pinterest.com/pin/1143844005390680649/"
-  }
+  },
+  "latest_replacement": {
+    "date_ph": "2026-10-14",
+    "product_slug": "cyantor-halloween-creepy-cloth-5",
+    "asin": "B09C5Q8S89",
+    "old_pin": "https://ph.pinterest.com/pin/1143844005390370779/",
+    "new_pin": "https://ph.pinterest.com/pin/1143844005390735088/",
+    "new_verified_live": true,
+    "old_removed_verified": true,
+    "old_redirect": "https://ph.pinterest.com/?show_error=true",
+    "landing": "https://www.astralabsph.com/pirevo/products/cyantor-halloween-creepy-cloth-5/index.html",
+    "utm_content": "cyantor_cloth_replacement_20261014_v3",
+    "source_image": "/Users/wafu/Desktop/PIREVO Pin Studio/2026-10-14/cyantor_creepy_cloth_fullbleed_v3_20261014.png",
+    "source_credit": "Pexels Aurelio Uribe-Wright photo ID 33815325; owner-produced full-bleed typography/gradient; illustrative décor example, not exact packaged SKU",
+    "status": "REPLACED_PUBLISHED_VERIFIED",
+    "duplicate_policy": "DO_NOT_REPEAT"
+  },
+  "completed_premium_replacements": [
+    {
+      "date_ph": "2026-10-14",
+      "product_slug": "cyantor-halloween-creepy-cloth-5",
+      "asin": "B09C5Q8S89",
+      "old_pin": "https://ph.pinterest.com/pin/1143844005390370779/",
+      "new_pin": "https://ph.pinterest.com/pin/1143844005390735088/",
+      "new_verified_live": true,
+      "old_removed_verified": true,
+      "old_redirect": "https://ph.pinterest.com/?show_error=true",
+      "landing": "https://www.astralabsph.com/pirevo/products/cyantor-halloween-creepy-cloth-5/index.html",
+      "utm_content": "cyantor_cloth_replacement_20261014_v3",
+      "source_image": "/Users/wafu/Desktop/PIREVO Pin Studio/2026-10-14/cyantor_creepy_cloth_fullbleed_v3_20261014.png",
+      "source_credit": "Pexels Aurelio Uribe-Wright photo ID 33815325; owner-produced full-bleed typography/gradient; illustrative décor example, not exact packaged SKU",
+      "status": "REPLACED_PUBLISHED_VERIFIED",
+      "duplicate_policy": "DO_NOT_REPEAT"
+    }
+  ]
 }
