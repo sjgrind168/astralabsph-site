@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+
+# OWNER HARD LOCK, 2026-10-14. Retain legacy source for audit/remakes only.
+# Direct execution MUST NOT re-render old boxed product cards or queue any Pin.
+raise SystemExit("PIREVO_LEGACY_TEMPLATE_DISABLED_V3: old card renderer / Buffer publisher quarantined. Read marketing/pirevo/PIREVO_Pinterest_Creative_SOP_v3_HARD_LOCK_2026-10-14.md")
 import io, json, math, urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
