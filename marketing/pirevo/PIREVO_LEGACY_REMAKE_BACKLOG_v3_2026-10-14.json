@@ -1,0 +1,56 @@
+{
+  "version": "3.0",
+  "created_local_date": "2026-10-14",
+  "campaign": "PIREVO US/Canada Pinterest premium full-bleed remake",
+  "approved_reference": "PIREVO_Drawer_Reset_Pin_2026-10-14.png",
+  "legacy_asset_groups": [
+    {
+      "source": "marketing/pirevo/render_pinterest_wave1.py",
+      "legacy_generated": 30,
+      "likely_design": "half-hero + oversized cream text panel",
+      "published_audited": null,
+      "actual_remakes_generated": 0,
+      "replacement_pins_published": 0,
+      "status": "SOURCE_QUARANTINED_PENDING_LIVE_AUDIT"
+    },
+    {
+      "source": "marketing/pirevo/render_pinterest_wave2.py",
+      "legacy_generated": 10,
+      "likely_design": "center product-in-rounded-white-card + cream title panel",
+      "published_audited": null,
+      "actual_remakes_generated": 0,
+      "replacement_pins_published": 0,
+      "status": "SOURCE_QUARANTINED_PENDING_LIVE_AUDIT"
+    },
+    {
+      "source": "marketing/pirevo/render_pinterest_halloween_wave3.py",
+      "legacy_generated": 16,
+      "likely_design": "framed product card + text/footer sections",
+      "published_audited": null,
+      "actual_remakes_generated": 0,
+      "replacement_pins_published": 0,
+      "status": "SOURCE_QUARANTINED_PENDING_LIVE_AUDIT"
+    },
+    {
+      "source": "marketing/pirevo/render_pinterest_christmas_wave4.py",
+      "legacy_generated": 20,
+      "likely_design": "framed product card + text/footer sections",
+      "published_audited": null,
+      "actual_remakes_generated": 0,
+      "replacement_pins_published": 0,
+      "status": "SOURCE_QUARANTINED_PENDING_LIVE_AUDIT"
+    }
+  ],
+  "historical_generated_assets_total": 76,
+  "historical_live_pin_count": null,
+  "remake_queue_status": "REQUIRES_PINTEREST_CREATED_AND_BUFFER_SENT_RECONCILIATION",
+  "rules": {
+    "old_pin_delete_automatic": false,
+    "skip_expired_seasonal_creatives": true,
+    "one_exact_Amazon_ASIN_per_remake": true,
+    "publish_only_if_v3_gate_passed": true,
+    "require_per_pin_permalink": true,
+    "US_CA_only": true
+  },
+  "note": "76 is number of historical source generator outputs, not observed live Pinterest Pins. Historical URLs stay untouched pending exact audit. No new remake claimed without saved new media and QA evidence."
+}
