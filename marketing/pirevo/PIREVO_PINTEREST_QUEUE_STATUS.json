@@ -1,33 +1,27 @@
 {
-  "generated_at_utc": "2026-10-13T15:06:04.684342+00:00",
+  "generated_at_utc": "2026-10-14T04:58:42.672971+00:00",
   "board": "PIREVO Finds",
-  "scheduled_total_before": 0,
-  "pirevo_scheduled_before": 0,
-  "unused_before": 20,
-  "capacity": 3,
+  "scheduled_total_before": 1,
+  "pirevo_scheduled_before": 1,
+  "unused_before": 17,
+  "capacity": 2,
   "created": [
     {
-      "pin_id": "homemory-tealights-h3",
-      "buffer_id": "6ace48dea40029d94c503632",
-      "dueAt": "2026-10-14T02:00:00.000Z"
+      "pin_id": "sophena-wreath-h3",
+      "buffer_id": "6acf0c03b610c3011f9fa116",
+      "dueAt": "2026-10-14T08:10:00.000Z"
     },
     {
-      "pin_id": "xmas-rock-kit-w4",
-      "buffer_id": "6ace48dfaae68f5d3ccc5daa",
-      "dueAt": "2026-10-14T03:10:00.000Z"
-    },
-    {
-      "pin_id": "hexagram-mat-h3",
-      "buffer_id": "6ace48e0a40029d94c5036f6",
-      "dueAt": "2026-10-14T06:40:00.000Z"
+      "pin_id": "xmas-magic-brush-w4",
+      "buffer_id": "6acf0c04f847f2ad9ec27548",
+      "dueAt": "2026-10-14T11:40:00.000Z"
     }
   ],
   "rotation": {
     "recent_products_excluded": 9,
     "eligible_selected": [
-      "homemory-tealights-h3",
-      "xmas-rock-kit-w4",
-      "hexagram-mat-h3"
+      "sophena-wreath-h3",
+      "xmas-magic-brush-w4"
     ],
     "waves": [
       "halloween",
