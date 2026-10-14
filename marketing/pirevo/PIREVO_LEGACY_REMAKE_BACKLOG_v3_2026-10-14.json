@@ -123,10 +123,12 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/09_stanley-quencher.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA giftable everyday tumbler with strong social recognition. See the PIREVO pick, exact variant and what to verify before checkout.\n\nSee the full PIREVO pick:...",
       "idx": 7,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "visual_status": "REMPLACED_PREMIUM_AND_OLD_REMOVED",
       "pinterest_live_permalink": null,
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "old_pin_deleted_verified": true,
+      "new_pin_url": "https://ph.pinterest.com/pin/1143844005390720938/"
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 10:00 AM (Asia/Manila)",
@@ -143,10 +145,12 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave2/08_bagsmart-toiletry.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA travel organizer designed to keep toiletries visible and contained. See the PIREVO pick, packing use cases and size details before buying.",
       "idx": 9,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "visual_status": "REMPLACED_PREMIUM_AND_OLD_REMOVED",
       "pinterest_live_permalink": null,
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "old_pin_deleted_verified": true,
+      "new_pin_url": "https://ph.pinterest.com/pin/1143844005390720866/"
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 12, 4:10 PM (Asia/Manila)",
@@ -269,5 +273,42 @@
       "06_magic-light-brush.jpg"
     ],
     "observed": "2026-10-14 PHT"
+  },
+  "new_v3_publish_audit": {
+    "as_of_ph": "2026-10-14T15:55:59+08:00",
+    "verified_new_pins": [
+      {
+        "product_slug": "huggiegems-magnetic-spice-rack-4",
+        "new_pin": "https://ph.pinterest.com/pin/1143844005390720595/",
+        "old_pin": null
+      },
+      {
+        "product_slug": "levoit-core-mini-p-air-purifier",
+        "new_pin": "https://ph.pinterest.com/pin/1143844005390720769/",
+        "old_pin": null
+      },
+      {
+        "product_slug": "bagsmart-hanging-toiletry",
+        "new_pin": "https://ph.pinterest.com/pin/1143844005390720866/",
+        "old_pin": "https://ph.pinterest.com/pin/1143844005390571434/",
+        "old_removed": true
+      },
+      {
+        "product_slug": "stanley-quencher-30-rose-quartz",
+        "new_pin": "https://ph.pinterest.com/pin/1143844005390720938/",
+        "old_pin": "https://ph.pinterest.com/pin/1143844005390631000/",
+        "old_removed": true
+      }
+    ],
+    "total_new_published": 4,
+    "total_old_verified_removed": 2,
+    "published_at_exact": null,
+    "source": "Authenticated Pinterest native created Pins & old removal redirects (Oct 14 2026), PIREVO_OWNER_VISUAL_APPROVAL_BATCHES_1_2_2026-10-14.json",
+    "pending_media": [
+      "fullstar-pro-chopper (reference variant mismatch)",
+      "astercook-13pc-knife-set (wood block not included)",
+      "vtopmart-under-sink-drawers-4 (rail system mismatch)"
+    ],
+    "preexisting_pin_unreposted": "https://ph.pinterest.com/pin/1143844005390680649/"
   }
 }
