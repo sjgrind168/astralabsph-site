@@ -129,6 +129,19 @@ function metric(provider,metricName,app="all"){
  return(state.platforms?.metrics||[]).find(x=>x.provider===provider&&x.metric===metricName&&x.app_key===app)||null;
 }
 function m(provider,name,app="all"){const x=metric(provider,name,app);return x&&x.metric_value!==null?Number(x.metric_value):null}
+function appleComparable(name) {
+ const a=metric("app_store_connect",name,"astramate"),k=metric("app_store_connect",name,"keepry");
+ // Never use legacy app_key=all: it was originally copied from Astramate only.
+ if(!a||!k||a.metric_value==null||k.metric_value==null)return null;
+ if(a.period_start!==k.period_start||a.period_end!==k.period_end||a.metric_unit!==k.metric_unit)return null;
+ return Number(a.metric_value)+Number(k.metric_value);
+}
+function appleValue(name,app="all"){return app==="all"?appleComparable(name):m("app_store_connect",name,app)}
+function appleNote(name,app="all"){
+ return app==="all"?
+ ["astramate","keepry"].map(a=>a+": "+sourcePeriod("app_store_connect",name,a)).join(" | "):
+ sourcePeriod("app_store_connect",name,app);
+}
 function sourcePeriod(provider,name,app="all"){
  const x=metric(provider,name,app);return x?datePretty(x.period_start)+" – "+datePretty(x.period_end)+" · imported "+datePretty(x.captured_at):"Awaiting verified source";
 }
@@ -230,7 +243,7 @@ function renderSummary(){
  set("amazonMonth",amz?usd(amz.earnings_usd):"—");
  set("admobMTD",usd(m("admob","estimated_earnings_usd")));
  set("kdpRoyalty",usd(m("kdp","royalties_usd")));
- set("appleProceeds",roundedApple(m("app_store_connect","proceeds_usd")));
+ set("appleProceeds",roundedApple(appleComparable("proceeds_usd")));
  set("siteSessions",s.sessions==null?"—":fm(s.sessions));
  set("siteViews",s.page_views==null?"—":fm(s.page_views));
  set("pirevoSessions",k.sessions==null?"—":fm(k.sessions));
@@ -243,7 +256,7 @@ function renderSummary(){
  note("admobMTD",sourcePeriod("admob","estimated_earnings_usd")+" · estimated");
  note("installedTotal",sourcePeriod("google_play","installed_audience","astramate"));
  note("kdpRoyalty",sourcePeriod("kdp","royalties_usd"));
- note("appleProceeds",sourcePeriod("app_store_connect","proceeds_usd")+(metric("app_store_connect","proceeds_usd","keepry")?"":" · Astramate-only historical snapshot; Keepry private sales awaiting import"));
+ note("appleProceeds",appleNote("proceeds_usd")+(appleComparable("proceeds_usd")===null?" · Combined total unavailable (unmatched periods or unavailable app reports)":" · both apps, matching period"));
  note("socialReferrals","First-party referral sessions, not platform impressions");
  reportBadge("playSource",sourceStatus("google_play"),sourceStatus("google_play").startsWith("Imported · "));
  reportBadge("admobSource",sourceStatus("admob"),sourceStatus("admob").startsWith("Imported · "));
@@ -351,19 +364,18 @@ function paintPlatform(){
  id("appTrend").replaceChildren();empty(id("appTrend"),"Daily Play Console acquisition and revenue history is not yet imported. Only verified 28-day snapshots are displayed above.");
  const ak=state.app==="all"?"all":state.app;
  const keepryReported=Boolean(metric("app_store_connect","first_time_downloads","keepry"));
- const am=(key,app=ak)=>app==="all"&&!keepryReported?null:m("app_store_connect",key,app);
+ const am=(key,app=ak)=>appleValue(key,app);
  set("appleDownloads",fm(am("first_time_downloads")));
  set("appleImpressions",fm(am("app_store_impressions")));
  set("appleViews",fm(am("product_page_views")));
  set("appleCTR",am("store_conversion_rate")==null?"—":Number(am("store_conversion_rate")).toFixed(2)+"%");
  set("appleIAP",fm(am("in_app_purchases")));
  set("appleProceedsApp",usd(am("proceeds_usd")));
- const coverage=(ak==="all"&&!keepryReported)?" · Astramate historical snapshot only; Keepry private metrics pending":"";
- note("appleDownloads",sourcePeriod("app_store_connect","first_time_downloads",ak)+coverage);
- note("appleProceedsApp",sourcePeriod("app_store_connect","proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
- const source=metric("app_store_connect","first_time_downloads","astramate");
+ const coverage=ak==="all"&&am("first_time_downloads")==null?" · Combined total withheld until both apps have matching reporting periods":"";
+ note("appleDownloads",appleNote("first_time_downloads",ak)+coverage);
+ note("appleProceedsApp",appleNote("proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
  const listingCount=(state.appleDistribution?.apps||[]).filter(x=>x.available).length;
- id("applePeriod").textContent=(source?"Private Apple snapshot · "+datePretty(source.period_start)+" to "+datePretty(source.period_end):"No private Apple performance report")+" · PH listings "+listingCount+"/2 confirmed live"+(keepryReported?"":" · Keepry private metrics not yet imported");
+ id("applePeriod").textContent="Private Apple reporting · "+appleNote("first_time_downloads",ak)+" · PH listings "+listingCount+"/2 confirmed live"+(keepryReported?"":" · Keepry private metrics not yet imported");
  const liveLine=id("appleListingStatus");
  if(liveLine)liveLine.textContent="Official Apple storefront: Keepry "+appleListingLabel("keepry")+"; Astramate "+appleListingLabel("astramate")+" · downloads and revenue require App Store Connect reports.";
  const appleApps=state.app==="all"?["astramate","keepry"]:[state.app];
