@@ -365,12 +365,27 @@ function paintPlatform(){
  const ak=state.app==="all"?"all":state.app;
  const keepryReported=Boolean(metric("app_store_connect","first_time_downloads","keepry"));
  const am=(key,app=ak)=>appleValue(key,app);
- set("appleDownloads",fm(am("first_time_downloads")));
- set("appleImpressions",fm(am("app_store_impressions")));
- set("appleViews",fm(am("product_page_views")));
- set("appleCTR",am("store_conversion_rate")==null?"—":Number(am("store_conversion_rate")).toFixed(2)+"%");
- set("appleIAP",fm(am("in_app_purchases")));
- set("appleProceedsApp",usd(am("proceeds_usd")));
+ // The All apps filter is a side-by-side comparison until the reporting windows match.
+ // Never sum legacy Astramate-only 'all' records or mix unlike date ranges.
+ const split=ak==="all";
+ const appCompare=(name,format)=>"A: "+format(am(name,"astramate"))+"   ·   K: "+format(am(name,"keepry"));
+ const valueOrCompare=(name,format)=>split?appCompare(name,format):format(am(name));
+ const pct=n=>n==null?"—":Number(n).toFixed(2)+"%";
+ set("appleDownloads",valueOrCompare("first_time_downloads",fm));
+ set("appleImpressions",valueOrCompare("app_store_impressions",fm));
+ set("appleViews",valueOrCompare("product_page_views",fm));
+ set("appleCTR",valueOrCompare("store_conversion_rate",pct));
+ set("appleIAP",valueOrCompare("in_app_purchases",fm));
+ set("appleProceedsApp",valueOrCompare("proceeds_usd",usd));
+ const splitNote=id("appleSplitNote");
+ if(splitNote){
+  splitNote.hidden=!split;
+  if(split){
+   const appDate=app=>{const row=metric("app_store_connect","first_time_downloads",app);
+    return row?datePretty(row.period_start)+" to "+datePretty(row.period_end):"no verified date range"};
+   splitNote.textContent="A = Astramate ("+appDate("astramate")+") · K = Keepry ("+appDate("keepry")+"). Values are shown per app, NOT added together. A dash means no verified report, not zero.";
+  }
+ }
  const coverage=ak==="all"&&am("first_time_downloads")==null?" · Combined total withheld until both apps have matching reporting periods":"";
  note("appleDownloads",appleNote("first_time_downloads",ak)+coverage);
  note("appleProceedsApp",appleNote("proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
