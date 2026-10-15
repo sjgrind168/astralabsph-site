@@ -14,5 +14,6 @@ assert.match(dash,/set\("appleDownloads",valueOrCompare\("first_time_downloads",
 assert.match(dash,/set\("appleProceedsApp",valueOrCompare\("proceeds_usd",roundedApple\)\)/);
 assert.match(dash,/splitNote\.textContent=/);
 assert.match(html,/id="appleSplitNote"/);
-assert.match(html,/dashboard-v2\.js\?v=20/);
+assert.match(html,/dashboard-v2\.js\?v=21/);
+assert.match(dash,/dashboard feeds loaded \(not live provider sync\)/);
 console.log('PASS: source freshness and visible per-app Apple comparison');
