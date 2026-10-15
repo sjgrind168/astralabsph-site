@@ -376,7 +376,7 @@ function paintPlatform(){
  set("appleViews",valueOrCompare("product_page_views",fm));
  set("appleCTR",valueOrCompare("store_conversion_rate",pct));
  set("appleIAP",valueOrCompare("in_app_purchases",fm));
- set("appleProceedsApp",valueOrCompare("proceeds_usd",usd));
+ set("appleProceedsApp",valueOrCompare("proceeds_usd",roundedApple));
  const splitNote=id("appleSplitNote");
  if(splitNote){
   splitNote.hidden=!split;
