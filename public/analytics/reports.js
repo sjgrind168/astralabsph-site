@@ -8,7 +8,14 @@ const count=(days,key)=>days.reduce((a,d)=>a+Number(d[key]||0),0);
 const add=(tag,text,cls)=>{const x=document.createElement(tag);if(text!=null)x.textContent=String(text);if(cls)x.className=cls;return x};
 const sourceMetric=(state,provider,metric,app="all")=>(state.platforms?.metrics||[]).find(x=>x.provider===provider&&x.metric===metric&&x.app_key===app)||null;
 const value=(state,p,m,app="all")=>{const r=sourceMetric(state,p,m,app);return r?.metric_value==null?null:Number(r.metric_value)};
-const srcStatus=(state,provider)=>state.platforms?.sources?.find(x=>x.provider===provider)?.status==="imported"?"Verified snapshot":"Awaiting import";
+const srcStatus=(state,provider)=>{
+ const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end);
+ if(!rows.length)return "No verified report";
+ const newest=rows.map(x=>Date.parse(x.captured_at)).filter(Number.isFinite).sort((a,b)=>b-a)[0];
+ const end=rows.map(x=>String(x.period_end).slice(0,10)).sort().at(-1);
+ const daysOld=Math.max(0,Math.floor((Date.now()-newest)/86400000));
+ return (daysOld>=2?"STALE":"Imported")+" · through "+end+(daysOld>=2?" · "+daysOld+"d old":"");
+};
 let selected="all",trends=null,lastReport=null,lastTrendState=null;
 const linksOnly=(p)=>{
  const x=document.createElement("a");
