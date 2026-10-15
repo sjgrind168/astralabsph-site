@@ -231,8 +231,8 @@ function stamp(){
  const site=state.daily;const time=new Date(site?.generated_at||Date.now());
  id("lastSync").textContent=site?.generated_at?"Website data checked "+time.toLocaleString("en-PH",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):"Source check pending";
  id("dateCaption").textContent="Website events · "+(site?datePretty(site.window_start)+" to "+datePretty(site.window_end):"Not available")+" · Asia/Manila";
- const ready=["base","site","platforms","amazon","daily"].filter(k=>state[k]).length;
- id("sourceHealth").textContent=ready+"/5 reporting sources accessible";
+ const ready=["base","site","platforms","amazon","daily","appleDistribution"].filter(k=>state[k]).length;
+ id("sourceHealth").textContent=ready+"/6 dashboard feeds loaded (not live provider sync)";
  id("sourceHealthDot").classList.toggle("live",ready>=3);
 }
 function renderSummary(){
@@ -515,8 +515,8 @@ async function load(){
  renderAll();
  if(successful>0){id("refreshTimestamp").textContent="Last checked: "+new Date().toLocaleString("en-PH",{timeZone:"Asia/Manila",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true})+" PHT";}else{id("refreshTimestamp").textContent="Last checked: sources unavailable";}
  id("refresh").disabled=false;
- id("sourceHealth").textContent=successful+"/5 reporting sources accessible";
- if(successful<5)id("sourceHealthDot").classList.remove("live");
+ id("sourceHealth").textContent=successful+"/6 dashboard feeds loaded (not live provider sync)";
+ if(successful<6)id("sourceHealthDot").classList.remove("live");
 }
 document.addEventListener("DOMContentLoaded",initialize);
 setInterval(()=>{if(!document.hidden&&state.token)load()},60000);
