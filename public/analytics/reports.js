@@ -8,6 +8,12 @@ const count=(days,key)=>days.reduce((a,d)=>a+Number(d[key]||0),0);
 const add=(tag,text,cls)=>{const x=document.createElement(tag);if(text!=null)x.textContent=String(text);if(cls)x.className=cls;return x};
 const sourceMetric=(state,provider,metric,app="all")=>(state.platforms?.metrics||[]).find(x=>x.provider===provider&&x.metric===metric&&x.app_key===app)||null;
 const value=(state,p,m,app="all")=>{const r=sourceMetric(state,p,m,app);return r?.metric_value==null?null:Number(r.metric_value)};
+const appleBoth=(state,key)=>{
+ const a=sourceMetric(state,"app_store_connect",key,"astramate"), k=sourceMetric(state,"app_store_connect",key,"keepry");
+ if(!a||!k||a.metric_value==null||k.metric_value==null)return null;
+ if(a.period_start!==k.period_start||a.period_end!==k.period_end||a.metric_unit!==k.metric_unit)return null;
+ return Number(a.metric_value)+Number(k.metric_value);
+};
 const srcStatus=(state,provider)=>{
  const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end);
  if(!rows.length)return "No verified report";
@@ -67,7 +73,7 @@ function metrics(state){
  const playA=value(state,"google_play","device_acquisitions","astramate"),playK=value(state,"google_play","device_acquisitions","keepry"),gross=value(state,"google_play","gross_revenue_usd","keepry");
  const admob=value(state,"admob","estimated_earnings_usd");
  const kdp=value(state,"kdp","royalties_usd");
- const apple=value(state,"app_store_connect","proceeds_usd");
+ const apple=appleBoth(state,"proceeds_usd");
  return {
   days,hasDays,k,site,amz,playA,playK,gross,admob,kdp,apple,
   pSessions:k.sessions==null?null:Number(k.sessions),
@@ -85,7 +91,7 @@ function createScorecard(state,m){
  const last=d=>d?date(d):"Not imported",status=p=>srcStatus(state,p);
  return [
   {channel:"Mobile apps · Google Play",performance:usd(m.gross)+" gross Keepry; "+(m.playA==null||m.playK==null?"—":fmt(m.playA+m.playK))+" acquired devices",source:"Play Console · gross through "+last(sourceMetric(state,"google_play","gross_revenue_usd","keepry")?.period_end)+"; acquisitions in a separate 28-day period",status:status("google_play")},
-  {channel:"Mobile apps · App Store",performance:(m.apple==null?"—":usd(m.apple))+" estimated displayed proceeds; "+fmt(value(state,"app_store_connect","first_time_downloads"))+" first-time downloads; "+fmt(value(state,"app_store_connect","in_app_purchases"))+" IAPs",source:"Astramate Apple Analytics snapshot · "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_start)+" to "+last(sourceMetric(state,"app_store_connect","first_time_downloads")?.period_end)+" · amount rounded by Apple, not final payment; Keepry is live on the App Store, but its private downloads and proceeds are not yet imported",status:status("app_store_connect")},
+  {channel:"Mobile apps · App Store",performance:(m.apple==null?"—":usd(m.apple))+" combined estimated proceeds; "+fmt(appleBoth(state,"first_time_downloads"))+" combined first-time downloads; "+fmt(appleBoth(state,"in_app_purchases"))+" IAPs",source:"Combined metrics require BOTH Astramate and Keepry reports with identical periods/units; missing or mismatched data is shown as unavailable, not zero or Astramate-only. Astramate reporting through "+last(sourceMetric(state,"app_store_connect","first_time_downloads","astramate")?.period_end)+"; Keepry through "+last(sourceMetric(state,"app_store_connect","first_time_downloads","keepry")?.period_end)+". Revenue is estimated, not final payout.",status:status("app_store_connect")},
   {channel:"PIREVO affiliate",performance:fmt(m.pSessions)+" sessions; "+fmt(m.pOutbound)+" Amazon outbound; "+(m.amz?usd(m.amz.earnings_usd)+" commission":"— affiliate commission"),source:"First-party events for selected period; Amazon Associates account-level snapshot",status:state.base?"Website live + earnings snapshot":"Awaiting events"},
   {channel:"Digital products · KDP",performance:usd(m.kdp)+" royalties; "+fmt(m.bookRef)+" referrals",source:m.kdp==null?"KDP Reports not connected: royalty reports have not been imported; PIREVO book referrals are not book sales":"Imported KDP report snapshot; PIREVO book referrals are tracked separately",status:status("kdp")},
   {channel:"AstraLabs website",performance:fmt(m.webSessions)+" sessions; "+fmt(m.webViews)+" page views; "+fmt(m.storeClicks)+" store clicks",source:"First-party events · selected period",status:state.site?"Tracked":"Awaiting events"},
