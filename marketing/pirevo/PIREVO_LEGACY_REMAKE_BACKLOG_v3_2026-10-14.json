@@ -63,10 +63,13 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/05_rock-painting-kit.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nA glow-in-the-dark rock painting kit for creative kids and screen-free holiday time. See why this exact PIREVO pick made the Christmas preview.",
       "idx": 1,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "visual_status": "REPLACED_PREMIUM_AND_OLD_REMOVED",
       "pinterest_live_permalink": null,
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "old_pin_deleted_verified": true,
+      "new_pin_url": "https://ph.pinterest.com/pin/1143844005390888359/",
+      "old_pin_url": "https://ph.pinterest.com/pin/1143844005390708167/"
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 14, 10:00 AM (Asia/Manila)",
@@ -312,21 +315,20 @@
     "preexisting_pin_unreposted": "https://ph.pinterest.com/pin/1143844005390680649/"
   },
   "latest_replacement": {
-    "date_ph": "2026-10-14",
-    "verification_timestamp_ph": "2026-10-14T21:12:36+08:00",
-    "product_slug": "national-tree-wintry-pine-garland",
-    "asin": "B00EJ2E1HI",
-    "old_pin": "https://ph.pinterest.com/pin/1143844005390640909/",
-    "new_pin": "https://ph.pinterest.com/pin/1143844005390736693/",
+    "date_ph": "2026-10-16",
+    "product_slug": "joyin-glow-rock-painting-kit",
+    "asin": "B08HD89CX6",
+    "old_pin": "https://ph.pinterest.com/pin/1143844005390708167/",
+    "new_pin": "https://ph.pinterest.com/pin/1143844005390888359/",
     "new_verified_live": true,
     "old_removed_verified": true,
     "old_redirect": "https://ph.pinterest.com/?show_error=true",
-    "landing": "https://www.astralabsph.com/pirevo/products/national-tree-wintry-pine-garland/index.html",
-    "utm_content": "national_tree_garland_mantel_v3_20261014_01",
-    "source_image": "/Users/wafu/Desktop/PIREVO Pin Studio/2026-10-14/national_tree_wintry_pine_premium_replacement_v3_20261014.png",
-    "source_image_sha256": "e0b71e7602c683241346549d92aa19f53504a88bf8da66bfce8f9b1712f05a0e",
-    "source_credit": "Pexels Valeria Boltneva photo ID 29465905, original editorial typography and gradient by PIREVO; image described as an illustrative lifestyle inspiration not exact retail SKU.",
-    "asset_size": "1000x1500 full-bleed",
+    "landing": "https://www.astralabsph.com/pirevo/products/joyin-glow-rock-painting-kit/index.html",
+    "utm_content": "joyin_glow_rock_fullbleed_v3",
+    "source_image": "Google Drive /AstraLabs PH Media Bank/PIREVO/JOYIN_Glow_Rock_Replacement_Premium_2026-10-16.png",
+    "source_image_sha256": "21d8b01ccf36f3615697af98283244efb72288b094827b0604d44721de87cdb4",
+    "source_credit": "Original AI-generated editorial photorealistic styling illustration; AI flag and AI-person flag selected. Exact product contents shown in landing, not claimed photo of package.",
+    "asset_size": "1024x1536 full-bleed",
     "board": "PIREVO Finds",
     "affiliate_tag": "pirevo-20",
     "affiliate_disclosure_verified": true,
@@ -371,7 +373,28 @@
       "affiliate_disclosure_verified": true,
       "status": "REPLACED_PUBLISHED_VERIFIED",
       "duplicate_policy": "DO_NOT_REPEAT"
+    },
+    {
+      "date_ph": "2026-10-16",
+      "product_slug": "joyin-glow-rock-painting-kit",
+      "asin": "B08HD89CX6",
+      "old_pin": "https://ph.pinterest.com/pin/1143844005390708167/",
+      "new_pin": "https://ph.pinterest.com/pin/1143844005390888359/",
+      "new_verified_live": true,
+      "old_removed_verified": true,
+      "old_redirect": "https://ph.pinterest.com/?show_error=true",
+      "landing": "https://www.astralabsph.com/pirevo/products/joyin-glow-rock-painting-kit/index.html",
+      "utm_content": "joyin_glow_rock_fullbleed_v3",
+      "source_image": "Google Drive /AstraLabs PH Media Bank/PIREVO/JOYIN_Glow_Rock_Replacement_Premium_2026-10-16.png",
+      "source_image_sha256": "21d8b01ccf36f3615697af98283244efb72288b094827b0604d44721de87cdb4",
+      "source_credit": "Original AI-generated editorial photorealistic styling illustration; AI flag and AI-person flag selected. Exact product contents shown in landing, not claimed photo of package.",
+      "asset_size": "1024x1536 full-bleed",
+      "board": "PIREVO Finds",
+      "affiliate_tag": "pirevo-20",
+      "affiliate_disclosure_verified": true,
+      "status": "REPLACED_PUBLISHED_VERIFIED",
+      "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-14T21:12:36+08:00"
+  "last_updated_at_ph": "2026-10-16"
 }
