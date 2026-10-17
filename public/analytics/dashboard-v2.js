@@ -437,7 +437,9 @@ function paintPlatform(){
   const appleDates=periods("app_store_connect"),googleDates=periods("google_play");
   const fmt=d=>d?datePretty(d):"no import";
   const sourceAge=provider=>{
-    const imports=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at)
+    // Manual screenshot totals and legacy all-app rows are not fresh private app reports.
+    const imports=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at
+      &&["astramate","keepry"].includes(x.app_key)&&!String(x.metric||"").startsWith("trends_"))
       .map(x=>Date.parse(x.captured_at)).filter(Number.isFinite);
     if(!imports.length)return "not connected";
     const days=Math.max(0,Math.floor((Date.now()-Math.max(...imports))/86400000));
