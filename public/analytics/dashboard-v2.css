@@ -19,3 +19,15 @@
 
 /* Official AstraLabs PH icon asset, not a generated logo. */
 .brand-symbol,.lock-logo{object-fit:contain;background:#fff;padding:0;letter-spacing:normal}
+
+/* Mobile Apps: explicit per-app names and figures, never the cryptic A: / K:. */
+#pane-mobile .apple-app-breakdown{display:grid;gap:7px;width:100%;text-align:left}
+#pane-mobile .apple-app-line{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-bottom:1px solid #e4eae4;padding:3px 0 7px;min-width:0}
+#pane-mobile .apple-app-line:last-child{border-bottom:0;padding-bottom:0}
+#pane-mobile .apple-app-name{font-size:12px;font-weight:700;color:#527064;letter-spacing:0}
+#pane-mobile .apple-app-number{font-size:clamp(20px,2vw,28px);font-weight:800;color:#1e3932;
+  font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;letter-spacing:-.04em}
+#pane-mobile .mobile-source-health{border:1px solid #e5dcbf;background:#fbf8ef;padding:11px 13px;
+  border-radius:10px;color:#625838;line-height:1.5;margin:11px 0 15px}
+@media(max-width:630px){#pane-mobile .apple-app-number{font-size:22px}}
