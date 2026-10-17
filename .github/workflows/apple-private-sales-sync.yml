@@ -1,0 +1,47 @@
+name: Apple App Store Connect verified private Sales Reports sync
+
+on:
+  schedule:
+    # 07:40 Asia/Manila. Apple figures can lag by 1-2 days.
+    - cron: '40 23 * * *'
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: 'Backfill last 40 calendar days (otherwise last 10 days)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: astralabs-apple-private-sales-sync
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      APPLE_ASC_ISSUER_ID: ${{ secrets.APPLE_ASC_ISSUER_ID }}
+      APPLE_ASC_KEY_ID: ${{ secrets.APPLE_ASC_KEY_ID }}
+      APPLE_ASC_P8_B64: ${{ secrets.APPLE_ASC_P8_B64 }}
+      APPLE_ASC_VENDOR_NUMBER: ${{ secrets.APPLE_ASC_VENDOR_NUMBER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Import official Apple Sales Reports with per-app and currency provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ inputs.backfill }}" == "true" ]]; then
+            node tools/apple-reports/sales-sync.mjs --backfill --live
+          else
+            node tools/apple-reports/sales-sync.mjs --live
+          fi
+      - name: Source assurance
+        if: success()
+        run: echo 'Official Apple gzip report fetched, normalized by Apple ID and currency, uploaded to scoped private ingestion endpoint. Source-date retries are idempotent. No download or proceeds estimates manufactured.'
