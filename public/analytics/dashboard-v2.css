@@ -46,3 +46,17 @@
 #pane-mobile .apple-trends-metrics strong{display:block;color:#1e3932;font-size:clamp(24px,2.6vw,35px);margin-top:4px;font-variant-numeric:tabular-nums}
 #pane-mobile .apple-trends-caveat{font-size:11px;color:#66766e;line-height:1.5;margin:14px 0 0}
 @media(max-width:530px){#pane-mobile .apple-trends-metrics>div{padding:4px 8px}#pane-mobile .apple-trends-metrics strong{font-size:23px}}
+
+/* Official Apple API records: distinctly separated from manual snapshots. */
+#pane-mobile .apple-source-panel{background:#fff;border:1px solid #d3e5d6;border-radius:14px;padding:18px;margin:14px 0}
+#pane-mobile .apple-source-heading{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+#pane-mobile .apple-source-heading h3{margin:0;font-size:17px;color:#1e3932}
+#pane-mobile .apple-source-heading p,#pane-mobile .apple-source-coverage,#pane-mobile .apple-source-caveat{font-size:12px;color:#66796d;line-height:1.5}
+#pane-mobile .apple-source-badge{font-size:11px;border-radius:16px;padding:5px 9px;color:#006241;background:#e9f3eb;border:1px solid #c5e0cb}
+#pane-mobile .apple-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#pane-mobile .apple-source-card{background:#f7faf6;border:1px solid #e4eae3;border-radius:12px;padding:14px}
+#pane-mobile .apple-source-card strong{display:block;color:#1e3932;font-size:17px}
+#pane-mobile .apple-source-card small{display:block;color:#68796b;font-size:11px;line-height:1.45}
+#pane-mobile .apple-source-card p{font-size:13px;font-weight:750;color:#16583a;margin:8px 0}
+#pane-mobile .apple-source-caveat{margin-bottom:0}
+@media(max-width:620px){#pane-mobile .apple-source-grid{grid-template-columns:1fr}}

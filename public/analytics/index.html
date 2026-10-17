@@ -3,7 +3,7 @@
 <title>AstraLabs PH Analytics | Portfolio Intelligence</title>
 <link rel="icon" type="image/png" href="/astralabs-logo.png">
 <meta name="description" content="Private AstraLabs PH portfolio analytics dashboard with source-aware financial and performance reports.">
-<link rel="stylesheet" href="/analytics/dashboard-v2.css?v=23">
+<link rel="stylesheet" href="/analytics/dashboard-v2.css?v=25">
 <link rel="stylesheet" href="/analytics/ga-report-v3.css?v=4">
 <link rel="stylesheet" href="/analytics/reports.css?v=4">
 <link rel="stylesheet" href="/analytics/earnings-theme.css?v=2">
@@ -93,6 +93,14 @@
   <div><label>Sales · USD</label><strong data-v="appleTrendSales">—</strong></div>
  </div>
  <p class="apple-trends-caveat" id="appleTrendCaveat">All-app Sales are not developer proceeds. App Units are not first-time downloads. Data comes from a dated Apple screenshot and does not update automatically.</p>
+</section>
+<section id="appleSalesApiPane" class="apple-source-panel" hidden>
+ <div class="apple-source-heading"><div><h3>Official Apple Sales Reports API</h3>
+ <p>Secure scheduled provider import, not screenshot estimates</p></div>
+ <span class="apple-source-badge">API verified · Currency-aware</span></div>
+ <p class="apple-source-coverage" id="appleApiCoverage">Checking Apple Sales report coverage…</p>
+ <div id="appleApiApps" class="apple-source-grid"></div>
+ <p class="apple-source-caveat" id="appleApiCaveat"></p>
 </section>
 <div class="cards five">
 <article class="card"><label>First-time downloads</label><strong data-v="appleDownloads">—</strong><small data-note="appleDownloads">Awaiting Apple report</small></article>
@@ -189,6 +197,6 @@
 <script src="/pirevo/config.js"></script>
 <script src="/analytics/reports.js?v=10" defer></script>
 <script src="/analytics/social-native.js?v=3" defer></script>
-<script src="/analytics/dashboard-v2.js?v=24" defer></script>
+<script src="/analytics/dashboard-v2.js?v=25" defer></script>
 <script type="module" src="/command-center/passkey.js?v=2"></script>
 </body></html>
