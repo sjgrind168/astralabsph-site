@@ -3,7 +3,7 @@
 <title>AstraLabs PH Analytics | Portfolio Intelligence</title>
 <link rel="icon" type="image/png" href="/astralabs-logo.png">
 <meta name="description" content="Private AstraLabs PH portfolio analytics dashboard with source-aware financial and performance reports.">
-<link rel="stylesheet" href="/analytics/dashboard-v2.css?v=22">
+<link rel="stylesheet" href="/analytics/dashboard-v2.css?v=23">
 <link rel="stylesheet" href="/analytics/ga-report-v3.css?v=4">
 <link rel="stylesheet" href="/analytics/reports.css?v=4">
 <link rel="stylesheet" href="/analytics/earnings-theme.css?v=2">
@@ -85,6 +85,15 @@
 </div>
 <div class="ga-report-caveat">Reporting integrity: Page views are not Search Console impressions. Clicks are not installs or purchases. Gross app sales, estimated ad revenue and payout balances are separate accounting values.</div>
 </section><section class="tabpanel" role="tabpanel" id="pane-mobile" aria-labelledby="tab-mobile" data-panel="mobile" hidden><div class="section-head"><div><div class="kicker">02 / Mobile Apps</div><h2>Store intelligence</h2></div><p>Select Google Play or App Store and compare individual applications.</p></div><p class="note mobile-source-health" id="mobileSourceHealth" aria-live="polite">Checking imported report dates…</p><div class="seg" aria-label="Data selector"><button type="button" data-platform="google_play" aria-pressed="true">Google Play</button><button type="button" data-platform="app_store_connect" aria-pressed="false">App Store</button></div><div class="seg" aria-label="Data selector"><button type="button" data-app="all" aria-pressed="true">All apps</button><button type="button" data-app="astramate" aria-pressed="false">Astramate</button><button type="button" data-app="keepry" aria-pressed="false">Keepry</button></div><div id="playDetails"><div class="cards "><article class="card"><label>Installed audience</label><strong data-v="appInstalled">—</strong><small data-note="appInstalled">Latest verified snapshot</small></article><article class="card"><label>Device acquisitions</label><strong data-v="appAcquired">—</strong><small data-note="appAcquired">Last 28 days</small></article><article class="card"><label>Monthly active devices</label><strong data-v="appActive">—</strong><small >Reporting-period activity</small></article><article class="card"><label>First opens</label><strong data-v="appFirstOpens">—</strong><small >Google Play</small></article><article class="card"><label>Premium orders</label><strong data-v="appOrders">—</strong><small >Verified orders only</small></article><article class="card"><label>Gross customer sales</label><strong data-earning="true" data-v="appGross">—</strong><small >Includes taxes · not net proceeds</small></article></div><div class="twocol"><article class="panel"><div class="panel-head"><h3>Device acquisition comparison</h3><span>Verified source snapshot</span></div><div id="appBars" aria-live="polite"><div class="empty">Loading source details…</div></div></article><article class="panel"><div class="panel-head"><h3>Daily install and revenue trend</h3><span>Not yet imported</span></div><div class="chart-wrap" id="appTrend"></div></article></div><article class="panel"><div class="panel-head"><h3>Apps by the numbers</h3><span>Available Google Play records</span></div><div class="table-scroll"><table><thead><tr><th scope="col">Application</th><th scope="col">Installed</th><th scope="col">Acquired</th><th scope="col">First opens</th><th scope="col">Active devices</th><th scope="col">Gross sales</th></tr></thead><tbody id="appRows"><tr><td colspan="6">Loading verified records…</td></tr></tbody></table></div></article><p class="note">Keepry gross customer sales of $4.79 and the separate $3.98 payments balance are historical snapshots as of October 9, 2026. A pending balance is not additional revenue. <a class="action-link" href="https://play.google.com/console/" target="_blank" rel="noopener noreferrer">Open Play Console ↗</a></p></div><div id="appleDetails" hidden><div id="appleSplitNote" class="note" role="status" aria-live="polite" hidden></div>
+<section class="apple-trends-snapshot" id="appleTrendsSnapshot" hidden aria-live="polite">
+ <div class="apple-trends-head"><div><h3>Apple Trends · All Apps</h3><p id="appleTrendsPeriod">Verifying source date…</p></div><span class="apple-manual-chip">Screenshot import · Not live API sync</span></div>
+ <div class="apple-trends-metrics">
+  <div><label>App Units</label><strong data-v="appleTrendUnits">—</strong></div>
+  <div><label>In-App Purchases</label><strong data-v="appleTrendIAP">—</strong></div>
+  <div><label>Sales · USD</label><strong data-v="appleTrendSales">—</strong></div>
+ </div>
+ <p class="apple-trends-caveat" id="appleTrendCaveat">All-app Sales are not developer proceeds. App Units are not first-time downloads. Data comes from a dated Apple screenshot and does not update automatically.</p>
+</section>
 <div class="cards five">
 <article class="card"><label>First-time downloads</label><strong data-v="appleDownloads">—</strong><small data-note="appleDownloads">Awaiting Apple report</small></article>
 <article class="card"><label>Store impressions</label><strong data-v="appleImpressions">—</strong><small>App Store visibility</small></article>
@@ -180,6 +189,6 @@
 <script src="/pirevo/config.js"></script>
 <script src="/analytics/reports.js?v=10" defer></script>
 <script src="/analytics/social-native.js?v=3" defer></script>
-<script src="/analytics/dashboard-v2.js?v=22" defer></script>
+<script src="/analytics/dashboard-v2.js?v=23" defer></script>
 <script type="module" src="/command-center/passkey.js?v=2"></script>
 </body></html>
