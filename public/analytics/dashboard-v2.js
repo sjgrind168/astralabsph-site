@@ -5,7 +5,7 @@ const P=["overview","mobile","pirevo","digital","website","admob","socials","rep
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
-const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,appleDistribution:null,seq:0};
+const state={overviewFocus:"sessions",token:"",period:7,compare:false,tab:"overview",platform:"google_play",app:"all",social:"all",base:null,site:null,platforms:null,amazon:null,daily:null,previous:null,trendPerformance:null,kdpSync:null,socialMetrics:null,appleDistribution:null,appleSalesApi:null,seq:0};
 const fm=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{maximumFractionDigits:0}).format(Number(n));
 const usd=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(Number(n));
 const roundedApple=n=>n==null||!Number.isFinite(Number(n))?"—":new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(Number(n));
@@ -345,6 +345,42 @@ function renderGAOverviewDetails(){
  barList("overviewTopPages",(state.site?.top_pages||[]).map(x=>({name:x.path==="/"?"/ · Homepage":String(x.path),value:Number(x.views||0)})),"Top pages appear after AstraLabs website traffic is tracked.");
 }
 
+function renderAppleSalesApi(){
+ const pane=id("appleSalesApiPane");
+ if(!pane)return;
+ pane.hidden=state.platform!=="app_store_connect";
+ if(pane.hidden)return;
+ const scope=id("appleApiCoverage"),cards=id("appleApiApps"),data=state.appleSalesApi;
+ cards.replaceChildren();
+ if(!data){scope.textContent="Official Apple Sales Reports feed unavailable. Existing historical reports remain visible; do not assume zero transactions.";return;}
+ const cutoff=new Date(Date.now()-30*86400000).toISOString().slice(0,10);
+ const coverage=(data.coverage||[]).filter(x=>x.report_date>=cutoff);
+ const imported=coverage.filter(x=>x.status==="available");
+ const days=(data.rows||[]).filter(x=>x.report_date>=cutoff);
+ const last=(data.coverage||[])[0];
+ scope.textContent="Official Apple Sales SUMMARY reports · last 30 UTC dates · checked "+coverage.length+"/30 dates"+
+  " · last attempted "+(last?datePretty(last.report_date):"not yet imported")+
+  ". Store downloads, impressions and payments use separate Apple reports.";
+ const names=state.app==="all"?["astramate","keepry"]:[state.app];
+ const unitTypes=new Set(["1","1F","1T","1E","1EP","1EU"]);
+ const iapTypes=new Set(["IA1","IA9","IAY","IA1-M","IA9-M","IAY-M","FI1"]);
+ for(const name of names){
+  const rs=days.filter(x=>x.app_key===name);
+  const count=filter=>rs.filter(x=>filter.has(x.product_type)).reduce((sum,x)=>sum+Number(x.units||0),0);
+  const card=document.createElement("article");card.className="apple-source-card";
+  const title=document.createElement("strong");title.textContent=name==="keepry"?"Keepry":"Astramate";card.append(title);
+  const sub=document.createElement("small");sub.textContent="Verified Apple Sales report lines, "+datePretty(cutoff)+" onward";card.append(sub);
+  const app=document.createElement("p");app.textContent="App units: "+(rs.length?fm(count(unitTypes)):"—")+"  ·  In-app purchases: "+(rs.length?fm(count(iapTypes)):"—");card.append(app);
+  const paid=rs.filter(x=>Number(x.gross_customer_native)!==0);
+  const money=new Map();
+  for(const r of paid){const c=r.customer_currency;money.set(c,(money.get(c)||0)+Number(r.gross_customer_native))}
+  const value=document.createElement("small");
+  value.textContent="Gross sales in original currencies: "+(money.size?[...money].map(([c,v])=>c+" "+v.toFixed(2)).join(" · "):"No nonzero customer-price records in imported lines");
+  card.append(value);cards.append(card);
+ }
+ const subtitle=id("appleApiCaveat");
+ subtitle.textContent="Apple API source has "+imported.length+" report files and "+coverage.filter(x=>x.status==="no_sales").length+" Apple-confirmed no-sales dates in this window. No conversion between currencies; proceeds and refunds are not shown as gross sales. Store Insights data may lag or differ from Sales Reports.";
+}
 function paintPlatform(){
  qa("[data-platform]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.platform===state.platform)));
  qa("[data-app]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.app===state.app)));
@@ -370,6 +406,7 @@ function paintPlatform(){
  // The All apps filter is a side-by-side comparison until the reporting windows match.
  // Never sum legacy Astramate-only 'all' records or mix unlike date ranges.
  const split=ak==="all";
+ renderAppleSalesApi();
  const trendBox=id("appleTrendsSnapshot");
  if(trendBox){
   const units=metric("app_store_connect","trends_app_units","all");
@@ -567,12 +604,13 @@ async function load(){
  ["kdpSync",rpc("pirevo_kdp_sync_snapshot",{p_token:token})],
  ["socialMetrics",rpc("astralabs_social_metrics_snapshot",{p_token:token})],
  ["appleDistribution",appleDistributionStatus()],
+ ["appleSalesApi",rpc("astra_apple_sales_snapshot",{p_token:token})],
  ["previous",state.compare?rpc("astralabs_portfolio_daily_range_v2",{p_days:days,p_token:token,p_shift_days:days}):Promise.resolve(null)]
  ];
  const settled=await Promise.allSettled(requests.map(x=>x[1]));
  if(n!==state.seq)return;
  let successful=0;
- settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics")successful++});
+ settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics"&&key!=="appleSalesApi")successful++});
  renderAll();
  if(successful>0){id("refreshTimestamp").textContent="Last checked: "+new Date().toLocaleString("en-PH",{timeZone:"Asia/Manila",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true})+" PHT";}else{id("refreshTimestamp").textContent="Last checked: sources unavailable";}
  id("refresh").disabled=false;
