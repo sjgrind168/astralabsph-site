@@ -1,0 +1,36 @@
+name: RUDE Official Provider Metrics
+on:
+  workflow_dispatch:
+  schedule:
+    # Once daily, 11:37 Asia/Manila. Vendor financial reports can be delayed.
+    - cron: '37 3 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: rude-official-provider-reports
+  cancel-in-progress: false
+jobs:
+  verified-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      RUDE_PROVIDER_INGEST_TOKEN: ${{ secrets.RUDE_PROVIDER_INGEST_TOKEN }}
+      APPLE_ASC_ISSUER_ID: ${{ secrets.APPLE_ASC_ISSUER_ID }}
+      APPLE_ASC_KEY_ID: ${{ secrets.APPLE_ASC_KEY_ID }}
+      APPLE_ASC_P8_B64: ${{ secrets.APPLE_ASC_P8_B64 }}
+      APPLE_ASC_VENDOR_NUMBER: ${{ secrets.APPLE_ASC_VENDOR_NUMBER }}
+      GOOGLE_PLAY_SA_JSON_B64: ${{ secrets.GOOGLE_PLAY_SA_JSON_B64 }}
+      GOOGLE_PLAY_REPORT_BUCKET: ${{ secrets.GOOGLE_PLAY_REPORT_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/rude-provider-sync/requirements.txt
+      - name: Install source clients
+        run: python -m pip install -r tools/rude-provider-sync/requirements.txt
+      - name: Verify currency, refunds and app isolation
+        run: python -m unittest discover -s tools/rude-provider-sync -p 'test_*.py' -v
+      - name: Fetch official reports and ingest only verified source facts
+        run: python tools/rude-provider-sync/sync.py
