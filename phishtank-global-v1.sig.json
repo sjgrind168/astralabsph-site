@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "Ed25519",
+  "keyId": "rs-ed25519-039059e0434e8d46",
+  "packFile": "phishtank-global-v1.json",
+  "packVersion": "phishtank-20261017-204145Z-db37352b177e",
+  "packSha256": "5927901dcf027fb8a378a4d0ef4a5f97a0b24bf583422166879dd0543966a765",
+  "signatureBase64": "285WuBrEG9xwCkmDAsH3kl53xP4b52rVEv+wc7VQKxIw+tvWTv83vRtxzAIsADw6iuQQC3k9a8bHlRflBeztDA==",
+  "signedAt": "2026-10-17T20:41:45.276Z"
+}
