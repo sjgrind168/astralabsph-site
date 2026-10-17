@@ -130,6 +130,8 @@ function metric(provider,metricName,app="all"){
 }
 function m(provider,name,app="all"){const x=metric(provider,name,app);return x&&x.metric_value!==null?Number(x.metric_value):null}
 function appleComparable(name) {
+ // Rates and distinct-user metrics are non-additive; never sum across apps.
+ if(["store_conversion_rate","paying_users","conversion_rate"].includes(name))return null;
  const a=metric("app_store_connect",name,"astramate"),k=metric("app_store_connect",name,"keepry");
  // Never use legacy app_key=all: it was originally copied from Astramate only.
  if(!a||!k||a.metric_value==null||k.metric_value==null)return null;
@@ -368,8 +370,22 @@ function paintPlatform(){
  // The All apps filter is a side-by-side comparison until the reporting windows match.
  // Never sum legacy Astramate-only 'all' records or mix unlike date ranges.
  const split=ak==="all";
- const appCompare=(name,format)=>"A: "+format(am(name,"astramate"))+"   ·   K: "+format(am(name,"keepry"));
- const valueOrCompare=(name,format)=>split?appCompare(name,format):format(am(name));
+ const valueOrCompare=(name,format)=>split?"Separate app results":format(am(name));
+ const renderAppleBreakdown=(target,name,format)=>{
+  if(!split)return;
+  qa('[data-v="'+target+'"]').forEach(node=>{
+   const group=document.createElement("span");group.className="apple-app-breakdown";
+   for(const [app,label] of [["astramate","Astramate"],["keepry","Keepry"]]){
+    const line=document.createElement("span");line.className="apple-app-line";
+    const appName=document.createElement("span");appName.className="apple-app-name";appName.textContent=label;
+    const value=document.createElement("span");value.className="apple-app-number";
+    value.textContent=format(am(name,app));line.append(appName,value);group.append(line);
+   }
+   node.replaceChildren(group);
+   if(node.dataset.earning==="true")node.dataset.amountPresent=
+    String(am(name,"astramate")!==null||am(name,"keepry")!==null);
+  });
+ };
  const pct=n=>n==null?"—":Number(n).toFixed(2)+"%";
  set("appleDownloads",valueOrCompare("first_time_downloads",fm));
  set("appleImpressions",valueOrCompare("app_store_impressions",fm));
@@ -377,18 +393,45 @@ function paintPlatform(){
  set("appleCTR",valueOrCompare("store_conversion_rate",pct));
  set("appleIAP",valueOrCompare("in_app_purchases",fm));
  set("appleProceedsApp",valueOrCompare("proceeds_usd",roundedApple));
+ [
+  ["appleDownloads","first_time_downloads",fm],
+  ["appleImpressions","app_store_impressions",fm],
+  ["appleViews","product_page_views",fm],
+  ["appleCTR","store_conversion_rate",pct],
+  ["appleIAP","in_app_purchases",fm],
+  ["appleProceedsApp","proceeds_usd",roundedApple]
+ ].forEach(([target,name,format])=>renderAppleBreakdown(target,name,format));
  const splitNote=id("appleSplitNote");
  if(splitNote){
   splitNote.hidden=!split;
   if(split){
    const appDate=app=>{const row=metric("app_store_connect","first_time_downloads",app);
     return row?datePretty(row.period_start)+" to "+datePretty(row.period_end):"no verified date range"};
-   splitNote.textContent="A = Astramate ("+appDate("astramate")+") · K = Keepry ("+appDate("keepry")+"). Values are shown per app, NOT added together. A dash means no verified report, not zero.";
+   splitNote.textContent="Astramate: "+appDate("astramate")+" · Keepry: "+appDate("keepry")+". These are different Apple reporting periods. Figures appear separately and must not be added together. A dash means missing verified data, not zero.";
   }
  }
  const coverage=ak==="all"&&am("first_time_downloads")==null?" · Combined total withheld until both apps have matching reporting periods":"";
- note("appleDownloads",appleNote("first_time_downloads",ak)+coverage);
- note("appleProceedsApp",appleNote("proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
+ note("appleDownloads",split?"Separate Apple reports · reporting periods differ":appleNote("first_time_downloads",ak)+coverage);
+ note("appleProceedsApp",split?"Per-app Apple proceeds · not a combined payout":appleNote("proceeds_usd",ak)+" · rounded Apple UI estimate"+coverage);
+ const syncSummary=id("mobileSourceHealth");
+ if(syncSummary){
+  const periods=provider=>[...new Set((state.platforms?.metrics||[])
+   .filter(x=>x.provider===provider && x.period_end && ["astramate","keepry"].includes(x.app_key))
+   .map(x=>x.period_end))].sort();
+  const appleDates=periods("app_store_connect"),googleDates=periods("google_play");
+  const fmt=d=>d?datePretty(d):"no import";
+  const sourceAge=provider=>{
+    const imports=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at)
+      .map(x=>Date.parse(x.captured_at)).filter(Number.isFinite);
+    if(!imports.length)return "not connected";
+    const days=Math.max(0,Math.floor((Date.now()-Math.max(...imports))/86400000));
+    return days>=2?days+"d since last import":"recently imported";
+  };
+  syncSummary.textContent="Data freshness  •  Apple: through "+fmt(appleDates.at(-1))+
+   " ("+sourceAge("app_store_connect")+")  •  Google Play: through "+
+   fmt(googleDates.at(-1))+" ("+sourceAge("google_play")+
+   ").  Refresh reloads imported snapshots; it does not fetch private provider reports in real time.";
+ }
  const listingCount=(state.appleDistribution?.apps||[]).filter(x=>x.available).length;
  id("applePeriod").textContent="Private Apple reporting · "+appleNote("first_time_downloads",ak)+" · PH listings "+listingCount+"/2 confirmed live"+(keepryReported?"":" · Keepry private metrics not yet imported");
  const liveLine=id("appleListingStatus");
