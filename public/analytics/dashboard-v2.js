@@ -148,7 +148,7 @@ function sourcePeriod(provider,name,app="all"){
  const x=metric(provider,name,app);return x?datePretty(x.period_start)+" – "+datePretty(x.period_end)+" · imported "+datePretty(x.captured_at):"Awaiting verified source";
 }
 function sourceStatus(provider){
- const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end);
+ const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end&&!String(x.metric||"").startsWith("trends_")&&(provider!=="app_store_connect"||x.app_key!=="all"));
  if(!rows.length)return "No verified report";
  const lastImport=rows.map(x=>Date.parse(x.captured_at)).filter(Number.isFinite).sort((a,b)=>b-a)[0];
  const latestEnd=rows.map(x=>String(x.period_end).slice(0,10)).sort().at(-1);
@@ -370,6 +370,22 @@ function paintPlatform(){
  // The All apps filter is a side-by-side comparison until the reporting windows match.
  // Never sum legacy Astramate-only 'all' records or mix unlike date ranges.
  const split=ak==="all";
+ const trendBox=id("appleTrendsSnapshot");
+ if(trendBox){
+  const units=metric("app_store_connect","trends_app_units","all");
+  const iap=metric("app_store_connect","trends_in_app_purchases","all");
+  const sales=metric("app_store_connect","trends_sales_usd","all");
+  const matching=[units,iap,sales].every(x=>x&&x.metric_value!==null&&x.period_start===units.period_start&&x.period_end===units.period_end);
+  trendBox.hidden=!split||!matching;
+  if(matching){
+   set("appleTrendUnits",fm(Number(units.metric_value)));
+   set("appleTrendIAP",fm(Number(iap.metric_value)));
+   set("appleTrendSales","$"+Number(sales.metric_value).toFixed(2));
+   id("appleTrendsPeriod").textContent=datePretty(units.period_start)+" – "+datePretty(units.period_end)+" · Apple reporting uses UTC";
+   id("appleTrendCaveat").textContent="Manual screenshot supplied Oct 17, 2026; last captured "+datePretty(sales.captured_at)+
+    ". Combined figures across apps. Sales ≠ developer proceeds or payout, and App Units ≠ first-time downloads. Not an automatically synchronized API report.";
+  }
+ }
  const valueOrCompare=(name,format)=>split?"Separate app results":format(am(name));
  const renderAppleBreakdown=(target,name,format)=>{
   if(!split)return;

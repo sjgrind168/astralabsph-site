@@ -31,3 +31,18 @@
 #pane-mobile .mobile-source-health{border:1px solid #e5dcbf;background:#fbf8ef;padding:11px 13px;
   border-radius:10px;color:#625838;line-height:1.5;margin:11px 0 15px}
 @media(max-width:630px){#pane-mobile .apple-app-number{font-size:22px}}
+
+/* Apple Trends all-app summary is independent from app-specific Analytics. */
+#pane-mobile .apple-trends-snapshot{border:1px solid #d5e5d8;border-radius:14px;background:#fff;padding:19px 20px;margin:12px 0 18px}
+#pane-mobile .apple-trends-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+#pane-mobile .apple-trends-head h3{font-size:17px;color:#1e3932;margin:0 0 5px}
+#pane-mobile .apple-trends-head p{color:#63796d;font-size:12px;margin:0}
+#pane-mobile .apple-manual-chip{font-size:11px;color:#876a31;border:1px solid #ecd9a9;background:#fff9e9;border-radius:100px;padding:6px 11px}
+#pane-mobile .apple-trends-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:15px;border-top:1px solid #e5ebe5;padding-top:16px}
+#pane-mobile .apple-trends-metrics>div{padding:5px 20px;border-right:1px solid #e5ebe5}
+#pane-mobile .apple-trends-metrics>div:first-child{padding-left:0}
+#pane-mobile .apple-trends-metrics>div:last-child{border:0}
+#pane-mobile .apple-trends-metrics label{display:block;color:#667d70;font-weight:700;font-size:12px}
+#pane-mobile .apple-trends-metrics strong{display:block;color:#1e3932;font-size:clamp(24px,2.6vw,35px);margin-top:4px;font-variant-numeric:tabular-nums}
+#pane-mobile .apple-trends-caveat{font-size:11px;color:#66766e;line-height:1.5;margin:14px 0 0}
+@media(max-width:530px){#pane-mobile .apple-trends-metrics>div{padding:4px 8px}#pane-mobile .apple-trends-metrics strong{font-size:23px}}
