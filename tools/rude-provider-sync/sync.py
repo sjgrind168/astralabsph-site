@@ -201,14 +201,17 @@ def main():
     day=(dt.datetime.now(UTC)-dt.timedelta(days=2)).date().isoformat()
     month=day[:7].replace("-", "")
     apple_keys=("APPLE_ASC_ISSUER_ID","APPLE_ASC_KEY_ID","APPLE_ASC_P8_B64","APPLE_ASC_VENDOR_NUMBER")
-    if all(os.environ.get(x) for x in apple_keys):
+    # Default off: production Apple reports arrive via canonical AstraLabs
+    # Sales ETL and its verified source-to-RUDE database trigger. Never run
+    # two separate importers and count the same report as two sales sources.
+    if os.environ.get("RUDE_APPLE_LEGACY_IMPORT") == "1" and all(os.environ.get(x) for x in apple_keys):
         try:
             raw=apple_fetch(day)
             data=apple_summary_sales(raw,day,"apple_sales_"+day)
             print("APPLE",provider_ingest("app_store_connect",data))
         except Exception as e:
             print("APPLE ERROR",type(e).__name__,str(e)[:120]);raise
-    else: print("APPLE SKIPPED: authorized Team API credentials not configured")
+    else: print("APPLE canonical source ETL active; duplicate RUDE Apple fetch disabled")
     if all(os.environ.get(x) for x in ("GOOGLE_PLAY_SA_JSON_B64","GOOGLE_PLAY_REPORT_BUCKET")):
         try:
             raw=google_fetch_sales(month)

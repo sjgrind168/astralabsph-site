@@ -15,10 +15,7 @@ jobs:
     timeout-minutes: 12
     env:
       RUDE_PROVIDER_INGEST_TOKEN: ${{ secrets.RUDE_PROVIDER_INGEST_TOKEN }}
-      APPLE_ASC_ISSUER_ID: ${{ secrets.APPLE_ASC_ISSUER_ID }}
-      APPLE_ASC_KEY_ID: ${{ secrets.APPLE_ASC_KEY_ID }}
-      APPLE_ASC_P8_B64: ${{ secrets.APPLE_ASC_P8_B64 }}
-      APPLE_ASC_VENDOR_NUMBER: ${{ secrets.APPLE_ASC_VENDOR_NUMBER }}
+      # Apple canonical Sales ETL syncs straight from verified AstraLabs source into RUDE tables.
       GOOGLE_PLAY_SA_JSON_B64: ${{ secrets.GOOGLE_PLAY_SA_JSON_B64 }}
       GOOGLE_PLAY_REPORT_BUCKET: ${{ secrets.GOOGLE_PLAY_REPORT_BUCKET }}
     steps:
