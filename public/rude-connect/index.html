@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Connect RUDE | AstraLabs PH</title>
+<link rel="icon" href="/astralabs-logo.png">
+<style>
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;background:#fff;color:#111;margin:0}
+main{max-width:450px;margin:9vh auto 0;padding:30px;text-align:center}
+img{width:82px;height:82px;object-fit:contain;border-radius:16px}h1{font-size:31px;letter-spacing:-1px}
+p{font-size:15px;color:#666;line-height:1.5}
+button{background:#000;color:#fff;border:none;padding:15px 20px;border-radius:13px;font-size:15px;font-weight:700;width:100%;margin:20px 0 10px}
+#lockError{color:#aa2222;min-height:20px;font-size:14px}small{color:#777}#returnButton{display:none}
+</style>
+</head>
+<body>
+<main>
+<img src="/astralabs-logo.png" alt="AstraLabs PH">
+<h1>Connect RUDE</h1>
+<p id="passkeyInfo">Verify with your AstraLabs owner passkey. RUDE will receive a short-lived authorization, not your passkey or site password.</p>
+<button id="passkeyButton" type="button">Verify with Face ID / Passkey</button>
+<button id="enrollButton" type="button" hidden>Enrollment disabled</button>
+<div id="lockError" role="alert" aria-live="polite"></div>
+<button id="returnButton" type="button">Return to RUDE</button>
+<small>Read-only earnings. Actual numbers are retrieved only after authorization.</small>
+</main>
+<script>
+(()=> {
+ const params=new URLSearchParams(location.search);
+ const challenge=params.get("challenge")||"", state=params.get("state")||"";
+ const status=document.getElementById("lockError");
+ const login=document.getElementById("passkeyButton");
+ const back=document.getElementById("returnButton");
+ const bridge="https://cscqulbludoyzsgniits.supabase.co/functions/v1/rude-mobile-bridge";
+ if(!/^[A-Za-z0-9_-]{43}$/.test(challenge)||!/^[A-Za-z0-9_-]{32,100}$/.test(state)){
+  login.disabled=true;status.textContent="This connection link is invalid. Please return to RUDE.";return;
+ }
+ let callback=null;
+ document.addEventListener("akashic:authenticated",async event=>{
+  const token=event.detail?.token;
+  if(typeof token!=="string"||!/^ash_[A-Za-z0-9_-]{30,120}$/.test(token))return;
+  login.disabled=true;status.textContent="Linking to RUDE…";
+  try{
+   const response=await fetch(bridge,{method:"POST",cache:"no-store",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({action:"mint",code_challenge:challenge})});
+   const data=await response.json();
+   if(!response.ok||!data.ok||typeof data.code!=="string")throw Error("Unable to create secure handoff. Please retry.");
+   callback="rude://auth?code="+encodeURIComponent(data.code)+"&state="+encodeURIComponent(state);
+   back.style.display="block"; status.textContent="Connected. Returning to RUDE…";
+   window.location.replace(callback);
+  }catch(err){status.textContent=err.message||"Connection failed";login.disabled=false}
+ });
+ back.addEventListener("click",()=>{if(callback)window.location.href=callback});
+})();
+</script>
+<script type="module" src="/command-center/passkey.js?v=2"></script>
+</body>
+</html>
