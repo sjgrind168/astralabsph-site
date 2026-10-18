@@ -86,10 +86,12 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/04_fairy-lights.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nUse warm-white battery fairy lights in wreaths, centerpieces, jars and holiday table decor. See the exact PIREVO pick and current demand snapshot.",
       "idx": 3,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "visual_status": "NEW_PREMIUM_PIN_LIVE_OLD_COUNTERPART_NOT_VERIFIED",
       "pinterest_live_permalink": null,
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "new_pin_url": "https://ph.pinterest.com/pin/1143844005390732772/",
+      "note": "Brightown fairy-lights premium Pin visible in native Created. Legacy sent entry may not correspond to another live original; do not delete without distinct URL/ASIN verification."
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 7:40 PM (Asia/Manila)",
@@ -116,10 +118,13 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/03_prelit-garland.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nDress a mantel, staircase or doorway with a 9-foot pre-lit Wintry Pine garland. See the exact PIREVO pick and product details before checkout.",
       "idx": 6,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
+      "visual_status": "REPLACED_PREMIUM_AND_OLD_REMOVED",
       "pinterest_live_permalink": null,
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "old_pin_deleted_verified": true,
+      "old_pin_url": "https://ph.pinterest.com/pin/1143844005390640909/",
+      "new_pin_url": "https://ph.pinterest.com/pin/1143844005390736693/"
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 13, 11:10 AM (Asia/Manila)",
@@ -220,10 +225,11 @@
       "image_url": "https://www.astralabsph.com/pirevo/assets/pins/wave4-christmas/01_window-candles.jpg",
       "description": "Notes\n\nastralabsph\n\nPIREVO Finds\n\nCreate a classic Christmas window glow with a six-pack of dusk-to-dawn electric candles. See the exact PIREVO pick, rating snapshot and buying checks before ordering.",
       "idx": 16,
-      "visual_status": "REMAKE_CANDIDATE_LEGACY_SOURCE",
-      "pinterest_live_permalink": null,
+      "visual_status": "OLD_NATIVE_LIVE_REPLACEMENT_BLOCKED_PRODUCT_FIDELITY",
+      "pinterest_live_permalink": "https://ph.pinterest.com/pin/1143844005390471751/",
       "remake_asset": null,
-      "remake_public_url": null
+      "remake_public_url": null,
+      "note": "1000x1500 candidate file exists on Mac, but hero depicts five candles on a joined candelabra vs six separate Creative Hobbies electric plug-in candles (ASIN B08JD6GWPR). Requires truthful accurate visual, not merely copy/AI disclosure."
     },
     {
       "sent_label": "Post sent for astralabsph pinterest channel on Oct 11, 11:10 AM (Asia/Manila)",
@@ -396,5 +402,50 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-16"
+  "last_updated_at_ph": "2026-10-19",
+  "native_pinterest_reconciliation_2026_10_19": {
+    "audited_at": "2026-10-19 Asia/Manila",
+    "account": "@astralabsph",
+    "board": "PIREVO Finds",
+    "created_page_dom_pins_loaded_at_least": 63,
+    "count_note": "63 are Pin IDs loaded during an authenticated partial Created-page scroll, not total live account or count of old Pins; 76 are historical source assets, not verified published.",
+    "existing_premium_not_to_repeat": [
+      "https://ph.pinterest.com/pin/1143844005390888359/",
+      "https://ph.pinterest.com/pin/1143844005390736693/",
+      "https://ph.pinterest.com/pin/1143844005390735088/",
+      "https://ph.pinterest.com/pin/1143844005390732772/",
+      "https://ph.pinterest.com/pin/1143844005390720938/",
+      "https://ph.pinterest.com/pin/1143844005390720866/",
+      "https://ph.pinterest.com/pin/1143844005390720769/",
+      "https://ph.pinterest.com/pin/1143844005390720595/",
+      "https://ph.pinterest.com/pin/1143844005390680649/"
+    ],
+    "old_window_candle": {
+      "pin": "https://ph.pinterest.com/pin/1143844005390471751/",
+      "status": "VERIFIED_LIVE_NO_DELETE",
+      "ASIN": "B08JD6GWPR",
+      "landing": "https://www.astralabsph.com/pirevo/products/creative-hobbies-window-candles-6/index.html",
+      "landing_http": 200,
+      "affiliate_tag": "pirevo-20",
+      "existing_art": "/Users/wafu/Desktop/PIREVO Pin Studio/2026-10-16/creative_hobbies_window_candles_editorial_disclosed_v3b_20261016.jpg",
+      "existing_art_1000x1500": true,
+      "qa": "BLOCKED_FIVE_ON_JOINED_HOLDER_VS_SIX_INDEPENDENT_PRODUCT",
+      "replacement_published": false,
+      "old_deleted": false
+    },
+    "other_old_live_candidates": [
+      "https://ph.pinterest.com/pin/1143844005390704810/",
+      "https://ph.pinterest.com/pin/1143844005390654099/",
+      "https://ph.pinterest.com/pin/1143844005390644667/",
+      "https://ph.pinterest.com/pin/1143844005390627268/",
+      "https://ph.pinterest.com/pin/1143844005390562196/",
+      "https://ph.pinterest.com/pin/1143844005390558106/",
+      "https://ph.pinterest.com/pin/1143844005390549064/",
+      "https://ph.pinterest.com/pin/1143844005390476016/",
+      "https://ph.pinterest.com/pin/1143844005390460416/"
+    ],
+    "pipeline_diagnosis": "Hourly Pin Refresh automation disabled since 2026-10-16 after browser/upload failures; Akashic passkey cannot be assumed available in unattended runs. Metricool plan-limit errors are not proof of Pinterest native publication. Reenable with failure retry but fail-closed on deletion; use GitHub canonical backlog for offline check.",
+    "new_publish_count_this_audit": 0,
+    "old_deletions_this_audit": 0
+  }
 }
