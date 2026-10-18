@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-19",
+  "last_updated_at_ph": "2026-10-19, 06:01:30",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -518,5 +518,42 @@
       "1143844005389348885",
       "1143844005389278185"
     ]
-  }
+  },
+  "hourly_run_history": [
+    {
+      "run_time_ph": "2026-10-19, 06:01:30",
+      "actor": "astra",
+      "status": "BLOCKED",
+      "candidate": "zpisf-halloween-spider-webs",
+      "asin": "B07YCSNLDG",
+      "old_pin": "https://ph.pinterest.com/pin/1143844005390654099/",
+      "old_pin_live_verified": true,
+      "old_pin_board": "PIREVO Finds",
+      "old_pin_title": "Halloween Spider Web Decor: Easy Spooky-Season Setup",
+      "old_pin_outbound": "https://www.astralabsph.com/pirevo/products/zpisf-halloween-spider-webs/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_wave2&utm_content=halloween-web-w2",
+      "landing": "https://www.astralabsph.com/pirevo/products/zpisf-halloween-spider-webs/index.html",
+      "landing_http": 200,
+      "landing_asin_verified": true,
+      "affiliate_us": "https://www.amazon.com/dp/B07YCSNLDG?tag=pirevo-20",
+      "affiliate_disclosure_verified": true,
+      "canada_link_verified": false,
+      "duplicate_check": "Authenticated @astralabsph Created page: 52 images and candidate old pin loaded, no ZPISF premium replacement observed in partial inventory; not exhaustive.",
+      "media": {
+        "status": "NOT_CREATED",
+        "candidate_source": "https://www.pexels.com/photo/halloween-decoration-on-window-5422784/",
+        "credit": "kaboompics.com / Pexels free-use listing",
+        "image_source_license_checked": true,
+        "image_sha256": null,
+        "dimensions": null
+      },
+      "blocker": "Authorized Mac source image download returned HTTP 403 without browser user-agent; subsequent attempted script correction was blocked by tool safety checks. No accurate new image available for QA; browser screenshot follow-up timed out. Do not upload, publish, or delete.",
+      "new_pin": null,
+      "new_public_verified": false,
+      "old_deleted": false,
+      "old_deletion_verified": false,
+      "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390644667/",
+      "akashic": "PASSKEY_REQUIRED_NOT_WRITTEN",
+      "crossposted": false
+    }
+  ]
 }
