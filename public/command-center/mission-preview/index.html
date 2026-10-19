@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://cscqulbludoyzsgniits.supabase.co; base-uri 'none'; form-action 'self'">
+<title>AstraLabs PH | Mission Control Preview</title><meta name="theme-color" content="#f9faf9">
+<link rel="icon" href="/astralabs-logo.png"><link rel="stylesheet" href="/command-center/mission-preview/style.css?v=1">
+</head><body>
+<section id="login" class="lockscreen">
+  <div class="lockcard">
+    <div class="mark"><img src="/astralabs-logo.png" width="42" height="42" alt="AstraLabs PH logo"><span>ASTRALABS PH <small>PRIVATE CONTROL APP</small></span></div>
+    <div class="lock-content">
+      <div class="eyebrow">SECURE WORKSPACE · UI PREVIEW V1</div>
+      <h1>One vision.<br><em>One command center.</em></h1>
+      <p>AKAME, ASTRA and your business in one carefully protected space. Authenticate to load actual Akashic records. No demo finances or simulated sales.</p>
+      <p id="passkeyInfo" class="auth-note">Unlock with the existing AstraLabs owner passkey.</p>
+      <button id="passkeyButton" class="btn solid" type="button">Unlock with Passkey <span aria-hidden="true">↗</span></button>
+      <button id="enrollButton" class="btn solid" type="button" hidden>Set up my passkey ↗</button>
+      <p id="loginError" role="alert" class="error" aria-live="polite"></p>
+      <div class="lock-foot"><span>Owner-only access</span><a href="/command-center/">Existing Command Center ↗</a></div>
+    </div>
+  </div>
+</section>
+<div id="app" class="shell" hidden>
+  <aside class="sidebar" aria-label="Main navigation">
+    <a href="/command-center/" class="brand"><img src="/astralabs-logo.png" alt="" width="36" height="36"><span><strong>ASTRALABS PH</strong><small>MISSION CONTROL</small></span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav id="sideNav" class="navlist">
+      <button data-tab="home" class="active"><span class="navico">▦</span> Overview</button>
+      <button data-tab="akame"><span class="navico">◌</span> AKAME</button>
+      <button data-tab="apps"><span class="navico">▤</span> Apps</button>
+      <button data-tab="growth"><span class="navico">↗</span> Growth</button>
+      <button data-tab="commerce"><span class="navico">◈</span> Commerce</button>
+      <button data-tab="missions"><span class="navico">☷</span> Missions</button>
+      <button data-tab="inbox"><span class="navico">✉</span> Shared inbox</button>
+      <button data-tab="records"><span class="navico">◇</span> Records</button>
+      <button data-tab="settings"><span class="navico">⚙</span> Settings</button>
+    </nav>
+    <div class="side-bottom">
+      <div class="connection"><span class="dot"></span><span>AKASHIC SESSION</span></div>
+      <p id="sideStatus">Waiting for authorization</p>
+      <button class="plain" id="lockBtn" type="button">Lock workspace <span>↗</span></button>
+      <a class="small-link" href="/analytics/">Existing Analytics ↗</a>
+    </div>
+  </aside>
+  <div class="layout">
+    <header class="top">
+      <div class="top-identity"><img src="/astralabs-logo.png" alt="AstraLabs PH" width="28" height="28"><span>ASTRALABS <b>PH</b></span></div>
+      <div class="top-tools"><span class="desktop-note" id="liveDate"></span><span class="private">PRIVATE</span><button class="icon-btn" id="refreshBtn" type="button" aria-label="Refresh secured data" title="Refresh">↻</button></div>
+    </header>
+    <div class="page-wrap">
+      <header class="page-head"><div><div class="eyebrow" id="viewEyebrow">OWNER WORKSPACE</div><h1 id="pageTitle">Overview</h1><p id="pageSubtitle">Current work, grounded in the Akashic ledger.</p></div><div class="checked"><span class="dot"></span><span id="syncLabel">Sync pending</span></div></header>
+      <main id="stage" aria-live="polite"><div class="loading">Waiting for authenticated source data…</div></main>
+      <footer class="footer">AKAME × ASTRA · Owner workspace preview · Source-linked truth, never invented metrics.</footer>
+    </div>
+  </div>
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
+    <button data-tab="home" class="active"><span>▦</span>Home</button>
+    <button data-tab="akame"><span>◌</span>AKAME</button>
+    <button data-tab="missions"><span>☷</span>Tasks</button>
+    <button data-tab="inbox"><span>✉</span>Inbox</button>
+    <button data-tab="settings"><span>☰</span>More</button>
+  </nav>
+</div>
+<dialog id="requestDialog" class="dialog"><form method="dialog" id="requestForm">
+  <header><div class="eyebrow">AUTHENTICATED OWNER REQUEST</div><h2 id="dialogTitle">Create request</h2><p>Saved to Akashic. This does not automatically launch a worker.</p></header>
+  <label for="requestTarget">Target agent</label><select id="requestTarget" name="target"><option value="akame">AKAME</option><option value="astra">ASTRA</option><option value="team">AKAME + ASTRA</option></select>
+  <label for="requestTitle">Subject</label><input id="requestTitle" name="title" maxlength="120" required placeholder="E.g. Investigate Keepry reporting gap">
+  <label for="requestBody">Instructions / evidence</label><textarea id="requestBody" name="body" maxlength="3500" required rows="5" placeholder="Explain what you noticed and what should be checked."></textarea>
+  <input id="replySlug" type="hidden">
+  <p class="dialog-warn">This is an owner-signed inbox record, not a verified action or automatic AI reply.</p>
+  <div class="dialog-buttons"><button type="button" class="btn outline" id="cancelRequest">Cancel</button><button class="btn solid" id="saveRequest" type="submit">Save to Akashic</button></div>
+</form></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="/command-center/mission-preview/app.js?v=1"></script>
+<script type="module" src="/command-center/passkey.js?v=1"></script>
+</body></html>
