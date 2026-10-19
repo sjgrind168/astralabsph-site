@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-19, 06:01:30",
+  "last_updated_at_ph": "2026-10-19, 11:11:00",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -552,6 +552,46 @@
       "old_deleted": false,
       "old_deletion_verified": false,
       "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390644667/",
+      "akashic": "PASSKEY_REQUIRED_NOT_WRITTEN",
+      "crossposted": false
+    },
+    {
+      "run_time_ph": "2026-10-19, 11:11:00",
+      "actor": "astra",
+      "status": "BLOCKED",
+      "candidate": "apple-airtag-2",
+      "asin": "B0GJTFXNRX",
+      "old_pin": "https://ph.pinterest.com/pin/1143844005390549064/",
+      "old_pin_live_verified": true,
+      "old_pin_board": "PIREVO Finds",
+      "old_pin_title": "Apple AirTag: Tiny Tracker for Keys, Bags and Luggage",
+      "old_pin_outbound": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_wave2&utm_content=airtag-smart-w2",
+      "landing": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html",
+      "landing_http": 200,
+      "landing_asin_verified": true,
+      "affiliate_us": "https://www.amazon.com/dp/B0GJTFXNRX?tag=pirevo-20",
+      "affiliate_disclosure_verified": true,
+      "canada_link_verified": false,
+      "duplicate_check": "Authenticated @astralabsph Created tab observed old pin and eight known premium Pin IDs; no matching AirTag premium among previously reconciled entries; Created page not exhaustive.",
+      "media": {
+        "status": "CREATED_LOCAL_NOT_UPLOADED",
+        "path": "/Users/wafu/Desktop/PIREVO Pin Studio/2026-10-19/apple_airtag_2_editorial_fullbleed_v3_20261019.png",
+        "image_sha256": "d2daff9ef9fc9cbe4e59645b17b81e4f631f8ccd0d361b4d047d413c249beb5e",
+        "dimensions": "1000x1500",
+        "source": "https://www.pexels.com/photo/close-up-photo-of-keys-hanging-on-a-person-s-finger-8036584/",
+        "credit": "SHVETS production / Pexels free-use; PIREVO-original typography/gradient",
+        "qa": "VISUALLY_INSPECTED_EDITORIAL_2_TO_3_FULLBLEED; no AirTag visible, explicit disclaimer in image; represents keys/tablet use case, not an exact product photograph",
+        "ai_modified": false
+      },
+      "draft_title": "Find What Matters | Apple AirTag 2nd Generation",
+      "draft_description": "Tired of hunting for keys or luggage? Apple's AirTag (2nd generation) works with the Find My ecosystem to help you keep track of everyday essentials. Editorial lifestyle photo, not the exact retail item. See the verified ASIN and compatibility details on PIREVO. Affiliate disclosure: As an Amazon Associate, PIREVO earns from qualifying purchases.",
+      "planned_destination": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_legacy_remake_v3&utm_content=airtag_2_find_what_matters_20261019",
+      "blocker": "Authenticated native Pinterest Create Pin opened; local 1000x1500 image existed and was visually inspected, but browser_file_upload with exact PNG path was blocked by provider safety checks. File chooser cancelled. No new public permalink, no deletion. Akashic Command Center requires Touch ID/passkey; not written.",
+      "new_pin": null,
+      "new_public_verified": false,
+      "old_deleted": false,
+      "old_deletion_verified": false,
+      "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390545419/",
       "akashic": "PASSKEY_REQUIRED_NOT_WRITTEN",
       "crossposted": false
     }
