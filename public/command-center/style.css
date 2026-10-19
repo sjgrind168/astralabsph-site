@@ -25,3 +25,7 @@ input,textarea,select{border:1px solid #486358;border-radius:9px;padding:11px;ba
 #toast{position:fixed;bottom:20px;right:20px;display:none;background:#274c36;border:1px solid #62826a;border-radius:10px;padding:12px 16px;color:#e8f8e9;box-shadow:0 10px 40px #0008;font-size:13px;z-index:100}.main-wrap>footer{padding:10px 38px 25px;color:var(--muted);font-size:11px}
 @media(max-width:900px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto;padding:14px}.identity{margin-bottom:12px}.nav{flex-direction:row;overflow:auto}.nav button{white-space:nowrap}.nav-title,.side-foot{display:none}.header{padding:22px}.meta{margin:0 22px}.workspace{padding:24px 22px}.columns{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.header{flex-direction:column;align-items:flex-start}.header h1{font-size:25px}.login-card{padding:24px}.login-card h1{font-size:35px}.project-grid,.record-grid{grid-template-columns:1fr}.stat{padding:13px}.stat strong{font-size:26px}.meta .private-chip{margin-left:0}.toolbar .search{max-width:none}}
+
+/* Isolated owner-only design preview link; no existing controls changed. */
+.side-foot .preview-entry{display:block;padding:10px 12px;border:1px solid #d9ddda;border-radius:9px;margin-bottom:17px;font-size:12px;font-weight:650;background:#f7f9f8;color:#232725;text-decoration:none}
+.side-foot .preview-entry:focus-visible{outline:2px solid #454a47;outline-offset:2px}
