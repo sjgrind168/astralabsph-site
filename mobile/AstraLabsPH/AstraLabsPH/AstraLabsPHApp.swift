@@ -183,20 +183,13 @@ final class MissionModel: ObservableObject {
         defer { isLoading = false }
         async let reports = Networking.get("astralabs-mobile-summary", bearer:token, as: MobileSummary.self)
         async let mission = Networking.get("astralabs-akashic?view=dashboard", bearer:token, as: AkashicData.self)
-        let reportResult = await Result { try await reports }
-        let missionResult = await Result { try await mission }
-        summary = try? reportResult.get()
-        akashic = try? missionResult.get()
+        summary = try? await reports
+        akashic = try? await mission
         if summary != nil || akashic != nil {
             lastChecked = Date()
             status = summary == nil || akashic == nil ? "Partial source availability" : "Imported sources checked"
         } else {
-            if case .failure(APIError.authenticationExpired) = reportResult {
-                SessionVault.clear()
-                status = "Session expired. Native passkey sign-in required."
-            } else {
-                status = "Reporting source unavailable"
-            }
+            status = "Unable to load private sources; check the session or connectivity."
         }
     }
 }
