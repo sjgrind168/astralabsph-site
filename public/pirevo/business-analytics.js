@@ -29,7 +29,7 @@
     if(pageType()!=="product")return{};
     const slug=(location.pathname.match(/\/products\/([^/]+)/)||[])[1]||"";
     const h1=document.querySelector("h1");
-    const amazon=document.querySelector('a[href*="amazon.com"]');
+    const amazon=document.querySelector('a[href*="amazon."]');
     const asin=(amazon?.href.match(/\/dp\/([A-Z0-9]{10})/i)||[])[1]||"";
     const category=document.querySelector(".product-breadcrumb a:last-child")?.textContent||"";
     return {product_slug:slug,item_id:asin,item_name:safe(h1?.textContent),item_category:safe(category)};
@@ -157,7 +157,8 @@
         event("book_outbound",{item_name:"Timmy and the Time-Traveling Watch",item_id:edition==="kindle"?"B0FX95D9LL":"B0FXDNX4DV",link_text:edition});
         return;
       }
-      if(/amazon\.com/i.test(href)){
+      const amazonHost=(()=>{try{return new URL(href).hostname.toLowerCase()}catch{return""}})();
+      if(/(^|\.)amazon\.(?:com|ca|co\.uk|de|fr|it|es|co\.jp|com\.au)$/.test(amazonHost)){
         const ctx=productContext();
         const asin=(href.match(/\/dp\/([A-Z0-9]{10})/i)||[])[1]||ctx.item_id||"";
         event("affiliate_click",{item_id:asin,link_text:safe(a.textContent,100)});
