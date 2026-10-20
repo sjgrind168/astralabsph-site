@@ -639,9 +639,9 @@
       "status": "PARTIAL_VERIFIED_PROVIDER_BLOCKERS",
       "inspected": 5,
       "new_public_published": 1,
-      "old_verified_deleted": 1,
+      "old_verified_deleted": 2,
       "unfinished_count": "UNKNOWN_PENDING_FULL_INVENTORY",
-      "note": "See one_day_sprint_oct21_2026.records: live AirTag Pin 1143844005391276624, original 1143844005390549064 verified 404 after delete."
+      "note": "1 new AirTag Pin published and old 404; separate older Vtopmart duplicate removed as premium Drawer Reset already live; Pinterest pin_edit denied 401 for 5 (0 changed), PIREVO Finds board description updated."
     },
     {
       "run_time_ph": "2026-10-21 01:43+08:00 interactive follow-up",
@@ -667,7 +667,7 @@
     }
   ],
   "one_day_sprint_oct21_2026": {
-    "status": "IN_PROGRESS_PARTIAL",
+    "status": "IN_PROGRESS_ONE_PUBLISHED_TWO_ORIGINALS_DELETED",
     "records": [
       {
         "audited_at_ph": "2026-10-21T01:21+08:00",
@@ -676,7 +676,7 @@
         "pins_inspected_http_200": 5,
         "pins_independently_native_verified_this_session": 2,
         "new_public_replacements_published": 1,
-        "originals_verified_deleted": 1,
+        "originals_verified_deleted": 2,
         "unfinished_count": "UNKNOWN_NOT_FULLY_RECONCILED",
         "candidates": [
           {
@@ -824,7 +824,60 @@
             "verified_at_ph": "2026-10-21T01:42+08:00",
             "source": "Authenticated Pinterest API through Composio, independent HTTP public GET; original preserved until verification"
           }
-        ]
+        ],
+        "verified_duplicate_cleanup": [
+          {
+            "old_pin": "https://ph.pinterest.com/pin/1143844005390486836/",
+            "existing_approved_premium_pin": "https://ph.pinterest.com/pin/1143844005390680649/",
+            "product": "Vtopmart 25-Piece Clear Drawer Organizer",
+            "asin": "B08KXKVT4K",
+            "board_id": "1143844074049522281",
+            "both_pins_same_PIREVO_product_slug": "vtopmart-drawer-organizers-25",
+            "old_api_delete": {
+              "deleted": true
+            },
+            "old_api_get_after_delete": "404 Pin not found",
+            "existing_premium_api_get_after_delete": "200 premium image 1024x1536 + exact PIREVO destination",
+            "note": "Existing owner-approved premium previously published Oct 14. No new Pin counted for this duplicate cleanup."
+          }
+        ],
+        "board_seo": {
+          "board": "PIREVO Finds",
+          "id": "1143844074049522281",
+          "update_status": "VERIFIED_API_UPDATED",
+          "type": "description_only",
+          "old_limitation": "previous board description said US shoppers only",
+          "new_focus": "Kitchen gadgets, home organization, skincare, gift and travel buyer-intent; US/Canada + region caveat + explicit Amazon disclosure",
+          "claimed_websites_verified": [
+            "astralabsph.com",
+            "pirevo.astralabsph.com"
+          ]
+        },
+        "pin_metadata_edit_attempts": {
+          "attempted": 5,
+          "changed": 0,
+          "error": "Pinterest authentication failed: Your application does not have access to this restricted feature: pin_edit",
+          "status_code": 401,
+          "candidates": [
+            "1143844005390397455",
+            "1143844005390312512",
+            "1143844005390367307",
+            "1143844005390654099",
+            "1143844005390704810"
+          ],
+          "fallback": "Create complete replacement with full metadata then independently verify and delete old; preserve current original until then."
+        },
+        "inventory_composio_verified": {
+          "full_cursor_exhausted": true,
+          "original_total": 63,
+          "boards": 5,
+          "pirevo_finds": 61,
+          "apps_board": 2,
+          "after_new_one_and_two_old_deletions_expected_total": 62,
+          "after_expected_pirevo_count": 60,
+          "remaining_existing_original_pirevo_regular_pins_estimate": 50,
+          "note": "Remaining 50 includes 30 guide Pins and 20 product Pins; eligibility must be QA-filtered and exclude completed; not all 50 are necessarily requiring exact product remake."
+        }
       }
     ],
     "oneLink_country_status": {
