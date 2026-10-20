@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-21T01:21+08:00",
+  "last_updated_at_ph": "2026-10-21",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -642,6 +642,28 @@
       "old_verified_deleted": 1,
       "unfinished_count": "UNKNOWN_PENDING_FULL_INVENTORY",
       "note": "See one_day_sprint_oct21_2026.records: live AirTag Pin 1143844005391276624, original 1143844005390549064 verified 404 after delete."
+    },
+    {
+      "run_time_ph": "2026-10-21 01:43+08:00 interactive follow-up",
+      "actor": "astra_interactive_sprint",
+      "status": "AUDITED_NO_NEW_PUBLICATIONS",
+      "pins_inspected": 5,
+      "pin_ids": [
+        "1143844005390381334",
+        "1143844005390545419",
+        "1143844005390562196",
+        "1143844005390558106",
+        "1143844005390486836"
+      ],
+      "pin_live_verified_via": "authenticated Pinterest GET_PIN",
+      "account": "astralabsph",
+      "board_id": "1143844074049522281",
+      "new_replacements_published": 0,
+      "originals_verified_deleted": 0,
+      "blocked_products": 5,
+      "blocker": "No independently verified product-faithful approved replacement image and ASIN/variant/landing Amazon listing completed per candidate; originals retained",
+      "unfinished_count": "UNKNOWN_REQUIRES_COMPLETE_ELIGIBILITY_RECONCILIATION",
+      "note": "Apple AirTag completed earlier, current authenticated GET_PIN old returned 404; new 1143844005391276624 in live account list. No repeat."
     }
   ],
   "one_day_sprint_oct21_2026": {
