@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-19, 11:11:00",
+  "last_updated_at_ph": "2026-10-20T15:04:08+08:00",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -593,6 +593,44 @@
       "old_deletion_verified": false,
       "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390545419/",
       "akashic": "PASSKEY_REQUIRED_NOT_WRITTEN",
+      "crossposted": false
+    },
+    {
+      "run_time_ph": "2026-10-20T15:04:08+08:00",
+      "actor": "astra_hourly",
+      "status": "BLOCKED_NO_PUBLICATION",
+      "candidate": "ninja-possiblecooker-pro-plus",
+      "asin": "B0GT5SV7VD",
+      "old_pin": "https://ph.pinterest.com/pin/1143844005390397455/",
+      "old_pin_live_verified": true,
+      "old_pin_http": 200,
+      "old_pin_board": "PIREVO Finds",
+      "old_pin_owner": "astralabsph",
+      "old_pin_title": "Ninja PossibleCooker PRO Plus: Slow-Cooker Upgrade Worth Comparing",
+      "old_pin_outbound": "https://www.astralabsph.com/pirevo/products/ninja-possiblecooker-pro-plus/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_wave2&utm_content=ninja-possiblecooker-w2",
+      "old_pin_verification": "2026-10-20 PHT public Pinterest HTML meta og:title, og:url, pinterestapp:pinboard, pinterestapp:pinner and og:see_also, HTTP 200",
+      "landing": "https://www.astralabsph.com/pirevo/products/ninja-possiblecooker-pro-plus/index.html",
+      "landing_http": 200,
+      "landing_asin_verified": true,
+      "affiliate_us": "https://www.amazon.com/dp/B0GT5SV7VD?tag=pirevo-20",
+      "affiliate_disclosure_verified": true,
+      "canada_link_verified": false,
+      "duplicate_check": "NOT_COMPLETED: Pinterest @astralabsph active business connection detected; account pin listing/get-pin/boards batch blocked by provider safety checks; shared browser tab listing timed out. Cannot safely publish.",
+      "media": {
+        "status": "NOT_CREATED_OR_QA_APPROVED_THIS_CYCLE",
+        "image_sha256": null,
+        "dimensions": null,
+        "source": null,
+        "qa": "NOT_RUN"
+      },
+      "new_pin": null,
+      "new_public_verified": false,
+      "old_deleted": false,
+      "old_deletion_verified": false,
+      "blocker": "Authenticated Pinterest inventory operation blocked by provider safety checks; shared browser timed out. Fresh exhaustive duplicate verification missing. No Pinterest write or deletion attempted.",
+      "akashic": "COMMAND_CENTER_PUBLIC_HTTP_200; AUTHENTICATED_LEDGER_NOT_AVAILABLE_BROWSER_TIMEOUT; NOT_WRITTEN",
+      "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390704810/",
+      "next_candidate_status": "PENDING_INDEPENDENT_ELIGIBILITY_CHECK",
       "crossposted": false
     }
   ]
