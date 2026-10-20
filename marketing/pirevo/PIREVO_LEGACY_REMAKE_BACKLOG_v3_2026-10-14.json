@@ -736,6 +736,48 @@
           "destination": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_legacy_remake_v3&utm_content=airtag_2_find_what_matters_20261021",
           "planner": "https://app.metricool.com/planner/calendar?blogId=7092888&openWithPostUuid=6847393510926270804",
           "rule": "Never delete old until NEW public Pinterest URL board/image/destination independently confirmed and old exact Pin reverified."
+        },
+        "metricool_pinterest_analytics_snapshot": {
+          "date_window_ph": "2026-10-14 through 2026-10-20",
+          "account_brand_id": "7092888",
+          "source": "Metricool authenticated analytics API",
+          "reported_days": [
+            {
+              "date": "2026-10-14",
+              "impressions": 163,
+              "pin_clicks": 0,
+              "outbound_clicks": 0,
+              "saves": 0,
+              "pins": 9
+            },
+            {
+              "date": "2026-10-15",
+              "impressions": 177,
+              "pin_clicks": 0,
+              "outbound_clicks": 0,
+              "saves": 0,
+              "pins": 0
+            },
+            {
+              "date": "2026-10-16",
+              "impressions": 115,
+              "pin_clicks": 0,
+              "outbound_clicks": 0,
+              "saves": 0,
+              "pins": 1
+            },
+            {
+              "date": "2026-10-17",
+              "impressions": 1,
+              "pin_clicks": 0,
+              "outbound_clicks": 0,
+              "saves": 0,
+              "pins": 0
+            }
+          ],
+          "known_impressions_sum": 456,
+          "missing_data_period": "2026-10-18 through 2026-10-20",
+          "warning": "null metrics are unknown, NOT zero; provider reported missing/delayed values"
         }
       }
     ],
