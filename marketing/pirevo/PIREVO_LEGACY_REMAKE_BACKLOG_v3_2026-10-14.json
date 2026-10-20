@@ -638,10 +638,10 @@
       "actor": "astra_interactive_sprint",
       "status": "PARTIAL_VERIFIED_PROVIDER_BLOCKERS",
       "inspected": 5,
-      "new_public_published": 0,
-      "old_verified_deleted": 0,
+      "new_public_published": 1,
+      "old_verified_deleted": 1,
       "unfinished_count": "UNKNOWN_PENDING_FULL_INVENTORY",
-      "note": "See one_day_sprint_oct21_2026.records for source-linked five-Pin audit and OneLink blockers"
+      "note": "See one_day_sprint_oct21_2026.records: live AirTag Pin 1143844005391276624, original 1143844005390549064 verified 404 after delete."
     }
   ],
   "one_day_sprint_oct21_2026": {
@@ -650,11 +650,11 @@
       {
         "audited_at_ph": "2026-10-21T01:21+08:00",
         "actor": "astra_interactive_sprint",
-        "status": "PARTIAL_VERIFIED_PROVIDER_BLOCKERS",
+        "status": "ONE_VERIFIED_REPLACEMENT_COMPLETE_MORE_PENDING",
         "pins_inspected_http_200": 5,
         "pins_independently_native_verified_this_session": 2,
-        "new_public_replacements_published": 0,
-        "originals_verified_deleted": 0,
+        "new_public_replacements_published": 1,
+        "originals_verified_deleted": 1,
         "unfinished_count": "UNKNOWN_NOT_FULLY_RECONCILED",
         "candidates": [
           {
@@ -735,7 +735,9 @@
           "title": "Apple AirTag 2nd Generation for Keys & Luggage | Find What Matters",
           "destination": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_legacy_remake_v3&utm_content=airtag_2_find_what_matters_20261021",
           "planner": "https://app.metricool.com/planner/calendar?blogId=7092888&openWithPostUuid=6847393510926270804",
-          "rule": "Never delete old until NEW public Pinterest URL board/image/destination independently confirmed and old exact Pin reverified."
+          "rule": "Never delete old until NEW public Pinterest URL board/image/destination independently confirmed and old exact Pin reverified.",
+          "status": "METRICOOL_FAILED_NO_PUBLIC_PIN",
+          "metricool_error": "You have reached your Metricool account limit."
         },
         "metricool_pinterest_analytics_snapshot": {
           "date_window_ph": "2026-10-14 through 2026-10-20",
@@ -778,7 +780,29 @@
           "known_impressions_sum": 456,
           "missing_data_period": "2026-10-18 through 2026-10-20",
           "warning": "null metrics are unknown, NOT zero; provider reported missing/delayed values"
-        }
+        },
+        "verified_completed_replacements": [
+          {
+            "old_pin": "https://ph.pinterest.com/pin/1143844005390549064/",
+            "new_pin": "https://ph.pinterest.com/pin/1143844005391276624/",
+            "asin": "B0GJTFXNRX",
+            "product_slug": "apple-airtag-2",
+            "board_id": "1143844074049522281",
+            "media_sha256": "d2daff9ef9fc9cbe4e59645b17b81e4f631f8ccd0d361b4d047d413c249beb5e",
+            "media_dimensions": "1000x1500",
+            "new_pin_owner": "astralabsph",
+            "destination": "https://www.astralabsph.com/pirevo/products/apple-airtag-2/index.html?utm_source=pinterest&utm_medium=organic&utm_campaign=pirevo_legacy_remake_v3&utm_content=airtag_2_find_what_matters_20261021",
+            "title": "Apple AirTag 2nd Generation for Keys & Luggage | Find What Matters",
+            "new_public_http": 200,
+            "new_api_get_verified": true,
+            "old_delete_api": {
+              "deleted": true
+            },
+            "old_api_get_after_delete": "404 Pin not found",
+            "verified_at_ph": "2026-10-21T01:42+08:00",
+            "source": "Authenticated Pinterest API through Composio, independent HTTP public GET; original preserved until verification"
+          }
+        ]
       }
     ],
     "oneLink_country_status": {
