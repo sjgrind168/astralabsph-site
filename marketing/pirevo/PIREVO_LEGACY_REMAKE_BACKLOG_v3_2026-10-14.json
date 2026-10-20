@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-20T15:04:08+08:00",
+  "last_updated_at_ph": "2026-10-21T01:21+08:00",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -632,6 +632,151 @@
       "next_candidate_pin": "https://ph.pinterest.com/pin/1143844005390704810/",
       "next_candidate_status": "PENDING_INDEPENDENT_ELIGIBILITY_CHECK",
       "crossposted": false
+    },
+    {
+      "run_time_ph": "2026-10-21T01:21+08:00",
+      "actor": "astra_interactive_sprint",
+      "status": "PARTIAL_VERIFIED_PROVIDER_BLOCKERS",
+      "inspected": 5,
+      "new_public_published": 0,
+      "old_verified_deleted": 0,
+      "unfinished_count": "UNKNOWN_PENDING_FULL_INVENTORY",
+      "note": "See one_day_sprint_oct21_2026.records for source-linked five-Pin audit and OneLink blockers"
     }
-  ]
+  ],
+  "one_day_sprint_oct21_2026": {
+    "status": "IN_PROGRESS_PARTIAL",
+    "records": [
+      {
+        "audited_at_ph": "2026-10-21T01:21+08:00",
+        "actor": "astra_interactive_sprint",
+        "status": "PARTIAL_VERIFIED_PROVIDER_BLOCKERS",
+        "pins_inspected_http_200": 5,
+        "pins_independently_native_verified_this_session": 2,
+        "new_public_replacements_published": 0,
+        "originals_verified_deleted": 0,
+        "unfinished_count": "UNKNOWN_NOT_FULLY_RECONCILED",
+        "candidates": [
+          {
+            "pin": "1143844005390549064",
+            "slug": "apple-airtag-2",
+            "asin": "B0GJTFXNRX",
+            "http": 200,
+            "native_authenticated": true,
+            "landing_http": 200,
+            "tag": "pirevo-20",
+            "media": "LOCAL_VERIFIED_1000x1500_SHA256_d2daff9ef9fc9cbe4e59645b17b81e4f631f8ccd0d361b4d047d413c249beb5e",
+            "blocker": "Pinterest create-tool navigation timed out; cannot publish or perform exhaustive duplicate check"
+          },
+          {
+            "pin": "1143844005390312512",
+            "slug": "ocato-giant-spider-web",
+            "asin": "B07TWF8JZ1",
+            "http": 200,
+            "native_authenticated": true,
+            "landing_http": 200,
+            "tag": "pirevo-20",
+            "blocker": "No independently QA-approved replacement media in this run"
+          },
+          {
+            "pin": "1143844005390367307",
+            "slug": "piteno-140-bat-wall-decor",
+            "asin": "B0F831L31B",
+            "http": 200,
+            "native_authenticated": "PREVIOUSLY_VERIFIED_NOT_REPEAT_THIS_SESSION",
+            "landing_http": 200,
+            "tag": "pirevo-20",
+            "blocker": "No verified source-faithful replacement media"
+          },
+          {
+            "pin": "1143844005390654099",
+            "slug": "zpisf-halloween-spider-webs",
+            "asin": "B07YCSNLDG",
+            "http": 200,
+            "native_authenticated": "PREVIOUSLY_VERIFIED_NOT_REPEAT_THIS_SESSION",
+            "landing_http": 200,
+            "tag": "pirevo-20",
+            "blocker": "Media download previously HTTP 403; QA not passed"
+          },
+          {
+            "pin": "1143844005390471751",
+            "slug": "creative-hobbies-window-candles-6",
+            "asin": "B08JD6GWPR",
+            "http": 200,
+            "native_authenticated": "PREVIOUSLY_VERIFIED_NOT_REPEAT_THIS_SESSION",
+            "landing_http": 200,
+            "tag": "pirevo-20",
+            "blocker": "Existing art shows 5 joined lamps vs 6 separate candles, not product faithful"
+          }
+        ],
+        "site_tracking_fix": {
+          "github_commit": "60bf9f38c5d7d876d6c2591393eb03376e62e250",
+          "path": "public/pirevo/business-analytics.js",
+          "change": "Recognize Amazon.com, .ca, .co.uk, .de, .fr, .it, .es, .co.jp, .com.au affiliate click targets; live deployment and DB ingestion still require verification"
+        },
+        "account_blockers": [
+          "Amazon Associates signin required",
+          "AstraLabs private Analytics requires Touch ID / passkey",
+          "Akashic Command Center requires Touch ID / passkey",
+          "Pinterest native creation URL timed out"
+        ],
+        "account_disclosure": "No sales, commission amounts, native Pinterest publication or country activation asserted"
+      }
+    ],
+    "oneLink_country_status": {
+      "US": {
+        "status": "OWNER ACTION REQUIRED",
+        "reported_existing": true,
+        "authenticated_verified": false,
+        "note": "Existing US programme reported, browser asked to sign in; working pirevo-20 US links preserved"
+      },
+      "CA": {
+        "status": "OWNER ACTION REQUIRED",
+        "reported_existing": true,
+        "authenticated_verified": false,
+        "note": "Existing Canada programme reported but account, store ID, tag, commissions unverified"
+      },
+      "UK": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_simple_oneLink_eligible": true,
+        "authenticated_verified": false,
+        "note": "Single-US-store-ID support documented; owner login/settings or acceptance may be required"
+      },
+      "DE": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_simple_oneLink_eligible": true,
+        "authenticated_verified": false
+      },
+      "FR": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_simple_oneLink_eligible": true,
+        "authenticated_verified": false
+      },
+      "IT": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_simple_oneLink_eligible": true,
+        "authenticated_verified": false
+      },
+      "ES": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_simple_oneLink_eligible": true,
+        "authenticated_verified": false
+      },
+      "JP": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_separate_account_link_needed": true,
+        "authenticated_verified": false
+      },
+      "AU": {
+        "status": "OWNER ACTION REQUIRED",
+        "official_separate_account_link_needed": true,
+        "authenticated_verified": false
+      }
+    },
+    "official_sources": [
+      "https://affiliate-program.amazon.com/help/node/topic/G4CL4623QZAVGV7A",
+      "https://affiliate-program.amazon.com/help/node/topic/G62UTXAN2H3MRGJL",
+      "https://policy.pinterest.com/en/commercial-and-branded-content-guidelines"
+    ]
+  }
 }
