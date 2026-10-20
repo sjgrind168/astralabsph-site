@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-21",
+  "last_updated_at_ph": "2026-10-21T07:08:53+08:00",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -664,6 +664,125 @@
       "blocker": "No independently verified product-faithful approved replacement image and ASIN/variant/landing Amazon listing completed per candidate; originals retained",
       "unfinished_count": "UNKNOWN_REQUIRES_COMPLETE_ELIGIBILITY_RECONCILIATION",
       "note": "Apple AirTag completed earlier, current authenticated GET_PIN old returned 404; new 1143844005391276624 in live account list. No repeat."
+    },
+    {
+      "run_time_ph": "2026-10-21T07:08:53+08:00",
+      "actor": "astra_hourly",
+      "status": "BLOCKED_NO_PUBLICATION_VERIFIED_5_PUBLIC_OLD_PINS",
+      "candidate_pin_ids": [
+        "1143844005390302381",
+        "1143844005390298542",
+        "1143844005390289385",
+        "1143844005390285092",
+        "1143844005390397455"
+      ],
+      "new_public_published": 0,
+      "originals_verified_deleted": 0,
+      "unfinished_count": "UNKNOWN_NO_EXHAUSTIVE_AUTHENTICATED_INVENTORY",
+      "public_http_verified": 5,
+      "board": "PIREVO Finds",
+      "owner": "astralabsph",
+      "landing_http_200": 5,
+      "affiliate_us_tag": "pirevo-20",
+      "amazon_ca_status": "UNVERIFIED",
+      "media_local_dimensions_verified": "1000x1500_for_four_assets",
+      "candidate_details": [
+        {
+          "old_pin": "https://ph.pinterest.com/pin/1143844005390302381/",
+          "product_slug": "zpisf-halloween-spider-webs",
+          "asin": "B07YCSNLDG",
+          "landing": "https://www.astralabsph.com/pirevo/products/zpisf-halloween-spider-webs/index.html",
+          "landing_http": 200,
+          "affiliate_disclosure": true,
+          "media": {
+            "local_file": "zpisf_spider_web_after_dark_editorial_v3_20261019.png",
+            "sha256": "8b77bddbe075b3cc02d9c6c20abd68fc84322fcd97a8f3bb1c692b5950c3a085",
+            "dimensions": "1000x1500",
+            "source": "Mac local PIREVO Pin Studio 2026-10-19",
+            "qa": "VISUAL_EDITORIAL_FULLBLEED_2_TO_3; exact retail item not pictured, disclaimer present; product-feature licensing verification still required"
+          },
+          "new_pin": null,
+          "old_deleted": false
+        },
+        {
+          "old_pin": "https://ph.pinterest.com/pin/1143844005390298542/",
+          "product_slug": "medicube-zero-pore-pad",
+          "asin": "B09V7Z4TJG",
+          "landing": "https://www.astralabsph.com/pirevo/products/medicube-zero-pore-pad/index.html",
+          "landing_http": 200,
+          "affiliate_disclosure": true,
+          "media": {
+            "local_file": "medicube_zero_pore_editorial_fullbleed_20261019.png",
+            "sha256": "b8fd8768c8bf6618f8c7e3a534d46b202bab5a88834b2d51e1bc6c1ee5630147",
+            "dimensions": "1000x1500",
+            "source": "Mac local PIREVO Pin Studio 2026-10-19",
+            "qa": "VISUAL_EDITORIAL_FULLBLEED_2_TO_3; model applying pad, product not exact pack; editorial disclaimer present"
+          },
+          "new_pin": null,
+          "old_deleted": false
+        },
+        {
+          "old_pin": "https://ph.pinterest.com/pin/1143844005390289385/",
+          "product_slug": "laneige-lip-sleeping-mask",
+          "asin": "B07XXPHQZK",
+          "landing": "https://www.astralabsph.com/pirevo/products/laneige-lip-sleeping-mask/index.html",
+          "landing_http": 200,
+          "affiliate_disclosure": true,
+          "media": {
+            "local_file": "laneige_nightly_lip_ritual_editorial_fullbleed_20261019.png",
+            "sha256": "653992702337bbfb4efa1e33a0d917d20d1100ff28aa5b16a363cfccaab2a7cf",
+            "dimensions": "1000x1500",
+            "source": "Mac local PIREVO Pin Studio 2026-10-19",
+            "qa": "VISUAL_EDITORIAL_FULLBLEED_2_TO_3; model lip-care concept, product not pictured, editorial disclaimer present"
+          },
+          "new_pin": null,
+          "old_deleted": false
+        },
+        {
+          "old_pin": "https://ph.pinterest.com/pin/1143844005390285092/",
+          "product_slug": "biodance-bio-collagen-real-deep-mask",
+          "asin": "B0B2RM68G2",
+          "landing": "https://www.astralabsph.com/pirevo/products/biodance-bio-collagen-real-deep-mask/index.html",
+          "landing_http": 200,
+          "affiliate_disclosure": true,
+          "media": {
+            "local_file": "biodance_mask_moment_fullbleed_20261019.png",
+            "sha256": "187ea121bae50d6662ae02113b2f6e453b25e626e6cd3ed3feae0dbc9800966b",
+            "dimensions": "1000x1500",
+            "source": "Mac local PIREVO Pin Studio 2026-10-19",
+            "qa": "VISUAL_EDITORIAL_FULLBLEED_2_TO_3; mask is conceptual photo, retail item not pictured, disclaimer present"
+          },
+          "new_pin": null,
+          "old_deleted": false
+        },
+        {
+          "old_pin": "https://ph.pinterest.com/pin/1143844005390397455/",
+          "product_slug": "ninja-possiblecooker-pro-plus",
+          "asin": "B0GT5SV7VD",
+          "landing": "https://www.astralabsph.com/pirevo/products/ninja-possiblecooker-pro-plus/index.html",
+          "landing_http": 200,
+          "affiliate_disclosure": true,
+          "media": {
+            "local_file": null,
+            "sha256": null,
+            "dimensions": null,
+            "source": "Mac local PIREVO Pin Studio 2026-10-19",
+            "qa": "NO_QA_APPROVED_REPLACEMENT_MEDIA_IDENTIFIED"
+          },
+          "new_pin": null,
+          "old_deleted": false
+        }
+      ],
+      "blocker": "Authenticated Pinterest Composio LIST_PINS and GET_PIN execution blocked by OpenAI safety checks despite ACTIVE account; shared Astra Browser uninitialized; exhaustive duplicate inventory unavailable. Images are Mac-local, public hosting and licensed-source verification incomplete; no safe publish/delete. Akashic web endpoint inaccessible; no authenticated write.",
+      "next_batch": [
+        "1143844005390476016",
+        "1143844005390460416",
+        "1143844005390456153",
+        "1143844005390302381",
+        "1143844005390298542"
+      ],
+      "akashic": "NOT_WRITTEN_UNAUTHENTICATED",
+      "crossposted": false
     }
   ],
   "one_day_sprint_oct21_2026": {
@@ -878,6 +997,23 @@
           "remaining_existing_original_pirevo_regular_pins_estimate": 50,
           "note": "Remaining 50 includes 30 guide Pins and 20 product Pins; eligibility must be QA-filtered and exclude completed; not all 50 are necessarily requiring exact product remake."
         }
+      },
+      {
+        "audited_at_ph": "2026-10-21T07:08:53+08:00",
+        "actor": "astra_hourly",
+        "status": "5_PUBLIC_OLD_VERIFIED_NO_NEW_PUBLICATION",
+        "pins_inspected": 5,
+        "new_public_replacements_published": 0,
+        "originals_verified_deleted": 0,
+        "unfinished_count": "UNKNOWN",
+        "candidate_pin_ids": [
+          "1143844005390302381",
+          "1143844005390298542",
+          "1143844005390289385",
+          "1143844005390285092",
+          "1143844005390397455"
+        ],
+        "blocker": "Authenticated Pinterest Composio LIST_PINS and GET_PIN execution blocked by OpenAI safety checks despite ACTIVE account; shared Astra Browser uninitialized; exhaustive duplicate inventory unavailable. Images are Mac-local, public hosting and licensed-source verification incomplete; no safe publish/delete. Akashic web endpoint inaccessible; no authenticated write."
       }
     ],
     "oneLink_country_status": {
