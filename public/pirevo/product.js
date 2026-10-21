@@ -17,9 +17,9 @@ root.innerHTML=`
   <div class="pdp-buy">
     <div class="shop-brand">${esc(p.brand)}</div><h1>${esc(p.shortName)}</h1>
     <p class="pdp-fullname">${esc(p.fullName)}</p>
-    <div class="pdp-proof"><span><strong>★ ${p.rating.toFixed(1)}</strong> Amazon rating snapshot</span><span><strong>${compact(p.reviews)}</strong> ratings snapshot</span><span><strong>${esc(p.rank)}</strong></span></div>
+    <div class="pdp-proof"><span><strong>Buyer checklist</strong> Check current retailer details.</span></div>
     <div class="pdp-trend"><span>WHY IT'S HERE</span><strong>${esc(p.trend)}</strong></div>
-    <p class="pdp-why">${esc(p.why)}</p>
+    <p class="pdp-why">${esc(p.bestFor)}</p>
     <ul class="pdp-bullets">${p.bullets.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
     <div class="pdp-price-note">Prices, coupons, seller and stock change. PIREVO does not display a pretend live Amazon price.</div>
     <a class="pdp-amazon" href="${esc(p.amazon)}" target="_blank" rel="sponsored nofollow noopener noreferrer">Check current price on Amazon <span>↗</span></a>
@@ -32,8 +32,8 @@ root.innerHTML=`
  <article><span>PIREVO FILTER</span><h2>Why it passed</h2><p>Trend relevance, Amazon sales evidence, review confidence, commission economics and Pinterest visual potential all cleared our launch threshold.</p></article>
  <article><span>RETAILER CHECK</span><h2>Verify before checkout</h2><p>Confirm the exact variant, dimensions, materials, current seller, return terms, stock and current offer on Amazon.</p></article>
 </section>
-<section class="pdp-related"><div class="shop-section-head"><div><span>KEEP SHOPPING</span><h2>More from ${esc(c.name)}</h2></div><a href="/pirevo/#${esc(c.id)}">View collection →</a></div><div class="shop-grid">${S.products.filter(x=>x.collection===p.collection&&x.slug!==p.slug).map(x=>`<article class="shop-product-card compact"><a class="shop-product-media" href="${productUrl(x)}"><img src="${esc(x.image)}" alt="${esc(x.fullName)}" loading="lazy" referrerpolicy="no-referrer"></a><div class="shop-product-copy"><div class="shop-brand">${esc(x.brand)}</div><h3><a href="${productUrl(x)}">${esc(x.shortName)}</a></h3><div class="shop-rating"><strong>★ ${x.rating.toFixed(1)}</strong><span>${compact(x.reviews)} ratings</span></div></div></article>`).join("")}</div></section>
-<section class="pdp-research"><div><span>RESEARCH STANDARD</span><h2>Not a random affiliate pick.</h2></div><p>PIREVO uses current Pinterest demand signals and Amazon category evidence to shortlist products, then checks rating depth, positioning, review confidence, value and likely return friction before publishing. A trend is discovery evidence, not a guarantee of quality or future popularity.</p></section>
+<section class="pdp-related"><div class="shop-section-head"><div><span>KEEP SHOPPING</span><h2>More from ${esc(c.name)}</h2></div><a href="/pirevo/#${esc(c.id)}">View collection →</a></div><div class="shop-grid">${S.products.filter(x=>x.collection===p.collection&&x.slug!==p.slug).map(x=>`<article class="shop-product-card compact"><a class="shop-product-media" href="${productUrl(x)}"><img src="${esc(x.image)}" alt="${esc(x.fullName)}" loading="lazy" referrerpolicy="no-referrer"></a><div class="shop-product-copy"><div class="shop-brand">${esc(x.brand)}</div><h3><a href="${productUrl(x)}">${esc(x.shortName)}</a></h3></div></article>`).join("")}</div></section>
+<section class="pdp-research"><div><span>RESEARCH STANDARD</span><h2>Not a random affiliate pick.</h2></div><p>PIREVO publishes independent buying notes focused on useful features and tradeoffs. A trend is discovery evidence, not a guarantee of quality or future popularity.</p></section>
 `;
 $(".pdp-amazon")?.addEventListener("click",amazonClick);
 document.title=p.shortName+" | PIREVO";

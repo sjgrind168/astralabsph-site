@@ -62,3 +62,8 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - The script only generates local public PIREVO pages and sitemaps and is intended to be idempotent.
 - Verify links, output JSON-LD, source sitemap and deployment before pushing.
 - Restore the previous Git commit if live behavior fails. Preserve all unrelated website code and existing Amazon/Google payments.
+
+## October 21 product verification and affiliate policy QA
+- All 135 product detail pages, homepage and client templates were cleaned of unsupported Amazon star ratings. No paid Amazon API or customer review access was used. US affiliate destinations with pirevo-20 and disclosures were preserved.
+- AirTag second generation browser checks: US B0GJTFXNRX resolves but current browser delivery location is unsupported; CA B0GJTY1QYX in stock when observed; DE B0GQBHTSGR product identity verified but stock not verified; IT B0GJTCB2QM in stock when observed. UK/FR original US ASIN was 404; no confirmed exact local variant. Redirects and commissions have not been verified.
+- Image licensing provenance still needs confirmation. Four products lack canonical product detail pages. New country Associates enrollments remain owner-only.

@@ -12,8 +12,8 @@ function card(p){
   return `<article class="shop-product-card" data-collection="${esc(p.collection)}" data-seasonal-group="${esc(p.seasonalGroup||"")}" data-holiday-group="${esc(giftGroup(p))}" data-search="${esc((p.fullName+" "+p.shortName+" "+p.brand+" "+p.bestFor+" "+(p.trend||"")+" "+group).toLowerCase())}">
   <a class="shop-product-media" href="${productUrl(p)}" aria-label="View ${esc(p.fullName)}"><span class="shop-badge">${esc(p.badge)}</span><img src="${esc(p.image)}" alt="${esc(p.fullName)}" loading="lazy" referrerpolicy="no-referrer"></a>
   <div class="shop-product-copy"><div class="shop-brand">${esc(p.brand)}</div><h3><a href="${productUrl(p)}">${esc(p.shortName)}</a></h3>
-  <div class="shop-rating"><strong>★ ${Number(p.rating||0).toFixed(1)}</strong><span>${compact(p.reviews)} ratings</span></div>
-  <p>${esc(p.why)}</p><div class="shop-card-actions"><a class="shop-view" href="${productUrl(p)}">View product</a><span>Check price on Amazon</span></div></div></article>`}
+
+  <p>${esc(p.bestFor)}</p><div class="shop-card-actions"><a class="shop-view" href="${productUrl(p)}">View product</a><span>Check price on Amazon</span></div></div></article>`}
 function renderShelf(id,items){const root=$("#shelf-"+id);if(root)root.innerHTML=items.map(card).join("")}
 function ensureDynamicCollections(){
   const root=$("#dynamicCollections"); if(!root)return;
@@ -28,7 +28,7 @@ function renderTop50(){
   const root=$("#top50Grid"); if(!root)return;
   const order=["home-organization","kitchen","beauty","tech","gaming","pets","fitness","travel","car","kids"];
   const picks=S.products.filter(p=>String(p.badge||"").includes("TOP 50")).sort((a,b)=>{const ao=order.indexOf(a.collection),bo=order.indexOf(b.collection);return ao!==bo?ao-bo:(b.reviews||0)-(a.reviews||0)});
-  root.innerHTML=picks.map((p,i)=>`<a class="top50-item" href="${productUrl(p)}"><span class="top50-rank">${i+1}</span><span class="top50-copy"><small>${esc((S.collections.find(c=>c.id===p.collection)||{}).name||p.collection)}</small><strong>${esc(p.shortName)}</strong><em>★ ${Number(p.rating).toFixed(1)} · ${compact(p.reviews)} ratings</em></span><span class="top50-arrow">→</span></a>`).join("");
+  root.innerHTML=picks.map((p,i)=>`<a class="top50-item" href="${productUrl(p)}"><span class="top50-rank">${i+1}</span><span class="top50-copy"><small>${esc((S.collections.find(c=>c.id===p.collection)||{}).name||p.collection)}</small><strong>${esc(p.shortName)}</strong><em>Compare details</em></span><span class="top50-arrow">→</span></a>`).join("");
 }
 function render(){
   ensureDynamicCollections();
