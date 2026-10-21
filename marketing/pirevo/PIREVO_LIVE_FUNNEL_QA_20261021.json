@@ -1,8 +1,8 @@
 {
-  "audit_at_utc": "2026-10-21T15:46:17.547034+00:00",
+  "audit_at_utc": "2026-10-21T16:56:46.885660+00:00",
   "scope": "GET/HEAD of owned website only. No Amazon requests or simulated customer clicks.",
-  "own_site_urls_tested": 160,
-  "own_site_http_200": 160,
+  "own_site_urls_tested": 161,
+  "own_site_http_200": 161,
   "own_site_non_200": [],
   "source_product_pages": 139,
   "source_product_link_checks": [

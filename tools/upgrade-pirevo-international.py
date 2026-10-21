@@ -87,6 +87,7 @@ GUIDE.parent.mkdir(parents=True,exist_ok=True)
 GUIDE.write_text(page)
 jslink='<script src="/pirevo/marketplace-guide.js" defer></script>'
 csslink='<link rel="stylesheet" href="/pirevo/marketplace-guide.css">'
+favlink='<link rel="icon" type="image/svg+xml" href="/pirevo/favicon.svg">'
 files=list((WEB/"products").glob("*/index.html"))+list((WEB/"categories").glob("*/index.html"))+[WEB/"catalog/index.html",WEB/"index.html",GUIDE]
 updated=0
 for file in files:
@@ -98,6 +99,8 @@ for file in files:
  if csslink not in s:
   if "</head>" not in s:raise RuntimeError("head missing "+str(file))
   s=s.replace("</head>",csslink+"</head>",1)
+ if favlink not in s:
+  s=s.replace("</head>",favlink+"</head>",1)
  file.write_text(s)
 for xml in [ROOT/"public/sitemap.xml",WEB/"sitemap.xml"]:
  s=xml.read_text()

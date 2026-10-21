@@ -104,3 +104,9 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Tests: python3 tools/verify-pirevo-global.py. Repeatable pipeline: npm run pirevo:refresh. This must be executed after updates to store-data.js so generated catalog and widget stay synchronized.
 - Amazon Associates support confirms the ten-country current account configuration includes NL/PL/SE without separate enrollments. Australia/Japan/other regions are outside current configuration; no tax/payment/foreign legal registrations carried out.
 - Image rights for 135 existing Amazon-hosted product image sources still lack independent provenance validation. Do not assume search rankings, individual local availability, or sales from this release.
+
+## Production browser polish
+- Live Astra Browser confirmed the country-selector widget, 12 dropdown options (10 markets, Other, unset) and unchanged pirevo-20 Amazon link on an actual product detail page.
+- A missing default /favicon.ico produced an unnecessary browser console 404; PIREVO now declares a standalone brand favicon /pirevo/favicon.svg on its 162 storefront pages. Future regenerations retain it via the global upgrade script.
+- Global site deployment commit b7d0c53 was Vercel READY, and independent live owned-site HTTP QA passed 161/161 URLs (139 detail pages, 20 categories, catalog and international guide).
+- Global shopping guide and main/pirevo sitemaps were successfully resubmitted to Google Search Console. SEO discovery and rankings remain unverified.

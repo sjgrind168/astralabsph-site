@@ -12,6 +12,7 @@ for f in sources:
  s=f.read_text()
  assert s.count('<script src="/pirevo/marketplace-guide.js" defer></script>')==1,f
  assert s.count('<link rel="stylesheet" href="/pirevo/marketplace-guide.css">')==1,f
+ assert s.count('<link rel="icon" type="image/svg+xml" href="/pirevo/favicon.svg">')==1,f
  assert '<link rel="canonical"' in s,f
 catalog=(P/"catalog/index.html").read_text()
 assert catalog.count('data-cat=')==138
