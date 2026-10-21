@@ -110,3 +110,10 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - A missing default /favicon.ico produced an unnecessary browser console 404; PIREVO now declares a standalone brand favicon /pirevo/favicon.svg on its 162 storefront pages. Future regenerations retain it via the global upgrade script.
 - Global site deployment commit b7d0c53 was Vercel READY, and independent live owned-site HTTP QA passed 161/161 URLs (139 detail pages, 20 categories, catalog and international guide).
 - Global shopping guide and main/pirevo sitemaps were successfully resubmitted to Google Search Console. SEO discovery and rankings remain unverified.
+
+## Oct 22 editorial crawlability and media provenance gate
+- Converted 10 existing JavaScript-only buying guide shells into static HTML fallback with approximately 558–685 visible words in source per guide, while preserving client-side rich guide UI. Added an eleventh guide-directory link for the existing satchel comparison.
+- Added 158 related guide links across product and category pages, with a new guides directory linked from catalog. No fabricated hands-on product trials or Amazon star ratings.
+- Removed legacy copied Amazon star/review-count claims from work-satchel comparison.
+- Site-wide source image audit: 543 unique Amazon CDN URLs across 938 URL/file reference pairs and 137 files checked, with licensing provenance NOT confirmed. Baseline hash register blocks new unverified Amazon CDN URLs from source. A hash in this ledger is historical and NOT approved or licensed. Embedded original guide artwork provenance also needs review.
+- Repeatable publishing validation: npm run pirevo:refresh now pre-renders editorial guides, generates internal links, checks image additions, and builds site. Full pipeline passed twice during QA; Google indexing and rankings require later verification.
