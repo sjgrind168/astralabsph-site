@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-10-21",
+  "notes": "Human-observed model identity only; no real-time stock, country-specific delivery, OneLink redirect, or commission proof. Other products and countries are unverified.",
+  "products": {
+    "apple-airtag-2": {
+      "US": {
+        "model": "checked",
+        "asin": "B0GJTFXNRX",
+        "checked": "October 21, 2026"
+      },
+      "CA": {
+        "model": "checked",
+        "asin": "B0GJTY1QYX",
+        "checked": "October 21, 2026"
+      },
+      "DE": {
+        "model": "checked",
+        "asin": "B0GQBHTSGR",
+        "checked": "October 21, 2026"
+      },
+      "IT": {
+        "model": "checked",
+        "asin": "B0GJTCB2QM",
+        "checked": "October 21, 2026"
+      }
+    },
+    "aeropress-original-b0047": {
+      "CA": {
+        "model": "checked",
+        "asin": "B0047BIWSK",
+        "checked": "October 21, 2026"
+      }
+    },
+    "levoit-core-200s": {
+      "US": {
+        "model": "checked",
+        "asin": "B08FJ678YK",
+        "checked": "October 21, 2026"
+      }
+    },
+    "govee-table-lamp-2": {
+      "US": {
+        "model": "checked",
+        "asin": "B0D41XL87F",
+        "checked": "October 21, 2026"
+      }
+    },
+    "cosrx-snail-mucin-96": {
+      "US": {
+        "model": "checked",
+        "asin": "B00PBX3L7K",
+        "checked": "October 21, 2026"
+      }
+    }
+  }
+}

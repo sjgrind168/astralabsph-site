@@ -95,3 +95,12 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - The legacy `/onelink/` tool returns 403 for this account; the support agent characterized that as normal without other foreign accounts to link. He offered the Global Earnings report at https://affiliate-program.amazon.com/p/reporting/global instead of an individual product-match preview.
 - Amazon said the chat is retained on its side, but no transcript download/reference was provided. No billing address or other account secrets were copied into this report.
 - This is authenticated support advice on account configuration, **not independent end-to-end proof** that any exact regional product listing, visitor redirect, checkout, or commission appears in earnings. All product and conversion verification gates remain.
+
+## Oct 22: PIREVO international shopping release gate
+- New buyer country selector integrated across 162 pages: 139 static product details, 20 category pages, PIREVO homepage, all-products catalog, and the new global shopping guide. No passive location collection or forced Amazon link rewrites.
+- New searchable international guide: https://www.astralabsph.com/pirevo/international/ with all ten markets, clear affiliate disclosures, and exact-country stock/variant/referral limitations. Added URL to both sitemaps.
+- Product identity evidence is strictly a dated observation (2026-10-21) and is explicitly not a stock/delivery/commission validation. Five products have a small set of checked regional model identities; other items remain unknown.
+- All 138 products now have working catalog links. 138 active US affiliate buy links with pirevo-20 plus one unverified e.l.f. held; one separate legacy PDP remains published.
+- Tests: python3 tools/verify-pirevo-global.py. Repeatable pipeline: npm run pirevo:refresh. This must be executed after updates to store-data.js so generated catalog and widget stay synchronized.
+- Amazon Associates support confirms the ten-country current account configuration includes NL/PL/SE without separate enrollments. Australia/Japan/other regions are outside current configuration; no tax/payment/foreign legal registrations carried out.
+- Image rights for 135 existing Amazon-hosted product image sources still lack independent provenance validation. Do not assume search rankings, individual local availability, or sales from this release.

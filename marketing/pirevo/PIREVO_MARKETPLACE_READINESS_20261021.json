@@ -969,12 +969,12 @@
       "us_affiliate_url": "https://www.amazon.com/dp/B0GJTFXNRX?tag=pirevo-20",
       "detail_page_exists": true,
       "marketplace_availability": {
-        "US": "UNVERIFIED",
-        "CA": "UNVERIFIED",
+        "US": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
+        "CA": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "UK": "UNVERIFIED",
-        "DE": "UNVERIFIED",
+        "DE": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "FR": "UNVERIFIED",
-        "IT": "UNVERIFIED",
+        "IT": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "ES": "UNVERIFIED",
         "NL": "UNVERIFIED",
         "PL": "UNVERIFIED",
@@ -1935,7 +1935,7 @@
       "us_affiliate_url": "https://www.amazon.com/dp/B08FJ678YK?tag=pirevo-20",
       "detail_page_exists": true,
       "marketplace_availability": {
-        "US": "UNVERIFIED",
+        "US": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "CA": "UNVERIFIED",
         "UK": "UNVERIFIED",
         "DE": "UNVERIFIED",
@@ -1957,7 +1957,7 @@
       "us_affiliate_url": "https://www.amazon.com/dp/B0D41XL87F?tag=pirevo-20",
       "detail_page_exists": true,
       "marketplace_availability": {
-        "US": "UNVERIFIED",
+        "US": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "CA": "UNVERIFIED",
         "UK": "UNVERIFIED",
         "DE": "UNVERIFIED",
@@ -1979,7 +1979,7 @@
       "us_affiliate_url": "https://www.amazon.com/dp/B00PBX3L7K?tag=pirevo-20",
       "detail_page_exists": true,
       "marketplace_availability": {
-        "US": "UNVERIFIED",
+        "US": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "CA": "UNVERIFIED",
         "UK": "UNVERIFIED",
         "DE": "UNVERIFIED",
@@ -2014,7 +2014,8 @@
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
       },
-      "us_product_identity_20261021": "ASIN present in existing catalog; direct Amazon detail check timed out; exact variant must be independently confirmed"
+      "us_product_identity_20261021": "ASIN present in existing catalog; direct Amazon detail check timed out; exact variant must be independently confirmed",
+      "exact_us_product_verification": "UNVERIFIED_AMAZON_DETAIL_TIMEOUT__OUTBOUND_BUY_BUTTON_HELD"
     },
     {
       "slug": "wali-monitor-stand-stt003",
@@ -2108,7 +2109,7 @@
       "detail_page_exists": true,
       "marketplace_availability": {
         "US": "UNVERIFIED",
-        "CA": "UNVERIFIED",
+        "CA": "MODEL_IDENTITY_CHECKED_2026_10_21__STOCK_DELIVERY_REDIRECT_ATTRIBUTION_NOT_CERTIFIED",
         "UK": "UNVERIFIED",
         "DE": "UNVERIFIED",
         "FR": "UNVERIFIED",
@@ -3055,5 +3056,16 @@
     "official_matching_preview": "Still inaccessible under legacy /onelink/ 403; no current working preview URL provided",
     "owner_payment_and_tax_changes": "NONE",
     "transcript": "Chat remains held by Amazon; no downloadable transcript/reference offered; do not store personal address"
+  },
+  "global_shopper_experience_20261022": {
+    "country_selector": "Shoppers explicitly choose one of ten Global Earning Preferences marketplaces or Other; no GPS or automatic location inference",
+    "affiliate_link_policy": "Existing US pirevo-20 links preserved, never rewritten by the selector",
+    "guide_url": "https://www.astralabsph.com/pirevo/international/",
+    "dated_evidence_file": "public/pirevo/regional-evidence.json",
+    "important": "Dated model checks are not shipping, live stock, exact redirect, or actual commission validation",
+    "catalog_items": 138,
+    "detail_pages": 139,
+    "legacy_orphan_preserved": "cisily-sink-caddy",
+    "historical_retailer_image_permission": "135 legacy image sources still require license provenance verification"
   }
 }

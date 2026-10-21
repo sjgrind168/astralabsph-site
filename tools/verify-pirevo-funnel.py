@@ -12,6 +12,7 @@ category_pages=sorted((pub/"categories").glob("*/index.html"))
 urls=[("product",f"https://www.astralabsph.com/pirevo/products/{f.parent.name}/index.html") for f in product_pages]
 urls+=[("category",f"https://www.astralabsph.com/pirevo/categories/{f.parent.name}/") for f in category_pages]
 urls.append(("catalog","https://www.astralabsph.com/pirevo/catalog/"))
+urls.append(("international","https://www.astralabsph.com/pirevo/international/"))
 checks=[]
 for f in product_pages:
  html=f.read_text()

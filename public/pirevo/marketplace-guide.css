@@ -1,0 +1,15 @@
+/* Marketplace explanation, not a location detector or country-specific checkout. */
+.pirevo-region-widget{box-sizing:border-box;width:100%;margin:22px 0 28px;border:1px solid #cbd8cf;border-radius:17px;padding:17px 18px;background:#f0f6f0;color:#19382c;font-family:Inter,system-ui,-apple-system,sans-serif;font-size:13px;line-height:1.55;box-shadow:0 5px 17px rgba(32,53,42,.035)}
+.pirevo-region-widget *{box-sizing:border-box}
+.pirevo-region-head{display:flex;align-items:flex-start;justify-content:space-between;gap:13px;flex-wrap:wrap}
+.pirevo-region-head strong{display:block;color:#19352d;font-size:15px;line-height:1.3}
+.pirevo-region-eyebrow{display:block;font-size:10px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:#558169;margin-bottom:4px}
+.pirevo-region-head a{color:#245d43;text-decoration:underline;font-weight:700;font-size:12px}
+.pirevo-region-select-wrap{display:block;margin-top:13px}
+.pirevo-region-select-wrap span{display:block;font-size:12px;font-weight:700;color:#375344;margin-bottom:5px}
+.pirevo-region-select{width:100%;min-height:43px;border:1px solid #9db6a3;border-radius:9px;background:white;padding:8px 12px;font-size:14px;color:#203a2f;cursor:pointer}
+.pirevo-region-select:focus-visible{outline:3px solid #6aa47e;outline-offset:2px}
+.pirevo-region-explainer{font-size:12px;line-height:1.6;color:#425e50;margin:12px 0 0}
+.pirevo-region-proof{font-size:12px;line-height:1.6;color:#244d36;padding:9px 12px;border-left:3px solid #659f75;background:#fff;border-radius:4px;margin:11px 0 0}
+.pirevo-region-proof[hidden]{display:none}
+@media(max-width:600px){.pirevo-region-widget{padding:15px 13px;margin:16px 0 22px}.pirevo-region-head strong{font-size:14px}}
