@@ -18,6 +18,7 @@
 
   function pageType(){
     const p=location.pathname;
+    if(/\/pirevo\/compare\//.test(p))return"comparison";
     if(/\/pirevo\/products\//.test(p))return"product";
     if(/\/pirevo\/guides\//.test(p))return"guide";
     if(/\/pirevo\/books\//.test(p))return"book";
@@ -127,7 +128,7 @@
   }
   function event(name,params={}){
     dbEvent(name,params);
-    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth"||name==="app_click"||name==="book_outbound")gaEvent(name,params);
+    if(name==="view_item"||name==="affiliate_click"||name==="product_click"||name==="search"||name==="scroll_depth"||name==="app_click"||name==="book_outbound"||name==="compare_view")gaEvent(name,params);
   }
   function init(){
     if(window.__PIREVO_ANALYTICS_BOUND)return;

@@ -20,6 +20,9 @@ assert html.count('class="preset"')==5
 assert not any("media-amazon.com" in (P/x).read_text() for x in ["compare/index.html","compare/app.js","compare/style.css","compare-data.json"])
 assert 'compare-data.json' in (P/"compare/app.js").read_text()
 assert 'history.replaceState' in (P/"compare/app.js").read_text()
+assert 'business-analytics.js' in html and 'config.js' in html
+assert 'compare_view' in (P/"compare/app.js").read_text()
+assert 'return"comparison"' in (P/"business-analytics.js").read_text()
 assert not re.search(r'https?://(?:m\.media-amazon|images-na\.ssl-images-amazon)',html)
 cat=(P/"catalog/index.html").read_text()
 assert cat.count('class="pirevo-compare-intro"')==1
