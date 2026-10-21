@@ -1933,7 +1933,7 @@
       "name": "Levoit Core 200S-P Smart Air Purifier, White",
       "us_asin": "B08FJ678YK",
       "us_affiliate_url": "https://www.amazon.com/dp/B08FJ678YK?tag=pirevo-20",
-      "detail_page_exists": false,
+      "detail_page_exists": true,
       "marketplace_availability": {
         "US": "UNVERIFIED",
         "CA": "UNVERIFIED",
@@ -1947,14 +1947,15 @@
         "SE": "UNVERIFIED",
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
-      }
+      },
+      "us_product_identity_20261021": "US identity verified on Amazon.com; stock shown at selected location"
     },
     {
       "slug": "govee-table-lamp-2",
       "name": "Govee RGBIC Smart Table Lamp 2, Touch Bedside Lamp with Matter",
       "us_asin": "B0D41XL87F",
       "us_affiliate_url": "https://www.amazon.com/dp/B0D41XL87F?tag=pirevo-20",
-      "detail_page_exists": false,
+      "detail_page_exists": true,
       "marketplace_availability": {
         "US": "UNVERIFIED",
         "CA": "UNVERIFIED",
@@ -1968,14 +1969,15 @@
         "SE": "UNVERIFIED",
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
-      }
+      },
+      "us_product_identity_20261021": "US identity verified on Amazon.com; stock shown at selected location"
     },
     {
       "slug": "cosrx-snail-mucin-96",
       "name": "COSRX Snail Mucin 96% Repairing Essence, 3.38 oz",
       "us_asin": "B00PBX3L7K",
       "us_affiliate_url": "https://www.amazon.com/dp/B00PBX3L7K?tag=pirevo-20",
-      "detail_page_exists": false,
+      "detail_page_exists": true,
       "marketplace_availability": {
         "US": "UNVERIFIED",
         "CA": "UNVERIFIED",
@@ -1989,14 +1991,15 @@
         "SE": "UNVERIFIED",
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
-      }
+      },
+      "us_product_identity_20261021": "US identity verified on Amazon.com; selected shipping destination unavailable"
     },
     {
       "slug": "elf-halo-glow-3",
       "name": "e.l.f. Halo Glow Liquid Filter, 3 Light/Medium",
       "us_asin": "B0B5MGBDHZ",
       "us_affiliate_url": "https://www.amazon.com/dp/B0B5MGBDHZ?tag=pirevo-20",
-      "detail_page_exists": false,
+      "detail_page_exists": true,
       "marketplace_availability": {
         "US": "UNVERIFIED",
         "CA": "UNVERIFIED",
@@ -2010,7 +2013,8 @@
         "SE": "UNVERIFIED",
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
-      }
+      },
+      "us_product_identity_20261021": "ASIN present in existing catalog; direct Amazon detail check timed out; exact variant must be independently confirmed"
     },
     {
       "slug": "wali-monitor-stand-stt003",
@@ -2998,5 +3002,16 @@
     "financial_or_enrollment_changes": "None",
     "access_status": "Authenticated",
     "record_date": "2026-10-21"
+  },
+  "four_missing_product_pages_fixed_20261021": {
+    "created": [
+      "levoit-core-200s",
+      "govee-table-lamp-2",
+      "cosrx-snail-mucin-96",
+      "elf-halo-glow-3"
+    ],
+    "images": "No unlicensed retailer images used for new pages",
+    "stock": "No live price or availability assertions on PIREVO",
+    "affiliate": "Original valid US pirevo-20 destinations preserved"
   }
 }
