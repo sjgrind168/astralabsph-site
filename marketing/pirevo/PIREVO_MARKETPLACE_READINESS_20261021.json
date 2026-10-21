@@ -8,9 +8,9 @@
     "FR": "SINGLE_STORE_EARNINGS_ACTIVE_PRODUCT_UNVERIFIED",
     "IT": "SINGLE_STORE_EARNINGS_ACTIVE_PRODUCT_UNVERIFIED",
     "ES": "SINGLE_STORE_EARNINGS_ACTIVE_PRODUCT_UNVERIFIED",
-    "NL": "CHECKBOX_ACTIVE_LOCAL_ASSOCIATES_UNVERIFIED",
-    "PL": "CHECKBOX_ACTIVE_LOCAL_ASSOCIATES_UNVERIFIED",
-    "SE": "CHECKBOX_ACTIVE_LOCAL_ASSOCIATES_UNVERIFIED",
+    "NL": "SUPPORT_CONFIRMED_INCLUDED_IN_TEN_COUNTRY_GLOBAL_EARNING_PREFERENCES_NO_LOCAL_ENROLLMENT_REQUIRED",
+    "PL": "SUPPORT_CONFIRMED_INCLUDED_IN_TEN_COUNTRY_GLOBAL_EARNING_PREFERENCES_NO_LOCAL_ENROLLMENT_REQUIRED",
+    "SE": "SUPPORT_CONFIRMED_INCLUDED_IN_TEN_COUNTRY_GLOBAL_EARNING_PREFERENCES_NO_LOCAL_ENROLLMENT_REQUIRED",
     "JP": "SEPARATE_ACCOUNT_REQUIRED_UNVERIFIED",
     "AU": "SEPARATE_ACCOUNT_REQUIRED_UNVERIFIED"
   },
@@ -3042,5 +3042,18 @@
     "disclosures_missing": 0,
     "unsupported_rating_blocks": 0,
     "unverified_licensed_amazon_image_pages": 135
+  },
+  "amazon_live_support_confirmation_20261022": {
+    "agent": "Estiven Ricardo (Amazon Associates Support)",
+    "chat_page": "https://affiliate-program.amazon.com/home/contact/chat",
+    "chat_date_ph": "2026-10-22",
+    "support_said": "US pirevo-20 Global Earning Preferences automatically localize eligible links to checked markets and may substitute close product matches; no independent Associates account needed for NL PL SE under the current ten-country Global Earning Preferences; Japan requires a separate local account",
+    "support_noted": "Agent acknowledged discrepancy between older public guide and internal guidance and reconfirmed after reviewing",
+    "country_account_setup_10": "SUPPORT_CONFIRMED_CURRENT_GLOBAL_EARNING_PREFERENCES",
+    "product_local_stock_and_1_to_1_matching": "UNVERIFIED_PER_PRODUCT",
+    "commission_credited_to_us_account": "SUPPORT_EXPLANATION_ONLY; no purchase or earnings report validated",
+    "official_matching_preview": "Still inaccessible under legacy /onelink/ 403; no current working preview URL provided",
+    "owner_payment_and_tax_changes": "NONE",
+    "transcript": "Chat remains held by Amazon; no downloadable transcript/reference offered; do not store personal address"
   }
 }
