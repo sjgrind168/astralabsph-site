@@ -1,0 +1,1230 @@
+{
+  "audit_at_utc": "2026-10-21T06:38:51.200554+00:00",
+  "scope": "GET/HEAD of owned website only. No Amazon requests or simulated customer clicks.",
+  "own_site_urls_tested": 156,
+  "own_site_http_200": 156,
+  "own_site_non_200": [],
+  "source_product_pages": 135,
+  "source_product_link_checks": [
+    {
+      "slug": "aeropress-original-b0047",
+      "us_asin": "B0047BIWSK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "aiseno-skeleton-stakes",
+      "us_asin": "B07DNB1MDQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "alpha-grillers-thermometer",
+      "us_asin": "B00S93EQUK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amagabeli-fireplace-tools",
+      "us_asin": "B015NRQ6OS",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amazon-basics-neoprene-dumbbells",
+      "us_asin": "B01LR5S6HK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amazon-basics-storage-cubes-6",
+      "us_asin": "B0711RQMNF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amazon-basics-wire-rack",
+      "us_asin": "B01LWP8AL2",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amazon-smart-plug-2",
+      "us_asin": "B0D9C2V83V",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "amfilm-switch2-onetouch",
+      "us_asin": "B0DRCKDWD1",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ancel-ad310-obd2",
+      "us_asin": "B01G5EA74I",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "angelkiss-hobo-satchel",
+      "us_asin": "B07B7KQ8YM",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "anker-nano-3in1-10k",
+      "us_asin": "B0CX4992Z8",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "aoc-wireless-gaming-headset",
+      "us_asin": "B0HGR4SDYC",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "apple-airtag-2",
+      "us_asin": "B0GJTFXNRX",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "astercook-13pc-knife-set",
+      "us_asin": "B0D9B96TBX",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bagail-packing-cubes-8",
+      "us_asin": "B08S35399Y",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bagsmart-hanging-toiletry",
+      "us_asin": "B07SL2RKJK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bcp-prelit-outdoor-wreath",
+      "us_asin": "B0CKDPZTDV",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "beats-solo-4-black",
+      "us_asin": "B0CZPLV566",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bedsure-gentlesoft-white-throw",
+      "us_asin": "B0BPLB81LX",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "biodance-bio-collagen-real-deep-mask",
+      "us_asin": "B0B2RM68G2",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bolabutty-portable-bluetooth-speaker",
+      "us_asin": "B0BRKPVZB4",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bosch-glm100-23-laser",
+      "us_asin": "B0C76CPGC7",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "brightown-fairy-lights-12",
+      "us_asin": "B07WG18RLT",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "brizled-purple-orange-halloween-lights",
+      "us_asin": "B0915Y7T92",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "buenkee-grooming-vacuum",
+      "us_asin": "B0D7W1P79Y",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "bunoxea-wall-spice-rack-4",
+      "us_asin": "B0C1XLC962",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "catstages-tower-tracks",
+      "us_asin": "B00DT2WL26",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cerakote-headlight-kit",
+      "us_asin": "B084RQKLV8",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cerave-moisturizing-cream",
+      "us_asin": "B00TTD9BRC",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "chomchom-pet-hair-roller",
+      "us_asin": "B00BAGTNAQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "churboro-spice-jars-25",
+      "us_asin": "B0B2L66CTW",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "circle-joy-rechargeable-frother",
+      "us_asin": "B0G3PDFXJS",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cisily-sink-caddy",
+      "us_asin": "B0C3QZ7SNF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cisily-sink-organizer",
+      "us_asin": "B0C3QZ7SNF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "clean-skin-club-towels-xl",
+      "us_asin": "B07PBXXNCY",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "colorcoral-cleaning-gel",
+      "us_asin": "B07GW9TJ3G",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crayola-airbrush-kit",
+      "us_asin": "B0DTB2N2D9",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crayola-color-wonder-magic-light-brush",
+      "us_asin": "B084Y3DLFJ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crayola-inspiration-art-case-140",
+      "us_asin": "B00CI6J5JQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "creative-hobbies-window-candles-6",
+      "us_asin": "B08JD6GWPR",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "creativity-for-kids-holiday-gem-kit",
+      "us_asin": "B08CMKBJNT",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crockpot-20oz-electric-lunch-box",
+      "us_asin": "B09BDGQYW5",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crockpot-design-7qt",
+      "us_asin": "B0FMPHRGPC",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crockpot-manual-7qt",
+      "us_asin": "B003OAJGJO",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "crz-butterluxe-leggings",
+      "us_asin": "B09P1GB319",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cupkin-animal-sticker-book",
+      "us_asin": "B098PMWSVS",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "cyantor-halloween-creepy-cloth-5",
+      "us_asin": "B09C5Q8S89",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "denicmic-solar-halloween-path-lights-10",
+      "us_asin": "B0D455GNZ3",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "downcool-queen-mattress-topper",
+      "us_asin": "B0HDBBJMCX",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "drop-stop-seat-gap",
+      "us_asin": "B00BYH6C1E",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "earth-rated-dog-wipes",
+      "us_asin": "B07NHL31CC",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "earth-rated-poop-bags-270",
+      "us_asin": "B00BSYR7K8",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "echo-dot-charcoal",
+      "us_asin": "B09B8V1LZ3",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "eddie-bauer-sherpa-throw",
+      "us_asin": "B01HTQQGHS",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "eldnacele-halloween-skull-candles",
+      "us_asin": "B088CY6B1V",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "eos-vanilla-cashmere-lotion",
+      "us_asin": "B08KT2Z93D",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "etekcity-kitchen-scale",
+      "us_asin": "B0113UZJE2",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "fiskars-6in-pruning-snips",
+      "us_asin": "B01MU8CP1W",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "franklin-m210-stud-finder",
+      "us_asin": "B0917VXLDK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "fullstar-pro-chopper",
+      "us_asin": "B0764HS4SL",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "gaiam-thick-yoga-mat",
+      "us_asin": "B07H9PZDQW",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "godonlif-candle-warmer-lamp",
+      "us_asin": "B0CTJGJL2T",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "goosh-skeleton-puppy-inflatable",
+      "us_asin": "B08BC5YWTD",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "goothy-pumpkin-pathway-lights-4",
+      "us_asin": "B097PC5J8C",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "govee-smart-light-bar",
+      "us_asin": "B0G7G17YTQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "govee-tv-backlight-3-lite",
+      "us_asin": "B0CHS2BGHY",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "hexagram-halloween-doormat",
+      "us_asin": "B0B4K86JVT",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "homemory-50-flameless-tealights",
+      "us_asin": "B0CTY4SH7M",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "homemory-christmas-tree-candles",
+      "us_asin": "B0CM92TY2T",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "hotor-trunk-organizer",
+      "us_asin": "B0CM6KVCSX",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "huanuo-monitor-riser-3height",
+      "us_asin": "B07H4DMLVH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "huggiegems-magnetic-spice-rack-4",
+      "us_asin": "B0C3H9MJQV",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "illiyoon-ceramide-ato",
+      "us_asin": "B077RTL1HJ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "jbl-clip-5-black",
+      "us_asin": "B0CTP56C5R",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "joyin-glow-rock-painting-kit",
+      "us_asin": "B08HD89CX6",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "joyin-hanging-skeleton-ghosts",
+      "us_asin": "B07VVH83KM",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "kawaii-squishy-30pack",
+      "us_asin": "B0DG2VRFV7",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "kitchenaid-kitchen-shears",
+      "us_asin": "B07PZF3QS3",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "kontrolfreek-galaxy-black",
+      "us_asin": "B0B4862QNJ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "la-roche-posay-toleriane",
+      "us_asin": "B01N9SPQHQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "laneige-lip-sleeping-mask",
+      "us_asin": "B07XXPHQZK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "lego-botanicals-tiny-plants",
+      "us_asin": "B0CDCL6Y5T",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "lego-city-police-motorcycle-60455",
+      "us_asin": "B0DRW5NFHG",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "levoit-core-mini-p-air-purifier",
+      "us_asin": "B09GTRVJQM",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ljlnion-300led-purple-halloween-lights",
+      "us_asin": "B088FQW939",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "lovevook-satchel",
+      "us_asin": "B0DSHQKLTB",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "maxpower-grooming-rake",
+      "us_asin": "B07P2N8HQH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "medicube-zero-pore-pad",
+      "us_asin": "B09V7Z4TJG",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "mighty-patch-original-36",
+      "us_asin": "B074PVTPBW",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "miulee-ghost-pillow-covers-2",
+      "us_asin": "B0F72LLCPZ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "mobil1-afe-0w20-5qt",
+      "us_asin": "B00J00X5YO",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "moonka-frameo-digital-photo-frame",
+      "us_asin": "B09QX7M71C",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "national-geographic-magic-chemistry",
+      "us_asin": "B085WF9CHH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "national-tree-wintry-pine-garland",
+      "us_asin": "B00EJ2E1HI",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "new-balance-608-v5",
+      "us_asin": "B07B421VFF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ninja-possiblecooker-pro-plus",
+      "us_asin": "B0GT5SV7VD",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "nintendo-joycon-neon",
+      "us_asin": "B01N6QJ58Y",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ocato-giant-spider-web",
+      "us_asin": "B07TWF8JZ1",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ocedar-easywring-spin-mop",
+      "us_asin": "B00WSWGVZQ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "owala-freesip-24-dark",
+      "us_asin": "B085DTZQNZ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "oxo-pop-5pc",
+      "us_asin": "B07TD9QT97",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "panoxyl-10-foaming-wash",
+      "us_asin": "B081KL2QYJ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "piteno-140-bat-wall-decor",
+      "us_asin": "B0F831L31B",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "playdoh-36-pack",
+      "us_asin": "B00JM5GZGW",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "roku-streaming-stick-hd",
+      "us_asin": "B0DXXYS4BJ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "rubbermaid-brilliance-5",
+      "us_asin": "B079M8FPTW",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "rustic-harvest-fall-wreath",
+      "us_asin": "B0D6QQG66Q",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "samsung-switch2-microsd-256",
+      "us_asin": "B0F3VTCZK8",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "shareconn-106-christmas-ornaments",
+      "us_asin": "B09BMSBWWH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "shareconn-48-prelit-christmas-wreath",
+      "us_asin": "B0D97ZWVJF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "sleekez-dog-brush-5",
+      "us_asin": "B00VC8DQX2",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "smirly-bamboo-charcuterie-board",
+      "us_asin": "B07DL7ZV31",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "snap-circuits-jr-stem-kit",
+      "us_asin": "B00008BFZH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "sophena-wooden-ghost-door-wreath",
+      "us_asin": "B0D78CR42K",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "spaceaid-bag-organizer",
+      "us_asin": "B0B3RJJKLS",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "stanley-quencher-30-rose-quartz",
+      "us_asin": "B0CP9YB3Q4",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "superdanny-10ft-power-strip",
+      "us_asin": "B0DZ254SSR",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "swihauk-slicker-brush",
+      "us_asin": "B0CLLPVZRV",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "taygeer-carryon-backpack",
+      "us_asin": "B09MQWWP87",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "tessan-europe-adapter-2",
+      "us_asin": "B0B27HX6P7",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "touchat-wearable-blanket-hoodie",
+      "us_asin": "B0BX92ZT75",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "travel-inspira-luggage-scale",
+      "us_asin": "B07QFTGGYF",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ugreen-nexode-pro-65w",
+      "us_asin": "B0CD1NVW7R",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "under-armour-tech-2-tee",
+      "us_asin": "B0785VXRX2",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "usanooks-microfiber-12",
+      "us_asin": "B08BRJHJF9",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "veken-shower-caddy-6",
+      "us_asin": "B0CJ56M8D4",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "vtopmart-drawer-organizers-25",
+      "us_asin": "B08KXKVT4K",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "vtopmart-food-bins-4",
+      "us_asin": "B097M3XJ49",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "vtopmart-under-sink-drawers-4",
+      "us_asin": "B0BZNPDHR9",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "wali-monitor-stand-stt003",
+      "us_asin": "B094QTGHNZ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "wrangler-satchel",
+      "us_asin": "B0DCHF14TR",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "xbox-controller-shock-blue",
+      "us_asin": "B0F1J12R6N",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "ynylchmx-fall-wreath",
+      "us_asin": "B0C5ZFKNZH",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    },
+    {
+      "slug": "zpisf-halloween-spider-webs",
+      "us_asin": "B07YCSNLDG",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": true
+    }
+  ],
+  "source_invalid_us_tag_count": 0,
+  "source_missing_disclosures": 0,
+  "source_disallowed_rating_blocks": 0,
+  "image_license_unknown_count": 135,
+  "product_region_evidence": "Separate manifest: PIREVO_MARKETPLACE_READINESS_20261021.json; no bulk Amazon scraping."
+}
