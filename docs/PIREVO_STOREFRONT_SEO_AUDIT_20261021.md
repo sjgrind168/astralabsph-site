@@ -79,3 +79,11 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Official OneLink page /onelink/ returns HTTP 403 Access Denied despite successful other account pages. The Check Matching Products tool is inaccessible; product redirects and commission attribution NOT VERIFIED.
 - Associates support form has anti-bot CAPTCHA. No support message was sent.
 - No legal agreements, account enrollments, tax forms, payouts, or country settings modified.
+
+## Late-sprint production release and regional QA (October 21)
+- Commit a5724b3 explicitly deployed to Vercel production, all aliases ready. All four formerly absent catalog detail pages now HTTP 200.
+- The fourth page (e.l.f. Halo Glow Shade 3) has no active Amazon purchase CTA until exact ASIN/variant is verified; the other three retain original tagged US links.
+- Repaired URLs were already present in both XML sitemaps. Updated lastmod and resubmitted both sitemaps successfully to Google Search Console.
+- Verified Amazon.ca AeroPress Original ASIN B0047BIWSK matched the catalog model and displayed In Stock. German and Italian pages did not provide verifiable details in this check. OneLink attribution remains unknown.
+- The new live website sweep confirms 160/160 HTTP 200 (139 static product detail pages, 20 category pages, 1 catalog). Source catalog contains 138 products, plus one preserved legacy product page cisily-sink-caddy; 138 active tagged US product links and one intentionally held unverified buy action.
+- Remaining blockers: official OneLink preview returns 403 while logged in; support requires human CAPTCHA; NL/PL/SE external Associates attribution details await provider confirmation; JP/AU account linking/registration owner action; independent image rights proof for 135 legacy pages; product-level regional matching remains incomplete.

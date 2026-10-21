@@ -1,10 +1,10 @@
 {
-  "audit_at_utc": "2026-10-21T06:38:51.200554+00:00",
+  "audit_at_utc": "2026-10-21T15:46:17.547034+00:00",
   "scope": "GET/HEAD of owned website only. No Amazon requests or simulated customer clicks.",
-  "own_site_urls_tested": 156,
-  "own_site_http_200": 156,
+  "own_site_urls_tested": 160,
+  "own_site_http_200": 160,
   "own_site_non_200": [],
-  "source_product_pages": 135,
+  "source_product_pages": 139,
   "source_product_link_checks": [
     {
       "slug": "aeropress-original-b0047",
@@ -13,7 +13,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "aiseno-skeleton-stakes",
@@ -22,7 +23,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "alpha-grillers-thermometer",
@@ -31,7 +33,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amagabeli-fireplace-tools",
@@ -40,7 +43,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amazon-basics-neoprene-dumbbells",
@@ -49,7 +53,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amazon-basics-storage-cubes-6",
@@ -58,7 +63,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amazon-basics-wire-rack",
@@ -67,7 +73,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amazon-smart-plug-2",
@@ -76,7 +83,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "amfilm-switch2-onetouch",
@@ -85,7 +93,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ancel-ad310-obd2",
@@ -94,7 +103,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "angelkiss-hobo-satchel",
@@ -103,7 +113,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "anker-nano-3in1-10k",
@@ -112,7 +123,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "aoc-wireless-gaming-headset",
@@ -121,7 +133,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "apple-airtag-2",
@@ -130,7 +143,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "astercook-13pc-knife-set",
@@ -139,7 +153,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bagail-packing-cubes-8",
@@ -148,7 +163,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bagsmart-hanging-toiletry",
@@ -157,7 +173,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bcp-prelit-outdoor-wreath",
@@ -166,7 +183,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "beats-solo-4-black",
@@ -175,7 +193,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bedsure-gentlesoft-white-throw",
@@ -184,7 +203,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "biodance-bio-collagen-real-deep-mask",
@@ -193,7 +213,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bolabutty-portable-bluetooth-speaker",
@@ -202,7 +223,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bosch-glm100-23-laser",
@@ -211,7 +233,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "brightown-fairy-lights-12",
@@ -220,7 +243,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "brizled-purple-orange-halloween-lights",
@@ -229,7 +253,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "buenkee-grooming-vacuum",
@@ -238,7 +263,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "bunoxea-wall-spice-rack-4",
@@ -247,7 +273,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "catstages-tower-tracks",
@@ -256,7 +283,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cerakote-headlight-kit",
@@ -265,7 +293,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cerave-moisturizing-cream",
@@ -274,7 +303,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "chomchom-pet-hair-roller",
@@ -283,7 +313,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "churboro-spice-jars-25",
@@ -292,7 +323,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "circle-joy-rechargeable-frother",
@@ -301,7 +333,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cisily-sink-caddy",
@@ -310,7 +343,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cisily-sink-organizer",
@@ -319,7 +353,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "clean-skin-club-towels-xl",
@@ -328,7 +363,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "colorcoral-cleaning-gel",
@@ -337,7 +373,18 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "cosrx-snail-mucin-96",
+      "us_asin": "B00PBX3L7K",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
     },
     {
       "slug": "crayola-airbrush-kit",
@@ -346,7 +393,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crayola-color-wonder-magic-light-brush",
@@ -355,7 +403,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crayola-inspiration-art-case-140",
@@ -364,7 +413,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "creative-hobbies-window-candles-6",
@@ -373,7 +423,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "creativity-for-kids-holiday-gem-kit",
@@ -382,7 +433,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crockpot-20oz-electric-lunch-box",
@@ -391,7 +443,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crockpot-design-7qt",
@@ -400,7 +453,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crockpot-manual-7qt",
@@ -409,7 +463,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "crz-butterluxe-leggings",
@@ -418,7 +473,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cupkin-animal-sticker-book",
@@ -427,7 +483,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "cyantor-halloween-creepy-cloth-5",
@@ -436,7 +493,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "denicmic-solar-halloween-path-lights-10",
@@ -445,7 +503,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "downcool-queen-mattress-topper",
@@ -454,7 +513,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "drop-stop-seat-gap",
@@ -463,7 +523,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "earth-rated-dog-wipes",
@@ -472,7 +533,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "earth-rated-poop-bags-270",
@@ -481,7 +543,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "echo-dot-charcoal",
@@ -490,7 +553,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "eddie-bauer-sherpa-throw",
@@ -499,7 +563,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "eldnacele-halloween-skull-candles",
@@ -508,7 +573,18 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "elf-halo-glow-3",
+      "us_asin": null,
+      "tracking_tag": null,
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": true
     },
     {
       "slug": "eos-vanilla-cashmere-lotion",
@@ -517,7 +593,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "etekcity-kitchen-scale",
@@ -526,7 +603,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "fiskars-6in-pruning-snips",
@@ -535,7 +613,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "franklin-m210-stud-finder",
@@ -544,7 +623,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "fullstar-pro-chopper",
@@ -553,7 +633,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "gaiam-thick-yoga-mat",
@@ -562,7 +643,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "godonlif-candle-warmer-lamp",
@@ -571,7 +653,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "goosh-skeleton-puppy-inflatable",
@@ -580,7 +663,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "goothy-pumpkin-pathway-lights-4",
@@ -589,7 +673,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "govee-smart-light-bar",
@@ -598,7 +683,18 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "govee-table-lamp-2",
+      "us_asin": "B0D41XL87F",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
     },
     {
       "slug": "govee-tv-backlight-3-lite",
@@ -607,7 +703,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "hexagram-halloween-doormat",
@@ -616,7 +713,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "homemory-50-flameless-tealights",
@@ -625,7 +723,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "homemory-christmas-tree-candles",
@@ -634,7 +733,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "hotor-trunk-organizer",
@@ -643,7 +743,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "huanuo-monitor-riser-3height",
@@ -652,7 +753,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "huggiegems-magnetic-spice-rack-4",
@@ -661,7 +763,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "illiyoon-ceramide-ato",
@@ -670,7 +773,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "jbl-clip-5-black",
@@ -679,7 +783,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "joyin-glow-rock-painting-kit",
@@ -688,7 +793,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "joyin-hanging-skeleton-ghosts",
@@ -697,7 +803,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "kawaii-squishy-30pack",
@@ -706,7 +813,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "kitchenaid-kitchen-shears",
@@ -715,7 +823,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "kontrolfreek-galaxy-black",
@@ -724,7 +833,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "la-roche-posay-toleriane",
@@ -733,7 +843,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "laneige-lip-sleeping-mask",
@@ -742,7 +853,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "lego-botanicals-tiny-plants",
@@ -751,7 +863,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "lego-city-police-motorcycle-60455",
@@ -760,7 +873,18 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "levoit-core-200s",
+      "us_asin": "B08FJ678YK",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
     },
     {
       "slug": "levoit-core-mini-p-air-purifier",
@@ -769,7 +893,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ljlnion-300led-purple-halloween-lights",
@@ -778,7 +903,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "lovevook-satchel",
@@ -787,7 +913,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "maxpower-grooming-rake",
@@ -796,7 +923,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "medicube-zero-pore-pad",
@@ -805,7 +933,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "mighty-patch-original-36",
@@ -814,7 +943,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "miulee-ghost-pillow-covers-2",
@@ -823,7 +953,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "mobil1-afe-0w20-5qt",
@@ -832,7 +963,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "moonka-frameo-digital-photo-frame",
@@ -841,7 +973,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "national-geographic-magic-chemistry",
@@ -850,7 +983,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "national-tree-wintry-pine-garland",
@@ -859,7 +993,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "new-balance-608-v5",
@@ -868,7 +1003,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ninja-possiblecooker-pro-plus",
@@ -877,7 +1013,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "nintendo-joycon-neon",
@@ -886,7 +1023,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ocato-giant-spider-web",
@@ -895,7 +1033,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ocedar-easywring-spin-mop",
@@ -904,7 +1043,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "owala-freesip-24-dark",
@@ -913,7 +1053,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "oxo-pop-5pc",
@@ -922,7 +1063,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "panoxyl-10-foaming-wash",
@@ -931,7 +1073,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "piteno-140-bat-wall-decor",
@@ -940,7 +1083,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "playdoh-36-pack",
@@ -949,7 +1093,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "roku-streaming-stick-hd",
@@ -958,7 +1103,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "rubbermaid-brilliance-5",
@@ -967,7 +1113,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "rustic-harvest-fall-wreath",
@@ -976,7 +1123,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "samsung-switch2-microsd-256",
@@ -985,7 +1133,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "shareconn-106-christmas-ornaments",
@@ -994,7 +1143,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "shareconn-48-prelit-christmas-wreath",
@@ -1003,7 +1153,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "sleekez-dog-brush-5",
@@ -1012,7 +1163,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "smirly-bamboo-charcuterie-board",
@@ -1021,7 +1173,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "snap-circuits-jr-stem-kit",
@@ -1030,7 +1183,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "sophena-wooden-ghost-door-wreath",
@@ -1039,7 +1193,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "spaceaid-bag-organizer",
@@ -1048,7 +1203,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "stanley-quencher-30-rose-quartz",
@@ -1057,7 +1213,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "superdanny-10ft-power-strip",
@@ -1066,7 +1223,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "swihauk-slicker-brush",
@@ -1075,7 +1233,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "taygeer-carryon-backpack",
@@ -1084,7 +1243,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "tessan-europe-adapter-2",
@@ -1093,7 +1253,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "touchat-wearable-blanket-hoodie",
@@ -1102,7 +1263,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "travel-inspira-luggage-scale",
@@ -1111,7 +1273,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ugreen-nexode-pro-65w",
@@ -1120,7 +1283,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "under-armour-tech-2-tee",
@@ -1129,7 +1293,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "usanooks-microfiber-12",
@@ -1138,7 +1303,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "veken-shower-caddy-6",
@@ -1147,7 +1313,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "vtopmart-drawer-organizers-25",
@@ -1156,7 +1323,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "vtopmart-food-bins-4",
@@ -1165,7 +1333,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "vtopmart-under-sink-drawers-4",
@@ -1174,7 +1343,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "wali-monitor-stand-stt003",
@@ -1183,7 +1353,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "wrangler-satchel",
@@ -1192,7 +1363,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "xbox-controller-shock-blue",
@@ -1201,7 +1373,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "ynylchmx-fall-wreath",
@@ -1210,7 +1383,8 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     },
     {
       "slug": "zpisf-halloween-spider-webs",
@@ -1219,10 +1393,15 @@
       "disclosure_present": true,
       "editorial_jsonld": true,
       "reviews_displayed": false,
-      "amazon_image_url_present": true
+      "amazon_image_url_present": true,
+      "manual_verification_hold": false
     }
   ],
   "source_invalid_us_tag_count": 0,
+  "source_held_unverified_products": [
+    "elf-halo-glow-3"
+  ],
+  "source_active_affiliate_links": 138,
   "source_missing_disclosures": 0,
   "source_disallowed_rating_blocks": 0,
   "image_license_unknown_count": 135,

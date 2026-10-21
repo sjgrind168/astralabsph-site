@@ -250,7 +250,7 @@
     },
     {
       "slug": "govee-tv-backlight-3-lite",
-      "name": "Govee TV Backlight 3 Lite for 55\u201365 Inch TVs",
+      "name": "Govee TV Backlight 3 Lite for 55–65 Inch TVs",
       "us_asin": "B0CHS2BGHY",
       "us_affiliate_url": "https://www.amazon.com/dp/B0CHS2BGHY?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2165,7 +2165,7 @@
     },
     {
       "slug": "downcool-queen-mattress-topper",
-      "name": "DOWNCOOL Queen Mattress Topper Memory Foam, Bamboo-Viscose Cooling Pillow Top, Fits 8\u201321 Inch Mattresses",
+      "name": "DOWNCOOL Queen Mattress Topper Memory Foam, Bamboo-Viscose Cooling Pillow Top, Fits 8–21 Inch Mattresses",
       "us_asin": "B0HDBBJMCX",
       "us_affiliate_url": "https://www.amazon.com/dp/B0HDBBJMCX?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2270,7 +2270,7 @@
     },
     {
       "slug": "ocato-giant-spider-web",
-      "name": "OCATO 200\" Halloween Decorations Spider Web Outdoor + 59\" Giant Spider D\u00e9cor",
+      "name": "OCATO 200\" Halloween Decorations Spider Web Outdoor + 59\" Giant Spider Décor",
       "us_asin": "B07TWF8JZ1",
       "us_affiliate_url": "https://www.amazon.com/dp/B07TWF8JZ1?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2312,7 +2312,7 @@
     },
     {
       "slug": "cyantor-halloween-creepy-cloth-5",
-      "name": "Cyantor 5Pcs Halloween Creepy Cloth Black 30 \u00d7 72 Inch",
+      "name": "Cyantor 5Pcs Halloween Creepy Cloth Black 30 × 72 Inch",
       "us_asin": "B09C5Q8S89",
       "us_affiliate_url": "https://www.amazon.com/dp/B09C5Q8S89?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2333,7 +2333,7 @@
     },
     {
       "slug": "miulee-ghost-pillow-covers-2",
-      "name": "MIULEE White Halloween Pillow Covers Cute Ghost Decor Set of 2, 18 \u00d7 18",
+      "name": "MIULEE White Halloween Pillow Covers Cute Ghost Decor Set of 2, 18 × 18",
       "us_asin": "B0F72LLCPZ",
       "us_affiliate_url": "https://www.amazon.com/dp/B0F72LLCPZ?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2438,7 +2438,7 @@
     },
     {
       "slug": "hexagram-halloween-doormat",
-      "name": "Hexagram Halloween Door Mat, Welcome Mat for Front Door Outdoor 17 \u00d7 29",
+      "name": "Hexagram Halloween Door Mat, Welcome Mat for Front Door Outdoor 17 × 29",
       "us_asin": "B0B4K86JVT",
       "us_affiliate_url": "https://www.amazon.com/dp/B0B4K86JVT?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2543,7 +2543,7 @@
     },
     {
       "slug": "joyin-glow-rock-painting-kit",
-      "name": "JOYIN Glow in the Dark Rock Painting Kit for Kids Ages 6\u201312",
+      "name": "JOYIN Glow in the Dark Rock Painting Kit for Kids Ages 6–12",
       "us_asin": "B08HD89CX6",
       "us_affiliate_url": "https://www.amazon.com/dp/B08HD89CX6?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2774,7 +2774,7 @@
     },
     {
       "slug": "creativity-for-kids-holiday-gem-kit",
-      "name": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive Stickers & 2 Suncatchers with 1000+ Colorful Gems | Fun for Parties, Gifts, Ornaments & Seasonal D\u00e9cor (Ages 6+)",
+      "name": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive Stickers & 2 Suncatchers with 1000+ Colorful Gems | Fun for Parties, Gifts, Ornaments & Seasonal Décor (Ages 6+)",
       "us_asin": "B08CMKBJNT",
       "us_affiliate_url": "https://www.amazon.com/dp/B08CMKBJNT?tag=pirevo-20",
       "detail_page_exists": true,
@@ -2953,7 +2953,22 @@
       "ES": {
         "status": "UNCONFIRMED"
       }
-    }
+    },
+    "aeropress-original-b0047": {
+      "CA": {
+        "asin": "B0047BIWSK",
+        "status": "EXACT_BRAND_AND_MODEL_IN_STOCK_WHEN_CHECKED",
+        "url": "https://www.amazon.ca/dp/B0047BIWSK",
+        "attribution": "NOT_VERIFIED"
+      },
+      "DE": {
+        "status": "UNVERIFIED_MARKETPLACE_PAGE_NO_PRODUCT_DETAIL"
+      },
+      "IT": {
+        "status": "UNVERIFIED_MARKETPLACE_PAGE_NO_PRODUCT_DETAIL"
+      }
+    },
+    "verification_note": "Direct marketplace URL observation does not validate OneLink referral attribution, regional shipping to a real buyer, or a commission."
   },
   "affiliate_policy_check_20261021": {
     "135_pages": "All displayed customer star ratings removed",
@@ -3013,5 +3028,19 @@
     "images": "No unlicensed retailer images used for new pages",
     "stock": "No live price or availability assertions on PIREVO",
     "affiliate": "Original valid US pirevo-20 destinations preserved"
+  },
+  "live_website_audit_20261021": {
+    "tested": 160,
+    "http_200": 160,
+    "static_product_pages": 139,
+    "store_catalog_products": 138,
+    "legacy_static_orphan": "cisily-sink-caddy (preserve old product URL)",
+    "active_us_affiliate_buttons": 138,
+    "unverified_buying_button_gated": [
+      "elf-halo-glow-3"
+    ],
+    "disclosures_missing": 0,
+    "unsupported_rating_blocks": 0,
+    "unverified_licensed_amazon_image_pages": 135
   }
 }
