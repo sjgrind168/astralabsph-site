@@ -402,7 +402,7 @@
       "duplicate_policy": "DO_NOT_REPEAT"
     }
   ],
-  "last_updated_at_ph": "2026-10-21T07:08:53+08:00",
+  "last_updated_at_ph": "2026-10-21T13:04:58+08:00",
   "native_pinterest_reconciliation_2026_10_19": {
     "audited_at": "2026-10-19 Asia/Manila",
     "account": "@astralabsph",
@@ -783,6 +783,93 @@
       ],
       "akashic": "NOT_WRITTEN_UNAUTHENTICATED",
       "crossposted": false
+    },
+    {
+      "run_time_ph": "2026-10-21T13:04:58+08:00",
+      "actor": "astra_hourly",
+      "status": "PIN_VERIFICATION_PROVIDER_SAFETY_RESTRICTION_NO_PUBLICATION",
+      "candidate_pin_ids": [
+        "1143844005390456153",
+        "1143844005390460416",
+        "1143844005390704810",
+        "1143844005390644667",
+        "1143844005390562196"
+      ],
+      "selected_count": 5,
+      "freshly_verified_original_count": 0,
+      "new_public_published": 0,
+      "originals_verified_deleted": 0,
+      "remaining_eligible_count": null,
+      "remaining_reference": "Last reconciled 20 legacy product pins and 30 guide pins needing classification; NOT an independently current count.",
+      "pinterest_connection": {
+        "alias": "pinterest_aves-snork",
+        "state": "ACTIVE",
+        "account": "astralabsph",
+        "verified_at": "2026-10-21T13:04:58+08:00"
+      },
+      "pinterest_inventory": {
+        "attempted": true,
+        "completed": false,
+        "reason": "COMPOSIO_MULTI_EXECUTE_TOOL PINTEREST_LIST_BOARDS/PINTEREST_LIST_PINS/PINTEREST_GET_PIN was blocked by OpenAI safety checks before execution; no new Pin evidence returned"
+      },
+      "creative": {
+        "generation_tested": false,
+        "media_qa_new_this_run": 0
+      },
+      "mac": {
+        "terminal_connection_verified": true,
+        "browser_connection_verified": true,
+        "browser_active_tab": "AstraLabs PH Analytics",
+        "pinterest_browser_action_performed": false
+      },
+      "akashic": {
+        "url": "https://www.astralabsph.com/command-center/",
+        "http_attempted": true,
+        "authenticated": false,
+        "written": false,
+        "reason": "Web access failed; no authenticated session or ok:true confirmed"
+      },
+      "github": {
+        "source_sha": "fc301700f15f78d7d1df2452954d5c7fa5aeeee2",
+        "write_status": "PENDING_COMMIT"
+      },
+      "blocked_candidates": [
+        {
+          "pin_id": "1143844005390456153",
+          "status": "BLOCKED_PROVIDER_VERIFICATION_NOT_EXECUTED",
+          "original_preserved": true
+        },
+        {
+          "pin_id": "1143844005390460416",
+          "status": "BLOCKED_PROVIDER_VERIFICATION_NOT_EXECUTED",
+          "original_preserved": true
+        },
+        {
+          "pin_id": "1143844005390704810",
+          "status": "BLOCKED_PROVIDER_VERIFICATION_NOT_EXECUTED",
+          "original_preserved": true
+        },
+        {
+          "pin_id": "1143844005390644667",
+          "status": "BLOCKED_PROVIDER_VERIFICATION_NOT_EXECUTED",
+          "original_preserved": true
+        },
+        {
+          "pin_id": "1143844005390562196",
+          "status": "BLOCKED_PROVIDER_VERIFICATION_NOT_EXECUTED",
+          "original_preserved": true
+        }
+      ],
+      "next_batch": [
+        "1143844005390545419",
+        "1143844005390558106",
+        "1143844005390627268",
+        "1143844005390385945",
+        "1143844005390476016"
+      ],
+      "do_not_retry_pin_edit": true,
+      "no_crosspost": true,
+      "notes": "Do not count selected candidates as freshly inspected; do not infer successful publish or deletion. No Pinterest modifications this run."
     }
   ],
   "one_day_sprint_oct21_2026": {
@@ -1014,6 +1101,24 @@
           "1143844005390397455"
         ],
         "blocker": "Authenticated Pinterest Composio LIST_PINS and GET_PIN execution blocked by OpenAI safety checks despite ACTIVE account; shared Astra Browser uninitialized; exhaustive duplicate inventory unavailable. Images are Mac-local, public hosting and licensed-source verification incomplete; no safe publish/delete. Akashic web endpoint inaccessible; no authenticated write."
+      },
+      {
+        "audited_at_ph": "2026-10-21T13:04:58+08:00",
+        "actor": "astra_hourly",
+        "status": "PIN_VERIFICATION_PROVIDER_SAFETY_RESTRICTION_NO_PUBLICATION",
+        "pins_selected": 5,
+        "pins_freshly_verified": 0,
+        "new_public_replacements_published": 0,
+        "originals_verified_deleted": 0,
+        "unfinished_count": null,
+        "blocker": "COMPOSIO_MULTI_EXECUTE_TOOL PINTEREST_LIST_BOARDS/PINTEREST_LIST_PINS/PINTEREST_GET_PIN was blocked by OpenAI safety checks before execution; no new Pin evidence returned",
+        "next_batch": [
+          "1143844005390545419",
+          "1143844005390558106",
+          "1143844005390627268",
+          "1143844005390385945",
+          "1143844005390476016"
+        ]
       }
     ],
     "oneLink_country_status": {
