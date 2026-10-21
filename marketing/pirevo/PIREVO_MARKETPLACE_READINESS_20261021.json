@@ -2956,5 +2956,47 @@
     "affiliate_links": "135 / 135 US links with pirevo-20 preserved",
     "image_provenance": "UNVERIFIED",
     "OneLink_matching": "NOT_YET_VERIFIED_LOGIN_REQUIRED"
+  },
+  "amazon_account_verified_20261021": {
+    "store_id": "pirevo-20",
+    "global_earning_countries_checked": [
+      "US",
+      "CA",
+      "UK",
+      "DE",
+      "FR",
+      "IT",
+      "ES",
+      "NL",
+      "PL",
+      "SE"
+    ],
+    "payment_account_message": "You are earning globally in your bank account(s). No further action required.",
+    "payment_country_assignments": [
+      "US",
+      "CA",
+      "UK",
+      "DE",
+      "FR",
+      "IT",
+      "ES",
+      "NL",
+      "PL",
+      "SE"
+    ],
+    "tax_status": {
+      "US": "Completed",
+      "CA": "Completed"
+    },
+    "registered_website": "https://www.astralabsph.com/pirevo",
+    "separate_foreign_linked_store_ids": "None shown in Link Stores",
+    "oneLink_tracking_preference": "Empty (Amazon says ignore for global store ID)",
+    "oneLink_matching_page": "HTTP 403 Access Denied in authenticated session",
+    "support_form": "CAPTCHA required; no ticket sent",
+    "actual_redirect_and_commission_attribution": "Not independently verified",
+    "marketplace_products_available": "Not fully verified",
+    "financial_or_enrollment_changes": "None",
+    "access_status": "Authenticated",
+    "record_date": "2026-10-21"
   }
 }

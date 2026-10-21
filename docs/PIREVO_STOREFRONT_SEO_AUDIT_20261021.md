@@ -67,3 +67,15 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - All 135 product detail pages, homepage and client templates were cleaned of unsupported Amazon star ratings. No paid Amazon API or customer review access was used. US affiliate destinations with pirevo-20 and disclosures were preserved.
 - AirTag second generation browser checks: US B0GJTFXNRX resolves but current browser delivery location is unsupported; CA B0GJTY1QYX in stock when observed; DE B0GQBHTSGR product identity verified but stock not verified; IT B0GJTCB2QM in stock when observed. UK/FR original US ASIN was 404; no confirmed exact local variant. Redirects and commissions have not been verified.
 - Image licensing provenance still needs confirmation. Four products lack canonical product detail pages. New country Associates enrollments remain owner-only.
+
+## OneLink and earning account verification after owner authentication (21 Oct 2026)
+- Authenticated US store: pirevo-20.
+- All ten global earning preferences checked: US CA UK DE FR IT ES NL PL SE.
+- Payment Methods shows global earnings enabled, no further payment action required; all the same ten countries assigned to the existing bank method. No payment information was changed.
+- US tax status Completed, Canada tax status Completed. Tax interviews and submissions unchanged.
+- PIREVO website listed in Associates: https://www.astralabsph.com/pirevo.
+- Link Stores shows no independently linked additional foreign store IDs; none were added.
+- OneLink Tracking Preferences says no default IDs, which Amazon explicitly says may be ignored for globally enabled US store IDs.
+- Official OneLink page /onelink/ returns HTTP 403 Access Denied despite successful other account pages. The Check Matching Products tool is inaccessible; product redirects and commission attribution NOT VERIFIED.
+- Associates support form has anti-bot CAPTCHA. No support message was sent.
+- No legal agreements, account enrollments, tax forms, payouts, or country settings modified.
