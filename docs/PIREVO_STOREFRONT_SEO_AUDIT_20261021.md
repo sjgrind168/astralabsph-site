@@ -117,3 +117,9 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Removed legacy copied Amazon star/review-count claims from work-satchel comparison.
 - Site-wide source image audit: 543 unique Amazon CDN URLs across 938 URL/file reference pairs and 137 files checked, with licensing provenance NOT confirmed. Baseline hash register blocks new unverified Amazon CDN URLs from source. A hash in this ledger is historical and NOT approved or licensed. Embedded original guide artwork provenance also needs review.
 - Repeatable publishing validation: npm run pirevo:refresh now pre-renders editorial guides, generates internal links, checks image additions, and builds site. Full pipeline passed twice during QA; Google indexing and rankings require later verification.
+## October 22: PIREVO Buying Desk release
+- New original-editorial comparison tool at /pirevo/compare/, supporting all 138 source catalog items and up to three side-by-side choices. Ships with five sample comparison shortlists, category/name search and shareable URL selections.
+- Compares existing editorial bestFor and caveat notes, plus cautious prior US model-identity signals. No unverified customer ratings, Amazon prices/stock values, seller reviews, affiliate tracking assertions or retailer photos.
+- Catalog, homepage, all 138 catalog product pages and 20 categories link to the Buying Desk, preserving the original pirevo-20 Amazon links and existing product page URLs.
+- Both XML sitemaps include the new URL. npm run pirevo:refresh regenerates comparison data and entry links; structural QA and browser mobile interaction passed including duplicate prevention and reset with URL state.
+- Historical retailer images still have unverified permission status and this release adds no new Amazon CDN media. Full country availability and commission attribution remain unresolved.

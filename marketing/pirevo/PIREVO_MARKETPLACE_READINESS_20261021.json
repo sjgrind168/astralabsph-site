@@ -3067,5 +3067,16 @@
     "detail_pages": 139,
     "legacy_orphan_preserved": "cisily-sink-caddy",
     "historical_retailer_image_permission": "135 legacy image sources still require license provenance verification"
+  },
+  "buying_desk_release_20261022": {
+    "path": "https://www.astralabsph.com/pirevo/compare/",
+    "product_count": 138,
+    "presets": 5,
+    "source": "Existing editorial bestFor and caveat notes; no live price, stock, third-party ratings or sales rank",
+    "affiliate": "Links to existing PIREVO detail pages, no Amazon link rewrites",
+    "entry_points": "Catalog, homepage, 138 product pages, and 20 categories",
+    "sharing": "Explicit URL query parameter p=slug1,slug2,slug3",
+    "product_rights": "No image URLs embedded in comparison tool; existing Amazon CDN media origin still not certified",
+    "validation": "Source QA and local desktop/mobile/browser interaction, duplicate selection, reset and URL state PASS"
   }
 }
