@@ -1,0 +1,21 @@
+
+/* PIREVO first-party books and app cards, consistent with v5 product styling. */
+.pv-owned-section{scroll-margin-top:92px}.pv-owned-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.pv-owned-card{display:grid;grid-template-columns:minmax(145px,42%) minmax(0,1fr);background:#fff;border:1px solid var(--pv-line,#dce5de);border-radius:17px;overflow:hidden;min-height:270px;transition:box-shadow .2s ease,transform .2s ease}
+.pv-owned-card:hover{box-shadow:0 12px 30px rgba(29,74,49,.1);transform:translateY(-2px)}.pv-owned-media{background:#f3f7f1;min-height:266px;display:grid;place-items:center;overflow:hidden;text-decoration:none;padding:13px}
+.pv-owned-media img{max-width:100%;width:100%;height:100%;max-height:320px;object-fit:contain;border-radius:9px}
+.pv-owned-copy{display:flex;flex-direction:column;gap:10px;padding:22px 19px;min-width:0}
+.pv-owned-kicker{font-size:10px;letter-spacing:.11em;font-weight:900;color:#4b8666}
+.pv-owned-copy h3{font:500 clamp(21px,2vw,29px)/1.19 Georgia,serif;letter-spacing:-.03em;margin:0;color:#193e2d}
+.pv-owned-copy p{font-size:12px;line-height:1.75;color:#63776a;margin:0;flex:1}
+.pv-owned-tags{display:flex;gap:7px;flex-wrap:wrap}.pv-owned-tags span{background:#eaf2e9;border:1px solid #dceade;color:#315e47;font-size:10px;font-weight:800;padding:5px 8px;border-radius:8px}
+.pv-owned-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:5px}
+.pv-owned-actions a{color:#006e49;font-size:11px;font-weight:850;text-decoration:none}.pv-owned-actions a:hover{text-decoration:underline}
+.pv-owned-actions .pv-owned-primary{color:#fff;background:#19503a;padding:10px 13px;border-radius:9px}.pv-owned-actions .pv-owned-primary:hover{text-decoration:none;background:#006c49}
+.pv-owned-disclosure{color:#718376;font-size:11px;line-height:1.65;margin:14px 0 0}
+.pv-timmy-cover{width:100%;height:100%;min-height:252px;background:radial-gradient(circle at 76% 23%,#e5c373aa,transparent 30%),linear-gradient(155deg,#123d56,#284f66 49%,#142538);border-radius:9px;color:#fdf0c8;display:flex;flex-direction:column;justify-content:space-between;padding:20px 14px;text-align:center;box-shadow:0 4px 12px #0d2b3440}
+.pv-timmy-cover>span{letter-spacing:.23em;font-size:9px;font-weight:800}.pv-timmy-cover strong{font:500 clamp(17px,1.55vw,25px)/1.2 Georgia,serif;letter-spacing:-.025em}.pv-timmy-cover small{font-size:9px;letter-spacing:.04em;line-height:1.5}.pv-timmy-orbit{font-size:55px;color:#f0cc77;line-height:1}
+@media(max-width:1000px){.pv-owned-grid{grid-template-columns:1fr 1fr}.pv-owned-card{grid-template-columns:1fr}.pv-owned-media{min-height:230px;max-height:295px}.pv-owned-media img{max-height:265px}.pv-timmy-cover{min-height:218px}.pv-owned-copy{min-height:205px}}
+@media(max-width:620px){.pv-owned-grid{grid-template-columns:1fr;gap:12px}.pv-owned-card{grid-template-columns:38% minmax(0,1fr);min-height:210px}.pv-owned-media{min-height:210px;max-height:none;padding:8px}.pv-owned-media img{max-height:240px}.pv-timmy-cover{min-height:205px;padding:12px 7px}.pv-timmy-cover>span,.pv-timmy-cover small{font-size:7px}.pv-timmy-cover strong{font-size:17px}.pv-timmy-orbit{font-size:35px}.pv-owned-copy{padding:14px 12px;min-height:0;gap:8px}.pv-owned-copy h3{font-size:22px}.pv-owned-copy p{font-size:11px}.pv-owned-actions{gap:10px}.pv-owned-actions a{font-size:10px}}
+@media(max-width:380px){.pv-owned-card{grid-template-columns:1fr}.pv-owned-media{min-height:180px;max-height:290px}.pv-owned-media img{max-height:250px}.pv-timmy-cover{min-height:215px}.pv-owned-copy{padding:17px}}
+@media(prefers-reduced-motion:reduce){.pv-owned-card{transition:none}}

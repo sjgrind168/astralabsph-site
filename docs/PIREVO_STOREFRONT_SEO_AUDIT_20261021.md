@@ -142,3 +142,11 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Full owned-site live HEAD sweep: 176/176 HTTP 200, 0 broken product-detail routes, 0 missing tracked-link identifiers, 0 missing affiliate disclosures, and 0 disallowed legacy star-rating blocks in product detail pages.
 - Google Search Console accepted both updated main and PIREVO sitemaps after Social Shopping /trends/ was added to XML. Submission is not proof of indexing or rankings.
 - Historical retailer photography remains present from source, license provenance NOT verified. No new Amazon image URLs introduced; no sales or live stock claims created.
+
+### Oct 22 PIREVO owner products restoration
+- Restored the former original publishing & apps sections BELOW the main PIREVO marketplace content using consistent v5 editorial product card design. KDP Books section followed by AstraLabs mobile apps section.
+- Retained the two existing original SCS Creations titles: Timmy and the Time-Traveling Watch (Kindle B0FX95D9LL; paperback B0FXDNX4DV) and Pip & Poppy’s Big Christmas Adventure (paperback B0HMQVHPN7, observed in owner's Oct 22 Amazon listing screenshot). KDP purchase links remain ordinary publisher product links, not US Associates-tagged links.
+- Restored AstraLabs PH Astramate and Keepry links to existing landing pages; original campaign artwork and UTM links reused. All local campaign assets return 200 on PIREVO production, and old app landing pages were confirmed online before restoration.
+- Pip & Poppy's pre-publication 'coming soon' wording is NOT reintroduced. Timmy uses a clearly labeled typographic editorial preview instead of hotlinking or copying the official Amazon-hosted book-cover image until an independently authorized source file is located.
+- The sections are generated from public/pirevo/owned-products-block.html, styled with public/pirevo/owned-products.css, and preserved by tools/rebuild-pirevo-storefront-v5.py. Homepage footer links to both anchors, and the Timmy details page now uses the shared PIREVO nav and footer.
+- New release QA tools/verify-pirevo-owned-products.py protects card count, source assets, URLs, section order and duplicate-free regeneration. Added to npm run pirevo:refresh.

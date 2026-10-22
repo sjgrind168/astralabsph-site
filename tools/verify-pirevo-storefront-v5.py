@@ -28,8 +28,8 @@ script=(B/"storefront-v5.js").read_text()
 assert "scrollBy" in script and "aria-expanded" in script and "pv-more" in script
 assert "history.replaceState" in script
 assert not re.search(r"\.(?:href|location)\s*=\s*['\"]https?://",script)
-paths=[B/"catalog/index.html",B/"trends/index.html",B/"compare/index.html",B/"international/index.html",B/"guides/index.html"]+list((B/"products").glob("*/index.html"))+list((B/"categories").glob("*/index.html"))+list((B/"guides").glob("*/index.html"))
-assert len(paths)==175,len(paths)
+paths=[B/"catalog/index.html",B/"trends/index.html",B/"compare/index.html",B/"international/index.html",B/"books/timmy-and-the-time-traveling-watch/index.html",B/"guides/index.html"]+list((B/"products").glob("*/index.html"))+list((B/"categories").glob("*/index.html"))+list((B/"guides").glob("*/index.html"))
+assert len(paths)==176,len(paths)
 for f in paths:
  s=f.read_text()
  for key in ['class="pv-header"','class="pv-footer"','href="/pirevo/storefront-v5.css"','src="/pirevo/storefront-v5.js"']:
