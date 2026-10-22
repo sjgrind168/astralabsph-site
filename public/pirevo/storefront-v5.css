@@ -21,3 +21,15 @@ body.pv-ui .site-head{display:none}body.pv-ui .hero .inner,body.pv-ui .group .in
 @media(max-width:460px){.pv-carousel-track{grid-auto-columns:minmax(220px,76%)}.pv-cat-grid,body.pv-ui .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pv-cat-tile{padding:8px;gap:8px}.pv-cat-picture{width:50px}.pv-cat-tile strong{font-size:11px}.pv-discovery-grid,body.pv-ui .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pv-card-copy{padding:11px}.pv-card-img{aspect-ratio:1/1}.pv-card-title{font-size:12px;min-height:35px}.pv-card-copy p{font-size:11px;min-height:35px}.pv-footer-grid{grid-template-columns:1fr}.pv-hero h1{font-size:44px}.pv-stat-row{gap:10px}.pv-stat-row span{font-size:10px}.pv-home .pv-section{padding:28px 0 16px}.pv-heading{align-items:flex-start}.pv-heading>a{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pv-carousel-track{scroll-behavior:auto}.pv-card,.pv-cat-tile,.pv-btn{transition:none}}
 @media(min-width:761px){.pv-home .pv-mini:first-child{grid-row:auto;margin-top:0}.pv-home .pv-mini:nth-child(3){display:none}}
+
+/* Category pages scale smoothly from 1 to 50+ honest, curated product pages. */
+.pv-category-tools{margin:14px 0 20px;padding:13px 15px;border:1px solid #dce7df;background:#f2f7f0;border-radius:12px}
+.pv-category-search-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pv-category-search-row[hidden]{display:none}
+.pv-category-search-row input{height:41px;max-width:450px;width:100%;flex:1 1 230px;border-radius:9px;border:1px solid #c7d7cb;background:#fff;color:#1a3d2a;padding:9px 12px;font-size:13px}
+.pv-category-search-row button{background:#fff;border:1px solid #c9ddce;border-radius:9px;color:#265f42;padding:10px 15px;font-size:12px;font-weight:800;cursor:pointer}
+.pv-category-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding-top:6px;color:#62836c;font-size:11px}
+.pv-category-meta button{border:1px solid #b6d2c0;background:#fff;padding:9px 13px;border-radius:9px;color:#1d5c3f;font-weight:800;cursor:pointer}
+.pv-category-meta button[hidden]{display:none}
+.pv-category-disclaimer{font-size:11px;color:#748878;margin:4px 0 0}
+body.pv-ui .grid .card[hidden]{display:none!important}

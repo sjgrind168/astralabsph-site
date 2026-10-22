@@ -1,0 +1,198 @@
+{
+  "release_date": "2026-10-22",
+  "goal_definition": "50 independently useful, category-relevant and editorially researched product pages in EACH category, not 50 unverified search matches",
+  "published_products": 142,
+  "category_count": 20,
+  "goal_total_placements": 1000,
+  "current_published_category_placements": 142,
+  "missing_published_placements": 858,
+  "published_unique_asins": 142,
+  "candidate_asins_checked_not_published": 0,
+  "new_researched_products_published_in_first_batch": 4,
+  "seo_rule": "Do not claim best-seller rankings, live reviews, shipping, stock, direct testing or licensed imagery without independent evidence",
+  "amazon_rule": "Exact ASIN and product variant checked; live product page URL may include pirevo-20 only AFTER editorial/brand/image review and static PDP QA. No copied Amazon images without authorization.",
+  "catalog_status": "138 live products unchanged; additional products remain research only until published",
+  "categories": [
+    {
+      "id": "cleaning",
+      "name": "Cleaning & Reset",
+      "published": 1,
+      "goal": 50,
+      "gap": 49,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "outdoor-garden",
+      "name": "Outdoor & Garden",
+      "published": 1,
+      "goal": 50,
+      "gap": 49,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "coffee-bar",
+      "name": "Coffee & Home Café",
+      "published": 2,
+      "goal": 50,
+      "gap": 48,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "home-office",
+      "name": "Home Office & Desk",
+      "published": 2,
+      "goal": 50,
+      "gap": 48,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "bags",
+      "name": "The Bag Edit",
+      "published": 3,
+      "goal": 50,
+      "gap": 47,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "tools-diy",
+      "name": "Tools & DIY",
+      "published": 3,
+      "goal": 50,
+      "gap": 47,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "fall-home",
+      "name": "Cozy Fall Home",
+      "published": 4,
+      "goal": 50,
+      "gap": 46,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "sleep-bedroom",
+      "name": "Sleep & Bedroom",
+      "published": 4,
+      "goal": 50,
+      "gap": 46,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness & Active",
+      "published": 5,
+      "goal": 50,
+      "gap": 45,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "car",
+      "name": "Car Essentials",
+      "published": 7,
+      "goal": 50,
+      "gap": 43,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "tech",
+      "name": "Tech & Smart Home",
+      "published": 7,
+      "goal": 50,
+      "gap": 43,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "travel",
+      "name": "Travel Essentials",
+      "published": 7,
+      "goal": 50,
+      "gap": 43,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming Room Upgrade",
+      "published": 8,
+      "goal": 50,
+      "gap": 42,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "kids",
+      "name": "Kids & Creative",
+      "published": 8,
+      "goal": 50,
+      "gap": 42,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "pets",
+      "name": "Pet Picks",
+      "published": 8,
+      "goal": 50,
+      "gap": 42,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "gifts",
+      "name": "Top Gifts This Season",
+      "published": 8,
+      "goal": 50,
+      "gap": 42,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen Trending",
+      "published": 11,
+      "goal": 50,
+      "gap": 39,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "beauty",
+      "name": "Beauty Everyone Saves",
+      "published": 12,
+      "goal": 50,
+      "gap": 38,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "home-organization",
+      "name": "Home Organization",
+      "published": 12,
+      "goal": 50,
+      "gap": 38,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    },
+    {
+      "id": "seasonal",
+      "name": "Halloween Shop + Holiday Preview",
+      "published": 29,
+      "goal": 50,
+      "gap": 21,
+      "research_candidates_checked": 0,
+      "status": "in_progress"
+    }
+  ],
+  "non_published_research_candidates": []
+}

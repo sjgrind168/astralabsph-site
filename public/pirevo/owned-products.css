@@ -19,3 +19,31 @@
 @media(max-width:620px){.pv-owned-grid{grid-template-columns:1fr;gap:12px}.pv-owned-card{grid-template-columns:38% minmax(0,1fr);min-height:210px}.pv-owned-media{min-height:210px;max-height:none;padding:8px}.pv-owned-media img{max-height:240px}.pv-timmy-cover{min-height:205px;padding:12px 7px}.pv-timmy-cover>span,.pv-timmy-cover small{font-size:7px}.pv-timmy-cover strong{font-size:17px}.pv-timmy-orbit{font-size:35px}.pv-owned-copy{padding:14px 12px;min-height:0;gap:8px}.pv-owned-copy h3{font-size:22px}.pv-owned-copy p{font-size:11px}.pv-owned-actions{gap:10px}.pv-owned-actions a{font-size:10px}}
 @media(max-width:380px){.pv-owned-card{grid-template-columns:1fr}.pv-owned-media{min-height:180px;max-height:290px}.pv-owned-media img{max-height:250px}.pv-timmy-cover{min-height:215px}.pv-owned-copy{padding:17px}}
 @media(prefers-reduced-motion:reduce){.pv-owned-card{transition:none}}
+
+/* Compact four-card creator shelf directly after the category tiles. */
+.pv-owned-compact{padding:28px 0 24px!important;border-top:1px solid #e2e8df}
+.pv-owned-compact .pv-heading{margin-bottom:17px}
+.pv-owned-compact .pv-heading h2{font-size:clamp(27px,3vw,40px)}
+.pv-mini-groups{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 10px}
+.pv-mini-group{display:flex;align-items:baseline;gap:10px;font-size:12px;color:#244c37;scroll-margin-top:92px}
+.pv-mini-group strong{font-size:12px;letter-spacing:.065em;text-transform:uppercase}
+.pv-mini-group span{font-size:11px;color:#779080}
+.pv-owned-mini-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.pv-owned-mini-grid .pv-owned-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:0;min-width:0;min-height:173px;border-radius:14px}
+.pv-owned-mini-grid .pv-owned-media{min-height:170px;max-height:185px;padding:10px 4px 10px 10px}
+.pv-owned-mini-grid .pv-owned-media img{height:150px;max-height:150px;max-width:100%;object-fit:contain}
+.pv-owned-mini-grid .pv-owned-copy{padding:12px 10px;min-height:0;gap:6px;justify-content:center}
+.pv-owned-mini-grid .pv-owned-copy h3{font:600 16px/1.23 Georgia,serif;letter-spacing:-.025em}
+.pv-owned-mini-grid .pv-owned-kicker{font-size:8px;letter-spacing:.08em}
+.pv-owned-mini-grid .pv-owned-copy p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:0;font-size:10px;line-height:1.4}
+.pv-owned-mini-grid .pv-owned-tags{display:none}
+.pv-owned-mini-grid .pv-owned-actions{gap:4px 9px;margin-top:4px}
+.pv-owned-mini-grid .pv-owned-actions a{font-size:10px}
+.pv-owned-mini-grid .pv-owned-actions .pv-owned-primary{padding:8px 10px;font-size:10px}
+.pv-owned-mini-grid .pv-timmy-cover{min-height:150px;height:150px;padding:9px 5px}
+.pv-owned-mini-grid .pv-timmy-cover strong{font-size:11px}
+.pv-owned-mini-grid .pv-timmy-orbit{font-size:22px}
+.pv-owned-mini-grid .pv-timmy-cover>span,.pv-owned-mini-grid .pv-timmy-cover small{font-size:6px}
+.pv-owned-compact .pv-owned-disclosure{margin:10px 0 0}
+@media(max-width:1180px){.pv-owned-mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pv-owned-mini-grid .pv-owned-card{grid-template-columns:115px minmax(0,1fr)}}
+@media(max-width:620px){.pv-owned-mini-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pv-owned-mini-grid .pv-owned-card{display:flex;flex-direction:column;min-height:0}.pv-owned-mini-grid .pv-owned-media{height:108px;min-height:108px;max-height:108px;padding:7px}.pv-owned-mini-grid .pv-owned-media img{height:92px;max-height:92px}.pv-owned-mini-grid .pv-owned-copy{padding:9px 11px 12px;justify-content:start}.pv-owned-mini-grid .pv-owned-copy h3{font-size:15px}.pv-owned-mini-grid .pv-owned-copy p{display:none}.pv-owned-mini-grid .pv-owned-kicker{font-size:8px}.pv-owned-mini-grid .pv-timmy-cover{min-height:94px;height:94px;padding:6px}.pv-owned-mini-grid .pv-timmy-cover strong{font-size:10px}.pv-owned-mini-grid .pv-timmy-orbit{font-size:16px}.pv-owned-mini-grid .pv-timmy-cover small{display:none}.pv-mini-group{display:flex;flex-direction:column;gap:0}.pv-mini-group span{font-size:10px}.pv-owned-mini-grid .pv-owned-actions a{font-size:9px}}

@@ -13,9 +13,11 @@ assert html.count('id="books"')==1
 assert html.count('id="astralabs-apps"')==1
 assert html.count('href="/pirevo/owned-products.css"')==1
 assert html.count('class="pv-owned-card')==4
-assert html.index('id="books"')>html.index('id="discover"')
+assert html.count('pv-owned-mini ')==4
+assert html.count('id="creator-picks"')==1
+assert html.index('id="books"')<html.index('id="discover"')
 assert html.index('id="astralabs-apps"')>html.index('id="books"')
-assert html.index('id="astralabs-apps"')>html.index('id="everyday"')
+assert html.index('id="astralabs-apps"')<html.index('id="trending"')
 assert html.index('id="astralabs-apps"')<html.index('</main>')
 expected_links={
  '/pirevo/books/timmy-and-the-time-traveling-watch/',

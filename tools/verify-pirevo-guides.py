@@ -13,7 +13,7 @@ for f in pre:
 satchel=(p/'guides/work-satchel-comparison/index.html').read_text();assert 'Review count snapshot' not in satchel and 'class="rating"' not in satchel
 catalog=(p/'catalog/index.html').read_text();assert '/pirevo/guides/' in catalog
 links=sum('class="pirevo-guide-linkout"' in x.read_text() for x in (p/'products').glob('*/index.html'))+sum('class="pirevo-guide-linkout"' in x.read_text() for x in (p/'categories').glob('*/index.html'))
-assert links==158,links
+assert links>=158,links
 for f in [Path('public/sitemap.xml'),p/'sitemap.xml']:
  urls=[e.text for e in ET.parse(f).getroot().iter() if e.tag.endswith('loc')];assert len(urls)==len(set(urls));assert 'https://www.astralabsph.com/pirevo/guides/' in urls
 print(json.dumps({'status':'PASS','guide_pages':len(guides),'pre_rendered_guides':len(pre),'prerendered_words':words,'crawlable_related_guide_links':links},indent=2))

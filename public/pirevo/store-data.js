@@ -7516,5 +7516,145 @@ window.PIREVO_STORE = {
       "amazon": "https://www.amazon.com/dp/B09GTRVJQM?tag=pirevo-20",
       "galleryIds": []
     }
+,
+{
+    "slug": "bedsure-satin-pillowcase-queen-grey-2",
+    "asin": "B0725WFLMB",
+    "brand": "Bedsure",
+    "shortName": "Satin Pillowcases, Queen Set of 2",
+    "fullName": "Bedsure Satin Pillowcases, Queen Size, Grey, Pack of 2",
+    "collection": "sleep-bedroom",
+    "bestFor": "An easy-to-wash pillowcase alternative with a satin-style finish for a queen-size pillow setup.",
+    "caveat": "Satin is a weave, not proof of genuine silk. Confirm fabric composition, pillowcase dimensions, envelope closure and care instructions for the selected color.",
+    "details": [
+        [
+            "Size",
+            "Queen; verify exact dimensions on Amazon"
+        ],
+        [
+            "Included",
+            "Two pillowcases"
+        ],
+        [
+            "Material",
+            "Confirm fiber content in seller's exact listing"
+        ]
+    ],
+    "about": [
+        "Choosing satin-style covers is mainly about care, comfort and correct pillow size.",
+        "A two-pack helps replace matching cases together, but check the closure style and fabric label."
+    ],
+    "image": "/pirevo/editorial/bedsure-satin-pillowcase-queen-grey-2.svg",
+    "amazon": "https://www.amazon.com/dp/B0725WFLMB?tag=pirevo-20",
+    "galleryIds": []
+}
+,
+{
+    "slug": "bedsure-prewashed-comforter-twin-xl-green",
+    "asin": "B0D145689D",
+    "brand": "Bedsure",
+    "shortName": "Prewashed Comforter, Twin/Twin XL",
+    "fullName": "Bedsure Prewashed Comforter Set, Twin/Twin XL, Emerald Green",
+    "collection": "sleep-bedroom",
+    "bestFor": "Dorm, guest-room or Twin XL bedroom comfort using a lighter synthetic comforter set.",
+    "caveat": "Confirm fill weight, included pillowcase count, true Twin XL dimensions, laundry instructions and warmth preference. This is a comforter set, not a duvet cover.",
+    "details": [
+        [
+            "Listed format",
+            "Twin/Twin XL comforter set"
+        ],
+        [
+            "Color",
+            "Emerald Green at checked ASIN"
+        ],
+        [
+            "Included",
+            "Comforter with matching case; verify quantity"
+        ],
+        [
+            "Care",
+            "Verify exact care label"
+        ]
+    ],
+    "about": [
+        "A practical bedroom comparison should start with mattress dimensions and the desired warmth level.",
+        "Check whether synthetic fill and machine washing suit the user instead of assuming all comforters breathe the same."
+    ],
+    "image": "/pirevo/editorial/bedsure-prewashed-comforter-twin-xl-green.svg",
+    "amazon": "https://www.amazon.com/dp/B0D145689D?tag=pirevo-20",
+    "galleryIds": []
+}
+,
+{
+    "slug": "bedsure-washed-cotton-duvet-oversized-king",
+    "asin": "B0CSYXYWDZ",
+    "brand": "Bedsure",
+    "shortName": "Washed Cotton Duvet Cover, Oversized King",
+    "fullName": "Bedsure PureWoven 100% Washed Cotton Duvet Cover Set, Oversized King, 3 Pieces",
+    "collection": "sleep-bedroom",
+    "bestFor": "Large-bedding setups needing an oversized king duvet cover without replacing the duvet insert.",
+    "caveat": "This listing is for a duvet cover set, NOT a filled comforter. Confirm oversized king dimensions, insert compatibility, fabric, zipper closure and actual included pillow shams.",
+    "details": [
+        [
+            "Type",
+            "Duvet cover set; duvet insert not included"
+        ],
+        [
+            "Size",
+            "Oversized King; check 120 × 98 inch variant"
+        ],
+        [
+            "Pieces",
+            "Three pieces at checked ASIN"
+        ],
+        [
+            "Material",
+            "Washed cotton; verify exact seller listing"
+        ]
+    ],
+    "about": [
+        "For duvet covers, compare attachment ties, closure design and the duvet-insert dimensions first.",
+        "Cotton and polyester bedding have different care and breathability characteristics; compare based on climate and washing habits."
+    ],
+    "image": "/pirevo/editorial/bedsure-washed-cotton-duvet-oversized-king.svg",
+    "amazon": "https://www.amazon.com/dp/B0CSYXYWDZ?tag=pirevo-20",
+    "galleryIds": []
+}
+,
+{
+    "slug": "black-decker-ldx120c-cordless-drill",
+    "asin": "B005NNF0YU",
+    "brand": "BLACK+DECKER",
+    "shortName": "20V MAX Cordless Drill/Driver LDX120C",
+    "fullName": "BLACK+DECKER LDX120C 20V MAX Cordless Drill and Driver, 3/8 Inch",
+    "collection": "tools-diy",
+    "bestFor": "Common household drill and screwdriving tasks using a compact cordless drill with adjustable clutch.",
+    "caveat": "Check the exact drill/battery/charger bundle, chuck size, material suitability, safety instructions and compatibility with existing 20V MAX batteries before ordering.",
+    "details": [
+        [
+            "Model",
+            "LDX120C"
+        ],
+        [
+            "Chuck",
+            "3/8 inch"
+        ],
+        [
+            "Control",
+            "11-position clutch"
+        ],
+        [
+            "Power",
+            "20V MAX battery system; check actual included bundle"
+        ]
+    ],
+    "about": [
+        "The 11-position clutch helps regulate driving force for different fastening tasks.",
+        "Built-in LED can help illuminate darker workspaces, but the correct bit and workpiece safety remain essential."
+    ],
+    "image": "/pirevo/editorial/black-decker-ldx120c-cordless-drill.svg",
+    "amazon": "https://www.amazon.com/dp/B005NNF0YU?tag=pirevo-20",
+    "galleryIds": []
+}
   ]
 };

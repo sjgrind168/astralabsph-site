@@ -10,7 +10,7 @@ R=Path(__file__).resolve().parent.parent;B=R/"public/pirevo"
 js='const fs=require("fs"),vm=require("vm"),w={};vm.runInNewContext(fs.readFileSync("public/pirevo/store-data.js","utf8"),{window:w});process.stdout.write(JSON.stringify(w.PIREVO_STORE))'
 store=json.loads(subprocess.check_output(["node","-e",js],cwd=R,text=True))
 products=store["products"]; cats=store["collections"]; P={p["slug"]:p for p in products}
-assert len(products)==138 and len(cats)==20
+assert len(products)>=138 and len(cats)==20
 def safe(v):return E(str(v or ""),quote=True)
 def brief(v,n=108):
  t=str(v or "").strip()
@@ -57,14 +57,13 @@ discovery_block=body[discovery_start:discovery_end]
 body=body[:discovery_start]+body[discovery_end:]
 insert_at=body.index('<section class="pv-section" id="holiday">')
 body=body[:insert_at]+discovery_block+body[insert_at:]
-# Restore original KDP and AstraLabs apps below the product / guides content.
+# The compact owner-made books and apps shelf is shown right after category cards.
 owned=(B/"owned-products-block.html").read_text().strip()
 assert owned.count('id="books"')==1 and owned.count('id="astralabs-apps"')==1
-end_of_main=body.rfind("</div></main>")
-assert end_of_main>0
-body=body[:end_of_main]+owned+body[end_of_main:]
+end_categories=body.index('</section>',body.index('<section class="pv-section" id="categories">'))+len('</section>')
+body=body[:end_categories]+owned+body[end_categories:]
 body=body.replace('<link rel="stylesheet" href="/pirevo/storefront-v5.css">','<link rel="stylesheet" href="/pirevo/storefront-v5.css"><link rel="stylesheet" href="/pirevo/owned-products.css">',1)
-(B/"index.html").write_text(body)
+(B/"index.html").write_text(body.replace("138",str(len(products))))
 # Unified visible chrome and product browse styling on every public consumer route. No account/analytics/admin pages.
 dest=[B/"catalog/index.html",B/"trends/index.html",B/"compare/index.html",B/"international/index.html",B/"books/timmy-and-the-time-traveling-watch/index.html"]+list((B/"products").glob("*/index.html"))+list((B/"categories").glob("*/index.html"))+list((B/"guides").glob("*/index.html"))+[B/"guides/index.html"]
 count=0

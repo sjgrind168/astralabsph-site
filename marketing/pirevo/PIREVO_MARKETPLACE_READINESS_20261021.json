@@ -14,7 +14,7 @@
     "JP": "SEPARATE_ACCOUNT_REQUIRED_UNVERIFIED",
     "AU": "SEPARATE_ACCOUNT_REQUIRED_UNVERIFIED"
   },
-  "product_count": 138,
+  "product_count": 142,
   "product_level_verification": "NONE_COMPLETED_PER_COUNTRY_IN_THIS_AUDIT",
   "products": [
     {
@@ -2919,6 +2919,98 @@
         "JP": "UNVERIFIED",
         "AU": "UNVERIFIED"
       }
+    },
+    {
+      "slug": "bedsure-satin-pillowcase-queen-grey-2",
+      "name": "Bedsure Satin Pillowcases, Queen Size, Grey, Pack of 2",
+      "us_asin": "B0725WFLMB",
+      "us_affiliate_url": "https://www.amazon.com/dp/B0725WFLMB?tag=pirevo-20",
+      "detail_page_exists": true,
+      "marketplace_availability": {
+        "US": "MODEL_IDENTITY_CHECKED_ON_US_AMAZON_20261022__INVENTORY_DELIVERY_ATTRIBUTION_UNVERIFIED",
+        "CA": "UNVERIFIED",
+        "UK": "UNVERIFIED",
+        "DE": "UNVERIFIED",
+        "FR": "UNVERIFIED",
+        "IT": "UNVERIFIED",
+        "ES": "UNVERIFIED",
+        "NL": "UNVERIFIED",
+        "PL": "UNVERIFIED",
+        "SE": "UNVERIFIED",
+        "JP": "UNVERIFIED",
+        "AU": "UNVERIFIED"
+      },
+      "editorial_media": "first-party typographic SVG, not Amazon product photography",
+      "category": "sleep-bedroom"
+    },
+    {
+      "slug": "bedsure-prewashed-comforter-twin-xl-green",
+      "name": "Bedsure Prewashed Comforter Set, Twin/Twin XL, Emerald Green",
+      "us_asin": "B0D145689D",
+      "us_affiliate_url": "https://www.amazon.com/dp/B0D145689D?tag=pirevo-20",
+      "detail_page_exists": true,
+      "marketplace_availability": {
+        "US": "MODEL_IDENTITY_CHECKED_ON_US_AMAZON_20261022__INVENTORY_DELIVERY_ATTRIBUTION_UNVERIFIED",
+        "CA": "UNVERIFIED",
+        "UK": "UNVERIFIED",
+        "DE": "UNVERIFIED",
+        "FR": "UNVERIFIED",
+        "IT": "UNVERIFIED",
+        "ES": "UNVERIFIED",
+        "NL": "UNVERIFIED",
+        "PL": "UNVERIFIED",
+        "SE": "UNVERIFIED",
+        "JP": "UNVERIFIED",
+        "AU": "UNVERIFIED"
+      },
+      "editorial_media": "first-party typographic SVG, not Amazon product photography",
+      "category": "sleep-bedroom"
+    },
+    {
+      "slug": "bedsure-washed-cotton-duvet-oversized-king",
+      "name": "Bedsure PureWoven 100% Washed Cotton Duvet Cover Set, Oversized King, 3 Pieces",
+      "us_asin": "B0CSYXYWDZ",
+      "us_affiliate_url": "https://www.amazon.com/dp/B0CSYXYWDZ?tag=pirevo-20",
+      "detail_page_exists": true,
+      "marketplace_availability": {
+        "US": "MODEL_IDENTITY_CHECKED_ON_US_AMAZON_20261022__INVENTORY_DELIVERY_ATTRIBUTION_UNVERIFIED",
+        "CA": "UNVERIFIED",
+        "UK": "UNVERIFIED",
+        "DE": "UNVERIFIED",
+        "FR": "UNVERIFIED",
+        "IT": "UNVERIFIED",
+        "ES": "UNVERIFIED",
+        "NL": "UNVERIFIED",
+        "PL": "UNVERIFIED",
+        "SE": "UNVERIFIED",
+        "JP": "UNVERIFIED",
+        "AU": "UNVERIFIED"
+      },
+      "editorial_media": "first-party typographic SVG, not Amazon product photography",
+      "category": "sleep-bedroom"
+    },
+    {
+      "slug": "black-decker-ldx120c-cordless-drill",
+      "name": "BLACK+DECKER LDX120C 20V MAX Cordless Drill and Driver, 3/8 Inch",
+      "us_asin": "B005NNF0YU",
+      "us_affiliate_url": "https://www.amazon.com/dp/B005NNF0YU?tag=pirevo-20",
+      "detail_page_exists": true,
+      "marketplace_availability": {
+        "US": "MODEL_IDENTITY_CHECKED_ON_US_AMAZON_20261022__INVENTORY_DELIVERY_ATTRIBUTION_UNVERIFIED",
+        "CA": "UNVERIFIED",
+        "UK": "UNVERIFIED",
+        "DE": "UNVERIFIED",
+        "FR": "UNVERIFIED",
+        "IT": "UNVERIFIED",
+        "ES": "UNVERIFIED",
+        "NL": "UNVERIFIED",
+        "PL": "UNVERIFIED",
+        "SE": "UNVERIFIED",
+        "JP": "UNVERIFIED",
+        "AU": "UNVERIFIED"
+      },
+      "editorial_media": "first-party typographic SVG, not Amazon product photography",
+      "category": "tools-diy"
     }
   ],
   "regional_product_spotchecks_20261021": {
@@ -3122,5 +3214,45 @@
     "google_search_console_main_sitemap_resubmitted": true,
     "google_search_console_pirevo_sitemap_resubmitted": true,
     "google_indexing_or_rankings": "NOT YET VERIFIED"
+  },
+  "catalog_50_expansion_20261022": {
+    "target_per_category": 50,
+    "categories": 20,
+    "target_category_placements": 1000,
+    "current_unique_product_pages": 142,
+    "current_category_placements": 142,
+    "remaining_places": 858,
+    "new_live_products": [
+      {
+        "slug": "bedsure-satin-pillowcase-queen-grey-2",
+        "asin": "B0725WFLMB",
+        "collection": "sleep-bedroom",
+        "evidence": "Amazon.com exact product title and ASIN checked 2026-10-22; historic source overview: asinsight.com report. Not a first-hand review."
+      },
+      {
+        "slug": "bedsure-prewashed-comforter-twin-xl-green",
+        "asin": "B0D145689D",
+        "collection": "sleep-bedroom",
+        "evidence": "Amazon.com exact ASIN/title checked 2026-10-22; current manufacturer has related prewashed-polyester line, but specifications vary by SKU."
+      },
+      {
+        "slug": "bedsure-washed-cotton-duvet-oversized-king",
+        "asin": "B0CSYXYWDZ",
+        "collection": "sleep-bedroom",
+        "evidence": "Amazon.com exact ASIN/title checked 2026-10-22. Manufacturer Bedsure and retailer Lowe's describe related washed cotton line; check SKU-specific variation."
+      },
+      {
+        "slug": "black-decker-ldx120c-cordless-drill",
+        "asin": "B005NNF0YU",
+        "collection": "tools-diy",
+        "evidence": "Amazon.com exact LDX120C title and ASIN verified 2026-10-22; manufacturer BLACK+DECKER lists 11 clutch positions and 20V MAX system."
+      }
+    ],
+    "source_ledger": "marketing/pirevo/CATEGORY_50_BACKLOG_20261022.json",
+    "readiness": "Four exact US Amazon ASINs checked; local editorial PDPs. 858 missing placements are a research target, not published products or bestseller rankings.",
+    "product_media": "New four use editorial SVG graphics with disclosure; no new unlicensed Amazon imagery.",
+    "category_shop_ui": "20 pages include local search and reveal 12 products at a time; no placeholder products.",
+    "mobile_layout": "Compact KDP+apps creator shelf directly below Categories before Trending.",
+    "quality_gate": "Each addition needs exact variant identity, original buying notes, authorized images, correct tags and QA."
   }
 }

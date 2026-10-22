@@ -5,8 +5,8 @@ import json,re,xml.etree.ElementTree as ET
 R=Path(__file__).resolve().parent.parent;P=R/"public/pirevo"
 data=json.loads((P/"compare-data.json").read_text())
 items=data["items"]
-assert len(items)==138
-assert len({p["slug"] for p in items})==138
+assert len(items)>=138
+assert len({p["slug"] for p in items})>=138
 required={"slug","name","fullName","brand","category","bestFor","caveat","page","verifiedUS"}
 banned={"price","rating","reviews","rank","image","commission"}
 for p in items:
@@ -41,4 +41,4 @@ for f in [R/"public/sitemap.xml",P/"sitemap.xml"]:
  urls=[x.text for x in ET.parse(f).getroot().iter() if x.tag.endswith("loc")]
  assert len(urls)==len(set(urls))
  assert "https://www.astralabsph.com/pirevo/compare/" in urls
-print(json.dumps({"comparison_tool":"PASS","catalog_items":138,"linked_product_pages":product_count,"linked_category_pages":cat_count,"presets":5,"unlicensed_remote_images_added":0,"tracked_amazon_links_rewritten":0},indent=2))
+print(json.dumps({"comparison_tool":"PASS","catalog_items":len(items),"linked_product_pages":product_count,"linked_category_pages":cat_count,"presets":5,"unlicensed_remote_images_added":0,"tracked_amazon_links_rewritten":0},indent=2))
