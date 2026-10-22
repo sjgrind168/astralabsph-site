@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-10-22",
+  "execution_mode": "DIRECT_ACTIVE_SESSION_ONLY_NO_SCHEDULES",
+  "catalog_products": 142,
+  "product_pin_metadata_prepared": 142,
+  "category_roundup_concepts": 20,
+  "main_board_live_pins_reconciled": 60,
+  "existing_matched_live_product_pin_instances": 30,
+  "unique_products_with_existing_live_pins": 29,
+  "unique_products_without_matched_live_pins": 113,
+  "new_pins_published_now": 0,
+  "new_creative_approved_now": 0,
+  "first_unpinned_priority": [
+    "clean-skin-club-towels-xl",
+    "mighty-patch-original-36",
+    "aeropress-original-b0047",
+    "govee-smart-light-bar",
+    "govee-tv-backlight-3-lite",
+    "bedsure-gentlesoft-white-throw",
+    "vtopmart-food-bins-4",
+    "vtopmart-under-sink-drawers-4",
+    "owala-freesip-24-dark",
+    "earth-rated-dog-wipes",
+    "earth-rated-poop-bags-270",
+    "bedsure-prewashed-comforter-twin-xl-green"
+  ],
+  "draft_canva_asset": {
+    "media_id": "MAHYuxyKxdA",
+    "dimensions": "1024x1536",
+    "slug": "bedsure-satin-pillowcase-queen-grey-2",
+    "status": "DRAFT_PENDING_FULL_RES_QA_NOT_PUBLISHED"
+  },
+  "rejected_generated_collage": {
+    "file": "a_wide_high_resolution_infographic_style_collage.png",
+    "reason": "Inaccurate 1000+ live products / 50 each; wrong format for one product Pin",
+    "published": false
+  },
+  "pinterest_create_permission": "NOT_TESTED; read access active only"
+}
