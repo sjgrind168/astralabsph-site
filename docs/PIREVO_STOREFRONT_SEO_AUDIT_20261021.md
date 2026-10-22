@@ -158,3 +158,9 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Backoffice ledgers: marketing/pirevo/CATEGORY_50_BACKLOG_20261022.json and marketing/pirevo/PRODUCT_EXPANSION_BATCH_20261022.json. No unfinished candidates are shown on the site.
 - Category pages now filter real published products and progressively display 12 items per batch, scalable to 50+ after editorial and affiliate checks.
 - The repeatable npm run pirevo:refresh suite validates all catalog and SEO links, affiliate tags, image provenance, growing product counts, and the creator shelf position.
+### First 50-per-category release: confirmed live verification
+- Production Git commit a6efaf689a9a5b03b3149a48f3551a3506de6e96 deployed as Vercel dpl_BMhBpBtuvJzBKhhN2vnhbLrBDJq9 (READY, normal PIREVO domains assigned).
+- 180/180 owned-site public GET/HEAD endpoints HTTP 200; 143 static product detail URLs (142 active tagged product buy links plus the legacy preserved page and the e.l.f. page gated as appropriate), 142 source catalog products, all 20 categories and 11 guides.
+- 11 critical smoke-tested live endpoints include the four new product pages, category browser JavaScript, and book/app homepage section positions. All 11/11 passed.
+- Search Console accepted both www.astralabsph.com/sitemap.xml and www.astralabsph.com/pirevo/sitemap.xml on October 22. Google rankings and indexing remain unverified.
+- The Mac volume briefly lacked writable /tmp space; removed ONLY PIREVO temporary QA logs and regenerated dist output. No source or normal browser/account data deleted. Next fresh build recreates dist.

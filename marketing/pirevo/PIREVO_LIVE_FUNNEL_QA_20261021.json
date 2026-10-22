@@ -1,10 +1,10 @@
 {
-  "audit_at_utc": "2026-10-22T05:31:53.811902+00:00",
+  "audit_at_utc": "2026-10-22T08:16:14.828461+00:00",
   "scope": "GET/HEAD of owned website only. No Amazon requests or simulated customer clicks.",
-  "own_site_urls_tested": 176,
-  "own_site_http_200": 176,
+  "own_site_urls_tested": 180,
+  "own_site_http_200": 180,
   "own_site_non_200": [],
-  "source_product_pages": 139,
+  "source_product_pages": 143,
   "source_product_link_checks": [
     {
       "slug": "aeropress-original-b0047",
@@ -207,6 +207,36 @@
       "manual_verification_hold": false
     },
     {
+      "slug": "bedsure-prewashed-comforter-twin-xl-green",
+      "us_asin": "B0D145689D",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "bedsure-satin-pillowcase-queen-grey-2",
+      "us_asin": "B0725WFLMB",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "bedsure-washed-cotton-duvet-oversized-king",
+      "us_asin": "B0CSYXYWDZ",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
+      "manual_verification_hold": false
+    },
+    {
       "slug": "biodance-bio-collagen-real-deep-mask",
       "us_asin": "B0B2RM68G2",
       "tracking_tag": "pirevo-20",
@@ -214,6 +244,16 @@
       "editorial_jsonld": true,
       "reviews_displayed": false,
       "amazon_image_url_present": true,
+      "manual_verification_hold": false
+    },
+    {
+      "slug": "black-decker-ldx120c-cordless-drill",
+      "us_asin": "B005NNF0YU",
+      "tracking_tag": "pirevo-20",
+      "disclosure_present": true,
+      "editorial_jsonld": true,
+      "reviews_displayed": false,
+      "amazon_image_url_present": false,
       "manual_verification_hold": false
     },
     {
@@ -1401,7 +1441,7 @@
   "source_held_unverified_products": [
     "elf-halo-glow-3"
   ],
-  "source_active_affiliate_links": 138,
+  "source_active_affiliate_links": 142,
   "source_missing_disclosures": 0,
   "source_disallowed_rating_blocks": 0,
   "image_license_unknown_count": 135,
