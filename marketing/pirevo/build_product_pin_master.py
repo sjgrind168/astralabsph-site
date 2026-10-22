@@ -33,7 +33,7 @@ if previous_path.exists():
   previous={r['slug']:r for r in csv.DictReader(f)}
 for row in rows:
  old=previous.get(row['slug'],{})
- for field in ('creative_asset_path','creative_rights','visual_qa','new_pin_status','new_pin_id','new_pin_url'):
+ for field in ('creative_asset_path','creative_rights','visual_qa','new_pin_status','new_pin_id','new_pin_url','pin_destination'):
   value=old.get(field,'')
   if value and (field!='new_pin_status' or value=='PUBLISHED'):
    row[field]=value
@@ -50,11 +50,11 @@ for c in store['collections']:
  roundups.append({'category':c['name'],'published':count,'target':50,'category_url':'https://www.astralabsph.com/pirevo/categories/'+c['id']+'/','creative':'One unique full-bleed photorealistic editorial thematic Pin','pin_status':'CONCEPT_ONLY','claim_50_allowed':count>=50})
 with (m/'PIREVO_CATEGORY_ROUNDUP_PLAN_20261022.csv').open('w',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(roundups[0]),lineterminator="\n");w.writeheader();w.writerows(roundups)
-status={'as_of':'2026-10-22','execution_mode':'DIRECT_ACTIVE_SESSION_ONLY_NO_SCHEDULES','catalog_products':len(rows),'product_pin_metadata_prepared':len(rows),'category_roundup_concepts':len(roundups),'main_board_live_pins_reconciled':len(live),'existing_matched_live_product_pin_instances':sum(r['old_live_pin_count'] for r in rows),'unique_products_with_existing_live_pins':sum(bool(r['old_live_pin_count']) for r in rows),'unique_products_without_matched_live_pins':sum(not r['old_live_pin_count'] for r in rows),'new_pins_published_now':sum(x['new_pin_status']=='PUBLISHED' for x in rows),'new_creative_approved_now':0,'first_unpinned_priority':[r['slug'] for r in rows if not r['old_live_pin_count']][:12]}
+status={'as_of':'2026-10-22','execution_mode':'DIRECT_ACTIVE_SESSION_ONLY_NO_SCHEDULES','catalog_products':len(rows),'product_pin_metadata_prepared':len(rows),'category_roundup_concepts':len(roundups),'main_board_live_pins_reconciled':len(live),'existing_matched_live_product_pin_instances':sum(r['old_live_pin_count'] for r in rows),'unique_products_with_existing_live_pins':sum(bool(r['old_live_pin_count']) for r in rows),'unique_products_without_matched_live_pins':sum(not r['old_live_pin_count'] for r in rows),'new_pins_published_now':sum(x['new_pin_status']=='PUBLISHED' for x in rows),'new_creative_approved_now':sum('OWNER_APPROVED' in x['visual_qa'] for x in rows),'first_unpinned_priority':[r['slug'] for r in rows if not r['old_live_pin_count']][:12]}
 status_path=m/'PIREVO_DIRECT_EXECUTION_STATUS_20261022.json'
 if status_path.exists():
  prior=json.loads(status_path.read_text())
- for optional in ('generated_canva_media_pending_QA','rejected_image_attempt','draft_canva_asset','rejected_generated_collage','pinterest_create_permission'):
+ for optional in ('generated_canva_media_pending_QA','rejected_image_attempt','draft_canva_asset','rejected_generated_collage','pinterest_create_permission','first_photo_pin_batch','verified_published_pin_urls','profile_live_after_publication','boards_live_after_publication'):
   if optional in prior:status[optional]=prior[optional]
 status_path.write_text(json.dumps(status,indent=2)+'\n')
 print(json.dumps(status,indent=2))

@@ -3,7 +3,7 @@
   "source_type": "licensed_stock_photography_with_original_editorial_typography",
   "pinterest_account": "astralabsph",
   "human_approval_required_by_sop": true,
-  "published_new_pins": 0,
+  "published_new_pins": 3,
   "assets": [
     {
       "slug": "bedsure-satin-pillowcase-queen-grey-2",
@@ -17,9 +17,12 @@
       "source_rights": "Pexels license permits free commercial use and modification: https://www.pexels.com/legal-pages/license/",
       "asset_size": "1000x1500 RGB JPEG",
       "machine_quality_qa": "PASS_2BY3_PHOTO_COVERAGE_AND_DISTINCT_DHASH",
-      "owner_asset_approval": "PENDING",
-      "pinterest_publish_status": "NOT_PUBLISHED",
-      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU"
+      "owner_asset_approval": "APPROVED_IN_CHAT_20261022",
+      "pinterest_publish_status": "PUBLISHED_VERIFIED",
+      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU",
+      "pinterest_pin_id": "1143844005391431160",
+      "pinterest_pin_url": "https://www.pinterest.com/pin/1143844005391431160/",
+      "pinterest_created_at_utc": "2026-10-22T12:28:16Z"
     },
     {
       "slug": "clean-skin-club-towels-xl",
@@ -33,9 +36,12 @@
       "source_rights": "Pexels license permits free commercial use and modification: https://www.pexels.com/legal-pages/license/",
       "asset_size": "1000x1500 RGB JPEG",
       "machine_quality_qa": "PASS_2BY3_PHOTO_COVERAGE_AND_DISTINCT_DHASH",
-      "owner_asset_approval": "PENDING",
-      "pinterest_publish_status": "NOT_PUBLISHED",
-      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU"
+      "owner_asset_approval": "APPROVED_IN_CHAT_20261022",
+      "pinterest_publish_status": "PUBLISHED_VERIFIED",
+      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU",
+      "pinterest_pin_id": "1143844005391431204",
+      "pinterest_pin_url": "https://www.pinterest.com/pin/1143844005391431204/",
+      "pinterest_created_at_utc": "2026-10-22T12:28:54Z"
     },
     {
       "slug": "aeropress-original-b0047",
@@ -43,15 +49,19 @@
       "sha256": "14925a839cf4a082f8118b46e50e168e036b64887340edd868a2f3a619770b06",
       "source_id": "37832013",
       "photographer": "Emrah",
-      "visual": "Full resolution reviewed; feed-thumbnail review pending due shared browser navigation",
+      "visual": "Full resolution and 200px phone-feed screenshot inspected and legible on 2026-10-22",
       "image_path": "marketing/pirevo/pins/fullbleed/pirevo_pin_aeropress_coffee_20261022.jpg",
       "source_url": "https://www.pexels.com/photo/37832013/",
       "source_rights": "Pexels license permits free commercial use and modification: https://www.pexels.com/legal-pages/license/",
       "asset_size": "1000x1500 RGB JPEG",
       "machine_quality_qa": "PASS_2BY3_PHOTO_COVERAGE_AND_DISTINCT_DHASH",
-      "owner_asset_approval": "PENDING",
-      "pinterest_publish_status": "NOT_PUBLISHED",
-      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU"
+      "owner_asset_approval": "APPROVED_IN_CHAT_20261022",
+      "pinterest_publish_status": "PUBLISHED_VERIFIED",
+      "illustration_note": "Pexels-licensed lifestyle scene, does not depict a verified exact retail SKU",
+      "pinterest_pin_id": "1143844005391431228",
+      "pinterest_pin_url": "https://www.pinterest.com/pin/1143844005391431228/",
+      "pinterest_created_at_utc": "2026-10-22T12:29:14Z"
     }
-  ]
+  ],
+  "human_approval_received": true
 }

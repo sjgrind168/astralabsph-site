@@ -8,8 +8,8 @@
   "existing_matched_live_product_pin_instances": 30,
   "unique_products_with_existing_live_pins": 29,
   "unique_products_without_matched_live_pins": 113,
-  "new_pins_published_now": 0,
-  "new_creative_approved_now": 0,
+  "new_pins_published_now": 3,
+  "new_creative_approved_now": 3,
   "first_unpinned_priority": [
     "clean-skin-club-towels-xl",
     "mighty-patch-original-36",
@@ -35,5 +35,34 @@
     "reason": "Inaccurate 1000+ live products / 50 each; wrong format for one product Pin",
     "published": false
   },
-  "pinterest_create_permission": "NOT_TESTED; read access active only"
+  "pinterest_create_permission": "NOT_TESTED; read access active only",
+  "first_photo_pin_batch": {
+    "technical_qa_passed": 3,
+    "owner_approved": 3,
+    "published_and_provider_verified": 3,
+    "pin_ids": [
+      "1143844005391431160",
+      "1143844005391431204",
+      "1143844005391431228"
+    ],
+    "pinterest_provider": "connected Pinterest API via Composio",
+    "no_scheduling": true
+  },
+  "verified_published_pin_urls": {
+    "bedsure-satin-pillowcase-queen-grey-2": "https://www.pinterest.com/pin/1143844005391431160/",
+    "clean-skin-club-towels-xl": "https://www.pinterest.com/pin/1143844005391431204/",
+    "aeropress-original-b0047": "https://www.pinterest.com/pin/1143844005391431228/"
+  },
+  "profile_live_after_publication": {
+    "username": "astralabsph",
+    "pin_count": 65,
+    "verified_from": "Composio PINTEREST_GET_PROFILE 2026-10-22"
+  },
+  "boards_live_after_publication": {
+    "PIREVO Finds": 61,
+    "Skincare & Beauty Finds | PIREVO": 1,
+    "Kitchen Gadgets & Smart Home | PIREVO": 1,
+    "AstraLabs Apps | Astramate & Keepry": 2,
+    "Work Bags & Everyday Style | PIREVO": 0
+  }
 }
