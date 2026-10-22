@@ -159,22 +159,97 @@ def apple_fetch(day):
     request=urllib.request.Request(url,headers={"Authorization":"Bearer "+token,"Accept":"application/a-gzip, application/octet-stream"})
     with urllib.request.urlopen(request,timeout=40) as response:return response.read()
 
-def google_fetch_sales(month):
-    from google.cloud import storage
+def google_credentials(scopes):
+    """Prefer short-lived GitHub Actions OIDC/ADC; legacy scoped key only when supplied.
+    No credentials are returned in logs or exported to the iOS client.
+    """
+    import google.auth
     from google.oauth2 import service_account
-    info=json.loads(base64.b64decode(os.environ["GOOGLE_PLAY_SA_JSON_B64"]))
-    cred=service_account.Credentials.from_service_account_info(info,scopes=["https://www.googleapis.com/auth/devstorage.read_only"])
-    client=storage.Client(project=info.get("project_id"),credentials=cred)
-    bucket=os.environ["GOOGLE_PLAY_REPORT_BUCKET"].replace("gs://", "").strip("/")
+    legacy=os.environ.get("GOOGLE_PLAY_SA_JSON_B64","")
+    if legacy:
+        info=json.loads(base64.b64decode(legacy))
+        return service_account.Credentials.from_service_account_info(info,scopes=scopes),info.get("project_id")
+    return google.auth.default(scopes=scopes)
+
+def google_storage_client():
+    from google.cloud import storage
+    credentials,project=google_credentials(["https://www.googleapis.com/auth/devstorage.read_only"])
+    return storage.Client(project=project,credentials=credentials)
+
+def google_bucket():
+    name=os.environ.get("GOOGLE_PLAY_REPORT_BUCKET","").replace("gs://", "").strip("/")
+    if not name.startswith("pubsite_prod_") or "/" in name:
+        raise ValueError("Official Google Play reporting bucket is not configured")
+    return name
+
+def read_csv_source(raw):
+    """Google bulk exports are often UTF-16, not UTF-8."""
+    if raw.startswith((b"\xff\xfe",b"\xfe\xff")) or raw[1:2]==b"\x00":
+        return raw.decode("utf-16")
+    return raw.decode("utf-8-sig")
+
+def google_installs_report(raw, report_id, package_ids=None):
+    """Parse one package's *country* dimension report for per-day totals.
+    Never mix device/country/app-version reports, or sum across dimensions.
+    Daily user installs differ from Play Console device acquisitions.
+    """
+    mapping=package_ids or PACKAGE_IDS
+    source=csv.DictReader(io.StringIO(read_csv_source(raw)))
+    required={"Date","Package Name","Daily User Installs","Daily Device Installs"}
+    if not source.fieldnames or not required.issubset(set(source.fieldnames)):
+        raise ValueError("Official Play installs CSV schema unavailable")
+    grouped=collections.defaultdict(Decimal)
+    observed=set()
+    for row in source:
+        app=mapping.get((row.get("Package Name") or "").strip())
+        day=(row.get("Date") or "").strip()
+        if not app or not day or len(day)!=10:
+            continue
+        try: dt.date.fromisoformat(day)
+        except ValueError: continue
+        country=(row.get("Country") or "").strip()
+        identity=(app,day,country)
+        if identity in observed:raise ValueError("Duplicate country/date row in official installs report")
+        observed.add(identity)
+        for name,key in (("Daily User Installs","daily_user_installs"),("Daily Device Installs","daily_device_installs")):
+            val=Decimal(str(row.get(name) or "0").replace(",",""))
+            if val<0 or not val.is_finite(): raise ValueError("Invalid official install count")
+            grouped[app,day,key]+=val
+    return [fact("google_play",app,"downloads",key,value,"COUNT",day,day,
+            report_id+"-"+app+"-"+day+"-"+key,
+            "Official Google Play Cloud Storage country-dimension installs export; "+report_id,"verified")
+            for (app,day,key),value in sorted(grouped.items())]
+
+def google_fetch_installs(month):
+    from google.api_core.exceptions import NotFound
+    client=google_storage_client()
+    bucket=client.bucket(google_bucket())
+    out=[]
+    for pkg in PACKAGE_IDS:
+        name=f"stats/installs/installs_{pkg}_{month}_country.csv"
+        try: raw=bucket.blob(name).download_as_bytes(timeout=40)
+        except NotFound:
+            print("GOOGLE_INSTALLS_PENDING",pkg,month)
+            continue
+        rows=google_installs_report(raw,"play_gcs_"+name)
+        if not rows:print("GOOGLE_INSTALLS_SOURCE_EMPTY",pkg,month)
+        out.extend(rows)
+    return out
+
+def google_fetch_sales(month):
+    from google.api_core.exceptions import NotFound
+    client=google_storage_client()
+    bucket=client.bucket(google_bucket())
     name="sales/salesreport_"+month+".zip"
-    return client.bucket(bucket).blob(name).download_as_bytes(timeout=35)
+    try:return bucket.blob(name).download_as_bytes(timeout=40)
+    except NotFound:
+        print("GOOGLE_SALES_REPORT_PENDING",month)
+        return None
 
 def google_fetch_vitals(app_pkg,day):
     import requests
-    from google.oauth2 import service_account
     from google.auth.transport.requests import Request
-    info=json.loads(base64.b64decode(os.environ["GOOGLE_PLAY_SA_JSON_B64"]))
-    creds=service_account.Credentials.from_service_account_info(info,scopes=["https://www.googleapis.com/auth/playdeveloperreporting"])
+    creds,_project=google_credentials(["https://www.googleapis.com/auth/playdeveloperreporting"])
     creds.refresh(Request())
     head={"Authorization":"Bearer "+creds.token,"Content-Type":"application/json"}
     start={"year":int(day[:4]),"month":int(day[5:7]),"day":int(day[8:10])}
@@ -212,21 +287,26 @@ def main():
         except Exception as e:
             print("APPLE ERROR",type(e).__name__,str(e)[:120]);raise
     else: print("APPLE canonical source ETL active; duplicate RUDE Apple fetch disabled")
-    if all(os.environ.get(x) for x in ("GOOGLE_PLAY_SA_JSON_B64","GOOGLE_PLAY_REPORT_BUCKET")):
-        try:
-            raw=google_fetch_sales(month)
-            data=google_sales_report(raw,"google_sales_"+month)
-            print("GOOGLE SALES",provider_ingest("google_play",data))
-        except Exception as e:
-            print("GOOGLE SALES ERROR",type(e).__name__,str(e)[:100]);raise
-    else:print("GOOGLE SALES SKIPPED: service account/GCS bucket missing")
-    if os.environ.get("GOOGLE_PLAY_SA_JSON_B64"):
+    authenticated=bool(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("GOOGLE_PLAY_SA_JSON_B64"))
+    if authenticated and os.environ.get("GOOGLE_PLAY_REPORT_BUCKET"):
+        for period in ((dt.date.fromisoformat(day).replace(day=1)-dt.timedelta(days=1)).strftime("%Y%m"),month):
+            try:
+                imports=google_fetch_installs(period)
+                print("GOOGLE INSTALLS",period,provider_ingest("google_play",imports))
+                raw=google_fetch_sales(period)
+                if raw is not None:
+                    data=google_sales_report(raw,"google_sales_"+period)
+                    print("GOOGLE SALES",period,provider_ingest("google_play",data))
+            except Exception as e:
+                print("GOOGLE REPORT ERROR",type(e).__name__,str(e)[:140]);raise
+    else:print("GOOGLE REPORTS SKIPPED: keyless federation or legacy secret not configured")
+    if authenticated and os.environ.get("GOOGLE_PLAY_ENABLE_VITALS")=="1":
         try:
             facts=[]
             for pkg in PACKAGE_IDS:facts+=google_fetch_vitals(pkg,day)
             print("GOOGLE VITALS",provider_ingest("google_play",facts))
         except Exception as e:
-            print("GOOGLE VITALS ERROR",type(e).__name__,str(e)[:100]);raise
-    else: print("GOOGLE VITALS SKIPPED: service account not configured")
+            print("GOOGLE VITALS ERROR",type(e).__name__,str(e)[:120]);raise
+    else: print("GOOGLE VITALS SKIPPED: Developer Reporting API/permissions not yet verified")
 
 if __name__=="__main__":main()
