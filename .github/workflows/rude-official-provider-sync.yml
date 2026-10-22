@@ -6,6 +6,7 @@ on:
     - cron: '37 3 * * *'
 permissions:
   contents: read
+  id-token: write
 concurrency:
   group: rude-official-provider-reports
   cancel-in-progress: false
@@ -17,9 +18,17 @@ jobs:
       RUDE_PROVIDER_INGEST_TOKEN: ${{ secrets.RUDE_PROVIDER_INGEST_TOKEN }}
       # Apple canonical Sales ETL syncs straight from verified AstraLabs source into RUDE tables.
       GOOGLE_PLAY_SA_JSON_B64: ${{ secrets.GOOGLE_PLAY_SA_JSON_B64 }}
-      GOOGLE_PLAY_REPORT_BUCKET: ${{ secrets.GOOGLE_PLAY_REPORT_BUCKET }}
+      GOOGLE_PLAY_REPORT_BUCKET: ${{ vars.GOOGLE_PLAY_REPORT_BUCKET }}
+      GOOGLE_PLAY_ENABLE_VITALS: ${{ vars.GOOGLE_PLAY_ENABLE_VITALS }}
     steps:
       - uses: actions/checkout@v4
+      - name: Obtain short-lived Google credentials (GitHub OIDC)
+        if: ${{ vars.GOOGLE_PLAY_WIF_PROVIDER != '' }}
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GOOGLE_PLAY_WIF_PROVIDER }}
+          service_account: astralabs-reports-readonly@astralabsph-play-backend.iam.gserviceaccount.com
+          create_credentials_file: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
