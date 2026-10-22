@@ -1,0 +1,40 @@
+name: AstraLabs Google Play verified bucket access
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GOOGLE_PLAY_WIF_PROVIDER }}
+          service_account: astralabs-reports-readonly@astralabsph-play-backend.iam.gserviceaccount.com
+          create_credentials_file: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip -q install 'google-cloud-storage>=2.18,<4'
+      - name: Verify official reports bucket lists accessible objects
+        env:
+          BUCKET: ${{ vars.GOOGLE_PLAY_REPORT_BUCKET }}
+        run: |
+          python - <<'PY'
+          import os
+          from google.cloud import storage
+          from google.api_core.exceptions import Forbidden
+          bucket=os.environ['BUCKET']
+          client=storage.Client()
+          for prefix in ('stats/installs/','sales/'):
+              try:
+                  objects=list(client.list_blobs(bucket,prefix=prefix,max_results=3))
+                  print('OFFICIAL_BUCKET_LIST_AUTH_OK',prefix,'SAMPLE_OBJECT_COUNT',len(objects))
+                  for o in objects:print('EXAMPLE_SOURCE_PERIOD',o.name.rsplit('_',2)[-2:])
+              except Forbidden as exc:
+                  print('OFFICIAL_BUCKET_LIST_DENIED',prefix,'HTTP403')
+                  raise SystemExit(13)
+          PY
