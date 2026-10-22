@@ -264,6 +264,10 @@ def google_fetch_vitals(app_pkg,day):
         if data.status_code in (403,404):
             # Missing permissions/data: NOT zero. Other metric sets still permitted.
             continue
+        if data.status_code==400:
+            api_error=data.json().get("error",{})
+            print("GOOGLE_VITALS_VALIDATION_ERROR",app_pkg,group,
+                  str(api_error.get("message","invalid request"))[:190])
         data.raise_for_status()
         response=data.json()
         out+=google_vitals_data(response,PACKAGE_IDS[app_pkg],metric,day)
