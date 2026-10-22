@@ -33,14 +33,19 @@ if previous_path.exists():
   previous={r['slug']:r for r in csv.DictReader(f)}
 for row in rows:
  old=previous.get(row['slug'],{})
- for field in ('creative_asset_path','creative_rights','visual_qa','new_pin_status','new_pin_id','new_pin_url','pin_destination'):
+ # Preserve hand-edited creative copy/board after an actual asset has been staged.
+ # New product research rows retain the automatically generated starting copy.
+ fields=['creative_asset_path','creative_rights','visual_qa','new_pin_status','new_pin_id','new_pin_url','pin_destination']
+ if old.get('creative_asset_path') or old.get('new_pin_status')=='PUBLISHED':
+  fields.extend(['pin_title','pin_description','pin_alt_text','pin_board_id'])
+ for field in fields:
   value=old.get(field,'')
   if value and (field!='new_pin_status' or value=='PUBLISHED'):
    row[field]=value
  if row['new_pin_status']=='PUBLISHED':
   assert row['new_pin_id'].isdigit() and row['new_pin_url'].startswith('https://www.pinterest.com/pin/'),row['slug']
 
-assert len(rows)==142 and len({r['slug'] for r in rows})==142
+assert len(rows)>=142 and len({r['slug'] for r in rows})==len(rows)
 rows.sort(key=lambda x:(x['pin_priority'],x['old_live_pin_count']>0,x['category_id'],x['slug']))
 with (m/'PIREVO_PRODUCT_PIN_MASTER_20261022.csv').open('w',newline='',encoding='utf-8-sig') as f:
  w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
@@ -54,7 +59,7 @@ status={'as_of':'2026-10-22','execution_mode':'DIRECT_ACTIVE_SESSION_ONLY_NO_SCH
 status_path=m/'PIREVO_DIRECT_EXECUTION_STATUS_20261022.json'
 if status_path.exists():
  prior=json.loads(status_path.read_text())
- for optional in ('generated_canva_media_pending_QA','rejected_image_attempt','draft_canva_asset','rejected_generated_collage','pinterest_create_permission','first_photo_pin_batch','verified_published_pin_urls','profile_live_after_publication','boards_live_after_publication'):
+ for optional in ('generated_canva_media_pending_QA','rejected_image_attempt','draft_canva_asset','rejected_generated_collage','pinterest_create_permission','first_photo_pin_batch','verified_published_pin_urls','profile_live_after_publication','boards_live_after_publication','batch2'):
   if optional in prior:status[optional]=prior[optional]
 status_path.write_text(json.dumps(status,indent=2)+'\n')
 print(json.dumps(status,indent=2))

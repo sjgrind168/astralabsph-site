@@ -64,5 +64,12 @@
     "Kitchen Gadgets & Smart Home | PIREVO": 1,
     "AstraLabs Apps | Astramate & Keepry": 2,
     "Work Bags & Everyday Style | PIREVO": 0
+  },
+  "batch2": {
+    "draft_pin_assets_prepared": 3,
+    "mobile_previews_passed": 3,
+    "pending_image_level_owner_approval": 3,
+    "directly_published_from_batch2": 0,
+    "manifest": "marketing/pirevo/PIREVO_PIN_BATCH2_QA_20261022.json"
   }
 }
