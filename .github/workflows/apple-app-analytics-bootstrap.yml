@@ -1,0 +1,22 @@
+name: AstraLabs Apple App Analytics ongoing reporting setup
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 1 * * *'
+permissions:
+  contents: read
+jobs:
+  request-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      APPLE_ASC_ISSUER_ID: ${{ secrets.APPLE_ASC_ISSUER_ID }}
+      APPLE_ASC_KEY_ID: ${{ secrets.APPLE_ASC_KEY_ID }}
+      APPLE_ASC_P8_B64: ${{ secrets.APPLE_ASC_P8_B64 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Ensure ONGOING analytics requests
+        run: node tools/apple-reports/analytics-sync.mjs
