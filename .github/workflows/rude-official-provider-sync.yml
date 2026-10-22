@@ -39,4 +39,17 @@ jobs:
       - name: Verify currency, refunds and app isolation
         run: python -m unittest discover -s tools/rude-provider-sync -p 'test_*.py' -v
       - name: Fetch official reports and ingest only verified source facts
+        id: provider_import
         run: python tools/rude-provider-sync/sync.py
+      - name: Record scheduled Google importer failure securely
+        if: ${{ failure() && steps.provider_import.outcome == 'failure' }}
+        env:
+          INGEST_TOKEN: ${{ secrets.RUDE_PROVIDER_INGEST_TOKEN }}
+        run: |
+          if [ -n "$INGEST_TOKEN" ]; then
+            curl --fail --silent --show-error --max-time 20 \
+              -X POST 'https://cscqulbludoyzsgniits.supabase.co/functions/v1/rude-provider-ingest' \
+              -H "Authorization: Bearer $INGEST_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data '{"action":"failure","provider":"google_play","error_code":"google_play_ingest_error"}' || true
+          fi
