@@ -55,3 +55,29 @@ class OfficialProviderReportTests(unittest.TestCase):
         self.assertEqual(a,b)
 
 if __name__=='__main__':unittest.main()
+
+
+class GoogleInstallsSourceTests(__import__("unittest").TestCase):
+    def test_country_dimension_only_and_daily_dates(self):
+        import importlib.util
+        from pathlib import Path
+        spec=importlib.util.spec_from_file_location("google_sync_impl",Path(__file__).parent/"sync.py")
+        mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+        content=("Date,Package Name,Country,Daily User Installs,Daily Device Installs\n"
+            "2026-10-18,com.astralabs.astramate,PH,3,4\n"
+            "2026-10-18,com.astralabs.astramate,US,2,2\n"
+            "2026-10-19,com.astralabs.keepry,PH,1,1\n").encode("utf-16")
+        records=mod.google_installs_report(content,"gcs-test-202610")
+        v={(r["app_key"],r["period_end"],r["metric"]):r["metric_value"] for r in records}
+        self.assertEqual(v[("astramate","2026-10-18","daily_user_installs")],5)
+        self.assertEqual(v[("astramate","2026-10-18","daily_device_installs")],6)
+        self.assertEqual(v[("keepry","2026-10-19","daily_user_installs")],1)
+        self.assertEqual(len(records),4)
+        self.assertTrue(all(x["provenance"].startswith("Official Google Play Cloud Storage") for x in records))
+    def test_no_fabricated_zero_for_empty_source(self):
+        import importlib.util
+        from pathlib import Path
+        spec=importlib.util.spec_from_file_location("google_sync_impl",Path(__file__).parent/"sync.py")
+        mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+        raw=b"Date,Package Name,Country,Daily User Installs,Daily Device Installs\n"
+        self.assertEqual(mod.google_installs_report(raw,"gcs-empty"),[])
