@@ -1,11 +1,14 @@
 /* PIREVO shopper-selected marketplace. Never alters affiliate destinations. */
 (function () {
  "use strict";
+ if(document.body.classList.contains("pv-home")) return; // Home has dedicated global shopping guidance.
  if(document.querySelector(".pirevo-region-widget")) return;
  var countries=[["US","United States"],["CA","Canada"],["UK","United Kingdom"],["DE","Germany"],["FR","France"],["IT","Italy"],["ES","Spain"],["NL","Netherlands"],["PL","Poland"],["SE","Sweden"],["OTHER","Other country"]];
  var names=Object.fromEntries(countries);
  var found=location.pathname.match(/^\/pirevo\/products\/([a-z0-9-]+)(?:\/|\/index\.html)?$/);
  var slug=found ? found[1] : null;
+ // Product pages use the country tool next to the retailer link. Catalog pages put it below browsing cards.
+ if(!slug && !/^\/pirevo\/catalog\/?(?:index\.html)?$/.test(location.pathname)) return;
  var widget=document.createElement("section");
  widget.className="pirevo-region-widget";
  widget.setAttribute("aria-label","Amazon international shopping guidance");
@@ -19,8 +22,9 @@
   place.append(widget);
  } else {
   var main=document.querySelector("main") || document.body;
-  var h1=main.querySelector("h1");
-  if(h1)h1.insertAdjacentElement("afterend",widget); else main.prepend(widget);
+  var catalogEnd=main.querySelector("#items");
+  if(catalogEnd)catalogEnd.insertAdjacentElement("afterend",widget);
+  else main.append(widget);
  }
  var select=widget.querySelector("select"),explain=widget.querySelector(".pirevo-region-explainer"),proof=widget.querySelector(".pirevo-region-proof");
  var evidence=null,storageKey="pirevo_selected_marketplace_v1";

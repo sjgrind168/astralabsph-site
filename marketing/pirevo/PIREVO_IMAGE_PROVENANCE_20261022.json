@@ -2,8 +2,8 @@
   "audit_date": "2026-10-22",
   "status": "REQUIRES_AUTHORITATIVE_LICENSE_PROOF",
   "note": "Historical URL baseline exists to block additional risk; it is not proof of image rights. No copying or caching performed.",
-  "unique_current_amazon_image_urls": 543,
-  "source_occurrences": 938,
+  "unique_current_amazon_image_urls": 542,
+  "source_occurrences": 1043,
   "files_with_cdn_content": 137,
   "source_counts": {
     "public/pirevo/products/buenkee-grooming-vacuum/index.html": 4,
@@ -141,7 +141,7 @@
     "public/pirevo/products/astercook-13pc-knife-set/index.html": 1,
     "public/pirevo/products/spaceaid-bag-organizer/index.html": 1,
     "public/pirevo/products/creative-hobbies-window-candles-6/index.html": 14,
-    "public/pirevo/index.html": 33,
+    "public/pirevo/index.html": 138,
     "public/pirevo/store-data.js": 138
   },
   "historical_unverified_image_hashes": [

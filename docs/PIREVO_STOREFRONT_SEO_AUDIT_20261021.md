@@ -125,3 +125,13 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Historical retailer images still have unverified permission status and this release adds no new Amazon CDN media. Full country availability and commission attribution remain unresolved.
 - Conversion analytics follow-up: production Supabase migration pirevo_add_compare_view_event_20261022 added compare_view to existing pirevo_events event-name CHECK constraint (verified in catalog). Existing names and RLS policy preserved; no events inserted manually.
 - Buying Desk now loads existing /pirevo/config.js and /pirevo/business-analytics.js, records page_view and optional shopper-initiated compare_view when at least two products are selected (not when a shared URL auto-loads). Honors existing Global Privacy Control and Do Not Track behavior.
+## October 22: unified PIREVO visual storefront v5
+- Reference: owner-selected PIREVO Social Shopping screenshot with deep-green hero, white navigation, simple theme chips, and easy-to-scan product cards.
+- Rebuilt homepage: visual 20-category browse, 3 manual swipeable carousels (15 trending-inspired, 16 holiday, 11 everyday), and 138 searchable product cards with filters and progressive reveal. Product finder appears directly after first trending carousel.
+- 175 additional consumer pages now share PIREVO branding, mobile menu, consistent navigation, footer and styling. Includes 139 product pages, 20 category pages, buying guides, catalog, comparison, international guide, and social trends.
+- 20 categories show real product cards immediately below the title/introduction, with shopping checklists lower on the page. Country selector remains on detail pages and after the catalog card list, not in the way of initial category browsing.
+- Existing 46 Social Shopping research cards preserved and unsupported old customer rating display removed. Home page does not claim real-time bestseller data.
+- Existing pirevo-20 Amazon links, original product detail URLs and other AstraLabs subprojects remain unchanged. No new Amazon CDN media added or image-use permission fabricated.
+- Both sitemaps include the Social Shopping trends page; Google indexing and final regional commissions remain separate verification gates.
+- Full repeatable pipeline: npm run pirevo:refresh. QA covers 138 product links, 20 categories, 3 carousels, 175 shared inner pages, 46 Social Shopping products, image source checks and old affiliate integrity.
+- Desktop (1280px) and mobile (390px) browser QA passed: no body horizontal overflow, responsive cards, mobile menu, instant Tech category filtering (7 finds), preserved URL state, manual trending carousel navigation and direct product availability.

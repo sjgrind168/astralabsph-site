@@ -9,7 +9,7 @@
     "postbuild": "node tools/generate-merchlab-seo.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pirevo:refresh": "python3 tools/generate-pirevo-catalog.py && python3 tools/upgrade-pirevo-international.py && python3 tools/prerender-pirevo-guides.py && python3 tools/polish-pirevo-guides.py && python3 tools/link-pirevo-guides.py && python3 tools/build-pirevo-compare.py && python3 tools/link-pirevo-compare.py && python3 tools/verify-pirevo-compare.py && python3 tools/audit-pirevo-image-rights.py && python3 tools/verify-pirevo-global.py && python3 tools/verify-pirevo-guides.py && npm run build"
+    "pirevo:refresh": "python3 tools/generate-pirevo-catalog.py && python3 tools/upgrade-pirevo-international.py && python3 tools/prerender-pirevo-guides.py && python3 tools/polish-pirevo-guides.py && python3 tools/link-pirevo-guides.py && python3 tools/build-pirevo-compare.py && python3 tools/link-pirevo-compare.py && python3 tools/verify-pirevo-compare.py && python3 tools/audit-pirevo-image-rights.py && python3 tools/verify-pirevo-global.py && python3 tools/verify-pirevo-guides.py && python3 tools/rebuild-pirevo-storefront-v5.py && python3 tools/verify-pirevo-storefront-v5.py && npm run build"
   },
   "dependencies": {
     "@apple/app-store-server-library": "3.1.0",

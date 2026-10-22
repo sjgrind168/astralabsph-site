@@ -3078,5 +3078,34 @@
     "sharing": "Explicit URL query parameter p=slug1,slug2,slug3",
     "product_rights": "No image URLs embedded in comparison tool; existing Amazon CDN media origin still not certified",
     "validation": "Source QA and local desktop/mobile/browser interaction, duplicate selection, reset and URL state PASS"
+  },
+  "storefront_redesign_20261022": {
+    "status": "PRODUCTION_CANDIDATE_TESTED",
+    "design_reference": "Owner screenshot of PIREVO Social Shopping trends page, white sticky header, green hero, readable product display",
+    "homepage_sections": [
+      "Green editorial hero",
+      "Quick stats",
+      "20 visual categories",
+      "15-item trending editorial carousel",
+      "138-item searchable product discovery",
+      "16-item holiday carousel",
+      "11-item everyday upgrades carousel",
+      "Buying Desk and international shopping",
+      "Guides"
+    ],
+    "catalog_source": "Existing 138 products and original detail URLs",
+    "social_shopping": "46 existing researched cards preserved, unsupported rating display removed",
+    "unified_consumer_inner_pages": 175,
+    "catalog_products": 138,
+    "existing_static_product_pages": 139,
+    "category_pages": 20,
+    "storefront_carousels": 3,
+    "interaction": "Horizontal scroll snap, manual arrows, touch swipe, keyboard-enabled track; no autoplay",
+    "affiliate": "Original pirevo-20 US tracking links preserved on all valid detail pages; no checkout changes",
+    "region_ux": "Detail pages keep country choices; catalog moves selector below items; categories show product grids first",
+    "seo": "Both sitemaps include PIREVO Social Shopping page; existing canonical product URLs preserved",
+    "compliance": "No new Amazon CDN image URLs, customer ratings, or unverified live-sales claims; existing image licenses still UNVERIFIED",
+    "regression": "npm run pirevo:refresh includes v5 generator, structural QA and all prior tests",
+    "deployment": "Pending Git push + Vercel READY"
   }
 }
