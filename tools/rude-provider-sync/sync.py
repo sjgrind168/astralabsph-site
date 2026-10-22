@@ -252,12 +252,25 @@ def google_fetch_vitals(app_pkg,day):
     creds,_project=google_credentials(["https://www.googleapis.com/auth/playdeveloperreporting"])
     creds.refresh(Request())
     head={"Authorization":"Bearer "+creds.token,"Content-Type":"application/json"}
-    start={"year":int(day[:4]),"month":int(day[5:7]),"day":int(day[8:10])}
-    after=(dt.date.fromisoformat(day)+dt.timedelta(days=1))
-    end={"year":after.year,"month":after.month,"day":after.day}
     out=[]
     for group,metric in [("crashRateMetricSet","crashRate"),("anrRateMetricSet","anrRate"),("slowStartRateMetricSet","slowStartRate")]:
-        url=f"https://playdeveloperreporting.googleapis.com/v1beta1/apps/{app_pkg}/{group}:query"
+        base=f"https://playdeveloperreporting.googleapis.com/v1beta1/apps/{app_pkg}/{group}"
+        freshness_response=requests.get(base,headers=head,timeout=25)
+        if freshness_response.status_code in (403,404):
+            print("GOOGLE_VITALS_FRESHNESS_UNAVAILABLE",app_pkg,group,freshness_response.status_code)
+            continue
+        freshness_response.raise_for_status()
+        states=freshness_response.json().get("freshnessInfo",{}).get("freshnesses",[])
+        latest=next((x.get("latestEndTime") for x in states if x.get("aggregationPeriod")=="DAILY"),None)
+        if not isinstance(latest,dict) or not all(k in latest for k in ("year","month","day")):
+            print("GOOGLE_VITALS_NO_PUBLISHED_DAILY_DATE",app_pkg,group)
+            continue
+        final_date=dt.date(int(latest["year"]),int(latest["month"]),int(latest["day"]))
+        start_date=final_date-dt.timedelta(days=7)
+        start={"year":start_date.year,"month":start_date.month,"day":start_date.day}
+        end={"year":final_date.year,"month":final_date.month,"day":final_date.day}
+        print("GOOGLE_VITALS_SOURCE_FRESHNESS",app_pkg,group,str(final_date))
+        url=base+":query"
         body={"timelineSpec":{"aggregationPeriod":"DAILY","startTime":start,"endTime":end},"metrics":[metric],"pageSize":100}
         if metric=="slowStartRate":body["dimensions"]=["startType"]
         data=requests.post(url,headers=head,json=body,timeout=30)
