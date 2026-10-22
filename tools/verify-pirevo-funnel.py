@@ -13,6 +13,11 @@ urls=[("product",f"https://www.astralabsph.com/pirevo/products/{f.parent.name}/i
 urls+=[("category",f"https://www.astralabsph.com/pirevo/categories/{f.parent.name}/") for f in category_pages]
 urls.append(("catalog","https://www.astralabsph.com/pirevo/catalog/"))
 urls.append(("international","https://www.astralabsph.com/pirevo/international/"))
+urls.append(("homepage","https://www.astralabsph.com/pirevo/"))
+urls.append(("trends","https://www.astralabsph.com/pirevo/trends/"))
+urls.append(("compare","https://www.astralabsph.com/pirevo/compare/"))
+urls.append(("guides","https://www.astralabsph.com/pirevo/guides/"))
+urls += [("guide",f"https://www.astralabsph.com/pirevo/guides/{f.parent.name}/") for f in (pub/"guides").glob("*/index.html")]
 checks=[]
 for f in product_pages:
  html=f.read_text()

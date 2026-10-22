@@ -3080,7 +3080,7 @@
     "validation": "Source QA and local desktop/mobile/browser interaction, duplicate selection, reset and URL state PASS"
   },
   "storefront_redesign_20261022": {
-    "status": "PRODUCTION_CANDIDATE_TESTED",
+    "status": "PRODUCTION_READY_AND_LIVE_QA_VERIFIED",
     "design_reference": "Owner screenshot of PIREVO Social Shopping trends page, white sticky header, green hero, readable product display",
     "homepage_sections": [
       "Green editorial hero",
@@ -3106,6 +3106,21 @@
     "seo": "Both sitemaps include PIREVO Social Shopping page; existing canonical product URLs preserved",
     "compliance": "No new Amazon CDN image URLs, customer ratings, or unverified live-sales claims; existing image licenses still UNVERIFIED",
     "regression": "npm run pirevo:refresh includes v5 generator, structural QA and all prior tests",
-    "deployment": "Pending Git push + Vercel READY"
+    "deployment": "Pending Git push + Vercel READY",
+    "deployed_git_sha": "3bdea945cdaacb029a092e55e7a162dd58a9f169",
+    "vercel_deployment": "dpl_G3g9UMZQu1qGqAQh7M3wKzE5A3gY",
+    "vercel_ready": true,
+    "live_consumer_urls_tested": 176,
+    "live_consumer_urls_http_200": 176,
+    "live_product_detail_pages": 139,
+    "live_category_pages": 20,
+    "live_trends_products": 46,
+    "amazon_tracked_buy_links": 138,
+    "held_unverified_product_buying_button": "elf-halo-glow-3",
+    "missing_disclosures": 0,
+    "unsupported_amazon_ratings_in_product_details": 0,
+    "google_search_console_main_sitemap_resubmitted": true,
+    "google_search_console_pirevo_sitemap_resubmitted": true,
+    "google_indexing_or_rankings": "NOT YET VERIFIED"
   }
 }

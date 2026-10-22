@@ -135,3 +135,10 @@ https://developers.google.com/search/docs/specialty/ecommerce/how-to-launch-an-e
 - Both sitemaps include the Social Shopping trends page; Google indexing and final regional commissions remain separate verification gates.
 - Full repeatable pipeline: npm run pirevo:refresh. QA covers 138 product links, 20 categories, 3 carousels, 175 shared inner pages, 46 Social Shopping products, image source checks and old affiliate integrity.
 - Desktop (1280px) and mobile (390px) browser QA passed: no body horizontal overflow, responsive cards, mobile menu, instant Tech category filtering (7 finds), preserved URL state, manual trending carousel navigation and direct product availability.
+### Visual storefront v5 live production verification
+- Public deployment dpl_G3g9UMZQu1qGqAQh7M3wKzE5A3gY returned Vercel READY with primary PIREVO/www aliases active for git commit 3bdea94.
+- Source QA: npm run pirevo:refresh PASS, 176 consumer pages at the original route preserved, 138 tagged US Amazon links, 20 categories, 11 guides and new homepage hero / three swipe carousels.
+- Mac browser checked the live redesigned homepage on a 390px viewport: 3 carousels, 138 searchable product cards with first 24 shown, no body horizontal overflow, all CSS loaded.
+- Full owned-site live HEAD sweep: 176/176 HTTP 200, 0 broken product-detail routes, 0 missing tracked-link identifiers, 0 missing affiliate disclosures, and 0 disallowed legacy star-rating blocks in product detail pages.
+- Google Search Console accepted both updated main and PIREVO sitemaps after Social Shopping /trends/ was added to XML. Submission is not proof of indexing or rankings.
+- Historical retailer photography remains present from source, license provenance NOT verified. No new Amazon image URLs introduced; no sales or live stock claims created.
