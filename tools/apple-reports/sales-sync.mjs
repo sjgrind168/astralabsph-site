@@ -23,6 +23,8 @@ const modes=new Set(process.argv.slice(2));
 const dry=modes.has('--dry-run');
 const backfill=modes.has('--backfill')?40:10;
 const fixed=process.env.APPLE_REPORT_TEST_DATE;
+// Apple may publish recent reports late. Skip only recent pending 404s; never call them zero sales.
+const maxPendingAgeDays=3;
 const known=new Map([['6813155959','keepry'],['6812828056','astramate']]);
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function request(url,options={}){
@@ -43,7 +45,7 @@ console.log('APPLE_TEAM_AUTH_OK; TRACKED_APPS=Keepry,Astramate; MODE='+(dry?'DRY
 const dateList=[];
 for(let n=1;n<=backfill;n++){const d=new Date(Date.now()-n*86400000);dateList.push(d.toISOString().slice(0,10))}
 if(fixed){dateList.splice(0,dateList.length,fixed)}
-let sent=0,sourceRows=0,skipped=0,noSales=0;
+let sent=0,sourceRows=0,skipped=0,noSales=0,pending=0;
 for(const date of dateList){
  const url=new URL('https://api.appstoreconnect.apple.com/v1/salesReports');
  for(const [key,value]of Object.entries({'filter[frequency]':'DAILY','filter[reportDate]':date,
@@ -53,7 +55,15 @@ for(const date of dateList){
  if(res.status===404){
   const error=await res.json().catch(()=>null);
   const details=(error?.errors||[]).map(x=>x.detail||'').join(' ');
-  if(!/There were no sales for the date specified/i.test(details))throw Error(date+': Apple report unavailable (not a no-sales confirmation)');
+  if(!/There were no sales for the date specified/i.test(details)){
+   const ageDays=Math.floor((Date.now()-Date.parse(date+'T00:00:00Z'))/86400000);
+   if(ageDays>=0&&ageDays<=maxPendingAgeDays){
+    pending++;
+    console.log(date,'APPLE_REPORT_PENDING','HTTP_404','NOT_A_ZERO_SALES_REPORT');
+    continue;
+   }
+   throw Error(date+': Apple report unavailable beyond expected publication delay (not a no-sales confirmation)');
+  }
   status='no_sales';noSales++;
   source=sha('Apple SALES SUMMARY '+date+' official no sales response');
  }else if(!res.ok){throw Error(date+': Apple Sales report HTTP '+res.status)}
@@ -99,4 +109,4 @@ for(const date of dateList){
  skipped+=unknown;
  await wait(200);
 }
-console.log('APPLE_SYNC_COMPLETED; DAYS='+dateList.length+'; WRITTEN='+sent+'; NO_SALES_DATES='+noSales+'; RAW_ROWS='+sourceRows+'; UNATTRIBUTED_ROWS='+skipped);
+console.log('APPLE_SYNC_COMPLETED; DAYS='+dateList.length+'; WRITTEN='+sent+'; PENDING_DATES='+pending+'; NO_SALES_DATES='+noSales+'; RAW_ROWS='+sourceRows+'; UNATTRIBUTED_ROWS='+skipped);
