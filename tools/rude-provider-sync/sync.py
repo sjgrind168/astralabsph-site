@@ -287,6 +287,7 @@ def main():
         except Exception as e:
             print("APPLE ERROR",type(e).__name__,str(e)[:120]);raise
     else: print("APPLE canonical source ETL active; duplicate RUDE Apple fetch disabled")
+    google_failures=[]
     authenticated=bool(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or os.environ.get("GOOGLE_PLAY_SA_JSON_B64"))
     if authenticated and os.environ.get("GOOGLE_PLAY_REPORT_BUCKET"):
         for period in ((dt.date.fromisoformat(day).replace(day=1)-dt.timedelta(days=1)).strftime("%Y%m"),month):
@@ -298,7 +299,7 @@ def main():
                     data=google_sales_report(raw,"google_sales_"+period)
                     print("GOOGLE SALES",period,provider_ingest("google_play",data))
             except Exception as e:
-                print("GOOGLE REPORT ERROR",type(e).__name__,str(e)[:140]);raise
+                print("GOOGLE REPORT ERROR",type(e).__name__,str(e)[:140]);google_failures.append("GCS_"+type(e).__name__)
     else:print("GOOGLE REPORTS SKIPPED: keyless federation or legacy secret not configured")
     if authenticated and os.environ.get("GOOGLE_PLAY_ENABLE_VITALS")=="1":
         try:
@@ -306,7 +307,9 @@ def main():
             for pkg in PACKAGE_IDS:facts+=google_fetch_vitals(pkg,day)
             print("GOOGLE VITALS",provider_ingest("google_play",facts))
         except Exception as e:
-            print("GOOGLE VITALS ERROR",type(e).__name__,str(e)[:120]);raise
+            print("GOOGLE VITALS ERROR",type(e).__name__,str(e)[:120]);google_failures.append("VITALS_"+type(e).__name__)
     else: print("GOOGLE VITALS SKIPPED: Developer Reporting API/permissions not yet verified")
+    if google_failures:
+        raise RuntimeError("Verified Google sources unavailable: "+", ".join(google_failures))
 
 if __name__=="__main__":main()
