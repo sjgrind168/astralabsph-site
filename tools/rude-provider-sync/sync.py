@@ -327,6 +327,10 @@ def main():
             print("GOOGLE VITALS ERROR",type(e).__name__,str(e)[:120]);google_failures.append("VITALS_"+type(e).__name__)
     else: print("GOOGLE VITALS SKIPPED: Developer Reporting API/permissions not yet verified")
     if google_failures:
+        code="google_play_gcs_403" if any(x=="GCS_Forbidden" for x in google_failures) else "google_play_ingest_error"
+        if os.environ.get("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as output:
+                output.write("failure_code="+code+"\n")
         raise RuntimeError("Verified Google sources unavailable: "+", ".join(google_failures))
 
 if __name__=="__main__":main()
