@@ -148,7 +148,7 @@ function sourcePeriod(provider,name,app="all"){
  const x=metric(provider,name,app);return x?datePretty(x.period_start)+" – "+datePretty(x.period_end)+" · imported "+datePretty(x.captured_at):"Awaiting verified source";
 }
 function sourceStatus(provider){
- const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end&&!String(x.metric||"").startsWith("trends_")&&(provider!=="app_store_connect"||x.app_key!=="all"));
+ const rows=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at&&x.period_end&&!String(x.metric||"").startsWith("trends_")&&!String(x.metric||"").startsWith("console_28d_")&&(provider!=="app_store_connect"||x.app_key!=="all"));
  if(!rows.length)return "No verified report";
  const lastImport=rows.map(x=>Date.parse(x.captured_at)).filter(Number.isFinite).sort((a,b)=>b-a)[0];
  const latestEnd=rows.map(x=>String(x.period_end).slice(0,10)).sort().at(-1);
@@ -240,7 +240,11 @@ function stamp(){
 function renderSummary(){
  const k=state.base?.kpis||{},s=state.site?.astralabs||{},amz=state.amazon?.month_to_date;
  const installed=m("google_play","installed_audience","astramate"),keepry=m("google_play","installed_audience","keepry");
- set("playGross",usd(m("google_play","gross_revenue_usd","keepry")));
+ const astramatePlay=metric("google_play","console_28d_revenue_usd","astramate");
+ const keepryPlay=metric("google_play","console_28d_revenue_usd","keepry");
+ const observedBoth=astramatePlay&&keepryPlay&&astramatePlay.period_end===keepryPlay.period_end;
+ const googleConsoleRevenue=observedBoth?Number(astramatePlay.metric_value)+Number(keepryPlay.metric_value):null;
+ set("playGross",usd(googleConsoleRevenue));
  set("playPending",usd(m("google_play","payout_balance_usd","all")));
  set("amazonMonth",amz?usd(amz.earnings_usd):"—");
  set("admobMTD",usd(m("admob","estimated_earnings_usd")));
@@ -252,7 +256,7 @@ function renderSummary(){
  set("pirevoViews",fm(total("pirevo_views")));
  set("installedTotal",installed==null||keepry==null?"—":fm(installed+keepry));
  set("storeClicks",s.store_clicks==null?"—":fm(s.store_clicks));
- note("playGross",sourcePeriod("google_play","gross_revenue_usd","keepry")+" · gross including tax");
+ note("playGross",observedBoth?"Play Console Home · Last 28 days · observed "+datePretty(astramatePlay.period_end)+" · two apps; not automated GCS":"No matched two-app Console observation");
  note("playPending",sourcePeriod("google_play","payout_balance_usd")+" · not a new sale");
  note("amazonMonth",amz?"Report through "+datePretty(amz.reported_through)+" · all tracking IDs":"Awaiting verified report");
  note("admobMTD",sourcePeriod("admob","estimated_earnings_usd")+" · estimated");
@@ -268,11 +272,12 @@ function renderSummary(){
 function renderOverview(){
  renderGAOverviewTrend();
  barList("overviewApps",[
-  {name:"Astramate",value:m("google_play","device_acquisitions","astramate")},
-  {name:"Keepry",value:m("google_play","device_acquisitions","keepry")}
+  {name:"Astramate",value:m("google_play","console_28d_acquisitions","astramate")??m("google_play","device_acquisitions","astramate")},
+  {name:"Keepry",value:m("google_play","console_28d_acquisitions","keepry")??m("google_play","device_acquisitions","keepry")}
  ],"Google Play device acquisition comparison will display when verified.");
  rows("revenueRows",[
- {name:"Keepry Google Play",amt:usd(m("google_play","gross_revenue_usd","keepry")),kind:"Gross customer sales (not net)",period:sourcePeriod("google_play","gross_revenue_usd","keepry")},
+ {name:"Google Play · both apps",amt:usd(googleConsoleRevenue),kind:"Console revenue, last 28 days (observed snapshot, not live API)",period:observedBoth?"Observed "+datePretty(astramatePlay.period_end):"Not available"},
+ {name:"Keepry Google Play historical",amt:usd(m("google_play","gross_revenue_usd","keepry")),kind:"Older gross customer sales including taxes; do not add to 28-day snapshot",period:sourcePeriod("google_play","gross_revenue_usd","keepry")},
  {name:"Google Play payments",amt:usd(m("google_play","payout_balance_usd")),kind:"Pending payout balance (not additional revenue)",period:sourcePeriod("google_play","payout_balance_usd")},
  {name:"Amazon Associates",amt:state.amazon?.month_to_date?usd(state.amazon.month_to_date.earnings_usd):"—",kind:"Affiliate earnings, account level",period:state.amazon?.month_to_date?"Through "+datePretty(state.amazon.month_to_date.reported_through):"Awaiting report"},
  {name:"AdMob",amt:usd(m("admob","estimated_earnings_usd")),kind:"Estimated advertising earnings",period:sourcePeriod("admob","estimated_earnings_usd")},
@@ -388,15 +393,15 @@ function paintPlatform(){
  const apps=state.app==="all"?["astramate","keepry"]:[state.app];
  const sum=key=>{const vals=apps.map(a=>m("google_play",key,a));return vals.some(v=>v===null)?null:vals.reduce((a,b)=>a+b,0)};
  set("appInstalled",fm(sum("installed_audience")));
- set("appAcquired",fm(sum("device_acquisitions")));
- set("appActive",fm(sum("monthly_active_devices")));
+ set("appAcquired",fm(sum("console_28d_acquisitions")??sum("device_acquisitions")));
+ set("appActive",fm(sum("console_28d_active_devices")??sum("monthly_active_devices")));
  set("appFirstOpens",fm(sum("device_first_opens")));
  set("appOrders",state.app==="astramate"?"—":fm(m("google_play","one_time_orders","keepry")));
- set("appGross",state.app==="astramate"?"—":usd(m("google_play","gross_revenue_usd","keepry")));
+ set("appGross",usd(sum("console_28d_revenue_usd")));
  const playSourcePeriod=key=>state.app==="all"?apps.map(a=>a+": "+sourcePeriod("google_play",key,a)).join(" | "):sourcePeriod("google_play",key,state.app);
  note("appInstalled",playSourcePeriod("installed_audience"));
  note("appAcquired",playSourcePeriod("device_acquisitions"));
- const data=apps.map(app=>({app,installed:m("google_play","installed_audience",app),acq:m("google_play","device_acquisitions",app),active:m("google_play","monthly_active_devices",app),first:m("google_play","device_first_opens",app),gross:m("google_play","gross_revenue_usd",app)}));
+ const data=apps.map(app=>({app,installed:m("google_play","installed_audience",app),acq:m("google_play","console_28d_acquisitions",app)??m("google_play","device_acquisitions",app),active:m("google_play","console_28d_active_devices",app)??m("google_play","monthly_active_devices",app),first:m("google_play","device_first_opens",app),gross:m("google_play","console_28d_revenue_usd",app)}));
  rows("appRows",data,[r=>r.app==="keepry"?"Keepry":"Astramate",r=>fm(r.installed),r=>fm(r.acq),r=>fm(r.first),r=>fm(r.active),r=>usd(r.gross)]);
  barList("appBars",data.map(x=>({name:x.app==="keepry"?"Keepry":"Astramate",value:x.acq})),"No comparable device acquisition snapshots.");
  id("appTrend").replaceChildren();empty(id("appTrend"),"Daily Play Console acquisition and revenue history is not yet imported. Only verified 28-day snapshots are displayed above.");
