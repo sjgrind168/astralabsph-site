@@ -26,15 +26,24 @@ jobs:
           python - <<'PY'
           import os
           from google.cloud import storage
-          from google.api_core.exceptions import Forbidden
-          bucket=os.environ['BUCKET']
+          from google.api_core.exceptions import GoogleAPICallError
+          original=os.environ['BUCKET']
+          candidates=[original]
+          if original.startswith('pubsite_prod_') and not original.startswith('pubsite_prod_rev_'):
+              candidates.append(original.replace('pubsite_prod_','pubsite_prod_rev_',1))
           client=storage.Client()
-          for prefix in ('stats/installs/','sales/'):
+          for bucket in candidates:
+              for prefix in ('stats/installs/','sales/','earnings/'):
+                  try:
+                      objects=list(client.list_blobs(bucket,prefix=prefix,max_results=2))
+                      print('BUCKET_DIAG',bucket,prefix,'LIST_OK',len(objects))
+                      for o in objects: print('OBJECT_PREFIX_SAMPLE',o.name[:90])
+                  except GoogleAPICallError as exc:
+                      print('BUCKET_DIAG',bucket,prefix,'LIST_ERROR',getattr(exc,'code','unknown'))
+              name='stats/installs/installs_com.astralabs.astramate_202609_country.csv'
               try:
-                  objects=list(client.list_blobs(bucket,prefix=prefix,max_results=3))
-                  print('OFFICIAL_BUCKET_LIST_AUTH_OK',prefix,'SAMPLE_OBJECT_COUNT',len(objects))
-                  for o in objects:print('EXAMPLE_SOURCE_PERIOD',o.name.rsplit('_',2)[-2:])
-              except Forbidden as exc:
-                  print('OFFICIAL_BUCKET_LIST_DENIED',prefix,'HTTP403')
-                  raise SystemExit(13)
+                  b=client.bucket(bucket).blob(name).download_as_bytes(timeout=25)
+                  print('BUCKET_PROBE_OBJECT_READ_OK',bucket,'BYTES',len(b))
+              except GoogleAPICallError as exc:
+                  print('BUCKET_PROBE_OBJECT_READ_ERROR',bucket,getattr(exc,'code','unknown'))
           PY
