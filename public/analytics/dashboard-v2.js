@@ -474,14 +474,14 @@ function paintPlatform(){
  const syncSummary=id("mobileSourceHealth");
  if(syncSummary){
   const periods=provider=>[...new Set((state.platforms?.metrics||[])
-   .filter(x=>x.provider===provider && x.period_end && ["astramate","keepry"].includes(x.app_key))
+   .filter(x=>x.provider===provider && x.period_end && ["astramate","keepry"].includes(x.app_key)&&!String(x.metric||"").startsWith("console_28d_"))
    .map(x=>x.period_end))].sort();
   const appleDates=periods("app_store_connect"),googleDates=periods("google_play");
   const fmt=d=>d?datePretty(d):"no import";
   const sourceAge=provider=>{
     // Manual screenshot totals and legacy all-app rows are not fresh private app reports.
     const imports=(state.platforms?.metrics||[]).filter(x=>x.provider===provider&&x.captured_at
-      &&["astramate","keepry"].includes(x.app_key)&&!String(x.metric||"").startsWith("trends_"))
+      &&["astramate","keepry"].includes(x.app_key)&&!String(x.metric||"").startsWith("trends_")&&!String(x.metric||"").startsWith("console_28d_"))
       .map(x=>Date.parse(x.captured_at)).filter(Number.isFinite);
     if(!imports.length)return "not connected";
     const days=Math.max(0,Math.floor((Date.now()-Math.max(...imports))/86400000));
