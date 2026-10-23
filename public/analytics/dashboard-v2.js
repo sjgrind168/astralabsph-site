@@ -249,7 +249,14 @@ function renderSummary(){
  set("amazonMonth",amz?usd(amz.earnings_usd):"—");
  set("admobMTD",usd(m("admob","estimated_earnings_usd")));
  set("kdpRoyalty",usd(m("kdp","royalties_usd")));
- set("appleProceeds",roundedApple(appleComparable("proceeds_usd")));
+ const appleSalesRevenue=m("app_store_connect","trends_sales_usd","all");
+ const revenueSources=[googleConsoleRevenue,appleSalesRevenue,
+     m("kdp","royalties_usd"),amz?Number(amz.earnings_usd):null,m("admob","estimated_earnings_usd")];
+ const availableRevenue=revenueSources.filter(v=>Number.isFinite(v));
+ const totalRevenue=availableRevenue.length?availableRevenue.reduce((a,b)=>a+b,0):null;
+ set("totalRevenue",usd(totalRevenue));
+ note("totalRevenue",availableRevenue.length+" of 5 revenue feeds represented · USD estimates, different reporting periods · payout balances excluded");
+ set("appleProceeds",usd(appleSalesRevenue));
  set("siteSessions",s.sessions==null?"—":fm(s.sessions));
  set("siteViews",s.page_views==null?"—":fm(s.page_views));
  set("pirevoSessions",k.sessions==null?"—":fm(k.sessions));
@@ -262,7 +269,7 @@ function renderSummary(){
  note("admobMTD",sourcePeriod("admob","estimated_earnings_usd")+" · estimated");
  note("installedTotal",sourcePeriod("google_play","installed_audience","astramate"));
  note("kdpRoyalty",sourcePeriod("kdp","royalties_usd"));
- note("appleProceeds",appleNote("proceeds_usd")+(appleComparable("proceeds_usd")===null?" · Combined total unavailable (unmatched periods or unavailable app reports)":" · both apps, matching period"));
+ note("appleProceeds",sourcePeriod("app_store_connect","trends_sales_usd","all")+" · Apple Trends all-app sales estimate, not developer proceeds; not API live");
  note("socialReferrals","First-party referral sessions, not platform impressions");
  reportBadge("playSource",sourceStatus("google_play"),sourceStatus("google_play").startsWith("Imported · "));
  reportBadge("admobSource",sourceStatus("admob"),sourceStatus("admob").startsWith("Imported · "));
@@ -282,7 +289,8 @@ function renderOverview(){
  {name:"Amazon Associates",amt:state.amazon?.month_to_date?usd(state.amazon.month_to_date.earnings_usd):"—",kind:"Affiliate earnings, account level",period:state.amazon?.month_to_date?"Through "+datePretty(state.amazon.month_to_date.reported_through):"Awaiting report"},
  {name:"AdMob",amt:usd(m("admob","estimated_earnings_usd")),kind:"Estimated advertising earnings",period:sourcePeriod("admob","estimated_earnings_usd")},
  {name:"KDP",amt:usd(m("kdp","royalties_usd")),kind:"Royalties",period:sourcePeriod("kdp","royalties_usd")},
- {name:"App Store Connect",amt:roundedApple(m("app_store_connect","proceeds_usd")),kind:"Estimated rounded proceeds, not final payout",period:sourcePeriod("app_store_connect","proceeds_usd")+(metric("app_store_connect","proceeds_usd","keepry")?"":" · Astramate-only; Keepry Apple report not yet imported")}
+ {name:"Apple App Store · all apps",amt:usd(m("app_store_connect","trends_sales_usd","all")),kind:"Estimated sales revenue; owner-observed Trends snapshot, not net proceeds",period:sourcePeriod("app_store_connect","trends_sales_usd","all")},
+ {name:"Apple historical proceeds",amt:roundedApple(m("app_store_connect","proceeds_usd")),kind:"Older rounded net proceeds; excluded from Total Revenue to prevent duplication",period:sourcePeriod("app_store_connect","proceeds_usd")}
  ],[r=>r.name,r=>r.kind,r=>r.period,r=>r.amt]);
  const curr=total("pirevo_sessions")+total("site_sessions");
  const prev=(state.previous?.days||[]).reduce((a,d)=>a+Number(d.pirevo_sessions||0)+Number(d.site_sessions||0),0);
