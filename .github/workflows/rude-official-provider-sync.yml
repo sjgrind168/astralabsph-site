@@ -45,11 +45,12 @@ jobs:
         if: ${{ failure() && steps.provider_import.outcome == 'failure' }}
         env:
           INGEST_TOKEN: ${{ secrets.RUDE_PROVIDER_INGEST_TOKEN }}
+          FAILURE_CODE: ${{ steps.provider_import.outputs.failure_code }}
         run: |
           if [ -n "$INGEST_TOKEN" ]; then
             curl --fail --silent --show-error --max-time 20 \
               -X POST 'https://cscqulbludoyzsgniits.supabase.co/functions/v1/rude-provider-ingest' \
               -H "Authorization: Bearer $INGEST_TOKEN" \
               -H 'Content-Type: application/json' \
-              --data '{"action":"failure","provider":"google_play","error_code":"google_play_ingest_error"}' || true
+              --data "{\"action\":\"failure\",\"provider\":\"google_play\",\"error_code\":\"${FAILURE_CODE:-google_play_ingest_error}\"}" || true
           fi
