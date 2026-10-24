@@ -3,7 +3,14 @@
 if(window.__ASTRALABS_SITE_TRACKER)return;
 window.__ASTRALABS_SITE_TRACKER=true;
 const C=window.PIREVO_CONFIG||{};
-if(!C.analyticsDbUrl||!C.analyticsAnonKey||navigator.globalPrivacyControl===true||
+// Explicit QA opt-out is session-scoped, not an automatic bot detector.
+let qaOptOut=false;
+try{
+ if(new URLSearchParams(location.search).get("__astra_qa")==="1")
+   sessionStorage.setItem("__astralabs_qa_no_track","1");
+ qaOptOut=sessionStorage.getItem("__astralabs_qa_no_track")==="1";
+}catch{}
+if(qaOptOut||!C.analyticsDbUrl||!C.analyticsAnonKey||navigator.globalPrivacyControl===true||
   (navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack)==="1"||
   navigator.webdriver===true)return;
 const pathname=location.pathname;
