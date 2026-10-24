@@ -3,7 +3,17 @@
   const C=window.PIREVO_CONFIG||{};
   const GPC=navigator.globalPrivacyControl===true;
   const DNT=(navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack)==="1";
-  const allowed=()=>!GPC&&!DNT;
+  // Opt-in QA exclusion: set ?__astra_qa=1 once in a dedicated browser tab.
+  // Session-only flag follows internal navigation. This does not classify bots or
+  // retroactively remove untagged traffic. Never use this flag in public Pin URLs.
+  const qaOptOut=()=>{
+    try{
+      if(new URLSearchParams(location.search).get("__astra_qa")==="1")
+        sessionStorage.setItem("__astralabs_qa_no_track","1");
+      return sessionStorage.getItem("__astralabs_qa_no_track")==="1";
+    }catch{return false}
+  };
+  const allowed=()=>!GPC&&!DNT&&!qaOptOut();
   const safe=(v,n=220)=>String(v??"").replace(/\s+/g," ").trim().slice(0,n);
   const uid=()=>{
     if(globalThis.crypto?.randomUUID)return crypto.randomUUID();
