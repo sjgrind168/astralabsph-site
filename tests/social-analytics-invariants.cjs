@@ -20,5 +20,7 @@ assert.match(socialSource,/NOT last 30 days/);
 assert.match(socialSource,/dataset\.social===n/);
 assert.match(socialSource,/chart\.replaceChildren\(build\("div","empty"/);
 assert.match(html,/social-native\.js\?v=3/);
-assert.match(html,/dashboard-v2\.js\?v=21/);
+const dashboardAsset=html.match(/dashboard-v2\.js\?v=(\d+)/);
+assert.ok(dashboardAsset,'dashboard asset must carry a cache-busting version');
+assert.ok(Number(dashboardAsset[1])>=27,'do not regress the deployed analytics asset version');
 console.log("PASS: 14 unified rendering and reporting-scope invariants");
