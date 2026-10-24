@@ -16,7 +16,21 @@ const path=require("node:path");
 const ROOT=path.resolve(__dirname,"..");
 const PUBLIC=path.join(ROOT,"public","pirevo");
 const EXPECTED_TAG="pirevo-20";
-const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV"]);
+// Only confirmed AstraLabs-owned book editions, and only in owned-book sections.
+// Do not exempt physical-product catalog links or arbitrary Amazon ASINs.
+const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV","B0HMQVHPN7"]);
+const OWN_BOOK_LISTING_FILES=new Set(["index.html","owned-products-block.html"]);
+function isOwnedBookDirectLink(rel,u){
+ const m=u.pathname.match(/^\/dp\/([A-Z0-9]{10})$/i);
+ return Boolean(m&&OWN_KDP_BOOK_IDS.has(m[1].toUpperCase())&&
+   (rel.startsWith("books/")||OWN_BOOK_LISTING_FILES.has(rel)));
+}
+// Negative controls prevent a broad tag-bypass for physical products.
+assert.equal(isOwnedBookDirectLink("index.html",new URL("https://www.amazon.com/dp/B0HMQVHPN7")),true);
+assert.equal(isOwnedBookDirectLink("owned-products-block.html",new URL("https://www.amazon.com/dp/B0FXDNX4DV")),true);
+assert.equal(isOwnedBookDirectLink("products/airtag.html",new URL("https://www.amazon.com/dp/B0HMQVHPN7")),false);
+assert.equal(isOwnedBookDirectLink("index.html",new URL("https://www.amazon.com/dp/B08HD89CX6")),false);
+assert.equal(isOwnedBookDirectLink("index.html",new URL("https://www.amazon.com/dp/INVALID")),false);
 let checked=0, failures=[];
 const fail=(reason)=>failures.push(reason);
 const file=(rel)=>fs.readFileSync(path.join(PUBLIC,rel),"utf8");
@@ -71,10 +85,8 @@ function walk(dir){
    const regex=/<a\b[^>]*\bhref\s*=\s*(["'])(https?:\/\/(?:www\.)?amazon\.com[^"'<>]*)\1/gi;
    for(const match of text.matchAll(regex)){
     let u;try{u=new URL(match[2])}catch{fail("Invalid Amazon anchor: "+rel);continue}
-    const m=u.pathname.match(/^\/dp\/([A-Z0-9]{10})$/i);
-    // Our own KDP book detail links are not affiliate products.
-    if(m&&OWN_KDP_BOOK_IDS.has(m[1])&&
-       (rel.startsWith("books/")||rel==="index.html"))continue;
+    // Direct links to our own KDP books are not affiliate-product anchors.
+    if(isOwnedBookDirectLink(rel,u))continue;
     if(u.searchParams.getAll("tag").length!==1||
       u.searchParams.get("tag")!==EXPECTED_TAG)
       fail("Non-tagged Amazon anchor: "+rel+" / "+u.pathname);
