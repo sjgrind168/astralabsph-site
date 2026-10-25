@@ -21,19 +21,22 @@ function add(id){
  const it=saved.find(x=>x.id===String(id));
  if(it){if(it.qty>=stock(p)){notice('Catalog quantity limit reached.');open();return false;}it.qty++;}
  else saved.push({id:String(id),qty:1});
- handoff=false;persist();render();open();return true;
+ handoff=false;persist();render();
+ window.MERCHLAB_ANALYTICS?.track('add_to_bag',{product_id:String(id),quantity:1});
+ open();return true;
 }
-function remove(id){saved=saved.filter(x=>x.id!==id);persist();if(!saved.length)handoff=false;render();}
+function remove(id){saved=saved.filter(x=>x.id!==id);persist();if(!saved.length)handoff=false;render();window.MERCHLAB_ANALYTICS?.track('remove_from_bag',{product_id:String(id)});}
 function changeQty(id,n){
  const it=saved.find(x=>x.id===id),p=products.get(id);if(!it)return;
  if(!stock(p))return remove(id);
- it.qty=Math.min(stock(p),Math.max(1,n));persist();handoff=false;render();
+ it.qty=Math.min(stock(p),Math.max(1,n));persist();handoff=false;render();window.MERCHLAB_ANALYTICS?.track('cart_qty_change',{product_id:String(id),quantity:it.qty});
 }
 function notice(t){const x=$('bagToast');if(!x)return;x.textContent=t;x.hidden=false;clearTimeout(notice.timer);notice.timer=setTimeout(()=>{x.hidden=true;},2400);}
 function open(){
  if(visible)return;
  if($('productDialog')&&!$('productDialog').hidden)$('closeDialog')?.click();
  if($('mobileMenu')?.classList.contains('is-open'))$('menuClose')?.click();
+ window.MERCHLAB_ANALYTICS?.track('bag_view');
  lastFocus=document.activeElement;visible=true;$('bagBackdrop').hidden=false;$('merchlabBag').hidden=false;document.body.classList.add('locked');render();$('bagClose').focus();
 }
 function close(){if(!visible)return;visible=false;$('bagBackdrop').hidden=true;$('merchlabBag').hidden=true;document.body.classList.remove('locked');if(lastFocus?.isConnected)lastFocus.focus();}
@@ -89,7 +92,7 @@ function init(){
  '<div id="bagToast" class="bag-toast" role="status" aria-live="polite" hidden></div>'].join('');
  document.body.append(wrap);
  $('bagClose').addEventListener('click',close);$('bagBackdrop').addEventListener('click',close);
- $('bagProceed').addEventListener('click',()=>{handoff=true;render();$('bagReview').scrollIntoView({behavior:'smooth',block:'nearest'});});
+ $('bagProceed').addEventListener('click',()=>{window.MERCHLAB_ANALYTICS?.track('shopee_handoff_view');handoff=true;render();$('bagReview').scrollIntoView({behavior:'smooth',block:'nearest'});});
  $('bagBrowse').addEventListener('click',()=>{close();if($('catalog'))$('catalog').scrollIntoView({behavior:'smooth'});else location.href='/merchlab/#catalog';});
  document.querySelectorAll('[data-merchlab-add]').forEach(x=>x.addEventListener('click',()=>add(x.dataset.merchlabAdd)));
  if(!$('shopTrigger')){const h=document.querySelector('.site-header .header-inner');if(h){const cart=b('Bag (0)','bag-static-launch',open);cart.id='shopTrigger';cart.setAttribute('aria-controls','merchlabBag');h.append(cart);}}
