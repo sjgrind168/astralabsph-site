@@ -16,7 +16,7 @@ const path=require("node:path");
 const ROOT=path.resolve(__dirname,"..");
 const PUBLIC=path.join(ROOT,"public","pirevo");
 const EXPECTED_TAG="pirevo-20";
-const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV"]);
+const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV","B0HMQVHPN7"]);
 let checked=0, failures=[];
 const fail=(reason)=>failures.push(reason);
 const file=(rel)=>fs.readFileSync(path.join(PUBLIC,rel),"utf8");
@@ -74,7 +74,7 @@ function walk(dir){
     const m=u.pathname.match(/^\/dp\/([A-Z0-9]{10})$/i);
     // Our own KDP book detail links are not affiliate products.
     if(m&&OWN_KDP_BOOK_IDS.has(m[1])&&
-       (rel.startsWith("books/")||rel==="index.html"))continue;
+       (rel.startsWith("books/")||rel==="index.html"||rel==="owned-products-block.html"))continue;
     if(u.searchParams.getAll("tag").length!==1||
       u.searchParams.get("tag")!==EXPECTED_TAG)
       fail("Non-tagged Amazon anchor: "+rel+" / "+u.pathname);
