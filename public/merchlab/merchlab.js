@@ -109,6 +109,7 @@ function renderCatalog(){
 function selectCategory(category,{scroll=true}={}){
   if(!['All','Fashion','Bags','Jewelry','Accessories'].includes(category))category='All';
   state.category=category;state.sub='All';state.visible=24;
+  window.MERCHLAB_ANALYTICS?.track("category_view",{category});
   renderCatalog();closeMenu();
   if(scroll)$('catalog').scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -169,6 +170,7 @@ function openProduct(id,{push=true}={}){
   if(!p)return;
   if(!state.active)state.returnFocus=document.activeElement;
   state.active=p;state.photo=0;
+  window.MERCHLAB_ANALYTICS?.track("product_view",{product_id:String(p.id)});
   text($('detailCategory'),groupOf(p).toUpperCase()+' / MERCHLAB PH');
   text($('detailTitle'),label(p.title));
   text($('detailPrice'),catalogPrice(p)||'See current price on Shopee');
@@ -222,7 +224,12 @@ function bind(){
   document.querySelectorAll('[data-scroll-category]').forEach(b=>b.addEventListener('click',()=>selectCategory(b.dataset.scrollCategory,{scroll:false})));
   $('searchTrigger').addEventListener('click',()=>{$('catalog').scrollIntoView({behavior:'smooth'});setTimeout(()=>$('searchInput').focus(),250);});
   $('shopTrigger').addEventListener('click',()=>window.MerchLabCart?.open());
-  $('searchInput').addEventListener('input',e=>{state.search=e.target.value;state.visible=24;renderCatalog()});
+  let searchTimer;
+  $('searchInput').addEventListener('input',e=>{
+    state.search=e.target.value;state.visible=24;renderCatalog();
+    clearTimeout(searchTimer);
+    const term=state.search.trim();if(term.length>=2)searchTimer=setTimeout(()=>window.MERCHLAB_ANALYTICS?.track('search',{search_term:term.slice(0,80)}),800);
+  });
   $('sortSelect').addEventListener('change',e=>{state.sort=e.target.value;state.visible=24;renderCatalog()});
   $('availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.checked;state.visible=24;renderCatalog()});
   $('clearFilters').addEventListener('click',()=>{state.search='';$('searchInput').value='';state.sort='default';$('sortSelect').value='default';state.availableOnly=true;$('availableOnly').checked=true;selectCategory('All',{scroll:false})});
