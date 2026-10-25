@@ -84,3 +84,64 @@ test('AstraLabs existing privacy and webdriver exclusions remain respected', () 
   assert.equal(run(site, { pathname: '/', dnt: '1' }).requests.length, 0);
   assert.equal(run(site, { pathname: '/', webdriver: true }).requests.length, 0);
 });
+
+function runHomepageGA(opts = {}) {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const inline = html.match(/<script>([\s\S]*?)<\/script>/);
+  assert.ok(inline, 'homepage inline GA4 bootstrap exists');
+  const scripts = [];
+  const sessionStorage = opts.sessionStorage ?? storage();
+  const window = {};
+  const context = {
+    window, sessionStorage,
+    URLSearchParams, Date,
+    location: { search: opts.search ?? '' },
+    navigator: {
+      globalPrivacyControl: !!opts.gpc,
+      doNotTrack: opts.dnt ?? null,
+      webdriver: !!opts.webdriver
+    },
+    document: {
+      createElement: tag => ({ tag }),
+      head: { appendChild: script => scripts.push(script) }
+    }
+  };
+  vm.runInNewContext(inline[1], context, { filename: 'index.html:GA4' });
+  return { scripts, window, sessionStorage };
+}
+test('homepage marked QA tab loads no GA4 tag and sends no config', () => {
+  const x = runHomepageGA({ search: '?__astra_qa=1' });
+  assert.equal(x.scripts.length, 0);
+  assert.equal(x.window.dataLayer, undefined);
+  assert.equal(x.sessionStorage.getItem('__astralabs_qa_no_track'), '1');
+});
+test('homepage QA exclusion persists through same-tab navigation', () => {
+  const first = runHomepageGA({ search: '?__astra_qa=1' });
+  const second = runHomepageGA({ sessionStorage: first.sessionStorage });
+  assert.equal(second.scripts.length, 0);
+  assert.equal(second.window.gtag, undefined);
+});
+test('homepage normal visitor still initializes one GA4 tag and config', () => {
+  const x = runHomepageGA();
+  assert.equal(x.scripts.length, 1);
+  assert.match(x.scripts[0].src, /^https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-16044108056$/);
+  assert.equal(x.window.dataLayer.length, 2);
+  assert.equal(x.window.dataLayer[0][0], 'js');
+  assert.equal(x.window.dataLayer[1][0], 'config');
+  assert.equal(x.window.dataLayer[1][1], 'G-16044108056');
+});
+test('homepage GA4 respects GPC, DNT and webdriver opt-outs', () => {
+  for (const opts of [{ gpc: true }, { dnt: '1' }, { webdriver: true }]) {
+    const x = runHomepageGA(opts);
+    assert.equal(x.scripts.length, 0);
+    assert.equal(x.window.dataLayer, undefined);
+  }
+});
+test('homepage explicitly marked QA suppresses GA4 even when sessionStorage is blocked', () => {
+  const blocked = {
+    getItem: () => { throw Error('storage blocked'); },
+    setItem: () => { throw Error('storage blocked'); }
+  };
+  const x = runHomepageGA({ search: '?__astra_qa=1', sessionStorage: blocked });
+  assert.equal(x.scripts.length, 0);
+});
