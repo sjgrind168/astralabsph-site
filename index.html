@@ -17,16 +17,34 @@
     <meta property="og:image" content="https://www.astralabsph.com/favicon.png" />
     <meta name="twitter:card" content="summary" />
     <title>AstraLabs PH | Independent Software Studio</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-16044108056"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-16044108056', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
+      // The homepage has its own GA4 bootstrap, separate from the site tracker.
+      // Suppress both the tag request and automatic page_view in explicitly
+      // marked QA tabs, and respect existing privacy signals.
+      (function () {
+        var qaMarked = new URLSearchParams(location.search).get('__astra_qa') === '1';
+        var qaSession = qaMarked;
+        try {
+          if (qaMarked) sessionStorage.setItem('__astralabs_qa_no_track', '1');
+          qaSession = qaMarked || sessionStorage.getItem('__astralabs_qa_no_track') === '1';
+        } catch (e) {
+          // If storage is unavailable, still suppress this marked page.
+        }
+        var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack) === '1';
+        if (qaSession || navigator.globalPrivacyControl === true || dnt || navigator.webdriver === true) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-16044108056', {
+          anonymize_ip: true,
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false
+        });
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-16044108056';
+        document.head.appendChild(script);
+      })();
     </script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AstraLabs PH","url":"https://www.astralabsph.com/","logo":"https://www.astralabsph.com/favicon.png","sameAs":["https://play.google.com/store/apps/details?id=com.astralabs.astramate","https://play.google.com/store/apps/details?id=com.astralabs.keepry"]}</script>
   </head>
