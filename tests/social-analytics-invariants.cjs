@@ -20,5 +20,7 @@ assert.match(socialSource,/NOT last 30 days/);
 assert.match(socialSource,/dataset\.social===n/);
 assert.match(socialSource,/chart\.replaceChildren\(build\("div","empty"/);
 assert.match(html,/social-native\.js\?v=3/);
-assert.match(html,/dashboard-v2\.js\?v=21/);
+const dashboardScripts=[...html.matchAll(/dashboard-v2\.js\?v=(\d+)/g)];
+assert.equal(dashboardScripts.length,1,"Dashboard should load exactly once");
+assert.ok(Number(dashboardScripts[0][1])>=27,"Dashboard cache version regressed below verified v27");
 console.log("PASS: 14 unified rendering and reporting-scope invariants");

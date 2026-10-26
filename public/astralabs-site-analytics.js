@@ -3,7 +3,14 @@
 if(window.__ASTRALABS_SITE_TRACKER)return;
 window.__ASTRALABS_SITE_TRACKER=true;
 const C=window.PIREVO_CONFIG||{};
-if(!C.analyticsDbUrl||!C.analyticsAnonKey||navigator.globalPrivacyControl===true||
+// Explicit QA opt-out is session-scoped, not an automatic bot detector.
+let qaOptOut=false;
+try{
+ if(new URLSearchParams(location.search).get("__astra_qa")==="1")
+   sessionStorage.setItem("__astralabs_qa_no_track","1");
+ qaOptOut=sessionStorage.getItem("__astralabs_qa_no_track")==="1";
+}catch{}
+if(qaOptOut||!C.analyticsDbUrl||!C.analyticsAnonKey||navigator.globalPrivacyControl===true||
   (navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack)==="1"||
   navigator.webdriver===true)return;
 const pathname=location.pathname;
@@ -62,7 +69,10 @@ document.addEventListener("click",e=>{
  if(play){
   const id=url.searchParams.get("id")||"";
   app=id==="com.astralabs.astramate"?"astramate":id==="com.astralabs.keepry"?"keepry":null;
- }else if(apple&&p.includes("/astramate/"))app="astramate";
+ }else if(apple){
+  const appStoreId=p.match(/\/id(\d+)(?:\/|$)/)?.[1];
+  app=appStoreId==="6812828056"?"astramate":appStoreId==="6813155959"?"keepry":null;
+ }
  if(app&&(play||apple)){log("store_click",app,play?"google_play":"app_store");return}
  if(url.origin===location.origin){
   const match=p.match(/^\/(astramate|keepry)\/?$/);
