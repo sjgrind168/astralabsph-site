@@ -69,7 +69,10 @@ document.addEventListener("click",e=>{
  if(play){
   const id=url.searchParams.get("id")||"";
   app=id==="com.astralabs.astramate"?"astramate":id==="com.astralabs.keepry"?"keepry":null;
- }else if(apple&&p.includes("/astramate/"))app="astramate";
+ }else if(apple){
+  const appStoreId=p.match(/\/id(\d+)(?:\/|$)/)?.[1];
+  app=appStoreId==="6812828056"?"astramate":appStoreId==="6813155959"?"keepry":null;
+ }
  if(app&&(play||apple)){log("store_click",app,play?"google_play":"app_store");return}
  if(url.origin===location.origin){
   const match=p.match(/^\/(astramate|keepry)\/?$/);
