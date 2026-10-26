@@ -7,7 +7,7 @@ const KEEPRY_APP_STORE_URL = 'https://apps.apple.com/ph/app/keepry/id6813155959'
 const APP_STORE_URL = 'https://apps.apple.com/us/app/astramate/id6812828056';
 const APP_STORE_BADGE_ART = 'https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg';
 const GOOGLE_PLAY_BADGE_ART = 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png';
-const PIREVO_URL = 'https://pirevo.astralabsph.com/';
+const PIREVO_URL = 'https://www.astralabsph.com/pirevo/';
 const KEEPRY_ICON = '/keepry-icon.webp';
 
 const products = [

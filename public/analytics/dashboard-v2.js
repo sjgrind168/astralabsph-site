@@ -1,7 +1,7 @@
 
 (()=>{
 "use strict";
-const P=["overview","mobile","pirevo","digital","website","admob","socials","reports"];
+const P=["overview","mobile","pirevo","digital","merchlab","website","admob","socials","reports"];
 const SOCIAL=["all","tiktok","facebook","youtube","instagram","threads","pinterest"];
 const C=window.PIREVO_CONFIG||{};
 const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)], id=s=>document.getElementById(s);
@@ -109,13 +109,14 @@ function showTab(name,historyPush){
  state.tab=name;
  qa("[data-tab]").forEach(b=>{const selected=b.dataset.tab===name;b.setAttribute("aria-selected",String(selected));b.tabIndex=selected?0:-1});
  qa(".tabpanel").forEach(p=>p.hidden=p.dataset.panel!==name);
- const titles={overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels",reports:"Performance reports"};
+ const titles={merchlab:"MerchLab storefront",overview:"Portfolio overview",mobile:"Mobile apps",pirevo:"Pirevo marketplace",digital:"Digital products",website:"AstraLabs website",admob:"AdMob advertising",socials:"Social channels",reports:"Performance reports"};
  id("pageTitle").textContent=titles[name];
  id("pageDescription").textContent={
   overview:"Your earnings, audience and business momentum in one place.",
   mobile:"Google Play and App Store performance, by application.",
   pirevo:"From marketplace discovery to Amazon affiliate activity.",
   digital:"Original books, publishing royalties and future digital products.",
+  merchlab:"Private first-party traffic, product interest and Shopee outbound activity.",
   website:"Visitors, page engagement, app referrals and search visibility.",
   admob:"Advertising impressions, revenue estimates and monetization health.",
   socials:"Content performance, referral traffic and audience opportunities.",
@@ -598,6 +599,7 @@ function paintSocial(){
 
 function renderAll(){
  renderSummary();stamp();renderOverview();paintPlatform();renderPirevo();renderDigital();renderWebsite();renderAdmob();paintSocial();
+ window.MERCHLAB_REPORT?.render(state.merchlab);
  chart("reportTrafficChart",[{key:"pirevo_sessions",name:"PIREVO sessions",color:"#006241"},{key:"site_sessions",name:"AstraLabs sessions",color:"#7BB8A2"}],{title:"Cross-site tracked sessions per calendar day"});
  window.ASTRA_REPORTS?.render(state);
 }
@@ -609,6 +611,7 @@ async function load(){
  const token=state.token,days=state.period;
  const requests=[
  ["base",rpc("pirevo_dashboard_snapshot",{p_days:days,p_token:token})],
+ ["merchlab",rpc("merchlab_dashboard_snapshot",{p_days:days,p_token:token})],
  ["site",rpc("pirevo_growth_counters",{p_days:days,p_token:token})],
  ["platforms",rpc("pirevo_platform_report_snapshot",{p_token:token})],
  ["amazon",rpc("pirevo_amazon_earnings_snapshot",{p_token:token})],
@@ -623,7 +626,7 @@ async function load(){
  const settled=await Promise.allSettled(requests.map(x=>x[1]));
  if(n!==state.seq)return;
  let successful=0;
- settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics"&&key!=="appleSalesApi")successful++});
+ settled.forEach((r,i)=>{const key=requests[i][0];state[key]=r.status==="fulfilled"?r.value:null;if(r.status==="fulfilled"&&r.value&&key!=="previous"&&key!=="trendPerformance"&&key!=="kdpSync"&&key!=="socialMetrics"&&key!=="appleSalesApi"&&key!=="merchlab")successful++});
  renderAll();
  if(successful>0){id("refreshTimestamp").textContent="Last checked: "+new Date().toLocaleString("en-PH",{timeZone:"Asia/Manila",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true})+" PHT";}else{id("refreshTimestamp").textContent="Last checked: sources unavailable";}
  id("refresh").disabled=false;
