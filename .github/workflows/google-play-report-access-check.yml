@@ -19,31 +19,45 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip -q install 'google-cloud-storage>=2.18,<4'
-      - name: Verify official reports bucket lists accessible objects
+      - name: Verify configured Google Play reports bucket (fail closed)
         env:
           BUCKET: ${{ vars.GOOGLE_PLAY_REPORT_BUCKET }}
         run: |
           python - <<'PY'
           import os
+          import sys
           from google.cloud import storage
           from google.api_core.exceptions import GoogleAPICallError
-          original=os.environ['BUCKET']
-          candidates=[original]
-          if original.startswith('pubsite_prod_') and not original.startswith('pubsite_prod_rev_'):
-              candidates.append(original.replace('pubsite_prod_','pubsite_prod_rev_',1))
-          client=storage.Client()
-          for bucket in candidates:
-              for prefix in ('stats/installs/','sales/','earnings/'):
-                  try:
-                      objects=list(client.list_blobs(bucket,prefix=prefix,max_results=2))
-                      print('BUCKET_DIAG',bucket,prefix,'LIST_OK',len(objects))
-                      for o in objects: print('OBJECT_PREFIX_SAMPLE',o.name[:90])
-                  except GoogleAPICallError as exc:
-                      print('BUCKET_DIAG',bucket,prefix,'LIST_ERROR',getattr(exc,'code','unknown'))
-              name='stats/installs/installs_com.astralabs.astramate_202609_country.csv'
+          
+          bucket = os.environ.get("BUCKET", "").strip()
+          if not bucket:
+              print("ACCESS_CHECK_FAILED missing configured report bucket")
+              sys.exit(1)
+          
+          client = storage.Client()
+          first_object = None
+          list_errors = 0
+          for prefix in ("stats/installs/", "sales/", "earnings/"):
               try:
-                  b=client.bucket(bucket).blob(name).download_as_bytes(timeout=25)
-                  print('BUCKET_PROBE_OBJECT_READ_OK',bucket,'BYTES',len(b))
+                  obj = next(iter(client.list_blobs(bucket, prefix=prefix, max_results=1)), None)
+                  print("BUCKET_DIAG", prefix, "LIST_OK", int(obj is not None))
+                  if obj is not None and first_object is None:
+                      first_object = obj
               except GoogleAPICallError as exc:
-                  print('BUCKET_PROBE_OBJECT_READ_ERROR',bucket,getattr(exc,'code','unknown'))
+                  print("BUCKET_DIAG", prefix, "LIST_ERROR", getattr(exc, "code", "unknown"))
+                  list_errors += 1
+          
+          if list_errors:
+              print("ACCESS_CHECK_FAILED", "list_errors", list_errors)
+              sys.exit(1)
+          if first_object is None:
+              print("ACCESS_CHECK_INCONCLUSIVE no existing reports in expected prefixes")
+              sys.exit(1)
+          
+          try:
+              data = first_object.download_as_bytes(start=0, end=0, timeout=25)
+              print("ACCESS_CHECK_OK", "existing_report_range_bytes", len(data))
+          except GoogleAPICallError as exc:
+              print("ACCESS_CHECK_FAILED", "object_read_error", getattr(exc, "code", "unknown"))
+              sys.exit(1)
           PY
