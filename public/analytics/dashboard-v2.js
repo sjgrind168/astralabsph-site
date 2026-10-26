@@ -278,6 +278,11 @@ function renderSummary(){
  reportBadge("kdpSource",sourceStatus("kdp"),sourceStatus("kdp").startsWith("Imported · "));
 }
 function renderOverview(){
+ // Revenue snapshot must be scoped here; renderSummary() locals are not visible.
+ const astramatePlay=metric("google_play","console_28d_revenue_usd","astramate");
+ const keepryPlay=metric("google_play","console_28d_revenue_usd","keepry");
+ const observedBoth=Boolean(astramatePlay&&keepryPlay&&astramatePlay.period_end===keepryPlay.period_end);
+ const googleConsoleRevenue=observedBoth?Number(astramatePlay.metric_value)+Number(keepryPlay.metric_value):null;
  renderGAOverviewTrend();
  barList("overviewApps",[
   {name:"Astramate",value:m("google_play","console_28d_acquisitions","astramate")??m("google_play","device_acquisitions","astramate")},
