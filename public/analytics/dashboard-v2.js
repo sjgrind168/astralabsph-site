@@ -238,13 +238,19 @@ function stamp(){
  id("sourceHealth").textContent=ready+"/6 dashboard feeds loaded (not live provider sync)";
  id("sourceHealthDot").classList.toggle("live",ready>=3);
 }
+function googlePlay28DayRevenue(){
+ const astramatePlay=metric("google_play","console_28d_revenue_usd","astramate");
+ const keepryPlay=metric("google_play","console_28d_revenue_usd","keepry");
+ const samePeriod=Boolean(astramatePlay&&keepryPlay&&astramatePlay.period_end&&astramatePlay.period_end===keepryPlay.period_end);
+ const a=astramatePlay?.metric_value,b=keepryPlay?.metric_value;
+ const validValues=a!==null&&a!==undefined&&String(a).trim()!==""&&b!==null&&b!==undefined&&String(b).trim()!==""&&Number.isFinite(Number(a))&&Number.isFinite(Number(b));
+ const observedBoth=samePeriod&&validValues;
+ return {astramatePlay,observedBoth,googleConsoleRevenue:observedBoth?Number(a)+Number(b):null};
+}
 function renderSummary(){
  const k=state.base?.kpis||{},s=state.site?.astralabs||{},amz=state.amazon?.month_to_date;
  const installed=m("google_play","installed_audience","astramate"),keepry=m("google_play","installed_audience","keepry");
- const astramatePlay=metric("google_play","console_28d_revenue_usd","astramate");
- const keepryPlay=metric("google_play","console_28d_revenue_usd","keepry");
- const observedBoth=astramatePlay&&keepryPlay&&astramatePlay.period_end===keepryPlay.period_end;
- const googleConsoleRevenue=observedBoth?Number(astramatePlay.metric_value)+Number(keepryPlay.metric_value):null;
+ const {astramatePlay,observedBoth,googleConsoleRevenue}=googlePlay28DayRevenue();
  set("playGross",usd(googleConsoleRevenue));
  set("playPending",usd(m("google_play","payout_balance_usd","all")));
  set("amazonMonth",amz?usd(amz.earnings_usd):"—");
@@ -278,6 +284,7 @@ function renderSummary(){
  reportBadge("kdpSource",sourceStatus("kdp"),sourceStatus("kdp").startsWith("Imported · "));
 }
 function renderOverview(){
+ const {astramatePlay,observedBoth,googleConsoleRevenue}=googlePlay28DayRevenue();
  renderGAOverviewTrend();
  barList("overviewApps",[
   {name:"Astramate",value:m("google_play","console_28d_acquisitions","astramate")??m("google_play","device_acquisitions","astramate")},
