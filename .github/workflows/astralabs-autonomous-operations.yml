@@ -1,0 +1,34 @@
+name: AstraLabs Autonomous Operations Controller
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 1,11 * * *' # 09:15 and 19:15 Philippine time
+permissions:
+  contents: read
+  actions: read
+  issues: write
+concurrency:
+  group: astralabs-autonomous-operations
+  cancel-in-progress: false
+jobs:
+  operate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check real publishing outcomes, website uptime and affiliate attribution
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python3 tools/growth_operator/controller.py
+      - name: Save operational evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astralabs-operations-status
+          path: tools/growth_operator/out/status.json
+          if-no-files-found: ignore
+          retention-days: 7

@@ -16,8 +16,11 @@ jobs:
     timeout-minutes: 9
     env:
       ASTRALABS_DAILY_FB_PUBLISH_ENABLED: 'true'
+      ASTRALABS_EDITORIAL_AUTO_REFILL_ENABLED: 'true'
     steps:
       - uses: actions/checkout@v4
+      - name: Validate continuous content replenishment (no Buffer writes)
+        run: python3 marketing/automation/facebook/scripts/daily_two_per_app.py --validate-only
       - name: Queue maximum three unique Keepry and Astramate Facebook posts each local day
         env:
           ASTRALABS_BUFFER_API_KEY: ${{ secrets.ASTRALABS_BUFFER_API_KEY }}
