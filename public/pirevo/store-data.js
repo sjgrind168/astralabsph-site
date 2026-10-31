@@ -1,5 +1,5 @@
 window.PIREVO_STORE = {
-  "updated": "2026-10-14",
+  "updated": "2026-10-31",
   "associateTag": "pirevo-20",
   "collections": [
     {
@@ -32,9 +32,9 @@ window.PIREVO_STORE = {
     },
     {
       "id": "seasonal",
-      "name": "Halloween Shop + Holiday Preview",
-      "kicker": "HALLOWEEN TAKEOVER • CHRISTMAS PREVIEW",
-      "description": "A Halloween-first seasonal shop with 16 researched picks across outdoor haunts, webs and bats, lighting, porch decor and cozy spooky accents.",
+      "name": "Christmas Decor & Holiday Gifts",
+      "kicker": "2026 HOLIDAY SHOPPING",
+      "description": "Christmas decorations, winter lighting, cozy gift ideas and creative family activities.",
       "signal": "4.5★+ exact-ASIN validation • buyer activity • review depth • visual seasonal intent"
     },
     {
@@ -1183,7 +1183,8 @@ window.PIREVO_STORE = {
         "description": "Compare ZPISF 1400 sq ft Halloween spider webs with 150 fake spiders for porch, yard and haunted-house decorating, including size, features and buying tradeoffs."
       },
       "season": "halloween",
-      "seasonalGroup": "webs-walls"
+      "seasonalGroup": "webs-walls",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "eldnacele-halloween-skull-candles",
@@ -1263,7 +1264,8 @@ window.PIREVO_STORE = {
         "description": "Compare Eldnacele skull Halloween flameless candles with a 6-hour timer for mantels, tables and spooky indoor decor, including buyer evidence and tradeoffs."
       },
       "season": "halloween",
-      "seasonalGroup": "lights-glow"
+      "seasonalGroup": "lights-glow",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "aiseno-skeleton-stakes",
@@ -1343,7 +1345,8 @@ window.PIREVO_STORE = {
         "description": "Compare AISENO realistic skeleton groundbreaker stakes for Halloween yards, graveyard scenes and outdoor displays, including setup, buyer evidence and tradeoffs."
       },
       "season": "halloween",
-      "seasonalGroup": "outdoor-haunt"
+      "seasonalGroup": "outdoor-haunt",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "homemory-50-flameless-tealights",
@@ -1504,7 +1507,8 @@ window.PIREVO_STORE = {
       },
       "season": "christmas",
       "seasonalGroup": "christmas",
-      "holidayGroup": "decor"
+      "holidayGroup": "decor",
+      "holidayGiftGroup": true
     },
     {
       "slug": "homemory-christmas-tree-candles",
@@ -1585,7 +1589,8 @@ window.PIREVO_STORE = {
       },
       "season": "christmas",
       "seasonalGroup": "christmas",
-      "holidayGroup": "decor"
+      "holidayGroup": "decor",
+      "holidayGiftGroup": true
     },
     {
       "slug": "godonlif-candle-warmer-lamp",
@@ -1963,7 +1968,8 @@ window.PIREVO_STORE = {
         "title": "Cozy Christmas Gift for Women | Bedsure GentleSoft Throw Blanket | PIREVO",
         "description": "Compare the Bedsure GentleSoft Off White 50 x 60 throw blanket as a cozy Christmas gift for women, moms, friends and homebodies, with current buyer evidence and tradeoffs."
       },
-      "holidayGiftGroup": "adults"
+      "holidayGiftGroup": true,
+      "season": "christmas"
     },
     {
       "slug": "stanley-quencher-30-rose-quartz",
@@ -2121,7 +2127,8 @@ window.PIREVO_STORE = {
         "title": "LEGO Gift for Adults & Plant Lovers | Botanicals Tiny Plants 10329 | PIREVO",
         "description": "Compare LEGO Botanicals Tiny Plants 10329 as a creative Christmas gift for adults and plant lovers, including piece count, display value, buyer evidence and tradeoffs."
       },
-      "holidayGiftGroup": "adults"
+      "holidayGiftGroup": true,
+      "season": "christmas"
     },
     {
       "slug": "moonka-frameo-digital-photo-frame",
@@ -2356,7 +2363,8 @@ window.PIREVO_STORE = {
         "title": "Portable Bluetooth Speaker Gift | JBL Clip 5 Black | PIREVO",
         "description": "Compare the JBL Clip 5 Black as a portable holiday gift for travelers, students and outdoor use, including IP67 protection, carabiner design and current Amazon buyer evidence."
       },
-      "holidayGiftGroup": "adults"
+      "holidayGiftGroup": true,
+      "season": "christmas"
     },
     {
       "slug": "national-tree-wintry-pine-garland",
@@ -2437,7 +2445,8 @@ window.PIREVO_STORE = {
       },
       "season": "christmas",
       "seasonalGroup": "christmas",
-      "holidayGroup": "decor"
+      "holidayGroup": "decor",
+      "holidayGiftGroup": true
     },
     {
       "slug": "amazon-basics-wire-rack",
@@ -3595,7 +3604,8 @@ window.PIREVO_STORE = {
         "title": "36-Pack Case of Colors | #14 Toys & Games snapshot | PIREVO",
         "description": "Research-backed PIREVO Trend 50 pick: Play-Doh Modeling Compound 36-Pack Case of Colors. 4.8★ across 28,824 ratings with current Amazon category evidence."
       },
-      "holidayGiftGroup": "kids"
+      "holidayGiftGroup": true,
+      "season": "christmas"
     },
     {
       "slug": "lego-city-police-motorcycle-60455",
@@ -5526,7 +5536,8 @@ window.PIREVO_STORE = {
         "description": "Compare the OCATO 200-inch Halloween spider web with 59-inch giant spider, including current Amazon rating, review depth and buyer-activity evidence."
       },
       "season": "halloween",
-      "seasonalGroup": "webs-walls"
+      "seasonalGroup": "webs-walls",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "joyin-hanging-skeleton-ghosts",
@@ -5596,7 +5607,8 @@ window.PIREVO_STORE = {
         "description": "Compare JOYIN 3-pack hanging skeleton ghost decorations with current Amazon rating, review depth, bestseller and buyer-activity signals."
       },
       "season": "halloween",
-      "seasonalGroup": "outdoor-haunt"
+      "seasonalGroup": "outdoor-haunt",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "cyantor-halloween-creepy-cloth-5",
@@ -5666,7 +5678,8 @@ window.PIREVO_STORE = {
         "description": "Compare the Cyantor 5-pack black creepy cloth for Halloween decor with current Amazon rating, review depth and 20K+ monthly buyer-activity snapshot."
       },
       "season": "halloween",
-      "seasonalGroup": "webs-walls"
+      "seasonalGroup": "webs-walls",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "miulee-ghost-pillow-covers-2",
@@ -5736,7 +5749,8 @@ window.PIREVO_STORE = {
         "description": "Compare MIULEE cute ghost Halloween pillow covers, set of two 18x18 covers, with current Amazon rating, review depth and buyer-activity evidence."
       },
       "season": "halloween",
-      "seasonalGroup": "cute-cozy"
+      "seasonalGroup": "cute-cozy",
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "piteno-140-bat-wall-decor",
@@ -5805,7 +5819,8 @@ window.PIREVO_STORE = {
         "intent": "140-piece 3d bat wall decor Halloween",
         "title": "140-Piece 3D Bat Wall Decor | Piteno | PIREVO Halloween Edit",
         "description": "Compare Piteno 140-Piece 3D Bat Wall Decor with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "ljlnion-300led-purple-halloween-lights",
@@ -5874,7 +5889,8 @@ window.PIREVO_STORE = {
         "intent": "300-led purple halloween string lights Halloween",
         "title": "300-LED Purple Halloween String Lights | LJLNION | PIREVO Halloween Edit",
         "description": "Compare LJLNION 300-LED Purple Halloween String Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "goosh-skeleton-puppy-inflatable",
@@ -5943,7 +5959,8 @@ window.PIREVO_STORE = {
         "intent": "5.5-ft skeleton puppy inflatable Halloween",
         "title": "5.5-ft Skeleton Puppy Inflatable | GOOSH | PIREVO Halloween Edit",
         "description": "Compare GOOSH 5.5-ft Skeleton Puppy Inflatable with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "goothy-pumpkin-pathway-lights-4",
@@ -6012,7 +6029,8 @@ window.PIREVO_STORE = {
         "intent": "4-pack pumpkin pathway lights Halloween",
         "title": "4-Pack Pumpkin Pathway Lights | GOOTHY | PIREVO Halloween Edit",
         "description": "Compare GOOTHY 4-Pack Pumpkin Pathway Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "hexagram-halloween-doormat",
@@ -6081,7 +6099,8 @@ window.PIREVO_STORE = {
         "intent": "17 × 29 halloween welcome mat Halloween",
         "title": "17 × 29 Halloween Welcome Mat | Hexagram | PIREVO Halloween Edit",
         "description": "Compare Hexagram 17 × 29 Halloween Welcome Mat with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "sophena-wooden-ghost-door-wreath",
@@ -6150,7 +6169,8 @@ window.PIREVO_STORE = {
         "intent": "wooden ghost door wreath Halloween",
         "title": "Wooden Ghost Door Wreath | Sophena | PIREVO Halloween Edit",
         "description": "Compare Sophena Wooden Ghost Door Wreath with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "brizled-purple-orange-halloween-lights",
@@ -6219,7 +6239,8 @@ window.PIREVO_STORE = {
         "intent": "240-led purple & orange halloween lights Halloween",
         "title": "240-LED Purple & Orange Halloween Lights | Brizled | PIREVO Halloween Edit",
         "description": "Compare Brizled 240-LED Purple & Orange Halloween Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "denicmic-solar-halloween-path-lights-10",
@@ -6288,7 +6309,8 @@ window.PIREVO_STORE = {
         "intent": "10-pack solar purple path lights Halloween",
         "title": "10-Pack Solar Purple Path Lights | DenicMic | PIREVO Halloween Edit",
         "description": "Compare DenicMic 10-Pack Solar Purple Path Lights with current Amazon rating, review depth and seasonal buyer-activity evidence."
-      }
+      },
+      "archivedSeason": "halloween-2026"
     },
     {
       "slug": "brightown-fairy-lights-12",
@@ -6358,7 +6380,8 @@ window.PIREVO_STORE = {
         "intent": "battery fairy lights Christmas decor",
         "title": "Christmas Fairy Lights 12-Pack | Brightown | PIREVO",
         "description": "Compare Brightown 12-pack battery fairy lights for Christmas wreaths, centerpieces and table decor with current demand and rating research."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "joyin-glow-rock-painting-kit",
@@ -6568,7 +6591,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas art gifts for kids",
         "title": "Crayola Inspiration Art Case 140pc Christmas Gift | PIREVO",
         "description": "Compare the Crayola 140-piece Inspiration Art Case, a 4.8-star creative gift with over 30K ratings."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "crockpot-20oz-electric-lunch-box",
@@ -6708,7 +6732,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas gifts for couples and hosts",
         "title": "SMIRLY Charcuterie Board Christmas Gift for Couples | PIREVO",
         "description": "Compare the SMIRLY bamboo charcuterie board set, a high-rated Christmas gift for couples, hosts and new homeowners."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "bolabutty-portable-bluetooth-speaker",
@@ -6838,7 +6863,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas decor Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration",
         "title": "Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration | PIREVO Christmas Edit",
         "description": "Compare Best Choice Products 36in Pre-Lit Outdoor Christmas Wreath Decoration, LED Metal Holiday Decor for Home w/ 120 Lights, B. Verified Amazon product details, features and Oct. 2026 rating snapshot."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "shareconn-106-christmas-ornaments",
@@ -6898,7 +6924,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas decor SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations",
         "title": "SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations | PIREVO Christmas Edit",
         "description": "Compare SHareconn 106 PCS Christmas Ball Ornaments for Christmas Tree Decorations. Verified Amazon product details, features and Oct. 2026 rating snapshot."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "touchat-wearable-blanket-hoodie",
@@ -7138,7 +7165,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas kids Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive",
         "title": "Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive | PIREVO Christmas Edit",
         "description": "Compare Creativity for Kids Holiday Big Gem Diamond Painting Kit | Create 12 Festive Stickers & 2 Suncatchers with 1000+ Colorfu. Verified Amazon product details, features and Oct. 2026 rating snapshot."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "eddie-bauer-sherpa-throw",
@@ -7258,7 +7286,8 @@ window.PIREVO_STORE = {
         "intent": "Christmas decor SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor",
         "title": "SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor | PIREVO Christmas Edit",
         "description": "Compare SHareconn 48Inch Large Artificial Prelit Christmas Wreath for Outdoor Decor. Verified Amazon product details, features and Oct. 2026 rating snapshot."
-      }
+      },
+      "holidayGiftGroup": true
     },
     {
       "slug": "huggiegems-magnetic-spice-rack-4",
@@ -7515,146 +7544,142 @@ window.PIREVO_STORE = {
       },
       "amazon": "https://www.amazon.com/dp/B09GTRVJQM?tag=pirevo-20",
       "galleryIds": []
-    }
-,
-{
-    "slug": "bedsure-satin-pillowcase-queen-grey-2",
-    "asin": "B0725WFLMB",
-    "brand": "Bedsure",
-    "shortName": "Satin Pillowcases, Queen Set of 2",
-    "fullName": "Bedsure Satin Pillowcases, Queen Size, Grey, Pack of 2",
-    "collection": "sleep-bedroom",
-    "bestFor": "An easy-to-wash pillowcase alternative with a satin-style finish for a queen-size pillow setup.",
-    "caveat": "Satin is a weave, not proof of genuine silk. Confirm fabric composition, pillowcase dimensions, envelope closure and care instructions for the selected color.",
-    "details": [
+    },
+    {
+      "slug": "bedsure-satin-pillowcase-queen-grey-2",
+      "asin": "B0725WFLMB",
+      "brand": "Bedsure",
+      "shortName": "Satin Pillowcases, Queen Set of 2",
+      "fullName": "Bedsure Satin Pillowcases, Queen Size, Grey, Pack of 2",
+      "collection": "sleep-bedroom",
+      "bestFor": "An easy-to-wash pillowcase alternative with a satin-style finish for a queen-size pillow setup.",
+      "caveat": "Satin is a weave, not proof of genuine silk. Confirm fabric composition, pillowcase dimensions, envelope closure and care instructions for the selected color.",
+      "details": [
         [
-            "Size",
-            "Queen; verify exact dimensions on Amazon"
+          "Size",
+          "Queen; verify exact dimensions on Amazon"
         ],
         [
-            "Included",
-            "Two pillowcases"
+          "Included",
+          "Two pillowcases"
         ],
         [
-            "Material",
-            "Confirm fiber content in seller's exact listing"
+          "Material",
+          "Confirm fiber content in seller's exact listing"
         ]
-    ],
-    "about": [
+      ],
+      "about": [
         "Choosing satin-style covers is mainly about care, comfort and correct pillow size.",
         "A two-pack helps replace matching cases together, but check the closure style and fabric label."
-    ],
-    "image": "/pirevo/editorial/bedsure-satin-pillowcase-queen-grey-2.svg",
-    "amazon": "https://www.amazon.com/dp/B0725WFLMB?tag=pirevo-20",
-    "galleryIds": []
-}
-,
-{
-    "slug": "bedsure-prewashed-comforter-twin-xl-green",
-    "asin": "B0D145689D",
-    "brand": "Bedsure",
-    "shortName": "Prewashed Comforter, Twin/Twin XL",
-    "fullName": "Bedsure Prewashed Comforter Set, Twin/Twin XL, Emerald Green",
-    "collection": "sleep-bedroom",
-    "bestFor": "Dorm, guest-room or Twin XL bedroom comfort using a lighter synthetic comforter set.",
-    "caveat": "Confirm fill weight, included pillowcase count, true Twin XL dimensions, laundry instructions and warmth preference. This is a comforter set, not a duvet cover.",
-    "details": [
+      ],
+      "image": "/pirevo/editorial/bedsure-satin-pillowcase-queen-grey-2.svg",
+      "amazon": "https://www.amazon.com/dp/B0725WFLMB?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "bedsure-prewashed-comforter-twin-xl-green",
+      "asin": "B0D145689D",
+      "brand": "Bedsure",
+      "shortName": "Prewashed Comforter, Twin/Twin XL",
+      "fullName": "Bedsure Prewashed Comforter Set, Twin/Twin XL, Emerald Green",
+      "collection": "sleep-bedroom",
+      "bestFor": "Dorm, guest-room or Twin XL bedroom comfort using a lighter synthetic comforter set.",
+      "caveat": "Confirm fill weight, included pillowcase count, true Twin XL dimensions, laundry instructions and warmth preference. This is a comforter set, not a duvet cover.",
+      "details": [
         [
-            "Listed format",
-            "Twin/Twin XL comforter set"
+          "Listed format",
+          "Twin/Twin XL comforter set"
         ],
         [
-            "Color",
-            "Emerald Green at checked ASIN"
+          "Color",
+          "Emerald Green at checked ASIN"
         ],
         [
-            "Included",
-            "Comforter with matching case; verify quantity"
+          "Included",
+          "Comforter with matching case; verify quantity"
         ],
         [
-            "Care",
-            "Verify exact care label"
+          "Care",
+          "Verify exact care label"
         ]
-    ],
-    "about": [
+      ],
+      "about": [
         "A practical bedroom comparison should start with mattress dimensions and the desired warmth level.",
         "Check whether synthetic fill and machine washing suit the user instead of assuming all comforters breathe the same."
-    ],
-    "image": "/pirevo/editorial/bedsure-prewashed-comforter-twin-xl-green.svg",
-    "amazon": "https://www.amazon.com/dp/B0D145689D?tag=pirevo-20",
-    "galleryIds": []
-}
-,
-{
-    "slug": "bedsure-washed-cotton-duvet-oversized-king",
-    "asin": "B0CSYXYWDZ",
-    "brand": "Bedsure",
-    "shortName": "Washed Cotton Duvet Cover, Oversized King",
-    "fullName": "Bedsure PureWoven 100% Washed Cotton Duvet Cover Set, Oversized King, 3 Pieces",
-    "collection": "sleep-bedroom",
-    "bestFor": "Large-bedding setups needing an oversized king duvet cover without replacing the duvet insert.",
-    "caveat": "This listing is for a duvet cover set, NOT a filled comforter. Confirm oversized king dimensions, insert compatibility, fabric, zipper closure and actual included pillow shams.",
-    "details": [
+      ],
+      "image": "/pirevo/editorial/bedsure-prewashed-comforter-twin-xl-green.svg",
+      "amazon": "https://www.amazon.com/dp/B0D145689D?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "bedsure-washed-cotton-duvet-oversized-king",
+      "asin": "B0CSYXYWDZ",
+      "brand": "Bedsure",
+      "shortName": "Washed Cotton Duvet Cover, Oversized King",
+      "fullName": "Bedsure PureWoven 100% Washed Cotton Duvet Cover Set, Oversized King, 3 Pieces",
+      "collection": "sleep-bedroom",
+      "bestFor": "Large-bedding setups needing an oversized king duvet cover without replacing the duvet insert.",
+      "caveat": "This listing is for a duvet cover set, NOT a filled comforter. Confirm oversized king dimensions, insert compatibility, fabric, zipper closure and actual included pillow shams.",
+      "details": [
         [
-            "Type",
-            "Duvet cover set; duvet insert not included"
+          "Type",
+          "Duvet cover set; duvet insert not included"
         ],
         [
-            "Size",
-            "Oversized King; check 120 × 98 inch variant"
+          "Size",
+          "Oversized King; check 120 × 98 inch variant"
         ],
         [
-            "Pieces",
-            "Three pieces at checked ASIN"
+          "Pieces",
+          "Three pieces at checked ASIN"
         ],
         [
-            "Material",
-            "Washed cotton; verify exact seller listing"
+          "Material",
+          "Washed cotton; verify exact seller listing"
         ]
-    ],
-    "about": [
+      ],
+      "about": [
         "For duvet covers, compare attachment ties, closure design and the duvet-insert dimensions first.",
         "Cotton and polyester bedding have different care and breathability characteristics; compare based on climate and washing habits."
-    ],
-    "image": "/pirevo/editorial/bedsure-washed-cotton-duvet-oversized-king.svg",
-    "amazon": "https://www.amazon.com/dp/B0CSYXYWDZ?tag=pirevo-20",
-    "galleryIds": []
-}
-,
-{
-    "slug": "black-decker-ldx120c-cordless-drill",
-    "asin": "B005NNF0YU",
-    "brand": "BLACK+DECKER",
-    "shortName": "20V MAX Cordless Drill/Driver LDX120C",
-    "fullName": "BLACK+DECKER LDX120C 20V MAX Cordless Drill and Driver, 3/8 Inch",
-    "collection": "tools-diy",
-    "bestFor": "Common household drill and screwdriving tasks using a compact cordless drill with adjustable clutch.",
-    "caveat": "Check the exact drill/battery/charger bundle, chuck size, material suitability, safety instructions and compatibility with existing 20V MAX batteries before ordering.",
-    "details": [
+      ],
+      "image": "/pirevo/editorial/bedsure-washed-cotton-duvet-oversized-king.svg",
+      "amazon": "https://www.amazon.com/dp/B0CSYXYWDZ?tag=pirevo-20",
+      "galleryIds": []
+    },
+    {
+      "slug": "black-decker-ldx120c-cordless-drill",
+      "asin": "B005NNF0YU",
+      "brand": "BLACK+DECKER",
+      "shortName": "20V MAX Cordless Drill/Driver LDX120C",
+      "fullName": "BLACK+DECKER LDX120C 20V MAX Cordless Drill and Driver, 3/8 Inch",
+      "collection": "tools-diy",
+      "bestFor": "Common household drill and screwdriving tasks using a compact cordless drill with adjustable clutch.",
+      "caveat": "Check the exact drill/battery/charger bundle, chuck size, material suitability, safety instructions and compatibility with existing 20V MAX batteries before ordering.",
+      "details": [
         [
-            "Model",
-            "LDX120C"
+          "Model",
+          "LDX120C"
         ],
         [
-            "Chuck",
-            "3/8 inch"
+          "Chuck",
+          "3/8 inch"
         ],
         [
-            "Control",
-            "11-position clutch"
+          "Control",
+          "11-position clutch"
         ],
         [
-            "Power",
-            "20V MAX battery system; check actual included bundle"
+          "Power",
+          "20V MAX battery system; check actual included bundle"
         ]
-    ],
-    "about": [
+      ],
+      "about": [
         "The 11-position clutch helps regulate driving force for different fastening tasks.",
         "Built-in LED can help illuminate darker workspaces, but the correct bit and workpiece safety remain essential."
-    ],
-    "image": "/pirevo/editorial/black-decker-ldx120c-cordless-drill.svg",
-    "amazon": "https://www.amazon.com/dp/B005NNF0YU?tag=pirevo-20",
-    "galleryIds": []
-}
+      ],
+      "image": "/pirevo/editorial/black-decker-ldx120c-cordless-drill.svg",
+      "amazon": "https://www.amazon.com/dp/B005NNF0YU?tag=pirevo-20",
+      "galleryIds": []
+    }
   ]
 };

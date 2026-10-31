@@ -22,7 +22,7 @@ CATEGORIES={
 "bags":("Everyday Bags & Carry","Find bags by capacity, closure, straps and the practical details you carry each day.","Dimensions and compartments|Closure and material|Strap fit and durability"),
 "beauty":("Skincare & Beauty","Look beyond trends to ingredients, skin compatibility and the exact product variant.","Ingredient list|Size and authenticity|Skin and routine compatibility"),
 "gaming":("Gaming Room & Accessories","Explore compatible setup accessories that improve comfort, lighting or organization.","Device compatibility|Desk space and wiring|Power and mounting requirements"),
-"seasonal":("Halloween & Seasonal Decor","Choose decorations that suit your space, weather conditions and storage requirements.","Indoor or outdoor suitability|Size and setup|Current seasonal stock"),
+"seasonal":("Christmas Decorations & Holiday Gifts","Compare holiday lighting, decorations and family gifts by size, safety and retailer availability.","Indoor or outdoor suitability|Size and setup|Regional stock and delivery"),
 "gifts":("Thoughtful & Practical Gifts","Browse gift ideas based on the recipient's interests and everyday needs.","Recipient needs|Variant and sizing|Shipping and returns"),
 "fall-home":("Cozy Home Decor","Compare versatile, easy-to-maintain home accents for everyday comfort.","Room dimensions|Cleaning and care|Year-round usefulness"),
 "home-organization":("Home Organization & Storage","Choose organizers that fit real cabinets, drawers and small spaces.","Measure before ordering|Material and load capacity|Clearance and layout"),
@@ -40,8 +40,8 @@ CATEGORIES={
 "outdoor-garden":("Outdoor & Garden","Browse outdoor gear based on exposure, space, installation and upkeep.","Weather rating|Mounting or anchoring|Cleaning and storage")
 }
 def catmeta(c):return CATEGORIES.get(c["id"],(c["name"],"Compare the specific product variant, fit and maintenance before buying.","Measurements|Compatibility|Return terms"))
-products=[p for p in store["products"] if slug_ok(p.get("slug")) and (PUBLIC/"products"/p["slug"]/"index.html").exists()]
-missing=[p["slug"] for p in store["products"] if p not in products]
+products=[p for p in store["products"] if not p.get("archivedSeason") and slug_ok(p.get("slug")) and (PUBLIC/"products"/p["slug"]/"index.html").exists()]
+missing=[p["slug"] for p in store["products"] if not p.get("archivedSeason") and p not in products]
 groups={c["id"]:[p for p in products if p.get("collection")==c["id"]] for c in store["collections"]}
 CSS="""<style>
 :root{font-family:system-ui,-apple-system,sans-serif;color:#1c302b;background:#f7f9f6}*{box-sizing:border-box}body{margin:0}a{color:inherit}

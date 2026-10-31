@@ -6,18 +6,19 @@ R=Path(__file__).resolve().parent.parent;B=R/"public/pirevo"
 js='const fs=require("fs"),vm=require("vm"),w={};vm.runInNewContext(fs.readFileSync("public/pirevo/store-data.js","utf8"),{window:w});process.stdout.write(JSON.stringify(w.PIREVO_STORE))'
 store=json.loads(subprocess.check_output(["node","-e",js],cwd=R,text=True))
 assert len(store["products"])>=138 and len(store["collections"])==20
+visible=[p for p in store["products"] if not p.get("archivedSeason")]
 home=(B/"index.html").read_text()
-required={"class=\"pv-header\"":1,"class=\"pv-footer\"":1,"data-pv-carousel":3,"class=\"pv-cat-tile":20,"id=\"pv-products-grid\"":1,"class=\"pv-card\"":len(store["products"])+42,"<h1":1}
+required={"class=\"pv-header\"":1,"class=\"pv-footer\"":1,"data-pv-carousel":3,"class=\"pv-cat-tile":20,"id=\"pv-products-grid\"":1,"class=\"pv-card\"":len(visible)+42,"<h1":1}
 for key,count in required.items():
  assert home.count(key)==count,(key,home.count(key),count)
 assert "marketplace-guide.js" in home and "marketplace-guide.css" in home
-order=[home.index('id="'+i+'"') for i in ["trending","discover","holiday","everyday"]]
+order=[home.index('id="'+i+'"') for i in ["trending","holiday","discover","everyday"]]
 assert order==sorted(order),"Searchable products must appear immediately after first trend carousel"
 for label in ["Trend","Holiday"]:
  assert label.lower() in home.lower()
 assert "not a live sales ranking" in home
 assert not re.search(r"\b\d(?:\.\d)?\s*[★☆]|\b\d[,.]?\d*\s+(?:ratings?|reviews?)\b",home,re.I)
-for prod in store["products"]:
+for prod in visible:
  slug=prod["slug"]
  assert f'href="/pirevo/products/{slug}/index.html"' in home,slug
  assert f'data-cat="{prod["collection"]}"' in home,slug
@@ -50,4 +51,4 @@ for f in [R/"public/sitemap.xml",B/"sitemap.xml"]:
  assert len(urls)==len(set(urls)),f
  for slug in ["compare/","trends/","international/","catalog/"]:
   assert any(("/pirevo/"+slug) in u for u in urls),slug
-print(json.dumps({"result":"PASS","home_catalog_products":len(store["products"]),"trending_carousel_items":15,"seasonal_carousel_items":16,"everyday_carousel_items":11,"categories":20,"unified_inner_pages":len(paths),"social_shopping_product_cards":46,"protected_original_affiliate_links":True,"browser_image_source_status":"Historical image license NOT certified"},indent=2))
+print(json.dumps({"result":"PASS","home_catalog_products":len(visible),"trending_carousel_items":15,"seasonal_carousel_items":16,"everyday_carousel_items":11,"categories":20,"unified_inner_pages":len(paths),"social_shopping_product_cards":46,"protected_original_affiliate_links":True,"browser_image_source_status":"Historical image license NOT certified"},indent=2))
