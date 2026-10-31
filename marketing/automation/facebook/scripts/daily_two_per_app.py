@@ -20,18 +20,38 @@ SLOTS={"Astramate":(clock(9,30),clock(14,10),clock(19,10)),
        "Keepry":(clock(10,40),clock(15,40),clock(20,40))}
 MAX_QUEUE=10
 DAILY_TARGET=3
+# Only approved, visually matching Astramate A04 trim art is reusable until
+# fresh authentic GM/KG and List screenshots are QA-approved.
+TARGET_BY_APP={"Astramate":1, "Keepry":3}
 MAX_NEW_PER_RUN=2  # Limit Buffer API writes; next refill continues safely.
 DENY=("colregs","imdg","imsbc","tidal","tide calculator","cloud sync")
 def full_history(org):
-    q=('query { posts(first:100,input:{organizationId:'+fb.quoted(org)+
-       ',filter:{status:[scheduled,sent,draft,error,sending],channelIds:['+fb.quoted(fb.EXPECTED_PAGE_ID)+
-       ']},sort:[{field:createdAt,direction:desc}]})'
-       ' { edges { node { id text status dueAt channelId assets { mimeType source } } }'
-       ' pageInfo { hasNextPage } } }')
-    obj=fb.buffer_query(q).get("posts") or {}
-    if not isinstance(obj.get("edges"),list) or (obj.get("pageInfo") or {}).get("hasNextPage"):
-        raise RuntimeError("Buffer Facebook post history incomplete: never assume unseen post unused")
-    rows=[edge["node"] for edge in obj["edges"] if isinstance(edge.get("node"),dict)]
+    """Read all Buffer Facebook posts with cursor pagination before any write."""
+    rows=[]
+    cursor=None
+    visited=set()
+    for page in range(12):
+        after=(",after:"+fb.quoted(cursor)) if cursor else ""
+        q=('query { posts(first:100'+after+',input:{organizationId:'+fb.quoted(org)+
+           ',filter:{status:[scheduled,sent,draft,error,sending],channelIds:['+fb.quoted(fb.EXPECTED_PAGE_ID)+
+           ']},sort:[{field:createdAt,direction:desc}]})'
+           ' { edges { node { id text status dueAt channelId assets { mimeType source } } }'
+           ' pageInfo { hasNextPage endCursor } } }')
+        obj=fb.buffer_query(q).get("posts") or {}
+        edges=obj.get("edges")
+        info=obj.get("pageInfo")
+        if not isinstance(edges,list) or not isinstance(info,dict):
+            raise RuntimeError("Buffer Facebook history incomplete; stop before creating posts")
+        rows.extend(edge["node"] for edge in edges if isinstance(edge.get("node"),dict))
+        if not info.get("hasNextPage"):
+            break
+        next_cursor=info.get("endCursor")
+        if not next_cursor or next_cursor in visited:
+            raise RuntimeError("Buffer cursor missing/repeating; cannot safely deduplicate")
+        visited.add(next_cursor)
+        cursor=next_cursor
+    else:
+        raise RuntimeError("Buffer history exceeds 1200 posts; fail-closed, no duplicate writes")
     if any(x.get("channelId")!=fb.EXPECTED_PAGE_ID for x in rows):
         raise RuntimeError("Cross-channel Facebook results, stop")
     return rows
@@ -45,6 +65,70 @@ def on_day(p,day):
 def in_scope(p,app):
     text=str(p.get("text") or "").lower()
     return app.lower() in text and ("keepry" not in text if app=="Astramate" else "astramate" not in text)
+def rolling_candidates():
+    """Deterministic, dated, truthful campaign hooks using only approved first-party art.
+
+    No generative model, fabricated reviews, or unverified features. IDs are stable
+    per Philippine calendar day and creative slot, making retries idempotent.
+    """
+    today=datetime.now(PHT).date()
+    topics={
+        "Astramate": [
+            ("A04",
+             ["A trim check begins with the forward and aft draft figures you entered.",
+              "A small draft-entry mistake can change the trim working.",
+              "When checking draft and trim, record which figures you started with.",
+              "A calculator can assist with working, but vessel particulars remain essential."],
+             ["Use Astramate's simple mean draft and trim working as a cross-check against approved vessel information.",
+              "Review the draft inputs and the resulting trim calculation independently before using the figures.",
+              "Double-check the units, observations and approved ship data alongside Astramate's calculation.",
+              "Keep the original observations visible while checking Astramate's trim working and any discrepancies."])
+        ],
+        "Keepry": [
+            ("K02",
+             ["An expiry date is useful only if you can find it when you need it.",
+              "Passport, license and insurance dates belong on a deliberate checklist.",
+              "Small personal deadlines often disappear inside a busy calendar.",
+              "Have you double-checked the date on your original document?"],
+             ["Record the verified date in Keepry and set a reminder that matches your own schedule.",
+              "Organize the date with its related record and review device notification settings.",
+              "Review your entered deadlines rather than assuming a reminder has already been configured.",
+              "Keep the original document as the source of truth and use Keepry to track your plan."]),
+            ("K03",
+             ["A folder full of untitled PDFs is not a practical document system.",
+              "Finding one document should not require scrolling through every photo.",
+              "Important documents deserve useful names and organized records.",
+              "Before storing another scan, think about how you will retrieve it."],
+             ["Use Keepry Vault to group personal records with details you can search later.",
+              "Give imported documents clear titles and keep an independent backup.",
+              "Keep essential copies organized so you can find what you saved when needed.",
+              "Review Vault organization and protect private records with supported device security."]),
+            ("K04",
+             ["One missing household task can create a stressful deadline.",
+              "Life administration becomes easier when next steps are visible.",
+              "A simple task list is more useful than a forgotten note.",
+              "Organizing a family's records starts with a clear plan."],
+             ["Use Keepry to group your tasks and user-entered records in one place.",
+              "Set up relevant tasks and reminders, then check their actual status.",
+              "Keep tasks, documents and personal organization connected in your routine.",
+              "Review the People and Life Admin organization options according to your needs."])
+        ]
+    }
+    for offset in range(9):
+        day=today+timedelta(days=offset)
+        for app,items in topics.items():
+            for slot,(creative,hooks,actions) in enumerate(items,1):
+                n=day.toordinal()
+                intro=hooks[n%len(hooks)]
+                action=actions[(n//len(hooks))%len(actions)]
+                closing=("Check the result against real records, not assumptions."
+                         if app=="Astramate" else
+                         "Your records stay useful when the details you enter are accurate.")
+                yield {"id":"daily_"+("a" if app=="Astramate" else "k")+
+                       "_z_"+day.strftime("%Y%m%d")+"_"+str(slot),
+                       "app":app,"creative":creative,
+                       "publish_day":day.isoformat(),
+                       "copy":intro+" "+action+" "+closing}
 def candidates():
     b=json.loads(BANK.read_text(encoding="utf-8"))
     if b.get("base_url")!=HOME or len(b.get("posts") or [])!=42:
@@ -58,6 +142,15 @@ def candidates():
             or (i["app"]=="Astramate" and __import__("re").search(r"\beta\b",i["copy"],__import__("re").I))
             or "guaranteed" in i["copy"].lower() or "replace" in i["copy"].lower() and "never" not in i["copy"].lower()):
             raise RuntimeError("Unapproved marketing claim or asset detected in "+i.get("id","?"))
+    if os.getenv("ASTRALABS_EDITORIAL_AUTO_REFILL_ENABLED","false").lower()=="true":
+        auto=list(rolling_candidates())
+        for item in auto:
+            if (len(item["copy"])<100 or any(token in item["copy"].lower() for token in DENY)
+                or item["creative"] not in ("A02","A03","A04","K02","K03","K04")):
+                raise RuntimeError("Unsafe generated campaign copy: "+item["id"])
+        if len({i["id"] for i in auto})!=len(auto):
+            raise RuntimeError("Duplicate rolling campaign ID")
+        return auto
     return entries
 def public_png(url):
     req=urllib.request.Request(url,headers={"Range":"bytes=0-15","User-Agent":"AstraLabs-Editorial/1.0"})
@@ -112,7 +205,7 @@ def queue_one(item,when,org,rows):
     if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
         print("BUFFER_FREE_QUEUE_FULL",sum(r.get("status")=="scheduled" for r in rows),flush=True);return False
     day=when.date()
-    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
+    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=TARGET_BY_APP[item["app"]]:
         print("APP_DAY_ALREADY_FULL",item["app"],day.isoformat(),flush=True);return False
     media,caption=build_post(item)
     if not public_png(media):raise RuntimeError("Approved image not available: "+media)
@@ -123,7 +216,7 @@ def queue_one(item,when,org,rows):
         print("RACE_DEDUPED",item["id"],flush=True);return False
     if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
         print("QUEUE_FILLED_CONCURRENTLY",flush=True);return False
-    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
+    if sum(on_day(r,day) and in_scope(r,item["app"]) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=TARGET_BY_APP[item["app"]]:
         print("APP_DAY_FILLED_CONCURRENTLY",item["app"],flush=True);return False
     utc=when.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00","Z")
     graph=("mutation { createPost(input:{text:"+fb.quoted(caption)+
@@ -146,6 +239,11 @@ def queue_one(item,when,org,rows):
           "Buffer",post["id"],"dueAt",post.get("dueAt"),flush=True)
     return True
 def main():
+    if "--validate-only" in sys.argv:
+        bank=candidates()
+        print("EDITORIAL_VALIDATED",len(bank),"unique",len({i["id"] for i in bank}),
+              "auto_refill",os.getenv("ASTRALABS_EDITORIAL_AUTO_REFILL_ENABLED","false"))
+        return
     org=fb.verified_target()
     bank=candidates()
     now=datetime.now(PHT)
@@ -162,11 +260,11 @@ def main():
             print("PRESERVE_EXISTING_SEP23_EIGHT_POSTS: four/app; zero new writes for this day",flush=True)
             continue
         for app in ("Astramate","Keepry"):
-            for ordinal in range(DAILY_TARGET):
+            for ordinal in range(TARGET_BY_APP[app]):
                 if created>=MAX_NEW_PER_RUN:
                     print("SAFE_BATCH_LIMIT: future scheduled refill continues",flush=True)
                     return
-                if sum(on_day(r,day) and in_scope(r,app) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=DAILY_TARGET:
+                if sum(on_day(r,day) and in_scope(r,app) and r.get("status") in ("sent","scheduled","sending") for r in rows)>=TARGET_BY_APP[app]:
                     print("DAILY_TARGET_ALREADY_MET",app,day.isoformat(),flush=True)
                     break
                 if sum(r.get("status")=="scheduled" for r in rows)>=MAX_QUEUE:
@@ -174,7 +272,8 @@ def main():
                     return
                 seen={item["id"] for item in bank if any("utm_content="+item["id"] in str(r.get("text") or "") for r in rows)}
                 prior_creatives={str(a.get("source") or "") for r in rows if r.get("status") in ("sent","scheduled") and on_day(r,day) and in_scope(r,app) for a in r.get("assets") or []}
-                options=[i for i in bank if i["app"]==app and i["id"] not in seen]
+                options=[i for i in bank if i["app"]==app and i["id"] not in seen
+                         and (not i.get("publish_day") or i["publish_day"]==day.isoformat())]
                 if not options:
                     print("APPROVED_CONTENT_EXHAUSTED",app,"manual creative refill required",flush=True)
                     break
