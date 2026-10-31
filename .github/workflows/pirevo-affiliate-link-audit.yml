@@ -23,4 +23,6 @@ jobs:
         with:
           node-version: '22'
       - name: Check catalog, tag consistency, guide builders and static links
-        run: node tests/pirevo-affiliate-links.cjs
+        run: |
+          node tests/pirevo-affiliate-links.cjs
+          node tests/pirevo-holiday-2026.cjs

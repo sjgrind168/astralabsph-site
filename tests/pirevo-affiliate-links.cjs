@@ -16,7 +16,7 @@ const path=require("node:path");
 const ROOT=path.resolve(__dirname,"..");
 const PUBLIC=path.join(ROOT,"public","pirevo");
 const EXPECTED_TAG="pirevo-20";
-const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV","B0HMQVHPN7"]);
+const OWN_KDP_BOOK_IDS=new Set(["B0FX95D9LL","B0FXDNX4DV","B0HMQVHPN7","B0HPK81GPN"]);
 let checked=0, failures=[];
 const fail=(reason)=>failures.push(reason);
 const file=(rel)=>fs.readFileSync(path.join(PUBLIC,rel),"utf8");
