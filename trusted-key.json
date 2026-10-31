@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "keyId": "rs-ed25519-039059e0434e8d46",
+  "algorithm": "Ed25519",
+  "spkiBase64": "MCowBQYDK2VwAyEAT1iRb7Rtv3YhBXwGGDyjFKFd1p/Jfi3zXWTpMVXYALc=",
+  "createdFor": "RuseShield Security Data verification"
+}
