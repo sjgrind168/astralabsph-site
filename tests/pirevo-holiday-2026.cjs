@@ -18,6 +18,10 @@ assert.doesNotMatch(home,/Halloween Shop \+ Holiday Preview/);
 assert.doesNotMatch(home,/Things That Go Coloring Book/);
 assert.match(seasonal,/Christmas Decorations/);
 assert.doesNotMatch(home,/enabled Amazon earning markets/);
+assert.match(home,/10<\/strong> country shopping references/);
+const international=read("international/index.html");
+for(const name of ["Japan","Singapore","Saudi Arabia","Australia"])assert.ok(international.includes(name),name+" international guide missing");
+assert.ok(international.includes("Referral coverage not verified"));
 for(const p of archived) {
   const link="/pirevo/products/"+p.slug+"/index.html";
   assert.ok(fs.existsSync(path.join(base,"products",p.slug,"index.html")), "preserve old indexed URL "+p.slug);
