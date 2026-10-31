@@ -23,8 +23,8 @@ WATCH = {
     "Pinterest apps": "astralabs-pinterest-queue.yml",
     "TikTok": "astralabs-tiktok-video.yml",
 }
-SITES = ["/", "/astramate/", "/keepry/", "/pirevo/", "/merchlab/"]
 BASE = "https://www.astralabsph.com"
+SITES = [(p, BASE + p) for p in ("/", "/astramate/", "/keepry/", "/pirevo/", "/merchlab/")] + [("pirevo-claimed-domain", "https://pirevo.astralabsph.com/")]
 
 
 def gh(*args):
@@ -81,14 +81,16 @@ def workflow_check():
 def website_check():
     site = {}
     problems = []
-    for path in SITES:
-        req = urllib.request.Request(BASE + path,
+    for path, url in SITES:
+        req = urllib.request.Request(url,
                 headers={"User-Agent": "AstraLabs-Operations-Health/1.0"})
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
                 data = resp.read(8192)
                 ok = resp.status == 200 and (
                     b"<html" in data.lower() or b"<!doctype" in data.lower())
+                if path == "pirevo-claimed-domain":
+                    ok = ok and b"pirevo" in data.lower()
                 site[path] = {"http": resp.status, "html": bool(ok)}
                 if not ok:
                     problems.append("Website " + path + ": HTTP 200/HTML check failed")
